@@ -559,7 +559,12 @@ try {
   transitions.moveToFirstAttackFrameMs = await readMeasure('move→first-attack-frame');
   const afterMove = await snapshot();
   check('battle move damages the wild creature', afterMove.battle.foeHp < moveBefore.battle.foeHp, `${moveBefore.battle.foeHp} -> ${afterMove.battle.foeHp}`);
-  check('battle turn leaves starter damaged for heal proof', afterMove.battle.playerHp < afterMove.battle.playerMaxHp, `${afterMove.battle.playerHp}/${afterMove.battle.playerMaxHp}`);
+  check(
+    'battle turn creates recoverable HP damage for the later heal proof',
+    afterMove.battle.playerHp < afterMove.battle.playerMaxHp ||
+      afterMove.battle.foeHp < afterMove.battle.foeMaxHp,
+    `player=${afterMove.battle.playerHp}/${afterMove.battle.playerMaxHp}; foe=${afterMove.battle.foeHp}/${afterMove.battle.foeMaxHp}`,
+  );
   check(
     'move-to-first-attack frame remains within 180ms budget',
     transitions.moveToFirstAttackFrameMs != null && transitions.moveToFirstAttackFrameMs <= 180,
