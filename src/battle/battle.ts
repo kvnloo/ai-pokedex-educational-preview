@@ -5,13 +5,18 @@
 import {
   calcDamage,
   clampDamageRandom,
+  rollDamageRandom,
   stabMultiplier,
   typeEffectiveness,
 } from "./damage.ts";
 import {
+  anyConscious,
+  applyXp,
   battlerFromPartyMember,
+  consciousIndices,
   leadIndex,
   syncBattlerToParty,
+  xpYield,
   type PartyMember,
 } from "./party.ts";
 import type {
@@ -41,6 +46,7 @@ export function createBattle(opts: CreateBattleOpts): BattleState {
     log: [],
     typeChart: opts.typeChart,
     playerPartyIndex: opts.playerPartyIndex,
+    needsForceSwitch: false,
   };
   push(state, {
     type: "battle-start",
@@ -69,7 +75,7 @@ export function createBattleFromParty(
   });
 }
 
-/** Write active player HP/faint back to party after battle (or mid-fight). */
+/** Write active player HP/faint/xp back to party after battle (or mid-fight). */
 export function syncBattlePlayerToParty(
   state: BattleState,
   party: PartyMember[],
@@ -89,6 +95,7 @@ function cloneBattler(b: Battler): Battler {
     stages: b.stages
       ? { ...b.stages }
       : { atk: 0, def: 0, spa: 0, spd: 0, spe: 0 },
+    baseStats: b.baseStats ? { ...b.baseStats } : undefined,
   };
 }
 
@@ -160,6 +167,7 @@ export function buildBattler(opts: {
   moves: MoveDef[];
   /** Optional current HP (defaults to max). */
   hp?: number;
+  xp?: number;
 }): Battler {
   const { baseStats: b, level } = opts;
   const stats = {
@@ -185,6 +193,9 @@ export function buildBattler(opts: {
     fainted: hp <= 0,
     movePp: opts.moves.map((m) => m.pp),
     stages: { atk: 0, def: 0, spa: 0, spd: 0, spe: 0 },
+    xp: opts.xp ?? 0,
+    xpToNext: level * 20,
+    baseStats: { ...b },
   };
 }
 
@@ -231,24 +242,55 @@ export interface TurnChoices {
   playerMoveIndex: number;
   foeMoveIndex: number;
   /**
-   * Fixed random for damage (0.85–1.0 classic). Default 1.0 for determinism.
-   * Values outside band are used as-is when explicitly provided for goldens
-   * that pin random=1; live play should use rollDamageRandom.
+   * Fixed random for damage (0.85–1.0 classic). When omitted in live play,
+   * each actor gets an independent rollDamageRandom(Math.random()).
+   * Explicit 1.0 keeps goldens deterministic.
    */
   random?: number;
-  /** [0,1) roll for crit; omit → no crit (deterministic goldens). */
+  /**
+   * Per-side damage randoms [player, foe] when both act; overrides `random`
+   * for that side when present.
+   */
+  damageRandoms?: number[];
+  /** [0,1) roll for crit shared; prefer critRolls for independent sides. */
   critRoll?: number;
-  /** Force crit on/off for tests. */
+  /** Per-side [0,1) crit unit rolls; omit → live Math.random per actor. */
+  critRolls?: number[];
+  /** Force crit on/off for tests (applies to both sides). */
   forceCrit?: boolean;
-  /** [0,1) accuracy rolls per side order; omit → always hit. */
+  /**
+   * [0,1) accuracy rolls per action in order. When omitted and move has
+   * accuracy, live play rolls Math.random() per check (can miss).
+   * Tests that need always-hit should pass rolls of 0 or forceAccuracyHit.
+   */
   accuracyRolls?: number[];
+  /** When true, skip accuracy checks (tests). Default false for live. */
+  forceAccuracyHit?: boolean;
   /** Speed tie coin [0,1); omit → player first. */
   speedTieRoll?: number;
+  /**
+   * Linked party for force-switch on player faint. When provided and reserve
+   * is conscious, battle does not end on player active faint.
+   */
+  party?: PartyMember[];
+  /**
+   * When true (default), omitted damage/crit/acc rolls use Math.random live path.
+   * Goldens should pass explicit random / forceCrit / forceAccuracyHit instead.
+   */
+  liveRolls?: boolean;
+  /** Optional RNG for live rolls (tests). Defaults to Math.random. */
+  rng?: () => number;
+}
+
+function unitRoll(choices: TurnChoices): number {
+  const rng = choices.rng ?? Math.random;
+  return rng();
 }
 
 /**
  * Mid-battle switch: replace active player with party[index].
  * Syncs outgoing HP first. Foe does not act here (caller may executeTurn after).
+ * Clears needsForceSwitch when a conscious member is sent out.
  */
 export function switchPlayerTo(
   state: BattleState,
@@ -275,6 +317,7 @@ export function switchPlayerTo(
   state.playerPartyIndex = index;
   // Clear stages on switch-in (classic)
   state.player.stages = { atk: 0, def: 0, spa: 0, spd: 0, spe: 0 };
+  state.needsForceSwitch = false;
 
   push(state, {
     type: "switch",
@@ -283,6 +326,39 @@ export function switchPlayerTo(
     message: `Go! ${next.name}!`,
   });
   return state;
+}
+
+/**
+ * After player faint with needsForceSwitch: switch to a conscious reserve.
+ * Returns false if no reserve (battle should end as loss).
+ */
+export function forceSwitchPlayer(
+  state: BattleState,
+  party: PartyMember[],
+  index?: number,
+): boolean {
+  if (state.over) return false;
+  syncBattlerToParty(party, state.player, state.playerPartyIndex);
+  const conscious = consciousIndices(party).filter(
+    (i) => i !== state.playerPartyIndex || party[i]!.battler.hp > 0,
+  );
+  // Active is fainted — exclude current fainted slot
+  const reserves = consciousIndices(party);
+  if (reserves.length === 0) {
+    state.over = true;
+    state.winner = "foe";
+    state.needsForceSwitch = false;
+    push(state, {
+      type: "battle-end",
+      winner: "foe",
+      message: "You lose!",
+    });
+    return false;
+  }
+  const pick =
+    index != null && reserves.includes(index) ? index : reserves[0]!;
+  switchPlayerTo(state, party, pick);
+  return true;
 }
 
 function applyStageChange(
@@ -326,8 +402,8 @@ function parseStatusEffect(
   // e.g. lower-atk-1, raise-def-1
   const m = /^(lower|raise)-([a-z]+)-(\d+)$/i.exec(effect);
   if (!m) return null;
-  const dir = m[1].toLowerCase() === "lower" ? -1 : 1;
-  const rawStat = m[2].toLowerCase();
+  const dir = m[1]!.toLowerCase() === "lower" ? -1 : 1;
+  const rawStat = m[2]!.toLowerCase();
   const map: Record<string, StatStageKey> = {
     atk: "atk",
     attack: "atk",
@@ -352,15 +428,67 @@ function ensureMovePp(b: Battler): number[] {
 }
 
 /**
+ * Live mode when no damage/crit/acc pins provided.
+ * Explicit `random` (goldens) keeps damage fixed + always-hit + no crit unless forced.
+ */
+function isLiveRollMode(choices: TurnChoices): boolean {
+  if (choices.liveRolls === true) return true;
+  if (choices.liveRolls === false) return false;
+  // Implicit live: no random pin and no forceAccuracyHit-only golden path
+  return choices.random == null && choices.damageRandoms == null;
+}
+
+function resolveDamageRandom(
+  choices: TurnChoices,
+  _side: BattleSide,
+  actionIndex: number,
+): number {
+  if (choices.damageRandoms && choices.damageRandoms[actionIndex] != null) {
+    return choices.damageRandoms[actionIndex]!;
+  }
+  if (choices.random != null) {
+    return choices.random;
+  }
+  // Live default: independent band roll
+  return rollDamageRandom(unitRoll(choices));
+}
+
+function resolveCritUnit(choices: TurnChoices, actionIndex: number): number {
+  if (choices.critRolls && choices.critRolls[actionIndex] != null) {
+    return choices.critRolls[actionIndex]!;
+  }
+  if (choices.critRoll != null) {
+    return choices.critRoll;
+  }
+  if (choices.forceCrit != null) {
+    return 1;
+  }
+  // Live: independent crit; golden (explicit random): no crit
+  if (isLiveRollMode(choices)) return unitRoll(choices);
+  return 1; // unit >= 1/16 → no crit
+}
+
+/**
  * Execute one full turn (both sides act unless faint interrupts).
+ *
+ * Live defaults (when UI omits pins):
+ * - damage: rollDamageRandom(rng()) per damaging actor
+ * - crit: rng() per actor (~1/16)
+ * - accuracy: rng() when move.accuracy != null (can miss)
+ *
+ * Goldens: pass random: 1, forceCrit: false|true, forceAccuracyHit: true.
  */
 export function executeTurn(state: BattleState, choices: TurnChoices): BattleState {
   if (state.over) return state;
+  if (state.needsForceSwitch) {
+    push(state, {
+      type: "message",
+      message: "Choose a creature to send out!",
+    });
+    return state;
+  }
 
   state.turn += 1;
-  // Goldens pin random=1.0; live band is 0.85–1.0 via rollDamageRandom.
-  // Do not clamp when caller passes explicit value (allows 1.0 golden).
-  const random = choices.random ?? 1;
 
   const playerMove = state.player.moves[choices.playerMoveIndex];
   const foeMove = state.foe.moves[choices.foeMoveIndex];
@@ -371,14 +499,14 @@ export function executeTurn(state: BattleState, choices: TurnChoices): BattleSta
   // PP check (status & damage): if 0, treat as struggle-like message / skip
   const pPp = ensureMovePp(state.player);
   const fPp = ensureMovePp(state.foe);
-  if (pPp[choices.playerMoveIndex] <= 0) {
+  if (pPp[choices.playerMoveIndex]! <= 0) {
     push(state, {
       type: "message",
       side: "player",
       message: `${state.player.name} has no PP left for ${playerMove.name}!`,
     });
   }
-  if (fPp[choices.foeMoveIndex] <= 0) {
+  if (fPp[choices.foeMoveIndex]! <= 0) {
     push(state, {
       type: "message",
       side: "foe",
@@ -388,17 +516,18 @@ export function executeTurn(state: BattleState, choices: TurnChoices): BattleSta
 
   const sequence = orderSides(state, playerMove, foeMove, choices.speedTieRoll);
   let accIdx = 0;
+  let actionIdx = 0;
 
   for (const side of sequence) {
-    if (state.over) break;
+    if (state.over || state.needsForceSwitch) break;
     const actor = battler(state, side);
     if (actor.fainted || actor.hp <= 0) continue;
 
     const moveIndex = side === "player" ? choices.playerMoveIndex : choices.foeMoveIndex;
     const move = side === "player" ? playerMove : foeMove;
     const ppArr = ensureMovePp(actor);
-    if (ppArr[moveIndex] <= 0) continue;
-    ppArr[moveIndex] -= 1;
+    if (ppArr[moveIndex]! <= 0) continue;
+    ppArr[moveIndex]! -= 1;
 
     const targetSide = other(side);
     const target = battler(state, targetSide);
@@ -410,17 +539,29 @@ export function executeTurn(state: BattleState, choices: TurnChoices): BattleSta
       message: `${actor.name} used ${move.name}!`,
     });
 
-    // Accuracy check when accuracyRolls provided; null accuracy = always hits
-    if (move.accuracy != null && choices.accuracyRolls) {
-      const roll = choices.accuracyRolls[accIdx++] ?? 0;
-      if (roll * 100 >= move.accuracy) {
-        push(state, {
-          type: "miss",
-          side,
-          moveId: move.id,
-          message: `${actor.name}'s attack missed!`,
-        });
-        continue;
+    // Accuracy: check when move.accuracy != null unless forceAccuracyHit.
+    // Live (no random pin): roll rng. Explicit accuracyRolls: use them.
+    // Golden (random pinned, no accuracyRolls): always hit.
+    if (move.accuracy != null && !choices.forceAccuracyHit) {
+      const hasPins = choices.accuracyRolls && choices.accuracyRolls.length > 0;
+      if (hasPins || isLiveRollMode(choices)) {
+        let roll: number;
+        if (hasPins) {
+          roll = choices.accuracyRolls![accIdx++] ?? unitRoll(choices);
+        } else {
+          roll = unitRoll(choices);
+          accIdx++;
+        }
+        if (roll * 100 >= move.accuracy) {
+          push(state, {
+            type: "miss",
+            side,
+            moveId: move.id,
+            message: `${actor.name}'s attack missed!`,
+          });
+          actionIdx++;
+          continue;
+        }
       }
     }
 
@@ -438,6 +579,7 @@ export function executeTurn(state: BattleState, choices: TurnChoices): BattleSta
           message: `${move.name} had no effect.`,
         });
       }
+      actionIdx++;
       continue;
     }
 
@@ -448,10 +590,9 @@ export function executeTurn(state: BattleState, choices: TurnChoices): BattleSta
     const stab = stabMultiplier(move.type, actor.types);
     const eff = typeEffectiveness(move.type, target.types, state.typeChart);
 
-    const crit = rollCritical(
-      choices.critRoll ?? 1, // default no crit for goldens
-      choices.forceCrit,
-    );
+    const critUnit = resolveCritUnit(choices, actionIdx);
+    const crit = rollCritical(critUnit, choices.forceCrit);
+    const random = resolveDamageRandom(choices, side, actionIdx);
 
     const result = calcDamage({
       level: actor.level,
@@ -494,17 +635,117 @@ export function executeTurn(state: BattleState, choices: TurnChoices): BattleSta
         side: targetSide,
         message: `${target.name} fainted!`,
       });
-      state.over = true;
-      state.winner = side;
-      push(state, {
-        type: "battle-end",
-        winner: side,
-        message: side === "player" ? "You win!" : "You lose!",
-      });
+
+      if (targetSide === "foe") {
+        state.over = true;
+        state.winner = side;
+        push(state, {
+          type: "battle-end",
+          winner: side,
+          message: "You win!",
+        });
+      } else {
+        // Player active fainted
+        handlePlayerFaint(state, choices.party);
+      }
     }
+    actionIdx++;
   }
 
   return state;
+}
+
+function handlePlayerFaint(
+  state: BattleState,
+  party: PartyMember[] | undefined,
+): void {
+  if (party && party.length > 0) {
+    // Sync fainted active into party before checking reserves
+    syncBattlerToParty(party, state.player, state.playerPartyIndex);
+    const reserves = consciousIndices(party);
+    if (reserves.length > 0) {
+      state.needsForceSwitch = true;
+      state.over = false;
+      state.winner = undefined;
+      push(state, {
+        type: "force-switch",
+        side: "player",
+        message: "Send out a creature!",
+      });
+      return;
+    }
+  }
+  // Party wipe or no party linked → loss
+  state.over = true;
+  state.winner = "foe";
+  state.needsForceSwitch = false;
+  push(state, {
+    type: "battle-end",
+    winner: "foe",
+    message: "You lose!",
+  });
+}
+
+export interface GrantBattleRewardsOpts {
+  /** Base exp of defeated species (default 50). */
+  baseExp?: number;
+  /** Party to sync XP into (active + optional shared). */
+  party?: PartyMember[];
+}
+
+export interface GrantBattleRewardsResult {
+  xpGained: number;
+  leveledUp: boolean;
+  newLevel: number;
+  messages: string[];
+}
+
+/**
+ * On player win: grant XP to active battler (and sync to party if provided).
+ * Emits xp / level-up events onto state.log.
+ */
+export function grantBattleRewards(
+  state: BattleState,
+  opts: GrantBattleRewardsOpts = {},
+): GrantBattleRewardsResult {
+  const messages: string[] = [];
+  if (state.winner !== "player") {
+    return {
+      xpGained: 0,
+      leveledUp: false,
+      newLevel: state.player.level,
+      messages: ["No rewards — battle not won."],
+    };
+  }
+  const amount = xpYield(state.foe.level, opts.baseExp ?? 50);
+  const result = applyXp(state.player, amount);
+  for (const m of result.messages) {
+    messages.push(m);
+    if (m.includes("grew to level")) {
+      push(state, {
+        type: "level-up",
+        side: "player",
+        level: state.player.level,
+        message: m,
+      });
+    } else {
+      push(state, {
+        type: "xp",
+        side: "player",
+        xp: amount,
+        message: m,
+      });
+    }
+  }
+  if (opts.party) {
+    syncBattlerToParty(opts.party, state.player, state.playerPartyIndex);
+  }
+  return {
+    xpGained: result.xpGained,
+    leveledUp: result.leveledUp,
+    newLevel: result.newLevel,
+    messages,
+  };
 }
 
 function damageMessage(
@@ -526,15 +767,45 @@ function damageMessage(
 export function pickFirstDamagingMove(b: Battler): number {
   const pp = b.movePp;
   for (let i = 0; i < b.moves.length; i++) {
-    const m = b.moves[i];
-    if (pp && pp[i] <= 0) continue;
+    const m = b.moves[i]!;
+    if (pp && pp[i]! <= 0) continue;
     if (m.category !== "status" && m.power != null && m.power > 0) return i;
   }
   for (let i = 0; i < b.moves.length; i++) {
-    if (!pp || pp[i] > 0) return i;
+    if (!pp || pp[i]! > 0) return i;
   }
   return 0;
 }
 
-// silence unused import if clamp only for public re-export
-export { clampDamageRandom };
+/**
+ * Slightly smarter foe AI: prefer super-effective damaging move when available;
+ * otherwise damaging; occasionally status if player has stages to lower.
+ */
+export function pickFoeMove(
+  foe: Battler,
+  player: Battler,
+  typeChart: TypeChart,
+): number {
+  const pp = foe.movePp;
+  let best = -1;
+  let bestScore = -1;
+  for (let i = 0; i < foe.moves.length; i++) {
+    if (pp && pp[i]! <= 0) continue;
+    const m = foe.moves[i]!;
+    let score = 0;
+    if (m.category === "status") {
+      score = 1;
+    } else if (m.power != null && m.power > 0) {
+      const eff = typeEffectiveness(m.type, player.types, typeChart);
+      score = 10 + m.power * eff;
+      if (eff > 1) score += 20;
+    }
+    if (score > bestScore) {
+      bestScore = score;
+      best = i;
+    }
+  }
+  return best >= 0 ? best : pickFirstDamagingMove(foe);
+}
+
+export { clampDamageRandom, anyConscious, xpYield };

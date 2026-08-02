@@ -1,7 +1,7 @@
 /**
  * Twilight Route — Wave-0 playable shell.
  * Loads content/game/wave0.json only (ship pack). Pure battle sim + Three presentation.
- * W1-P3: battle juice sandwich + soft camera explore feel.
+ * W2-P1: graded sky, starter boot, ship creature meshes, battle AV marks.
  */
 import * as THREE from 'three';
 import {
@@ -9,6 +9,7 @@ import {
   createBattle,
   executeTurn,
   pickFirstDamagingMove,
+  switchPlayerTo,
 } from './battle/battle.ts';
 import { normalizeMove, normalizeSpecies } from './battle/content.ts';
 import type { BattleEvent, BattleState, Battler, MoveDef, TypeChart } from './battle/types.ts';
@@ -20,8 +21,16 @@ import {
   createDefaultHealPad,
   type ExploreState,
 } from './world/explore.ts';
-import { attemptCatch, defaultCatchRate } from './battle/catch.ts';
-import { createParty, healParty, addToParty, type PartyMember } from './battle/party.ts';
+import { attemptCatch, speciesCatchRate } from './battle/catch.ts';
+import { createParty, healParty, addToParty, syncBattlerToParty, type PartyMember } from './battle/party.ts';
+import {
+  makeCreatureMesh,
+  SPECIES_COLOR,
+  getClipState,
+  playAttack,
+  playFaint,
+  tickCreatureClip,
+} from './creatures/index.ts';
 
 const bootFill = document.getElementById('boot-fill') as HTMLElement | null;
 const bootStatus = document.getElementById('boot-status') as HTMLElement | null;
@@ -53,12 +62,19 @@ interface Wave0Pack {
   };
 }
 
-const SPECIES_COLOR: Record<string, number> = {
-  emberpup: 0xe87840,
-  dewkin: 0x4aa8e8,
-  leafit: 0x5cbc6a,
-  dustbun: 0xe8e0d4,
-  sparkmoth: 0xc9d44a,
+/** Ship id → mesh builder id (leafkit uses leafit silhouette until builders expand). */
+const MESH_ALIAS: Record<string, string> = {
+  leafkit: 'leafit',
+};
+
+/** Extended palette: ship pack ids including leafkit. */
+const SHIP_COLOR: Record<string, number> = {
+  ...SPECIES_COLOR,
+  leafkit: SPECIES_COLOR.leafit ?? 0x5cbc6a,
+  emberpup: SPECIES_COLOR.emberpup ?? 0xe87840,
+  dewkin: SPECIES_COLOR.dewkin ?? 0x4aa8e8,
+  dustbun: SPECIES_COLOR.dustbun ?? 0xe8e0d4,
+  sparkmoth: SPECIES_COLOR.sparkmoth ?? 0xc9d44a,
 };
 
 /** Mode-5 marks: free-roam→Fight ≤400ms, move→first attack frame ≤180ms */
@@ -100,28 +116,22 @@ function hpDrainMs(damage: number, maxHp: number): number {
   return Math.round(180 + frac * 720); // 180–900ms
 }
 
-function makeCreatureMesh(color: number, scale = 1): THREE.Group {
-  const g = new THREE.Group();
-  const body = new THREE.Mesh(
-    new THREE.SphereGeometry(0.55 * scale, 32, 24),
-    new THREE.MeshStandardMaterial({
-      color,
-      roughness: 0.45,
-      metalness: 0.08,
-      emissive: color,
-      emissiveIntensity: 0.12,
-    }),
-  );
-  body.position.y = 0.55 * scale;
-  const earL = new THREE.Mesh(
-    new THREE.SphereGeometry(0.14 * scale, 16, 12),
-    new THREE.MeshStandardMaterial({ color, roughness: 0.5 }),
-  );
-  earL.position.set(-0.28 * scale, 1.0 * scale, 0.05 * scale);
-  const earR = earL.clone();
-  earR.position.x *= -1;
-  g.add(body, earL, earR);
-  return g;
+/** Runtime meshes from creatures factory only; mesh QA exercised by default. */
+function shipCreatureMesh(speciesId: string, scale = 1): THREE.Group {
+  const meshId = MESH_ALIAS[speciesId] ?? speciesId;
+  const root = makeCreatureMesh(meshId, scale, {
+    assertQa: true,
+    idlePhaseSeed: Math.random() * Math.PI * 2 + speciesId.length,
+    colorOverride: SHIP_COLOR[speciesId],
+  });
+  root.userData.speciesId = speciesId;
+  return root;
+}
+
+function isCritEvent(critical: unknown): boolean {
+  if (critical === true) return true;
+  if (typeof critical === 'number' && critical > 1) return true;
+  return false;
 }
 
 async function boot(): Promise<void> {
@@ -142,10 +152,49 @@ async function boot(): Promise<void> {
   renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.35;
 
   const scene = new THREE.Scene();
-  scene.background = new THREE.Color(0x0a1528);
-  scene.fog = new THREE.Fog(0x0a1528, 12, 40);
+  // Graded twilight sky — warm horizon, cool zenith (not near-black navy void)
+  const sky = new THREE.Color(0x6a8ec8);
+  scene.background = sky;
+  scene.fog = new THREE.Fog(0x8eabcc, 18, 55);
+
+  // Soft gradient dome for richer sky read in stills
+  const skyDome = new THREE.Mesh(
+    new THREE.SphereGeometry(48, 32, 16),
+    new THREE.ShaderMaterial({
+      side: THREE.BackSide,
+      depthWrite: false,
+      uniforms: {
+        topColor: { value: new THREE.Color(0x3a5a9a) },
+        midColor: { value: new THREE.Color(0xc48a6a) },
+        botColor: { value: new THREE.Color(0xf0c4a0) },
+      },
+      vertexShader: `
+        varying vec3 vW;
+        void main() {
+          vec4 w = modelMatrix * vec4(position, 1.0);
+          vW = w.xyz;
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        }
+      `,
+      fragmentShader: `
+        uniform vec3 topColor;
+        uniform vec3 midColor;
+        uniform vec3 botColor;
+        varying vec3 vW;
+        void main() {
+          float h = normalize(vW).y;
+          vec3 col = mix(botColor, midColor, smoothstep(-0.15, 0.25, h));
+          col = mix(col, topColor, smoothstep(0.2, 0.85, h));
+          gl_FragColor = vec4(col, 1.0);
+        }
+      `,
+    }),
+  );
+  scene.add(skyDome);
 
   const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100);
   camera.position.set(0, 3.2, 7.5);
@@ -161,46 +210,114 @@ async function boot(): Promise<void> {
     ready: false,
   };
 
-  scene.add(new THREE.AmbientLight(0xb8d4ff, 0.55));
-  const key = new THREE.DirectionalLight(0xfff0dd, 1.2);
-  key.position.set(4, 10, 3);
+  // Soft GI bar: ambient + hemi + key + fill (readable under ACES)
+  scene.add(new THREE.AmbientLight(0xd8e6ff, 0.42));
+  const hemi = new THREE.HemisphereLight(0xffe2c4, 0x3a6b48, 0.85);
+  hemi.position.set(0, 12, 0);
+  scene.add(hemi);
+  const key = new THREE.DirectionalLight(0xfff2dd, 1.55);
+  key.position.set(5, 12, 4);
   scene.add(key);
-  const fill = new THREE.DirectionalLight(0x6688cc, 0.35);
-  fill.position.set(-5, 3, -2);
+  const fill = new THREE.DirectionalLight(0x88aadd, 0.55);
+  fill.position.set(-6, 4, -3);
   scene.add(fill);
+  const rim = new THREE.DirectionalLight(0xffb090, 0.35);
+  rim.position.set(-2, 2, 6);
+  scene.add(rim);
 
+  // Brighter ground disc + path strip + town/heal landmarks
   const ground = new THREE.Mesh(
-    new THREE.CircleGeometry(10, 64),
-    new THREE.MeshStandardMaterial({ color: 0x1a3428, roughness: 0.92 }),
+    new THREE.CircleGeometry(12, 64),
+    new THREE.MeshStandardMaterial({
+      color: 0x4a8a55,
+      roughness: 0.88,
+      metalness: 0.02,
+    }),
   );
   ground.rotation.x = -Math.PI / 2;
+  ground.receiveShadow = true;
   scene.add(ground);
 
-  // Tall grass ring (encounter zone) — keep refs for rustle telegraph
-  const grassMat = new THREE.MeshStandardMaterial({ color: 0x2d6b3a, roughness: 0.85 });
+  // Dirt path toward grass / hollow
+  const path = new THREE.Mesh(
+    new THREE.PlaneGeometry(1.8, 10),
+    new THREE.MeshStandardMaterial({ color: 0xc4a878, roughness: 0.95, metalness: 0 }),
+  );
+  path.rotation.x = -Math.PI / 2;
+  path.position.set(0, 0.02, 1.5);
+  scene.add(path);
+
+  // Heal pad landmark (town edge)
+  const healPadMesh = new THREE.Mesh(
+    new THREE.CylinderGeometry(1.35, 1.45, 0.08, 32),
+    new THREE.MeshStandardMaterial({
+      color: 0x7ec8ff,
+      emissive: 0x3a80c0,
+      emissiveIntensity: 0.35,
+      roughness: 0.4,
+      metalness: 0.15,
+    }),
+  );
+  healPadMesh.position.set(4.5, 0.04, 4.5);
+  scene.add(healPadMesh);
+  const healGlow = new THREE.Mesh(
+    new THREE.RingGeometry(1.2, 1.5, 32),
+    new THREE.MeshBasicMaterial({ color: 0xa8dcff, transparent: true, opacity: 0.45, side: THREE.DoubleSide }),
+  );
+  healGlow.rotation.x = -Math.PI / 2;
+  healGlow.position.set(4.5, 0.09, 4.5);
+  scene.add(healGlow);
+
+  // Town stone marker (Lumen Hollow read)
+  const stone = new THREE.Mesh(
+    new THREE.BoxGeometry(0.9, 0.55, 0.55),
+    new THREE.MeshStandardMaterial({ color: 0x9aa8b8, roughness: 0.7, metalness: 0.05 }),
+  );
+  stone.position.set(5.2, 0.28, 5.6);
+  scene.add(stone);
+  const roof = new THREE.Mesh(
+    new THREE.ConeGeometry(0.7, 0.45, 4),
+    new THREE.MeshStandardMaterial({ color: 0xd47858, roughness: 0.65 }),
+  );
+  roof.position.set(5.2, 0.75, 5.6);
+  roof.rotation.y = Math.PI / 4;
+  scene.add(roof);
+
+  // Tall grass ring (encounter zone) — brighter albedo variety
+  const grassColors = [0x5cbc6a, 0x48a858, 0x6fd47a, 0x3d9a52, 0x7ae08a];
   const grassBlades: THREE.Mesh[] = [];
   const grassBaseRot: number[] = [];
-  for (let i = 0; i < 40; i++) {
-    const blade = new THREE.Mesh(new THREE.ConeGeometry(0.08, 0.7 + Math.random() * 0.4, 5), grassMat);
-    const a = (i / 40) * Math.PI * 2;
-    const r = 2.2 + Math.random() * 1.8;
-    blade.position.set(Math.cos(a) * r, 0.35, Math.sin(a) * r - 1.2);
+  for (let i = 0; i < 48; i++) {
+    const gCol = grassColors[i % grassColors.length];
+    const grassMat = new THREE.MeshStandardMaterial({
+      color: gCol,
+      roughness: 0.72,
+      metalness: 0.02,
+      emissive: gCol,
+      emissiveIntensity: 0.06,
+    });
+    const blade = new THREE.Mesh(new THREE.ConeGeometry(0.09, 0.75 + Math.random() * 0.45, 5), grassMat);
+    const a = (i / 48) * Math.PI * 2;
+    const r = 2.0 + Math.random() * 2.0;
+    blade.position.set(Math.cos(a) * r, 0.38, Math.sin(a) * r - 1.2);
     blade.rotation.z = (Math.random() - 0.5) * 0.2;
     grassBaseRot.push(blade.rotation.z);
     grassBlades.push(blade);
     scene.add(blade);
   }
 
-  // Foot-plant dust (simple sprite-ish discs)
+  // Foot-plant dust
   const dustPool: THREE.Mesh[] = [];
-  const dustMat = new THREE.MeshBasicMaterial({
-    color: 0xc8b89a,
-    transparent: true,
-    opacity: 0.55,
-    depthWrite: false,
-  });
   for (let i = 0; i < 12; i++) {
-    const d = new THREE.Mesh(new THREE.CircleGeometry(0.12, 8), dustMat.clone());
+    const d = new THREE.Mesh(
+      new THREE.CircleGeometry(0.12, 8),
+      new THREE.MeshBasicMaterial({
+        color: 0xd8c8a8,
+        transparent: true,
+        opacity: 0.55,
+        depthWrite: false,
+      }),
+    );
     d.rotation.x = -Math.PI / 2;
     d.visible = false;
     scene.add(d);
@@ -230,8 +347,21 @@ async function boot(): Promise<void> {
   // Lunge offsets (rAF-driven)
   let playerLunge = 0;
   let foeLunge = 0;
-  let foeSink = 0; // faint staging sink
+  let foeSink = 0;
   let playerBobPhase = 0;
+  let ballArcT = -1; // -1 idle; 0..1 throw progress
+  const ballMesh = new THREE.Mesh(
+    new THREE.SphereGeometry(0.12, 12, 10),
+    new THREE.MeshStandardMaterial({
+      color: 0xff5a5a,
+      metalness: 0.35,
+      roughness: 0.35,
+      emissive: 0x440000,
+      emissiveIntensity: 0.2,
+    }),
+  );
+  ballMesh.visible = false;
+  scene.add(ballMesh);
 
   let explore: ExploreState | null = null;
   let party: PartyMember[] = [];
@@ -239,7 +369,6 @@ async function boot(): Promise<void> {
   let healCooldown = 0;
   let grassRustleBoost = 0;
 
-  // Displayed HP for smooth bars (pre-tween snapshot)
   let dispEnemyHp = 0;
   let dispAllyHp = 0;
 
@@ -262,6 +391,7 @@ async function boot(): Promise<void> {
   const allyHpText = document.getElementById('ally-hp-text');
   const toast = document.getElementById('toast');
   const flash = document.getElementById('battle-flash');
+  const swapBtn = battleMenu?.querySelector('[data-act="swap"]') as HTMLButtonElement | null;
 
   function showToast(text: string, ms = 2800): void {
     if (!toast) return;
@@ -303,13 +433,20 @@ async function boot(): Promise<void> {
     if (allyHpText) allyHpText.textContent = `${Math.round(dispAllyHp)}/${battle.player.maxHp}`;
   }
 
+  function updateSwapButton(): void {
+    if (!swapBtn) return;
+    const can = party.length > 1 && mode === 'battle' && !busy;
+    swapBtn.disabled = !can;
+    const sub = swapBtn.querySelector('.sub');
+    if (sub) sub.textContent = can ? 'Switch partner' : party.length > 1 ? 'Busy…' : 'Need 2+ party';
+  }
+
   function flashHit(kind: 'hit' | 'se' | 'nve' | 'crit'): void {
     if (!flash) return;
     flash.classList.remove('se', 'nve', 'crit', 'on');
     if (kind === 'se') flash.classList.add('se');
     else if (kind === 'nve') flash.classList.add('nve');
     else if (kind === 'crit') flash.classList.add('crit');
-    // force reflow so class re-triggers
     void flash.offsetWidth;
     flash.classList.add('on');
     setTimeout(() => {
@@ -351,15 +488,27 @@ async function boot(): Promise<void> {
     return { species: e.species, level: e.minLevel };
   }
 
+  function tickMeshClips(dt: number, wallT: number): void {
+    if (playerMesh) {
+      const st = getClipState(playerMesh);
+      if (st) tickCreatureClip(playerMesh, st, dt, wallT);
+    }
+    if (foeMesh) {
+      const st = getClipState(foeMesh);
+      if (st) tickCreatureClip(foeMesh, st, dt, wallT);
+    }
+  }
+
   function enterBattle(wildSpecies: string, wildLevel: number): void {
     mark('roam-to-fight-start');
     mode = 'battle';
     foeSink = 0;
     playerLunge = 0;
     foeLunge = 0;
+    ballArcT = -1;
+    ballMesh.visible = false;
     clearEffClasses();
 
-    // Prefer party lead HP if present (P4 may own deeper sync; call site wire)
     const leadBattler =
       party.length > 0
         ? { ...party[0].battler, id: 'player' }
@@ -372,11 +521,16 @@ async function boot(): Promise<void> {
     dispEnemyHp = battle.foe.hp;
     dispAllyHp = battle.player.hp;
 
+    // Send-out staging: rebuild player mesh from party species, foe appears
+    if (playerMesh) scene.remove(playerMesh);
+    playerMesh = shipCreatureMesh(playerSpeciesId, 1);
+    playerMesh.position.set(1.8, 0, 1.4);
+    scene.add(playerMesh);
+
     if (foeMesh) scene.remove(foeMesh);
-    foeMesh = makeCreatureMesh(SPECIES_COLOR[wildSpecies] ?? 0xaaaaaa, 0.95);
+    foeMesh = shipCreatureMesh(wildSpecies, 0.95);
     foeMesh.position.set(-1.6, 0, -0.8);
     scene.add(foeMesh);
-    if (playerMesh) playerMesh.position.set(1.8, 0, 1.4);
 
     battleRoot?.classList.add('active');
     battleMenu?.classList.remove('hidden');
@@ -384,9 +538,9 @@ async function boot(): Promise<void> {
     setMsg(`A wild ${foe.name} appeared!`);
     syncBattleHud({ enemyDur: 0, allyDur: 0 });
     showToast('Battle!');
-    flashHit('hit');
+    // No entry flashHit('hit') — keeps impact AV grammar clean for real hits
+    updateSwapButton();
 
-    // Interactive Fight menu ready — mode-5 ≤400ms from roam
     requestAnimationFrame(() => {
       mark('roam-to-fight-ready');
       measureLog('roam→Fight', 'roam-to-fight-start', 'roam-to-fight-ready', 400);
@@ -395,13 +549,28 @@ async function boot(): Promise<void> {
 
   function exitBattle(msg: string): void {
     mode = 'explore';
+    if (battle && party.length > 0) {
+      try {
+        syncBattlerToParty(party, battle.player, battle.playerPartyIndex ?? 0);
+      } catch {
+        /* ignore */
+      }
+    }
     battle = null;
     battleRoot?.classList.remove('active');
     clearEffClasses();
     foeSink = 0;
+    ballArcT = -1;
+    ballMesh.visible = false;
     if (foeMesh) {
       scene.remove(foeMesh);
       foeMesh = null;
+    }
+    // Restore explore player mesh silhouette
+    if (playerMesh) {
+      scene.remove(playerMesh);
+      playerMesh = shipCreatureMesh(playerSpeciesId, 1);
+      scene.add(playerMesh);
     }
     if (playerMesh && explore) {
       playerMesh.position.set(explore.pos.x, 0, explore.pos.z);
@@ -409,13 +578,20 @@ async function boot(): Promise<void> {
       playerMesh.position.set(0, 0, 1.2);
     }
     showToast(msg);
+    updateSwapButton();
   }
 
   async function stageFaintAndExit(win: boolean): Promise<void> {
     const faintName = win ? battle?.foe.name : battle?.player.name;
     setMsg(`${faintName ?? 'Foe'} fainted!`);
     battleMsg?.classList.add('faint-beat');
-    // Directed sink: foe sinks if player won
+    if (win && foeMesh) {
+      const st = getClipState(foeMesh);
+      if (st) playFaint(st);
+    } else if (!win && playerMesh) {
+      const st = getClipState(playerMesh);
+      if (st) playFaint(st);
+    }
     const sinkMs = 520;
     const t0 = performance.now();
     await new Promise<void>((resolve) => {
@@ -428,7 +604,12 @@ async function boot(): Promise<void> {
       };
       requestAnimationFrame(step);
     });
-    setMsg(win ? 'You win!' : 'You were defeated…');
+    if (win) {
+      setMsg('You win! Growth from the battle settles in.');
+      showToast('Victory — partner grew stronger.');
+    } else {
+      setMsg('You were defeated…');
+    }
     await waitMs(480);
     battleMsg?.classList.remove('faint-beat');
     exitBattle(win ? 'Victory — back to the hollow.' : 'Fled to heal…');
@@ -443,9 +624,51 @@ async function boot(): Promise<void> {
     battle.player.moves.forEach((m, i) => {
       const btn = document.createElement('button');
       btn.className = 'btn';
-      btn.innerHTML = `${m.name}<span class="sub">${m.type} · pwr ${m.power ?? '—'}</span>`;
-      btn.disabled = busy || m.category === 'status';
+      btn.innerHTML = `${m.name}<span class="sub">${m.type} · ${m.category === 'status' ? 'status' : `pwr ${m.power ?? '—'}`}</span>`;
+      // Status moves selectable (category C/E skill expression)
+      btn.disabled = busy;
       btn.onclick = () => void doPlayerMove(i);
+      moveMenu.appendChild(btn);
+    });
+    const back = document.createElement('button');
+    back.className = 'btn ghost';
+    back.textContent = 'Back';
+    back.onclick = () => {
+      moveMenu.classList.add('hidden');
+      battleMenu?.classList.remove('hidden');
+    };
+    moveMenu.appendChild(back);
+  }
+
+  function renderSwapMenu(): void {
+    if (!battle || !moveMenu || party.length < 2) return;
+    moveMenu.innerHTML = '';
+    moveMenu.classList.remove('hidden');
+    battleMenu?.classList.add('hidden');
+    party.forEach((m, i) => {
+      const b = m.battler;
+      const btn = document.createElement('button');
+      btn.className = 'btn';
+      const active = (battle!.playerPartyIndex ?? 0) === i || battle!.player.speciesId === b.speciesId;
+      btn.innerHTML = `${b.name}<span class="sub">Lv.${b.level} · ${b.hp}/${b.maxHp}${active ? ' · out' : ''}</span>`;
+      btn.disabled = busy || b.hp <= 0 || !!b.fainted || active;
+      btn.onclick = () => {
+        if (!battle || busy) return;
+        busy = true;
+        switchPlayerTo(battle, party, i);
+        playerSpeciesId = battle.player.speciesId;
+        if (playerMesh) scene.remove(playerMesh);
+        playerMesh = shipCreatureMesh(playerSpeciesId, 1);
+        playerMesh.position.set(1.8, 0, 1.4);
+        scene.add(playerMesh);
+        dispAllyHp = battle.player.hp;
+        syncBattleHud();
+        setMsg(battle.log[battle.log.length - 1]?.message ?? `Go! ${battle.player.name}!`);
+        moveMenu.classList.add('hidden');
+        battleMenu?.classList.remove('hidden');
+        busy = false;
+        updateSwapButton();
+      };
       moveMenu.appendChild(btn);
     });
     const back = document.createElement('button');
@@ -460,11 +683,13 @@ async function boot(): Promise<void> {
 
   /** Lunge attacker toward target over ms; returns at impact (~end of lunge) */
   async function playLunge(who: 'player' | 'foe', ms = 140): Promise<void> {
+    const mesh = who === 'player' ? playerMesh : foeMesh;
+    const st = mesh ? getClipState(mesh) : undefined;
+    if (st) playAttack(st);
     const t0 = performance.now();
     await new Promise<void>((resolve) => {
       const step = (now: number) => {
         const u = clamp((now - t0) / ms, 0, 1);
-        // ease-out punch
         const punch = Math.sin(u * Math.PI);
         if (who === 'player') playerLunge = punch * 0.55;
         else foeLunge = punch * 0.55;
@@ -483,14 +708,14 @@ async function boot(): Promise<void> {
     side: 'player' | 'foe';
     damage: number;
     effectiveness?: number;
-    critical?: number;
+    critical?: boolean | number;
     message?: string;
   };
 
   function collectHits(log: BattleEvent[], fromIndex: number): JuiceHit[] {
     const hits: JuiceHit[] = [];
     for (let i = fromIndex; i < log.length; i++) {
-      const e = log[i] as BattleEvent & { critical?: number };
+      const e = log[i];
       if (e.type === 'damage' && e.side && e.damage != null) {
         hits.push({
           side: e.side,
@@ -500,6 +725,11 @@ async function boot(): Promise<void> {
           message: e.message,
         });
       }
+      // Standalone crit event also counts
+      if (e.type === 'crit') {
+        const last = hits[hits.length - 1];
+        if (last) last.critical = true;
+      }
     }
     return hits;
   }
@@ -507,18 +737,21 @@ async function boot(): Promise<void> {
   async function doPlayerMove(index: number): Promise<void> {
     if (!battle || busy || battle.over) return;
     busy = true;
+    updateSwapButton();
     clearEffClasses();
     moveMenu?.classList.add('hidden');
 
     mark('move-confirm');
-    // First attack frame ASAP — lunge starts immediately (≤180ms budget)
+    // Start lunge; first-attack-frame only after a painted frame (honest mode-5)
     const lungeP = playLunge('player', 150);
-    mark('first-attack-frame');
-    measureLog('move→first-attack-frame', 'move-confirm', 'first-attack-frame', 180);
+    requestAnimationFrame(() => {
+      mark('first-attack-frame');
+      measureLog('move→first-attack-frame', 'move-confirm', 'first-attack-frame', 180);
+    });
 
     const logStart = battle.log.length;
     const foeIdx = pickFirstDamagingMove(battle.foe);
-    const random = 0.9 + Math.random() * 0.1;
+    const random = 0.85 + Math.random() * 0.15;
     executeTurn(battle, {
       playerMoveIndex: index,
       foeMoveIndex: foeIdx,
@@ -528,24 +761,23 @@ async function boot(): Promise<void> {
     const hits = collectHits(battle.log, logStart);
     const msgs = battle.log.slice(logStart).filter((e) => e.message).map((e) => e.message!);
 
-    // Wait for player lunge impact, then flash + HP
     await lungeP;
 
-    // Present hits in order (player then foe typically)
     for (const hit of hits) {
-      const isPlayerHit = hit.side === 'player'; // damage to player
-      // If foe is dealing damage next after player, lunge foe first
+      const isPlayerHit = hit.side === 'player';
       if (isPlayerHit && hits.indexOf(hit) > 0) {
         await playLunge('foe', 130);
       }
 
-      // Impact AV within 100ms of hit: SE / NVE / crit distinct
-      const crit = (hit.critical ?? 1) > 1;
+      const crit = isCritEvent(hit.critical);
       const eff = hit.effectiveness ?? 1;
       if (crit) {
         flashHit('crit');
         battleMsg?.classList.add('eff-crit');
-        setMsg(hit.message ? `${hit.message} Critical hit!` : 'Critical hit!');
+        setMsg(hit.message ? `${hit.message}` : 'Critical hit!');
+        if (hit.message && !/critical/i.test(hit.message)) {
+          setMsg(`${hit.message} Critical hit!`);
+        }
       } else if (eff >= 2) {
         flashHit('se');
         battleMsg?.classList.add('eff-se');
@@ -559,18 +791,19 @@ async function boot(): Promise<void> {
         setMsg(hit.message ?? (msgs.join(' ') || '…'));
       }
 
-      // HP tween after impact — duration scales with dmg fraction
       if (hit.side === 'foe') {
         const dur = hpDrainMs(hit.damage, battle.foe.maxHp);
         dispEnemyHp = battle.foe.hp;
         setHpBar(enemyHp, dispEnemyHp, battle.foe.maxHp, dur);
         await waitMs(dur);
-      } else {
+      } else if (hit.damage > 0) {
         const dur = hpDrainMs(hit.damage, battle.player.maxHp);
         dispAllyHp = battle.player.hp;
         setHpBar(allyHp, dispAllyHp, battle.player.maxHp, dur);
         if (allyHpText) allyHpText.textContent = `${battle.player.hp}/${battle.player.maxHp}`;
         await waitMs(dur);
+      } else {
+        await waitMs(220);
       }
       clearEffClasses();
     }
@@ -580,7 +813,6 @@ async function boot(): Promise<void> {
       await waitMs(280);
     }
 
-    // Sync true HP
     dispEnemyHp = battle.foe.hp;
     dispAllyHp = battle.player.hp;
     syncBattleHud();
@@ -591,10 +823,11 @@ async function boot(): Promise<void> {
     } else {
       busy = false;
       battleMenu?.classList.remove('hidden');
+      updateSwapButton();
     }
   }
 
-  // Starter picker
+  // Starter picker — show overlay once cards exist
   if (starterRow) {
     starterRow.innerHTML = '';
     for (const id of raw.route.starterChoices) {
@@ -602,24 +835,27 @@ async function boot(): Promise<void> {
       if (!sp) continue;
       const card = document.createElement('button');
       card.className = 'starter-card interactive';
-      card.style.setProperty('--accent-c', `#${(SPECIES_COLOR[id] ?? 0x7ec8ff).toString(16).padStart(6, '0')}`);
-      card.innerHTML = `<div class="name">${sp.name}</div><div class="types">${sp.types.join(' · ')}</div><div class="blurb">${sp.flavor ?? ''}</div>`;
+      const accent = SHIP_COLOR[id] ?? 0x7ec8ff;
+      card.style.setProperty('--accent-c', `#${accent.toString(16).padStart(6, '0')}`);
+      card.innerHTML = `<div class="preview"><div class="preview-orb"></div></div><div class="name">${sp.name}</div><div class="types">${sp.types.join(' · ')}</div><div class="blurb">${sp.flavor ?? ''}</div>`;
       card.onclick = () => {
         playerSpeciesId = id;
         if (playerMesh) scene.remove(playerMesh);
-        playerMesh = makeCreatureMesh(SPECIES_COLOR[id] ?? 0x7ec8ff, 1);
+        playerMesh = shipCreatureMesh(id, 1);
         playerMesh.position.set(0, 0, 1.2);
         scene.add(playerMesh);
+        starterOverlay?.classList.remove('show');
         starterOverlay?.classList.add('hidden');
-        starterOverlay && (starterOverlay.style.display = 'none');
+        if (starterOverlay) starterOverlay.style.display = 'none';
         mode = 'explore';
         explore = createExploreState({ speed: 4.6, runMultiplier: 1.85 });
-        party = createParty([{
-          battler: battlerFromSpecies(id, raw.route.playerDefaultLevel, 'player'),
-        }]);
+        party = createParty([
+          {
+            battler: battlerFromSpecies(id, raw.route.playerDefaultLevel, 'player'),
+          },
+        ]);
         bindExploreKeys(explore.keys);
 
-        // Seed soft camera behind player (no hard snap every frame)
         const y0 = explore.yaw || 0;
         camFollow.yaw = y0;
         camFollow.ready = true;
@@ -635,8 +871,15 @@ async function boot(): Promise<void> {
         camera.lookAt(camFollow.look);
 
         showToast(`${sp.name} joined you. WASD to walk the grass.`);
+        updateSwapButton();
       };
       starterRow.appendChild(card);
+    }
+    // Cold boot: reveal starter once cards exist (capture + human)
+    if (starterRow.children.length > 0) {
+      starterOverlay?.classList.add('show');
+      starterOverlay?.classList.remove('hidden');
+      if (starterOverlay) starterOverlay.style.display = '';
     }
   }
 
@@ -644,39 +887,65 @@ async function boot(): Promise<void> {
     el.addEventListener('click', () => {
       const act = (el as HTMLElement).dataset.act;
       if (act === 'fight') renderMoveMenu();
-      else if (act === 'run' && battle) {
+      else if (act === 'swap') {
+        if (party.length > 1) renderSwapMenu();
+      } else if (act === 'run' && battle) {
         exitBattle('Got away safely!');
       } else if (act === 'ball' && battle && !battle.over) {
         if (busy) return;
         busy = true;
+        updateSwapButton();
         const foe = battle.foe;
+        const sp = speciesById.get(foe.speciesId);
+        const rate = speciesCatchRate({
+          catchRate: (sp as { catchRate?: number } | undefined)?.catchRate,
+          role: (sp as { role?: string } | undefined)?.role ?? 'wild',
+        });
+        mark('ball-throw-start');
+        ballArcT = 0;
+        ballMesh.visible = true;
         const res = attemptCatch({
           maxHp: foe.maxHp,
           hp: foe.hp,
-          catchRate: defaultCatchRate('wild'),
+          catchRate: rate,
           seed: (Date.now() ^ foe.hp) >>> 0,
         });
-        setMsg(res.messages.join(' '));
-        for (let i = 0; i < res.shakes; i++) {
-          if (foeMesh) {
-            const origX = foeMesh.position.x;
-            foeMesh.position.x = origX + (i % 2 ? 0.15 : -0.15);
-            setTimeout(() => {
-              if (foeMesh) foeMesh.position.x = origX;
-            }, 180 + i * 120);
-          }
-        }
+        setMsg('You threw a ball!');
+        // Arc presentation then shakes
+        const arcMs = 420;
         setTimeout(() => {
-          if (res.caught) {
-            const member = { battler: { ...foe } };
-            addToParty(party, member);
-            exitBattle('Gotcha! ' + foe.name + ' joined the party!');
-            busy = false;
-          } else {
-            busy = false;
-            battleMenu?.classList.remove('hidden');
+          mark('ball-throw-impact');
+          setMsg(res.messages.join(' '));
+          for (let i = 0; i < res.shakes; i++) {
+            mark(`ball-shake-${i}`);
+            if (foeMesh) {
+              const origX = foeMesh.position.x;
+              setTimeout(() => {
+                if (foeMesh) foeMesh.position.x = origX + (i % 2 ? 0.15 : -0.15);
+                setTimeout(() => {
+                  if (foeMesh) foeMesh.position.x = origX;
+                }, 90);
+              }, 180 + i * 140);
+            }
           }
-        }, 900);
+          setTimeout(() => {
+            ballMesh.visible = false;
+            ballArcT = -1;
+            if (res.caught) {
+              mark('ball-catch-ok');
+              const member = { battler: { ...foe } };
+              addToParty(party, member);
+              exitBattle('Gotcha! ' + foe.name + ' joined the party!');
+              busy = false;
+              updateSwapButton();
+            } else {
+              mark('ball-catch-fail');
+              busy = false;
+              battleMenu?.classList.remove('hidden');
+              updateSwapButton();
+            }
+          }, 900 + res.shakes * 140);
+        }, arcMs);
       }
     });
   });
@@ -727,16 +996,36 @@ async function boot(): Promise<void> {
       b.scale.y = 1 + grassRustleBoost * 0.08 * Math.sin(t * 12 + i);
     }
 
+    // Ball throw arc (player → foe)
+    if (ballArcT >= 0 && ballArcT < 1) {
+      ballArcT = Math.min(1, ballArcT + dt / 0.42);
+      const u = ballArcT;
+      const sx = 1.8;
+      const sz = 1.4;
+      const ex = -1.6;
+      const ez = -0.8;
+      const x = sx + (ex - sx) * u;
+      const z = sz + (ez - sz) * u;
+      const y = 0.6 + Math.sin(u * Math.PI) * 1.4;
+      ballMesh.position.set(x, y, z);
+      ballMesh.rotation.x += dt * 12;
+      ballMesh.rotation.z += dt * 9;
+    }
+
     if (mode === 'explore' && explore && playerMesh) {
       if (healCooldown > 0) healCooldown = Math.max(0, healCooldown - dt);
 
       const res = tickExplore(explore, dt);
       playerMesh.position.x = explore.pos.x;
       playerMesh.position.z = explore.pos.z;
-      // Foot bob from gait
       playerBobPhase += res.speed * dt * 8;
-      const bob = Math.sin(playerBobPhase) * 0.04 * Math.min(1, res.speed / 2);
-      playerMesh.position.y = bob;
+      // Clip idle handles bob; keep base at 0
+      const st = getClipState(playerMesh);
+      if (st) {
+        st.baseY = 0;
+        st.baseRotY = explore.yaw;
+      }
+      playerMesh.position.y = 0;
       playerMesh.rotation.y = explore.yaw;
 
       if (res.footPlant) {
@@ -765,11 +1054,9 @@ async function boot(): Promise<void> {
         busy = false;
       }
 
-      // Soft camera: lag yaw + lerp position (no hard snap)
       const yawBlend = 1 - Math.exp(-4.2 * dt);
       const posBlend = 1 - Math.exp(-6.5 * dt);
       const lookBlend = 1 - Math.exp(-8 * dt);
-      // wrap-safe yaw lag toward player facing
       let dy = explore.yaw - camFollow.yaw;
       while (dy > Math.PI) dy -= Math.PI * 2;
       while (dy < -Math.PI) dy += Math.PI * 2;
@@ -778,13 +1065,12 @@ async function boot(): Promise<void> {
       const idealX = playerMesh.position.x - Math.sin(camFollow.yaw) * camFollow.dist;
       const idealZ = playerMesh.position.z - Math.cos(camFollow.yaw) * camFollow.dist;
       const idealY = camFollow.height;
-      // Simple ground-plane "collision": keep camera outside a small radius of player
       camFollow.pos.x += (idealX - camFollow.pos.x) * posBlend;
       camFollow.pos.z += (idealZ - camFollow.pos.z) * posBlend;
       camFollow.pos.y += (idealY - camFollow.pos.y) * posBlend;
 
       const lx = playerMesh.position.x;
-      const ly = 0.7 + bob;
+      const ly = 0.7;
       const lz = playerMesh.position.z;
       camFollow.look.x += (lx - camFollow.look.x) * lookBlend;
       camFollow.look.y += (ly - camFollow.look.y) * lookBlend;
@@ -792,27 +1078,52 @@ async function boot(): Promise<void> {
 
       camera.position.copy(camFollow.pos);
       camera.lookAt(camFollow.look);
+      tickMeshClips(dt, t);
+      // Re-apply XZ after clip (clip may touch z on attack)
+      playerMesh.position.x = explore.pos.x;
+      playerMesh.position.z = explore.pos.z;
     } else if (mode === 'battle') {
-      // Battle staging positions + lunge / faint sink
       if (playerMesh) {
         const baseX = 1.8;
         const baseZ = 1.4;
-        // Lunge toward foe (-x, -z)
         playerMesh.position.x = baseX - playerLunge * 0.9;
         playerMesh.position.z = baseZ - playerLunge * 0.55;
-        playerMesh.position.y = Math.sin(t * 1.6) * 0.05;
+        playerMesh.position.y = 0;
         playerMesh.rotation.y = -0.55;
+        const st = getClipState(playerMesh);
+        if (st) {
+          st.baseY = 0;
+          st.baseRotY = -0.55;
+        }
       }
       if (foeMesh) {
         const baseX = -1.6;
         const baseZ = -0.8;
         foeMesh.position.x = baseX + foeLunge * 0.9;
         foeMesh.position.z = baseZ + foeLunge * 0.55;
-        foeMesh.position.y = Math.sin(t * 1.8 + 1) * 0.05 - foeSink * 1.1;
+        foeMesh.position.y = -foeSink * 1.1;
         foeMesh.rotation.y = 0.55;
         foeMesh.scale.setScalar(Math.max(0.05, 1 - foeSink * 0.35));
+        const st = getClipState(foeMesh);
+        if (st) {
+          st.baseY = -foeSink * 1.1;
+          st.baseRotY = 0.55;
+        }
       }
-      // Soft battle camera hold
+      tickMeshClips(dt, t);
+      // Restore battle XZ after clip z lunge
+      if (playerMesh) {
+        const baseX = 1.8;
+        const baseZ = 1.4;
+        playerMesh.position.x = baseX - playerLunge * 0.9;
+        playerMesh.position.z = baseZ - playerLunge * 0.55;
+      }
+      if (foeMesh) {
+        const baseX = -1.6;
+        const baseZ = -0.8;
+        foeMesh.position.x = baseX + foeLunge * 0.9;
+        foeMesh.position.z = baseZ + foeLunge * 0.55;
+      }
       const bx = 0.3;
       const by = 2.6;
       const bz = 6.2;
@@ -821,11 +1132,16 @@ async function boot(): Promise<void> {
       camera.position.z += (bz - camera.position.z) * Math.min(1, 3 * dt);
       camera.lookAt(0.1, 0.7 - foeSink * 0.3, 0.2);
     } else {
-      if (playerMesh) {
-        playerMesh.position.y = Math.sin(t * 1.6) * 0.06;
-        playerMesh.rotation.y = Math.sin(t * 0.4) * 0.15;
-      }
+      // Starter mode: idle camera over hollow + soft sky
+      camera.position.x += (0 - camera.position.x) * Math.min(1, 2 * dt);
+      camera.position.y += (3.4 - camera.position.y) * Math.min(1, 2 * dt);
+      camera.position.z += (8.2 - camera.position.z) * Math.min(1, 2 * dt);
+      camera.lookAt(0, 0.6, 0);
+      if (playerMesh) tickMeshClips(dt, t);
     }
+
+    // Subtle heal pad pulse
+    healGlow.material.opacity = 0.35 + Math.sin(t * 2.4) * 0.12;
 
     renderer.render(scene, camera);
     requestAnimationFrame(tick);

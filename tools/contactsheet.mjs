@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * Contact sheet for a wave label — copies ship capture stills only.
- * Refuses to promote minimal-capture or known research plate paths.
+ * Refuses to promote minimal-capture, black_frame, or failed hard gates.
  *
- * Usage: node tools/contactsheet.mjs --label wave1
+ * Usage: node tools/contactsheet.mjs --label wave2
  */
 import { mkdirSync, copyFileSync, existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
@@ -40,24 +40,47 @@ if (existsSync(captureJson)) {
       console.error(`[contactsheet] REFUSE: unexpected capture source "${src}"`);
       process.exit(1);
     }
+    if (cap.black_frame === true) {
+      console.error(
+        '[contactsheet] REFUSE: capture.json black_frame=true (near-void / empty) — fail closed',
+      );
+      process.exit(1);
+    }
+    if (cap.pass_hard_gates === false) {
+      console.error(
+        `[contactsheet] REFUSE: pass_hard_gates=false hard_failed=${JSON.stringify(cap.hard_failed || [])}`,
+      );
+      process.exit(1);
+    }
+    if (Array.isArray(cap.hard_failed) && cap.hard_failed.length > 0) {
+      console.error(
+        `[contactsheet] REFUSE: hard_failed non-empty ${JSON.stringify(cap.hard_failed)}`,
+      );
+      process.exit(1);
+    }
+    // Align with capture hard floor if luma present (mean floor 38 / unique 48)
+    const mean = cap.luma?.mean;
+    const uniq = cap.luma?.unique_samples;
+    if (typeof mean === 'number' && mean < 38) {
+      console.error(`[contactsheet] REFUSE: luma mean ${mean} < 38 (near-void)`);
+      process.exit(1);
+    }
+    if (typeof uniq === 'number' && uniq < 48) {
+      console.error(`[contactsheet] REFUSE: unique samples ${uniq} < 48 (flat)`);
+      process.exit(1);
+    }
   } catch (e) {
     console.error('[contactsheet] bad capture.json', e);
     process.exit(1);
   }
+} else {
+  console.error('[contactsheet] REFUSE: missing capture.json — run tools/capture.mjs first');
+  process.exit(1);
 }
 
 if (!existsSync(firstShot)) {
   console.error(`[contactsheet] no shot at ${firstShot} — run capture first`);
   process.exit(1);
-}
-
-// Never pull from research plates
-const banned = ['wooloo', 'twilight', '/mnt/zer0models', 'public/ab'];
-const resolved = firstShot.toLowerCase();
-for (const b of banned) {
-  /* path itself is shots/ — ok; content check is via capture source */
-  void b;
-  void resolved;
 }
 
 copyFileSync(firstShot, out);

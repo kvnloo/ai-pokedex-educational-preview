@@ -10,6 +10,7 @@
  */
 import * as THREE from 'three';
 import { Time } from './Time.ts';
+import { frameStats, MEDIUM_1080P } from './frameStats.ts';
 
 export interface EngineContext {
   engine: Engine;
@@ -56,6 +57,7 @@ export class Engine {
   private running = false;
   private rafId = 0;
   private initialised = false;
+  /** Legacy ring; prefer frameStats for mode-4 gates. */
   readonly frameTimes = new Float32Array(240);
   private frameCursor = 0;
 
@@ -148,12 +150,18 @@ export class Engine {
     const spent = performance.now() - t0;
     this.frameTimes[this.frameCursor % this.frameTimes.length] = spent;
     this.frameCursor += 1;
+    frameStats.push(spent);
+  }
+
+  /** Mode-4 snapshot (post warm-up percentiles). */
+  getFrameStats() {
+    return frameStats.snapshot();
   }
 
   resize(): void {
     const w = this.canvas.clientWidth || window.innerWidth;
     const h = this.canvas.clientHeight || window.innerHeight;
-    const pr = Math.min(devicePixelRatio, 2);
+    const pr = Math.min(devicePixelRatio, MEDIUM_1080P.maxPixelRatio * 2);
     this.camera.aspect = w / Math.max(1, h);
     this.camera.updateProjectionMatrix();
     for (const s of this.systems) s.resize?.(w, h, pr);

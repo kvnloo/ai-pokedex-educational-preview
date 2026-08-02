@@ -203,7 +203,8 @@
         "wool-rush",
         "growl-down"
       ],
-      "catchRate": 45
+      "catchRate": 45,
+      "baseExp": 62
     },
     {
       "speciesId": 2,
@@ -235,7 +236,8 @@
         "growl-down",
         "leaf-dart"
       ],
-      "catchRate": 45
+      "catchRate": 45,
+      "baseExp": 62
     },
     {
       "speciesId": 5,
@@ -267,7 +269,8 @@
         "growl-down",
         "wool-rush"
       ],
-      "catchRate": 45
+      "catchRate": 45,
+      "baseExp": 62
     },
     {
       "speciesId": 3,
@@ -297,7 +300,8 @@
         "wool-rush",
         "growl-down"
       ],
-      "catchRate": 255
+      "catchRate": 255,
+      "baseExp": 45
     },
     {
       "speciesId": 4,
@@ -330,7 +334,76 @@
         "nudge",
         "cinder-spark"
       ],
-      "catchRate": 120
+      "catchRate": 120,
+      "baseExp": 55
+    },
+    {
+      "speciesId": 6,
+      "slug": "ironwisp",
+      "name": "Ironwisp",
+      "types": [
+        "electric",
+        "bug"
+      ],
+      "baseStats": {
+        "hp": 55,
+        "atk": 48,
+        "def": 60,
+        "spa": 78,
+        "spd": 62,
+        "spe": 70
+      },
+      "learnset": [
+        "static-nibble",
+        "pollen-puff",
+        "nudge",
+        "wool-rush"
+      ],
+      "role": "gym",
+      "flavor": "A lantern-moth of the dusk gym; sparks dance in its iron lace wings.",
+      "id": "ironwisp",
+      "moves": [
+        "static-nibble",
+        "pollen-puff",
+        "nudge",
+        "wool-rush"
+      ],
+      "catchRate": 45,
+      "baseExp": 120
+    },
+    {
+      "speciesId": 7,
+      "slug": "gloomhorn",
+      "name": "Gloomhorn",
+      "types": [
+        "grass",
+        "normal"
+      ],
+      "baseStats": {
+        "hp": 70,
+        "atk": 80,
+        "def": 65,
+        "spa": 55,
+        "spd": 55,
+        "spe": 50
+      },
+      "learnset": [
+        "leaf-dart",
+        "wool-rush",
+        "nudge",
+        "growl-down"
+      ],
+      "role": "elite",
+      "flavor": "Elite-path guardian; moss horns funnel soft dusk light.",
+      "id": "gloomhorn",
+      "moves": [
+        "leaf-dart",
+        "wool-rush",
+        "nudge",
+        "growl-down"
+      ],
+      "catchRate": 45,
+      "baseExp": 160
     }
   ],
   "route": {
@@ -347,15 +420,47 @@
         "species": "dustbun",
         "minLevel": 3,
         "maxLevel": 5,
-        "weight": 70
+        "weight": 55,
+        "band": "early"
       },
       {
         "species": "sparkmoth",
         "minLevel": 4,
         "maxLevel": 6,
-        "weight": 30
+        "weight": 25,
+        "band": "early"
+      },
+      {
+        "species": "dustbun",
+        "minLevel": 6,
+        "maxLevel": 8,
+        "weight": 12,
+        "band": "mid"
+      },
+      {
+        "species": "sparkmoth",
+        "minLevel": 7,
+        "maxLevel": 9,
+        "weight": 8,
+        "band": "late"
       }
     ],
-    "playerDefaultLevel": 5
+    "playerDefaultLevel": 5,
+    "gym": {
+      "id": "lumen-dusk-gym",
+      "name": "Lumen Dusk Gym",
+      "leaderName": "Warden Brisa",
+      "species": "ironwisp",
+      "level": 12,
+      "description": "First badge gate on Twilight Lane \u2014 electric/bug specialty."
+    },
+    "elite": {
+      "id": "hollow-elite-gate",
+      "name": "Hollow Elite Gate",
+      "trainerName": "Elite Mora",
+      "species": "gloomhorn",
+      "level": 16,
+      "description": "Demo elite stake beyond the gym for vertical-slice escalation."
+    }
   }
 }

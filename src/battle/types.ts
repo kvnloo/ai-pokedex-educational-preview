@@ -55,6 +55,8 @@ export interface SpeciesDef {
   slug?: string;
   /** Catch rate 1–255 (higher = easier). */
   catchRate?: number;
+  /** Base yield for XP calc (optional). */
+  baseExp?: number;
 }
 
 export interface Battler {
@@ -72,6 +74,12 @@ export interface Battler {
   movePp?: number[];
   /** In-battle stages; absent → all 0. */
   stages?: StatStages;
+  /** Accumulated experience toward next level. */
+  xp?: number;
+  /** XP needed for next level (default formula if absent). */
+  xpToNext?: number;
+  /** Species base stats retained for re-leveling. */
+  baseStats?: BaseStats;
 }
 
 export type TypeChart = Record<string, Record<string, number>>;
@@ -110,7 +118,10 @@ export interface BattleEvent {
     | "switch"
     | "status"
     | "miss"
-    | "crit";
+    | "crit"
+    | "force-switch"
+    | "xp"
+    | "level-up";
   side?: BattleSide;
   moveId?: string;
   damage?: number;
@@ -123,6 +134,10 @@ export interface BattleEvent {
   /** Stat stage change magnitude (status) */
   stageDelta?: number;
   stageStat?: StatStageKey;
+  /** XP granted */
+  xp?: number;
+  /** Level after level-up */
+  level?: number;
 }
 
 export interface BattleState {
@@ -135,6 +150,11 @@ export interface BattleState {
   typeChart: TypeChart;
   /** Index into player party for active battler (when party-linked). */
   playerPartyIndex?: number;
+  /**
+   * Player active fainted but conscious reserve exists — must switch before
+   * continuing. Battle is not over until party wipe.
+   */
+  needsForceSwitch?: boolean;
 }
 
 export interface Wave0Content {
@@ -155,7 +175,26 @@ export interface Wave0Content {
       minLevel: number;
       maxLevel: number;
       weight: number;
+      /** Optional stake band: early | mid | late */
+      band?: string;
     }>;
     playerDefaultLevel?: number;
+    /** Original-named gym / elite gate within demo path */
+    gym?: {
+      id: string;
+      name: string;
+      leaderName: string;
+      species: string;
+      level: number;
+      description?: string;
+    };
+    elite?: {
+      id: string;
+      name: string;
+      trainerName: string;
+      species: string;
+      level: number;
+      description?: string;
+    };
   };
 }

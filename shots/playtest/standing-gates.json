@@ -1,32 +1,37 @@
 {
-  "version": 1,
-  "description": "Standing re-measure list for wave land. Mode-3 green alone is not wave exit.",
+  "version": 2,
+  "description": "Standing re-measure list for wave land. Mode-3 green alone is not wave exit. Near-void stills fail closed.",
+  "wave_label": "wave2",
   "refuse": {
     "capture_source_forbidden": ["minimal-capture", "minimal", "placeholder", "plate-copy"],
     "capture_source_required_substring": "browser-threejs",
     "black_or_empty_shot": true,
+    "black_frame_true": true,
+    "pass_hard_gates_required": true,
+    "near_void_mean_lt": 38,
+    "near_void_unique_lt": 48,
     "official_names_in_ship_content": true,
     "wooloo_or_tw_plates_under_shots": true
   },
   "mode_1": [
     {
       "id": "capture-browser-threejs",
-      "measure": "shots/<label>/capture.json source includes browser-threejs and excludes minimal-capture",
-      "cmd": "node tools/capture.mjs --label wave1"
+      "measure": "shots/<label>/capture.json source includes browser-threejs; black_frame=false; pass_hard_gates=true",
+      "cmd": "node tools/capture.mjs --label wave2"
     },
     {
       "id": "shot-non-black",
-      "measure": "shot-000.png mean luma > 4 and unique samples >= 8; dimensions >= 64x64",
-      "cmd": "node tools/capture.mjs --label wave1"
+      "measure": "Aligned to measure black_frame: mean luma >= 38, unique samples >= 48, near_black_frac < 0.82, dims >= 64x64; black_frame must be false (mean≈27 / unique≈11 near-void fails)",
+      "cmd": "node tools/capture.mjs --label wave2 && node -e \"const c=require('./shots/wave2/capture.json'); if(c.black_frame||!c.pass_hard_gates) process.exit(1)\""
     },
     {
       "id": "no-research-plates-in-shots",
-      "measure": "No Wooloo/TW plates under shots/wave* or shots/_sheets; contactsheet refuses minimal-capture",
-      "cmd": "node tools/contactsheet.mjs --label wave1"
+      "measure": "No Wooloo/TW plates under shots/wave* or shots/_sheets; contactsheet refuses minimal-capture and black_frame",
+      "cmd": "node tools/contactsheet.mjs --label wave2"
     },
     {
       "id": "visual-bar-checklist",
-      "measure": "docs/VISUAL-BAR.md reviewed against still vs TW presentation (not claim of mode-7 win)",
+      "measure": "docs/VISUAL-BAR.md sky/grade + soft light checklist vs TW presentation (not claim of mode-7 win)",
       "doc": "docs/VISUAL-BAR.md"
     }
   ],
@@ -37,7 +42,33 @@
       "cmd": "npm run test:playtest"
     }
   ],
+  "mode_4": [
+    {
+      "id": "sustained-profile-stub",
+      "measure": "p99 frame time ≤16.7ms @1080p medium during battle VFX; zero frames >50ms after warm-up (tools/profile.mjs when present)",
+      "cmd": "node tools/profile.mjs --label wave2",
+      "status": "required_for_wave_exit",
+      "note": "Mode 4 unmeasured until profile script lands; do not claim F pass without ring data."
+    }
+  ],
+  "mode_5": [
+    {
+      "id": "instrumented-event-trace",
+      "measure": "Input→menu ≤400ms; move→first attack frame ≤180ms; HP tween + AV feedback timestamps",
+      "cmd": "node tools/playtest.mjs --trace",
+      "status": "required_for_wave_exit",
+      "note": "Mode 5 instrumented latencies required for ultracode wave exit; playtest green alone insufficient."
+    }
+  ],
+  "mode_7": [
+    {
+      "id": "blind-ab-prefer-us",
+      "measure": "Labels-hidden forced choice: prefer our still over Twilight Wings reference",
+      "status": "required_for_wave_exit",
+      "note": "Mode 7 double-blind must prefer US over TW or keep looping. Mode-3 green is NOT wave exit."
+    }
+  ],
   "mode_7_note": "Blind A/B must prefer US over Twilight Wings reference; playtest green is not sufficient.",
-  "land_cmd": "npm run typecheck && npm run test:battle && npm run test:playtest && npm run build && node tools/capture.mjs --label wave1",
+  "land_cmd": "npm run typecheck && npm run test:battle && npm run test:playtest && npm run build && node tools/capture.mjs --label wave2",
   "updated": "2026-08-02"
 }

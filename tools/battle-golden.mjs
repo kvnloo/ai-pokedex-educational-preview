@@ -503,6 +503,268 @@ assertEq(
   200,
 );
 
+// --- W2-P2: live rolls, force-switch, XP, species catch, gym gate ---
+const {
+  grantBattleRewards,
+  forceSwitchPlayer,
+  pickFoeMove,
+} = battleMod;
+const { applyXp, xpYield, anyConscious, consciousIndices } = partyMod;
+
+// Live rolls: without random pin, damage uses 0.85–1.0 band via seeded rng
+{
+  let i = 0;
+  const seq = [0, 0.5, 0.99, 0.2, 0.8, 0.1, 0.3, 0.4];
+  const rng = () => seq[i++ % seq.length];
+  const liveB = createBattle({
+    player: buildBattler({
+      id: "lp",
+      name: ember.name,
+      speciesId: ember.id,
+      types: ember.types,
+      level: 5,
+      baseStats: ember.baseStats,
+      moves: resolveMoves(ember.moves),
+    }),
+    foe: buildBattler({
+      id: "lf",
+      name: dust.name,
+      speciesId: dust.id,
+      types: dust.types,
+      level: 4,
+      baseStats: dust.baseStats,
+      moves: resolveMoves(dust.moves),
+    }),
+    typeChart: wave0.typeChart,
+  });
+  executeTurn(liveB, {
+    playerMoveIndex: pickFirstDamagingMove(liveB.player),
+    foeMoveIndex: pickFirstDamagingMove(liveB.foe),
+    rng,
+    // no random → live mode
+  });
+  assertEq("live turn advances", liveB.turn, 1);
+  assertEq(
+    "live can deal damage or miss",
+    liveB.log.some((e) => e.type === "damage" || e.type === "miss"),
+    true,
+  );
+}
+
+// Accuracy miss when roll high
+{
+  const missB = createBattle({
+    player: buildBattler({
+      id: "mp",
+      name: ember.name,
+      speciesId: ember.id,
+      types: ember.types,
+      level: 5,
+      baseStats: ember.baseStats,
+      moves: resolveMoves(["wool-rush"]), // acc 95
+    }),
+    foe: buildBattler({
+      id: "mf",
+      name: dust.name,
+      speciesId: dust.id,
+      types: dust.types,
+      level: 4,
+      baseStats: dust.baseStats,
+      moves: resolveMoves(["nudge"]),
+    }),
+    typeChart: wave0.typeChart,
+  });
+  executeTurn(missB, {
+    playerMoveIndex: 0,
+    foeMoveIndex: 0,
+    random: 1,
+    accuracyRolls: [0.99, 0], // player misses (99>=95), foe hits
+  });
+  assertEq("accuracy miss event", missB.log.some((e) => e.type === "miss"), true);
+}
+
+// Crit via live-ish critRoll low
+{
+  const cB = createBattle({
+    player: buildBattler({
+      id: "crp",
+      name: ember.name,
+      speciesId: ember.id,
+      types: ember.types,
+      level: 5,
+      baseStats: ember.baseStats,
+      moves: resolveMoves(ember.moves),
+    }),
+    foe: buildBattler({
+      id: "crf",
+      name: dust.name,
+      speciesId: dust.id,
+      types: dust.types,
+      level: 4,
+      baseStats: dust.baseStats,
+      moves: resolveMoves(dust.moves),
+    }),
+    typeChart: wave0.typeChart,
+  });
+  executeTurn(cB, {
+    playerMoveIndex: pickFirstDamagingMove(cB.player),
+    foeMoveIndex: pickFirstDamagingMove(cB.foe),
+    random: 1,
+    critRoll: 0, // < 1/16
+  });
+  assertEq("critRoll 0 lands crit", cB.log.some((e) => e.type === "crit"), true);
+}
+
+// Force-switch: player faint with reserve does not end battle
+{
+  const leadB = buildBattler({
+    id: "fs-lead",
+    name: ember.name,
+    speciesId: ember.id,
+    types: ember.types,
+    level: 5,
+    baseStats: ember.baseStats,
+    moves: resolveMoves(ember.moves),
+    hp: 1,
+  });
+  const reserveB = buildBattler({
+    id: "fs-res",
+    name: dust.name,
+    speciesId: dust.id,
+    types: dust.types,
+    level: 5,
+    baseStats: dust.baseStats,
+    moves: resolveMoves(dust.moves),
+  });
+  const fparty = createParty([{ battler: leadB }, { battler: reserveB }]);
+  const strongFoe = buildBattler({
+    id: "fs-foe",
+    name: "Sparkmoth",
+    speciesId: "sparkmoth",
+    types: ["bug", "electric"],
+    level: 20,
+    baseStats: speciesById.get("sparkmoth").baseStats,
+    moves: resolveMoves(speciesById.get("sparkmoth").moves),
+  });
+  let fs = createBattleFromParty(fparty, strongFoe, wave0.typeChart);
+  // Ensure foe moves first by high spe already; force damage to KO lead
+  let guard = 0;
+  while (!fs.needsForceSwitch && !fs.over && guard++ < 20) {
+    executeTurn(fs, {
+      playerMoveIndex: pickFirstDamagingMove(fs.player),
+      foeMoveIndex: pickFirstDamagingMove(fs.foe),
+      random: 1,
+      party: fparty,
+    });
+  }
+  assertEq("force-switch needed", fs.needsForceSwitch === true, true);
+  assertEq("not over while reserve", fs.over, false);
+  assertEq("force-switch event", fs.log.some((e) => e.type === "force-switch"), true);
+  const okSwitch = forceSwitchPlayer(fs, fparty);
+  assertEq("forceSwitchPlayer ok", okSwitch, true);
+  assertEq("active is reserve", fs.player.id, "fs-res");
+  assertEq("needsForceSwitch cleared", fs.needsForceSwitch, false);
+}
+
+// XP grant on win
+{
+  const p = buildBattler({
+    id: "xp-p",
+    name: ember.name,
+    speciesId: ember.id,
+    types: ember.types,
+    level: 5,
+    baseStats: ember.baseStats,
+    moves: resolveMoves(ember.moves),
+  });
+  const f = buildBattler({
+    id: "xp-f",
+    name: dust.name,
+    speciesId: dust.id,
+    types: dust.types,
+    level: 4,
+    baseStats: dust.baseStats,
+    moves: resolveMoves(dust.moves),
+    hp: 1,
+  });
+  let xb = createBattle({ player: p, foe: f, typeChart: wave0.typeChart });
+  executeTurn(xb, {
+    playerMoveIndex: pickFirstDamagingMove(xb.player),
+    foeMoveIndex: pickFirstDamagingMove(xb.foe),
+    random: 1,
+  });
+  // may need more turns if player didn't KO
+  let g = 0;
+  while (!xb.over && g++ < 15) {
+    executeTurn(xb, {
+      playerMoveIndex: pickFirstDamagingMove(xb.player),
+      foeMoveIndex: pickFirstDamagingMove(xb.foe),
+      random: 1,
+    });
+  }
+  assertEq("xp battle player win", xb.winner, "player");
+  const beforeLevel = xb.player.level;
+  const beforeXp = xb.player.xp ?? 0;
+  const reward = grantBattleRewards(xb, { baseExp: 50 });
+  assertEq("xp gained positive", reward.xpGained > 0, true);
+  assertEq("xp event logged", xb.log.some((e) => e.type === "xp"), true);
+  assertEq("player xp increased", (xb.player.xp ?? 0) + (reward.leveledUp ? xb.player.xpToNext : 0) >= beforeXp, true);
+  // Level-up with large XP
+  const pup = buildBattler({
+    id: "lv-p",
+    name: ember.name,
+    speciesId: ember.id,
+    types: ember.types,
+    level: 5,
+    baseStats: ember.baseStats,
+    moves: resolveMoves(ember.moves),
+  });
+  const lvl = applyXp(pup, 999);
+  assertEq("level up from applyXp", lvl.leveledUp, true);
+  assertEq("level increased", pup.level > 5, true);
+  assertEq("xpYield L4", xpYield(4, 50), Math.floor((50 * 4) / 7));
+}
+
+// Species catch rates sparkmoth
+const spark = speciesById.get("sparkmoth");
+assertEq("sparkmoth catchRate 120", speciesCatchRate(spark), 120);
+
+// Gym / elite content
+assertEq("gym node present", !!wave0.route?.gym?.id, true);
+assertEq("elite node present", !!wave0.route?.elite?.id, true);
+assertEq("gym original name", typeof wave0.route?.gym?.name === "string", true);
+assertEq(
+  "wild bands escalate",
+  (wave0.route?.wildEncounters ?? []).some((e) => e.band === "late" || e.maxLevel >= 8),
+  true,
+);
+assertEq("ironwisp species", speciesById.has("ironwisp"), true);
+assertEq("gloomhorn species", speciesById.has("gloomhorn"), true);
+
+// Foe AI prefers SE
+{
+  const foeAi = buildBattler({
+    id: "ai-f",
+    name: ember.name,
+    speciesId: ember.id,
+    types: ember.types,
+    level: 5,
+    baseStats: ember.baseStats,
+    moves: resolveMoves(["nudge", "cinder-spark"]),
+  });
+  const grassDef = buildBattler({
+    id: "ai-p",
+    name: "Leafkit",
+    speciesId: "leafkit",
+    types: ["grass"],
+    level: 5,
+    baseStats: speciesById.get("leafkit").baseStats,
+    moves: resolveMoves(["nudge"]),
+  });
+  const idx = pickFoeMove(foeAi, grassDef, wave0.typeChart);
+  assertEq("foe AI prefers fire SE", foeAi.moves[idx].type, "fire");
+}
+
 console.log("");
 console.log(`${passed} passed, ${failed} failed`);
 if (failed > 0) process.exit(1);
