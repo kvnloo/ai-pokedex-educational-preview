@@ -456,10 +456,13 @@ export function tickExplore(
     state.grassSteps += 1;
     // Telegraph: need several steps + rustle pulses before first roll, then ramp chance
     const MIN_STEPS = 4;
+    const PITY_TICKS = 240;
     if (state.grassSteps >= MIN_STEPS) {
       const ramp = Math.min(1.35, 0.45 + (state.grassSteps - MIN_STEPS) * 0.12);
       const p = state.grass.encounterChance * ramp * Math.min(1, dt * 4);
-      if (rng() < p) {
+      // A bounded pity path prevents unlucky real play (and replay after heal)
+      // from wandering indefinitely without mutating or scripting an encounter.
+      if (state.grassSteps >= PITY_TICKS || rng() < p) {
         encounter = true;
         state.grassSteps = 0;
         state.encounterCooldown = 1.35;

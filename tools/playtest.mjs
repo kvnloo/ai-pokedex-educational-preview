@@ -175,6 +175,23 @@ for (let i = 0; i < 180; i++) {
 ok("reached grass", hitGrass, `pos=${JSON.stringify(explore.pos)}`);
 ok("grass encounter fired", encounter);
 
+// Sustained real movement has a bounded pity path even when every random roll loses.
+const pityExplore = createExploreState({
+  pos: { x: 0, z: -1.2 },
+  bounds: { minX: -100, maxX: 100, minZ: -100, maxZ: 100 },
+  grass: { cx: 0, cz: -1.2, half: 100, encounterChance: 0 },
+  obstacles: [],
+});
+pityExplore.keys.add("d");
+let pityEncounter = false;
+for (let i = 0; i < 320; i++) {
+  if (tickExplore(pityExplore, 1 / 60, () => 1).encounter) {
+    pityEncounter = true;
+    break;
+  }
+}
+ok("grass encounter pity is bounded", pityEncounter);
+
 // 3) Battle from party lead (preserves HP) until faint
 // bruise lead first to prove no full-HP rebuild
 party[0].battler.hp = Math.max(1, party[0].battler.maxHp - 3);
