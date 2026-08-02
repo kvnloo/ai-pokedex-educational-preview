@@ -34,7 +34,8 @@ import type {
 export const STRUGGLE_MOVE: MoveDef = {
   id: "struggle",
   name: "Struggle",
-  type: "normal",
+  /** Typeless: never STAB, always neutral on the type chart. */
+  type: "typeless",
   category: "physical",
   power: 50,
   accuracy: null,

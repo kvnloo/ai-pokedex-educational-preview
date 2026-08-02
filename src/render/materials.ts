@@ -37,6 +37,75 @@ function fbm(x: number, y: number, seed: number, octaves = 3): number {
   return v;
 }
 
+/** Kind-specific height in [0,1] + roughness at UV — single source for FD normals. */
+function sampleHeightRough(
+  kind: MaterialKind,
+  u: number,
+  v: number,
+): { height: number; rough: number } {
+  let height = 0.5;
+  let rough = 0.5;
+
+  switch (kind) {
+    case 'fur': {
+      // Dense vertical strands + clump tufts (height drives normals, not hash)
+      const strand =
+        Math.sin(u * Math.PI * 48 + fbm(u * 5, v * 5, 1) * 3.2) * 0.5 + 0.5;
+      const fine =
+        Math.sin(u * Math.PI * 96 + v * 18 + fbm(u * 12, v * 4, 8) * 1.8) * 0.5 + 0.5;
+      const clump = fbm(u * 5, v * 2.5, 2);
+      const flow = fbm(u * 2.5 + v * 0.4, v * 6, 14);
+      height = strand * 0.42 + fine * 0.22 + clump * 0.28 + flow * 0.08;
+      rough = 0.78 + clump * 0.18 + fine * 0.06;
+      break;
+    }
+    case 'feather': {
+      const vane = Math.sin(u * Math.PI * 18) * 0.5 + 0.5;
+      const barb = fbm(u * 8, v * 12, 3);
+      height = vane * 0.65 + barb * 0.35;
+      rough = 0.42 + barb * 0.28;
+      break;
+    }
+    case 'scale': {
+      const hx = u * 10;
+      const hy = v * 10 + ((Math.floor(hx) % 2) * 0.5);
+      const cx = hx - Math.floor(hx) - 0.5;
+      const cy = hy - Math.floor(hy) - 0.5;
+      const d = Math.sqrt(cx * cx + cy * cy);
+      height = 1 - Math.min(1, d * 2.2);
+      rough = 0.28 + (1 - height) * 0.25;
+      break;
+    }
+    case 'shell': {
+      const grain = fbm(u * 14, v * 14, 4);
+      height = grain;
+      rough = 0.35 + grain * 0.3;
+      break;
+    }
+    case 'ember': {
+      const cell = fbm(u * 7, v * 7, 5);
+      height = cell * 0.7 + 0.3;
+      rough = 0.35 + cell * 0.2;
+      break;
+    }
+    case 'wet': {
+      const streak = Math.sin(v * Math.PI * 22 + fbm(u * 2, v * 2, 6) * 1.5) * 0.5 + 0.5;
+      height = 0.45 + streak * 0.2;
+      rough = 0.12 + streak * 0.18;
+      break;
+    }
+    case 'metal': {
+      const brush = Math.sin(u * Math.PI * 40) * 0.5 + 0.5;
+      const grit = fbm(u * 20, v * 20, 7);
+      height = brush * 0.4 + grit * 0.6;
+      rough = 0.18 + grit * 0.35;
+      break;
+    }
+  }
+
+  return { height, rough };
+}
+
 /**
  * Kind-specific normal + roughness maps so surfaces read under soft key light
  * (fur grain, feather vane, scale tiles, metal grit) instead of plastic Standard.
@@ -48,96 +117,40 @@ function makeDetailMaps(kind: MaterialKind): { normal: THREE.Texture; roughness:
   const size = 128;
   const nData = new Uint8Array(size * size * 4);
   const rData = new Uint8Array(size * size * 4);
+  const heights = new Float32Array(size * size);
+  const roughs = new Float32Array(size * size);
 
+  // Pass 1: full height field from kind pattern (not hash deltas)
   for (let y = 0; y < size; y++) {
     for (let x = 0; x < size; x++) {
       const u = x / size;
       const v = y / size;
+      const s = sampleHeightRough(kind, u, v);
+      heights[y * size + x] = s.height;
+      roughs[y * size + x] = s.rough;
+    }
+  }
+
+  // Pass 2: finite-difference normals from kind height neighbors
+  for (let y = 0; y < size; y++) {
+    for (let x = 0; x < size; x++) {
       const i = (y * size + x) * 4;
+      const height = heights[y * size + x];
+      const rough = roughs[y * size + x];
 
-      let height = 0.5;
-      let rough = 0.5;
+      const xL = (x + size - 1) % size;
+      const xR = (x + 1) % size;
+      const yD = (y + size - 1) % size;
+      const yU = (y + 1) % size;
+      const hL = heights[y * size + xL];
+      const hR = heights[y * size + xR];
+      const hD = heights[yD * size + x];
+      const hU = heights[yU * size + x];
 
-      switch (kind) {
-        case 'fur': {
-          // Dense vertical strands + clump tufts (reads under soft key, not plastic)
-          const strand =
-            Math.sin(u * Math.PI * 48 + fbm(u * 5, v * 5, 1) * 3.2) * 0.5 + 0.5;
-          const fine =
-            Math.sin(u * Math.PI * 96 + v * 18 + fbm(u * 12, v * 4, 8) * 1.8) * 0.5 + 0.5;
-          const clump = fbm(u * 5, v * 2.5, 2);
-          const flow = fbm(u * 2.5 + v * 0.4, v * 6, 14);
-          height = strand * 0.42 + fine * 0.22 + clump * 0.28 + flow * 0.08;
-          rough = 0.78 + clump * 0.18 + fine * 0.06;
-          break;
-        }
-        case 'feather': {
-          // Vane ridges along U, soft barb noise
-          const vane = Math.sin(u * Math.PI * 18) * 0.5 + 0.5;
-          const barb = fbm(u * 8, v * 12, 3);
-          height = vane * 0.65 + barb * 0.35;
-          rough = 0.42 + barb * 0.28;
-          break;
-        }
-        case 'scale': {
-          // Hex-ish tile bumps
-          const hx = u * 10;
-          const hy = v * 10 + ((Math.floor(hx) % 2) * 0.5);
-          const cx = hx - Math.floor(hx) - 0.5;
-          const cy = hy - Math.floor(hy) - 0.5;
-          const d = Math.sqrt(cx * cx + cy * cy);
-          height = 1 - Math.min(1, d * 2.2);
-          rough = 0.28 + (1 - height) * 0.25;
-          break;
-        }
-        case 'shell': {
-          const grain = fbm(u * 14, v * 14, 4);
-          height = grain;
-          rough = 0.35 + grain * 0.3;
-          break;
-        }
-        case 'ember': {
-          // Soft cellular glow grain
-          const cell = fbm(u * 7, v * 7, 5);
-          height = cell * 0.7 + 0.3;
-          rough = 0.35 + cell * 0.2;
-          break;
-        }
-        case 'wet': {
-          // Long horizontal streaks + low amplitude
-          const streak = Math.sin(v * Math.PI * 22 + fbm(u * 2, v * 2, 6) * 1.5) * 0.5 + 0.5;
-          height = 0.45 + streak * 0.2;
-          rough = 0.12 + streak * 0.18;
-          break;
-        }
-        case 'metal': {
-          // Brushed micro-scratches + grit
-          const brush = Math.sin(u * Math.PI * 40) * 0.5 + 0.5;
-          const grit = fbm(u * 20, v * 20, 7);
-          height = brush * 0.4 + grit * 0.6;
-          rough = 0.18 + grit * 0.35;
-          break;
-        }
-      }
-
-      // Finite-difference normal from height field neighbors
-      const hL = height; // local; approximate with noise offset
-      const hR = Math.min(1, Math.max(0, height + (hash2(x + 1, y, 9) - 0.5) * 0.08));
-      const hD = Math.min(1, Math.max(0, height + (hash2(x, y + 1, 10) - 0.5) * 0.08));
-      // Stronger directional derivative by re-sampling pattern along axes
-      let hX = height;
-      let hY = height;
-      {
-        const uu = (x + 1) / size;
-        const vv = (y + 1) / size;
-        // reuse cheap fbm deltas
-        hX = fbm(uu * 8, v * 8, 11 + kind.length);
-        hY = fbm(u * 8, vv * 8, 12 + kind.length);
-      }
       const strength =
-        kind === 'fur' ? 2.6 : kind === 'scale' ? 1.8 : kind === 'metal' ? 1.2 : 1.1;
-      let nx = (hL - hR + (height - hX)) * strength;
-      let ny = (hL - hD + (height - hY)) * strength;
+        kind === 'fur' ? 4.2 : kind === 'scale' ? 2.4 : kind === 'metal' ? 1.6 : kind === 'feather' ? 2.0 : 1.4;
+      let nx = (hL - hR) * strength;
+      let ny = (hD - hU) * strength;
       let nz = 1;
       const len = Math.hypot(nx, ny, nz) || 1;
       nx /= len;
@@ -148,6 +161,9 @@ function makeDetailMaps(kind: MaterialKind): { normal: THREE.Texture; roughness:
       nData[i + 1] = Math.floor((ny * 0.5 + 0.5) * 255);
       nData[i + 2] = Math.floor((nz * 0.5 + 0.5) * 255);
       nData[i + 3] = 255;
+
+      // silence unused local
+      void height;
 
       const rByte = Math.floor(Math.min(1, Math.max(0, rough)) * 255);
       rData[i] = rByte;
@@ -164,6 +180,8 @@ function makeDetailMaps(kind: MaterialKind): { normal: THREE.Texture; roughness:
   normal.generateMipmaps = true;
   normal.needsUpdate = true;
   normal.colorSpace = THREE.NoColorSpace;
+  // Anisotropic filtering when renderer attaches; mark intent for shell
+  normal.userData.anisotropyHint = kind === 'fur' ? 8 : 4;
 
   const roughness = new THREE.DataTexture(rData, size, size, THREE.RGBAFormat);
   roughness.wrapS = roughness.wrapT = THREE.RepeatWrapping;
@@ -181,7 +199,7 @@ function makeDetailMaps(kind: MaterialKind): { normal: THREE.Texture; roughness:
 function detailRepeat(kind: MaterialKind): number {
   switch (kind) {
     case 'fur':
-      return 5.5;
+      return 6.5;
     case 'feather':
       return 2.8;
     case 'scale':
@@ -213,21 +231,21 @@ export function makeSurfaceMaterial(opts: MaterialOpts): THREE.MeshStandardMater
       metalness ??= 0.0;
       emissive = opts.emissive ?? base;
       emissiveIntensity = opts.emissiveIntensity ?? 0.045;
-      normalScale = 1.35;
+      normalScale = 1.85;
       break;
     case 'feather':
       roughness ??= 0.55;
       metalness ??= 0.08;
       emissive = opts.emissive ?? base;
       emissiveIntensity = opts.emissiveIntensity ?? 0.1;
-      normalScale = 0.55;
+      normalScale = 0.75;
       break;
     case 'scale':
       roughness ??= 0.35;
       metalness ??= 0.22;
       emissive = opts.emissive ?? base;
       emissiveIntensity = opts.emissiveIntensity ?? 0.08;
-      normalScale = 0.9;
+      normalScale = 1.1;
       break;
     case 'shell':
       roughness ??= 0.42;
@@ -253,7 +271,7 @@ export function makeSurfaceMaterial(opts: MaterialOpts): THREE.MeshStandardMater
       metalness ??= 0.78;
       emissive = opts.emissive ?? base;
       emissiveIntensity = opts.emissiveIntensity ?? 0.08;
-      normalScale = 0.65;
+      normalScale = 0.8;
       break;
   }
 
@@ -277,6 +295,7 @@ export function makeSurfaceMaterial(opts: MaterialOpts): THREE.MeshStandardMater
     maps.roughness.repeat.set(rep, rep);
     mat.userData.materialKind = kind;
     mat.userData.hasDetail = true;
+    mat.userData.anisotropyHint = kind === 'fur' ? 8 : 4;
   }
 
   return mat;

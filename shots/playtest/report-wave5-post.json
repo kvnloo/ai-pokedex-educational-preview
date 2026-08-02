@@ -1,0 +1,21 @@
+{
+  "label": "wave5-post",
+  "timestamp": "2026-08-02T09:48:14.897Z",
+  "passed": 59,
+  "failed": 0,
+  "harness": "tools/playtest.mjs",
+  "battle_golden": { "passed": 126, "failed": 0 },
+  "typecheck": true,
+  "build": true,
+  "capture": {
+    "label": "wave5-post",
+    "black_frame": false,
+    "pass_hard_gates": true,
+    "hard_failed": [],
+    "luma_mean": 110.69890323801818,
+    "unique_samples": 55,
+    "near_black_frac": 0
+  },
+  "packages": ["W5-P1", "W5-P2", "W5-P3-S-struggle-typeless", "W5-P4"],
+  "notes": "Wave 5 post-land: typecheck+battle126+playtest59+build+capture wave5-post green. Struggle typeless, presented-frame profile, path grass corridor, Emberpup silhouette."
+}

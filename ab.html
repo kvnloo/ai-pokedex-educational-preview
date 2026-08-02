@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Research A/B (local only)</title>
+  <title>Research A/B (local only — not ship)</title>
   <style>
     * { box-sizing: border-box; margin: 0; }
     html, body { height: 100%; background: #0a0f18; color: #e8eef7; font-family: system-ui, sans-serif; }
@@ -24,9 +24,8 @@
     <div class="pill">research · not ship</div>
     <h1>A/B research viewer removed from ship surface</h1>
     <p>
-      Official-name plates, TW keyframe crops, and Hunyuan research GLBs are
-      <strong>study-only</strong>. They must not ship under <code>public/</code>
-      or the production Vite multi-page build.
+      Study-only plates, keyframe crops, and research meshes must not ship under
+      <code>public/</code> or the production Vite multi-page build.
     </p>
     <p>
       Mode-1 stills come from <code>node tools/capture.mjs</code> against the
@@ -34,9 +33,8 @@
       <code>browser-threejs</code>.
     </p>
     <p>
-      Local mesh QA / research assets: keep under
-      <code>/mnt/zer0models/…</code> or a non-public research tree — never
-      copy into <code>shots/</code> as certified frames.
+      Local mesh QA / research assets: keep under a non-public research tree —
+      never copy into <code>shots/</code> as certified frames.
     </p>
     <p><a href="/">← main demo (ship)</a></p>
   </main>

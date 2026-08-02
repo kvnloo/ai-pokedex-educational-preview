@@ -3,9 +3,10 @@
  * Fail-closed ship-boundary gate (categories I/J).
  *
  * Scans dist/ (or --dir) for research warehouse leaks and official franchise
- * identity strings. Exit 0 only when the production surface is game-pack clean.
+ * identity strings. Also fails closed if public/ still hosts warehouse
+ * content or research ab/ surfaces (product-tree hygiene).
  *
- * Decodes JSON \\uXXXX escapes so "Pok\\u00e9mon" cannot hide from string gates.
+ * Decodes JSON \\uXXXX escapes so hidden unicode escapes cannot evade gates.
  *
  * Usage:
  *   node tools/check-ship-boundary.mjs
@@ -14,8 +15,10 @@
  */
 import {
   existsSync,
+  lstatSync,
   readdirSync,
   readFileSync,
+  readlinkSync,
   statSync,
 } from 'node:fs';
 import { dirname, join, relative, sep } from 'node:path';
@@ -128,7 +131,7 @@ function isTextFile(p) {
 
 /**
  * Expand \\uXXXX (and \\xHH) escapes so bundled JSON/JS cannot hide
- * "Pokémon" as "Pok\\u00e9mon" from raw-text gates.
+ * franchise identity strings from raw-text gates.
  */
 function decodeUnicodeEscapes(text) {
   let out = text.replace(/\\u([0-9a-fA-F]{4})/g, (_, h) =>
@@ -137,7 +140,6 @@ function decodeUnicodeEscapes(text) {
   out = out.replace(/\\x([0-9a-fA-F]{2})/g, (_, h) =>
     String.fromCharCode(parseInt(h, 16)),
   );
-  // JSON-style surrogate pairs already handled by two \\u replacements → UTF-16
   return out;
 }
 
@@ -157,8 +159,86 @@ function textsToScan(raw, filePath) {
   return [...set];
 }
 
+/** Product-tree hygiene: public/ must not host warehouse or research ab. */
+function checkPublicSurface() {
+  const pub = join(ROOT, 'public');
+  if (!existsSync(pub)) return;
+
+  const contentPath = join(pub, 'content');
+  if (existsSync(contentPath)) {
+    let isLink = false;
+    try {
+      isLink = lstatSync(contentPath).isSymbolicLink();
+    } catch {
+      /* */
+    }
+    if (isLink) {
+      let target = '';
+      try {
+        target = readlinkSync(contentPath);
+      } catch {
+        /* */
+      }
+      failures.push(
+        `public/content is a symlink${target ? ` → ${target}` : ''} (warehouse leak on product surface)`,
+      );
+    } else {
+      // Directory: only content/game allowed under public/content if present
+      try {
+        for (const name of readdirSync(contentPath)) {
+          if (name === 'game') continue;
+          failures.push(
+            `public/content/${name}: warehouse/research not allowed under public/`,
+          );
+        }
+      } catch {
+        failures.push('public/content present but unreadable');
+      }
+    }
+  }
+
+  const abPath = join(pub, 'ab');
+  if (existsSync(abPath)) {
+    failures.push('public/ab present: research A/B surface must not live under public/');
+  }
+}
+
+function scanTree(root, label) {
+  if (!existsSync(root)) return;
+  const files = walk(root);
+  for (const abs of files) {
+    const rel = relative(root, abs);
+    const pathHit = pathHasForbidden(rel);
+    if (pathHit) {
+      failures.push(`${label}/${rel}: ${pathHit}`);
+      continue;
+    }
+    if (!isTextFile(abs)) continue;
+    let raw;
+    try {
+      const buf = readFileSync(abs);
+      if (buf.length > 8 * 1024 * 1024) continue;
+      raw = buf.toString('utf8');
+    } catch {
+      continue;
+    }
+    const variants = textsToScan(raw, abs);
+    outer: for (const text of variants) {
+      for (const { re, label: idLabel } of FORBIDDEN_STRINGS) {
+        if (re.test(text)) {
+          failures.push(`${label}/${rel}: contains forbidden identity "${idLabel}"`);
+          break outer;
+        }
+      }
+    }
+  }
+}
+
 function main() {
   console.log(`[check-ship-boundary] scanning ${distDir}`);
+
+  // Product-tree hygiene first (public/)
+  checkPublicSurface();
 
   if (!existsSync(distDir)) {
     console.error(
@@ -199,9 +279,9 @@ function main() {
     }
     const variants = textsToScan(raw, abs);
     outer: for (const text of variants) {
-      for (const { re, label } of FORBIDDEN_STRINGS) {
+      for (const { re, label: idLabel } of FORBIDDEN_STRINGS) {
         if (re.test(text)) {
-          failures.push(`${rel}: contains forbidden identity "${label}"`);
+          failures.push(`${rel}: contains forbidden identity "${idLabel}"`);
           break outer;
         }
       }
@@ -217,6 +297,10 @@ function main() {
     }
   }
 
+  // Optional: ab.html at repo root may exist as local research stub — do not
+  // require its absence, but if it ships into dist it is already forbidden via
+  // rollup input exclusion + ab/ path rules.
+
   if (failures.length) {
     console.error(`[check-ship-boundary] FAIL (${failures.length}):`);
     for (const f of failures.slice(0, 40)) console.error(`  - ${f}`);
@@ -224,7 +308,9 @@ function main() {
     process.exit(1);
   }
 
-  console.log('[check-ship-boundary] OK — dist is game-pack clean (no warehouse / official names).');
+  console.log(
+    '[check-ship-boundary] OK — dist is game-pack clean; public/ free of warehouse/ab.',
+  );
   process.exit(0);
 }
 

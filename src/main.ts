@@ -7,6 +7,7 @@ import * as THREE from 'three';
 import {
   buildBattler,
   createBattle,
+  createBattleFromParty,
   executeTurn,
   effectiveStat,
   forceSwitchPlayer,
@@ -25,10 +26,11 @@ import {
   isOnHealPad,
   createDefaultHealPad,
   cameraCollisionDist,
+  GRASS_PATH_HALF,
   type ExploreState,
 } from './world/explore.ts';
 import { attemptCatch, speciesCatchRate } from './battle/catch.ts';
-import { createParty, healParty, addToParty, partyCanAdd, syncBattlerToParty, type PartyMember } from './battle/party.ts';
+import { createParty, healParty, addToParty, partyCanAdd, syncBattlerToParty, leadIndex, type PartyMember } from './battle/party.ts';
 import {
   makeCreatureMesh,
   SPECIES_COLOR,
@@ -258,11 +260,11 @@ async function boot(): Promise<void> {
   // Soft follow state (lagged yaw + lerped position + collision pull-in)
   const camFollow = {
     yaw: 0,
-    pos: new THREE.Vector3(0, 2.15, 4.2),
-    look: new THREE.Vector3(0, 0.75, 0),
-    // Intimate third-person — creature large in frame (not crane over empty plane)
-    dist: 3.35,
-    height: 2.05,
+    pos: new THREE.Vector3(0, 2.65, 5.4),
+    look: new THREE.Vector3(0, 0.85, 0),
+    // Soft third-person: room for route + grass band + landmarks in stills
+    dist: 4.85,
+    height: 2.55,
     ready: false,
   };
 
@@ -448,8 +450,8 @@ async function boot(): Promise<void> {
   eliteOrb.castShadow = true;
   scene.add(eliteOrb);
 
-  // Tall grass risk band — path corridor |x|<0.95 clear; denser sides; dark undergrowth
-  const grassColors = [0x3d8a4a, 0x2f6f3c, 0x4a9a58, 0x286838, 0x55a864, 0x347844];
+  // Tall grass risk strip — path corridor clear; multi-blade clumps; dark undergrowth flanks
+  const grassColors = [0x3d8a4a, 0x2f6f3c, 0x4a9a58, 0x286838, 0x55a864, 0x347844, 0x3a7a48];
   const grassMats = grassColors.map(
     (gCol) =>
       new THREE.MeshStandardMaterial({
@@ -457,49 +459,60 @@ async function boot(): Promise<void> {
         roughness: 0.82,
         metalness: 0.02,
         emissive: gCol,
-        emissiveIntensity: 0.03,
+        emissiveIntensity: 0.04,
       }),
   );
-  // Dark undergrowth carpet (reads risk vs lawn path)
-  const undergrowth = new THREE.Mesh(
-    new THREE.CircleGeometry(2.7, 28),
-    new THREE.MeshStandardMaterial({
-      color: 0x1e3f28,
-      roughness: 0.95,
-      metalness: 0,
-    }),
-  );
-  undergrowth.rotation.x = -Math.PI / 2;
-  undergrowth.position.set(0, 0.025, -1.2);
-  undergrowth.receiveShadow = true;
-  scene.add(undergrowth);
+  // Continuous undergrowth flanks (path intentionally clear) — readable risk strip vs lawn
+  const underMat = new THREE.MeshStandardMaterial({
+    color: 0x1a3824,
+    roughness: 0.96,
+    metalness: 0,
+  });
+  for (const side of [-1, 1] as const) {
+    const undergrowth = new THREE.Mesh(new THREE.PlaneGeometry(1.75, 5.1), underMat);
+    undergrowth.rotation.x = -Math.PI / 2;
+    // Centers sit outside path half so strip reads continuous on each flank
+    undergrowth.position.set(side * (GRASS_PATH_HALF + 0.88), 0.022, -1.2);
+    undergrowth.receiveShadow = true;
+    scene.add(undergrowth);
+  }
 
   const grassBlades: THREE.Mesh[] = [];
   const grassBaseRot: number[] = [];
-  const GRASS_N = useMedium ? 48 : 96;
-  const grassGeo = new THREE.ConeGeometry(0.09, 0.95, useMedium ? 4 : 5);
+  const GRASS_N = useMedium ? 110 : 220;
+  const grassGeo = new THREE.ConeGeometry(0.075, 0.88, useMedium ? 4 : 5);
+  const grassGeoTall = new THREE.ConeGeometry(0.06, 1.15, useMedium ? 3 : 4);
   let placed = 0;
   let attempts = 0;
-  while (placed < GRASS_N && attempts < GRASS_N * 8) {
+  while (placed < GRASS_N && attempts < GRASS_N * 12) {
     attempts++;
-    // Dense band around zone; reject path bleed |x|<0.95
-    const a = Math.random() * Math.PI * 2;
-    const r = 0.55 + Math.sqrt(Math.random()) * 2.15;
-    const gx = Math.cos(a) * r;
-    const gz = Math.sin(a) * r - 1.2;
-    if (Math.abs(gx) < 0.95) continue;
-    const mat = grassMats[placed % grassMats.length];
-    const blade = new THREE.Mesh(grassGeo, mat);
-    blade.position.set(gx, 0.42 + Math.random() * 0.18, gz);
-    blade.rotation.z = (Math.random() - 0.5) * 0.28;
-    blade.scale.y = 1.05 + Math.random() * 0.65;
-    blade.scale.x = 0.9 + Math.random() * 0.35;
-    // Medium: never cast (F budget); high: sparse casters
-    blade.castShadow = !useMedium && placed % 6 === 0;
-    grassBaseRot.push(blade.rotation.z);
-    grassBlades.push(blade);
-    scene.add(blade);
-    placed++;
+    // Dense rectangular band matching grass.half (~2.6) around cz=-1.2; reject path
+    const gx = (Math.random() * 2 - 1) * 2.55;
+    const gz = -1.2 + (Math.random() * 2 - 1) * 2.45;
+    if (Math.abs(gx) < GRASS_PATH_HALF) continue;
+    // Prefer flanks density (more blades near path edge for silhouette)
+    if (Math.abs(gx) > 2.35 && Math.random() < 0.35) continue;
+    const clump = 1 + ((placed + attempts) % 3); // multi-blade volume clumps
+    for (let c = 0; c < clump && placed < GRASS_N; c++) {
+      const mat = grassMats[placed % grassMats.length];
+      const tall = c === 0 && Math.random() > 0.45;
+      const blade = new THREE.Mesh(tall ? grassGeoTall : grassGeo, mat);
+      const ox = gx + (c - (clump - 1) * 0.5) * 0.11 + (Math.random() - 0.5) * 0.06;
+      const oz = gz + (Math.random() - 0.5) * 0.12;
+      if (Math.abs(ox) < GRASS_PATH_HALF) continue;
+      const h = tall ? 0.52 + Math.random() * 0.22 : 0.38 + Math.random() * 0.22;
+      blade.position.set(ox, h * 0.5, oz);
+      blade.rotation.z = (Math.random() - 0.5) * 0.32;
+      blade.rotation.y = Math.random() * Math.PI;
+      blade.scale.y = 0.95 + Math.random() * 0.55;
+      blade.scale.x = 0.85 + Math.random() * 0.4;
+      blade.scale.z = 0.85 + Math.random() * 0.35;
+      blade.castShadow = !useMedium && placed % 8 === 0;
+      grassBaseRot.push(blade.rotation.z);
+      grassBlades.push(blade);
+      scene.add(blade);
+      placed++;
+    }
   }
 
   // Local rustle particles (part telegraph under feet — not sway-only)
@@ -691,20 +704,38 @@ async function boot(): Promise<void> {
     if (sub) sub.textContent = can ? 'Switch partner' : party.length > 1 ? 'Busy…' : 'Need 2+ party';
   }
 
-  function flashHit(kind: 'hit' | 'se' | 'nve' | 'crit'): void {
+  function flashHit(kind: 'hit' | 'se' | 'nve' | 'crit', opts?: { layer?: boolean }): void {
     if (!flash) return;
-    flash.classList.remove('se', 'nve', 'crit', 'on');
+    if (!opts?.layer) {
+      flash.classList.remove('se', 'nve', 'crit', 'on');
+    }
     if (kind === 'se') flash.classList.add('se');
     else if (kind === 'nve') flash.classList.add('nve');
     else if (kind === 'crit') flash.classList.add('crit');
     void flash.offsetWidth;
     flash.classList.add('on');
-    // Battle cam punch on impact
-    battleCam.punch = kind === 'crit' ? 0.55 : kind === 'se' ? 0.42 : 0.28;
+    // Battle cam punch on impact (crit stacks over SE)
+    const punch = kind === 'crit' ? 0.55 : kind === 'se' ? 0.42 : 0.28;
+    battleCam.punch = Math.max(battleCam.punch, punch);
     if (kind === 'se' || kind === 'crit') battleCam.lowAngle = 0.25;
     setTimeout(() => {
       flash.classList.remove('on', 'se', 'nve', 'crit');
     }, kind === 'crit' ? 140 : 90);
+  }
+
+  /** Stack effectiveness tint + crit accent within 100ms of hit (not mutually exclusive). */
+  function flashEffectivenessAndCrit(eff: number, crit: boolean): void {
+    if (eff >= 2) flashHit('se');
+    else if (eff > 0 && eff <= 0.5) flashHit('nve');
+    else if (!crit) flashHit('hit');
+    if (crit) {
+      // Layer crit within same impact window (≤100ms of hit)
+      if (eff >= 2 || (eff > 0 && eff <= 0.5)) {
+        setTimeout(() => flashHit('crit', { layer: true }), 45);
+      } else {
+        flashHit('crit');
+      }
+    }
   }
 
   function battlerFromSpecies(speciesId: string, level: number, uid: string): Battler {
@@ -858,14 +889,28 @@ async function boot(): Promise<void> {
     battleCam.lowAngle = 0.4;
     battleCam.lookY = 0.7;
 
-    const leadBattler =
-      party.length > 0
-        ? { ...party[0].battler, id: 'player' }
-        : battlerFromSpecies(playerSpeciesId, raw.route.playerDefaultLevel, 'player');
-    playerSpeciesId = leadBattler.speciesId || playerSpeciesId;
-
+    // Conscious lead — never open with fainted party[0] after force-switch / mid-party KO
+    if (party.length > 0) {
+      const li = leadIndex(party);
+      const lead = party[li]?.battler;
+      if (!lead || lead.hp <= 0 || lead.fainted) {
+        // Full black-out: refuse battle, heal + warp
+        healParty(party);
+        warpToHealPad();
+        mode = 'explore';
+        showToast('No conscious partners — healed at the pad.');
+        return;
+      }
+      playerSpeciesId = lead.speciesId || playerSpeciesId;
+    }
     const foe = battlerFromSpecies(foeSpecies, foeLevel, kind === 'wild' ? 'wild' : kind);
-    battle = createBattle({ player: leadBattler, foe, typeChart: raw.typeChart });
+    if (party.length > 0) {
+      battle = createBattleFromParty(party, foe, raw.typeChart);
+      playerSpeciesId = battle.player.speciesId || playerSpeciesId;
+    } else {
+      const leadBattler = battlerFromSpecies(playerSpeciesId, raw.route.playerDefaultLevel, 'player');
+      battle = createBattle({ player: leadBattler, foe, typeChart: raw.typeChart, playerPartyIndex: 0 });
+    }
 
     dispEnemyHp = battle.foe.hp;
     dispAllyHp = battle.player.hp;
@@ -1099,17 +1144,27 @@ async function boot(): Promise<void> {
     moveMenu.classList.remove('hidden');
     battleMenu?.classList.add('hidden');
     const pps = battle.player.movePp;
+    let anyPp = false;
     battle.player.moves.forEach((m, i) => {
       const btn = document.createElement('button');
       btn.className = 'btn';
       const ppLeft = pps ? pps[i]! : m.pp;
+      if (ppLeft > 0) anyPp = true;
       const ppMax = m.pp;
       btn.innerHTML = `${m.name}<span class="sub">${m.type} · ${m.category === 'status' ? 'status' : `pwr ${m.power ?? '—'}`} · PP ${ppLeft}/${ppMax}</span>`;
-      // 0-PP moves disabled (Struggle path is engine-side when all empty)
+      // 0-PP moves disabled; Struggle offered when all empty (no Fight soft-lock)
       btn.disabled = busy || ppLeft <= 0;
       btn.onclick = () => void doPlayerMove(i);
       moveMenu.appendChild(btn);
     });
+    if (!anyPp && battle.player.moves.length > 0) {
+      const str = document.createElement('button');
+      str.className = 'btn';
+      str.innerHTML = `Struggle<span class="sub">desperate · typeless · recoil</span>`;
+      str.disabled = busy;
+      str.onclick = () => void doPlayerMove(0, true);
+      moveMenu.appendChild(str);
+    }
     const back = document.createElement('button');
     back.className = 'btn ghost';
     back.textContent = 'Back';
@@ -1166,18 +1221,30 @@ async function boot(): Promise<void> {
     moveMenu.appendChild(back);
   }
 
-  /** Lunge attacker toward target over ms; returns at impact (~end of lunge) */
-  async function playLunge(who: 'player' | 'foe', ms = 140): Promise<void> {
+  /**
+   * Lunge attacker; fires onApex at punch peak (u≈0.5), then returns to rest.
+   * Juice sandwich: flash+HP at apex, not at rest.
+   */
+  async function playLunge(
+    who: 'player' | 'foe',
+    ms = 140,
+    onApex?: () => void,
+  ): Promise<void> {
     const mesh = who === 'player' ? playerMesh : foeMesh;
     const st = mesh ? getClipState(mesh) : undefined;
     if (st) playAttack(st);
     const t0 = performance.now();
+    let apexDone = false;
     await new Promise<void>((resolve) => {
       const step = (now: number) => {
         const u = clamp((now - t0) / ms, 0, 1);
         const punch = Math.sin(u * Math.PI);
         if (who === 'player') playerLunge = punch * 0.55;
         else foeLunge = punch * 0.55;
+        if (!apexDone && u >= 0.48) {
+          apexDone = true;
+          onApex?.();
+        }
         if (u < 1) requestAnimationFrame(step);
         else {
           if (who === 'player') playerLunge = 0;
@@ -1232,19 +1299,84 @@ async function boot(): Promise<void> {
     };
   }
 
+  /** Parse lower-atk-1 / raise-def-1 style status effects (matches battle engine). */
+  function parseShellStatusEffect(
+    effect: string | undefined,
+  ): { stat: 'atk' | 'def' | 'spa' | 'spd' | 'spe'; delta: number } | null {
+    if (!effect) return null;
+    const m = /^(lower|raise)-([a-z]+)-(\d+)$/i.exec(effect);
+    if (!m) return null;
+    const dir = m[1]!.toLowerCase() === 'lower' ? -1 : 1;
+    const rawStat = m[2]!.toLowerCase();
+    const map: Record<string, 'atk' | 'def' | 'spa' | 'spd' | 'spe'> = {
+      atk: 'atk',
+      attack: 'atk',
+      def: 'def',
+      defense: 'def',
+      spa: 'spa',
+      spatk: 'spa',
+      spd: 'spd',
+      spdef: 'spd',
+      spe: 'spe',
+      speed: 'spe',
+    };
+    const stat = map[rawStat];
+    if (!stat) return null;
+    const n = Math.max(1, parseInt(m[3]!, 10) || 1);
+    return { stat, delta: dir * n };
+  }
+
+  function applyShellStage(
+    target: Battler,
+    side: 'player' | 'foe',
+    stat: 'atk' | 'def' | 'spa' | 'spd' | 'spe',
+    delta: number,
+    moveName: string,
+  ): string {
+    if (!target.stages) target.stages = { atk: 0, def: 0, spa: 0, spd: 0, spe: 0 };
+    const before = target.stages[stat] ?? 0;
+    const after = Math.max(-6, Math.min(6, before + delta));
+    target.stages[stat] = after;
+    const applied = after - before;
+    if (applied === 0) {
+      const msg = `${target.name}'s ${stat.toUpperCase()} won't go any ${delta < 0 ? 'lower' : 'higher'}!`;
+      battle?.log.push({ type: 'status', side, stageStat: stat, stageDelta: 0, message: msg });
+      return msg;
+    }
+    const dir = applied < 0 ? 'fell' : 'rose';
+    const hard = Math.abs(applied) >= 2 ? ' sharply' : '';
+    const msg = `${target.name}'s ${stat.toUpperCase()} ${dir}${hard}! (${moveName})`;
+    battle?.log.push({ type: 'status', side, stageStat: stat, stageDelta: applied, message: msg });
+    return msg;
+  }
+
   /** Foe acts alone (after catch fail or voluntary switch). Shell-side half-turn. */
   async function resolveFoeOnlyTurn(): Promise<void> {
     if (!battle || battle.over) return;
     const foeIdx = pickFoeMove(battle.foe, battle.player, raw.typeChart);
-    const move = battle.foe.moves[foeIdx];
+    let move = battle.foe.moves[foeIdx];
     if (!move) return;
 
-    // Spend PP if available
+    // Spend PP if available; 0-PP → Struggle
     if (!battle.foe.movePp || battle.foe.movePp.length !== battle.foe.moves.length) {
       battle.foe.movePp = battle.foe.moves.map((m) => m.pp);
     }
     const pp = battle.foe.movePp[foeIdx]!;
+    let usesStruggle = false;
     if (pp > 0) battle.foe.movePp[foeIdx] = pp - 1;
+    else {
+      usesStruggle = true;
+      move = {
+        id: 'struggle',
+        name: 'Struggle',
+        type: 'normal',
+        category: 'physical',
+        power: 50,
+        accuracy: null,
+        pp: 1,
+        priority: 0,
+      };
+    }
 
     battle.log.push({
       type: 'move',
@@ -1269,23 +1401,36 @@ async function boot(): Promise<void> {
       }
     }
 
-    if (move.category === 'status' || move.power == null || move.power <= 0) {
-      setMsg(`${battle.foe.name} used ${move.name}!`);
-      await playLunge('foe', 120);
+    if (!usesStruggle && (move.category === 'status' || move.power == null || move.power <= 0)) {
+      // Apply status stage deltas (same contract as executeTurn)
+      const parsed = parseShellStatusEffect(move.effect);
+      let statusMsg = `${battle.foe.name} used ${move.name}!`;
+      if (parsed) {
+        const tSide: 'player' | 'foe' = parsed.delta < 0 ? 'player' : 'foe';
+        const target = tSide === 'player' ? battle.player : battle.foe;
+        statusMsg = applyShellStage(target, tSide, parsed.stat, parsed.delta, move.name);
+      } else {
+        battle.log.push({ type: 'message', side: 'foe', message: `${move.name} had no effect.` });
+        statusMsg = `${move.name} had no effect.`;
+      }
+      await playLunge('foe', 120, () => {
+        setMsg(statusMsg);
+      });
       await waitMs(280);
+      syncBattleHud();
       return;
     }
 
     const atk = effectiveStat(battle.foe, move.category === 'physical' ? 'atk' : 'spa');
     const def = effectiveStat(battle.player, move.category === 'physical' ? 'def' : 'spd');
-    const stab = stabMultiplier(move.type, battle.foe.types);
-    const eff = typeEffectiveness(move.type, battle.player.types, battle.typeChart);
+    const stab = usesStruggle ? 1 : stabMultiplier(move.type, battle.foe.types);
+    const eff = usesStruggle ? 1 : typeEffectiveness(move.type, battle.player.types, battle.typeChart);
     const crit = rollCritical(Math.random());
     const result = calcDamage({
       level: battle.foe.level,
       attack: atk,
       defense: def,
-      power: move.power,
+      power: move.power!,
       stab,
       typeEffectiveness: eff,
       random: rollDamageRandom(Math.random()),
@@ -1303,24 +1448,25 @@ async function boot(): Promise<void> {
       message: `${battle.foe.name} hits ${battle.player.name} for ${dealt}!`,
     });
 
-    await playLunge('foe', 130);
-    if (crit.isCrit) flashHit('crit');
-    else if (eff >= 2) flashHit('se');
-    else if (eff > 0 && eff <= 0.5) flashHit('nve');
-    else flashHit('hit');
-
-    const dur = hpDrainMs(dealt, battle.player.maxHp);
-    dispAllyHp = battle.player.hp;
-    setHpBar(allyHp, dispAllyHp, battle.player.maxHp, dur);
-    if (allyHpText) allyHpText.textContent = `${battle.player.hp}/${battle.player.maxHp}`;
-    setMsg(
-      crit.isCrit
-        ? `Critical hit! ${dealt} damage!`
-        : eff >= 2
-          ? `It's super effective! (${dealt})`
-          : `${battle.foe.name} hits for ${dealt}!`,
-    );
-    await waitMs(dur);
+    let impactDur = 0;
+    await playLunge('foe', 130, () => {
+      if (!battle) return;
+      flashEffectivenessAndCrit(eff, crit.isCrit);
+      impactDur = hpDrainMs(dealt, battle.player.maxHp);
+      dispAllyHp = battle.player.hp;
+      setHpBar(allyHp, dispAllyHp, battle.player.maxHp, impactDur);
+      if (allyHpText) allyHpText.textContent = `${battle.player.hp}/${battle.player.maxHp}`;
+      setMsg(
+        crit.isCrit && eff >= 2
+          ? `Critical hit! Super effective! (${dealt})`
+          : crit.isCrit
+            ? `Critical hit! ${dealt} damage!`
+            : eff >= 2
+              ? `It's super effective! (${dealt})`
+              : `${battle.foe.name} hits for ${dealt}!`,
+      );
+    });
+    await waitMs(Math.max(impactDur, 80));
 
     if (battle.player.hp <= 0) {
       battle.player.fainted = true;
@@ -1341,12 +1487,21 @@ async function boot(): Promise<void> {
     }
   }
 
-  async function doPlayerMove(index: number): Promise<void> {
+  async function doPlayerMove(index: number, forceStruggle = false): Promise<void> {
     if (!battle || busy || battle.over) return;
     const pp = battle.player.movePp;
-    if (pp && (pp[index] ?? 0) <= 0) {
-      showToast('No PP left!');
-      return;
+    const allEmpty =
+      !!pp &&
+      battle.player.moves.length > 0 &&
+      battle.player.moves.every((_, i) => (pp[i] ?? 0) <= 0);
+    if (!forceStruggle && pp && (pp[index] ?? 0) <= 0) {
+      if (allEmpty) {
+        // Fall through as Struggle via engine 0-PP substitute
+        forceStruggle = true;
+      } else {
+        showToast('No PP left!');
+        return;
+      }
     }
     busy = true;
     updateSwapButton();
@@ -1358,6 +1513,7 @@ async function boot(): Promise<void> {
     const logStart = battle.log.length;
     const foeIdx = pickFoeMove(battle.foe, battle.player, raw.typeChart);
     // Live rolls: omit pinned random so crit/acc/damage independent
+    // 0-PP / Struggle: engine substitutes when chosen move PP is 0
     executeTurn(battle, {
       playerMoveIndex: index,
       foeMoveIndex: foeIdx,
@@ -1368,68 +1524,65 @@ async function boot(): Promise<void> {
     const hits = collectHits(battle.log, logStart);
     const msgs = battle.log.slice(logStart).filter((e) => e.message).map((e) => e.message!);
 
-    // Lunge the attacker for each hit (hit.side = target)
+    // Lunge the attacker; flash+HP at apex (u≈0.5), not at rest
     let firstAttackMarked = false;
     for (const hit of hits) {
       const attacker: 'player' | 'foe' = hit.side === 'foe' ? 'player' : 'foe';
-      const lungeP = playLunge(attacker, attacker === 'player' ? 150 : 130);
-      if (!firstAttackMarked) {
-        firstAttackMarked = true;
-        requestAnimationFrame(() => {
-          mark('first-attack-frame');
-          measureLog('move→first-attack-frame', 'move-confirm', 'first-attack-frame', 180);
-        });
-      }
-      await lungeP;
-
       const crit = isCritEvent(hit.critical);
       const eff = hit.effectiveness ?? 1;
-      if (crit) {
-        flashHit('crit');
-        battleMsg?.classList.add('eff-crit');
-        setMsg(hit.message ? `${hit.message}` : 'Critical hit!');
-        if (hit.message && !/critical/i.test(hit.message)) {
-          setMsg(`${hit.message} Critical hit!`);
+      let drainMs = 0;
+      await playLunge(attacker, attacker === 'player' ? 150 : 130, () => {
+        if (!firstAttackMarked) {
+          firstAttackMarked = true;
+          mark('first-attack-frame');
+          measureLog('move→first-attack-frame', 'move-confirm', 'first-attack-frame', 180);
         }
-      } else if (eff >= 2) {
-        flashHit('se');
-        battleMsg?.classList.add('eff-se');
-        setMsg(hit.message ?? "It's super effective!");
-      } else if (eff > 0 && eff <= 0.5) {
-        flashHit('nve');
-        battleMsg?.classList.add('eff-nve');
-        setMsg(hit.message ?? "It's not very effective…");
-      } else {
-        flashHit('hit');
-        setMsg(hit.message ?? (msgs.join(' ') || '…'));
-      }
+        flashEffectivenessAndCrit(eff, crit);
+        if (crit) battleMsg?.classList.add('eff-crit');
+        if (eff >= 2) battleMsg?.classList.add('eff-se');
+        else if (eff > 0 && eff <= 0.5) battleMsg?.classList.add('eff-nve');
 
-      if (hit.side === 'foe') {
-        const dur = hpDrainMs(hit.damage, battle.foe.maxHp);
-        dispEnemyHp = battle.foe.hp;
-        setHpBar(enemyHp, dispEnemyHp, battle.foe.maxHp, dur);
-        await waitMs(dur);
-      } else if (hit.damage > 0) {
-        const dur = hpDrainMs(hit.damage, battle.player.maxHp);
-        dispAllyHp = battle.player.hp;
-        setHpBar(allyHp, dispAllyHp, battle.player.maxHp, dur);
-        if (allyHpText) allyHpText.textContent = `${battle.player.hp}/${battle.player.maxHp}`;
-        await waitMs(dur);
-      } else {
-        await waitMs(220);
-      }
+        if (crit && eff >= 2) {
+          setMsg(hit.message ? `${hit.message} Critical hit!` : "Critical hit! It's super effective!");
+        } else if (crit) {
+          setMsg(
+            hit.message && !/critical/i.test(hit.message)
+              ? `${hit.message} Critical hit!`
+              : hit.message ?? 'Critical hit!',
+          );
+        } else if (eff >= 2) {
+          setMsg(hit.message ?? "It's super effective!");
+        } else if (eff > 0 && eff <= 0.5) {
+          setMsg(hit.message ?? "It's not very effective…");
+        } else {
+          setMsg(hit.message ?? (msgs.join(' ') || '…'));
+        }
+
+        if (hit.side === 'foe') {
+          drainMs = hpDrainMs(hit.damage, battle!.foe.maxHp);
+          dispEnemyHp = battle!.foe.hp;
+          setHpBar(enemyHp, dispEnemyHp, battle!.foe.maxHp, drainMs);
+        } else if (hit.damage > 0) {
+          drainMs = hpDrainMs(hit.damage, battle!.player.maxHp);
+          dispAllyHp = battle!.player.hp;
+          setHpBar(allyHp, dispAllyHp, battle!.player.maxHp, drainMs);
+          if (allyHpText) allyHpText.textContent = `${battle!.player.hp}/${battle!.player.maxHp}`;
+        } else {
+          drainMs = 220;
+        }
+      });
+      // Hold contact / drain after apex; lunge already zeroed at end of playLunge
+      await waitMs(Math.max(drainMs, 80));
       clearEffClasses();
     }
 
     if (hits.length === 0) {
-      // Status / miss — still play player lunge for juice + mode-5 mark
-      const lungeP = playLunge('player', 150);
-      requestAnimationFrame(() => {
+      // Status / miss — apex-timed first-attack-frame mark
+      await playLunge('player', 150, () => {
         mark('first-attack-frame');
         measureLog('move→first-attack-frame', 'move-confirm', 'first-attack-frame', 180);
+        setMsg(msgs.join(' ') || '…');
       });
-      await lungeP;
-      setMsg(msgs.join(' ') || '…');
       await waitMs(280);
     }
 
@@ -1817,9 +1970,11 @@ async function boot(): Promise<void> {
       camFollow.pos.z += (idealZ - camFollow.pos.z) * posBlend;
       camFollow.pos.y += (idealY - camFollow.pos.y) * posBlend;
 
-      const lx = playerMesh.position.x;
-      const ly = 0.7;
-      const lz = playerMesh.position.z;
+      // Look slightly ahead of player toward facing so route + grass + landmarks read in stills
+      const lookLead = 1.35;
+      const lx = playerMesh.position.x + Math.sin(camFollow.yaw) * lookLead;
+      const ly = 0.85;
+      const lz = playerMesh.position.z + Math.cos(camFollow.yaw) * lookLead;
       camFollow.look.x += (lx - camFollow.look.x) * lookBlend;
       camFollow.look.y += (ly - camFollow.look.y) * lookBlend;
       camFollow.look.z += (lz - camFollow.look.z) * lookBlend;
@@ -1832,10 +1987,12 @@ async function boot(): Promise<void> {
       playerMesh.position.z = explore.pos.z;
     } else if (mode === 'battle') {
       playerContact.visible = true;
-      // Base XZ; clip attack writes local Z; shell lunge composes after tick (no zero overwrite)
+      // Staging base Z; clip may write relative Z delta; shell lunge composes after tick
+      const PLAYER_BATTLE_Z = 1.4;
+      const FOE_BATTLE_Z = -0.8;
       if (playerMesh) {
         playerMesh.position.x = 1.8;
-        playerMesh.position.z = 1.4;
+        playerMesh.position.z = 0; // clip writes Z delta from 0
         playerMesh.position.y = -playerSink * 1.1;
         playerMesh.rotation.y = -0.55;
         if (playerSink > 0) {
@@ -1849,7 +2006,7 @@ async function boot(): Promise<void> {
       }
       if (foeMesh) {
         foeMesh.position.x = -1.6;
-        foeMesh.position.z = -0.8;
+        foeMesh.position.z = 0;
         foeMesh.position.y = -foeSink * 1.1;
         foeMesh.rotation.y = 0.55;
         if (foeSink > 0) {
@@ -1862,15 +2019,18 @@ async function boot(): Promise<void> {
         }
       }
       tickMeshClips(dt, t);
-      // Compose shell lunge on top of clip Z (attack clip uses -Z toward camera/foe)
+      // baseZ + clipΔ + shell lunge (never absolute-overwrite staging)
       if (playerMesh) {
+        const clipZ = playerMesh.position.z; // attack: -lunge; idle: 0
         playerMesh.position.x = 1.8 - playerLunge * 0.9;
-        playerMesh.position.z = playerMesh.position.z - playerLunge * 0.55;
+        playerMesh.position.z = PLAYER_BATTLE_Z + clipZ - playerLunge * 0.55;
         playerContact.position.set(playerMesh.position.x, 0.03, playerMesh.position.z);
       }
       if (foeMesh) {
+        const clipZ = foeMesh.position.z;
         foeMesh.position.x = -1.6 + foeLunge * 0.9;
-        foeMesh.position.z = foeMesh.position.z + foeLunge * 0.55;
+        // Foe faces +Z toward player; clip -lunge is toward camera, flip for stage
+        foeMesh.position.z = FOE_BATTLE_Z - clipZ + foeLunge * 0.55;
         foeContact.position.set(foeMesh.position.x, 0.03, foeMesh.position.z);
         foeContact.visible = true;
       }

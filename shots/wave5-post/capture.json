@@ -1,0 +1,32 @@
+{
+  "label": "wave5-post",
+  "shot_dir": "/workspace/zer0/products/pokemon/shots/wave5-post",
+  "shots": [
+    "/workspace/zer0/products/pokemon/shots/wave5-post/shot-000.png"
+  ],
+  "width": 1280,
+  "height": 720,
+  "quality": "high",
+  "gpu": "ANGLE (NVIDIA, Vulkan 1.4.341 (NVIDIA NVIDIA GeForce RTX 3080 Ti (0x00002208)), NVIDIA)",
+  "source": "browser-threejs",
+  "scene": "explore-after-starter",
+  "page_errors": [],
+  "luma": {
+    "mean": 110.69890323801818,
+    "unique_samples": 55,
+    "near_black_frac": 0
+  },
+  "black_frame": false,
+  "hard_failed": [],
+  "pass_hard_gates": true,
+  "gates": {
+    "meanMin": 38,
+    "uniqueMin": 48,
+    "nearBlackMax": 0.82,
+    "nearBlackLuma": 12,
+    "minDim": 64
+  },
+  "starter_clicked": true,
+  "timestamp": "2026-08-02T09:48:14.897Z",
+  "notes": "Honest WebGL still of ship index.html. Fail-closed on near-void (mean/unique/near-black). No minimal-capture, no plates."
+}

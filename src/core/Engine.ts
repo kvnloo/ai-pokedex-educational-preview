@@ -7,6 +7,9 @@
  *   → lateUpdate
  *   → render
  *   → input.endFrame
+ *
+ * Mode-4 F: primary gated metric is presented-frame interval (rAF timestamp
+ * delta). CPU work-time is secondary. Both published on window.__frameStats.
  */
 import * as THREE from 'three';
 import { Time } from './Time.ts';
@@ -46,6 +49,22 @@ export interface System {
   dispose?(): void;
 }
 
+/** Browser-facing stats handle for tools/profile.mjs (presented primary). */
+export interface FrameStatsBridge {
+  kind: 'presented-frame';
+  times: number[];
+  workTimes: number[];
+  running: boolean;
+  snapshot: () => ReturnType<typeof frameStats.snapshot>;
+  reset: () => void;
+}
+
+declare global {
+  interface Window {
+    __frameStats?: FrameStatsBridge;
+  }
+}
+
 export class Engine {
   readonly scene = new THREE.Scene();
   readonly camera: THREE.PerspectiveCamera;
@@ -57,9 +76,14 @@ export class Engine {
   private running = false;
   private rafId = 0;
   private initialised = false;
-  /** Legacy ring; prefer frameStats for mode-4 gates. */
+  /** Legacy ring of CPU work ms. */
   readonly frameTimes = new Float32Array(240);
   private frameCursor = 0;
+  /** Prior rAF presentation timestamp (ms). */
+  private lastPresentedMs = 0;
+  /** Presented intervals collected for profile bridge (post-start). */
+  private presentedSamples: number[] = [];
+  private workSamples: number[] = [];
 
   constructor(canvas: HTMLCanvasElement, fixedHz = 60) {
     this.canvas = canvas;
@@ -107,9 +131,34 @@ export class Engine {
     this.resize();
   }
 
+  /** Publish / refresh window.__frameStats for mode-4 profile gate. */
+  private publishFrameStatsBridge(): void {
+    if (typeof window === 'undefined') return;
+    const self = this;
+    window.__frameStats = {
+      kind: 'presented-frame',
+      get times() {
+        return self.presentedSamples;
+      },
+      get workTimes() {
+        return self.workSamples;
+      },
+      running: this.running,
+      snapshot: () => frameStats.snapshot(),
+      reset: () => {
+        self.presentedSamples = [];
+        self.workSamples = [];
+        self.lastPresentedMs = 0;
+        frameStats.reset(MEDIUM_1080P.id);
+      },
+    };
+  }
+
   start(): void {
     if (this.running) return;
     this.running = true;
+    this.lastPresentedMs = 0;
+    this.publishFrameStatsBridge();
     const loop = (now: number) => {
       if (!this.running) return;
       this.frame(now);
@@ -121,10 +170,28 @@ export class Engine {
   stop(): void {
     this.running = false;
     cancelAnimationFrame(this.rafId);
+    if (typeof window !== 'undefined' && window.__frameStats) {
+      window.__frameStats.running = false;
+    }
   }
 
   frame(nowMs: number): void {
     const t0 = performance.now();
+
+    // Presented-frame interval (rAF timestamp delta) — primary mode-4 gate metric.
+    if (this.lastPresentedMs > 0) {
+      const presented = nowMs - this.lastPresentedMs;
+      if (Number.isFinite(presented) && presented > 0) {
+        this.presentedSamples.push(presented);
+        // Keep bridge array bounded for long sessions.
+        if (this.presentedSamples.length > 32_768) {
+          this.presentedSamples.splice(0, this.presentedSamples.length - 24_576);
+        }
+        frameStats.push(presented);
+      }
+    }
+    this.lastPresentedMs = nowMs;
+
     this.time.beginFrame(nowMs);
     const steps = this.time.takeFixedSteps(5);
     const fdt = this.time.fixedDt;
@@ -147,13 +214,17 @@ export class Engine {
       if (s.enabled === false) continue;
       s.render?.(this.ctx);
     }
+
     const spent = performance.now() - t0;
     this.frameTimes[this.frameCursor % this.frameTimes.length] = spent;
     this.frameCursor += 1;
-    frameStats.push(spent);
+    this.workSamples.push(spent);
+    if (this.workSamples.length > 32_768) {
+      this.workSamples.splice(0, this.workSamples.length - 24_576);
+    }
   }
 
-  /** Mode-4 snapshot (post warm-up percentiles). */
+  /** Mode-4 snapshot (post warm-up percentiles of presented-frame samples). */
   getFrameStats() {
     return frameStats.snapshot();
   }
@@ -172,5 +243,8 @@ export class Engine {
     for (const s of this.systems) s.dispose?.();
     this.systems.length = 0;
     this.byName.clear();
+    if (typeof window !== 'undefined' && window.__frameStats) {
+      delete window.__frameStats;
+    }
   }
 }

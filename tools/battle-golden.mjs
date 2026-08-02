@@ -909,7 +909,38 @@ assertEq("gloomhorn species", speciesById.has("gloomhorn"), true);
   const { STRUGGLE_MOVE } = battleMod;
 
   assertEq("STRUGGLE_MOVE power", STRUGGLE_MOVE.power, 50);
-  assertEq("STRUGGLE_MOVE type", STRUGGLE_MOVE.type, "normal");
+  assertEq("STRUGGLE_MOVE type typeless", STRUGGLE_MOVE.type, "typeless");
+
+  // Typeless: never STAB even if attacker is "normal"; always 1× vs any defense
+  {
+    const { stabMultiplier, typeEffectiveness, calcMoveDamage, TYPELESS_MOVE_TYPE } = damageMod;
+    assertEq("typeless stab is 1 (not STAB)", stabMultiplier(TYPELESS_MOVE_TYPE, ["normal", "flying"]), 1);
+    assertEq("typeless vs rock always neutral", typeEffectiveness(TYPELESS_MOVE_TYPE, ["rock"], wave0.typeChart), 1);
+    assertEq("typeless vs steel always neutral", typeEffectiveness(TYPELESS_MOVE_TYPE, ["steel"], wave0.typeChart), 1);
+    assertEq("typeless vs ghost always neutral", typeEffectiveness(TYPELESS_MOVE_TYPE, ["ghost"], wave0.typeChart), 1);
+    // Compare calc: normal-type same power gets STAB on normal attacker; typeless does not
+    const baseOpts = {
+      level: 50,
+      attackStat: 100,
+      defenseStat: 100,
+      power: 50,
+      attackerTypes: ["normal"],
+      defenderTypes: ["normal"],
+      typeChart: wave0.typeChart,
+      random: 1,
+      critical: 1,
+    };
+    const normalHit = calcMoveDamage({ ...baseOpts, moveType: "normal" });
+    const typelessHit = calcMoveDamage({ ...baseOpts, moveType: TYPELESS_MOVE_TYPE });
+    assertEq("normal STAB is 1.5", normalHit.stab, 1.5);
+    assertEq("typeless STAB is 1", typelessHit.stab, 1);
+    assertEq("typeless type mult 1", typelessHit.typeEffectiveness, 1);
+    assertEq(
+      "typeless damage < same power Normal STAB",
+      typelessHit.damage < normalHit.damage,
+      true,
+    );
+  }
 
   try {
     assertTypeChartComplete(wave0.typeChart, wave0.types);
@@ -982,6 +1013,11 @@ assertEq("gloomhorn species", speciesById.has("gloomhorn"), true);
       sb.log.some((e) => e.type === "damage" && /recoil/i.test(e.message || "")),
     true,
   );
+  const struggleDmg = sb.log.find(
+    (e) => e.type === "damage" && e.moveId === "struggle" && e.side === "foe",
+  );
+  assertEq("Struggle damage event present", !!struggleDmg, true);
+  assertEq("Struggle effectiveness neutral (1)", struggleDmg.effectiveness, 1);
 
   const defL = wave0.route?.playerDefaultLevel ?? 5;
   const gymL = wave0.route?.gym?.level ?? 99;

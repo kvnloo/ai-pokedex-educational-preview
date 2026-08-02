@@ -1,7 +1,7 @@
 {
-  "version": 4,
+  "version": 5,
   "description": "Standing re-measure list for wave land. Mode-3 green alone is not wave exit. Near-void stills fail closed. Ship dist must be game-pack only.",
-  "wave_label": "wave4",
+  "wave_label": "wave5",
   "refuse": {
     "capture_source_forbidden": [
       "minimal-capture",
@@ -24,17 +24,17 @@
     {
       "id": "capture-browser-threejs",
       "measure": "shots/<label>/capture.json source includes browser-threejs; black_frame=false; pass_hard_gates=true",
-      "cmd": "node tools/capture.mjs --label wave4"
+      "cmd": "node tools/capture.mjs --label wave5"
     },
     {
       "id": "shot-non-black",
       "measure": "Aligned to measure black_frame: mean luma >= 38, unique samples >= 48, near_black_frac < 0.82, dims >= 64x64; black_frame must be false",
-      "cmd": "node tools/capture.mjs --label wave4 && node -e \"const c=require('./shots/wave4/capture.json'); if(c.black_frame||!c.pass_hard_gates) process.exit(1)\""
+      "cmd": "node tools/capture.mjs --label wave5 && node -e \"const c=require('./shots/wave5/capture.json'); if(c.black_frame||!c.pass_hard_gates) process.exit(1)\""
     },
     {
       "id": "no-research-plates-in-shots",
       "measure": "No Wooloo/TW plates under shots/wave* or shots/_sheets; contactsheet refuses minimal-capture and black_frame",
-      "cmd": "node tools/contactsheet.mjs --label wave4"
+      "cmd": "node tools/contactsheet.mjs --label wave5"
     },
     {
       "id": "visual-bar-checklist",
@@ -57,10 +57,10 @@
   "mode_4": [
     {
       "id": "sustained-profile-medium-1080p",
-      "measure": "work-time p99 frame time \u226416.7ms @1080p medium (aa=false) during battle VFX; zero frames >50ms after warm-up",
-      "cmd": "node tools/profile.mjs --label wave4 --seconds 180 --gate",
+      "measure": "presented-frame (rAF-to-rAF) p99 \u226420ms @1080p medium (aa=false) during battle VFX (vsync-floor aware; work-time secondary targets 16.7ms); zero frames >50ms after warm-up",
+      "cmd": "node tools/profile.mjs --label wave5 --seconds 180 --gate",
       "status": "required_for_wave_exit",
-      "note": "Engine DPR capped at MEDIUM_1080P.maxPixelRatio=1; antialias=false. --gate fails closed on p99_ok false. Do not claim F pass without profile.json gates.ok."
+      "note": "Engine DPR capped at MEDIUM_1080P.maxPixelRatio=1; antialias=false. Gate metric is presented/frame interval via __frameStats (not work-time alone). p99_ms_max=20 for presented (60Hz floor). --gate fails closed on p99_ok false."
     }
   ],
   "mode_5": [
@@ -76,12 +76,12 @@
     {
       "id": "blind-ab-prefer-us",
       "measure": "Labels-hidden forced choice: prefer our still over Twilight Wings reference",
-      "cmd": "node tools/capture.mjs --label wave4 && node tools/contactsheet.mjs --label wave4",
+      "cmd": "node tools/capture.mjs --label wave5 && node tools/contactsheet.mjs --label wave5",
       "status": "required_for_wave_exit",
       "note": "Mode 7 double-blind must prefer US over TW or keep looping. Mode-3 green is NOT wave exit. Ballots only after ship-boundary green."
     }
   ],
   "mode_7_note": "Blind A/B must prefer US over Twilight Wings reference; playtest green is not sufficient.",
-  "land_cmd": "npm run typecheck && npm run test:battle && npm run test:playtest && npm run build && node tools/check-ship-boundary.mjs && node tools/capture.mjs --label wave4 && node tools/profile.mjs --label wave4 --seconds 180 --gate --no-build",
+  "land_cmd": "npm run typecheck && npm run test:battle && npm run test:playtest && npm run build && node tools/check-ship-boundary.mjs && node tools/capture.mjs --label wave5 && node tools/profile.mjs --label wave5 --seconds 180 --gate --no-build",
   "updated": "2026-08-02"
 }

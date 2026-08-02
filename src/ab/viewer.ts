@@ -1,9 +1,9 @@
 /**
- * Research A/B viewer stub.
+ * Research A/B viewer stub (not on ship surface).
  *
- * Wooloo / TW / Hunyuan research plates are intentionally not loaded on the
- * ship surface. Production build excludes ab.html from rollup inputs.
+ * Production build excludes ab.html from rollup inputs.
  * Mode-1 evidence must come from tools/capture.mjs (browser-threejs of index.html).
+ * No research plates or franchise identity loaded here.
  */
 
 const stats = document.getElementById('stats');
@@ -13,5 +13,5 @@ if (stats) {
 }
 
 console.info(
-  '[ab/viewer] ship-boundary: no official-name GLB/ref load. Capture via tools/capture.mjs.',
+  '[ab/viewer] ship-boundary: research path disabled. Capture via tools/capture.mjs.',
 );

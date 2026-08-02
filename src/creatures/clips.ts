@@ -22,10 +22,14 @@ export interface CreatureClipState {
   active: ClipName;
   baseY: number;
   baseRotY: number;
+  /** Shell-owned rest Z; attack applies as baseZ + delta (never absolute wipe). */
+  baseZ: number;
   baseScale: THREE.Vector3;
   profile: ClipProfile;
   /** Cached secondary part bases (filled on first tick). */
   _partsReady?: boolean;
+  /** Pivot Z captured at attack start when shell has already placed root. */
+  _attackPivotZ?: number;
 }
 
 export interface CreateClipOpts {
@@ -34,6 +38,7 @@ export interface CreateClipOpts {
   idleSpeed?: number;
   baseY?: number;
   baseRotY?: number;
+  baseZ?: number;
   profile?: ClipProfile;
 }
 
@@ -46,6 +51,7 @@ export function createClipState(opts: CreateClipOpts = {}): CreatureClipState {
     active: 'idle',
     baseY: opts.baseY ?? 0,
     baseRotY: opts.baseRotY ?? 0,
+    baseZ: opts.baseZ ?? 0,
     baseScale: new THREE.Vector3(1, 1, 1),
     profile: opts.profile ?? 'default',
   };
@@ -79,6 +85,7 @@ export function clipProfileForSpecies(speciesId: string): ClipProfile {
 export function playAttack(state: CreatureClipState): void {
   state.active = 'attack';
   state.attackT = 0;
+  state._attackPivotZ = undefined;
 }
 
 export function playFaint(state: CreatureClipState): void {
@@ -90,6 +97,7 @@ export function playIdle(state: CreatureClipState): void {
   state.active = 'idle';
   state.attackT = 0;
   state.faintT = 0;
+  state._attackPivotZ = undefined;
 }
 
 interface PartBase {
@@ -179,21 +187,41 @@ function secondaryMotion(
       case 'armR': {
         const side = part === 'armL' ? 1 : -1;
         obj.rotation.z = base.rot.z + Math.sin(phase * 0.9) * 0.06 * side + attackAmt * 0.35 * side;
+        obj.rotation.x = base.rot.x + Math.sin(phase * 1.1 + side) * 0.05 + attackAmt * 0.25;
         break;
       }
       case 'legFL':
       case 'legFR':
       case 'legBL':
-      case 'legBR': {
-        // Diagonal quadruped gait; front/back opposite phase for readable stride
-        const front = part.endsWith('FL') || part.endsWith('FR');
-        const left = part.endsWith('FL') || part.endsWith('BL');
-        const gaitPhase = phase * (profile === 'quadruped' ? 2.4 : 1.8) + (front ? 0 : Math.PI) + (left ? 0 : Math.PI * 0.5);
-        const stride = profile === 'quadruped' ? 0.28 : 0.14;
-        const lift = profile === 'quadruped' ? 0.045 : 0.02;
+      case 'legBR':
+      case 'legL':
+      case 'legR': {
+        // Diagonal quadruped gait; biped uses legL/R or front pair with opposite phase
+        const biped = profile === 'biped' || part === 'legL' || part === 'legR';
+        const front =
+          part.endsWith('FL') ||
+          part.endsWith('FR') ||
+          part === 'legL' ||
+          part === 'legR';
+        const left =
+          part.endsWith('FL') ||
+          part.endsWith('BL') ||
+          part === 'legL' ||
+          part.endsWith('L');
+        const gaitSpeed = profile === 'quadruped' || profile === 'beast' ? 2.4 : biped ? 2.0 : 1.8;
+        const gaitPhase =
+          phase * gaitSpeed +
+          (front ? 0 : Math.PI) +
+          (left ? 0 : Math.PI * (biped ? 1.0 : 0.5));
+        const stride =
+          profile === 'quadruped' || profile === 'beast' ? 0.28 : biped ? 0.22 : 0.14;
+        const lift =
+          profile === 'quadruped' || profile === 'beast' ? 0.045 : biped ? 0.035 : 0.02;
         obj.rotation.x = base.rot.x + Math.sin(gaitPhase) * stride + attackAmt * (front ? 0.55 : -0.35);
         obj.position.y = base.pos.y + Math.max(0, Math.sin(gaitPhase)) * lift;
-        obj.position.z = base.pos.z + Math.sin(gaitPhase) * (front ? 0.03 : -0.02) * (profile === 'quadruped' ? 1 : 0.5);
+        obj.position.z =
+          base.pos.z +
+          Math.sin(gaitPhase) * (front ? 0.03 : -0.02) * (profile === 'quadruped' || profile === 'beast' ? 1 : 0.6);
         break;
       }
       case 'fin': {
@@ -220,6 +248,12 @@ export function tickCreatureClip(
   let faintAmt = 0;
 
   if (state.active === 'attack') {
+    // Capture shell placement as pivot once so Z is base+delta, not absolute overwrite
+    if (state.attackT === 0 || state._attackPivotZ === undefined) {
+      state._attackPivotZ = root.position.z;
+      // Keep baseZ in sync when shell placed root before tick
+      state.baseZ = state._attackPivotZ;
+    }
     state.attackT += dt;
     const t = state.attackT;
     // Align peak (~half of dur) with playLunge impact window (~130–150ms)
@@ -229,14 +263,16 @@ export function tickCreatureClip(
     attackAmt = Math.sin(p * Math.PI);
     const lunge =
       (state.profile === 'moth' ? 0.4 : state.profile === 'beast' ? 0.7 : 0.55) * attackAmt;
-    root.position.z = -lunge;
+    const pivot = state._attackPivotZ ?? state.baseZ;
+    // Delta only: shell can compose further lunge on top of baseZ + (-lunge)
+    root.position.z = pivot - lunge;
     root.position.y = state.baseY + attackAmt * 0.12;
     root.rotation.x = -attackAmt * (state.profile === 'biped' ? 0.18 : 0.25);
     const squash = 1 + attackAmt * 0.08;
     root.scale.set(squash, 2 - squash, squash + attackAmt * 0.04);
     if (p >= 1) {
       playIdle(state);
-      root.position.z = 0;
+      root.position.z = pivot;
       root.rotation.x = 0;
       root.scale.copy(state.baseScale);
       attackAmt = 0;
@@ -257,7 +293,7 @@ export function tickCreatureClip(
     return p < 1;
   }
 
-  // Idle bob + subtle sway — phase seeded per instance
+  // Idle bob + subtle sway — phase seeded per instance; do not touch root.z (shell owns XZ)
   const phase = wallTime * state.idleSpeed + state.idlePhase;
   const bob =
     state.profile === 'moth' ? 0.09 : state.profile === 'beast' ? 0.04 : 0.06;

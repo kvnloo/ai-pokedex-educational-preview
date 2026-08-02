@@ -171,12 +171,18 @@ export function bindExploreKeys(
   };
 }
 
+/** Path corridor half-width — must match visual blade reject in main. */
+export const GRASS_PATH_HALF = 0.95;
+
 export function isInGrass(pos: Vec2, grass: GrassZone): boolean {
-  // Full risk box for encounters; visual blades exclude path |x|<0.95 in main
-  return (
+  // Risk co-locates with tall-grass blades: AABB band minus dirt path corridor
+  const inBox =
     Math.abs(pos.x - grass.cx) <= grass.half &&
-    Math.abs(pos.z - grass.cz) <= grass.half
-  );
+    Math.abs(pos.z - grass.cz) <= grass.half;
+  if (!inBox) return false;
+  // Clear path strip through the patch (same |x|<0.95 carve as blade placement)
+  if (Math.abs(pos.x - grass.cx) < GRASS_PATH_HALF) return false;
+  return true;
 }
 
 function clampPos(pos: Vec2, b: ExploreBounds): void {

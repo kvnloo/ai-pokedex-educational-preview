@@ -28,14 +28,23 @@ export function clampDamageRandom(r: number): number {
   return Math.min(DAMAGE_RANDOM_MAX, Math.max(DAMAGE_RANDOM_MIN, r));
 }
 
+/** Marker for moves that ignore the type chart and never get STAB (e.g. Struggle). */
+export const TYPELESS_MOVE_TYPE = "typeless";
+
+export function isTypelessMove(moveType: string): boolean {
+  return moveType === TYPELESS_MOVE_TYPE || moveType === "???";
+}
+
 /**
  * Missing attacker-type row or defender-type cell is a content defect (not silent 1×).
+ * Typeless moves are always neutral (1×) and do not consult the chart.
  */
 export function typeEffectiveness(
   moveType: string,
   defenderTypes: readonly string[],
   chart: TypeChart,
 ): number {
+  if (isTypelessMove(moveType)) return 1;
   const row = chart[moveType];
   if (!row) {
     throw new Error(`typeChart missing attacker row: ${moveType}`);
@@ -71,6 +80,7 @@ export function stabMultiplier(
   moveType: string,
   attackerTypes: readonly string[],
 ): number {
+  if (isTypelessMove(moveType)) return 1;
   for (let i = 0; i < attackerTypes.length; i++) {
     if (attackerTypes[i] === moveType) return 1.5;
   }

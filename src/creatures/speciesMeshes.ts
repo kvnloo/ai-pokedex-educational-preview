@@ -59,82 +59,82 @@ export function buildEmberpup(scale: number): THREE.Group {
   const eye = mat(0x1a1208, 'shell');
   const pad = mat(0x3a2010, 'shell');
 
-  // Long horizontal torso (canine, not snowman stack of spheres)
+  // Long horizontal torso along Z (canine volume, not stacked snowman spheres)
   addMesh(
     g,
-    new THREE.CapsuleGeometry(0.22, 0.72, 8, 16),
+    new THREE.CapsuleGeometry(0.2, 0.95, 8, 16),
     fur,
     0,
-    0.38 * scale,
-    0.02,
-    0.95 * scale,
-    0.78 * scale,
-    1.45 * scale,
+    0.34 * scale,
+    0,
+    0.9 * scale,
+    0.72 * scale,
+    1.55 * scale,
     0,
     0,
     Math.PI / 2,
   );
-  // Haunches (rear bulk, still low)
-  addMesh(g, new THREE.SphereGeometry(0.24, 14, 12), dark, 0, 0.36 * scale, -0.38 * scale, 1.15 * scale, 0.85 * scale, 1.0 * scale);
-  // Chest / ruff forward of torso
-  addMesh(g, new THREE.SphereGeometry(0.22, 14, 12), dark, 0, 0.4 * scale, 0.38 * scale, 1.05 * scale, 0.88 * scale, 0.95 * scale);
+  // Haunches (rear bulk, low)
+  addMesh(g, new THREE.SphereGeometry(0.22, 14, 12), dark, 0, 0.32 * scale, -0.48 * scale, 1.2 * scale, 0.82 * scale, 1.05 * scale);
+  // Chest forward, low
+  addMesh(g, new THREE.SphereGeometry(0.2, 14, 12), dark, 0, 0.36 * scale, 0.48 * scale, 1.05 * scale, 0.85 * scale, 0.95 * scale);
   // Soft belly plate for light catch
-  addMesh(g, new THREE.SphereGeometry(0.16, 12, 10), belly, 0, 0.28 * scale, 0.08 * scale, 0.9 * scale, 0.55 * scale, 1.15 * scale);
-  // Head sits forward on neck, not stacked on body (breaks snowman)
-  addMesh(g, new THREE.SphereGeometry(0.26, 16, 14), fur, 0, 0.62 * scale, 0.58 * scale, 1.0 * scale, 0.9 * scale, 1.05 * scale);
-  // Long muzzle / snout
+  addMesh(g, new THREE.SphereGeometry(0.15, 12, 10), belly, 0, 0.24 * scale, 0.1 * scale, 0.85 * scale, 0.5 * scale, 1.25 * scale);
+  // Head low and forward on neck (not stacked high on body)
+  addMesh(g, new THREE.SphereGeometry(0.24, 16, 14), fur, 0, 0.48 * scale, 0.72 * scale, 1.0 * scale, 0.88 * scale, 1.05 * scale);
+  // Long muzzle / snout past chest
   addMesh(
     g,
-    new THREE.CapsuleGeometry(0.09, 0.28, 4, 10),
+    new THREE.CapsuleGeometry(0.085, 0.32, 4, 10),
     dark,
     0,
-    0.52 * scale,
-    0.88 * scale,
+    0.4 * scale,
+    1.02 * scale,
     0.95 * scale,
-    0.65 * scale,
-    1.15 * scale,
+    0.62 * scale,
+    1.2 * scale,
     Math.PI / 2,
     0,
     0,
   );
   // Nose tip
-  addMesh(g, new THREE.SphereGeometry(0.045, 8, 6), pad, 0, 0.5 * scale, 1.08 * scale, scale, 0.8 * scale, scale);
-  // Tall pointed ears (flame-tinted tips readable at distance)
-  addMesh(g, new THREE.ConeGeometry(0.085, 0.4, 7), dark, -0.14 * scale, 0.95 * scale, 0.52 * scale, scale, scale, 0.65 * scale, 0.15, 0, -0.32, 'earL');
-  addMesh(g, new THREE.ConeGeometry(0.085, 0.4, 7), dark, 0.14 * scale, 0.95 * scale, 0.52 * scale, scale, scale, 0.65 * scale, 0.15, 0, 0.32, 'earR');
-  addMesh(g, new THREE.ConeGeometry(0.04, 0.14, 5), ember, -0.14 * scale, 1.12 * scale, 0.5 * scale, scale, scale, 0.5 * scale, 0.1, 0, -0.2);
-  addMesh(g, new THREE.ConeGeometry(0.04, 0.14, 5), ember, 0.14 * scale, 1.12 * scale, 0.5 * scale, scale, scale, 0.5 * scale, 0.1, 0, 0.2);
-  // Legs: longer, stanced — clear four-leg read in overworld
+  addMesh(g, new THREE.SphereGeometry(0.04, 8, 6), pad, 0, 0.38 * scale, 1.22 * scale, scale, 0.8 * scale, scale);
+  // Tall pointed ears past head crown (silhouette read)
+  addMesh(g, new THREE.ConeGeometry(0.08, 0.42, 7), dark, -0.13 * scale, 0.82 * scale, 0.65 * scale, scale, scale, 0.6 * scale, 0.12, 0, -0.35, 'earL');
+  addMesh(g, new THREE.ConeGeometry(0.08, 0.42, 7), dark, 0.13 * scale, 0.82 * scale, 0.65 * scale, scale, scale, 0.6 * scale, 0.12, 0, 0.35, 'earR');
+  addMesh(g, new THREE.ConeGeometry(0.038, 0.15, 5), ember, -0.13 * scale, 1.0 * scale, 0.62 * scale, scale, scale, 0.5 * scale, 0.1, 0, -0.2);
+  addMesh(g, new THREE.ConeGeometry(0.038, 0.15, 5), ember, 0.13 * scale, 1.0 * scale, 0.62 * scale, scale, scale, 0.5 * scale, 0.1, 0, 0.2);
+  // Legs: longer, stanced — clear four-leg read
   for (const [lx, lz, part] of [
-    [-0.18, 0.36, 'legFL'],
-    [0.18, 0.36, 'legFR'],
-    [-0.2, -0.36, 'legBL'],
-    [0.2, -0.36, 'legBR'],
+    [-0.17, 0.42, 'legFL'],
+    [0.17, 0.42, 'legFR'],
+    [-0.19, -0.42, 'legBL'],
+    [0.19, -0.42, 'legBR'],
   ] as const) {
     addMesh(
       g,
-      new THREE.CapsuleGeometry(0.05, 0.34, 4, 8),
+      new THREE.CapsuleGeometry(0.048, 0.32, 4, 8),
       dark,
       lx * scale,
-      0.2 * scale,
+      0.18 * scale,
       lz * scale,
       scale,
-      1.05 * scale,
+      1.0 * scale,
       scale,
       0,
       0,
       0,
       part,
     );
-    addMesh(g, new THREE.SphereGeometry(0.055, 8, 6), pad, lx * scale, 0.04 * scale, lz * scale + 0.02 * scale, 1.15 * scale, 0.45 * scale, 1.35 * scale);
+    addMesh(g, new THREE.SphereGeometry(0.05, 8, 6), pad, lx * scale, 0.035 * scale, lz * scale + 0.02 * scale, 1.15 * scale, 0.42 * scale, 1.35 * scale);
   }
-  // Multi-lobe flame tail — large, high contrast for distance read
-  addMesh(g, new THREE.ConeGeometry(0.14, 0.58, 8), ember, 0, 0.52 * scale, -0.72 * scale, scale, scale, scale, Math.PI * 0.58, 0, 0, 'flame');
-  addMesh(g, new THREE.ConeGeometry(0.09, 0.38, 6), flameHot, 0.06 * scale, 0.78 * scale, -0.68 * scale, scale, scale, 0.75 * scale, Math.PI * 0.48, 0.25, 0.15, 'tail');
-  addMesh(g, new THREE.ConeGeometry(0.06, 0.26, 5), ember, -0.07 * scale, 0.68 * scale, -0.78 * scale, 0.8 * scale, scale, 0.6 * scale, Math.PI * 0.5, -0.2, -0.1);
-  // Eyes + brow dots
-  addMesh(g, new THREE.SphereGeometry(0.04, 8, 8), eye, -0.09 * scale, 0.66 * scale, 0.78 * scale, scale, scale, scale);
-  addMesh(g, new THREE.SphereGeometry(0.04, 8, 8), eye, 0.09 * scale, 0.66 * scale, 0.78 * scale, scale, scale, scale);
+  // Multi-lobe flame tail past rear haunch (extends Z silhouette)
+  addMesh(g, new THREE.ConeGeometry(0.13, 0.62, 8), ember, 0, 0.48 * scale, -0.88 * scale, scale, scale, scale, Math.PI * 0.58, 0, 0, 'flame');
+  addMesh(g, new THREE.ConeGeometry(0.085, 0.4, 6), flameHot, 0.06 * scale, 0.72 * scale, -0.82 * scale, scale, scale, 0.75 * scale, Math.PI * 0.48, 0.25, 0.15, 'tail');
+  addMesh(g, new THREE.ConeGeometry(0.055, 0.28, 5), ember, -0.07 * scale, 0.62 * scale, -0.95 * scale, 0.8 * scale, scale, 0.6 * scale, Math.PI * 0.5, -0.2, -0.1);
+  // Eyes
+  addMesh(g, new THREE.SphereGeometry(0.038, 8, 8), eye, -0.085 * scale, 0.52 * scale, 0.9 * scale, scale, scale, scale);
+  addMesh(g, new THREE.SphereGeometry(0.038, 8, 8), eye, 0.085 * scale, 0.52 * scale, 0.9 * scale, scale, scale, scale);
 
   g.userData.speciesId = 'emberpup';
   g.userData.materialKind = 'fur';
@@ -161,9 +161,9 @@ export function buildDewkin(scale: number): THREE.Group {
   // Arms
   addMesh(g, new THREE.CapsuleGeometry(0.08, 0.28, 4, 8), body, -0.38 * scale, 0.75 * scale, 0.05 * scale, scale, scale, scale, 0, 0, 0.4, 'armL');
   addMesh(g, new THREE.CapsuleGeometry(0.08, 0.28, 4, 8), body, 0.38 * scale, 0.75 * scale, 0.05 * scale, scale, scale, scale, 0, 0, -0.4, 'armR');
-  // Legs short
-  addMesh(g, new THREE.CapsuleGeometry(0.09, 0.18, 4, 8), scaleMat, -0.14 * scale, 0.22 * scale, 0.02 * scale, scale, scale, scale);
-  addMesh(g, new THREE.CapsuleGeometry(0.09, 0.18, 4, 8), scaleMat, 0.14 * scale, 0.22 * scale, 0.02 * scale, scale, scale, scale);
+  // Legs short — biped tags for stride secondary
+  addMesh(g, new THREE.CapsuleGeometry(0.09, 0.18, 4, 8), scaleMat, -0.14 * scale, 0.22 * scale, 0.02 * scale, scale, scale, scale, 0, 0, 0, 'legL');
+  addMesh(g, new THREE.CapsuleGeometry(0.09, 0.18, 4, 8), scaleMat, 0.14 * scale, 0.22 * scale, 0.02 * scale, scale, scale, scale, 0, 0, 0, 'legR');
   // Tail
   addMesh(g, new THREE.SphereGeometry(0.18, 12, 10), body, 0, 0.45 * scale, -0.4 * scale, 0.7 * scale, 0.55 * scale, 1.4 * scale, 0, 0, 0, 'tail');
   addMesh(g, new THREE.ConeGeometry(0.12, 0.35, 6), scaleMat, 0, 0.4 * scale, -0.72 * scale, scale, scale, scale, Math.PI / 2, 0, 0, 'fin');
@@ -195,8 +195,8 @@ export function buildLeafit(scale: number): THREE.Group {
   // Arms/legs outstretched
   addMesh(g, new THREE.CapsuleGeometry(0.06, 0.35, 4, 8), body, -0.42 * scale, 0.75 * scale, 0, scale, scale, scale, 0, 0, 0.7, 'armL');
   addMesh(g, new THREE.CapsuleGeometry(0.06, 0.35, 4, 8), body, 0.42 * scale, 0.75 * scale, 0, scale, scale, scale, 0, 0, -0.7, 'armR');
-  addMesh(g, new THREE.CapsuleGeometry(0.07, 0.28, 4, 8), body, -0.12 * scale, 0.2 * scale, 0.05 * scale, scale, scale, scale);
-  addMesh(g, new THREE.CapsuleGeometry(0.07, 0.28, 4, 8), body, 0.12 * scale, 0.2 * scale, 0.05 * scale, scale, scale, scale);
+  addMesh(g, new THREE.CapsuleGeometry(0.07, 0.28, 4, 8), body, -0.12 * scale, 0.2 * scale, 0.05 * scale, scale, scale, scale, 0, 0, 0, 'legL');
+  addMesh(g, new THREE.CapsuleGeometry(0.07, 0.28, 4, 8), body, 0.12 * scale, 0.2 * scale, 0.05 * scale, scale, scale, scale, 0, 0, 0, 'legR');
   addMesh(g, new THREE.SphereGeometry(0.045, 8, 8), eye, -0.09 * scale, 1.22 * scale, 0.26 * scale, scale, scale, scale);
   addMesh(g, new THREE.SphereGeometry(0.045, 8, 8), eye, 0.09 * scale, 1.22 * scale, 0.26 * scale, scale, scale, scale);
 
@@ -232,9 +232,11 @@ export function buildDustbun(scale: number): THREE.Group {
   // Cheek fluff
   addMesh(g, new THREE.SphereGeometry(0.12, 10, 8), blush, -0.28 * scale, 0.9 * scale, 0.15 * scale, scale, 0.8 * scale, scale);
   addMesh(g, new THREE.SphereGeometry(0.12, 10, 8), blush, 0.28 * scale, 0.9 * scale, 0.15 * scale, scale, 0.8 * scale, scale);
-  // Legs
-  addMesh(g, new THREE.SphereGeometry(0.12, 10, 8), fur, -0.2 * scale, 0.12 * scale, 0.1 * scale, 1.1 * scale, 0.7 * scale, 1.2 * scale);
-  addMesh(g, new THREE.SphereGeometry(0.12, 10, 8), fur, 0.2 * scale, 0.12 * scale, 0.1 * scale, 1.1 * scale, 0.7 * scale, 1.2 * scale);
+  // Legs — quadruped tags (front pair for hop gait)
+  addMesh(g, new THREE.SphereGeometry(0.12, 10, 8), fur, -0.2 * scale, 0.12 * scale, 0.12 * scale, 1.1 * scale, 0.7 * scale, 1.2 * scale, 0, 0, 0, 'legFL');
+  addMesh(g, new THREE.SphereGeometry(0.12, 10, 8), fur, 0.2 * scale, 0.12 * scale, 0.12 * scale, 1.1 * scale, 0.7 * scale, 1.2 * scale, 0, 0, 0, 'legFR');
+  addMesh(g, new THREE.SphereGeometry(0.1, 10, 8), fur, -0.18 * scale, 0.1 * scale, -0.12 * scale, 1.0 * scale, 0.65 * scale, 1.1 * scale, 0, 0, 0, 'legBL');
+  addMesh(g, new THREE.SphereGeometry(0.1, 10, 8), fur, 0.18 * scale, 0.1 * scale, -0.12 * scale, 1.0 * scale, 0.65 * scale, 1.1 * scale, 0, 0, 0, 'legBR');
   // Cotton tail
   addMesh(g, new THREE.SphereGeometry(0.14, 10, 8), fur, 0, 0.4 * scale, -0.42 * scale, scale, scale, scale, 0, 0, 0, 'tail');
   // Eyes
@@ -355,14 +357,14 @@ export function buildGloomhorn(scale: number): THREE.Group {
   // Leaf mane fringe
   addMesh(g, new THREE.ConeGeometry(0.12, 0.35, 5), leaf, -0.3 * scale, 0.9 * scale, 0.2 * scale, scale, scale, 0.4 * scale, 0, 0, 0.8, 'crest');
   addMesh(g, new THREE.ConeGeometry(0.12, 0.35, 5), leaf, 0.3 * scale, 0.9 * scale, 0.2 * scale, scale, scale, 0.4 * scale, 0, 0, -0.8);
-  // Thick legs
-  for (const [lx, lz] of [
-    [-0.28, 0.35],
-    [0.28, 0.35],
-    [-0.3, -0.35],
-    [0.3, -0.35],
+  // Thick legs — tagged for beast gait
+  for (const [lx, lz, part] of [
+    [-0.28, 0.35, 'legFL'],
+    [0.28, 0.35, 'legFR'],
+    [-0.3, -0.35, 'legBL'],
+    [0.3, -0.35, 'legBR'],
   ] as const) {
-    addMesh(g, new THREE.CylinderGeometry(0.1, 0.12, 0.45, 8), dark, lx * scale, 0.22 * scale, lz * scale, scale, scale, scale);
+    addMesh(g, new THREE.CylinderGeometry(0.1, 0.12, 0.45, 8), dark, lx * scale, 0.22 * scale, lz * scale, scale, scale, scale, 0, 0, 0, part);
   }
   // Club tail
   addMesh(g, new THREE.CapsuleGeometry(0.1, 0.4, 4, 8), moss, 0, 0.5 * scale, -0.7 * scale, scale, scale, scale, Math.PI / 2.2, 0, 0, 'tail');
@@ -384,8 +386,8 @@ export function buildGeneric(color: number, scale: number): THREE.Group {
   addMesh(g, new THREE.SphereGeometry(0.28, 12, 10), m, 0, 0.95 * scale, 0.1 * scale, scale, scale, scale);
   addMesh(g, new THREE.ConeGeometry(0.12, 0.3, 6), m, -0.2 * scale, 1.2 * scale, 0, scale, scale, scale, 0, 0, 0, 'earL');
   addMesh(g, new THREE.ConeGeometry(0.12, 0.3, 6), m, 0.2 * scale, 1.2 * scale, 0, scale, scale, scale, 0, 0, 0, 'earR');
-  addMesh(g, new THREE.CylinderGeometry(0.08, 0.1, 0.3, 8), m, -0.2 * scale, 0.15 * scale, 0.1 * scale, scale, scale, scale);
-  addMesh(g, new THREE.CylinderGeometry(0.08, 0.1, 0.3, 8), m, 0.2 * scale, 0.15 * scale, 0.1 * scale, scale, scale, scale);
+  addMesh(g, new THREE.CylinderGeometry(0.08, 0.1, 0.3, 8), m, -0.2 * scale, 0.15 * scale, 0.1 * scale, scale, scale, scale, 0, 0, 0, 'legL');
+  addMesh(g, new THREE.CylinderGeometry(0.08, 0.1, 0.3, 8), m, 0.2 * scale, 0.15 * scale, 0.1 * scale, scale, scale, scale, 0, 0, 0, 'legR');
   g.userData.speciesId = 'generic';
   g.userData.materialKind = 'fur';
   return g;
