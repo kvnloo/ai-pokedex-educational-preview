@@ -304,26 +304,6 @@ async function driveUntil(key, predicate, timeoutMs, label) {
   return last;
 }
 
-async function settleCoordinate({ axis, target, tolerance, negativeKey, positiveKey, timeoutMs, label }) {
-  const started = performance.now();
-  await page.waitForTimeout(260);
-  while (performance.now() - started < timeoutMs) {
-    const value = await snapshot();
-    const current = value?.player?.[axis];
-    if (typeof current !== 'number') throw new Error(`${label}: player coordinate unavailable`);
-    const delta = target - current;
-    if (Math.abs(delta) <= tolerance) return value;
-    const key = delta > 0 ? positiveKey : negativeKey;
-    const holdMs = Math.max(35, Math.min(105, Math.abs(delta) * 85));
-    await page.keyboard.down(key);
-    await page.waitForTimeout(holdMs);
-    await page.keyboard.up(key);
-    await page.waitForTimeout(220);
-  }
-  const value = await snapshot();
-  throw new Error(`${label} timed out at ${JSON.stringify(value?.player)}`);
-}
-
 async function patrolGrassForEncounter(expectedEncounterCount, timeoutMs = 24_000) {
   const started = performance.now();
   let direction = 'w';
@@ -632,33 +612,24 @@ try {
   });
   await capture('caught-party-two');
 
-  // Exit grass during encounter cooldown, route around the pad solid, touch its heal rim.
+  // Exit grass during encounter cooldown and walk into the traversable moonwell.
   const healBefore = caught.healCount;
   const healNavigationAt = performance.now();
   await driveUntil('d', (value) => value?.player?.x >= 2.42, 4_000, 'exit grass east');
   let east = await snapshot();
-  // Acceleration/friction can coast past the target. Stay west of the pad's
-  // expanded collision box before moving north, or the south face blocks us.
+  // Approach from the west so the held-key path remains visually legible.
   if (east.player.x >= 2.88) {
-    await driveUntil('a', (value) => value?.player?.x <= 2.68, 2_500, 'correct west of heal-pad collision');
+    await driveUntil('a', (value) => value?.player?.x <= 2.68, 2_500, 'correct west of moonwell');
     east = await snapshot();
   }
-  check('heal route stays west of pad collision', east.player.x < 2.9, `x=${east.player.x.toFixed(4)}`);
-  if (east.player.z < 4.38) {
-    await driveUntil('s', (value) => value?.player?.z >= 4.32, 5_000, 'approach heal latitude');
-  } else if (east.player.z > 4.62) {
-    await driveUntil('w', (value) => value?.player?.z <= 4.68, 5_000, 'approach heal latitude');
+  check('heal route approaches from the west', east.player.x < 2.9, `x=${east.player.x.toFixed(4)}`);
+  if (east.player.z < 4.15) {
+    await driveUntil('s', (value) => value?.player?.z >= 4.2, 5_000, 'approach heal latitude');
+  } else if (east.player.z > 4.85) {
+    await driveUntil('w', (value) => value?.player?.z <= 4.8, 5_000, 'approach heal latitude');
   }
-  const latitude = await settleCoordinate({
-    axis: 'z',
-    target: 4.5,
-    tolerance: 0.075,
-    negativeKey: 'w',
-    positiveKey: 's',
-    timeoutMs: 4_000,
-    label: 'settle at heal latitude',
-  });
-  check('heal route aligns with pad rim latitude', Math.abs(latitude.player.z - 4.5) <= 0.075, `z=${latitude.player.z.toFixed(4)}`);
+  const latitude = await snapshot();
+  check('heal route aligns with the moonwell span', Math.abs(latitude.player.z - 4.5) <= 0.5, `z=${latitude.player.z.toFixed(4)}`);
   const healed = await driveUntil(
     'd',
     (value) => value?.healCount > healBefore,
