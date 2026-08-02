@@ -47,8 +47,11 @@ switching, XP/level, catching, party of 6, heal center, basic shops/NPCs.
 rich graded skies, tactile fur/feather/scale materials, expressive creature idle/attack
 animation, emotional framing in battle, premium HUD. Not GBA pixel art. Not low-poly toy.
 
-**Identity:** original region, original creatures, original names, original music. Mechanics
-are Track S (simulation facts). Art/audio are Track P (same feel, original execution).
+**Identity:** original region, original creatures, original names, original music in
+**shipped UI** (`content/game/`). Mechanics may be researched via a separate
+PokéAPI **warehouse** (`content/canonical/`) that is not the player-facing brand.
+Mechanics are Track S (simulation facts). Art/audio are Track P (same feel, original
+execution).
 
 **Engine constraint (COD lineage):** browser Three.js + TypeScript, **zero binary Nintendo
 assets**. Meshes, textures, SFX authored in code or as original project art. Reference
