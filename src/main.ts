@@ -195,8 +195,12 @@ function hpDrainMs(damage: number, maxHp: number): number {
   return Math.round(180 + frac * 720); // 180–900ms
 }
 
-/** Runtime meshes from creatures factory only; mesh QA exercised by default. */
-function shipCreatureMesh(speciesId: string, scale = 1): THREE.Group {
+const creatureTemplateCache = new Map<string, THREE.Group>();
+
+function creatureTemplate(speciesId: string, scale: number): THREE.Group {
+  const cacheKey = `${speciesId}@${scale.toFixed(3)}`;
+  const cached = creatureTemplateCache.get(cacheKey);
+  if (cached) return cached;
   const meshId = MESH_ALIAS[speciesId] ?? speciesId;
   const root = makeCreatureMesh(meshId, scale, {
     assertQa: true,
@@ -204,6 +208,16 @@ function shipCreatureMesh(speciesId: string, scale = 1): THREE.Group {
     colorOverride: SHIP_COLOR[speciesId],
   });
   root.userData.speciesId = speciesId;
+  creatureTemplateCache.set(cacheKey, root);
+  return root;
+}
+
+/** Runtime meshes clone prevalidated templates; geometry/materials stay shared. */
+function shipCreatureMesh(speciesId: string, scale = 1): THREE.Group {
+  const root = creatureTemplate(speciesId, scale).clone(true);
+  root.userData.speciesId = speciesId;
+  const clip = getClipState(root);
+  if (clip) clip.idlePhase = Math.random() * Math.PI * 2 + speciesId.length;
   return root;
 }
 
@@ -924,6 +938,10 @@ async function boot(): Promise<void> {
     setMsg(`Go! ${battle.player.name}!`);
     playSound('battle-start', kind === 'wild' ? 0.68 : 0.9);
 
+    // The encounter lock only protects send-out staging. Release it before
+    // evaluating menu actions so Creature is immediately available for a
+    // two-member party on the first actionable battle frame.
+    busy = false;
     battleMenu?.classList.remove('hidden');
     updateSwapButton();
 
@@ -1807,6 +1825,23 @@ async function boot(): Promise<void> {
       renderer.setSize(w, h);
     }
   });
+
+  progress(0.94, 'Prewarming creature silhouettes');
+  // First encounter must not pay procedural geometry + shader compilation in
+  // the presented-frame budget. Cache the shipped battle scales while the boot
+  // curtain is still visible, then compile their shared materials once.
+  for (const entry of species) creatureTemplate(entry.id, 1);
+  const foeIds = new Set([
+    ...raw.route.wildEncounters.map((entry) => entry.species),
+    raw.route.gym?.species,
+    raw.route.elite?.species,
+  ].filter((id): id is string => Boolean(id)));
+  for (const id of foeIds) creatureTemplate(id, 0.95);
+  const prewarm = new THREE.Group();
+  for (const template of creatureTemplateCache.values()) prewarm.add(template.clone(true));
+  scene.add(prewarm);
+  renderer.compile(scene, camera);
+  scene.remove(prewarm);
 
   progress(1, 'Ready');
 

@@ -37,6 +37,17 @@ Re-measure on current wave label still (`shots/wave2/shot-000.png` or later):
 Labels-hidden forced choice: **prefer our still over TW reference** or keep looping.
 Mode-3 playtest green alone is **not** wave exit. Mode **5** instrumented latencies also required.
 
+## Mode-4 performance
+
+At the named 1920×1080 medium preset, `tools/profile.mjs --gate` requires both:
+
+- presented rAF-to-rAF p99 **≤ 20ms** and zero presented frames **> 50ms** after warm-up;
+- CPU work-time p99 **≤ 16.7ms**.
+
+The presented threshold deliberately accounts for the ~16.67ms 60Hz vsync floor;
+the independent work-time gate retains the one-frame CPU budget. Reports include
+separate counts above 16.7ms and 20ms instead of relabeling one as the other.
+
 ## Standing list
 
 Re-measure every land: `shots/playtest/standing-gates.json` (wave2+ labels; modes 1/3/4/5/7).

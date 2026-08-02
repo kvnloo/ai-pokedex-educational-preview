@@ -652,6 +652,15 @@ try {
   const replayReadyMs = await waitBattleReady();
   transitions.replayBattleModeToMenuReadyMs = replayReadyMs;
   check('replay battle menu is actionable', replayReadyMs < 12_000, `${replayReadyMs}ms`);
+  const replaySwap = await page.locator('#battle-menu [data-act="swap"]').evaluate((element) => ({
+    disabled: element instanceof HTMLButtonElement ? element.disabled : null,
+    subtext: element.querySelector('.sub')?.textContent ?? '',
+  }));
+  check(
+    'two-member party can switch immediately when replay battle opens',
+    replaySwap.disabled === false,
+    JSON.stringify(replaySwap),
+  );
   check('party and catch counters persist into replay', replayEncounter.party.length === 2 && replayEncounter.catchCount === 1, JSON.stringify(replayEncounter.party));
   await stamp('replay:battle-ready', { latencyMs: replayReadyMs });
   await capture('replay-second-encounter');

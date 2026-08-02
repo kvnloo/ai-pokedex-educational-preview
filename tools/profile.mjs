@@ -10,8 +10,9 @@
  * Drives explore+battle input and forces a Fight-spam / grass walk window so
  * battle VFX load is present during the measure window.
  *
- * Gates (documented + checked when --gate; fail-closed on p99_ok false):
- *   p99_ms ≤ 16.7  (presented-frame)
+ * Gates (documented + checked when --gate; fail-closed):
+ *   presented-frame p99_ms ≤ 20 (vsync-floor aware)
+ *   work-time p99_ms ≤ 16.7
  *   frames_over_50ms === 0  (post warm-up only)
  *
  * Usage:
@@ -45,7 +46,7 @@ const has = (n) => args.includes(`--${n}`);
 const seconds = Number(flag('seconds', 30));
 const warmupSec = Number(flag('warmup', 2));
 const port = Number(flag('port', 4191));
-const label = String(flag('label', 'wave5'));
+const label = String(flag('label', 'wave6'));
 const outPath = String(
   flag('out', join(ROOT, 'shots', label, 'profile.json')),
 );
@@ -65,7 +66,7 @@ const PRESET = {
 const GATES = {
   // Presented rAF-to-rAF floors near display refresh (~16.67ms @60Hz). Gate at
   // 20ms so timer/vsync noise does not false-fail while still requiring ≥50fps p99.
-  // Work-time secondary still targets 16.7ms budget in notes/engine.
+  // CPU work-time must independently remain inside one 60Hz frame budget.
   p99_ms_max: 20,
   long_frame_ms: 50,
   long_frame_max_count: 0,
@@ -202,8 +203,11 @@ function summarize(times, warmupFrames, presetId, sampleKind) {
   const max_ms = n ? sorted[n - 1] : 0;
   const sum = counted.reduce((a, b) => a + b, 0);
   const p99_ms = percentile(sorted, 99);
+  const frames_over_16_7ms = counted.filter((t) => t > 16.7).length;
+  const frames_over_20ms = counted.filter((t) => t > GATES.p99_ms_max).length;
+  // "over 50ms" is intentionally strict-greater-than; an exact 50.000ms
+  // sample is reported by max_ms but is not described as over the threshold.
   const frames_over_50ms = counted.filter((t) => t > GATES.long_frame_ms).length;
-  const frames_over_16_7ms = counted.filter((t) => t > GATES.p99_ms_max).length;
   const gate_p99_ok = n > 0 && p99_ms <= GATES.p99_ms_max;
   const gate_long_ok = frames_over_50ms <= GATES.long_frame_max_count;
   return {
@@ -222,6 +226,7 @@ function summarize(times, warmupFrames, presetId, sampleKind) {
     max_ms: round3(max_ms),
     mean_ms: round3(n ? sum / n : 0),
     frames_over_16_7ms,
+    frames_over_20ms,
     frames_over_50ms,
     gates: {
       p99_ms_max: GATES.p99_ms_max,
@@ -249,10 +254,12 @@ function enforceGate(report) {
   }
   const p99Ok = report.gates?.p99_ok === true;
   const longOk = report.gates?.long_ok === true;
-  const ok = report.gates?.ok === true && p99Ok && longOk && report.counted > 0;
+  const workOk = report.gates?.work_p99_ok === true;
+  const battleOk = report.gates?.battle_vfx_ok === true;
+  const ok = report.gates?.ok === true && p99Ok && longOk && workOk && battleOk && report.counted > 0;
   if (!ok) {
     console.error(
-      `[profile] GATE FAIL mode_4 category F p99_ok=${report.gates?.p99_ok} long_ok=${report.gates?.long_ok} p99_ms=${report.p99_ms} counted=${report.counted} sample_kind=${report.sample_kind}`,
+      `[profile] GATE FAIL mode_4 category F p99_ok=${report.gates?.p99_ok} work_p99_ok=${report.gates?.work_p99_ok} long_ok=${report.gates?.long_ok} battle_vfx_ok=${report.gates?.battle_vfx_ok} p99_ms=${report.p99_ms} work_p99_ms=${report.work_time?.p99_ms} counted=${report.counted} sample_kind=${report.sample_kind}`,
     );
     process.exit(2);
   }
@@ -454,22 +461,51 @@ async function main() {
     const battleKeys = ['KeyZ', 'Enter', 'Digit1', 'ArrowUp', 'ArrowDown', 'KeyZ', 'Enter'];
     let step = 0;
     let battleForced = false;
-    // Scripted grass entry once at measure start
-    await page.keyboard.down('KeyD');
-    await sleep(350);
-    await page.keyboard.up('KeyD');
-    await page.keyboard.down('KeyW');
-    for (let g = 0; g < 80 && Date.now() < endAt && !battleForced; g++) {
-      await sleep(100);
-      const active = await page.evaluate(
-        () => document.getElementById('battle-root')?.classList.contains('active') === true,
-      );
-      if (active) {
-        battleForced = true;
-        break;
+    // Enter the authored grass through the same trusted-key route used by the
+    // complete-loop proof. Snapshot reads guide input but never mutate state.
+    const readSnapshot = () => page.evaluate(() => window.__twilight?.snapshot?.() ?? null);
+    const driveUntil = async (key, predicate, timeoutMs) => {
+      const started = Date.now();
+      await page.keyboard.down(key);
+      try {
+        while (Date.now() - started < timeoutMs && Date.now() < endAt) {
+          await sleep(40);
+          const value = await readSnapshot();
+          if (value?.mode === 'battle' || predicate(value)) return value;
+        }
+      } finally {
+        await page.keyboard.up(key);
       }
+      return readSnapshot();
+    };
+    let profileState = await readSnapshot();
+    if (profileState?.mode === 'explore' && profileState.player?.z < 2.25) {
+      profileState = await driveUntil('s', (value) => value?.player?.z >= 2.55, 3_000);
     }
-    await page.keyboard.up('KeyW');
+    if (profileState?.mode === 'explore' && profileState.player?.x < 1.25) {
+      profileState = await driveUntil('d', (value) => value?.player?.x >= 1.3, 3_000);
+    }
+    let grassKey = 'w';
+    await page.keyboard.down(grassKey);
+    try {
+      for (let g = 0; g < 240 && Date.now() < endAt && !battleForced; g++) {
+        await sleep(50);
+        profileState = await readSnapshot();
+        if (profileState?.mode === 'battle') {
+          battleForced = true;
+          break;
+        }
+        if (!profileState?.player) continue;
+        const nextKey = profileState.player.z <= -3.15 ? 's' : profileState.player.z >= 1.05 ? 'w' : grassKey;
+        if (nextKey !== grassKey) {
+          await page.keyboard.up(grassKey);
+          grassKey = nextKey;
+          await page.keyboard.down(grassKey);
+        }
+      }
+    } finally {
+      await page.keyboard.up(grassKey);
+    }
 
     while (Date.now() < endAt) {
       // Keep re-entering grass if battle ended
@@ -598,7 +634,8 @@ async function main() {
     report.source = 'browser-threejs-profile';
     report.metric_source = harvested.source;
     report.battle_vfx_forced = battleForced;
-    // Secondary work-time summary (not gated)
+    // Independent CPU work-time gate.
+    let workP99Ok = false;
     if (harvested.workTimes?.length) {
       const w = summarize(
         harvested.workTimes,
@@ -613,21 +650,30 @@ async function main() {
         p99_ms: w.p99_ms,
         max_ms: w.max_ms,
         mean_ms: w.mean_ms,
+        frames_over_16_7ms: w.frames_over_16_7ms,
+        frames_over_20ms: w.frames_over_20ms,
         frames_over_50ms: w.frames_over_50ms,
       };
+      workP99Ok = w.counted > 0 && w.p99_ms <= GATES.work_p99_ms_max;
     }
+    report.gates.work_p99_ms_max = GATES.work_p99_ms_max;
+    report.gates.work_p99_ok = workP99Ok;
+    report.gates.ok = report.gates.ok && workP99Ok;
+    report.gates.battle_vfx_required = true;
+    report.gates.battle_vfx_ok = battleForced;
+    report.gates.ok = report.gates.ok && battleForced;
     if (harvested.snapshot) {
       report.engine_snapshot = harvested.snapshot;
     }
     report.notes =
-      'Mode-4 F: presented-frame (rAF-to-rAF) p99≤16.7ms and zero frames >50ms after warm-up at medium-1080p (aa=false) during battle VFX. ' +
-      'Primary metric aligns with window.__frameStats when Engine publishes it; work-time is secondary.';
+      'Mode-4 F: presented-frame (rAF-to-rAF) p99≤20ms, CPU work-time p99≤16.7ms, and zero presented frames >50ms after warm-up at medium-1080p (aa=false) during battle VFX. ' +
+      'The 20ms presented threshold is vsync-floor aware; work-time independently enforces the 60Hz CPU budget.';
 
     mkdirSync(dirname(outPath), { recursive: true });
     writeFileSync(outPath, JSON.stringify(report, null, 2) + '\n');
     console.log(`[profile] wrote ${outPath}`);
     console.log(
-      `[profile] counted=${report.counted} p99_ms=${report.p99_ms} max_ms=${report.max_ms} frames_over_50ms=${report.frames_over_50ms} gates.ok=${report.gates.ok} p99_ok=${report.gates.p99_ok} kind=${report.sample_kind} metric_source=${report.metric_source} battle_vfx=${battleForced}`,
+      `[profile] counted=${report.counted} p99_ms=${report.p99_ms} work_p99_ms=${report.work_time?.p99_ms ?? 'missing'} max_ms=${report.max_ms} frames_over_50ms=${report.frames_over_50ms} gates.ok=${report.gates.ok} p99_ok=${report.gates.p99_ok} work_p99_ok=${report.gates.work_p99_ok} battle_vfx_ok=${report.gates.battle_vfx_ok} kind=${report.sample_kind} metric_source=${report.metric_source}`,
     );
 
     if (pageErrors.length) {
