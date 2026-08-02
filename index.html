@@ -40,7 +40,7 @@
     }
     #scene-transition {
       position: absolute; inset: 0; z-index: 72; pointer-events: none;
-      opacity: 0; mix-blend-mode: screen;
+      opacity: 0;
     }
     #scene-transition.depart {
       background:
@@ -51,7 +51,7 @@
     #scene-transition.battle {
       background:
         radial-gradient(circle at 50% 54%, transparent 0 22%, rgba(38,18,70,.72) 58%, rgba(5,7,18,.94) 100%),
-        conic-gradient(from 45deg, rgba(255,114,78,.42), transparent 18%, rgba(108,194,255,.38), transparent 56%, rgba(255,114,78,.42));
+        linear-gradient(115deg, rgba(255,114,78,.32), transparent 42%, rgba(108,194,255,.3));
       animation: battleTransition 720ms cubic-bezier(.22,.72,.18,1) both;
     }
     #scene-transition.return {
@@ -59,19 +59,19 @@
       animation: returnTransition 620ms ease-out both;
     }
     @keyframes departTransition {
-      0% { opacity: 0; transform: scale(.82) translateX(-8%); filter: blur(18px); }
+      0% { opacity: 0; transform: scale(.82) translateX(-8%); }
       38% { opacity: .95; }
-      100% { opacity: 0; transform: scale(1.2) translateX(8%); filter: blur(2px); }
+      100% { opacity: 0; transform: scale(1.2) translateX(8%); }
     }
     @keyframes battleTransition {
-      0% { opacity: 0; transform: scale(1.16) rotate(-5deg); filter: saturate(1.4) blur(10px); }
+      0% { opacity: 0; transform: scale(1.12); }
       42% { opacity: 1; }
-      100% { opacity: 0; transform: scale(.92) rotate(2deg); filter: saturate(1) blur(0); }
+      100% { opacity: 0; transform: scale(.94); }
     }
     @keyframes returnTransition {
-      0% { opacity: 0; transform: scale(.72); filter: blur(16px); }
+      0% { opacity: 0; transform: scale(.72); }
       34% { opacity: .88; }
-      100% { opacity: 0; transform: scale(1.24); filter: blur(0); }
+      100% { opacity: 0; transform: scale(1.24); }
     }
     #ui-root {
       position: absolute; inset: 0; z-index: 10;
