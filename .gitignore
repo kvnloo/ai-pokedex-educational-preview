@@ -5,3 +5,4 @@ data/raw/
 .DS_Store
 .vite/
 content/canonical/*.sqlite
+content/smoke/

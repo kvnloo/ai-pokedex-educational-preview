@@ -31,7 +31,11 @@ const BASE = 'https://pokeapi.co/api/v2';
 const args = process.argv.slice(2);
 const maxArg = args.includes('--max') ? Number(args[args.indexOf('--max') + 1]) : Infinity;
 const force = args.includes('--force');
+const smoke = Number.isFinite(maxArg); // partial run — never clobber full pack
 const concurrency = 6;
+const OUT_CANON = smoke ? path.join(ROOT, 'content/smoke/canonical') : CANON;
+const OUT_DERIVED = smoke ? path.join(ROOT, 'content/smoke/derived') : DERIVED;
+const OUT_MANIFESTS = smoke ? path.join(ROOT, 'content/smoke/manifests') : MANIFESTS;
 
 const TYPE_COLORS = {
   normal: '#A8A878', fire: '#F08030', water: '#6890F0', electric: '#F8D030',
@@ -108,10 +112,12 @@ async function mapPool(items, limit, fn) {
 }
 
 async function main() {
-  await mkdir(CANON, { recursive: true });
-  await mkdir(DERIVED, { recursive: true });
-  await mkdir(MANIFESTS, { recursive: true });
+  await mkdir(OUT_CANON, { recursive: true });
+  await mkdir(OUT_DERIVED, { recursive: true });
+  await mkdir(OUT_MANIFESTS, { recursive: true });
   await mkdir(RAW, { recursive: true });
+
+  if (smoke) console.log(`[sync] SMOKE mode --max ${maxArg} → content/smoke/ (canonical untouched)`);
 
   const syncedAt = new Date().toISOString();
   console.log('[sync] types…');
@@ -151,8 +157,8 @@ async function main() {
     }
   }
 
-  await writeFile(path.join(CANON, 'types.json'), JSON.stringify({ version: 1, types }, null, 2));
-  await writeFile(path.join(DERIVED, 'type-chart.json'), JSON.stringify({ version: 1, matrix: chart }, null, 2));
+  await writeFile(path.join(OUT_CANON, 'types.json'), JSON.stringify({ version: 1, types }, null, 2));
+  await writeFile(path.join(OUT_DERIVED, 'type-chart.json'), JSON.stringify({ version: 1, matrix: chart }, null, 2));
 
   console.log('[sync] species list…');
   const speciesList = await fetchJson(`${BASE}/pokemon-species?limit=2000`, 'species/_list.json');
@@ -219,7 +225,7 @@ async function main() {
 
   speciesRows.sort((a, b) => a.nationalId - b.nationalId);
   const jsonl = speciesRows.map((r) => JSON.stringify(r)).join('\n') + '\n';
-  await writeFile(path.join(CANON, 'species.jsonl'), jsonl);
+  await writeFile(path.join(OUT_CANON, 'species.jsonl'), jsonl);
 
   const index = {
     version: '0.1.0',
@@ -238,7 +244,7 @@ async function main() {
       hasMesh: false,
     })),
   };
-  await writeFile(path.join(DERIVED, 'dex-index.json'), JSON.stringify(index));
+  await writeFile(path.join(OUT_DERIVED, 'dex-index.json'), JSON.stringify(index));
 
   // gen shards for progressive load
   const byGen = new Map();
@@ -247,7 +253,7 @@ async function main() {
     if (!byGen.has(g)) byGen.set(g, []);
     byGen.get(g).push(s);
   }
-  const shardDir = path.join(DERIVED, 'shards');
+  const shardDir = path.join(OUT_DERIVED, 'shards');
   await mkdir(shardDir, { recursive: true });
   for (const [g, rows] of byGen) {
     const name = `species-gen-${String(g).padStart(2, '0')}.json`;
@@ -255,7 +261,7 @@ async function main() {
   }
 
   await writeFile(
-    path.join(MANIFESTS, 'SOURCE_PROVENANCE.json'),
+    path.join(OUT_MANIFESTS, 'SOURCE_PROVENANCE.json'),
     JSON.stringify(
       {
         tool: 'tools/pokeapi-sync.mjs',
@@ -265,16 +271,17 @@ async function main() {
         speciesTotalAvailable: speciesList.count,
         typesCount: types.length,
         maxArg: Number.isFinite(maxArg) ? maxArg : null,
+        smoke,
       },
       null,
       2,
     ),
   );
-  await writeFile(path.join(MANIFESTS, 'CONTENT_VERSION'), '0.1.0\n');
+  await writeFile(path.join(OUT_MANIFESTS, 'CONTENT_VERSION'), '0.1.0\n');
 
   console.log(`[sync] done: ${speciesRows.length} species, ${types.length} types`);
-  console.log(`  ${path.join(CANON, 'species.jsonl')}`);
-  console.log(`  ${path.join(DERIVED, 'dex-index.json')}`);
+  console.log(`  ${path.join(OUT_CANON, 'species.jsonl')}`);
+  console.log(`  ${path.join(OUT_DERIVED, 'dex-index.json')}`);
 }
 
 main().catch((err) => {
