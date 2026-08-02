@@ -4,6 +4,11 @@
  */
 import * as THREE from 'three';
 import { makeSurfaceMaterial, type MaterialKind } from '../render/materials.ts';
+import {
+  createDepthLoftGeometry,
+  createTaperedCurveGeometry,
+  createVerticalLoftGeometry,
+} from './organicGeometry.ts';
 
 export const SPECIES_COLOR: Record<string, number> = {
   emberpup: 0xe87840,
@@ -50,160 +55,577 @@ function mat(color: number, kind: MaterialKind, extra?: Partial<{ emissive: numb
   return makeSurfaceMaterial({ color, kind, ...extra });
 }
 
-/** Fire-type pup: long low canine + muzzle + flame tail. Fur + ember. Readable at overworld distance. */
+/** Bevelled botanical/ear plate. The outline is curved, not a flattened cone. */
+function makeLeafGeometry(width: number, height: number, depth = 0.045): THREE.ExtrudeGeometry {
+  const shape = new THREE.Shape();
+  shape.moveTo(0, -height * 0.5);
+  shape.bezierCurveTo(-width * 0.58, -height * 0.2, -width * 0.54, height * 0.24, 0, height * 0.5);
+  shape.bezierCurveTo(width * 0.54, height * 0.24, width * 0.58, -height * 0.2, 0, -height * 0.5);
+  const geometry = new THREE.ExtrudeGeometry(shape, {
+    depth,
+    bevelEnabled: true,
+    bevelSegments: 2,
+    bevelSize: Math.min(width, height) * 0.055,
+    bevelThickness: depth * 0.42,
+    curveSegments: 10,
+  });
+  geometry.center();
+  return geometry;
+}
+
+/** Asymmetric ember pennant used only on the original Emberpup tail. */
+function makeEmberPetalGeometry(width: number, height: number, depth = 0.05): THREE.ExtrudeGeometry {
+  const shape = new THREE.Shape();
+  shape.moveTo(0, -height * 0.48);
+  shape.bezierCurveTo(-width * 0.58, -height * 0.12, -width * 0.42, height * 0.16, -width * 0.08, height * 0.5);
+  shape.bezierCurveTo(width * 0.07, height * 0.2, width * 0.48, height * 0.12, width * 0.38, -height * 0.2);
+  shape.bezierCurveTo(width * 0.24, -height * 0.43, width * 0.08, -height * 0.48, 0, -height * 0.48);
+  const geometry = new THREE.ExtrudeGeometry(shape, {
+    depth,
+    bevelEnabled: true,
+    bevelSegments: 2,
+    bevelSize: Math.min(width, height) * 0.045,
+    bevelThickness: depth * 0.4,
+    curveSegments: 10,
+  });
+  geometry.center();
+  return geometry;
+}
+
+function makeRuffGeometry(outer: number, inner: number, points = 7, depth = 0.055): THREE.ExtrudeGeometry {
+  const shape = new THREE.Shape();
+  for (let i = 0; i < points * 2; i++) {
+    const angle = Math.PI / 2 + (i / (points * 2)) * Math.PI * 2;
+    const radius = i % 2 === 0 ? outer : inner;
+    const x = Math.cos(angle) * radius;
+    const y = Math.sin(angle) * radius;
+    if (i === 0) shape.moveTo(x, y);
+    else shape.lineTo(x, y);
+  }
+  shape.closePath();
+  const geometry = new THREE.ExtrudeGeometry(shape, {
+    depth,
+    bevelEnabled: true,
+    bevelSegments: 2,
+    bevelSize: depth * 0.55,
+    bevelThickness: depth * 0.42,
+  });
+  geometry.center();
+  return geometry;
+}
+
+function makeTeardropGeometry(width: number, height: number, depth = 0.035): THREE.ExtrudeGeometry {
+  const shape = new THREE.Shape();
+  shape.moveTo(0, height * 0.5);
+  shape.bezierCurveTo(-width * 0.56, height * 0.15, -width * 0.52, -height * 0.34, 0, -height * 0.5);
+  shape.bezierCurveTo(width * 0.52, -height * 0.34, width * 0.56, height * 0.15, 0, height * 0.5);
+  const geometry = new THREE.ExtrudeGeometry(shape, {
+    depth,
+    bevelEnabled: true,
+    bevelSegments: 2,
+    bevelSize: depth * 0.5,
+    bevelThickness: depth * 0.4,
+    curveSegments: 10,
+  });
+  geometry.center();
+  return geometry;
+}
+
+/** Create a semantic socket pivot so clip motion rotates appendages at their root. */
+function addPivotedPart(
+  parent: THREE.Group,
+  geometry: THREE.BufferGeometry,
+  material: THREE.Material,
+  part: string,
+  position: THREE.Vector3,
+  scale: number,
+  localPosition = new THREE.Vector3(),
+  rotation = new THREE.Euler(),
+): THREE.Group {
+  const pivot = new THREE.Group();
+  pivot.name = `${part}-socket`;
+  pivot.userData.part = part;
+  pivot.userData.attachment = 'embedded-socket';
+  pivot.position.copy(position);
+  pivot.rotation.copy(rotation);
+  pivot.scale.setScalar(scale);
+  const mesh = new THREE.Mesh(geometry, material);
+  mesh.name = `${part}-form`;
+  mesh.position.copy(localPosition);
+  mesh.userData.explodeWithParent = true;
+  pivot.add(mesh);
+  parent.add(pivot);
+  return pivot;
+}
+
+/**
+ * Fire pup rebuilt from a rights-cleared concept and form-only frame study.
+ * One 15-ring macro loft carries pelvis → ribcage → neck → skull → muzzle;
+ * limbs start inside sockets and the tail is a tapered sweep, eliminating the
+ * detached ball/capsule read of the earlier model.
+ */
 export function buildEmberpup(scale: number): THREE.Group {
   const g = new THREE.Group();
-  const fur = mat(0xe87840, 'fur');
-  const dark = mat(0xc45a28, 'fur');
-  const belly = mat(0xf0a060, 'fur');
-  const ember = mat(0xff8844, 'ember', { emissive: 0xff5522, emissiveIntensity: 0.55 });
-  const flameHot = mat(0xffcc55, 'ember', { emissive: 0xffaa22, emissiveIntensity: 0.7 });
-  const eye = mat(0x1a1208, 'shell');
-  const pad = mat(0x3a2010, 'shell');
+  const fur = mat(0xe67b44, 'fur');
+  const dark = mat(0x6a2d32, 'fur');
+  const cream = mat(0xf4b866, 'fur');
+  const ember = mat(0xff7938, 'ember', { emissive: 0xff4f22, emissiveIntensity: 0.58 });
+  const flameHot = mat(0xffdf72, 'ember', { emissive: 0xffad32, emissiveIntensity: 0.78 });
+  const eye = mat(0x241927, 'shell');
+  const iris = mat(0xd8f0c5, 'wet');
+  const catchlight = mat(0xffffff, 'ember', { emissive: 0xffffff, emissiveIntensity: 0.28 });
+  const pad = mat(0x321c29, 'shell');
 
-  // Long horizontal torso along Z (canine volume, not stacked snowman spheres)
-  addMesh(
+  const core = addMesh(
     g,
-    new THREE.CapsuleGeometry(0.2, 0.95, 8, 16),
+    createDepthLoftGeometry([
+      { z: -0.72, y: 0.42, radiusX: 0.14, radiusY: 0.19 },
+      { z: -0.64, y: 0.43, radiusX: 0.25, radiusY: 0.27, shapePower: 2.15 },
+      { z: -0.51, y: 0.45, radiusX: 0.33, radiusY: 0.31, shapePower: 2.25, dorsalRidge: 0.025 },
+      { z: -0.34, y: 0.46, radiusX: 0.36, radiusY: 0.32, shapePower: 2.3, dorsalRidge: 0.035 },
+      { z: -0.16, y: 0.45, radiusX: 0.35, radiusY: 0.3, shapePower: 2.25, dorsalRidge: 0.035 },
+      { z: 0.02, y: 0.45, radiusX: 0.34, radiusY: 0.3, shapePower: 2.2, dorsalRidge: 0.03 },
+      { z: 0.21, y: 0.47, radiusX: 0.36, radiusY: 0.34, shapePower: 2.35, dorsalRidge: 0.03 },
+      { z: 0.39, y: 0.51, radiusX: 0.34, radiusY: 0.36, shapePower: 2.25, dorsalRidge: 0.025 },
+      { z: 0.53, y: 0.57, radiusX: 0.29, radiusY: 0.34, shapePower: 2.1 },
+      { z: 0.64, y: 0.64, radiusX: 0.25, radiusY: 0.31 },
+      { z: 0.75, y: 0.69, radiusX: 0.3, radiusY: 0.3, shapePower: 2.15, dorsalRidge: 0.02 },
+      { z: 0.87, y: 0.69, radiusX: 0.33, radiusY: 0.29, shapePower: 2.3, dorsalRidge: 0.018 },
+      { z: 0.99, y: 0.65, radiusX: 0.29, radiusY: 0.24, shapePower: 2.25 },
+      { z: 1.1, y: 0.59, radiusX: 0.22, radiusY: 0.16, shapePower: 2.15 },
+      { z: 1.2, y: 0.57, radiusX: 0.12, radiusY: 0.1 },
+    ], 28, 'emberpup-continuous-core'),
     fur,
     0,
-    0.34 * scale,
-    0,
-    0.9 * scale,
-    0.72 * scale,
-    1.55 * scale,
     0,
     0,
-    Math.PI / 2,
+    scale,
+    scale,
+    scale,
   );
-  // Haunches (rear bulk, low)
-  addMesh(g, new THREE.SphereGeometry(0.22, 14, 12), dark, 0, 0.32 * scale, -0.48 * scale, 1.2 * scale, 0.82 * scale, 1.05 * scale);
-  // Chest forward, low
-  addMesh(g, new THREE.SphereGeometry(0.2, 14, 12), dark, 0, 0.36 * scale, 0.48 * scale, 1.05 * scale, 0.85 * scale, 0.95 * scale);
-  // Soft belly plate for light catch
-  addMesh(g, new THREE.SphereGeometry(0.15, 12, 10), belly, 0, 0.24 * scale, 0.1 * scale, 0.85 * scale, 0.5 * scale, 1.25 * scale);
-  // Head low and forward on neck (not stacked high on body)
-  addMesh(g, new THREE.SphereGeometry(0.24, 16, 14), fur, 0, 0.48 * scale, 0.72 * scale, 1.0 * scale, 0.88 * scale, 1.05 * scale);
-  // Long muzzle / snout past chest
-  addMesh(
-    g,
-    new THREE.CapsuleGeometry(0.085, 0.32, 4, 10),
-    dark,
-    0,
-    0.4 * scale,
-    1.02 * scale,
-    0.95 * scale,
-    0.62 * scale,
-    1.2 * scale,
-    Math.PI / 2,
-    0,
-    0,
-  );
-  // Nose tip
-  addMesh(g, new THREE.SphereGeometry(0.04, 8, 6), pad, 0, 0.38 * scale, 1.22 * scale, scale, 0.8 * scale, scale);
-  // Tall pointed ears past head crown (silhouette read)
-  addMesh(g, new THREE.ConeGeometry(0.08, 0.42, 7), dark, -0.13 * scale, 0.82 * scale, 0.65 * scale, scale, scale, 0.6 * scale, 0.12, 0, -0.35, 'earL');
-  addMesh(g, new THREE.ConeGeometry(0.08, 0.42, 7), dark, 0.13 * scale, 0.82 * scale, 0.65 * scale, scale, scale, 0.6 * scale, 0.12, 0, 0.35, 'earR');
-  addMesh(g, new THREE.ConeGeometry(0.038, 0.15, 5), ember, -0.13 * scale, 1.0 * scale, 0.62 * scale, scale, scale, 0.5 * scale, 0.1, 0, -0.2);
-  addMesh(g, new THREE.ConeGeometry(0.038, 0.15, 5), ember, 0.13 * scale, 1.0 * scale, 0.62 * scale, scale, scale, 0.5 * scale, 0.1, 0, 0.2);
-  // Legs: longer, stanced — clear four-leg read
-  for (const [lx, lz, part] of [
-    [-0.17, 0.42, 'legFL'],
-    [0.17, 0.42, 'legFR'],
-    [-0.19, -0.42, 'legBL'],
-    [0.19, -0.42, 'legBR'],
+  core.name = 'emberpup-continuous-core';
+  core.userData.qaRole = 'organic-core';
+  core.userData.form = 'pelvis-ribcage-neck-skull-muzzle-loft';
+
+  // Integrated leg-and-paw lofts: upper rings embed 0.10–0.14 into the torso.
+  const frontLeg = createVerticalLoftGeometry([
+    { y: -0.4, z: 0.075, radiusX: 0.095, radiusZ: 0.145, shapePower: 2.4 },
+    { y: -0.31, z: 0.04, radiusX: 0.072, radiusZ: 0.09 },
+    { y: -0.16, z: 0.015, radiusX: 0.078, radiusZ: 0.085 },
+    { y: 0, radiusX: 0.115, radiusZ: 0.125, shapePower: 2.2 },
+  ], 16, 'emberpup-foreleg-loft');
+  const backLeg = createVerticalLoftGeometry([
+    { y: -0.39, z: 0.06, radiusX: 0.105, radiusZ: 0.15, shapePower: 2.45 },
+    { y: -0.29, z: 0.025, radiusX: 0.08, radiusZ: 0.095 },
+    { y: -0.14, z: -0.005, radiusX: 0.095, radiusZ: 0.1 },
+    { y: 0, radiusX: 0.13, radiusZ: 0.135, shapePower: 2.25 },
+  ], 16, 'emberpup-hindleg-loft');
+  for (const [x, z, part, geometry, material] of [
+    [-0.22, 0.34, 'legFL', frontLeg, dark],
+    [0.22, 0.34, 'legFR', frontLeg, fur],
+    [-0.23, -0.43, 'legBL', backLeg, dark],
+    [0.23, -0.43, 'legBR', backLeg, fur],
   ] as const) {
-    addMesh(
+    const leg = addMesh(g, geometry, material, x * scale, 0.4 * scale, z * scale, scale, scale, scale, 0, 0, 0, part);
+    leg.name = `${part}-continuous-leg-paw`;
+    leg.userData.attachment = 'embedded-socket';
+  }
+
+  // Bevelled collar catches the key light and hides no neck seam.
+  const ruff = addMesh(g, makeRuffGeometry(0.27, 0.205, 7, 0.06), cream, 0, 0.59 * scale, 0.555 * scale, scale, scale, scale, 0, 0, 0.06);
+  ruff.name = 'emberpup-directional-chest-ruff';
+  ruff.userData.explodeWithParent = true;
+
+  // Ear plates pivot at their roots rather than rocking around their centres.
+  const earGeometry = makeLeafGeometry(0.19, 0.5, 0.065);
+  for (const [x, part, rz] of [[-0.17, 'earL', 0.2], [0.17, 'earR', -0.2]] as const) {
+    const ear = addPivotedPart(
       g,
-      new THREE.CapsuleGeometry(0.048, 0.32, 4, 8),
+      earGeometry,
       dark,
-      lx * scale,
-      0.18 * scale,
-      lz * scale,
+      part,
+      new THREE.Vector3(x * scale, 0.83 * scale, 0.73 * scale),
       scale,
+      new THREE.Vector3(0, 0.2, 0),
+      new THREE.Euler(-0.08, x < 0 ? 0.08 : -0.08, rz),
+    );
+    const inner = new THREE.Mesh(makeLeafGeometry(0.095, 0.32, 0.025), ember);
+    inner.position.set(0, 0.205, 0.046);
+    inner.userData.explodeWithParent = true;
+    ear.add(inner);
+  }
+
+  // Tail stem and all ember petals share one semantic pivot at the rear socket.
+  const tail = addPivotedPart(
+    g,
+    createTaperedCurveGeometry([
+      new THREE.Vector3(0, 0, 0),
+      new THREE.Vector3(-0.03, 0.13, -0.19),
+      new THREE.Vector3(0.09, 0.3, -0.33),
+      new THREE.Vector3(-0.04, 0.48, -0.43),
+    ], [0.105, 0.085, 0.06, 0.038], 22, 11, 'emberpup-tail-stem'),
+    dark,
+    'tail',
+    new THREE.Vector3(0, 0.5 * scale, -0.65 * scale),
+    scale,
+  );
+  const petalGeometry = makeEmberPetalGeometry(0.23, 0.4, 0.065);
+  for (const [x, y, z, rz, material] of [
+    [-0.06, 0.56, -0.45, -0.34, ember],
+    [0.08, 0.54, -0.43, 0.42, flameHot],
+    [0.0, 0.64, -0.46, 0.02, ember],
+  ] as const) {
+    const petal = new THREE.Mesh(petalGeometry, material);
+    petal.position.set(x, y, z);
+    petal.rotation.set(0.12, 0, rz);
+    petal.userData.explodeWithParent = true;
+    tail.add(petal);
+  }
+
+  // Layered eyes and catchlights are deliberately oversized for gameplay-distance life.
+  for (const side of [-1, 1] as const) {
+    addMesh(g, new THREE.SphereGeometry(0.071, 14, 12), eye, side * 0.105 * scale, 0.71 * scale, 1.005 * scale, 0.9 * scale, 1.22 * scale, 0.42 * scale);
+    addMesh(g, new THREE.SphereGeometry(0.043, 12, 10), iris, side * 0.105 * scale, 0.714 * scale, 1.034 * scale, 0.82 * scale, 1.08 * scale, 0.3 * scale);
+    addMesh(g, new THREE.SphereGeometry(0.014, 8, 6), catchlight, (side * 0.105 - 0.012) * scale, 0.744 * scale, 1.052 * scale, scale, scale, 0.25 * scale);
+  }
+  addMesh(g, new THREE.SphereGeometry(0.055, 12, 9), pad, 0, 0.57 * scale, 1.205 * scale, 1.15 * scale, 0.76 * scale, 0.8 * scale);
+  addMesh(g, new THREE.TorusGeometry(0.072, 0.012, 6, 18, Math.PI), pad, 0, 0.515 * scale, 1.14 * scale, scale, 0.7 * scale, 0.45 * scale, 0, 0, Math.PI);
+
+  g.userData.speciesId = 'emberpup';
+  g.userData.materialKind = 'fur';
+  g.userData.fidelityTier = 'authored-starter';
+  g.userData.formContract = 'single continuous macro loft + socketed appendages';
+  return g;
+}
+
+/** Water otter-kin: a continuous upright torso/head with webbed socketed limbs and ribbon tail. */
+export function buildDewkin(scale: number): THREE.Group {
+  const g = new THREE.Group();
+  const body = mat(0x4aa8e8, 'wet');
+  const deep = mat(0x216a9e, 'scale');
+  const belly = mat(0xc8eef4, 'wet');
+  const fin = mat(0x78d9d5, 'feather', { emissive: 0x2b8a9a, emissiveIntensity: 0.15 });
+  const eye = mat(0x102638, 'shell');
+  const iris = mat(0xffd36a, 'wet');
+  const catchlight = mat(0xffffff, 'ember', { emissive: 0xe8ffff, emissiveIntensity: 0.22 });
+
+  const core = addMesh(
+    g,
+    createVerticalLoftGeometry([
+      { y: 0.24, z: -0.025, radiusX: 0.16, radiusZ: 0.15 },
+      { y: 0.31, z: -0.02, radiusX: 0.24, radiusZ: 0.22, shapePower: 2.15 },
+      { y: 0.43, z: -0.005, radiusX: 0.31, radiusZ: 0.27, shapePower: 2.3 },
+      { y: 0.58, z: 0.01, radiusX: 0.35, radiusZ: 0.3, shapePower: 2.4 },
+      { y: 0.73, z: 0.02, radiusX: 0.36, radiusZ: 0.31, shapePower: 2.35 },
+      { y: 0.88, z: 0.035, radiusX: 0.31, radiusZ: 0.28, shapePower: 2.2 },
+      { y: 1.0, z: 0.05, radiusX: 0.23, radiusZ: 0.21 },
+      { y: 1.08, z: 0.07, radiusX: 0.225, radiusZ: 0.215 },
+      { y: 1.16, z: 0.09, radiusX: 0.29, radiusZ: 0.27, shapePower: 2.15 },
+      { y: 1.27, z: 0.105, radiusX: 0.35, radiusZ: 0.3, shapePower: 2.35 },
+      { y: 1.38, z: 0.1, radiusX: 0.36, radiusZ: 0.3, shapePower: 2.35 },
+      { y: 1.48, z: 0.08, radiusX: 0.31, radiusZ: 0.27, shapePower: 2.2 },
+      { y: 1.56, z: 0.055, radiusX: 0.23, radiusZ: 0.21 },
+      { y: 1.61, z: 0.03, radiusX: 0.13, radiusZ: 0.13 },
+    ], 26, 'dewkin-continuous-core'),
+    body,
+    0,
+    0,
+    0,
+    scale,
+    scale,
+    scale,
+  );
+  core.name = 'dewkin-continuous-core';
+  core.userData.qaRole = 'organic-core';
+  core.userData.form = 'pelvis-torso-neck-skull-loft';
+
+  // A short, non-spherical muzzle loft gives the face a readable forward plane.
+  const muzzle = addMesh(
+    g,
+    createDepthLoftGeometry([
+      { z: 0.24, y: 1.31, radiusX: 0.23, radiusY: 0.16, shapePower: 2.25 },
+      { z: 0.31, y: 1.305, radiusX: 0.25, radiusY: 0.15, shapePower: 2.35 },
+      { z: 0.4, y: 1.295, radiusX: 0.19, radiusY: 0.12, shapePower: 2.2 },
+      { z: 0.48, y: 1.29, radiusX: 0.1, radiusY: 0.075 },
+    ], 20, 'dewkin-muzzle-loft'),
+    belly,
+    0,
+    0,
+    0,
+    scale,
+    scale,
+    scale,
+  );
+  muzzle.name = 'dewkin-muzzle-plane';
+  muzzle.userData.explodeWithParent = true;
+
+  const bellyPlate = addMesh(g, makeTeardropGeometry(0.48, 0.69, 0.042), belly, 0, 0.7 * scale, 0.315 * scale, scale, scale, scale);
+  bellyPlate.name = 'dewkin-keel-belly';
+  bellyPlate.userData.explodeWithParent = true;
+
+  const legGeometry = createVerticalLoftGeometry([
+    { y: -0.42, z: 0.09, radiusX: 0.13, radiusZ: 0.18, shapePower: 2.6 },
+    { y: -0.32, z: 0.045, radiusX: 0.1, radiusZ: 0.105 },
+    { y: -0.15, z: 0.015, radiusX: 0.095, radiusZ: 0.1 },
+    { y: 0, radiusX: 0.14, radiusZ: 0.14, shapePower: 2.25 },
+  ], 16, 'dewkin-webbed-leg-loft');
+  for (const [side, part] of [[-1, 'legL'], [1, 'legR']] as const) {
+    const leg = addMesh(g, legGeometry, deep, side * 0.17 * scale, 0.43 * scale, 0.015 * scale, scale, scale, scale, 0, 0, 0, part);
+    leg.name = `${part}-continuous-webbed-foot`;
+    leg.userData.attachment = 'embedded-socket';
+  }
+
+  for (const [side, part] of [[-1, 'armL'], [1, 'armR']] as const) {
+    const arm = addMesh(
+      g,
+      createVerticalLoftGeometry([
+        { y: -0.52, x: side * 0.12, z: 0.1, radiusX: 0.09, radiusZ: 0.105, shapePower: 2.2 },
+        { y: -0.4, x: side * 0.1, z: 0.07, radiusX: 0.078, radiusZ: 0.085 },
+        { y: -0.21, x: side * 0.055, z: 0.025, radiusX: 0.085, radiusZ: 0.09 },
+        { y: 0, radiusX: 0.125, radiusZ: 0.13, shapePower: 2.25 },
+      ], 15, `dewkin-${part}-loft`),
+      body,
+      side * 0.29 * scale,
       1.0 * scale,
+      0.03 * scale,
+      scale,
+      scale,
       scale,
       0,
       0,
       0,
       part,
     );
-    addMesh(g, new THREE.SphereGeometry(0.05, 8, 6), pad, lx * scale, 0.035 * scale, lz * scale + 0.02 * scale, 1.15 * scale, 0.42 * scale, 1.35 * scale);
+    arm.name = `${part}-tapered-flipper-arm`;
+    arm.userData.attachment = 'embedded-socket';
   }
-  // Multi-lobe flame tail past rear haunch (extends Z silhouette)
-  addMesh(g, new THREE.ConeGeometry(0.13, 0.62, 8), ember, 0, 0.48 * scale, -0.88 * scale, scale, scale, scale, Math.PI * 0.58, 0, 0, 'flame');
-  addMesh(g, new THREE.ConeGeometry(0.085, 0.4, 6), flameHot, 0.06 * scale, 0.72 * scale, -0.82 * scale, scale, scale, 0.75 * scale, Math.PI * 0.48, 0.25, 0.15, 'tail');
-  addMesh(g, new THREE.ConeGeometry(0.055, 0.28, 5), ember, -0.07 * scale, 0.62 * scale, -0.95 * scale, 0.8 * scale, scale, 0.6 * scale, Math.PI * 0.5, -0.2, -0.1);
-  // Eyes
-  addMesh(g, new THREE.SphereGeometry(0.038, 8, 8), eye, -0.085 * scale, 0.52 * scale, 0.9 * scale, scale, scale, scale);
-  addMesh(g, new THREE.SphereGeometry(0.038, 8, 8), eye, 0.085 * scale, 0.52 * scale, 0.9 * scale, scale, scale, scale);
 
-  g.userData.speciesId = 'emberpup';
-  g.userData.materialKind = 'fur';
-  return g;
-}
+  // Side fins and dorsal droplets break the silhouette with bevelled, light-catching edges.
+  const sideFin = makeLeafGeometry(0.18, 0.42, 0.052);
+  for (const [side, part] of [[-1, 'earL'], [1, 'earR']] as const) {
+    addPivotedPart(
+      g,
+      sideFin,
+      fin,
+      part,
+      new THREE.Vector3(side * 0.29 * scale, 1.4 * scale, 0.07 * scale),
+      scale,
+      new THREE.Vector3(side * 0.13, 0.04, 0),
+      new THREE.Euler(0.08, side * -0.12, side * -1.0),
+    );
+  }
+  for (const [x, h, rz] of [[-0.08, 0.27, 0.18], [0, 0.34, 0], [0.08, 0.25, -0.18]] as const) {
+    const crest = addMesh(g, makeLeafGeometry(0.085, h, 0.032), fin, x * scale, 1.61 * scale, 0.02 * scale, scale, scale, scale, 0, 0, rz, 'crest');
+    crest.userData.explodeWithParent = true;
+  }
 
-/** Water otter-kin: upright torso, tail, fin ears, wet scales. */
-export function buildDewkin(scale: number): THREE.Group {
-  const g = new THREE.Group();
-  const body = mat(0x4aa8e8, 'wet');
-  const belly = mat(0xc8e8f8, 'wet');
-  const scaleMat = mat(0x2e7eb8, 'scale');
-  const eye = mat(0x0a1a28, 'shell');
+  const tail = addPivotedPart(
+    g,
+    createTaperedCurveGeometry([
+      new THREE.Vector3(0, 0, 0),
+      new THREE.Vector3(-0.08, 0.02, -0.2),
+      new THREE.Vector3(-0.19, 0.1, -0.43),
+      new THREE.Vector3(0.02, 0.2, -0.64),
+    ], [0.16, 0.145, 0.1, 0.055], 22, 12, 'dewkin-ribbon-tail'),
+    body,
+    'tail',
+    new THREE.Vector3(0, 0.63 * scale, -0.22 * scale),
+    scale,
+  );
+  const tailFin = new THREE.Mesh(makeLeafGeometry(0.32, 0.48, 0.055), fin);
+  tailFin.position.set(0.03, 0.22, -0.68);
+  tailFin.rotation.set(Math.PI / 2, 0.18, -0.22);
+  tailFin.userData.explodeWithParent = true;
+  tail.add(tailFin);
 
-  // Upright body
-  addMesh(g, new THREE.CapsuleGeometry(0.32, 0.55, 6, 12), body, 0, 0.7 * scale, 0, scale, scale, scale);
-  // Belly plate
-  addMesh(g, new THREE.SphereGeometry(0.22, 16, 12), belly, 0, 0.55 * scale, 0.18 * scale, 1.1 * scale, 1.2 * scale, 0.7 * scale);
-  // Head
-  addMesh(g, new THREE.SphereGeometry(0.28, 18, 14), body, 0, 1.22 * scale, 0.08 * scale, 1.05 * scale, 0.95 * scale, 1.1 * scale);
-  // Fin ears
-  addMesh(g, new THREE.ConeGeometry(0.12, 0.28, 6), scaleMat, -0.22 * scale, 1.4 * scale, 0, scale, scale, 0.4 * scale, 0, 0, 0.6, 'earL');
-  addMesh(g, new THREE.ConeGeometry(0.12, 0.28, 6), scaleMat, 0.22 * scale, 1.4 * scale, 0, scale, scale, 0.4 * scale, 0, 0, -0.6, 'earR');
-  // Arms
-  addMesh(g, new THREE.CapsuleGeometry(0.08, 0.28, 4, 8), body, -0.38 * scale, 0.75 * scale, 0.05 * scale, scale, scale, scale, 0, 0, 0.4, 'armL');
-  addMesh(g, new THREE.CapsuleGeometry(0.08, 0.28, 4, 8), body, 0.38 * scale, 0.75 * scale, 0.05 * scale, scale, scale, scale, 0, 0, -0.4, 'armR');
-  // Legs short — biped tags for stride secondary
-  addMesh(g, new THREE.CapsuleGeometry(0.09, 0.18, 4, 8), scaleMat, -0.14 * scale, 0.22 * scale, 0.02 * scale, scale, scale, scale, 0, 0, 0, 'legL');
-  addMesh(g, new THREE.CapsuleGeometry(0.09, 0.18, 4, 8), scaleMat, 0.14 * scale, 0.22 * scale, 0.02 * scale, scale, scale, scale, 0, 0, 0, 'legR');
-  // Tail
-  addMesh(g, new THREE.SphereGeometry(0.18, 12, 10), body, 0, 0.45 * scale, -0.4 * scale, 0.7 * scale, 0.55 * scale, 1.4 * scale, 0, 0, 0, 'tail');
-  addMesh(g, new THREE.ConeGeometry(0.12, 0.35, 6), scaleMat, 0, 0.4 * scale, -0.72 * scale, scale, scale, scale, Math.PI / 2, 0, 0, 'fin');
-  // Eyes
-  addMesh(g, new THREE.SphereGeometry(0.055, 8, 8), eye, -0.1 * scale, 1.28 * scale, 0.28 * scale, scale, scale, scale);
-  addMesh(g, new THREE.SphereGeometry(0.055, 8, 8), eye, 0.1 * scale, 1.28 * scale, 0.28 * scale, scale, scale, scale);
+  for (const side of [-1, 1] as const) {
+    addMesh(g, new THREE.SphereGeometry(0.075, 14, 12), eye, side * 0.12 * scale, 1.39 * scale, 0.31 * scale, 0.9 * scale, 1.2 * scale, 0.38 * scale);
+    addMesh(g, new THREE.SphereGeometry(0.043, 12, 10), iris, side * 0.12 * scale, 1.39 * scale, 0.34 * scale, 0.82 * scale, 1.05 * scale, 0.26 * scale);
+    addMesh(g, new THREE.SphereGeometry(0.014, 8, 6), catchlight, (side * 0.12 - 0.012) * scale, 1.42 * scale, 0.353 * scale, scale, scale, 0.22 * scale);
+    addMesh(g, new THREE.TorusGeometry(0.055, 0.01, 6, 14, Math.PI * 0.72), deep, side * 0.2 * scale, 1.25 * scale, 0.405 * scale, scale, scale, 0.4 * scale, 0, 0, side < 0 ? -0.42 : Math.PI + 0.42);
+  }
+  addMesh(g, new THREE.SphereGeometry(0.042, 10, 8), deep, 0, 1.3 * scale, 0.49 * scale, 1.2 * scale, 0.65 * scale, 0.7 * scale);
+  addMesh(g, new THREE.TorusGeometry(0.06, 0.011, 6, 16, Math.PI), deep, 0, 1.22 * scale, 0.455 * scale, scale, 0.7 * scale, 0.4 * scale, 0, 0, Math.PI);
 
   g.userData.speciesId = 'dewkin';
   g.userData.materialKind = 'scale';
+  g.userData.fidelityTier = 'authored-starter';
+  g.userData.formContract = 'single continuous torso/head loft + socketed appendages';
   return g;
 }
 
-/** Leaf starter (optional id): bipedal plant with leaf crest. Feather-like foliage. */
+/** Leaf starter: sprig-lynx biped with one body/head loft and a socketed branch tail. */
 export function buildLeafit(scale: number): THREE.Group {
   const g = new THREE.Group();
-  const body = mat(0x5cbc6a, 'fur');
-  const leaf = mat(0x3a9a48, 'feather');
-  const stem = mat(0x8bc34a, 'feather');
-  const eye = mat(0x1a2a10, 'shell');
+  const body = mat(0x58b96a, 'fur');
+  const deep = mat(0x2e7145, 'fur');
+  const leaf = mat(0x318d49, 'feather');
+  const leafLight = mat(0x94d568, 'feather', { emissive: 0x4f8f3f, emissiveIntensity: 0.12 });
+  const chest = mat(0xd5e99b, 'feather');
+  const eye = mat(0x182619, 'shell');
+  const iris = mat(0xf0c75b, 'wet');
+  const catchlight = mat(0xffffff, 'ember', { emissive: 0xf2ffd2, emissiveIntensity: 0.2 });
 
-  // Tall biped plant — sparse parts so volume/bbox stays under cube threshold
-  addMesh(g, new THREE.CapsuleGeometry(0.28, 0.5, 6, 12), body, 0, 0.65 * scale, 0, scale, scale, scale);
-  addMesh(g, new THREE.SphereGeometry(0.26, 16, 14), body, 0, 1.2 * scale, 0.06 * scale, scale, 0.9 * scale, scale);
-  // Tall leaf crest + side fronds (extends bbox without filling it)
-  addMesh(g, new THREE.ConeGeometry(0.18, 0.7, 7), leaf, 0, 1.7 * scale, -0.05 * scale, scale, scale, 0.3 * scale, 0, 0, 0, 'crest');
-  addMesh(g, new THREE.ConeGeometry(0.14, 0.55, 6), stem, -0.32 * scale, 1.35 * scale, 0.05 * scale, scale, scale, 0.25 * scale, 0, 0, 0.9, 'earL');
-  addMesh(g, new THREE.ConeGeometry(0.14, 0.55, 6), stem, 0.32 * scale, 1.35 * scale, 0.05 * scale, scale, scale, 0.25 * scale, 0, 0, -0.9, 'earR');
-  addMesh(g, new THREE.ConeGeometry(0.1, 0.4, 5), leaf, 0, 1.0 * scale, -0.35 * scale, scale, scale, 0.25 * scale, Math.PI / 2.5, 0, 0, 'tail');
-  // Arms/legs outstretched
-  addMesh(g, new THREE.CapsuleGeometry(0.06, 0.35, 4, 8), body, -0.42 * scale, 0.75 * scale, 0, scale, scale, scale, 0, 0, 0.7, 'armL');
-  addMesh(g, new THREE.CapsuleGeometry(0.06, 0.35, 4, 8), body, 0.42 * scale, 0.75 * scale, 0, scale, scale, scale, 0, 0, -0.7, 'armR');
-  addMesh(g, new THREE.CapsuleGeometry(0.07, 0.28, 4, 8), body, -0.12 * scale, 0.2 * scale, 0.05 * scale, scale, scale, scale, 0, 0, 0, 'legL');
-  addMesh(g, new THREE.CapsuleGeometry(0.07, 0.28, 4, 8), body, 0.12 * scale, 0.2 * scale, 0.05 * scale, scale, scale, scale, 0, 0, 0, 'legR');
-  addMesh(g, new THREE.SphereGeometry(0.045, 8, 8), eye, -0.09 * scale, 1.22 * scale, 0.26 * scale, scale, scale, scale);
-  addMesh(g, new THREE.SphereGeometry(0.045, 8, 8), eye, 0.09 * scale, 1.22 * scale, 0.26 * scale, scale, scale, scale);
+  const core = addMesh(
+    g,
+    createVerticalLoftGeometry([
+      { y: 0.22, z: -0.015, radiusX: 0.15, radiusZ: 0.14 },
+      { y: 0.29, z: -0.01, radiusX: 0.23, radiusZ: 0.2, shapePower: 2.15 },
+      { y: 0.41, z: 0, radiusX: 0.3, radiusZ: 0.25, shapePower: 2.3 },
+      { y: 0.56, z: 0.015, radiusX: 0.34, radiusZ: 0.28, shapePower: 2.4 },
+      { y: 0.71, z: 0.03, radiusX: 0.33, radiusZ: 0.28, shapePower: 2.35 },
+      { y: 0.85, z: 0.05, radiusX: 0.28, radiusZ: 0.25, shapePower: 2.2 },
+      { y: 0.97, z: 0.075, radiusX: 0.215, radiusZ: 0.195 },
+      { y: 1.06, z: 0.095, radiusX: 0.22, radiusZ: 0.205 },
+      { y: 1.14, z: 0.115, radiusX: 0.28, radiusZ: 0.25, shapePower: 2.2 },
+      { y: 1.25, z: 0.125, radiusX: 0.34, radiusZ: 0.28, shapePower: 2.4 },
+      { y: 1.36, z: 0.115, radiusX: 0.35, radiusZ: 0.28, shapePower: 2.45 },
+      { y: 1.46, z: 0.09, radiusX: 0.3, radiusZ: 0.25, shapePower: 2.25 },
+      { y: 1.54, z: 0.06, radiusX: 0.22, radiusZ: 0.19 },
+      { y: 1.59, z: 0.035, radiusX: 0.12, radiusZ: 0.115 },
+    ], 26, 'leafkit-continuous-core'),
+    body,
+    0,
+    0,
+    0,
+    scale,
+    scale,
+    scale,
+  );
+  core.name = 'leafkit-continuous-core';
+  core.userData.qaRole = 'organic-core';
+  core.userData.form = 'pelvis-torso-neck-skull-loft';
+
+  const muzzle = addMesh(
+    g,
+    createDepthLoftGeometry([
+      { z: 0.25, y: 1.28, radiusX: 0.22, radiusY: 0.145, shapePower: 2.2 },
+      { z: 0.32, y: 1.275, radiusX: 0.24, radiusY: 0.14, shapePower: 2.35 },
+      { z: 0.4, y: 1.265, radiusX: 0.17, radiusY: 0.105, shapePower: 2.2 },
+      { z: 0.46, y: 1.26, radiusX: 0.085, radiusY: 0.065 },
+    ], 20, 'leafkit-muzzle-loft'),
+    chest,
+    0,
+    0,
+    0,
+    scale,
+    scale,
+    scale,
+  );
+  muzzle.name = 'leafkit-muzzle-plane';
+  muzzle.userData.explodeWithParent = true;
+
+  const petalRuff = addMesh(g, makeRuffGeometry(0.265, 0.19, 6, 0.052), chest, 0, 0.98 * scale, 0.255 * scale, scale, 0.88 * scale, scale, 0, 0, Math.PI / 6);
+  petalRuff.name = 'leafkit-six-petal-ruff';
+  petalRuff.userData.explodeWithParent = true;
+
+  const legGeometry = createVerticalLoftGeometry([
+    { y: -0.41, z: 0.085, radiusX: 0.125, radiusZ: 0.17, shapePower: 2.55 },
+    { y: -0.31, z: 0.04, radiusX: 0.092, radiusZ: 0.105 },
+    { y: -0.14, z: 0.01, radiusX: 0.087, radiusZ: 0.095 },
+    { y: 0, radiusX: 0.135, radiusZ: 0.13, shapePower: 2.25 },
+  ], 16, 'leafkit-digitigrade-leg-loft');
+  for (const [side, part] of [[-1, 'legL'], [1, 'legR']] as const) {
+    const leg = addMesh(g, legGeometry, deep, side * 0.16 * scale, 0.42 * scale, 0.01 * scale, scale, scale, scale, 0, 0, 0, part);
+    leg.name = `${part}-continuous-root-paw`;
+    leg.userData.attachment = 'embedded-socket';
+  }
+
+  for (const [side, part] of [[-1, 'armL'], [1, 'armR']] as const) {
+    const arm = addMesh(
+      g,
+      createVerticalLoftGeometry([
+        { y: -0.5, x: side * 0.14, z: 0.1, radiusX: 0.085, radiusZ: 0.095, shapePower: 2.25 },
+        { y: -0.39, x: side * 0.11, z: 0.065, radiusX: 0.07, radiusZ: 0.078 },
+        { y: -0.2, x: side * 0.06, z: 0.025, radiusX: 0.078, radiusZ: 0.082 },
+        { y: 0, radiusX: 0.12, radiusZ: 0.12, shapePower: 2.2 },
+      ], 15, `leafkit-${part}-loft`),
+      body,
+      side * 0.28 * scale,
+      0.98 * scale,
+      0.035 * scale,
+      scale,
+      scale,
+      scale,
+      0,
+      0,
+      0,
+      part,
+    );
+    arm.name = `${part}-tapered-vine-arm`;
+    arm.userData.attachment = 'embedded-socket';
+  }
+
+  // Side leaves function as cat-ear silhouette anchors and pivot at the skull.
+  const earGeometry = makeLeafGeometry(0.2, 0.48, 0.052);
+  for (const [side, part] of [[-1, 'earL'], [1, 'earR']] as const) {
+    const ear = addPivotedPart(
+      g,
+      earGeometry,
+      leaf,
+      part,
+      new THREE.Vector3(side * 0.25 * scale, 1.4 * scale, 0.095 * scale),
+      scale,
+      new THREE.Vector3(side * 0.09, 0.16, 0),
+      new THREE.Euler(0.06, side * -0.12, side * -0.62),
+    );
+    const vein = new THREE.Mesh(new THREE.CylinderGeometry(0.009, 0.014, 0.31, 6), leafLight);
+    vein.position.set(0, 0.16, 0.04);
+    vein.userData.explodeWithParent = true;
+    ear.add(vein);
+  }
+
+  // Three asymmetrical crown leaves avoid the single-cone placeholder silhouette.
+  for (const [x, y, h, rz, material] of [
+    [-0.11, 1.57, 0.49, 0.35, leaf],
+    [0, 1.6, 0.62, 0.02, leafLight],
+    [0.12, 1.56, 0.46, -0.38, leaf],
+  ] as const) {
+    const crest = addPivotedPart(
+      g,
+      makeLeafGeometry(0.2, h, 0.055),
+      material,
+      'crest',
+      new THREE.Vector3(x * scale, y * scale, 0.02 * scale),
+      scale,
+      new THREE.Vector3(0, h * 0.38, 0),
+      new THREE.Euler(-0.05, 0, rz),
+    );
+    crest.userData.cluster = 'three-leaf-crown';
+  }
+
+  const tail = addPivotedPart(
+    g,
+    createTaperedCurveGeometry([
+      new THREE.Vector3(0, 0, 0),
+      new THREE.Vector3(-0.09, 0.09, -0.22),
+      new THREE.Vector3(-0.28, 0.24, -0.42),
+      new THREE.Vector3(-0.14, 0.4, -0.6),
+    ], [0.105, 0.085, 0.058, 0.032], 22, 10, 'leafkit-branch-tail'),
+    deep,
+    'tail',
+    new THREE.Vector3(0, 0.65 * scale, -0.23 * scale),
+    scale,
+  );
+  const tailLeaf = new THREE.Mesh(makeLeafGeometry(0.31, 0.55, 0.055), leafLight);
+  tailLeaf.position.set(-0.15, 0.43, -0.62);
+  tailLeaf.rotation.set(Math.PI / 2.15, 0.15, -0.5);
+  tailLeaf.userData.explodeWithParent = true;
+  tail.add(tailLeaf);
+
+  for (const side of [-1, 1] as const) {
+    addMesh(g, new THREE.SphereGeometry(0.074, 14, 12), eye, side * 0.115 * scale, 1.37 * scale, 0.3 * scale, 0.9 * scale, 1.22 * scale, 0.38 * scale);
+    addMesh(g, new THREE.SphereGeometry(0.042, 12, 10), iris, side * 0.115 * scale, 1.37 * scale, 0.331 * scale, 0.8 * scale, 1.04 * scale, 0.25 * scale);
+    addMesh(g, new THREE.SphereGeometry(0.013, 8, 6), catchlight, (side * 0.115 - 0.012) * scale, 1.4 * scale, 0.344 * scale, scale, scale, 0.2 * scale);
+    addMesh(g, new THREE.TorusGeometry(0.075, 0.012, 6, 16, Math.PI * 0.72), deep, side * 0.11 * scale, 1.455 * scale, 0.302 * scale, scale, 0.65 * scale, 0.35 * scale, 0, 0, side < 0 ? 0.25 : Math.PI - 0.25);
+  }
+  addMesh(g, new THREE.SphereGeometry(0.037, 10, 8), deep, 0, 1.27 * scale, 0.465 * scale, 1.25 * scale, 0.7 * scale, 0.72 * scale);
+  addMesh(g, new THREE.TorusGeometry(0.058, 0.01, 6, 16, Math.PI), deep, 0, 1.2 * scale, 0.435 * scale, scale, 0.72 * scale, 0.38 * scale, 0, 0, Math.PI);
 
   g.userData.speciesId = 'leafit';
   g.userData.materialKind = 'feather';
+  g.userData.fidelityTier = 'authored-starter';
+  g.userData.formContract = 'single continuous torso/head loft + socketed appendages';
   return g;
 }
 

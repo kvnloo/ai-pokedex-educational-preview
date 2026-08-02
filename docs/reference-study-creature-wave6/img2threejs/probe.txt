@@ -1,0 +1,11 @@
+{
+  "path": "/tmp/pokemon-sol-creature/docs/reference-study-creature-wave6/original/emberpup-continuous-concept.png",
+  "type": "png",
+  "bytes": 152257,
+  "width": 960,
+  "height": 720,
+  "aspectRatio": 1.3333333333333333,
+  "technicalSuitability": "pass",
+  "warnings": [],
+  "note": "This is only technical image probing. Semantic object suitability still requires visual inspection."
+}
