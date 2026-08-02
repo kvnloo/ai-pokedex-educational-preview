@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://twilight-route.local/schema/dex-index.schema.json",
+  "title": "DexIndex",
+  "type": "object",
+  "required": ["version", "count", "entries"],
+  "properties": {
+    "version": { "type": "string" },
+    "count": { "type": "integer" },
+    "generatedAt": { "type": "string" },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["nationalId", "slug", "name", "types", "generation", "color"],
+        "additionalProperties": false,
+        "properties": {
+          "nationalId": { "type": "integer" },
+          "slug": { "type": "string" },
+          "name": { "type": "string" },
+          "types": { "type": "array", "items": { "type": "string" }, "minItems": 1, "maxItems": 2 },
+          "generation": { "type": "integer" },
+          "color": { "type": "string" },
+          "isLegendary": { "type": "boolean" },
+          "isMythical": { "type": "boolean" },
+          "shape": { "type": "string" },
+          "hasMesh": { "type": "boolean" }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="dark" />
+  <title>Twilight Route</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #0b1220;
+      --panel: rgba(10, 18, 32, 0.78);
+      --panel-border: rgba(180, 210, 255, 0.22);
+      --text: #eef4ff;
+      --muted: #9aafc8;
+      --accent: #7ec8ff;
+      --good: #7dffa8;
+      --warn: #ffd56a;
+      --bad: #ff7b6e;
+      --hp: #5ce08a;
+      --hp-mid: #e6d35a;
+      --hp-low: #ff6b5a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 100%; height: 100%; overflow: hidden;
+      background: #05080f;
+      font-family: 'Nunito', system-ui, sans-serif;
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      touch-action: none;
+      overscroll-behavior: none;
+      user-select: none;
+    }
+    #app { position: fixed; inset: 0; }
+    canvas#viewport {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      display: block; touch-action: none;
+    }
+    #ui-root {
+      position: absolute; inset: 0; z-index: 10;
+      pointer-events: none;
+    }
+    #ui-root .interactive { pointer-events: auto; }
+
+    #boot {
+      position: absolute; inset: 0; z-index: 100;
+      display: grid; place-items: center;
+      background:
+        radial-gradient(90% 70% at 50% 30%, #1a2a4a 0%, transparent 55%),
+        radial-gradient(120% 100% at 50% 100%, #0a1528 0%, #04060c 70%);
+      transition: opacity 800ms cubic-bezier(.22,1,.36,1);
+    }
+    #boot.done { opacity: 0; pointer-events: none; }
+    .boot-inner { text-align: center; width: min(520px, 84vw); }
+    .boot-title {
+      font-weight: 800; font-size: clamp(36px, 7vw, 64px);
+      letter-spacing: 0.04em;
+      background: linear-gradient(180deg, #fff 0%, #a8d4ff 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      filter: drop-shadow(0 8px 28px rgba(100,170,255,.35));
+    }
+    .boot-sub {
+      margin-top: 8px; font-family: 'JetBrains Mono', monospace;
+      font-size: 11px; letter-spacing: .28em; text-transform: uppercase; color: #6d87a8;
+    }
+    .boot-bar {
+      margin: 32px auto 0; height: 3px; width: 100%;
+      background: rgba(255,255,255,.08); border-radius: 99px; overflow: hidden;
+    }
+    .boot-bar > i {
+      display: block; height: 100%; width: 0%;
+      background: linear-gradient(90deg, #4f9dff, #b8e0ff);
+      box-shadow: 0 0 16px rgba(120,180,255,.85);
+      transition: width 220ms ease-out;
+    }
+    .boot-status {
+      margin-top: 12px; font-family: 'JetBrains Mono', monospace;
+      font-size: 11px; letter-spacing: .14em; color: #5f7694; text-transform: uppercase;
+    }
+
+    #hud-explore {
+      position: absolute; left: 18px; bottom: 18px;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .pill {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 10px 14px; border-radius: 14px;
+      background: var(--panel); border: 1px solid var(--panel-border);
+      backdrop-filter: blur(14px); box-shadow: 0 10px 40px rgba(0,0,0,.35);
+      font-size: 13px; color: var(--muted);
+    }
+    .pill strong { color: var(--text); font-weight: 700; }
+    .pill kbd {
+      font-family: 'JetBrains Mono', monospace; font-size: 11px;
+      padding: 2px 7px; border-radius: 6px;
+      background: rgba(255,255,255,.08); color: var(--accent);
+      border: 1px solid rgba(126,200,255,.25);
+    }
+
+    #party-strip {
+      position: absolute; top: 16px; left: 16px;
+      display: flex; gap: 8px;
+    }
+    .party-slot {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: var(--panel); border: 1px solid var(--panel-border);
+      backdrop-filter: blur(12px);
+      display: grid; place-items: center;
+      box-shadow: 0 8px 24px rgba(0,0,0,.3);
+      position: relative;
+    }
+    .party-slot .orb {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #fff 0%, var(--c, #7ec8ff) 45%, #1a2030 100%);
+      box-shadow: inset 0 -3px 6px rgba(0,0,0,.35), 0 0 12px color-mix(in srgb, var(--c, #7ec8ff) 50%, transparent);
+    }
+    .party-slot .mini-hp {
+      position: absolute; left: 6px; right: 6px; bottom: 5px; height: 3px;
+      background: rgba(255,255,255,.12); border-radius: 99px; overflow: hidden;
+    }
+    .party-slot .mini-hp > i { display:block; height:100%; width:100%; background: var(--hp); }
+
+    #toast {
+      position: absolute; top: 18px; left: 50%; transform: translateX(-50%);
+      max-width: min(520px, 90vw); text-align: center;
+      padding: 12px 18px; border-radius: 16px;
+      background: var(--panel); border: 1px solid var(--panel-border);
+      backdrop-filter: blur(16px); box-shadow: 0 12px 40px rgba(0,0,0,.4);
+      font-weight: 700; font-size: 15px; opacity: 0;
+      transition: opacity 220ms ease, transform 220ms ease;
+      pointer-events: none;
+    }
+    #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    /* Starter select */
+    #starter-overlay {
+      position: absolute; inset: 0; z-index: 40;
+      display: none; place-items: center;
+      background: radial-gradient(80% 70% at 50% 40%, rgba(20,40,70,.55), rgba(4,8,16,.88));
+      backdrop-filter: blur(6px);
+      pointer-events: auto;
+    }
+    #starter-overlay.show { display: grid; }
+    .starter-card-wrap {
+      width: min(920px, 94vw);
+      padding: 28px 24px 24px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(18,30,52,.92), rgba(8,14,26,.94));
+      border: 1px solid rgba(160,200,255,.2);
+      box-shadow: 0 30px 80px rgba(0,0,0,.55);
+    }
+    .starter-card-wrap h1 {
+      text-align: center; font-size: clamp(22px, 4vw, 32px); font-weight: 800;
+      margin-bottom: 6px;
+    }
+    .starter-card-wrap p.lead {
+      text-align: center; color: var(--muted); margin-bottom: 22px; font-size: 14px;
+    }
+    .starter-row {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+    }
+    @media (max-width: 720px) {
+      .starter-row { grid-template-columns: 1fr; }
+    }
+    .starter-card {
+      cursor: pointer; border: 1px solid rgba(255,255,255,.1);
+      border-radius: 20px; padding: 18px 14px 16px;
+      background: rgba(255,255,255,.03);
+      transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+      text-align: center;
+    }
+    .starter-card:hover, .starter-card:focus-visible {
+      transform: translateY(-4px);
+      border-color: color-mix(in srgb, var(--accent-c, #7ec8ff) 70%, white);
+      box-shadow: 0 16px 40px color-mix(in srgb, var(--accent-c, #7ec8ff) 25%, transparent);
+      outline: none;
+    }
+    .starter-card .preview {
+      height: 120px; display: grid; place-items: center; margin-bottom: 8px;
+    }
+    .starter-card .preview-orb {
+      width: 88px; height: 88px; border-radius: 50%;
+      background: radial-gradient(circle at 30% 28%, #fff 0%, var(--accent-c) 42%, #101828 100%);
+      box-shadow: 0 12px 30px color-mix(in srgb, var(--accent-c) 40%, transparent);
+      animation: floaty 2.6s ease-in-out infinite;
+    }
+    @keyframes floaty {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    .starter-card h3 { font-size: 18px; font-weight: 800; }
+    .starter-card .type {
+      display: inline-block; margin-top: 6px; padding: 3px 10px; border-radius: 999px;
+      font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase;
+      background: color-mix(in srgb, var(--accent-c) 28%, transparent);
+      color: #fff; border: 1px solid color-mix(in srgb, var(--accent-c) 50%, white 10%);
+    }
+    .starter-card .blurb {
+      margin-top: 10px; font-size: 12.5px; color: var(--muted); line-height: 1.45;
+    }
+
+    /* Battle UI */
+    #battle-root {
+      position: absolute; inset: 0; display: none; pointer-events: none;
+    }
+    #battle-root.active { display: block; }
+    #battle-root.active .interactive { pointer-events: auto; }
+
+    .hp-card {
+      position: absolute; min-width: 240px; max-width: 320px;
+      padding: 12px 14px 11px; border-radius: 16px;
+      background: linear-gradient(180deg, rgba(16,26,44,.88), rgba(8,14,26,.9));
+      border: 1px solid var(--panel-border);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 14px 40px rgba(0,0,0,.4);
+    }
+    .hp-card.enemy { top: 8%; left: 6%; }
+    .hp-card.ally { bottom: 32%; right: 5%; }
+    .hp-card .row1 {
+      display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+    }
+    .hp-card .name { font-weight: 800; font-size: 16px; }
+    .hp-card .lvl { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--muted); }
+    .hp-card .bar {
+      margin-top: 8px; height: 10px; border-radius: 99px;
+      background: rgba(255,255,255,.08); overflow: hidden;
+      border: 1px solid rgba(255,255,255,.06);
+    }
+    .hp-card .bar > i {
+      display: block; height: 100%; width: 100%;
+      background: linear-gradient(90deg, #3ecf72, var(--hp));
+      transform-origin: left center;
+      transition: transform 420ms cubic-bezier(.2,.8,.2,1), background 200ms ease;
+    }
+    .hp-card .hp-text {
+      margin-top: 6px; text-align: right;
+      font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted);
+    }
+
+    #battle-msg {
+      position: absolute; left: 50%; bottom: 22%; transform: translateX(-50%);
+      width: min(720px, 92vw);
+      min-height: 64px;
+      padding: 14px 18px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(12,20,36,.9), rgba(8,12,22,.94));
+      border: 1px solid var(--panel-border);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 16px 50px rgba(0,0,0,.45);
+      font-weight: 700; font-size: 16px; line-height: 1.4;
+    }
+
+    #battle-menu {
+      position: absolute; right: 3%; bottom: 3%;
+      width: min(420px, 94vw);
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+      padding: 12px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, rgba(14,24,42,.92), rgba(8,14,26,.95));
+      border: 1px solid var(--panel-border);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 18px 50px rgba(0,0,0,.5);
+    }
+    #battle-menu.hidden, #move-menu.hidden, #ball-menu.hidden { display: none !important; }
+
+    #move-menu {
+      position: absolute; right: 3%; bottom: 3%;
+      width: min(520px, 94vw);
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+      padding: 12px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, rgba(14,24,42,.92), rgba(8,14,26,.95));
+      border: 1px solid var(--panel-border);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 18px 50px rgba(0,0,0,.5);
+    }
+
+    .btn {
+      appearance: none; border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color: var(--text); font-family: inherit; font-weight: 800;
+      font-size: 15px; padding: 14px 12px; border-radius: 14px;
+      cursor: pointer; transition: transform 100ms ease, background 120ms ease, border-color 120ms ease;
+      text-align: left;
+    }
+    .btn:hover:not(:disabled) {
+      background: rgba(126,200,255,.12);
+      border-color: rgba(126,200,255,.35);
+      transform: translateY(-1px);
+    }
+    .btn:active:not(:disabled) { transform: translateY(1px); }
+    .btn:disabled { opacity: .4; cursor: default; }
+    .btn .sub {
+      display: block; margin-top: 4px; font-size: 11px; font-weight: 600; color: var(--muted);
+    }
+    .btn.primary {
+      background: linear-gradient(180deg, rgba(80,150,255,.28), rgba(40,90,180,.22));
+      border-color: rgba(126,200,255,.4);
+    }
+    .btn.warn {
+      background: linear-gradient(180deg, rgba(255,180,80,.2), rgba(180,100,40,.18));
+      border-color: rgba(255,200,120,.35);
+    }
+    .btn.ghost { grid-column: 1 / -1; text-align: center; }
+
+    #vignette {
+      position: absolute; inset: 0; pointer-events: none; z-index: 5;
+      background: radial-gradient(70% 65% at 50% 45%, transparent 40%, rgba(0,0,0,.35) 100%);
+      opacity: .85;
+    }
+    #battle-flash {
+      position: absolute; inset: 0; z-index: 30; pointer-events: none;
+      background: #fff; opacity: 0; transition: opacity 80ms linear;
+    }
+    #battle-flash.on { opacity: .55; }
+
+    #fatal {
+      position: absolute; inset: 0; z-index: 200; display: none; place-items: center;
+      background: #07090d; padding: 40px;
+    }
+    #fatal.show { display: grid; }
+    #fatal pre {
+      font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 1.6;
+      color: #ff8f7a; max-width: 900px; max-height: 70vh; overflow: auto; white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <canvas id="viewport"></canvas>
+    <div id="vignette"></div>
+    <div id="battle-flash"></div>
+    <div id="ui-root">
+      <div id="toast"></div>
+      <div id="party-strip"></div>
+      <div id="hud-explore">
+        <div class="pill"><kbd>WASD</kbd> move · <kbd>Shift</kbd> run · <kbd>E</kbd> interact</div>
+        <div class="pill">Route: <strong id="loc-label">Lumen Hollow</strong></div>
+      </div>
+
+      <div id="starter-overlay" class="interactive">
+        <div class="starter-card-wrap">
+          <h1>Choose your partner</h1>
+          <p class="lead">Three companions wait under the hollow light. Your journey begins with one.</p>
+          <div class="starter-row" id="starter-row"></div>
+        </div>
+      </div>
+
+      <div id="battle-root">
+        <div class="hp-card enemy">
+          <div class="row1">
+            <span class="name" id="enemy-name">—</span>
+            <span class="lvl" id="enemy-lvl">Lv.1</span>
+          </div>
+          <div class="bar"><i id="enemy-hp"></i></div>
+        </div>
+        <div class="hp-card ally">
+          <div class="row1">
+            <span class="name" id="ally-name">—</span>
+            <span class="lvl" id="ally-lvl">Lv.1</span>
+          </div>
+          <div class="bar"><i id="ally-hp"></i></div>
+          <div class="hp-text" id="ally-hp-text">—</div>
+        </div>
+        <div id="battle-msg">A wild creature appeared!</div>
+        <div id="battle-menu" class="interactive">
+          <button class="btn primary" data-act="fight">Fight<span class="sub">Choose a move</span></button>
+          <button class="btn warn" data-act="ball">Ball<span class="sub">Attempt a catch</span></button>
+          <button class="btn" data-act="swap" disabled>Creature<span class="sub">Demo: single partner</span></button>
+          <button class="btn" data-act="run">Run<span class="sub">Flee the encounter</span></button>
+        </div>
+        <div id="move-menu" class="interactive hidden"></div>
+      </div>
+    </div>
+
+    <div id="boot">
+      <div class="boot-inner">
+        <div class="boot-title">Twilight Route</div>
+        <div class="boot-sub">Creature Collector Demo</div>
+        <div class="boot-bar"><i id="boot-fill"></i></div>
+        <div class="boot-status" id="boot-status">Initialising</div>
+      </div>
+    </div>
+    <div id="fatal"><pre id="fatal-text"></pre></div>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

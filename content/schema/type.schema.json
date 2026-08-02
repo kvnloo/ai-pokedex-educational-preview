@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://twilight-route.local/schema/type.schema.json",
+  "title": "Type",
+  "type": "object",
+  "required": ["typeId", "slug", "name", "color", "damageTo"],
+  "additionalProperties": false,
+  "properties": {
+    "typeId": { "type": "integer", "minimum": 0, "maximum": 31 },
+    "slug": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "name": { "type": "string", "minLength": 1 },
+    "color": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+    "damageTo": {
+      "type": "object",
+      "description": "Map of defender type slug → multiplier (0, 0.25, 0.5, 1, 2, 4)",
+      "additionalProperties": { "type": "number", "enum": [0, 0.25, 0.5, 1, 2, 4] }
+    }
+  }
+}
