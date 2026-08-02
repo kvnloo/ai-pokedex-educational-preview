@@ -7,8 +7,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview --port 4173 --strictPort",
-    "typecheck": "tsc --noEmit"
+    "preview": "vite preview --port 4180 --strictPort",
+    "typecheck": "tsc --noEmit",
+    "content:sync": "node tools/pokeapi-sync.mjs",
+    "content:sync:smoke": "node tools/pokeapi-sync.mjs --max 20",
+    "verify": "npm run typecheck && npm run build && npm run content:sync:smoke"
   },
   "dependencies": {
     "three": "^0.185.1"

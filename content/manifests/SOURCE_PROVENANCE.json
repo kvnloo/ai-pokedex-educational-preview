@@ -1,0 +1,9 @@
+{
+  "tool": "tools/pokeapi-sync.mjs",
+  "base": "https://pokeapi.co/api/v2",
+  "syncedAt": "2026-08-02T06:47:14.133Z",
+  "speciesCount": 1025,
+  "speciesTotalAvailable": 1025,
+  "typesCount": 19,
+  "maxArg": null
+}
