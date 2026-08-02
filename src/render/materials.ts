@@ -227,29 +227,29 @@ export function makeSurfaceMaterial(opts: MaterialOpts): THREE.MeshStandardMater
 
   switch (kind) {
     case 'fur':
-      roughness ??= 0.92;
+      roughness ??= 0.78;
       metalness ??= 0.0;
       emissive = opts.emissive ?? base;
       emissiveIntensity = opts.emissiveIntensity ?? 0.045;
-      normalScale = 1.85;
+      normalScale = 0.68;
       break;
     case 'feather':
       roughness ??= 0.55;
-      metalness ??= 0.08;
+      metalness ??= 0.0;
       emissive = opts.emissive ?? base;
       emissiveIntensity = opts.emissiveIntensity ?? 0.1;
       normalScale = 0.75;
       break;
     case 'scale':
-      roughness ??= 0.35;
-      metalness ??= 0.22;
+      roughness ??= 0.42;
+      metalness ??= 0.0;
       emissive = opts.emissive ?? base;
       emissiveIntensity = opts.emissiveIntensity ?? 0.08;
       normalScale = 1.1;
       break;
     case 'shell':
-      roughness ??= 0.42;
-      metalness ??= 0.35;
+      roughness ??= 0.48;
+      metalness ??= 0.03;
       normalScale = 0.4;
       break;
     case 'ember':
@@ -260,10 +260,10 @@ export function makeSurfaceMaterial(opts: MaterialOpts): THREE.MeshStandardMater
       normalScale = 0.5;
       break;
     case 'wet':
-      roughness ??= 0.22;
-      metalness ??= 0.28;
+      roughness ??= 0.3;
+      metalness ??= 0.0;
       emissive = opts.emissive ?? base;
-      emissiveIntensity = opts.emissiveIntensity ?? 0.12;
+      emissiveIntensity = opts.emissiveIntensity ?? 0.045;
       normalScale = 0.35;
       break;
     case 'metal':

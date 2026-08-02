@@ -319,13 +319,7 @@ async function boot(): Promise<void> {
     grassPathHalf: GRASS_PATH_HALF,
   });
   world.setMode('starter');
-  const {
-    healGlow,
-    gymOrb,
-    eliteOrb,
-    grassBlades,
-    grassBaseRot,
-  } = world;
+  const { grassBlades, grassBaseRot } = world;
 
   // Local rustle particles (part telegraph under feet — not sway-only)
   const rustlePool: THREE.Mesh[] = [];
@@ -486,7 +480,7 @@ async function boot(): Promise<void> {
     arch.castShadow = true;
     alcove.add(arch);
 
-    const creature = shipCreatureMesh(id, 1.24);
+    const creature = shipCreatureMesh(id, id === 'emberpup' ? 0.86 : 1.24);
     creature.position.set(0, 0.27, 0.04);
     const stageClip = getClipState(creature);
     if (stageClip) {
@@ -792,14 +786,14 @@ async function boot(): Promise<void> {
       if (playerMesh) scene.remove(playerMesh);
       playerMesh = shipCreatureMesh(speciesId, scale);
       enableCast(playerMesh);
-      playerMesh.position.set(1.8, -0.9, 1.4);
+      playerMesh.position.set(1.28, -0.9, 1.4);
       playerMesh.scale.setScalar(0.15);
       scene.add(playerMesh);
     } else {
       if (foeMesh) scene.remove(foeMesh);
       foeMesh = shipCreatureMesh(speciesId, scale);
       enableCast(foeMesh);
-      foeMesh.position.set(-1.6, -0.9, -0.8);
+      foeMesh.position.set(-1.45, -0.9, -0.8);
       foeMesh.scale.setScalar(0.15);
       scene.add(foeMesh);
       foeContact.visible = true;
@@ -1804,11 +1798,7 @@ async function boot(): Promise<void> {
   });
 
   progress(1, 'Ready');
-  showToast(
-    useMedium
-      ? `Twilight Route · medium preset DPR≤${maxPr}`
-      : 'Twilight Route · Wave-0 · original ship pack only',
-  );
+
   requestAnimationFrame(() => {
     bootEl?.classList.add('done');
     setTimeout(() => bootEl?.remove(), 900);
@@ -1871,9 +1861,9 @@ async function boot(): Promise<void> {
     if (ballArcT >= 0 && ballArcT < 1) {
       ballArcT = Math.min(1, ballArcT + dt / 0.42);
       const u = ballArcT;
-      const sx = 1.8;
+      const sx = 1.28;
       const sz = 1.4;
-      const ex = -1.6;
+      const ex = -1.45;
       const ez = -0.8;
       const x = sx + (ex - sx) * u;
       const z = sz + (ez - sz) * u;
@@ -2018,7 +2008,7 @@ async function boot(): Promise<void> {
       const PLAYER_BATTLE_Z = 1.4;
       const FOE_BATTLE_Z = -0.8;
       if (playerMesh) {
-        playerMesh.position.x = 1.8;
+        playerMesh.position.x = 1.28;
         playerMesh.position.z = 0; // clip writes Z delta from 0
         playerMesh.position.y = -playerSink * 1.1;
         playerMesh.rotation.y = -0.55;
@@ -2032,7 +2022,7 @@ async function boot(): Promise<void> {
         }
       }
       if (foeMesh) {
-        foeMesh.position.x = -1.6;
+        foeMesh.position.x = -1.45;
         foeMesh.position.z = 0;
         foeMesh.position.y = -foeSink * 1.1;
         foeMesh.rotation.y = 0.55;
@@ -2049,13 +2039,13 @@ async function boot(): Promise<void> {
       // baseZ + clipΔ + shell lunge (never absolute-overwrite staging)
       if (playerMesh) {
         const clipZ = playerMesh.position.z; // attack: -lunge; idle: 0
-        playerMesh.position.x = 1.8 - playerLunge * 0.9;
+        playerMesh.position.x = 1.28 - playerLunge * 0.9;
         playerMesh.position.z = PLAYER_BATTLE_Z + clipZ - playerLunge * 0.55;
         playerContact.position.set(playerMesh.position.x, 0.03, playerMesh.position.z);
       }
       if (foeMesh) {
         const clipZ = foeMesh.position.z;
-        foeMesh.position.x = -1.6 + foeLunge * 0.9;
+        foeMesh.position.x = -1.45 + foeLunge * 0.9;
         // Foe faces +Z toward player; clip -lunge is toward camera, flip for stage
         foeMesh.position.z = FOE_BATTLE_Z - clipZ + foeLunge * 0.55;
         foeContact.position.set(foeMesh.position.x, 0.03, foeMesh.position.z);
@@ -2089,11 +2079,6 @@ async function boot(): Promise<void> {
       }
       playerContact.visible = false;
     }
-
-    // Subtle heal pad pulse
-    healGlow.material.opacity = 0.35 + Math.sin(t * 2.4) * 0.12;
-    gymOrb.position.y = 1.75 + Math.sin(t * 2.1) * 0.06;
-    eliteOrb.position.y = 1.95 + Math.sin(t * 1.7 + 1) * 0.07;
 
     renderer.render(scene, camera);
     requestAnimationFrame(tick);

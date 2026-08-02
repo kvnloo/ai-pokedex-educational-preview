@@ -114,6 +114,11 @@
       transition: opacity 280ms ease, transform 280ms ease;
     }
     #party-strip.show { opacity: 1; transform: translateX(0); }
+    body[data-mode="battle"] #party-strip {
+      opacity: 0;
+      transform: translateX(-12px);
+      pointer-events: none;
+    }
     .party-slot {
       min-height: 50px; border-radius: 14px;
       background: linear-gradient(100deg, rgba(12,25,31,.88), rgba(18,33,40,.7));

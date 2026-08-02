@@ -669,16 +669,16 @@ export function createLumenWorld(
   addDistantTower(root, useMedium);
 
   const underMat = new THREE.MeshStandardMaterial({
-    color: 0x1b3528,
+    color: 0x2a503b,
     roughness: 0.98,
     metalness: 0,
-    emissive: 0x08160e,
-    emissiveIntensity: 0.08,
+    emissive: 0x10271b,
+    emissiveIntensity: 0.05,
   });
   for (const side of [-1, 1] as const) {
-    const undergrowth = new THREE.Mesh(new THREE.PlaneGeometry(1.78, 5.2), underMat);
+    const undergrowth = new THREE.Mesh(new THREE.PlaneGeometry(1.78, 4.0), underMat);
     undergrowth.rotation.x = -Math.PI / 2;
-    undergrowth.position.set(side * (grassPathHalf + 0.9), 0.035, -1.2);
+    undergrowth.position.set(side * (grassPathHalf + 0.9), 0.035, -1.65);
     undergrowth.receiveShadow = true;
     root.add(undergrowth);
   }
@@ -705,16 +705,21 @@ export function createLumenWorld(
   while (placed < count && attempts < count * 20) {
     attempts++;
     const x = (rng() * 2 - 1) * 2.58;
-    const z = -1.2 + (rng() * 2 - 1) * 2.5;
+    const z = -1.65 + (rng() * 2 - 1) * 2.0;
     if (Math.abs(x) < grassPathHalf) continue;
     const cluster = 1 + Math.floor(rng() * 3);
     for (let j = 0; j < cluster && placed < count; j++) {
       const px = x + (j - (cluster - 1) / 2) * 0.11 + (rng() - 0.5) * 0.08;
       if (Math.abs(px) < grassPathHalf) continue;
+      const pz = z + (rng() - 0.5) * 0.14;
+      const intersectsCeremony = [-2.18, 0, 2.18].some(
+        (stageX) => Math.hypot(px - stageX, pz - 0.55) < 0.94,
+      );
+      if (intersectsCeremony) continue;
       const tall = rng() > 0.58;
       const blade = new THREE.Mesh(bladeGeos[tall ? 1 : 0], grassMats[placed % grassMats.length]);
       const scaleY = 0.82 + rng() * 0.55;
-      blade.position.set(px, (tall ? 0.57 : 0.43) * scaleY, z + (rng() - 0.5) * 0.14);
+      blade.position.set(px, (tall ? 0.57 : 0.43) * scaleY, pz);
       blade.scale.set(0.78 + rng() * 0.42, scaleY, 0.76 + rng() * 0.38);
       blade.rotation.set((rng() - 0.5) * 0.2, rng() * Math.PI, (rng() - 0.5) * 0.34);
       blade.castShadow = !useMedium && placed % 9 === 0;
@@ -803,6 +808,9 @@ export function createLumenWorld(
   const setMode = (mode: PresentationMode): void => {
     currentMode = mode;
     battleArena.visible = mode === 'battle';
+    // Keep the encounter silhouettes and impact VFX readable; the grass returns
+    // immediately when the player exits back to exploration.
+    for (const blade of grassBlades) blade.visible = mode !== 'battle';
   };
   setMode('starter');
 
