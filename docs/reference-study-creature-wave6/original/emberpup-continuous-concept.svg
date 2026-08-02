@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="720" viewBox="0 0 960 720">
+  <title>Original Emberpup continuous-form study</title>
+  <desc>Rights-cleared original concept authored for this repository. No reference pixels or traced outlines.</desc>
+  <defs>
+    <radialGradient id="bg" cx="52%" cy="38%" r="70%">
+      <stop offset="0" stop-color="#334158"/>
+      <stop offset="1" stop-color="#111722"/>
+    </radialGradient>
+    <linearGradient id="fur" x1="0" y1="0" x2="0.9" y2="1">
+      <stop offset="0" stop-color="#ffad61"/>
+      <stop offset="0.48" stop-color="#e86c36"/>
+      <stop offset="1" stop-color="#a93d2d"/>
+    </linearGradient>
+    <linearGradient id="furDark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a63b31"/>
+      <stop offset="1" stop-color="#612738"/>
+    </linearGradient>
+    <linearGradient id="cream" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffe0a1"/>
+      <stop offset="1" stop-color="#e99a55"/>
+    </linearGradient>
+    <linearGradient id="ember" x1="0" y1="1" x2="0.8" y2="0">
+      <stop offset="0" stop-color="#f0472f"/>
+      <stop offset="0.55" stop-color="#ff8a2f"/>
+      <stop offset="1" stop-color="#ffe675"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="720" fill="url(#bg)"/>
+  <circle cx="776" cy="118" r="74" fill="#f7c777" opacity="0.1"/>
+  <path d="M105 560 C250 515 710 505 860 563 C746 633 245 644 105 560Z" fill="#05080e" opacity="0.55" filter="url(#shadow)"/>
+  <ellipse cx="490" cy="555" rx="330" ry="54" fill="#0b111c" opacity="0.8"/>
+
+  <!-- Far limbs establish a four-point stance without breaking the torso silhouette. -->
+  <path d="M339 410 C331 454 324 493 329 529 C331 548 345 558 370 556 C396 553 406 540 402 522 C395 487 397 449 413 407Z"
+        fill="url(#furDark)" stroke="#3a2030" stroke-width="9" stroke-linejoin="round"/>
+  <path d="M521 408 C514 451 511 490 521 526 C526 545 542 553 565 548 C587 543 596 528 589 510 C575 475 577 441 594 397Z"
+        fill="url(#furDark)" stroke="#3a2030" stroke-width="9" stroke-linejoin="round"/>
+
+  <!-- One authored macro contour blends pelvis, ribcage, neck, skull and muzzle. -->
+  <path d="M213 424
+           C202 369 224 310 286 281
+           C357 247 453 250 522 283
+           C550 296 565 303 582 300
+           C574 271 583 233 620 211
+           C666 183 730 196 762 233
+           C790 265 789 297 764 318
+           C746 333 718 333 688 337
+           C658 342 641 366 625 394
+           C598 440 550 466 482 468
+           C389 471 309 485 240 462
+           C223 456 216 443 213 424Z"
+        fill="url(#fur)" stroke="#4b2630" stroke-width="11" stroke-linejoin="round"/>
+
+  <!-- Sculpted shoulder and haunch planes are overlays, not detached spherical masses. -->
+  <path d="M281 302 C332 270 391 272 424 293 C385 311 361 346 354 397 C311 394 272 367 254 335Z"
+        fill="#f18748" opacity="0.66"/>
+  <path d="M470 286 C518 289 558 311 579 344 C554 355 526 377 511 420 C476 410 452 376 447 335Z"
+        fill="#c64b31" opacity="0.62"/>
+  <path d="M605 232 C648 204 705 209 735 239 C694 232 658 249 631 281Z" fill="#ffc276" opacity="0.44"/>
+
+  <!-- Near limbs use tapered continuous contours and overlap deeply into the core. -->
+  <path d="M286 394 C267 438 257 482 262 526 C264 549 281 562 310 559 C338 556 351 539 344 518 C333 481 340 443 361 402Z"
+        fill="url(#fur)" stroke="#4b2630" stroke-width="10" stroke-linejoin="round"/>
+  <path d="M469 398 C451 439 445 482 454 522 C459 546 476 558 504 553 C532 548 543 530 533 509 C519 476 526 438 548 397Z"
+        fill="url(#fur)" stroke="#4b2630" stroke-width="10" stroke-linejoin="round"/>
+  <path d="M256 526 C273 514 322 512 344 525 C352 541 339 556 309 560 C279 564 258 551 256 526Z" fill="#5b2833"/>
+  <path d="M450 518 C471 507 516 504 534 514 C545 532 531 550 504 555 C476 560 454 546 450 518Z" fill="#5b2833"/>
+
+  <!-- Chest ruff breaks the contour with directional tufts while preserving neck attachment. -->
+  <path d="M526 295 C553 297 579 301 601 320
+           L587 335 L606 343 L588 359 L598 374 L574 379
+           L566 401 L545 386 L523 397 L516 372 L492 364
+           L507 345 L493 330 L517 322Z"
+        fill="url(#cream)" stroke="#6b3032" stroke-width="7" stroke-linejoin="round"/>
+
+  <!-- Original folded pennant ears. -->
+  <path d="M616 225 C603 182 608 133 631 105 C660 142 672 183 662 222Z"
+        fill="url(#furDark)" stroke="#432437" stroke-width="10" stroke-linejoin="round"/>
+  <path d="M694 210 C705 165 729 137 758 126 C762 172 749 211 725 235Z"
+        fill="url(#furDark)" stroke="#432437" stroke-width="10" stroke-linejoin="round"/>
+  <path d="M626 196 C625 166 630 144 638 132 C649 158 652 181 648 204Z" fill="#ff7941"/>
+  <path d="M715 204 C725 174 738 157 750 149 C748 175 740 197 726 217Z" fill="#ff7941"/>
+
+  <!-- Face planes, eye stack and catchlight survive at gameplay scale. -->
+  <path d="M657 274 C685 250 728 248 759 269 C752 300 723 322 682 326 C657 314 648 295 657 274Z"
+        fill="url(#cream)" opacity="0.9"/>
+  <path d="M748 289 C764 284 780 289 788 301 C779 315 763 320 747 313Z" fill="#321c29"/>
+  <ellipse cx="690" cy="266" rx="26" ry="32" fill="#241927" transform="rotate(-8 690 266)"/>
+  <ellipse cx="697" cy="260" rx="12" ry="18" fill="#d8f0c5" transform="rotate(-8 697 260)"/>
+  <ellipse cx="702" cy="252" rx="5" ry="7" fill="#ffffff"/>
+  <path d="M654 244 C675 226 705 222 726 234" fill="none" stroke="#5a2730" stroke-width="11" stroke-linecap="round"/>
+  <path d="M697 331 C718 339 739 334 751 322" fill="none" stroke="#5b2a31" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- A curved tail stem with an asymmetrical ember fan, unique to this original design. -->
+  <path d="M234 337 C184 317 142 280 137 238 C133 205 156 180 184 192 C203 200 204 221 189 237 C177 250 183 269 207 282 C231 294 253 301 270 315Z"
+        fill="none" stroke="#8e3432" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M151 206 C113 186 91 151 99 116 C129 125 151 144 159 169 C161 139 179 108 208 94 C215 132 202 169 174 194 C197 183 224 184 246 199 C225 224 190 232 151 206Z"
+        fill="url(#ember)" stroke="#5d2830" stroke-width="9" stroke-linejoin="round"/>
+  <path d="M159 198 C143 177 139 153 148 134 C169 150 178 172 174 193 C188 178 204 171 219 174 C208 196 187 207 159 198Z" fill="#ffe77c"/>
+
+  <!-- Ground-contact accents. -->
+  <ellipse cx="304" cy="557" rx="48" ry="11" fill="#ff8d44" opacity="0.25"/>
+  <ellipse cx="497" cy="551" rx="45" ry="10" fill="#ff8d44" opacity="0.22"/>
+</svg>
