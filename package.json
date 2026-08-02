@@ -12,7 +12,8 @@
     "test:battle": "node --experimental-strip-types tools/battle-golden.mjs",
     "content:sync": "node tools/pokeapi-sync.mjs",
     "content:sync:smoke": "node tools/pokeapi-sync.mjs --max 20",
-    "verify": "npm run typecheck && npm run test:battle && npm run build && npm run content:sync:smoke"
+    "verify": "npm run typecheck && npm run test:battle && npm run test:playtest && npm run build",
+    "test:playtest": "node tools/playtest.mjs"
   },
   "dependencies": {
     "three": "^0.185.1"

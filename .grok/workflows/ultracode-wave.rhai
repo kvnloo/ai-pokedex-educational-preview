@@ -175,11 +175,13 @@ low += "REASONING EFFORT: low. TOKEN-MIN. Tools > talk. Schema only; no essays.\
 low += "Worker agent — not orchestrator.\n";
 
 let doctrine = "";
-doctrine += "LAW: read_file prompt.md (modes 1-7, categories A-J, how to run a wave).\n";
-doctrine += "Also docs/PLAYTEST.md and docs/VISUAL-BAR.md when using stills.\n";
-doctrine += "Playtest green is NOT done. Mode 7 double-blind must prefer US over a real CoD reference or we keep looping.\n";
-doctrine += "If a capture is mostly black / empty / menu-only, that is a BLOCKER not a pass.\n";
-doctrine += "git status/diff first. Claude already shipped foundation→gameplay; do not thrash WIP randomly.\n";
+doctrine += "LAW: read_file prompt.md (modes 1-7, categories A-G, how to run a wave).\n";
+doctrine += "Also docs/PLAYTEST.md when using playtest.\n";
+doctrine += "Playtest green (mode 3) is NOT done. Mode 7 double-blind must prefer US over Twilight Wings reference or we keep looping.\n";
+doctrine += "Ship content must use only original names (no Pikachu etc). See content/game/ vs content/canonical/.\n";
+doctrine += "Always run: npm run typecheck && npm run test:battle && npm run test:playtest && npm run build before claiming land.\n";
+doctrine += "If capture produces black/empty, treat as blocker.\n";
+doctrine += "git status/diff first.\n";
 
 let history = [];
 let round = 0;
@@ -206,22 +208,21 @@ while round < max_rounds {
     mp += "TASK: MEASURE wave " + round_s + " with modes 1+3 (+4 if time).\n";
     mp += "1) git status && git diff --stat\n";
     mp += "2) read_file prompt.md + docs/PLAYTEST.md\n";
-    if skip_measure {
-        mp += "3) SKIP_MEASURE: parse latest reports only; still VERIFY shot_dir exists with non-black PNGs.\n";
+    mp += "3) npm run typecheck\n";
+    mp += "4) npm run test:battle\n";
+    mp += "5) npm run test:playtest\n";
+    mp += "6) npm run build\n";
+    if (skip_measure) {
+        mp += "7) SKIP_MEASURE: parse latest reports only; still VERIFY shot_dir exists with non-black PNGs.\n";
     } else {
-        mp += "3) PLAYTEST mode 3: node tools/playtest.mjs --json shots/playtest/report-" + label + ".json\n";
-        mp += "   Full build if src dirty. GPU must be hardware NVIDIA.\n";
-        mp += "4) CAPTURE mode 1 (MANDATORY every wave — do not skip):\n";
-        mp += "   node tools/capture.mjs --label " + label + " --quality high --no-build\n";
-        mp += "   (omit --no-build if you rebuilt for playtest into a different dist; ensure capture serves the same build)\n";
-        mp += "   Prefer: build once to dist-wave, then playtest and capture both use that dist/port if harness allows.\n";
-        mp += "5) CONTACT SHEET: node tools/contactsheet.mjs --label " + label + "\n";
-        mp += "   Also copy/symlink sheet to shots/_sheets/preview.png and shots/preview/ for humans.\n";
-        mp += "6) Open 2-3 PNGs or use file sizes; if frames are near-black (like a pure HUD void), set black_frame=true.\n";
+        mp += "8) CAPTURE mode 1 (MANDATORY): node tools/capture.mjs --label " + label + " --quality high\n";
+        mp += "9) CONTACT SHEET: node tools/contactsheet.mjs --label " + label + "\n";
+        mp += "   Also copy/symlink sheet to shots/_sheets/preview.png\n";
+        mp += "10) If frames near-black/void set black_frame=true.\n";
     }
-    mp += "7) List hard fails. pass=true only if playtest hard gates green — still NOT loop exit.\n";
-    mp += "8) shot_dir e.g. shots/" + label + "  sheet_path e.g. shots/_sheets/preview.png\n";
-    mp += "9) modes_used must include 1 and 3 when you captured+played.\n";
+    mp += "11) List hard fails. pass=true only if typecheck + battle + playtest hard gates green — still NOT loop exit.\n";
+    mp += "12) shot_dir e.g. shots/" + label + "  sheet_path e.g. shots/_sheets/preview.png\n";
+    mp += "13) modes_used must include 1 and 3.\n";
 
     let measure = agent(mp, #{
         label: "measure-w" + round_s,
@@ -458,18 +459,18 @@ while round < max_rounds {
     lp += doctrine;
     lp += "LAND wave " + round_s + ". Fixes: " + json_encode(fix_summaries) + "\n";
     lp += "1) git status && git diff --stat\n";
-    lp += "2) npx tsc --noEmit\n";
-    lp += "3) node tools/playtest.mjs --json shots/playtest/report-" + post_label + ".json\n";
-    lp += "4) node tools/capture.mjs --label " + post_label + " --quality high --no-build\n";
-    lp += "5) node tools/contactsheet.mjs --label " + post_label + "\n";
-    lp += "   Update shots/_sheets/preview.png from the new sheet (cp).\n";
-    lp += "6) black_frame if captures are void/black.\n";
-    if no_commit {
-        lp += "7) NO_COMMIT\n";
+    lp += "2) npm run typecheck\n";
+    lp += "3) npm run test:battle\n";
+    lp += "4) npm run test:playtest -- --json shots/playtest/report-" + post_label + ".json\n";
+    lp += "5) npm run build\n";
+    lp += "6) node tools/capture.mjs --label " + post_label + " --quality high\n";
+    lp += "7) node tools/contactsheet.mjs --label " + post_label + "\n";
+    if (no_commit) {
+        lp += "8) NO_COMMIT\n";
     } else {
-        lp += "7) Commit if structural/gate/visual progress: 'Wave " + round_s + " ultracode: …' no push\n";
+        lp += "8) Commit if structural/gate/visual progress: 'Wave " + round_s + " ultracode: …' no push\n";
     }
-    lp += "8) Return measure schema with shot_dir/sheet_path for POST captures.\n";
+    lp += "9) Return measure schema with shot_dir/sheet_path for POST captures.\n";
 
     let land = agent(lp, #{
         label: "land-w" + round_s,

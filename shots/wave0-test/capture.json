@@ -1,0 +1,10 @@
+{
+  "label": "wave0-test",
+  "shot_dir": "/workspace/zer0/products/pokemon/shots/wave0-test",
+  "shots": [
+    "/workspace/zer0/products/pokemon/shots/wave0-test/shot-000.png"
+  ],
+  "quality": "high",
+  "source": "minimal-capture (build + placeholder; upgrade with browser automation for real Three.js frames)",
+  "timestamp": "2026-08-02T07:24:37.053Z"
+}
