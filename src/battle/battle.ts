@@ -535,11 +535,13 @@ export function executeTurn(state: BattleState, choices: TurnChoices): BattleSta
     });
   }
 
+  const speedTieRoll =
+    choices.speedTieRoll ?? (isLiveRollMode(choices) ? unitRoll(choices) : undefined);
   const sequence = orderSides(
     state,
     effectivePlayerMove,
     effectiveFoeMove,
-    choices.speedTieRoll,
+    speedTieRoll,
   );
   let accIdx = 0;
   let actionIdx = 0;

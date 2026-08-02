@@ -143,11 +143,9 @@ function lerpAngle(from: number, to: number, t: number): number {
   return from + d * Math.min(1, Math.max(0, t));
 }
 
-/** Default Lumen Hollow solids: heal pad + stone house + gym post. */
+/** Default Lumen Hollow solids. The healing pool is intentionally traversable. */
 export function createDefaultObstacles(): Obstacle[] {
   return [
-    // Heal pad cylinder approximated as solid AABB (pad at 4.5, 4.5 r≈1.4)
-    { id: 'heal-pad', minX: 4.5 - 1.25, maxX: 4.5 + 1.25, minZ: 4.5 - 1.25, maxZ: 4.5 + 1.25 },
     // Stone house (marker at 5.2, 5.6)
     { id: 'house', minX: 4.7, maxX: 5.75, minZ: 5.2, maxZ: 6.05 },
     // Gym lantern post west of path
