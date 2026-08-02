@@ -29,6 +29,7 @@ import {
   GRASS_PATH_HALF,
   type ExploreState,
 } from './world/explore.ts';
+import { addCinematicScenery } from './world/scenery.ts';
 import { attemptCatch, speciesCatchRate } from './battle/catch.ts';
 import { createParty, healParty, addToParty, partyCanAdd, syncBattlerToParty, leadIndex, type PartyMember } from './battle/party.ts';
 import {
@@ -287,7 +288,7 @@ async function boot(): Promise<void> {
 
   // Soft follow state (lagged yaw + lerped position + collision pull-in)
   const camFollow = {
-    yaw: 0,
+    yaw: Math.PI,
     pos: new THREE.Vector3(0, 2.65, 5.4),
     look: new THREE.Vector3(0, 0.85, 0),
     // Soft third-person: room for route + grass band + landmarks in stills
@@ -333,6 +334,7 @@ async function boot(): Promise<void> {
   const rim = new THREE.DirectionalLight(0xffb090, 0.35);
   rim.position.set(-2, 2, 6);
   scene.add(rim);
+  const scenery = addCinematicScenery(scene, useMedium);
 
   // Ground disc with micro-relief ring layers + horizon massing
   const ground = new THREE.Mesh(
@@ -349,12 +351,12 @@ async function boot(): Promise<void> {
 
   // Layered ground rings (micro-relief read, still non-void)
   const ringMat = new THREE.MeshStandardMaterial({
-    color: 0x3f7a4c,
+    color: 0x477f50,
     roughness: 0.92,
     metalness: 0.02,
   });
   for (let i = 0; i < 3; i++) {
-    const ring = new THREE.Mesh(new THREE.RingGeometry(3.2 + i * 2.1, 3.55 + i * 2.1, 48), ringMat);
+    const ring = new THREE.Mesh(new THREE.RingGeometry(3.35 + i * 2.25, 3.46 + i * 2.25, 64), ringMat);
     ring.rotation.x = -Math.PI / 2;
     ring.position.y = 0.012 + i * 0.004;
     ring.receiveShadow = true;
@@ -362,11 +364,12 @@ async function boot(): Promise<void> {
   }
   // Horizon berm masses (silhouette against sky)
   const bermMat = new THREE.MeshStandardMaterial({ color: 0x3a6b48, roughness: 0.9, metalness: 0 });
-  for (let i = 0; i < 6; i++) {
-    const a = (i / 6) * Math.PI * 2 + 0.3;
-    const berm = new THREE.Mesh(new THREE.SphereGeometry(1.4 + (i % 3) * 0.35, 12, 8), bermMat);
-    berm.scale.set(1.6, 0.35, 1.1);
-    berm.position.set(Math.cos(a) * 10.5, 0.05, Math.sin(a) * 10.5);
+  for (let i = 0; i < 7; i++) {
+    const a = (i / 7) * Math.PI * 2 + 0.22;
+    const berm = new THREE.Mesh(new THREE.IcosahedronGeometry(1.35 + (i % 3) * 0.28, 2), bermMat);
+    berm.scale.set(1.65 + (i % 2) * 0.22, 0.46 + (i % 3) * 0.08, 1.08);
+    berm.rotation.set(i * 0.13, i * 0.71, i * 0.09);
+    berm.position.set(Math.cos(a) * 10.8, -0.28, Math.sin(a) * 10.8);
     berm.receiveShadow = true;
     berm.castShadow = true;
     scene.add(berm);
@@ -1794,7 +1797,7 @@ async function boot(): Promise<void> {
           speed: 4.6,
           runMultiplier: 1.85,
           pos: { ...spawnPos },
-          yaw: 0,
+          yaw: Math.PI,
         });
         party = createParty([
           {
@@ -1974,6 +1977,7 @@ async function boot(): Promise<void> {
     const dt = Math.min(0.1, Math.max(0.005, (now - lastFrame) / 1000));
     lastFrame = now;
     const t = (now - t0) / 1000;
+    scenery.update(t);
 
     // Dust life (upward drift + soft fade)
     for (let i = dustLife.length - 1; i >= 0; i--) {

@@ -160,8 +160,10 @@ export function createDefaultObstacles(): Obstacle[] {
 export function createExploreState(opts?: Partial<ExploreState>): ExploreState {
   return {
     pos: opts?.pos ?? { x: 0, z: 2.5 },
-    yaw: opts?.yaw ?? 0,
-    targetYaw: opts?.targetYaw ?? opts?.yaw ?? 0,
+    // The authored route begins northward (negative Z); face the destination on
+    // the first playable frame instead of showing the settlement behind camera.
+    yaw: opts?.yaw ?? Math.PI,
+    targetYaw: opts?.targetYaw ?? opts?.yaw ?? Math.PI,
     vel: opts?.vel ?? { x: 0, z: 0 },
     speedNow: opts?.speedNow ?? 0,
     speed: opts?.speed ?? 3.2,
