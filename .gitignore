@@ -6,3 +6,4 @@ data/raw/
 .vite/
 content/canonical/*.sqlite
 content/smoke/
+public/ab/*.glb

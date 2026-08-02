@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://twilight-route.local/schema/move.schema.json",
+  "title": "Move",
+  "type": "object",
+  "description": "Wave0/game move. Prefer slug+moveId; id alone also accepted.",
+  "oneOf": [
+    { "required": ["slug", "name", "type", "category", "power", "accuracy", "pp", "priority"] },
+    { "required": ["id", "name", "type", "category", "power", "accuracy", "pp", "priority"] }
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "Stable move id (alias of slug)"
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "moveId": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 65535
+    },
+    "name": { "type": "string", "minLength": 1 },
+    "type": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "category": {
+      "type": "string",
+      "enum": ["physical", "special", "status"]
+    },
+    "power": {
+      "type": ["integer", "null"],
+      "minimum": 1,
+      "maximum": 250
+    },
+    "accuracy": {
+      "type": ["integer", "null"],
+      "minimum": 1,
+      "maximum": 100
+    },
+    "pp": { "type": "integer", "minimum": 1, "maximum": 64 },
+    "priority": {
+      "type": "integer",
+      "minimum": -7,
+      "maximum": 5
+    },
+    "target": {
+      "type": "string",
+      "enum": ["selected-foe", "self", "all-foes", "ally", "all"]
+    },
+    "effect": { "type": "string" },
+    "description": { "type": "string" }
+  }
+}

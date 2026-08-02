@@ -1,0 +1,324 @@
+{
+  "version": "0.1.0",
+  "wave": 0,
+  "title": "Twilight Route — Wave 0",
+  "identity": {
+    "region": "Lumen",
+    "startLocation": "twilight-lane",
+    "notes": "Original names only. No official Pokémon IP in this pack."
+  },
+  "types": [
+    "normal",
+    "fire",
+    "water",
+    "grass",
+    "electric",
+    "bug"
+  ],
+  "typeChart": {
+    "normal": {
+      "normal": 1,
+      "fire": 1,
+      "water": 1,
+      "grass": 1,
+      "electric": 1,
+      "bug": 1
+    },
+    "fire": {
+      "normal": 1,
+      "fire": 0.5,
+      "water": 0.5,
+      "grass": 2,
+      "electric": 1,
+      "bug": 2
+    },
+    "water": {
+      "normal": 1,
+      "fire": 2,
+      "water": 0.5,
+      "grass": 0.5,
+      "electric": 1,
+      "bug": 1
+    },
+    "grass": {
+      "normal": 1,
+      "fire": 0.5,
+      "water": 2,
+      "grass": 0.5,
+      "electric": 1,
+      "bug": 0.5
+    },
+    "electric": {
+      "normal": 1,
+      "fire": 1,
+      "water": 2,
+      "grass": 0.5,
+      "electric": 0.5,
+      "bug": 1
+    },
+    "bug": {
+      "normal": 1,
+      "fire": 0.5,
+      "water": 1,
+      "grass": 2,
+      "electric": 1,
+      "bug": 1
+    }
+  },
+  "moves": [
+    {
+      "moveId": 1,
+      "slug": "nudge",
+      "name": "Nudge",
+      "type": "normal",
+      "category": "physical",
+      "power": 40,
+      "accuracy": 100,
+      "pp": 35,
+      "priority": 0,
+      "description": "A gentle bump with surprising force.",
+      "id": "nudge"
+    },
+    {
+      "moveId": 2,
+      "slug": "cinder-spark",
+      "name": "Cinder Spark",
+      "type": "fire",
+      "category": "special",
+      "power": 40,
+      "accuracy": 100,
+      "pp": 25,
+      "priority": 0,
+      "description": "Tiny embers leap from the user's coat.",
+      "id": "cinder-spark"
+    },
+    {
+      "moveId": 3,
+      "slug": "tide-slap",
+      "name": "Tide Slap",
+      "type": "water",
+      "category": "special",
+      "power": 40,
+      "accuracy": 100,
+      "pp": 25,
+      "priority": 0,
+      "description": "A dense bead of water snaps forward.",
+      "id": "tide-slap"
+    },
+    {
+      "moveId": 4,
+      "slug": "leaf-dart",
+      "name": "Leaf Dart",
+      "type": "grass",
+      "category": "physical",
+      "power": 40,
+      "accuracy": 100,
+      "pp": 25,
+      "priority": 0,
+      "description": "Razor flecks of leaf whip the foe.",
+      "id": "leaf-dart"
+    },
+    {
+      "moveId": 5,
+      "slug": "static-nibble",
+      "name": "Static Nibble",
+      "type": "electric",
+      "category": "special",
+      "power": 40,
+      "accuracy": 100,
+      "pp": 30,
+      "priority": 0,
+      "description": "A bristling charge of static.",
+      "id": "static-nibble"
+    },
+    {
+      "moveId": 6,
+      "slug": "wool-rush",
+      "name": "Wool Rush",
+      "type": "normal",
+      "category": "physical",
+      "power": 55,
+      "accuracy": 95,
+      "pp": 20,
+      "priority": 0,
+      "description": "A fluffy body-check.",
+      "id": "wool-rush"
+    },
+    {
+      "moveId": 7,
+      "slug": "pollen-puff",
+      "name": "Pollen Puff",
+      "type": "bug",
+      "category": "special",
+      "power": 40,
+      "accuracy": 100,
+      "pp": 25,
+      "priority": 0,
+      "description": "A puff of charged pollen.",
+      "id": "pollen-puff"
+    },
+    {
+      "moveId": 8,
+      "slug": "growl-down",
+      "name": "Growl Down",
+      "type": "normal",
+      "category": "status",
+      "power": null,
+      "accuracy": 100,
+      "pp": 20,
+      "priority": 0,
+      "effect": "lower-atk-1",
+      "description": "Softens the foe's stance. (wave0 stub)",
+      "id": "growl-down"
+    }
+  ],
+  "species": [
+    {
+      "speciesId": 1,
+      "slug": "emberpup",
+      "name": "Emberpup",
+      "types": [
+        "fire"
+      ],
+      "baseStats": {
+        "hp": 45,
+        "atk": 52,
+        "def": 40,
+        "spa": 60,
+        "spd": 45,
+        "spe": 55
+      },
+      "learnset": [
+        "nudge",
+        "cinder-spark",
+        "wool-rush",
+        "growl-down"
+      ],
+      "role": "starter",
+      "flavor": "A warm-eyed pup whose fur holds cinder sparks.",
+      "id": "emberpup",
+      "moves": [
+        "nudge",
+        "cinder-spark",
+        "wool-rush",
+        "growl-down"
+      ]
+    },
+    {
+      "speciesId": 2,
+      "slug": "dewkin",
+      "name": "Dewkin",
+      "types": [
+        "water"
+      ],
+      "baseStats": {
+        "hp": 50,
+        "atk": 45,
+        "def": 48,
+        "spa": 58,
+        "spd": 50,
+        "spe": 48
+      },
+      "learnset": [
+        "nudge",
+        "tide-slap",
+        "growl-down",
+        "leaf-dart"
+      ],
+      "role": "starter",
+      "flavor": "Dew beads roll off its coat when it runs.",
+      "id": "dewkin",
+      "moves": [
+        "nudge",
+        "tide-slap",
+        "growl-down",
+        "leaf-dart"
+      ]
+    },
+    {
+      "speciesId": 3,
+      "slug": "dustbun",
+      "name": "Dustbun",
+      "types": [
+        "normal"
+      ],
+      "baseStats": {
+        "hp": 55,
+        "atk": 48,
+        "def": 48,
+        "spa": 35,
+        "spd": 45,
+        "spe": 40
+      },
+      "learnset": [
+        "nudge",
+        "wool-rush",
+        "growl-down"
+      ],
+      "role": "wild",
+      "flavor": "Round and dusty; rolls through hollow grass.",
+      "id": "dustbun",
+      "moves": [
+        "nudge",
+        "wool-rush",
+        "growl-down"
+      ]
+    },
+    {
+      "speciesId": 4,
+      "slug": "sparkmoth",
+      "name": "Sparkmoth",
+      "types": [
+        "bug",
+        "electric"
+      ],
+      "baseStats": {
+        "hp": 40,
+        "atk": 35,
+        "def": 35,
+        "spa": 62,
+        "spd": 45,
+        "spe": 70
+      },
+      "learnset": [
+        "static-nibble",
+        "pollen-puff",
+        "nudge",
+        "cinder-spark"
+      ],
+      "role": "wild",
+      "flavor": "Tiny arcs flash between its wing veins.",
+      "id": "sparkmoth",
+      "moves": [
+        "static-nibble",
+        "pollen-puff",
+        "nudge",
+        "cinder-spark"
+      ]
+    }
+  ],
+  "route": {
+    "id": "twilight-lane",
+    "name": "Twilight Lane",
+    "description": "A short dusk path of tall grass outside the starter grove.",
+    "starterChoices": [
+      "emberpup",
+      "dewkin"
+    ],
+    "wildEncounters": [
+      {
+        "species": "dustbun",
+        "minLevel": 3,
+        "maxLevel": 5,
+        "weight": 70
+      },
+      {
+        "species": "sparkmoth",
+        "minLevel": 4,
+        "maxLevel": 6,
+        "weight": 30
+      }
+    ],
+    "playerDefaultLevel": 5
+  }
+}

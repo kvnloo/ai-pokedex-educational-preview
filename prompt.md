@@ -35,6 +35,15 @@ actual reference. It should literally compare them side by side blind and say wh
 better. Do this in ThreeJS. /loop until it's utterly perfect. Fan out sub-agents and ultracode.
 ```
 
+Operator doctrine (also binding):
+
+```
+Gauntlet loop means you do not stop for 48 hours of wall-clock product work until the vertical
+slice is finished and modes 3+5 pass. Parallel tracks. No NPC checkpointing. Copy COD prompt.md
+doctrine + ultracode-wave.rhai. Subagents minimal effort; orchestrator high. Mesh QA before
+browser. Ship pack is original names only.
+```
+
 ---
 
 # The design target
@@ -60,48 +69,41 @@ or traced geometry.
 
 ---
 
-# Two-track fidelity
-
-| Track | Domain | Done means |
-|---|---|---|
-| **S — Simulation** | stats, type chart, damage formula, encounter rates, catch rate, turn order, status, XP curve | numeric gates; golden tests |
-| **P — Presentation** | creature silhouettes, town lighting, battle staging, VFX, UI, audio | Twilight Wings side-by-side + played-session feel |
-
-Hard rules:
-- No official Pokémon names, sprites, models, maps, or music in repo or build.
-- Reference frames stay outside the product tree (symlink study corpus only).
-- “Looks like Twilight Wings” is measured by blind forced-choice against graded stills, not vibes.
-
----
-
-# Reference corpus
-
-| Source | Role |
-|---|---|
-| YouTube playlist `PLQWzKIaERirwfvHB3m8CjnTK6ZzNA8wvJ` — *Pokémon: Twilight Wings* (eps 1–7 + Gathering of Stars) | Visual/animation bar |
-| `/mnt/zer0models/pokemon_anime/videos` | Master downloads |
-| `/mnt/zer0models/pokemon_anime/frames` + `keyframes` | Study stills (lighting, staging, creature motion silhouettes) |
-| X: @0xPaulius Pallet Town 3D / gauntlet-loop clone culture | Process + ambition reference (first-person LeafGreen toy ≠ our bar) |
-| Official Pokémon games (gen 8–9 feel for battle UI rhythm) | Mechanics cadence |
-
----
-
 # Verification doctrine
 
-Same lesson as COD: **a loop that only looks at frames produces a game that photographs well
-and plays badly.** Feel is measured by playing.
+## Why this section exists
 
-## Seven verification modes
+COD eight waves proved a loop that only looks at **stills** ships a game that photographs well
+and plays badly. Same law here: battle juice, encounter cadence, and catch satisfaction are
+invisible to a GLB stats dump and invisible to `npm run typecheck`.
+
+> **No quality claim is admissible unless measured by the method that would expose its failure.**
+> Feel is measured by playing. Smoothness over a session. Fun by a loop. Blind A/B for presentation.
+
+## Gauntlet non-stop rule
+
+A gauntlet / ultracode wave **does not pause for human micro-approval** between packages.
+Stop only when:
+
+1. Wave-0 vertical slice items 1–7 below are implemented, AND
+2. Mode **3** (played session) hard gates pass, AND
+3. Mode **5** instrumented latencies pass, AND
+4. Mode **7** blind panel prefers us (overnight Grok / Sol reviewer) — playtest green alone is **not** enough to exit an ultracode wave.
+
+Between those, **parallelize**: battle/content, presentation, mesh pipeline, ship-boundary.
+Hermes chat checkpoints are status pings, not permission gates.
+
+## The seven verification modes
 
 | # | Mode | Exposes | Instrument |
 |---|---|---|---|
-| 1 | Still frame | Lighting, materials, composition | Screenshot + `docs/VISUAL-BAR.md` vs Twilight Wings stills |
-| 2 | Motion clip | Idle bob, attack arcs, camera moves, grass sway | ≥60 fps sequences |
-| 3 | Played session | Encounter cadence, battle snappiness, catch satisfaction | Scripted + human playtest |
-| 4 | Sustained profile | Hitching, GC spikes during battle VFX | p99 frame time |
-| 5 | Instrumented event trace | Input→menu open, move confirm→HP bar, ball throw timing | Timestamp log |
-| 6 | Loop analysis | Catch→heal→route→boss reward cadence | Multi-session sim |
-| 7 | Blind A/B | Beats reference presentation / rival clones | Labels-hidden forced choice |
+| 1 | Still frame | Lighting, materials, composition | Screenshot + `docs/VISUAL-BAR.md` vs TW stills |
+| 2 | Motion clip | Idle bob, attack arcs, camera | ≥60 fps sequences |
+| 3 | Played session | Encounter cadence, battle snappiness, catch | `tools/playtest.mjs` + human |
+| 4 | Sustained profile | Hitching, GC during battle VFX | p99 frame time |
+| 5 | Instrumented event trace | Input→menu, move→HP bar, ball timing | Timestamp log |
+| 6 | Loop analysis | Catch→heal→route cadence | Multi-session sim |
+| 7 | Blind A/B | Beats reference presentation | Labels-hidden forced choice |
 
 ## Check categories
 
@@ -131,6 +133,7 @@ Input → menu confirm → creature lunge → hit flash → HP tween → message
 - Silhouette readable at battle distance and overworld scale.
 - Materials: fur/feather/scale/metal read under TW-like soft light.
 - No two consecutive wilds of same species with identical idle phase (desync).
+- **Mesh QA gate before browser:** reject cube (`volume/bbox > 0.75`) and paper-thin (`min/max extent < 0.12`).
 
 ### E. Fun and addiction
 - Route loop: grass → battle → reward → heal → new grass, with escalating stakes.
@@ -144,6 +147,7 @@ Input → menu confirm → creature lunge → hit flash → HP tween → message
 
 ### G. Regression
 - Every certified gate enters the standing list; every wave re-measures it.
+- `npm run typecheck && npm run test:battle && npm run build` green every land.
 
 ---
 
@@ -168,9 +172,21 @@ Do not expand content until the slice is fun under mode 3 (played session).
 3. **Fix** — one package per agent + numeric acceptance test.
 4. **Critique** — independent re-measure; labels-hidden vs TW stills and vs prior build.
 5. **Land** — typecheck, build, regression list, commit with measurements.
-6. **Loop** on failures.
+6. **Loop** on failures. **Do not stop** for chat approval between packages.
 
 Size waves to finish. A mid-edit dead wave lands nothing.
+
+Overnight host:
+
+```text
+cd products/pokemon
+grok   # /effort high
+/workflow ultracode-wave {"max_rounds":48,"max_packages":4,"blind_votes":3}
+```
+
+Children: `.grok/personas/min-*.toml` (`reasoning_effort = "minimal"`).
+
+Day host: Codex Sol Advisor (`$sol-advisor:orchestration`) with Luna/Terra implement + Sol reviewer.
 
 ---
 
@@ -178,3 +194,4 @@ Size waves to finish. A mid-edit dead wave lands nothing.
 
 This is a mechanics-and-craft research artifact. It is not an official Pokémon product.
 Do not distribute ripped assets. Prefer original creatures so the project can be shown publicly.
+Official TW frames and PokéAPI names stay in research paths, never in the public ship pack.
