@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="color-scheme" content="dark" />
   <title>Twilight Route</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%23f3c77a' d='M32 4 39 24 60 32 39 40 32 60 25 40 4 32 25 24Z'/%3E%3C/svg%3E" />
   <style>
     :root {
       color-scheme: dark;
@@ -85,6 +83,13 @@
     #hud-explore {
       position: absolute; left: 18px; bottom: 18px;
       display: flex; flex-direction: column; gap: 10px;
+      transition: opacity 220ms ease, transform 220ms ease;
+    }
+    body[data-mode="starter"] #hud-explore,
+    body[data-mode="starter"] #party-strip,
+    body[data-mode="battle"] #hud-explore,
+    body[data-mode="battle"] #party-strip {
+      opacity: 0 !important; transform: translateY(10px); pointer-events: none;
     }
     .pill {
       display: inline-flex; align-items: center; gap: 10px;
@@ -102,27 +107,36 @@
     }
 
     #party-strip {
-      position: absolute; top: 16px; left: 16px;
-      display: flex; gap: 8px;
+      position: absolute; top: 18px; left: 18px;
+      display: flex; flex-direction: column; gap: 7px;
+      width: min(260px, 36vw);
+      opacity: 0; transform: translateX(-12px);
+      transition: opacity 280ms ease, transform 280ms ease;
     }
+    #party-strip.show { opacity: 1; transform: translateX(0); }
     .party-slot {
-      width: 44px; height: 44px; border-radius: 12px;
-      background: var(--panel); border: 1px solid var(--panel-border);
-      backdrop-filter: blur(12px);
+      min-height: 50px; border-radius: 14px;
+      background: linear-gradient(100deg, rgba(12,25,31,.88), rgba(18,33,40,.7));
+      border: 1px solid color-mix(in srgb, var(--slot-accent) 42%, rgba(255,255,255,.14));
+      backdrop-filter: blur(14px);
+      display: flex; align-items: center; gap: 10px;
+      padding: 7px 10px;
+      box-shadow: 0 10px 28px rgba(0,0,0,.28), inset 3px 0 0 var(--slot-accent);
+    }
+    .party-slot.fainted { opacity: .48; filter: grayscale(.7); }
+    .party-mark {
+      width: 34px; height: 34px; flex: 0 0 34px; border-radius: 11px 15px 9px 15px;
       display: grid; place-items: center;
-      box-shadow: 0 8px 24px rgba(0,0,0,.3);
-      position: relative;
+      color: #081318; font-weight: 900; font-size: 16px;
+      background: linear-gradient(145deg, #fff7dc, var(--slot-accent));
+      box-shadow: 0 0 18px color-mix(in srgb, var(--slot-accent) 42%, transparent);
+      transform: rotate(-4deg);
     }
-    .party-slot .orb {
-      width: 22px; height: 22px; border-radius: 50%;
-      background: radial-gradient(circle at 35% 30%, #fff 0%, var(--c, #7ec8ff) 45%, #1a2030 100%);
-      box-shadow: inset 0 -3px 6px rgba(0,0,0,.35), 0 0 12px color-mix(in srgb, var(--c, #7ec8ff) 50%, transparent);
-    }
-    .party-slot .mini-hp {
-      position: absolute; left: 6px; right: 6px; bottom: 5px; height: 3px;
-      background: rgba(255,255,255,.12); border-radius: 99px; overflow: hidden;
-    }
-    .party-slot .mini-hp > i { display:block; height:100%; width:100%; background: var(--hp); }
+    .party-copy { min-width: 0; flex: 1; display: grid; gap: 2px; }
+    .party-copy strong { font-size: 12px; letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .party-copy small { color: #a9bdc4; font-size: 10px; font-family: ui-monospace, monospace; }
+    .party-copy i { height: 3px; overflow: hidden; border-radius: 99px; background: rgba(255,255,255,.1); }
+    .party-copy i b { display: block; width: 100%; height: 100%; transform-origin: left; background: linear-gradient(90deg, var(--slot-accent), #dfffc7); }
 
     #toast {
       position: absolute; top: 18px; left: 50%; transform: translateX(-50%);

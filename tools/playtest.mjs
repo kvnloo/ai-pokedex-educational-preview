@@ -27,6 +27,9 @@ const partyMod = await import(
 const exploreMod = await import(
   pathToFileURL(join(root, "src/world/explore.ts")).href
 );
+const creatureMeshesMod = await import(
+  pathToFileURL(join(root, "src/creatures/speciesMeshes.ts")).href
+);
 
 const {
   buildBattler,
@@ -46,6 +49,7 @@ const {
   isInGrass,
   isOnHealPad,
   createDefaultHealPad,
+  normalizeExploreKey,
 } = exploreMod;
 
 let failed = 0;
@@ -79,6 +83,12 @@ const moves = pack.moves.map((m) => normalizeMove(m));
 const moveById = new Map(moves.map((m) => [m.id, m]));
 const species = pack.species.map((s) => normalizeSpecies(s));
 const speciesById = new Map(species.map((s) => [s.id, s]));
+const { SPECIES_BUILDERS } = creatureMeshesMod;
+ok(
+  "every shipped species has an explicit authored mesh builder",
+  species.every((s) => typeof SPECIES_BUILDERS[s.id] === "function"),
+  `missing=${species.filter((s) => typeof SPECIES_BUILDERS[s.id] !== "function").map((s) => s.id).join(",")}`,
+);
 
 function resolveMoves(ids) {
   return ids.map((id) => moveById.get(id)).filter(Boolean);
@@ -126,6 +136,21 @@ ok("leafkit is grass", leafkit.types.includes("grass"));
 
 
 // 2) Explore WASD into grass
+ok(
+  "input normalizes physical KeyW when key is unidentified",
+  typeof normalizeExploreKey === "function" &&
+    normalizeExploreKey({ key: "Unidentified", code: "KeyW" }) === "w",
+);
+ok(
+  "input normalizes uppercase layout key",
+  typeof normalizeExploreKey === "function" &&
+    normalizeExploreKey({ key: "D", code: "KeyD" }) === "d",
+);
+ok(
+  "input rejects unrelated keys",
+  typeof normalizeExploreKey === "function" &&
+    normalizeExploreKey({ key: "Tab", code: "Tab" }) === null,
+);
 const explore = createExploreState({
   pos: { x: 0, z: 2.5 },
   grass: { cx: 0, cz: -1.2, half: 2.6, encounterChance: 1 },

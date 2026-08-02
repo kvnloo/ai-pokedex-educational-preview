@@ -1,197 +1,21 @@
 # The prompt
 
-This is the original prompt that produced this repository, kept verbatim as the record.
+This is the prompt that governs this repository.
 
 ```
-can you build a fully realistic game using this material as reference
-@url:`https://www.youtube.com/playlist?list=PLQWzKIaERirwfvHB3m8CjnTK6ZzNA8wvJ`
-use yt-dl (alr installed) to download the entire episode in the highest quality then extract
-all of the frames. finally look thru the frames to find the most relevant ones for extracting
-game visuals, animations, mechanics, etc. i want to start off by just making a beautiful
-interactive demo that copies the mechanics of pokemon in 3d. let's start off by copying the
-prompt from ../products/cod and also doing additional research on pokemon games i saw on x
-that people have been creating pokemon game clones using the gauntlet loops.
+I want you to build a beautiful browser-based 3D creature-collector demo at the level of the most recent Pokémon games, with the cinematic presentation quality of Pokémon: Twilight Wings. It should be utterly exceptional, visually beautiful, and satisfying to play, with every visible part done at AAA quality—from the creatures and environment to movement, battles, catching, animation, lighting, materials, UI, effects, sound, and anything else you can identify.
 
-@url:`https://x.com/0xPaulius/status/2082791042156253317?s=20` here is the post
-@url:`https://x.com/TCG_Family_2020/status/2083658874612060341?s=20`
-the viral prompt is prompt.md from cod
+Use the complete private Twilight Wings reference corpus already downloaded with yt-dlp and extracted with ffmpeg under /mnt/zer0models/pokemon_anime. Study the full frames and keyframes, select the most relevant visual and motion references, and use img2threejs plus the available original-asset pipeline to turn those studies into high-fidelity original creature and environment work. The references are a quality and craft target; the shipped game must use original creatures, names, characters, story, models, textures, and audio, and must never ship official frames or ripped assets.
+
+Fan out sub-agents across every independent product domain and have them build in parallel. On every iteration, use separate agents that did not implement the work as harsh visual and gameplay critics. They must inspect the real browser, play the complete loop, compare current captures and motion side-by-side against the extracted reference frames and the previous build with labels hidden, and state which is better and why. Builders must not certify their own work. If the result is not genuinely at the target bar, synthesize the criticism into disjoint fix packages and keep looping.
+
+Do not stop at plans, scaffolding, primitive placeholder art, typecheck, unit tests, screenshots that merely exist, or a mechanically green simulation. Do not wait for routine human approval between iterations. Keep working end-to-end until the real browser supports a polished starter choice → WASD exploration → encounter → battle → catch → party → heal → replay loop, the controls have been empirically verified, the captures are genuine and non-black, independent critics find no blocking defects, and the blind panel prefers the new build. Do this in Three.js and TypeScript. Fan out sub-agents and ultracode until it is fully done.
 ```
 
-COD prompt structure (verbatim core), adapted:
+Subsequent direction, also binding:
 
 ```
-I want you to build a creature-collector at the level of the most recent Pokémon games, with
-presentation quality matching Pokémon: Twilight Wings (the official Galar shorts). It should
-be utterly perfect, visually beautiful, with every single thing done at AAA quality—from
-materials to battle juice to anything you could think of.
+The current build is far below the bar: it reads as sphere-stack creatures, an empty test scene, generic web UI, and WASD has failed in the real browser. Replace those foundations rather than polishing them. The COD and Halo sibling projects are the minimum internal benchmark for authored presentation and visible production effort.
 
-Fan out sub-agents and have sub-agents tackle each one individually so that the game is
-utterly perfect. You should /loop on each item and have a separate sub-agent check it
-visually to ensure it looks triple A. That separate sub-agent should be a really harsh
-critic, and if it doesn't look triple A, it should keep going.
-
-Don't stop until each sub-agent is utterly wowed with the quality when compared with the
-actual reference. It should literally compare them side by side blind and say which one looks
-better. Do this in ThreeJS. /loop until it's utterly perfect. Fan out sub-agents and ultracode.
+If a tool returns empty output, a warning, a timeout, or a soft failure, inspect local state and pivot immediately instead of stopping. Preserve deterministic battle rules and the research/shipping boundary, but let the primary agent decide implementation details. Use the verification method that can expose each claim: browser input for controls, played sessions for feel, motion for animation, profiles for smoothness, and blind comparisons for presentation.
 ```
-
-Operator doctrine (also binding):
-
-```
-Gauntlet loop means you do not stop for 48 hours of wall-clock product work until the vertical
-slice is finished and modes 3+5 pass. Parallel tracks. No NPC checkpointing. Copy COD prompt.md
-doctrine + ultracode-wave.rhai. Subagents minimal effort; orchestrator high. Mesh QA before
-browser. Ship pack is original names only.
-```
-
----
-
-# The design target
-
-**Mechanics:** classic Pokémon core loop — third-person overworld exploration, tall-grass
-wild encounters, turn-based battles (Fight / Bag / Creature / Run), type chart, status,
-switching, XP/level, catching, party of 6, heal center, basic shops/NPCs.
-
-**Presentation bar:** *Pokémon: Twilight Wings* cinematic anime — soft global illumination,
-rich graded skies, tactile fur/feather/scale materials, expressive creature idle/attack
-animation, emotional framing in battle, premium HUD. Not GBA pixel art. Not low-poly toy.
-
-**Identity:** original region, original creatures, original names, original music in
-**shipped UI** (`content/game/`). Mechanics may be researched via a separate
-PokéAPI **warehouse** (`content/canonical/`) that is not the player-facing brand.
-Mechanics are Track S (simulation facts). Art/audio are Track P (same feel, original
-execution).
-
-**Engine constraint (COD lineage):** browser Three.js + TypeScript, **zero binary Nintendo
-assets**. Meshes, textures, SFX authored in code or as original project art. Reference
-footage under `/mnt/zer0models/pokemon_anime` is **study only** — never ship frames, rips,
-or traced geometry.
-
----
-
-# Verification doctrine
-
-## Why this section exists
-
-COD eight waves proved a loop that only looks at **stills** ships a game that photographs well
-and plays badly. Same law here: battle juice, encounter cadence, and catch satisfaction are
-invisible to a GLB stats dump and invisible to `npm run typecheck`.
-
-> **No quality claim is admissible unless measured by the method that would expose its failure.**
-> Feel is measured by playing. Smoothness over a session. Fun by a loop. Blind A/B for presentation.
-
-## Gauntlet non-stop rule
-
-A gauntlet / ultracode wave **does not pause for human micro-approval** between packages.
-Stop only when:
-
-1. Wave-0 vertical slice items 1–7 below are implemented, AND
-2. Mode **3** (played session) hard gates pass, AND
-3. Mode **5** instrumented latencies pass, AND
-4. Mode **7** blind panel prefers us (overnight Grok / Sol reviewer) — playtest green alone is **not** enough to exit an ultracode wave.
-
-Between those, **parallelize**: battle/content, presentation, mesh pipeline, ship-boundary.
-Hermes chat checkpoints are status pings, not permission gates.
-
-## The seven verification modes
-
-| # | Mode | Exposes | Instrument |
-|---|---|---|---|
-| 1 | Still frame | Lighting, materials, composition | Screenshot + `docs/VISUAL-BAR.md` vs TW stills |
-| 2 | Motion clip | Idle bob, attack arcs, camera | ≥60 fps sequences |
-| 3 | Played session | Encounter cadence, battle snappiness, catch | `tools/playtest.mjs` + human |
-| 4 | Sustained profile | Hitching, GC during battle VFX | p99 frame time |
-| 5 | Instrumented event trace | Input→menu, move→HP bar, ball timing | Timestamp log |
-| 6 | Loop analysis | Catch→heal→route cadence | Multi-session sim |
-| 7 | Blind A/B | Beats reference presentation | Labels-hidden forced choice |
-
-## Check categories
-
-### A. Overworld feel
-- Third-person camera: collision-aware, soft follow, no hard pops on turn.
-- Walk/run acceleration curves; foot plant timing vs dust.
-- Tall grass: readable risk, encounter telegraph without cheap jumpscares.
-- Time-to-first-interesting-moment from cold boot: **≤ 20 s**.
-
-### B. Battle juice (the Pokémon gunfeel sandwich)
-Input → menu confirm → creature lunge → hit flash → HP tween → message → reward, all tight.
-- Menu open from free roam battle start: **≤ 400 ms** to interactive Fight menu.
-- Move confirm → first attack frame: **≤ 180 ms**.
-- HP bar drain duration scales with damage fraction; never instant, never multi-second slog.
-- Super-effective / not-effective / crit each have distinct AV feedback within 100 ms of hit.
-- Faint, recall, send-out staging must feel *directed* (Twilight Wings framing).
-
-### C. Systems integrity (Track S)
-- Damage formula documented and golden-tested (level, attack/defense, power, STAB, type, crit, random band).
-- Type chart complete for types we ship; missing effectiveness is a defect.
-- Speed-based turn order stable; priority moves respected.
-- Catch rate formula documented; ball modifiers; shake count presentation matches outcome seed.
-- Party of 6, switching mid-battle, black-out → heal center.
-
-### D. Creature presentation
-- Every creature has idle, faint, and ≥1 attack clip (code-authored OK).
-- Silhouette readable at battle distance and overworld scale.
-- Materials: fur/feather/scale/metal read under TW-like soft light.
-- No two consecutive wilds of same species with identical idle phase (desync).
-- **Mesh QA gate before browser:** reject cube (`volume/bbox > 0.75`) and paper-thin (`min/max extent < 0.12`).
-
-### E. Fun and addiction
-- Route loop: grass → battle → reward → heal → new grass, with escalating stakes.
-- Starter choice is emotional and mechanical (type triangle).
-- First gym/elite gate within a short demo path for the vertical slice.
-- Skill expression: type knowledge + switching + status, not menu mashing alone.
-
-### F. Performance
-- p99 frame time **≤ 16.7 ms** at 1080p medium preset during battle VFX.
-- Zero frames > 50 ms after warm-up during a 3-minute explore+battle session.
-
-### G. Regression
-- Every certified gate enters the standing list; every wave re-measures it.
-- `npm run typecheck && npm run test:battle && npm run build` green every land.
-
----
-
-# Demo vertical slice (Wave 0 — ship first)
-
-1. Boot to a beautiful starter town + adjacent route (original names).
-2. Choose 1 of 3 starters.
-3. Walk into tall grass → wild encounter transition.
-4. Full turn-based battle (Fight/Bag/Creature/Run) with 4 moves, type chart, HP, faint.
-5. Catch flow with ball throw arc + shakes.
-6. Party HUD + simple heal at center.
-7. All procedural meshes/materials; TW-inspired lighting/grade.
-
-Do not expand content until the slice is fun under mode 3 (played session).
-
----
-
-# How to run a wave
-
-1. **Audit** — visual *and* systems domains every time.
-2. **Synthesise** — rank by blind side-by-side delta; disjoint file ownership.
-3. **Fix** — one package per agent + numeric acceptance test.
-4. **Critique** — independent re-measure; labels-hidden vs TW stills and vs prior build.
-5. **Land** — typecheck, build, regression list, commit with measurements.
-6. **Loop** on failures. **Do not stop** for chat approval between packages.
-
-Size waves to finish. A mid-edit dead wave lands nothing.
-
-Overnight host:
-
-```text
-cd products/pokemon
-grok   # /effort high
-/workflow ultracode-wave {"max_rounds":48,"max_packages":4,"blind_votes":3}
-```
-
-Children: `.grok/personas/min-*.toml` (`reasoning_effort = "minimal"`).
-
-Day host: Codex Sol Advisor (`$sol-advisor:orchestration`) with Luna/Terra implement + Sol reviewer.
-
----
-
-# Legal / ethics note
-
-This is a mechanics-and-craft research artifact. It is not an official Pokémon product.
-Do not distribute ripped assets. Prefer original creatures so the project can be shown publicly.
-Official TW frames and PokéAPI names stay in research paths, never in the public ship pack.

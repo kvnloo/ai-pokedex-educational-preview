@@ -92,6 +92,45 @@ const STRIDE = 0.72;
 /** Player collision radius against AABB obstacles */
 const PLAYER_RADIUS = 0.28;
 
+const PHYSICAL_KEY_MAP: Record<string, string> = {
+  KeyW: 'w',
+  KeyA: 'a',
+  KeyS: 's',
+  KeyD: 'd',
+  ArrowUp: 'arrowup',
+  ArrowDown: 'arrowdown',
+  ArrowLeft: 'arrowleft',
+  ArrowRight: 'arrowright',
+  ShiftLeft: 'shift',
+  ShiftRight: 'shift',
+  KeyE: 'e',
+};
+
+const EXPLORE_KEYS = new Set([
+  'w',
+  'a',
+  's',
+  'd',
+  'arrowup',
+  'arrowdown',
+  'arrowleft',
+  'arrowright',
+  'shift',
+  'e',
+]);
+
+/**
+ * Resolve both physical key codes and layout-aware key values.
+ * Physical WASD keeps controls reliable when browsers report an unidentified or
+ * non-Latin layout key, while arrows and Shift still use their semantic names.
+ */
+export function normalizeExploreKey(event: { key?: string; code?: string }): string | null {
+  const physical = event.code ? PHYSICAL_KEY_MAP[event.code] : undefined;
+  if (physical) return physical;
+  const semantic = event.key?.toLowerCase();
+  return semantic && EXPLORE_KEYS.has(semantic) ? semantic : null;
+}
+
 function wrapPi(a: number): number {
   let x = a;
   while (x > Math.PI) x -= Math.PI * 2;
@@ -150,15 +189,18 @@ export function bindExploreKeys(
   target: Window | Document = window,
 ): () => void {
   const down = (e: KeyboardEvent) => {
-    const k = e.key.toLowerCase();
-    if (["w", "a", "s", "d", "arrowup", "arrowdown", "arrowleft", "arrowright", "shift", "e"].includes(k)) {
+    const k = normalizeExploreKey(e);
+    if (k) {
       keys.add(k);
-      // prevent page scroll on arrows
-      if (k.startsWith("arrow")) e.preventDefault();
+      // Keep the browser from scrolling or stealing focus while the game owns movement.
+      if (k.startsWith('arrow') || k === 'w' || k === 'a' || k === 's' || k === 'd') {
+        e.preventDefault();
+      }
     }
   };
   const up = (e: KeyboardEvent) => {
-    keys.delete(e.key.toLowerCase());
+    const k = normalizeExploreKey(e);
+    if (k) keys.delete(k);
   };
   const blur = () => keys.clear();
   target.addEventListener("keydown", down as EventListener);

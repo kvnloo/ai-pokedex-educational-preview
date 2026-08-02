@@ -67,10 +67,12 @@ export function clipProfileForSpecies(speciesId: string): ClipProfile {
   switch (speciesId) {
     case 'emberpup':
     case 'dustbun':
+    case 'rivlet':
       return 'quadruped';
     case 'dewkin':
     case 'leafit':
     case 'leafkit':
+    case 'mossprite':
       return 'biped';
     case 'sparkmoth':
     case 'ironwisp':

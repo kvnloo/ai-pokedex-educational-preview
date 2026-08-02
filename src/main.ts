@@ -97,6 +97,34 @@ interface Wave0Pack {
   };
 }
 
+interface TwilightRuntimeSnapshot {
+  mode: 'starter' | 'explore' | 'battle';
+  starterModels: number;
+  player: { x: number; y: number; z: number } | null;
+  camera: { x: number; y: number; z: number };
+  cameraLook: { x: number; y: number; z: number };
+  input: { held: string[] };
+  party: { speciesId: string; name: string; hp: number; maxHp: number }[];
+  battle: null | {
+    kind: 'wild' | 'gym' | 'elite';
+    playerHp: number;
+    playerMaxHp: number;
+    foeHp: number;
+    foeMaxHp: number;
+    foeSpeciesId: string;
+    busy: boolean;
+  };
+  healCount: number;
+  encounterCount: number;
+  catchCount: number;
+}
+
+declare global {
+  interface Window {
+    __twilight?: { snapshot: () => TwilightRuntimeSnapshot };
+  }
+}
+
 /** Ship id → mesh builder id (leafkit uses leafit silhouette until builders expand). */
 const MESH_ALIAS: Record<string, string> = {
   leafkit: 'leafit',
@@ -209,8 +237,8 @@ async function boot(): Promise<void> {
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = useMedium ? 1.22 : 1.35;
   renderer.shadowMap.enabled = true;
-  // Medium: BasicShadowMap + smaller maps; high: soft PCF
-  renderer.shadowMap.type = useMedium ? THREE.BasicShadowMap : THREE.PCFSoftShadowMap;
+  // Three r185 maps the old soft mode to PCF with a deprecation warning.
+  renderer.shadowMap.type = THREE.PCFShadowMap;
 
   const scene = new THREE.Scene();
   // Graded twilight sky — warm horizon, cool zenith (not near-black navy void)
@@ -603,6 +631,70 @@ async function boot(): Promise<void> {
   let battleKind: 'wild' | 'gym' | 'elite' = 'wild';
   let wildWins = 0;
   let gymCleared = false;
+  let healCount = 0;
+  let encounterCount = 0;
+  let catchCount = 0;
+  let starterFocus = 0;
+
+  // In-world companion ceremony: three real runtime meshes, not CSS stand-ins.
+  const starterStage = new THREE.Group();
+  starterStage.name = 'companion-ceremony';
+  const starterMeshes: THREE.Group[] = [];
+  const starterLights: THREE.PointLight[] = [];
+  const starterXs = [-2.15, 0, 2.15];
+  const daisMat = new THREE.MeshStandardMaterial({ color: 0x273c3d, roughness: 0.78, metalness: 0.12 });
+  const inlayMat = new THREE.MeshStandardMaterial({
+    color: 0xd6b878,
+    emissive: 0x6b421f,
+    emissiveIntensity: 0.24,
+    roughness: 0.44,
+    metalness: 0.38,
+  });
+  for (let i = 0; i < raw.route.starterChoices.length; i++) {
+    const id = raw.route.starterChoices[i]!;
+    const x = starterXs[i] ?? (i - 1) * 2.15;
+    const alcove = new THREE.Group();
+    alcove.position.set(x, 0, 0.55);
+
+    const dais = new THREE.Mesh(new THREE.CylinderGeometry(0.82, 0.94, 0.2, 48), daisMat);
+    dais.position.y = 0.1;
+    dais.receiveShadow = true;
+    alcove.add(dais);
+    const inlay = new THREE.Mesh(new THREE.TorusGeometry(0.66, 0.025, 8, 48), inlayMat.clone());
+    inlay.rotation.x = Math.PI / 2;
+    inlay.position.y = 0.215;
+    alcove.add(inlay);
+
+    const archCurve = new THREE.CatmullRomCurve3([
+      new THREE.Vector3(-0.62, 0.22, -0.14),
+      new THREE.Vector3(-0.78, 1.25, -0.16),
+      new THREE.Vector3(0, 2.02, -0.18),
+      new THREE.Vector3(0.78, 1.25, -0.16),
+      new THREE.Vector3(0.62, 0.22, -0.14),
+    ]);
+    const arch = new THREE.Mesh(new THREE.TubeGeometry(archCurve, 32, 0.035, 8, false), inlayMat.clone());
+    arch.castShadow = true;
+    alcove.add(arch);
+
+    const creature = shipCreatureMesh(id, 1.18);
+    creature.position.set(0, 0.22, 0.04);
+    const stageClip = getClipState(creature);
+    if (stageClip) stageClip.baseY = 0.22;
+    creature.userData.stageBaseY = 0.22;
+    creature.userData.stageIndex = i;
+    enableCast(creature);
+    alcove.add(creature);
+    starterMeshes.push(creature);
+
+    const accent = SHIP_COLOR[id] ?? 0xffcf88;
+    const light = new THREE.PointLight(accent, i === 0 ? 2.4 : 1.5, 5.5, 1.8);
+    light.position.set(0, 1.45, 1.05);
+    alcove.add(light);
+    starterLights.push(light);
+    starterStage.add(alcove);
+  }
+  scene.add(starterStage);
+  document.body.dataset.mode = 'starter';
 
   // Lunge offsets (rAF-driven)
   let playerLunge = 0;
@@ -654,7 +746,61 @@ async function boot(): Promise<void> {
   const allyHpText = document.getElementById('ally-hp-text');
   const toast = document.getElementById('toast');
   const flash = document.getElementById('battle-flash');
+  const partyStrip = document.getElementById('party-strip');
   const swapBtn = battleMenu?.querySelector('[data-act="swap"]') as HTMLButtonElement | null;
+
+  window.__twilight = {
+    snapshot: (): TwilightRuntimeSnapshot => ({
+      mode,
+      starterModels: starterStage.parent ? starterMeshes.length : 0,
+      player: playerMesh
+        ? { x: playerMesh.position.x, y: playerMesh.position.y, z: playerMesh.position.z }
+        : null,
+      camera: { x: camera.position.x, y: camera.position.y, z: camera.position.z },
+      cameraLook: { x: camFollow.look.x, y: camFollow.look.y, z: camFollow.look.z },
+      input: { held: explore ? [...explore.keys].sort() : [] },
+      party: party.map((member) => ({
+        speciesId: member.battler.speciesId,
+        name: member.battler.name,
+        hp: member.battler.hp,
+        maxHp: member.battler.maxHp,
+      })),
+      battle: battle
+        ? {
+            kind: battleKind,
+            playerHp: battle.player.hp,
+            playerMaxHp: battle.player.maxHp,
+            foeHp: battle.foe.hp,
+            foeMaxHp: battle.foe.maxHp,
+            foeSpeciesId: battle.foe.speciesId,
+            busy,
+          }
+        : null,
+      healCount,
+      encounterCount,
+      catchCount,
+    }),
+  };
+
+  function renderPartyStrip(): void {
+    if (!partyStrip) return;
+    partyStrip.innerHTML = '';
+    if (party.length === 0) {
+      partyStrip.classList.remove('show');
+      return;
+    }
+    partyStrip.classList.add('show');
+    for (const member of party) {
+      const b = member.battler;
+      const slot = document.createElement('div');
+      slot.className = `party-slot${b.hp <= 0 || b.fainted ? ' fainted' : ''}`;
+      const accent = SHIP_COLOR[b.speciesId] ?? 0x9ec8d8;
+      slot.style.setProperty('--slot-accent', `#${accent.toString(16).padStart(6, '0')}`);
+      const ratio = clamp(b.hp / Math.max(1, b.maxHp), 0, 1);
+      slot.innerHTML = `<span class="party-mark">${b.name.slice(0, 1)}</span><span class="party-copy"><strong>${b.name}</strong><small>Lv.${b.level} · ${b.hp}/${b.maxHp}</small><i><b style="transform:scaleX(${ratio})"></b></i></span>`;
+      partyStrip.appendChild(slot);
+    }
+  }
 
   function showToast(text: string, ms = 2800): void {
     if (!toast) return;
@@ -877,6 +1023,8 @@ async function boot(): Promise<void> {
   ): Promise<void> {
     mark('roam-to-fight-start');
     mode = 'battle';
+    document.body.dataset.mode = 'battle';
+    encounterCount += 1;
     battleKind = kind;
     foeSink = 0;
     playerSink = 0;
@@ -898,6 +1046,9 @@ async function boot(): Promise<void> {
         healParty(party);
         warpToHealPad();
         mode = 'explore';
+        document.body.dataset.mode = 'explore';
+        healCount += 1;
+        renderPartyStrip();
         showToast('No conscious partners — healed at the pad.');
         return;
       }
@@ -962,6 +1113,7 @@ async function boot(): Promise<void> {
 
   function exitBattle(msg: string): void {
     mode = 'explore';
+    document.body.dataset.mode = 'explore';
     if (battle && party.length > 0) {
       try {
         syncBattlerToParty(party, battle.player, battle.playerPartyIndex ?? 0);
@@ -995,6 +1147,7 @@ async function boot(): Promise<void> {
     } else if (playerMesh) {
       playerMesh.position.set(0, 0, 1.2);
     }
+    renderPartyStrip();
     showToast(msg);
     updateSwapButton();
   }
@@ -1605,16 +1758,26 @@ async function boot(): Promise<void> {
   // Starter picker — show overlay once cards exist
   if (starterRow) {
     starterRow.innerHTML = '';
-    for (const id of raw.route.starterChoices) {
+    for (const [index, id] of raw.route.starterChoices.entries()) {
       const sp = speciesById.get(id);
       if (!sp) continue;
       const card = document.createElement('button');
       card.className = 'starter-card interactive';
+      card.dataset.species = id;
       const accent = SHIP_COLOR[id] ?? 0x7ec8ff;
       card.style.setProperty('--accent-c', `#${accent.toString(16).padStart(6, '0')}`);
-      card.innerHTML = `<div class="preview"><div class="preview-orb"></div></div><div class="name">${sp.name}</div><div class="types">${sp.types.join(' · ')}</div><div class="blurb">${sp.flavor ?? ''}</div>`;
+      card.innerHTML = `<span class="starter-index">0${index + 1}</span><span class="starter-copy"><span class="name">${sp.name}</span><span class="types">${sp.types.join(' · ')}</span><span class="blurb">${sp.flavor ?? ''}</span></span><span class="starter-choose">Choose</span>`;
+      const focusStarter = () => {
+        starterFocus = index;
+        for (const [j, button] of [...starterRow.querySelectorAll('.starter-card')].entries()) {
+          button.classList.toggle('selected', j === index);
+        }
+      };
+      card.addEventListener('mouseenter', focusStarter);
+      card.addEventListener('focus', focusStarter);
       card.onclick = () => {
         playerSpeciesId = id;
+        scene.remove(starterStage);
         if (playerMesh) scene.remove(playerMesh);
         playerMesh = shipCreatureMesh(id, 1);
         enableCast(playerMesh);
@@ -1626,6 +1789,7 @@ async function boot(): Promise<void> {
         starterOverlay?.classList.add('hidden');
         if (starterOverlay) starterOverlay.style.display = 'none';
         mode = 'explore';
+        document.body.dataset.mode = 'explore';
         explore = createExploreState({
           speed: 4.6,
           runMultiplier: 1.85,
@@ -1638,6 +1802,8 @@ async function boot(): Promise<void> {
           },
         ]);
         bindExploreKeys(explore.keys);
+        canvas.tabIndex = 0;
+        canvas.focus({ preventScroll: true });
 
         const y0 = explore.yaw || 0;
         camFollow.yaw = y0;
@@ -1654,13 +1820,15 @@ async function boot(): Promise<void> {
         camera.position.copy(camFollow.pos);
         camera.lookAt(camFollow.look);
 
-        showToast(`${sp.name} joined you. WASD grass · E at gym lantern.`);
+        renderPartyStrip();
+        showToast(`${sp.name} chose you. Follow the lantern path into the whispergrass.`);
         updateSwapButton();
       };
       starterRow.appendChild(card);
     }
     // Cold boot: reveal starter once cards exist (capture + human)
     if (starterRow.children.length > 0) {
+      starterRow.querySelector('.starter-card')?.classList.add('selected');
       starterOverlay?.classList.add('show');
       starterOverlay?.classList.remove('hidden');
       if (starterOverlay) starterOverlay.style.display = '';
@@ -1752,6 +1920,8 @@ async function boot(): Promise<void> {
                   updateSwapButton();
                   return;
                 }
+                catchCount += 1;
+                renderPartyStrip();
                 exitBattle('Gotcha! ' + foe.name + ' joined the party!');
                 busy = false;
                 updateSwapButton();
@@ -1905,7 +2075,9 @@ async function boot(): Promise<void> {
       if (healCooldown <= 0 && isOnHealPad(explore.pos, healPad) && party.length > 0) {
         healParty(party);
         healCooldown = 2.5;
-        showToast('Healed at the pad.');
+        healCount += 1;
+        renderPartyStrip();
+        showToast('Moonwell restored every partner.');
         playerMesh.scale.setScalar(1.1);
         setTimeout(() => {
           if (playerMesh) playerMesh.scale.setScalar(1);
@@ -2045,14 +2217,22 @@ async function boot(): Promise<void> {
       camera.position.z += (bz - camera.position.z) * Math.min(1, 3 * dt);
       camera.lookAt(0.1, battleCam.lookY - foeSink * 0.3 - playerSink * 0.15 - low * 0.2, 0.2);
     } else {
-      // Starter mode: idle camera over hollow + soft sky
-      camera.position.x += (0 - camera.position.x) * Math.min(1, 2 * dt);
-      camera.position.y += (3.4 - camera.position.y) * Math.min(1, 2 * dt);
-      camera.position.z += (8.2 - camera.position.z) * Math.min(1, 2 * dt);
-      camera.lookAt(0, 0.6, 0);
-      if (playerMesh) tickMeshClips(dt, t);
-      playerContact.visible = !!playerMesh;
-      if (playerMesh) playerContact.position.set(playerMesh.position.x, 0.03, playerMesh.position.z);
+      // Starter ceremony: slow cinematic drift while all three live models idle.
+      const ceremonyX = Math.sin(t * 0.18) * 0.16;
+      camera.position.x += (ceremonyX - camera.position.x) * Math.min(1, 2 * dt);
+      camera.position.y += (2.85 - camera.position.y) * Math.min(1, 2 * dt);
+      camera.position.z += (7.25 - camera.position.z) * Math.min(1, 2 * dt);
+      camera.lookAt(0, 0.82, 0.55);
+      for (let i = 0; i < starterMeshes.length; i++) {
+        const model = starterMeshes[i]!;
+        const st = getClipState(model);
+        if (st) tickCreatureClip(model, st, dt, t);
+        const targetScale = i === starterFocus ? 1.08 : 0.92;
+        const easedScale = model.scale.x + (targetScale - model.scale.x) * Math.min(1, dt * 7);
+        model.scale.setScalar(easedScale);
+        starterLights[i]!.intensity += ((i === starterFocus ? 2.8 : 1.15) - starterLights[i]!.intensity) * Math.min(1, dt * 7);
+      }
+      playerContact.visible = false;
     }
 
     // Subtle heal pad pulse
