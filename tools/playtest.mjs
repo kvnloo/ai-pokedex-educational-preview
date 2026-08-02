@@ -130,19 +130,16 @@ const explore = createExploreState({
   pos: { x: 0, z: 2.5 },
   grass: { cx: 0, cz: -1.2, half: 2.6, encounterChance: 1 },
 });
+// Path corridor |x|<0.95 is safe dirt; step off-path into grass then north
 explore.keys.add("w");
+explore.keys.add("d");
 let hitGrass = false;
 let encounter = false;
-// Force deterministic rng: always encounter once in grass
-let rolled = false;
-const rng = () => {
-  if (!rolled && isInGrass(explore.pos, explore.grass)) {
-    rolled = true;
-    return 0;
-  }
-  return 0.99;
-};
-for (let i = 0; i < 120; i++) {
+// Force deterministic rng: always encounter once in grass (after min steps)
+const rng = () => 0;
+for (let i = 0; i < 180; i++) {
+  // After clearing into grass band, stop strafing so we stay in patch
+  if (Math.abs(explore.pos.x) > 1.2) explore.keys.delete("d");
   const r = tickExplore(explore, 1 / 30, rng);
   if (r.inGrass) hitGrass = true;
   if (r.encounter) {
@@ -416,6 +413,73 @@ ok("haze-puff or original puff", moves.some((m) => m.id === "haze-puff" || m.nam
   });
   const first = pb.log.find((e) => e.type === "move");
   ok("priority acts first", first && first.side === "player");
+}
+
+
+
+// --- W4-P3 Track S playtest: Struggle, chart, stakes, wilds ---
+{
+  const { STRUGGLE_MOVE } = battleMod;
+  const damageMod = await import(pathToFileURL(join(root, "src/battle/damage.ts")).href);
+  const contentMod2 = await import(pathToFileURL(join(root, "src/battle/content.ts")).href);
+  try {
+    contentMod2.validateShipTypeChart(pack.typeChart, pack.types);
+    ok("type chart complete", true);
+  } catch (e) {
+    ok("type chart complete", false, String(e.message || e));
+  }
+  let threw = false;
+  try {
+    damageMod.typeEffectiveness("dragon", ["fire"], pack.typeChart);
+  } catch {
+    threw = true;
+  }
+  ok("missing type row fails", threw);
+
+  const p0 = battlerFromSpecies(starterId, 5, "strug-p");
+  p0.movePp = p0.moves.map(() => 0);
+  const f0 = battlerFromSpecies("dustbun", 3, "strug-f");
+  f0.hp = 100;
+  f0.maxHp = 100;
+  const stb = createBattle({ player: p0, foe: f0, typeChart: pack.typeChart });
+  executeTurn(stb, {
+    playerMoveIndex: 0,
+    foeMoveIndex: pickFirstDamagingMove(stb.foe),
+    random: 1,
+    forceAccuracyHit: true,
+  });
+  ok(
+    "0PP Struggle path",
+    stb.log.some((e) => e.type === "move" && e.moveId === "struggle"),
+  );
+  ok("STRUGGLE_MOVE exported", STRUGGLE_MOVE && STRUGGLE_MOVE.id === "struggle");
+
+  const defL = pack.route.playerDefaultLevel ?? 5;
+  ok("gym fair level", pack.route.gym.level <= defL + 4);
+  ok("elite fair level", pack.route.elite.level <= defL + 7 && pack.route.elite.level > pack.route.gym.level);
+
+  const wildSpecies = pack.route.wildEncounters.map((e) => e.species);
+  const mid = pack.route.wildEncounters.filter((e) => e.band === "mid");
+  ok(
+    "grass wild in pack",
+    species.some((s) => s.role === "wild" && s.types.includes("grass")),
+  );
+  ok(
+    "water wild in pack",
+    species.some((s) => s.role === "wild" && s.types.includes("water")),
+  );
+  ok(
+    "mid band grass/water",
+    mid.some((e) => {
+      const sp = speciesById.get(e.species);
+      return sp && (sp.types.includes("grass") || sp.types.includes("water"));
+    }),
+  );
+
+  const statusFx = moves.filter((m) => m.category === "status").map((m) => m.effect);
+  ok("extra status tools", statusFx.length >= 3);
+
+  ok("identity notes franchise-free", !/pok[eé]mon/i.test(String(pack.identity?.notes ?? "")));
 }
 
 

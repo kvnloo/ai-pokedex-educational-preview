@@ -2,18 +2,19 @@
 /**
  * Mode-4 sustained profile — category F gates.
  *
- * Runs headless Chromium at medium 1080p preset, injects rAF frame-time
- * sampling (warm-up then measure), drives light explore+battle input, writes
- * shots/<label>/profile.json (default label=wave3; or --out).
+ * Runs headless Chromium at medium 1080p preset, injects work-time frame
+ * sampling (rAF start → post-task MessageChannel, not rAF wall), drives light
+ * explore+battle input, writes shots/<label>/profile.json
+ * (default label=wave4; or --out).
  *
- * Gates (documented + checked when --gate):
+ * Gates (documented + checked when --gate; fail-closed on p99_ok false):
  *   p99_ms ≤ 16.7
  *   frames_over_50ms === 0  (post warm-up only)
  *
  * Usage:
  *   node tools/profile.mjs --seconds 30
  *   node tools/profile.mjs --seconds 180 --gate
- *   node tools/profile.mjs --label wave3
+ *   node tools/profile.mjs --label wave4 --gate
  *   npm run profile
  */
 import { spawn, spawnSync } from 'node:child_process';
@@ -41,7 +42,7 @@ const has = (n) => args.includes(`--${n}`);
 const seconds = Number(flag('seconds', 30));
 const warmupSec = Number(flag('warmup', 2));
 const port = Number(flag('port', 4191));
-const label = String(flag('label', 'wave3'));
+const label = String(flag('label', 'wave4'));
 const outPath = String(
   flag('out', join(ROOT, 'shots', label, 'profile.json')),
 );
@@ -54,7 +55,7 @@ const PRESET = {
   width: 1920,
   height: 1080,
   maxPixelRatio: 1,
-  antialias: true,
+  antialias: false,
   warmupFrames: 120,
 };
 
@@ -203,6 +204,7 @@ function summarize(times, warmupFrames, presetId) {
     height: PRESET.height,
     maxPixelRatio: PRESET.maxPixelRatio,
     antialias: PRESET.antialias,
+    sample_kind: 'work-time',
     warmup_frames: warmupFrames,
     samples_total: times.length,
     counted: n,
@@ -230,12 +232,31 @@ function round3(x) {
   return Math.round(x * 1000) / 1000;
 }
 
+/** Fail-closed gate: exit non-zero when --gate and p99/long not both ok. */
+function enforceGate(report) {
+  if (!wantGate) return;
+  if (!report) {
+    console.error('[profile] GATE FAIL: no report (mode_4 category F)');
+    process.exit(2);
+  }
+  const p99Ok = report.gates?.p99_ok === true;
+  const longOk = report.gates?.long_ok === true;
+  const ok = report.gates?.ok === true && p99Ok && longOk && report.counted > 0;
+  if (!ok) {
+    console.error(
+      `[profile] GATE FAIL mode_4 category F p99_ok=${report.gates?.p99_ok} long_ok=${report.gates?.long_ok} p99_ms=${report.p99_ms} counted=${report.counted}`,
+    );
+    process.exit(2);
+  }
+  console.log('[profile] GATE OK mode_4 category F');
+}
+
 async function main() {
   console.log(
-    `[profile] preset=${PRESET.id} ${PRESET.width}x${PRESET.height} seconds=${seconds} warmup≈${warmupSec}s`,
+    `[profile] preset=${PRESET.id} ${PRESET.width}x${PRESET.height} aa=${PRESET.antialias} seconds=${seconds} warmup≈${warmupSec}s label=${label}`,
   );
   console.log(
-    `[profile] gates: p99_ms≤${GATES.p99_ms_max}; frames_over_50ms≤${GATES.long_frame_max_count} post warm-up`,
+    `[profile] gates: p99_ms≤${GATES.p99_ms_max}; frames_over_50ms≤${GATES.long_frame_max_count} post warm-up (work-time); --gate=${wantGate}`,
   );
 
   if (!noBuild) {
@@ -291,25 +312,35 @@ async function main() {
     const pageErrors = [];
     page.on('pageerror', (e) => pageErrors.push(String(e?.message || e)));
 
-    // Install frame sampler before app scripts run when possible
+    // Work-time sampler: rAF start → MessageChannel post-task (main-thread work),
+    // not rAF-to-rAF wall clock (which includes idle/vsync).
     await page.addInitScript(
       ({ warmupHint }) => {
         window.__profile = {
           times: [],
-          last: 0,
           running: true,
           warmupHint,
+          kind: 'work-time',
+        };
+        const ch = new MessageChannel();
+        let frameStart = 0;
+        let pending = false;
+        ch.port1.onmessage = () => {
+          pending = false;
+          const p = window.__profile;
+          if (!p || !p.running) return;
+          const work = performance.now() - frameStart;
+          // Clamp absurd gaps (tab throttle / debugger)
+          if (work > 0 && work < 250) p.times.push(work);
         };
         const wrap = () => {
           const p = window.__profile;
           if (!p || !p.running) return;
-          const now = performance.now();
-          if (p.last > 0) {
-            const dt = now - p.last;
-            // Clamp absurd tab-throttle gaps
-            if (dt > 0 && dt < 250) p.times.push(dt);
+          frameStart = performance.now();
+          if (!pending) {
+            pending = true;
+            ch.port2.postMessage(null);
           }
-          p.last = now;
           requestAnimationFrame(wrap);
         };
         requestAnimationFrame(wrap);
@@ -356,7 +387,6 @@ async function main() {
           canvas.style.height = `${h}px`;
         }
         window.dispatchEvent(new Event('resize'));
-        // Cap DPR-like behavior if three renderer on window
         const r = window.__renderer;
         if (r && typeof r.setPixelRatio === 'function') {
           r.setPixelRatio(Math.min(window.devicePixelRatio || 1, pr));
@@ -370,7 +400,6 @@ async function main() {
     await page.evaluate(() => {
       if (window.__profile) {
         window.__profile.times = [];
-        window.__profile.last = 0;
       }
     });
 
@@ -391,7 +420,6 @@ async function main() {
       await page.keyboard.down(key);
       await sleep(80);
       await page.keyboard.up(key);
-      // Click fight / menu buttons if present
       if (step % 7 === 0) {
         await page.evaluate(() => {
           const ids = ['btn-fight', 'cmd-fight', 'fight', 'btn-run'];
@@ -413,24 +441,23 @@ async function main() {
     }
 
     const times = await page.evaluate(() => window.__profile?.times ?? []);
-    // Treat first afterWarm samples as additional warm-up already excluded by clear+warmup sleep;
-    // still drop PRESET.warmupFrames from the front of the full series for gate math.
     const warmupFrames = Math.max(PRESET.warmupFrames, afterWarm);
     report = summarize(times, Math.min(warmupFrames, Math.floor(times.length * 0.1)), PRESET.id);
     report.seconds_requested = seconds;
     report.warmup_sec = warmupSec;
+    report.label = label;
     report.page_errors = pageErrors.slice(0, 20);
     report.timestamp = new Date().toISOString();
     report.source = 'browser-threejs-profile';
     report.notes =
-      'Mode-4 F: p99≤16.7ms and zero frames >50ms after warm-up at medium-1080p. ' +
-      'frameStats API in src/core/frameStats.ts; Engine pushes spent ms; main may import later.';
+      'Mode-4 F: work-time p99≤16.7ms and zero frames >50ms after warm-up at medium-1080p (aa=false). ' +
+      'frameStats API in src/core/frameStats.ts; Engine may push spent ms.';
 
     mkdirSync(dirname(outPath), { recursive: true });
     writeFileSync(outPath, JSON.stringify(report, null, 2) + '\n');
     console.log(`[profile] wrote ${outPath}`);
     console.log(
-      `[profile] counted=${report.counted} p99_ms=${report.p99_ms} max_ms=${report.max_ms} frames_over_50ms=${report.frames_over_50ms} gates.ok=${report.gates.ok}`,
+      `[profile] counted=${report.counted} p99_ms=${report.p99_ms} max_ms=${report.max_ms} frames_over_50ms=${report.frames_over_50ms} gates.ok=${report.gates.ok} p99_ok=${report.gates.p99_ok}`,
     );
 
     if (pageErrors.length) {
@@ -449,10 +476,7 @@ async function main() {
     await stopPreview();
   }
 
-  if (wantGate && report && !report.gates.ok) {
-    console.error('[profile] GATE FAIL mode_4 category F');
-    process.exit(2);
-  }
+  enforceGate(report);
   console.log('[profile] done');
 }
 

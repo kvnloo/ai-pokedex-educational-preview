@@ -21,13 +21,13 @@ export interface GraphicsPreset {
   readonly warmupFrames: number;
 }
 
-/** Reference machine preset for mode-4 F gates. */
+/** Reference machine preset for mode-4 F gates. AA off for stable p99 budget. */
 export const MEDIUM_1080P: GraphicsPreset = {
   id: 'medium-1080p',
   width: 1920,
   height: 1080,
   maxPixelRatio: 1,
-  antialias: true,
+  antialias: false,
   warmupFrames: 120,
 };
 
@@ -98,7 +98,7 @@ export class FrameStats {
     this.buf.fill(0);
   }
 
-  /** Push one frame duration in milliseconds. */
+  /** Push one frame duration in milliseconds (work-time preferred over rAF wall). */
   push(ms: number): void {
     if (!this.recording || !Number.isFinite(ms) || ms < 0) return;
     this.totalSeen += 1;

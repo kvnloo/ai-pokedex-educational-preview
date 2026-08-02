@@ -4,12 +4,12 @@ import fs from 'fs';
 
 /**
  * Ship only content/game under /content (not the full research warehouse).
- * public/content historically symlinked the entire content/ tree — that leaks
- * canonical/derived/smoke into dist. This plugin copies the game pack only.
+ * public/ historically had content → ../content symlink and ab/ research viewer
+ * — both must never enter dist. publicDir is disabled; this plugin copies the
+ * game pack only.
  */
 function shipGameContentOnly(): Plugin {
   const gameSrc = path.resolve(__dirname, 'content/game');
-  const virtualPublic = path.resolve(__dirname, 'public');
 
   const copyGame = (outDir: string) => {
     const dest = path.join(outDir, 'content', 'game');
@@ -18,6 +18,23 @@ function shipGameContentOnly(): Plugin {
       throw new Error(`[ship] content/game missing at ${gameSrc}`);
     }
     fs.cpSync(gameSrc, dest, { recursive: true });
+  };
+
+  const stripWarehouse = (outDir: string) => {
+    for (const leak of [
+      'content/canonical',
+      'content/derived',
+      'content/smoke',
+      'content/manifests',
+      'content/schema',
+      'ab',
+      'content',
+    ]) {
+      const p = path.join(outDir, leak);
+      if (fs.existsSync(p)) {
+        fs.rmSync(p, { recursive: true, force: true });
+      }
+    }
   };
 
   return {
@@ -32,6 +49,8 @@ function shipGameContentOnly(): Plugin {
           url.startsWith('/content/canonical') ||
           url.startsWith('/content/derived') ||
           url.startsWith('/content/smoke') ||
+          url.startsWith('/content/manifests') ||
+          url.startsWith('/content/schema') ||
           url === '/content' ||
           url === '/content/'
         ) {
@@ -54,21 +73,27 @@ function shipGameContentOnly(): Plugin {
         res.statusCode = 404;
         res.end('Not found (ship boundary)');
       });
-    },
-    writeBundle(_opts, _bundle) {
-      const outDir = path.resolve(__dirname, 'dist');
-      // Remove any accidental content/ab copies from publicDir.
-      for (const leak of ['content/canonical', 'content/derived', 'content/smoke', 'ab', 'content']) {
-        const p = path.join(outDir, leak);
-        if (fs.existsSync(p)) {
-          fs.rmSync(p, { recursive: true, force: true });
+      // Block research A/B viewer in dev as well when requested via /ab
+      server.middlewares.use((req, res, next) => {
+        const url = req.url?.split('?')[0] ?? '';
+        if (url === '/ab' || url.startsWith('/ab/')) {
+          res.statusCode = 404;
+          res.end('Not found (ship boundary)');
+          return;
         }
-      }
+        next();
+      });
+    },
+    writeBundle() {
+      const outDir = path.resolve(__dirname, 'dist');
+      stripWarehouse(outDir);
       copyGame(outDir);
     },
-    // Keep unused var referenced for future publicDir hybrid
-    configResolved() {
-      void virtualPublic;
+    closeBundle() {
+      // Second pass after any late public copies
+      const outDir = path.resolve(__dirname, 'dist');
+      stripWarehouse(outDir);
+      copyGame(outDir);
     },
   };
 }
@@ -80,9 +105,9 @@ export default defineConfig({
       '@': path.resolve(__dirname, 'src'),
     },
   },
-  // Ship publicDir with research ab/ excluded via plugin cleanup + empty public content.
-  // public/content symlink is ignored: we do not rely on it for ship (plugin copies game pack).
-  publicDir: 'public',
+  // Do not copy public/ (contains content→warehouse symlink and ab/ research).
+  // Game pack is installed by shipGameContentOnly plugin only.
+  publicDir: false,
   server: {
     port: 5180,
     strictPort: true,
@@ -98,8 +123,7 @@ export default defineConfig({
   build: {
     target: 'es2022',
     sourcemap: true,
-    // Vite copies public/ first; our writeBundle strips warehouse + ab then installs game pack.
-    copyPublicDir: true,
+    copyPublicDir: false,
     rollupOptions: {
       // Ship surface is the main demo only. Research A/B viewer (ab.html) is
       // intentionally excluded from the production multi-page bundle.

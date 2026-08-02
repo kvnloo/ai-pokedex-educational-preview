@@ -30,6 +30,19 @@ import type {
   TypeChart,
 } from "./types.ts";
 
+/** Classic Struggle: used when the chosen move has no PP left. */
+export const STRUGGLE_MOVE: MoveDef = {
+  id: "struggle",
+  name: "Struggle",
+  type: "normal",
+  category: "physical",
+  power: 50,
+  accuracy: null,
+  pp: 1,
+  priority: 0,
+  description: "Desperate attack when all moves are exhausted.",
+};
+
 export interface CreateBattleOpts {
   player: Battler;
   foe: Battler;
@@ -499,17 +512,21 @@ export function executeTurn(state: BattleState, choices: TurnChoices): BattleSta
     throw new Error("Invalid move index");
   }
 
-  // PP check (status & damage): if 0, treat as struggle-like message / skip
+  // PP: 0 on chosen move → Struggle (no PP spent on Struggle)
   const pPp = ensureMovePp(state.player);
   const fPp = ensureMovePp(state.foe);
-  if (pPp[choices.playerMoveIndex]! <= 0) {
+  const playerUsesStruggle = pPp[choices.playerMoveIndex]! <= 0;
+  const foeUsesStruggle = fPp[choices.foeMoveIndex]! <= 0;
+  const effectivePlayerMove = playerUsesStruggle ? STRUGGLE_MOVE : playerMove;
+  const effectiveFoeMove = foeUsesStruggle ? STRUGGLE_MOVE : foeMove;
+  if (playerUsesStruggle) {
     push(state, {
       type: "message",
       side: "player",
       message: `${state.player.name} has no PP left for ${playerMove.name}!`,
     });
   }
-  if (fPp[choices.foeMoveIndex]! <= 0) {
+  if (foeUsesStruggle) {
     push(state, {
       type: "message",
       side: "foe",
@@ -517,7 +534,12 @@ export function executeTurn(state: BattleState, choices: TurnChoices): BattleSta
     });
   }
 
-  const sequence = orderSides(state, playerMove, foeMove, choices.speedTieRoll);
+  const sequence = orderSides(
+    state,
+    effectivePlayerMove,
+    effectiveFoeMove,
+    choices.speedTieRoll,
+  );
   let accIdx = 0;
   let actionIdx = 0;
 
@@ -527,10 +549,17 @@ export function executeTurn(state: BattleState, choices: TurnChoices): BattleSta
     if (actor.fainted || actor.hp <= 0) continue;
 
     const moveIndex = side === "player" ? choices.playerMoveIndex : choices.foeMoveIndex;
-    const move = side === "player" ? playerMove : foeMove;
+    const usesStruggle = side === "player" ? playerUsesStruggle : foeUsesStruggle;
+    const move = usesStruggle
+      ? STRUGGLE_MOVE
+      : side === "player"
+        ? playerMove
+        : foeMove;
     const ppArr = ensureMovePp(actor);
-    if (ppArr[moveIndex]! <= 0) continue;
-    ppArr[moveIndex]! -= 1;
+    if (!usesStruggle) {
+      if (ppArr[moveIndex]! <= 0) continue;
+      ppArr[moveIndex]! -= 1;
+    }
 
     const targetSide = other(side);
     const target = battler(state, targetSide);
@@ -630,6 +659,43 @@ export function executeTurn(state: BattleState, choices: TurnChoices): BattleSta
       moveId: move.id,
       message: damageMessage(actor.name, target.name, dealt, eff, crit.isCrit),
     });
+
+    // Struggle recoil: 1/4 of user's max HP (classic)
+    if (move.id === "struggle" && !actor.fainted && actor.hp > 0) {
+      const recoil = Math.max(1, Math.floor(actor.maxHp / 4));
+      const rDealt = Math.min(recoil, actor.hp);
+      actor.hp = Math.max(0, actor.hp - rDealt);
+      push(state, {
+        type: "damage",
+        side,
+        damage: rDealt,
+        moveId: move.id,
+        message: `${actor.name} is hurt by recoil!`,
+      });
+      if (actor.hp <= 0) {
+        actor.fainted = true;
+        push(state, {
+          type: "faint",
+          side,
+          message: `${actor.name} fainted!`,
+        });
+        if (side === "foe") {
+          // Foe KO'd self via recoil; player wins only if foe is already down too
+          // leave as non-over unless foe was the only threat — standard: if actor is foe, player wins
+          if (!state.over) {
+            state.over = true;
+            state.winner = "player";
+            push(state, {
+              type: "battle-end",
+              winner: "player",
+              message: "You win!",
+            });
+          }
+        } else {
+          handlePlayerFaint(state, choices.party);
+        }
+      }
+    }
 
     if (target.hp <= 0) {
       target.fainted = true;

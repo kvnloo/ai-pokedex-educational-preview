@@ -901,6 +901,132 @@ assertEq("gloomhorn species", speciesById.has("gloomhorn"), true);
   assertEq("foe AI prefers fire SE", foeAi.moves[idx].type, "fire");
 }
 
+
+// --- W4-P3 Track S: Struggle, type chart completeness, fair stakes ---
+{
+  const { assertTypeChartComplete } = damageMod;
+  const { validateShipTypeChart } = contentMod;
+  const { STRUGGLE_MOVE } = battleMod;
+
+  assertEq("STRUGGLE_MOVE power", STRUGGLE_MOVE.power, 50);
+  assertEq("STRUGGLE_MOVE type", STRUGGLE_MOVE.type, "normal");
+
+  try {
+    assertTypeChartComplete(wave0.typeChart, wave0.types);
+    validateShipTypeChart(wave0.typeChart, wave0.types);
+    passed++;
+    console.log("ok   type chart complete");
+  } catch (e) {
+    failed++;
+    console.error(`FAIL type chart complete: ${e.message || e}`);
+  }
+
+  let threwRow = false;
+  try {
+    typeEffectiveness("dragon", ["normal"], wave0.typeChart);
+  } catch {
+    threwRow = true;
+  }
+  assertEq("missing chart row throws", threwRow, true);
+
+  let threwCell = false;
+  try {
+    typeEffectiveness("fire", ["dragon"], wave0.typeChart);
+  } catch {
+    threwCell = true;
+  }
+  assertEq("missing chart cell throws", threwCell, true);
+
+  const p = buildBattler({
+    id: "str-p",
+    name: ember.name,
+    speciesId: ember.id,
+    types: ember.types,
+    level: 5,
+    baseStats: ember.baseStats,
+    moves: resolveMoves(["nudge"]),
+  });
+  p.movePp = [0];
+  const f = buildBattler({
+    id: "str-f",
+    name: dust.name,
+    speciesId: dust.id,
+    types: dust.types,
+    level: 4,
+    baseStats: dust.baseStats,
+    moves: resolveMoves(["nudge"]),
+  });
+  f.hp = 200;
+  f.maxHp = 200;
+  const sb = createBattle({ player: p, foe: f, typeChart: wave0.typeChart });
+  const hpBefore = sb.player.hp;
+  executeTurn(sb, {
+    playerMoveIndex: 0,
+    foeMoveIndex: 0,
+    random: 1,
+    forceAccuracyHit: true,
+  });
+  assertEq(
+    "0PP uses Struggle move event",
+    sb.log.some((e) => e.type === "move" && e.moveId === "struggle" && e.side === "player"),
+    true,
+  );
+  assertEq(
+    "0PP Struggle message",
+    sb.log.some((e) => e.type === "message" && /no PP left/i.test(e.message || "")),
+    true,
+  );
+  assertEq(
+    "Struggle recoil applied",
+    sb.player.hp < hpBefore ||
+      sb.log.some((e) => e.type === "damage" && /recoil/i.test(e.message || "")),
+    true,
+  );
+
+  const defL = wave0.route?.playerDefaultLevel ?? 5;
+  const gymL = wave0.route?.gym?.level ?? 99;
+  const eliteL = wave0.route?.elite?.level ?? 99;
+  assertEq("gym level fair (<= default+4)", gymL <= defL + 4, true);
+  assertEq("elite above gym", eliteL > gymL, true);
+  assertEq("elite level fair (<= default+7)", eliteL <= defL + 7, true);
+
+  const wilds = wave0.route?.wildEncounters ?? [];
+  const mid = wilds.filter((e) => e.band === "mid");
+  const hasGrassWild = species.some((s) => s.role === "wild" && s.types.includes("grass"));
+  const hasWaterWild = species.some((s) => s.role === "wild" && s.types.includes("water"));
+  assertEq("grass wild species", hasGrassWild, true);
+  assertEq("water wild species", hasWaterWild, true);
+  assertEq(
+    "mid band includes grass or water wild",
+    mid.some((e) => {
+      const sp = speciesById.get(e.species);
+      return sp && (sp.types.includes("grass") || sp.types.includes("water"));
+    }),
+    true,
+  );
+  assertEq("mid band not empty", mid.length >= 2, true);
+
+  const statusEffects = moves
+    .filter((m) => m.category === "status")
+    .map((m) => m.effect)
+    .filter(Boolean);
+  assertEq("status effect count >= 3", statusEffects.length >= 3, true);
+  assertEq(
+    "has raise-def status",
+    statusEffects.some((e) => /^raise-def-/.test(e)),
+    true,
+  );
+  assertEq(
+    "has lower-spa or raise-spd status",
+    statusEffects.some((e) => /^lower-spa-/.test(e) || /^raise-spd-/.test(e)),
+    true,
+  );
+
+  const notes = String(wave0.identity?.notes ?? "");
+  assertEq("identity.notes franchise-free", /pok[eé]mon/i.test(notes), false);
+}
+
+
 console.log("");
 console.log(`${passed} passed, ${failed} failed`);
 if (failed > 0) process.exit(1);

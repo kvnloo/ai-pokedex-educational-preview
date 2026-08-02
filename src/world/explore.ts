@@ -172,6 +172,7 @@ export function bindExploreKeys(
 }
 
 export function isInGrass(pos: Vec2, grass: GrassZone): boolean {
+  // Full risk box for encounters; visual blades exclude path |x|<0.95 in main
   return (
     Math.abs(pos.x - grass.cx) <= grass.half &&
     Math.abs(pos.z - grass.cz) <= grass.half
@@ -405,11 +406,16 @@ export function tickExplore(
 
   if (moved && inGrass && state.encounterCooldown <= 0) {
     state.grassSteps += 1;
-    // roll every ~0.35s of movement equivalent: check each tick while moving
-    if (rng() < state.grass.encounterChance * Math.min(1, dt * 4)) {
-      encounter = true;
-      state.grassSteps = 0;
-      state.encounterCooldown = 1.2;
+    // Telegraph: need several steps + rustle pulses before first roll, then ramp chance
+    const MIN_STEPS = 4;
+    if (state.grassSteps >= MIN_STEPS) {
+      const ramp = Math.min(1.35, 0.45 + (state.grassSteps - MIN_STEPS) * 0.12);
+      const p = state.grass.encounterChance * ramp * Math.min(1, dt * 4);
+      if (rng() < p) {
+        encounter = true;
+        state.grassSteps = 0;
+        state.encounterCooldown = 1.35;
+      }
     }
   } else if (!inGrass) {
     state.grassSteps = 0;

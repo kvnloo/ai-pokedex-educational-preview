@@ -28,19 +28,43 @@ export function clampDamageRandom(r: number): number {
   return Math.min(DAMAGE_RANDOM_MAX, Math.max(DAMAGE_RANDOM_MIN, r));
 }
 
+/**
+ * Missing attacker-type row or defender-type cell is a content defect (not silent 1×).
+ */
 export function typeEffectiveness(
   moveType: string,
   defenderTypes: readonly string[],
   chart: TypeChart,
 ): number {
   const row = chart[moveType];
-  if (!row) return 1;
+  if (!row) {
+    throw new Error(`typeChart missing attacker row: ${moveType}`);
+  }
   let mult = 1;
   for (const t of defenderTypes) {
     const m = row[t];
-    mult *= m === undefined ? 1 : m;
+    if (m === undefined) {
+      throw new Error(`typeChart missing cell: ${moveType} → ${t}`);
+    }
+    mult *= m;
   }
   return mult;
+}
+
+/** Validate every attack type has a full row against every listed type. */
+export function assertTypeChartComplete(
+  chart: TypeChart,
+  types: readonly string[],
+): void {
+  for (const atk of types) {
+    const row = chart[atk];
+    if (!row) throw new Error(`typeChart missing attacker row: ${atk}`);
+    for (const def of types) {
+      if (row[def] === undefined) {
+        throw new Error(`typeChart missing cell: ${atk} → ${def}`);
+      }
+    }
+  }
 }
 
 export function stabMultiplier(

@@ -5,6 +5,8 @@
  * Scans dist/ (or --dir) for research warehouse leaks and official franchise
  * identity strings. Exit 0 only when the production surface is game-pack clean.
  *
+ * Decodes JSON \\uXXXX escapes so "Pok\\u00e9mon" cannot hide from string gates.
+ *
  * Usage:
  *   node tools/check-ship-boundary.mjs
  *   node tools/check-ship-boundary.mjs --dir dist
@@ -104,23 +106,7 @@ function walk(dir, out = []) {
 
 function pathHasForbidden(relPosix) {
   const n = relPosix.replace(/\\/g, '/');
-  const withSlashes = `/${n}/`;
-  for (const frag of FORBIDDEN_PATH_PARTS) {
-    const f = frag.replace(/\\/g, '/');
-    if (!f) continue;
-    if (n.includes(f.replace(/^\/|\/$/g, '')) && (
-      n.includes('canonical') ||
-      n.includes('derived') ||
-      n.includes('/smoke') ||
-      n.endsWith('/smoke') ||
-      n.includes('/ab/') ||
-      n.startsWith('ab/') ||
-      n.includes('dex-index') ||
-      n.includes('wooloo_')
-    )) {
-      // refined below
-    }
-  }
+  void FORBIDDEN_PATH_PARTS;
   if (/(^|\/)canonical(\/|$)/.test(n)) return 'path contains canonical/';
   if (/(^|\/)derived(\/|$)/.test(n)) return 'path contains derived/';
   if (/(^|\/)smoke(\/|$)/.test(n)) return 'path contains smoke/';
@@ -138,6 +124,37 @@ function isTextFile(p) {
     if (lower.endsWith(ext)) return true;
   }
   return false;
+}
+
+/**
+ * Expand \\uXXXX (and \\xHH) escapes so bundled JSON/JS cannot hide
+ * "Pokémon" as "Pok\\u00e9mon" from raw-text gates.
+ */
+function decodeUnicodeEscapes(text) {
+  let out = text.replace(/\\u([0-9a-fA-F]{4})/g, (_, h) =>
+    String.fromCharCode(parseInt(h, 16)),
+  );
+  out = out.replace(/\\x([0-9a-fA-F]{2})/g, (_, h) =>
+    String.fromCharCode(parseInt(h, 16)),
+  );
+  // JSON-style surrogate pairs already handled by two \\u replacements → UTF-16
+  return out;
+}
+
+/** Scan both raw and unicode-decoded forms (and JSON-parsed string if valid). */
+function textsToScan(raw, filePath) {
+  const decoded = decodeUnicodeEscapes(raw);
+  const set = new Set([raw, decoded]);
+  if (filePath.toLowerCase().endsWith('.json')) {
+    try {
+      const parsed = JSON.parse(raw);
+      set.add(JSON.stringify(parsed));
+      set.add(decodeUnicodeEscapes(JSON.stringify(parsed)));
+    } catch {
+      /* not strict JSON */
+    }
+  }
+  return [...set];
 }
 
 function main() {
@@ -171,19 +188,22 @@ function main() {
       continue;
     }
     if (!isTextFile(abs)) continue;
-    let text;
+    let raw;
     try {
       const buf = readFileSync(abs);
       // skip huge maps over 8MB
       if (buf.length > 8 * 1024 * 1024) continue;
-      text = buf.toString('utf8');
+      raw = buf.toString('utf8');
     } catch {
       continue;
     }
-    for (const { re, label } of FORBIDDEN_STRINGS) {
-      if (re.test(text)) {
-        failures.push(`${rel}: contains forbidden identity "${label}"`);
-        break;
+    const variants = textsToScan(raw, abs);
+    outer: for (const text of variants) {
+      for (const { re, label } of FORBIDDEN_STRINGS) {
+        if (re.test(text)) {
+          failures.push(`${rel}: contains forbidden identity "${label}"`);
+          break outer;
+        }
       }
     }
   }

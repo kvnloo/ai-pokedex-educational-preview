@@ -45,7 +45,7 @@ function makeDetailMaps(kind: MaterialKind): { normal: THREE.Texture; roughness:
   const hit = detailCache.get(kind);
   if (hit) return hit;
 
-  const size = 64;
+  const size = 128;
   const nData = new Uint8Array(size * size * 4);
   const rData = new Uint8Array(size * size * 4);
 
@@ -60,11 +60,15 @@ function makeDetailMaps(kind: MaterialKind): { normal: THREE.Texture; roughness:
 
       switch (kind) {
         case 'fur': {
-          // Strand-like vertical grain + soft clumps
-          const strand = Math.sin(u * Math.PI * 28 + fbm(u * 4, v * 4, 1) * 2.5) * 0.5 + 0.5;
-          const clump = fbm(u * 6, v * 3, 2);
-          height = strand * 0.55 + clump * 0.45;
-          rough = 0.72 + clump * 0.22;
+          // Dense vertical strands + clump tufts (reads under soft key, not plastic)
+          const strand =
+            Math.sin(u * Math.PI * 48 + fbm(u * 5, v * 5, 1) * 3.2) * 0.5 + 0.5;
+          const fine =
+            Math.sin(u * Math.PI * 96 + v * 18 + fbm(u * 12, v * 4, 8) * 1.8) * 0.5 + 0.5;
+          const clump = fbm(u * 5, v * 2.5, 2);
+          const flow = fbm(u * 2.5 + v * 0.4, v * 6, 14);
+          height = strand * 0.42 + fine * 0.22 + clump * 0.28 + flow * 0.08;
+          rough = 0.78 + clump * 0.18 + fine * 0.06;
           break;
         }
         case 'feather': {
@@ -131,7 +135,7 @@ function makeDetailMaps(kind: MaterialKind): { normal: THREE.Texture; roughness:
         hY = fbm(u * 8, vv * 8, 12 + kind.length);
       }
       const strength =
-        kind === 'fur' ? 1.4 : kind === 'scale' ? 1.6 : kind === 'metal' ? 1.2 : 1.0;
+        kind === 'fur' ? 2.6 : kind === 'scale' ? 1.8 : kind === 'metal' ? 1.2 : 1.1;
       let nx = (hL - hR + (height - hX)) * strength;
       let ny = (hL - hD + (height - hY)) * strength;
       let nz = 1;
@@ -177,7 +181,7 @@ function makeDetailMaps(kind: MaterialKind): { normal: THREE.Texture; roughness:
 function detailRepeat(kind: MaterialKind): number {
   switch (kind) {
     case 'fur':
-      return 3.5;
+      return 5.5;
     case 'feather':
       return 2.8;
     case 'scale':
@@ -205,11 +209,11 @@ export function makeSurfaceMaterial(opts: MaterialOpts): THREE.MeshStandardMater
 
   switch (kind) {
     case 'fur':
-      roughness ??= 0.88;
-      metalness ??= 0.02;
+      roughness ??= 0.92;
+      metalness ??= 0.0;
       emissive = opts.emissive ?? base;
-      emissiveIntensity = opts.emissiveIntensity ?? 0.06;
-      normalScale = 0.75;
+      emissiveIntensity = opts.emissiveIntensity ?? 0.045;
+      normalScale = 1.35;
       break;
     case 'feather':
       roughness ??= 0.55;

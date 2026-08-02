@@ -5,7 +5,7 @@
   "identity": {
     "region": "Lumen",
     "startLocation": "twilight-lane",
-    "notes": "Original names only. No official Pok\u00e9mon IP in this pack."
+    "notes": "Original names only. No official franchise creature IP in this pack."
   },
   "types": [
     "normal",
@@ -183,6 +183,48 @@
       "priority": 1,
       "description": "A flash-step strike that lands first.",
       "id": "quick-gleam"
+    },
+    {
+      "moveId": 10,
+      "slug": "guard-curl",
+      "name": "Guard Curl",
+      "type": "normal",
+      "category": "status",
+      "power": null,
+      "accuracy": 100,
+      "pp": 20,
+      "priority": 0,
+      "effect": "raise-def-1",
+      "description": "Tucks in tight; hardens the user's stance.",
+      "id": "guard-curl"
+    },
+    {
+      "moveId": 11,
+      "slug": "soft-sap",
+      "name": "Soft Sap",
+      "type": "grass",
+      "category": "status",
+      "power": null,
+      "accuracy": 100,
+      "pp": 20,
+      "priority": 0,
+      "effect": "lower-spa-1",
+      "description": "A sticky sap film dulls special force.",
+      "id": "soft-sap"
+    },
+    {
+      "moveId": 12,
+      "slug": "tide-brace",
+      "name": "Tide Brace",
+      "type": "water",
+      "category": "status",
+      "power": null,
+      "accuracy": 100,
+      "pp": 15,
+      "priority": 0,
+      "effect": "raise-spd-1",
+      "description": "A shell of cool water steadies special guard.",
+      "id": "tide-brace"
     }
   ],
   "species": [
@@ -238,7 +280,7 @@
         "nudge",
         "tide-slap",
         "growl-down",
-        "leaf-dart"
+        "tide-brace"
       ],
       "role": "starter",
       "flavor": "Dew beads roll off its coat when it runs.",
@@ -247,7 +289,7 @@
         "nudge",
         "tide-slap",
         "growl-down",
-        "leaf-dart"
+        "tide-brace"
       ],
       "catchRate": 45,
       "baseExp": 62
@@ -271,7 +313,7 @@
         "nudge",
         "leaf-dart",
         "growl-down",
-        "wool-rush"
+        "soft-sap"
       ],
       "role": "starter",
       "flavor": "A sprout-eared kit that smells like rain on moss.",
@@ -280,7 +322,7 @@
         "nudge",
         "leaf-dart",
         "growl-down",
-        "wool-rush"
+        "soft-sap"
       ],
       "catchRate": 45,
       "baseExp": 62
@@ -304,7 +346,7 @@
         "nudge",
         "wool-rush",
         "growl-down",
-        "quick-gleam"
+        "guard-curl"
       ],
       "role": "wild",
       "flavor": "Round and dusty; rolls through hollow grass.",
@@ -313,7 +355,7 @@
         "nudge",
         "wool-rush",
         "growl-down",
-        "quick-gleam"
+        "guard-curl"
       ],
       "catchRate": 255,
       "baseExp": 45
@@ -419,6 +461,72 @@
       ],
       "catchRate": 45,
       "baseExp": 160
+    },
+    {
+      "speciesId": 8,
+      "slug": "mossprite",
+      "name": "Mossprite",
+      "types": [
+        "grass"
+      ],
+      "baseStats": {
+        "hp": 45,
+        "atk": 42,
+        "def": 48,
+        "spa": 52,
+        "spd": 50,
+        "spe": 45
+      },
+      "learnset": [
+        "leaf-dart",
+        "soft-sap",
+        "nudge",
+        "growl-down"
+      ],
+      "role": "wild",
+      "flavor": "A leaf-sprite that hides in hollow grass stems.",
+      "id": "mossprite",
+      "moves": [
+        "leaf-dart",
+        "soft-sap",
+        "nudge",
+        "growl-down"
+      ],
+      "catchRate": 200,
+      "baseExp": 48
+    },
+    {
+      "speciesId": 9,
+      "slug": "rivlet",
+      "name": "Rivlet",
+      "types": [
+        "water"
+      ],
+      "baseStats": {
+        "hp": 42,
+        "atk": 40,
+        "def": 40,
+        "spa": 55,
+        "spd": 48,
+        "spe": 58
+      },
+      "learnset": [
+        "tide-slap",
+        "tide-brace",
+        "nudge",
+        "growl-down"
+      ],
+      "role": "wild",
+      "flavor": "A stream-slick kit that darts between dew pools.",
+      "id": "rivlet",
+      "moves": [
+        "tide-slap",
+        "tide-brace",
+        "nudge",
+        "growl-down"
+      ],
+      "catchRate": 190,
+      "baseExp": 50
     }
   ],
   "route": {
@@ -435,21 +543,49 @@
         "species": "dustbun",
         "minLevel": 3,
         "maxLevel": 5,
-        "weight": 55,
+        "weight": 40,
         "band": "early"
       },
       {
         "species": "sparkmoth",
         "minLevel": 4,
         "maxLevel": 6,
-        "weight": 25,
+        "weight": 20,
         "band": "early"
+      },
+      {
+        "species": "mossprite",
+        "minLevel": 3,
+        "maxLevel": 5,
+        "weight": 15,
+        "band": "early"
+      },
+      {
+        "species": "rivlet",
+        "minLevel": 4,
+        "maxLevel": 6,
+        "weight": 10,
+        "band": "early"
+      },
+      {
+        "species": "mossprite",
+        "minLevel": 6,
+        "maxLevel": 8,
+        "weight": 18,
+        "band": "mid"
+      },
+      {
+        "species": "rivlet",
+        "minLevel": 6,
+        "maxLevel": 8,
+        "weight": 16,
+        "band": "mid"
       },
       {
         "species": "dustbun",
         "minLevel": 6,
         "maxLevel": 8,
-        "weight": 12,
+        "weight": 8,
         "band": "mid"
       },
       {
@@ -457,6 +593,13 @@
         "minLevel": 7,
         "maxLevel": 9,
         "weight": 8,
+        "band": "late"
+      },
+      {
+        "species": "mossprite",
+        "minLevel": 8,
+        "maxLevel": 10,
+        "weight": 5,
         "band": "late"
       }
     ],
@@ -466,7 +609,7 @@
       "name": "Lumen Dusk Gym",
       "leaderName": "Warden Brisa",
       "species": "ironwisp",
-      "level": 12,
+      "level": 8,
       "description": "First badge gate on Twilight Lane \u2014 electric/bug specialty."
     },
     "elite": {
@@ -474,7 +617,7 @@
       "name": "Hollow Elite Gate",
       "trainerName": "Elite Mora",
       "species": "gloomhorn",
-      "level": 16,
+      "level": 11,
       "description": "Demo elite stake beyond the gym for vertical-slice escalation."
     }
   }

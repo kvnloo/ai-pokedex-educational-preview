@@ -181,6 +181,21 @@ function secondaryMotion(
         obj.rotation.z = base.rot.z + Math.sin(phase * 0.9) * 0.06 * side + attackAmt * 0.35 * side;
         break;
       }
+      case 'legFL':
+      case 'legFR':
+      case 'legBL':
+      case 'legBR': {
+        // Diagonal quadruped gait; front/back opposite phase for readable stride
+        const front = part.endsWith('FL') || part.endsWith('FR');
+        const left = part.endsWith('FL') || part.endsWith('BL');
+        const gaitPhase = phase * (profile === 'quadruped' ? 2.4 : 1.8) + (front ? 0 : Math.PI) + (left ? 0 : Math.PI * 0.5);
+        const stride = profile === 'quadruped' ? 0.28 : 0.14;
+        const lift = profile === 'quadruped' ? 0.045 : 0.02;
+        obj.rotation.x = base.rot.x + Math.sin(gaitPhase) * stride + attackAmt * (front ? 0.55 : -0.35);
+        obj.position.y = base.pos.y + Math.max(0, Math.sin(gaitPhase)) * lift;
+        obj.position.z = base.pos.z + Math.sin(gaitPhase) * (front ? 0.03 : -0.02) * (profile === 'quadruped' ? 1 : 0.5);
+        break;
+      }
       case 'fin': {
         obj.rotation.y = base.rot.y + Math.sin(phase * 1.3) * 0.18 + attackAmt * 0.3;
         break;
@@ -207,9 +222,9 @@ export function tickCreatureClip(
   if (state.active === 'attack') {
     state.attackT += dt;
     const t = state.attackT;
-    // Profile-tuned lunge (~0.4–0.5s)
+    // Align peak (~half of dur) with playLunge impact window (~130–150ms)
     const dur =
-      state.profile === 'moth' ? 0.4 : state.profile === 'beast' ? 0.55 : 0.45;
+      state.profile === 'moth' ? 0.28 : state.profile === 'beast' ? 0.34 : 0.3;
     const p = Math.min(1, t / dur);
     attackAmt = Math.sin(p * Math.PI);
     const lunge =

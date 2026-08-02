@@ -3,7 +3,19 @@
  * Accepts either {id} or {slug,moveId} / {learnset} or {moves}.
  */
 
-import type { MoveDef, SpeciesDef } from "./types.ts";
+import type { MoveDef, SpeciesDef, TypeChart } from "./types.ts";
+import { assertTypeChartComplete } from "./damage.ts";
+
+export { assertTypeChartComplete };
+
+/** Load-time gate: every listed type must have a full typeChart row/cells. */
+export function validateShipTypeChart(
+  chart: TypeChart,
+  types: readonly string[],
+): void {
+  assertTypeChartComplete(chart, types);
+}
+
 
 export function normalizeMove(raw: Record<string, unknown>): MoveDef {
   const id = String(raw.id ?? raw.slug ?? "");
