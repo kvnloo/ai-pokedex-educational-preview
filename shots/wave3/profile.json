@@ -1,0 +1,33 @@
+{
+  "preset": "medium-1080p",
+  "width": 1920,
+  "height": 1080,
+  "maxPixelRatio": 1,
+  "antialias": true,
+  "warmup_frames": 102,
+  "samples_total": 1021,
+  "counted": 919,
+  "p50_ms": 16.7,
+  "p95_ms": 17.1,
+  "p99_ms": 17.5,
+  "max_ms": 18.1,
+  "mean_ms": 16.666,
+  "frames_over_16_7ms": 471,
+  "frames_over_50ms": 0,
+  "gates": {
+    "p99_ms_max": 16.7,
+    "long_frame_ms": 50,
+    "long_frame_max_count": 0,
+    "p99_ok": false,
+    "long_ok": true,
+    "ok": false
+  },
+  "mode": 4,
+  "category": "F",
+  "seconds_requested": 15,
+  "warmup_sec": 2,
+  "page_errors": [],
+  "timestamp": "2026-08-02T08:30:46.323Z",
+  "source": "browser-threejs-profile",
+  "notes": "Mode-4 F: p99≤16.7ms and zero frames >50ms after warm-up at medium-1080p. frameStats API in src/core/frameStats.ts; Engine pushes spent ms; main may import later."
+}

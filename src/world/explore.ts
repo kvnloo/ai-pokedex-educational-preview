@@ -1,5 +1,6 @@
 /**
  * Third-person WASD explore: accel/friction, run ramp, yaw blend, foot-plant, grass telegraph.
+ * Collision-aware bounds vs landmarks (heal pad, house, stones).
  * Pure logic + optional THREE mesh wiring from main.
  */
 
@@ -25,6 +26,16 @@ export interface GrassZone {
   encounterChance: number;
 }
 
+/** Axis-aligned solid for player collision (house, heal pad cylinder as box, gym post). */
+export interface Obstacle {
+  minX: number;
+  maxX: number;
+  minZ: number;
+  maxZ: number;
+  /** Optional id for interact prompts */
+  id?: string;
+}
+
 export interface ExploreState {
   pos: Vec2;
   yaw: number;
@@ -41,6 +52,8 @@ export interface ExploreState {
   runBlend: number;
   bounds: ExploreBounds;
   grass: GrassZone;
+  /** Solid landmarks — player cannot walk through */
+  obstacles: Obstacle[];
   /** Keys currently held */
   keys: Set<string>;
   /** Steps taken inside grass since last encounter check */
@@ -65,6 +78,8 @@ export interface ExploreTickResult {
   /** Grass rustle telegraph pulse this tick */
   grassRustle: boolean;
   speed: number;
+  /** Obstacle id under interact radius if any */
+  nearInteract?: string;
 }
 
 const ACCEL = 28;
@@ -74,6 +89,8 @@ const RUN_RAMP_DOWN = 4.5;
 const YAW_BLEND = 10;
 /** World units between foot plants */
 const STRIDE = 0.72;
+/** Player collision radius against AABB obstacles */
+const PLAYER_RADIUS = 0.28;
 
 function wrapPi(a: number): number {
   let x = a;
@@ -85,6 +102,20 @@ function wrapPi(a: number): number {
 function lerpAngle(from: number, to: number, t: number): number {
   const d = wrapPi(to - from);
   return from + d * Math.min(1, Math.max(0, t));
+}
+
+/** Default Lumen Hollow solids: heal pad + stone house + gym post. */
+export function createDefaultObstacles(): Obstacle[] {
+  return [
+    // Heal pad cylinder approximated as solid AABB (pad at 4.5, 4.5 r≈1.4)
+    { id: 'heal-pad', minX: 4.5 - 1.25, maxX: 4.5 + 1.25, minZ: 4.5 - 1.25, maxZ: 4.5 + 1.25 },
+    // Stone house (marker at 5.2, 5.6)
+    { id: 'house', minX: 4.7, maxX: 5.75, minZ: 5.2, maxZ: 6.05 },
+    // Gym lantern post west of path
+    { id: 'gym', minX: -6.35, maxX: -5.15, minZ: 2.55, maxZ: 3.75 },
+    // Elite gate post further north-west
+    { id: 'elite', minX: -6.85, maxX: -5.65, minZ: -0.35, maxZ: 0.85 },
+  ];
 }
 
 export function createExploreState(opts?: Partial<ExploreState>): ExploreState {
@@ -104,6 +135,7 @@ export function createExploreState(opts?: Partial<ExploreState>): ExploreState {
       half: 2.6,
       encounterChance: 0.22,
     },
+    obstacles: opts?.obstacles ?? createDefaultObstacles(),
     keys: opts?.keys ?? new Set(),
     grassSteps: 0,
     encounterCooldown: opts?.encounterCooldown ?? 0,
@@ -119,7 +151,7 @@ export function bindExploreKeys(
 ): () => void {
   const down = (e: KeyboardEvent) => {
     const k = e.key.toLowerCase();
-    if (["w", "a", "s", "d", "arrowup", "arrowdown", "arrowleft", "arrowright", "shift"].includes(k)) {
+    if (["w", "a", "s", "d", "arrowup", "arrowdown", "arrowleft", "arrowright", "shift", "e"].includes(k)) {
       keys.add(k);
       // prevent page scroll on arrows
       if (k.startsWith("arrow")) e.preventDefault();
@@ -149,6 +181,113 @@ export function isInGrass(pos: Vec2, grass: GrassZone): boolean {
 function clampPos(pos: Vec2, b: ExploreBounds): void {
   pos.x = Math.max(b.minX, Math.min(b.maxX, pos.x));
   pos.z = Math.max(b.minZ, Math.min(b.maxZ, pos.z));
+}
+
+function expandObstacle(o: Obstacle, r: number): Obstacle {
+  return {
+    minX: o.minX - r,
+    maxX: o.maxX + r,
+    minZ: o.minZ - r,
+    maxZ: o.maxZ + r,
+    id: o.id,
+  };
+}
+
+function pointInObstacle(x: number, z: number, o: Obstacle): boolean {
+  return x >= o.minX && x <= o.maxX && z >= o.minZ && z <= o.maxZ;
+}
+
+/**
+ * Resolve player position against obstacles with axis-separated slide.
+ * Mutates pos; returns true if a collision was resolved.
+ */
+export function resolveCollisions(
+  pos: Vec2,
+  prev: Vec2,
+  obstacles: Obstacle[],
+  radius = PLAYER_RADIUS,
+): boolean {
+  let hit = false;
+  for (const raw of obstacles) {
+    const o = expandObstacle(raw, radius);
+    if (!pointInObstacle(pos.x, pos.z, o)) continue;
+    hit = true;
+    // Prefer sliding on the axis with smallest penetration from previous free pos
+    const tryX = { x: prev.x, z: pos.z };
+    const tryZ = { x: pos.x, z: prev.z };
+    const xFree = !pointInObstacle(tryX.x, tryX.z, o);
+    const zFree = !pointInObstacle(tryZ.x, tryZ.z, o);
+    if (xFree && !zFree) {
+      pos.x = prev.x;
+    } else if (zFree && !xFree) {
+      pos.z = prev.z;
+    } else if (xFree && zFree) {
+      // Both axes free alone — pick smaller delta
+      if (Math.abs(pos.x - prev.x) < Math.abs(pos.z - prev.z)) pos.x = prev.x;
+      else pos.z = prev.z;
+    } else {
+      // Corner: push out along nearest face
+      const dl = pos.x - o.minX;
+      const dr = o.maxX - pos.x;
+      const db = pos.z - o.minZ;
+      const dt = o.maxZ - pos.z;
+      const m = Math.min(dl, dr, db, dt);
+      if (m === dl) pos.x = o.minX - 1e-4;
+      else if (m === dr) pos.x = o.maxX + 1e-4;
+      else if (m === db) pos.z = o.minZ - 1e-4;
+      else pos.z = o.maxZ + 1e-4;
+    }
+  }
+  return hit;
+}
+
+/** Soft camera pull-in: shorten desired distance if ray from look→cam hits an obstacle. */
+export function cameraCollisionDist(
+  lookX: number,
+  lookZ: number,
+  yaw: number,
+  desiredDist: number,
+  obstacles: Obstacle[],
+  minDist = 1.6,
+): number {
+  // Sample along back vector from look toward camera ideal
+  const steps = 10;
+  let dist = desiredDist;
+  for (let i = 1; i <= steps; i++) {
+    const t = (i / steps) * desiredDist;
+    const x = lookX - Math.sin(yaw) * t;
+    const z = lookZ - Math.cos(yaw) * t;
+    for (const o of obstacles) {
+      // Inflate slightly so camera sits outside solids
+      const exp = expandObstacle(o, 0.35);
+      if (pointInObstacle(x, z, exp)) {
+        dist = Math.max(minDist, t - desiredDist / steps);
+        return dist;
+      }
+    }
+  }
+  return dist;
+}
+
+/** Nearest obstacle id within interact radius (for gym/elite). */
+export function nearestInteract(
+  pos: Vec2,
+  obstacles: Obstacle[],
+  radius = 1.55,
+): string | undefined {
+  let best: string | undefined;
+  let bestD = radius * radius;
+  for (const o of obstacles) {
+    if (!o.id || (o.id !== 'gym' && o.id !== 'elite')) continue;
+    const cx = (o.minX + o.maxX) * 0.5;
+    const cz = (o.minZ + o.maxZ) * 0.5;
+    const d = (pos.x - cx) ** 2 + (pos.z - cz) ** 2;
+    if (d <= bestD) {
+      bestD = d;
+      best = o.id;
+    }
+  }
+  return best;
 }
 
 /**
@@ -214,9 +353,19 @@ export function tickExplore(
   state.pos.x += state.vel.x * dt;
   state.pos.z += state.vel.z * dt;
   clampPos(state.pos, state.bounds);
-  // Kill velocity into bounds
+  // Landmark collision (heal pad / house / gym)
+  const collided = resolveCollisions(
+    state.pos,
+    { x: prevX, z: prevZ },
+    state.obstacles,
+  );
+  // Kill velocity into bounds / solids
   if (state.pos.x === state.bounds.minX || state.pos.x === state.bounds.maxX) state.vel.x = 0;
   if (state.pos.z === state.bounds.minZ || state.pos.z === state.bounds.maxZ) state.vel.z = 0;
+  if (collided) {
+    if (Math.abs(state.pos.x - prevX) < 1e-6) state.vel.x = 0;
+    if (Math.abs(state.pos.z - prevZ) < 1e-6) state.vel.z = 0;
+  }
 
   const movedDist = Math.hypot(state.pos.x - prevX, state.pos.z - prevZ);
   const moved = movedDist > 1e-4;
@@ -266,6 +415,8 @@ export function tickExplore(
     state.grassSteps = 0;
   }
 
+  const nearInteract = nearestInteract(state.pos, state.obstacles);
+
   return {
     moved,
     inGrass,
@@ -274,10 +425,11 @@ export function tickExplore(
     footPlant,
     grassRustle,
     speed: state.speedNow,
+    nearInteract,
   };
 }
 
-/** Heal pad: circular region in world XZ. */
+/** Heal pad: circular region in world XZ — stand ON pad after path ring (outside solid). */
 export interface HealPad {
   cx: number;
   cz: number;
@@ -285,7 +437,8 @@ export interface HealPad {
 }
 
 export function createDefaultHealPad(): HealPad {
-  return { cx: 4.5, cz: 4.5, radius: 1.4 };
+  // Slightly larger than solid so ring-edge heals without walking through center
+  return { cx: 4.5, cz: 4.5, radius: 1.55 };
 }
 
 export function isOnHealPad(pos: Vec2, pad: HealPad): boolean {

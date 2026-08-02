@@ -80,6 +80,10 @@ const moveById = new Map(moves.map((m) => [m.id, m]));
 const species = pack.species.map((s) => normalizeSpecies(s));
 const speciesById = new Map(species.map((s) => [s.id, s]));
 
+function resolveMoves(ids) {
+  return ids.map((id) => moveById.get(id)).filter(Boolean);
+}
+
 function battlerFromSpecies(speciesId, level, uid) {
   const sp = speciesById.get(speciesId);
   if (!sp) throw new Error(`unknown species ${speciesId}`);
@@ -252,6 +256,25 @@ const catchWin = attemptCatch({
 });
 ok("catch rate 255 always succeeds", catchWin.caught === true && catchWin.shakes === 3);
 
+const aBall1 = computeA({ maxHp: 100, hp: 50, catchRate: 100, ballMod: 1 });
+const aBall2 = computeA({ maxHp: 100, hp: 50, catchRate: 100, ballMod: 2 });
+ok("ballMod multiplies a", aBall2 > aBall1);
+const catchGreat = attemptCatch({
+  maxHp: 100,
+  hp: 50,
+  catchRate: 100,
+  ballMod: 2,
+  rolls: [0.99, 0.99, 0.99],
+});
+const catchStd = attemptCatch({
+  maxHp: 100,
+  hp: 50,
+  catchRate: 100,
+  ballMod: 1,
+  rolls: [0.99, 0.99, 0.99],
+});
+ok("attemptCatch ballMod in aValue", catchGreat.aValue > catchStd.aValue);
+
 if (catchWin.caught && party.length < 6) {
   const caught = battlerFromSpecies("dustbun", 3, "caught-1");
   addToParty(party, { battler: caught });
@@ -372,6 +395,29 @@ ok("sparkmoth speciesCatchRate 120", speciesCatchRate(sparkSp) === 120);
 
 // Status usable (already checked) — reaffirm
 ok("status move exists", moves.some((m) => m.category === "status"));
+ok("priority move exists", moves.some((m) => (m.priority ?? 0) > 0));
+ok("no Pollen Puff", !moves.some((m) => m.name === "Pollen Puff"));
+ok("haze-puff or original puff", moves.some((m) => m.id === "haze-puff" || m.name === "Haze Puff"));
+
+// Priority order: Quick Gleam first despite low spe
+{
+  const slow = battlerFromSpecies(starterId, 5, "pri-p");
+  slow.stats = { ...slow.stats, spe: 5 };
+  slow.moves = resolveMoves(["quick-gleam"]);
+  const fast = battlerFromSpecies("dustbun", 5, "pri-f");
+  fast.stats = { ...fast.stats, spe: 200 };
+  fast.moves = resolveMoves(["nudge"]);
+  const pb = createBattle({ player: slow, foe: fast, typeChart: pack.typeChart });
+  executeTurn(pb, {
+    playerMoveIndex: 0,
+    foeMoveIndex: 0,
+    random: 1,
+    forceAccuracyHit: true,
+  });
+  const first = pb.log.find((e) => e.type === "move");
+  ok("priority acts first", first && first.side === "player");
+}
+
 
 console.log(`\nplaytest: ${passed} passed, ${failed} failed`);
 if (failed > 0) process.exit(1);

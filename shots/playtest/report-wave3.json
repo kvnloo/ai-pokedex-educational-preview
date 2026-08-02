@@ -1,0 +1,27 @@
+{
+  "wave": "wave3",
+  "modes_used": [1, 3, 4],
+  "typecheck": true,
+  "test_battle": {"passed": 84, "failed": 0},
+  "test_playtest": {"passed": 42, "failed": 0, "harness": "green"},
+  "build": true,
+  "mode1_capture": {
+    "label": "wave3",
+    "black_frame": false,
+    "pass_hard_gates": true,
+    "luma_mean": 127.32,
+    "unique_samples": 90,
+    "near_black_frac": 0,
+    "shot": "shots/wave3/shot-000.png"
+  },
+  "mode4_profile": {
+    "p99_ms": 17.5,
+    "target_p99_ms": 16.7,
+    "frames_over_50ms": 0,
+    "gates_ok": false,
+    "path": "shots/wave3/profile.json"
+  },
+  "pass_hard": true,
+  "loop_exit": false,
+  "notes": "Hard gates (typecheck, battle, playtest, build, mode-1 capture) green. Mode-4 p99 17.5ms > 16.7ms advisory fail. Mode 7 not run — playtest green is not loop exit."
+}

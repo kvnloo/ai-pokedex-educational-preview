@@ -8,11 +8,11 @@
   "samples_total": 1920,
   "counted": 1800,
   "p50_ms": 16.7,
-  "p95_ms": 17.1,
+  "p95_ms": 17.2,
   "p99_ms": 17.5,
-  "max_ms": 17.9,
-  "mean_ms": 16.666,
-  "frames_over_16_7ms": 861,
+  "max_ms": 33.5,
+  "mean_ms": 16.675,
+  "frames_over_16_7ms": 887,
   "frames_over_50ms": 0,
   "gates": {
     "p99_ms_max": 16.7,
@@ -27,7 +27,7 @@
   "seconds_requested": 30,
   "warmup_sec": 2,
   "page_errors": [],
-  "timestamp": "2026-08-02T08:04:33.441Z",
+  "timestamp": "2026-08-02T08:24:30.339Z",
   "source": "browser-threejs-profile",
   "notes": "Mode-4 F: p99≤16.7ms and zero frames >50ms after warm-up at medium-1080p. frameStats API in src/core/frameStats.ts; Engine pushes spent ms; main may import later."
 }

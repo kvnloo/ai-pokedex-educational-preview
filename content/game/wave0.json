@@ -146,8 +146,8 @@
     },
     {
       "moveId": 7,
-      "slug": "pollen-puff",
-      "name": "Pollen Puff",
+      "slug": "haze-puff",
+      "name": "Haze Puff",
       "type": "bug",
       "category": "special",
       "power": 40,
@@ -155,7 +155,7 @@
       "pp": 25,
       "priority": 0,
       "description": "A puff of charged pollen.",
-      "id": "pollen-puff"
+      "id": "haze-puff"
     },
     {
       "moveId": 8,
@@ -170,6 +170,19 @@
       "effect": "lower-atk-1",
       "description": "Softens the foe's attack stance.",
       "id": "growl-down"
+    },
+    {
+      "moveId": 9,
+      "slug": "quick-gleam",
+      "name": "Quick Gleam",
+      "type": "normal",
+      "category": "physical",
+      "power": 40,
+      "accuracy": 100,
+      "pp": 30,
+      "priority": 1,
+      "description": "A flash-step strike that lands first.",
+      "id": "quick-gleam"
     }
   ],
   "species": [
@@ -290,7 +303,8 @@
       "learnset": [
         "nudge",
         "wool-rush",
-        "growl-down"
+        "growl-down",
+        "quick-gleam"
       ],
       "role": "wild",
       "flavor": "Round and dusty; rolls through hollow grass.",
@@ -298,7 +312,8 @@
       "moves": [
         "nudge",
         "wool-rush",
-        "growl-down"
+        "growl-down",
+        "quick-gleam"
       ],
       "catchRate": 255,
       "baseExp": 45
@@ -321,7 +336,7 @@
       },
       "learnset": [
         "static-nibble",
-        "pollen-puff",
+        "haze-puff",
         "nudge",
         "cinder-spark"
       ],
@@ -330,7 +345,7 @@
       "id": "sparkmoth",
       "moves": [
         "static-nibble",
-        "pollen-puff",
+        "haze-puff",
         "nudge",
         "cinder-spark"
       ],
@@ -355,7 +370,7 @@
       },
       "learnset": [
         "static-nibble",
-        "pollen-puff",
+        "haze-puff",
         "nudge",
         "wool-rush"
       ],
@@ -364,7 +379,7 @@
       "id": "ironwisp",
       "moves": [
         "static-nibble",
-        "pollen-puff",
+        "haze-puff",
         "nudge",
         "wool-rush"
       ],

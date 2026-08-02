@@ -1,0 +1,32 @@
+{
+  "label": "wave2-critic-a",
+  "shot_dir": "/workspace/zer0/products/pokemon/shots/wave2-critic-a",
+  "shots": [
+    "/workspace/zer0/products/pokemon/shots/wave2-critic-a/shot-000.png"
+  ],
+  "width": 1280,
+  "height": 720,
+  "quality": "high",
+  "gpu": "ANGLE (NVIDIA, Vulkan 1.4.341 (NVIDIA NVIDIA GeForce RTX 3080 Ti (0x00002208)), NVIDIA)",
+  "source": "browser-threejs",
+  "scene": "explore-after-starter",
+  "page_errors": [],
+  "luma": {
+    "mean": 127.22315730789697,
+    "unique_samples": 90,
+    "near_black_frac": 0
+  },
+  "black_frame": false,
+  "hard_failed": [],
+  "pass_hard_gates": true,
+  "gates": {
+    "meanMin": 38,
+    "uniqueMin": 48,
+    "nearBlackMax": 0.82,
+    "nearBlackLuma": 12,
+    "minDim": 64
+  },
+  "starter_clicked": true,
+  "timestamp": "2026-08-02T08:14:59.862Z",
+  "notes": "Honest WebGL still of ship index.html. Fail-closed on near-void (mean/unique/near-black). No minimal-capture, no plates."
+}

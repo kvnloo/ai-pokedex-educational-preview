@@ -12,7 +12,7 @@
   "scene": "explore-after-starter",
   "page_errors": [],
   "luma": {
-    "mean": 127.40280327211808,
+    "mean": 127.04663349950125,
     "unique_samples": 90,
     "near_black_frac": 0
   },
@@ -27,6 +27,6 @@
     "minDim": 64
   },
   "starter_clicked": true,
-  "timestamp": "2026-08-02T08:10:37.825Z",
+  "timestamp": "2026-08-02T08:16:24.659Z",
   "notes": "Honest WebGL still of ship index.html. Fail-closed on near-void (mean/unique/near-black). No minimal-capture, no plates."
 }

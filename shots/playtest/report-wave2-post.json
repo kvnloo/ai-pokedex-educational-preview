@@ -1,0 +1,45 @@
+{
+  "wave": "wave2-post",
+  "category": "D",
+  "role": "critic",
+  "verdict": "FAIL",
+  "timestamp": "2026-08-02T08:20:00Z",
+  "modes_used": [1, 2, 3, 7],
+  "capture": {
+    "path": "shots/wave2-post/capture.json",
+    "source": "browser-threejs",
+    "scene": "explore-after-starter",
+    "black_frame": false,
+    "pass_hard_gates": true,
+    "mean_luma": 127.05,
+    "unique_samples": 90,
+    "starter_clicked": true
+  },
+  "mesh_qa_selftest": "all passed for SPECIES_BUILDERS keys only",
+  "findings": {
+    "now_at_bar": [
+      "Idle/attack/faint code clips in src/creatures/clips.ts; tick/play wired in main",
+      "Mesh QA cube/thin gates exist; selftest green for emberpup/dewkin/leafit/dustbun/sparkmoth",
+      "makeCreatureMesh + assertQa on shipCreatureMesh path; idlePhaseSeed desync selftest OK",
+      "Explore still: readable emberpup silhouette (ears/tail), non-black graded scene mean~127"
+    ],
+    "still_failing": [
+      "ironwisp/gloomhorn (and any unaliased id) hit buildGeneric → volume/bbox≈0.814 → assertMeshQa THROWS at battle spawn",
+      "leafkit only via MESH_ALIAS→leafit; no leafkit builder; direct makeCreatureMesh('leafkit') fails QA",
+      "Materials are flat MeshStandardMaterial variants — no tactile fur/feather/scale read under TW soft light (still plastic sphere stacks)",
+      "Mode-7 double-blind: would NOT prefer US over Twilight Wings (low-poly toy blobs vs anime)",
+      "No dedicated silhouettes for gym/elite species; generic fails QA so gym battles crash mesh path",
+      "Mode-2 attack/faint motion not captured as ≥60fps clips; still-only evidence",
+      "VISUAL-BAR unchecked: soft key/fill and battle-distance silhouette not certified"
+    ]
+  },
+  "next_wave_priority": "Author non-cube builders for ironwisp/gloomhorn/leafkit (or safe aliases that pass QA); raise material/read to TW bar before mode-7 claim",
+  "gates": {
+    "typecheck": "pass",
+    "test_battle": "pass",
+    "test_playtest": "pass (mode3 green ≠ D/mode7 pass)",
+    "build": "pass",
+    "meshQa_selftest": "pass (builders only)",
+    "capture_wave2_post": "pass hard gates; content not TW-bar"
+  }
+}

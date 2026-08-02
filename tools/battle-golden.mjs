@@ -313,7 +313,7 @@ const partyMod = await import(pathToFileURL(join(root, "src/battle/party.ts")).h
 const catchMod = await import(pathToFileURL(join(root, "src/battle/catch.ts")).href);
 const { createParty, addToParty, syncBattlerToParty, battlerFromPartyMember } = partyMod;
 const { speciesCatchRate, defaultCatchRate } = catchMod;
-const { rollDamageRandom, DAMAGE_RANDOM_MIN, DAMAGE_RANDOM_MAX } = damageMod;
+const { rollDamageRandom, clampDamageRandom, DAMAGE_RANDOM_MIN, DAMAGE_RANDOM_MAX } = damageMod;
 
 assertEq("crit force", rollCritical(0, true).isCrit, true);
 assertEq("crit force mult", rollCritical(0, true).multiplier, 1.5);
@@ -344,6 +344,9 @@ assertEq("random band min", DAMAGE_RANDOM_MIN, 0.85);
 assertEq("random band max", DAMAGE_RANDOM_MAX, 1.0);
 assertEq("rollDamageRandom 0", rollDamageRandom(0), 0.85);
 assertEq("rollDamageRandom 1", rollDamageRandom(1), 1.0);
+assertEq("clampDamageRandom high", clampDamageRandom(1.5), 1.0);
+assertEq("clampDamageRandom low", clampDamageRandom(0.1), 0.85);
+assertEq("clampDamageRandom mid", clampDamageRandom(0.92), 0.92);
 
 const leaf = speciesById.get("leafkit");
 assertEq("grass starter exists", !!leaf, true);
@@ -728,6 +731,139 @@ const { applyXp, xpYield, anyConscious, consciousIndices } = partyMod;
 // Species catch rates sparkmoth
 const spark = speciesById.get("sparkmoth");
 assertEq("sparkmoth catchRate 120", speciesCatchRate(spark), 120);
+
+
+// --- W3-P3: damage random clamp, priority, ballMod ---
+{
+  // Explicit random outside band is clamped in executeTurn path
+  const clampB = createBattle({
+    player: buildBattler({
+      id: "clp",
+      name: ember.name,
+      speciesId: ember.id,
+      types: ember.types,
+      level: 5,
+      baseStats: ember.baseStats,
+      moves: resolveMoves(["nudge"]),
+    }),
+    foe: buildBattler({
+      id: "clf",
+      name: dust.name,
+      speciesId: dust.id,
+      types: dust.types,
+      level: 4,
+      baseStats: dust.baseStats,
+      moves: resolveMoves(["nudge"]),
+    }),
+    typeChart: wave0.typeChart,
+  });
+  const foeHpBefore = clampB.foe.hp;
+  executeTurn(clampB, {
+    playerMoveIndex: 0,
+    foeMoveIndex: 0,
+    random: 2.0, // illegal — must clamp to 1.0
+    forceCrit: false,
+    forceAccuracyHit: true,
+  });
+  const dmgEvt = clampB.log.find((e) => e.type === "damage" && e.side === "player");
+  assertEq("clamped random still damages", !!dmgEvt && dmgEvt.damage > 0, true);
+  // Compare vs random 1.0 reference
+  const refB = createBattle({
+    player: buildBattler({
+      id: "clp2",
+      name: ember.name,
+      speciesId: ember.id,
+      types: ember.types,
+      level: 5,
+      baseStats: ember.baseStats,
+      moves: resolveMoves(["nudge"]),
+    }),
+    foe: buildBattler({
+      id: "clf2",
+      name: dust.name,
+      speciesId: dust.id,
+      types: dust.types,
+      level: 4,
+      baseStats: dust.baseStats,
+      moves: resolveMoves(["nudge"]),
+    }),
+    typeChart: wave0.typeChart,
+  });
+  executeTurn(refB, {
+    playerMoveIndex: 0,
+    foeMoveIndex: 0,
+    random: 1.0,
+    forceCrit: false,
+    forceAccuracyHit: true,
+  });
+  const d1 = clampB.log.find((e) => e.type === "damage" && e.side === "player")?.damage;
+  const d2 = refB.log.find((e) => e.type === "damage" && e.side === "player")?.damage;
+  assertEq("random 2.0 clamps to 1.0 damage", d1, d2);
+}
+
+// Priority: Quick Gleam (+1) outspeeds higher spe foe with priority 0
+{
+  const slow = buildBattler({
+    id: "pri-slow",
+    name: ember.name,
+    speciesId: ember.id,
+    types: ember.types,
+    level: 5,
+    baseStats: { ...ember.baseStats, spe: 10 },
+    moves: resolveMoves(["quick-gleam"]),
+  });
+  const fast = buildBattler({
+    id: "pri-fast",
+    name: dust.name,
+    speciesId: dust.id,
+    types: dust.types,
+    level: 5,
+    baseStats: { ...dust.baseStats, spe: 200 },
+    moves: resolveMoves(["nudge"]),
+  });
+  const pb = createBattle({ player: slow, foe: fast, typeChart: wave0.typeChart });
+  executeTurn(pb, {
+    playerMoveIndex: 0,
+    foeMoveIndex: 0,
+    random: 1,
+    forceCrit: false,
+    forceAccuracyHit: true,
+  });
+  const firstMove = pb.log.find((e) => e.type === "move");
+  assertEq("priority move acts first", firstMove?.side, "player");
+  assertEq("priority move id", firstMove?.moveId, "quick-gleam");
+  assertEq(
+    "quick-gleam priority 1",
+    movesById.get("quick-gleam")?.priority,
+    1,
+  );
+}
+
+// ballMod affects a-value
+{
+  const base = {
+    maxHp: 100,
+    hp: 50,
+    catchRate: 100,
+  };
+  const a1 = catchMod.computeA({ ...base, ballMod: 1 });
+  const a15 = catchMod.computeA({ ...base, ballMod: 1.5 });
+  const a2 = catchMod.computeA({ ...base, ballMod: 2 });
+  assertEq("ballMod 1.5 raises a", a15 > a1, true);
+  assertEq("ballMod 2 raises a further", a2 > a15, true);
+  // attemptCatch with high ballMod more likely / higher aValue
+  const c1 = catchMod.attemptCatch({ ...base, ballMod: 1, rolls: [0.99, 0.99, 0.99] });
+  const c2 = catchMod.attemptCatch({ ...base, ballMod: 2, rolls: [0.99, 0.99, 0.99] });
+  assertEq("attemptCatch uses ballMod in a", c2.aValue > c1.aValue, true);
+}
+
+// No official move name Pollen Puff
+assertEq(
+  "no official Pollen Puff",
+  moves.some((m) => m.name === "Pollen Puff" || m.id === "pollen-puff"),
+  false,
+);
+assertEq("haze-puff present", movesById.has("haze-puff"), true);
 
 // Gym / elite content
 assertEq("gym node present", !!wave0.route?.gym?.id, true);

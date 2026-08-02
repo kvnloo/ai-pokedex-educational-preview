@@ -11,6 +11,7 @@ import { assertMeshQa, evaluateMeshQa, type MeshQaResult } from './meshQa.ts';
 import {
   createClipState,
   idlePhaseFromSeed,
+  clipProfileForSpecies,
   type CreatureClipState,
   type CreateClipOpts,
 } from './clips.ts';
@@ -60,6 +61,13 @@ export function makeCreatureMesh(
     idlePhaseSeed: seed,
     baseY: 0,
     baseRotY: opts.baseRotY ?? 0,
+    profile: clipProfileForSpecies(speciesId),
+    idleSpeed:
+      speciesId === 'sparkmoth' || speciesId === 'ironwisp'
+        ? 2.2
+        : speciesId === 'gloomhorn'
+          ? 1.15
+          : 1.6,
   });
   root.userData.clips = clips;
   root.userData.speciesId = speciesId;
@@ -92,5 +100,5 @@ export function getClipState(root: THREE.Object3D): CreatureClipState | undefine
   return root.userData.clips as CreatureClipState | undefined;
 }
 
-export { SPECIES_COLOR, createClipState, idlePhaseFromSeed };
+export { SPECIES_COLOR, createClipState, idlePhaseFromSeed, clipProfileForSpecies };
 export type { CreatureClipState, CreateClipOpts, MeshQaResult };

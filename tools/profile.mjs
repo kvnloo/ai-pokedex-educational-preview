@@ -4,7 +4,7 @@
  *
  * Runs headless Chromium at medium 1080p preset, injects rAF frame-time
  * sampling (warm-up then measure), drives light explore+battle input, writes
- * shots/wave2/profile.json (or --out).
+ * shots/<label>/profile.json (default label=wave3; or --out).
  *
  * Gates (documented + checked when --gate):
  *   p99_ms ≤ 16.7
@@ -13,6 +13,7 @@
  * Usage:
  *   node tools/profile.mjs --seconds 30
  *   node tools/profile.mjs --seconds 180 --gate
+ *   node tools/profile.mjs --label wave3
  *   npm run profile
  */
 import { spawn, spawnSync } from 'node:child_process';
@@ -40,8 +41,9 @@ const has = (n) => args.includes(`--${n}`);
 const seconds = Number(flag('seconds', 30));
 const warmupSec = Number(flag('warmup', 2));
 const port = Number(flag('port', 4191));
+const label = String(flag('label', 'wave3'));
 const outPath = String(
-  flag('out', join(ROOT, 'shots', 'wave2', 'profile.json')),
+  flag('out', join(ROOT, 'shots', label, 'profile.json')),
 );
 const wantGate = has('gate');
 const noBuild = has('no-build');

@@ -1,13 +1,15 @@
 /**
  * Twilight Route — Wave-0 playable shell.
  * Loads content/game/wave0.json only (ship pack). Pure battle sim + Three presentation.
- * W2-P1: graded sky, starter boot, ship creature meshes, battle AV marks.
+ * W3-P2: collision cam/player, dense grass+shadows, battle staging, XP/blackout, live rolls, gym.
  */
 import * as THREE from 'three';
 import {
   buildBattler,
   createBattle,
   executeTurn,
+  forceSwitchPlayer,
+  grantBattleRewards,
   pickFirstDamagingMove,
   switchPlayerTo,
 } from './battle/battle.ts';
@@ -19,6 +21,7 @@ import {
   bindExploreKeys,
   isOnHealPad,
   createDefaultHealPad,
+  cameraCollisionDist,
   type ExploreState,
 } from './world/explore.ts';
 import { attemptCatch, speciesCatchRate } from './battle/catch.ts';
@@ -31,6 +34,11 @@ import {
   playFaint,
   tickCreatureClip,
 } from './creatures/index.ts';
+import {
+  applyGraphicsPreset,
+  resolvePresetFromQuery,
+  MEDIUM_1080P,
+} from './core/frameStats.ts';
 
 const bootFill = document.getElementById('boot-fill') as HTMLElement | null;
 const bootStatus = document.getElementById('boot-status') as HTMLElement | null;
@@ -57,8 +65,30 @@ interface Wave0Pack {
   route: {
     name: string;
     starterChoices: string[];
-    wildEncounters: { species: string; minLevel: number; maxLevel: number; weight: number }[];
+    wildEncounters: {
+      species: string;
+      minLevel: number;
+      maxLevel: number;
+      weight: number;
+      band?: string;
+    }[];
     playerDefaultLevel: number;
+    gym?: {
+      id: string;
+      name: string;
+      leaderName?: string;
+      species: string;
+      level: number;
+      description?: string;
+    };
+    elite?: {
+      id: string;
+      name: string;
+      trainerName?: string;
+      species: string;
+      level: number;
+      description?: string;
+    };
   };
 }
 
@@ -75,6 +105,8 @@ const SHIP_COLOR: Record<string, number> = {
   dewkin: SPECIES_COLOR.dewkin ?? 0x4aa8e8,
   dustbun: SPECIES_COLOR.dustbun ?? 0xe8e0d4,
   sparkmoth: SPECIES_COLOR.sparkmoth ?? 0xc9d44a,
+  ironwisp: SPECIES_COLOR.ironwisp ?? 0xc9d0e0,
+  gloomhorn: SPECIES_COLOR.gloomhorn ?? 0x6a4a7a,
 };
 
 /** Mode-5 marks: free-roam→Fight ≤400ms, move→first attack frame ≤180ms */
@@ -148,12 +180,29 @@ async function boot(): Promise<void> {
   const canvas = document.getElementById('viewport') as HTMLCanvasElement | null;
   if (!canvas) throw new Error('#viewport missing');
 
-  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
-  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
-  renderer.setSize(window.innerWidth, window.innerHeight);
+  // Graphics: medium-1080p from query caps DPR ≤1 and drives antialias
+  const gfxPreset = resolvePresetFromQuery(
+    typeof location !== 'undefined' ? location.search : '',
+  );
+  const useMedium = gfxPreset?.id === MEDIUM_1080P.id || gfxPreset != null;
+  const antialias = useMedium ? (gfxPreset?.antialias ?? true) : true;
+  const maxPr = useMedium ? (gfxPreset?.maxPixelRatio ?? 1) : 2;
+
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias });
+  if (useMedium && gfxPreset) {
+    applyGraphicsPreset(renderer, gfxPreset);
+    // Still fill window style-wise; preset setSize(..., false) already applied internal buffer
+    renderer.setSize(window.innerWidth, window.innerHeight, true);
+    renderer.setPixelRatio(Math.min(devicePixelRatio, maxPr));
+  } else {
+    renderer.setPixelRatio(Math.min(devicePixelRatio, maxPr));
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  }
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.35;
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
   const scene = new THREE.Scene();
   // Graded twilight sky — warm horizon, cool zenith (not near-black navy void)
@@ -200,7 +249,7 @@ async function boot(): Promise<void> {
   camera.position.set(0, 3.2, 7.5);
   camera.lookAt(0, 0.8, 0);
 
-  // Soft follow state (lagged yaw + lerped position)
+  // Soft follow state (lagged yaw + lerped position + collision pull-in)
   const camFollow = {
     yaw: 0,
     pos: new THREE.Vector3(0, 3.2, 7.5),
@@ -210,6 +259,14 @@ async function boot(): Promise<void> {
     ready: false,
   };
 
+  // Battle camera punch state (impact / SE / faint / send-out)
+  const battleCam = {
+    base: new THREE.Vector3(0.3, 2.6, 6.2),
+    punch: 0,
+    lowAngle: 0,
+    lookY: 0.7,
+  };
+
   // Soft GI bar: ambient + hemi + key + fill (readable under ACES)
   scene.add(new THREE.AmbientLight(0xd8e6ff, 0.42));
   const hemi = new THREE.HemisphereLight(0xffe2c4, 0x3a6b48, 0.85);
@@ -217,6 +274,15 @@ async function boot(): Promise<void> {
   scene.add(hemi);
   const key = new THREE.DirectionalLight(0xfff2dd, 1.55);
   key.position.set(5, 12, 4);
+  key.castShadow = true;
+  key.shadow.mapSize.set(1024, 1024);
+  key.shadow.camera.near = 0.5;
+  key.shadow.camera.far = 40;
+  key.shadow.camera.left = -14;
+  key.shadow.camera.right = 14;
+  key.shadow.camera.top = 14;
+  key.shadow.camera.bottom = -14;
+  key.shadow.bias = -0.0008;
   scene.add(key);
   const fill = new THREE.DirectionalLight(0x88aadd, 0.55);
   fill.position.set(-6, 4, -3);
@@ -225,7 +291,7 @@ async function boot(): Promise<void> {
   rim.position.set(-2, 2, 6);
   scene.add(rim);
 
-  // Brighter ground disc + path strip + town/heal landmarks
+  // Ground disc with micro-relief ring layers + horizon massing
   const ground = new THREE.Mesh(
     new THREE.CircleGeometry(12, 64),
     new THREE.MeshStandardMaterial({
@@ -238,6 +304,31 @@ async function boot(): Promise<void> {
   ground.receiveShadow = true;
   scene.add(ground);
 
+  // Layered ground rings (micro-relief read, still non-void)
+  const ringMat = new THREE.MeshStandardMaterial({
+    color: 0x3f7a4c,
+    roughness: 0.92,
+    metalness: 0.02,
+  });
+  for (let i = 0; i < 3; i++) {
+    const ring = new THREE.Mesh(new THREE.RingGeometry(3.2 + i * 2.1, 3.55 + i * 2.1, 48), ringMat);
+    ring.rotation.x = -Math.PI / 2;
+    ring.position.y = 0.012 + i * 0.004;
+    ring.receiveShadow = true;
+    scene.add(ring);
+  }
+  // Horizon berm masses (silhouette against sky)
+  const bermMat = new THREE.MeshStandardMaterial({ color: 0x3a6b48, roughness: 0.9, metalness: 0 });
+  for (let i = 0; i < 6; i++) {
+    const a = (i / 6) * Math.PI * 2 + 0.3;
+    const berm = new THREE.Mesh(new THREE.SphereGeometry(1.4 + (i % 3) * 0.35, 12, 8), bermMat);
+    berm.scale.set(1.6, 0.35, 1.1);
+    berm.position.set(Math.cos(a) * 10.5, 0.05, Math.sin(a) * 10.5);
+    berm.receiveShadow = true;
+    berm.castShadow = true;
+    scene.add(berm);
+  }
+
   // Dirt path toward grass / hollow
   const path = new THREE.Mesh(
     new THREE.PlaneGeometry(1.8, 10),
@@ -245,6 +336,7 @@ async function boot(): Promise<void> {
   );
   path.rotation.x = -Math.PI / 2;
   path.position.set(0, 0.02, 1.5);
+  path.receiveShadow = true;
   scene.add(path);
 
   // Heal pad landmark (town edge)
@@ -259,6 +351,8 @@ async function boot(): Promise<void> {
     }),
   );
   healPadMesh.position.set(4.5, 0.04, 4.5);
+  healPadMesh.receiveShadow = true;
+  healPadMesh.castShadow = true;
   scene.add(healPadMesh);
   const healGlow = new THREE.Mesh(
     new THREE.RingGeometry(1.2, 1.5, 32),
@@ -274,6 +368,8 @@ async function boot(): Promise<void> {
     new THREE.MeshStandardMaterial({ color: 0x9aa8b8, roughness: 0.7, metalness: 0.05 }),
   );
   stone.position.set(5.2, 0.28, 5.6);
+  stone.castShadow = true;
+  stone.receiveShadow = true;
   scene.add(stone);
   const roof = new THREE.Mesh(
     new THREE.ConeGeometry(0.7, 0.45, 4),
@@ -281,30 +377,111 @@ async function boot(): Promise<void> {
   );
   roof.position.set(5.2, 0.75, 5.6);
   roof.rotation.y = Math.PI / 4;
+  roof.castShadow = true;
   scene.add(roof);
 
-  // Tall grass ring (encounter zone) — brighter albedo variety
-  const grassColors = [0x5cbc6a, 0x48a858, 0x6fd47a, 0x3d9a52, 0x7ae08a];
+  // Gym / elite stake posts (interact with E)
+  const gymPost = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.22, 0.28, 1.6, 10),
+    new THREE.MeshStandardMaterial({
+      color: 0xe8d070,
+      emissive: 0x886020,
+      emissiveIntensity: 0.25,
+      metalness: 0.35,
+      roughness: 0.45,
+    }),
+  );
+  gymPost.position.set(-5.75, 0.8, 3.15);
+  gymPost.castShadow = true;
+  scene.add(gymPost);
+  const gymOrb = new THREE.Mesh(
+    new THREE.SphereGeometry(0.28, 12, 10),
+    new THREE.MeshStandardMaterial({
+      color: 0xfff0a0,
+      emissive: 0xffc040,
+      emissiveIntensity: 0.55,
+      metalness: 0.2,
+      roughness: 0.3,
+    }),
+  );
+  gymOrb.position.set(-5.75, 1.75, 3.15);
+  gymOrb.castShadow = true;
+  scene.add(gymOrb);
+
+  const elitePost = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.24, 0.3, 1.8, 10),
+    new THREE.MeshStandardMaterial({
+      color: 0x6a4a8a,
+      emissive: 0x3a2060,
+      emissiveIntensity: 0.3,
+      metalness: 0.4,
+      roughness: 0.4,
+    }),
+  );
+  elitePost.position.set(-6.25, 0.9, 0.25);
+  elitePost.castShadow = true;
+  scene.add(elitePost);
+  const eliteOrb = new THREE.Mesh(
+    new THREE.SphereGeometry(0.32, 12, 10),
+    new THREE.MeshStandardMaterial({
+      color: 0xb090e0,
+      emissive: 0x6040a0,
+      emissiveIntensity: 0.5,
+      metalness: 0.25,
+      roughness: 0.35,
+    }),
+  );
+  eliteOrb.position.set(-6.25, 1.95, 0.25);
+  eliteOrb.castShadow = true;
+  scene.add(eliteOrb);
+
+  // Dense tall grass risk band — shared materials (F budget), instanced-ish cone field
+  const grassColors = [0x5cbc6a, 0x48a858, 0x6fd47a, 0x3d9a52, 0x7ae08a, 0x55b060];
+  const grassMats = grassColors.map(
+    (gCol) =>
+      new THREE.MeshStandardMaterial({
+        color: gCol,
+        roughness: 0.72,
+        metalness: 0.02,
+        emissive: gCol,
+        emissiveIntensity: 0.05,
+      }),
+  );
   const grassBlades: THREE.Mesh[] = [];
   const grassBaseRot: number[] = [];
-  for (let i = 0; i < 48; i++) {
-    const gCol = grassColors[i % grassColors.length];
-    const grassMat = new THREE.MeshStandardMaterial({
-      color: gCol,
-      roughness: 0.72,
-      metalness: 0.02,
-      emissive: gCol,
-      emissiveIntensity: 0.06,
-    });
-    const blade = new THREE.Mesh(new THREE.ConeGeometry(0.09, 0.75 + Math.random() * 0.45, 5), grassMat);
-    const a = (i / 48) * Math.PI * 2;
-    const r = 2.0 + Math.random() * 2.0;
-    blade.position.set(Math.cos(a) * r, 0.38, Math.sin(a) * r - 1.2);
-    blade.rotation.z = (Math.random() - 0.5) * 0.2;
+  const GRASS_N = 120;
+  const grassGeo = new THREE.ConeGeometry(0.08, 0.7, 5);
+  for (let i = 0; i < GRASS_N; i++) {
+    const mat = grassMats[i % grassMats.length];
+    const blade = new THREE.Mesh(grassGeo, mat);
+    // Dense disc band centered on grass zone (cx=0, cz=-1.2, half≈2.6)
+    const a = Math.random() * Math.PI * 2;
+    const r = Math.sqrt(Math.random()) * 2.55;
+    blade.position.set(Math.cos(a) * r, 0.36 + Math.random() * 0.12, Math.sin(a) * r - 1.2);
+    blade.rotation.z = (Math.random() - 0.5) * 0.25;
+    blade.scale.y = 0.85 + Math.random() * 0.55;
+    blade.castShadow = i % 4 === 0; // throttle shadow casters
     grassBaseRot.push(blade.rotation.z);
     grassBlades.push(blade);
     scene.add(blade);
   }
+
+  // Contact blob shadow under active creatures (readable stills)
+  const contactShadowMat = new THREE.MeshBasicMaterial({
+    color: 0x1a2018,
+    transparent: true,
+    opacity: 0.35,
+    depthWrite: false,
+  });
+  const playerContact = new THREE.Mesh(new THREE.CircleGeometry(0.45, 16), contactShadowMat);
+  playerContact.rotation.x = -Math.PI / 2;
+  playerContact.position.y = 0.03;
+  scene.add(playerContact);
+  const foeContact = new THREE.Mesh(new THREE.CircleGeometry(0.42, 16), contactShadowMat.clone());
+  foeContact.rotation.x = -Math.PI / 2;
+  foeContact.position.y = 0.03;
+  foeContact.visible = false;
+  scene.add(foeContact);
 
   // Foot-plant dust
   const dustPool: THREE.Mesh[] = [];
@@ -343,11 +520,14 @@ async function boot(): Promise<void> {
   let battle: BattleState | null = null;
   let playerSpeciesId = 'emberpup';
   let busy = false;
+  let battleKind: 'wild' | 'gym' | 'elite' = 'wild';
+  let wildWins = 0;
 
   // Lunge offsets (rAF-driven)
   let playerLunge = 0;
   let foeLunge = 0;
   let foeSink = 0;
+  let playerSink = 0;
   let playerBobPhase = 0;
   let ballArcT = -1; // -1 idle; 0..1 throw progress
   const ballMesh = new THREE.Mesh(
@@ -361,6 +541,7 @@ async function boot(): Promise<void> {
     }),
   );
   ballMesh.visible = false;
+  ballMesh.castShadow = true;
   scene.add(ballMesh);
 
   let explore: ExploreState | null = null;
@@ -368,6 +549,7 @@ async function boot(): Promise<void> {
   const healPad = createDefaultHealPad();
   let healCooldown = 0;
   let grassRustleBoost = 0;
+  let interactArmed = true;
 
   let dispEnemyHp = 0;
   let dispAllyHp = 0;
@@ -449,6 +631,9 @@ async function boot(): Promise<void> {
     else if (kind === 'crit') flash.classList.add('crit');
     void flash.offsetWidth;
     flash.classList.add('on');
+    // Battle cam punch on impact
+    battleCam.punch = kind === 'crit' ? 0.55 : kind === 'se' ? 0.42 : 0.28;
+    if (kind === 'se' || kind === 'crit') battleCam.lowAngle = 0.25;
     setTimeout(() => {
       flash.classList.remove('on', 'se', 'nve', 'crit');
     }, kind === 'crit' ? 140 : 90);
@@ -473,7 +658,19 @@ async function boot(): Promise<void> {
   }
 
   function pickWild(): { species: string; level: number } {
-    const table = raw.route.wildEncounters;
+    let table = raw.route.wildEncounters;
+    // Escalate band by wins / lead level
+    const leadLv = party[0]?.battler.level ?? raw.route.playerDefaultLevel;
+    if (wildWins >= 3 || leadLv >= 8) {
+      const late = table.filter((e) => e.band === 'late' || e.band === 'mid');
+      if (late.length) table = late;
+    } else if (wildWins >= 1 || leadLv >= 6) {
+      const mid = table.filter((e) => e.band !== 'late');
+      if (mid.length) table = mid;
+    } else {
+      const early = table.filter((e) => !e.band || e.band === 'early');
+      if (early.length) table = early;
+    }
     const total = table.reduce((s, e) => s + e.weight, 0);
     let r = Math.random() * total;
     for (const e of table) {
@@ -499,15 +696,97 @@ async function boot(): Promise<void> {
     }
   }
 
-  function enterBattle(wildSpecies: string, wildLevel: number): void {
+  function enableCast(root: THREE.Object3D): void {
+    root.traverse((o) => {
+      if ((o as THREE.Mesh).isMesh) {
+        o.castShadow = true;
+        o.receiveShadow = true;
+      }
+    });
+  }
+
+  /** Directed send-out: rise from below + scale-in + low cam */
+  async function stageSendOut(who: 'player' | 'foe', speciesId: string, scale = 1): Promise<void> {
+    battleCam.lowAngle = 0.55;
+    battleCam.punch = 0.2;
+    if (who === 'player') {
+      if (playerMesh) scene.remove(playerMesh);
+      playerMesh = shipCreatureMesh(speciesId, scale);
+      enableCast(playerMesh);
+      playerMesh.position.set(1.8, -0.9, 1.4);
+      playerMesh.scale.setScalar(0.15);
+      scene.add(playerMesh);
+    } else {
+      if (foeMesh) scene.remove(foeMesh);
+      foeMesh = shipCreatureMesh(speciesId, scale);
+      enableCast(foeMesh);
+      foeMesh.position.set(-1.6, -0.9, -0.8);
+      foeMesh.scale.setScalar(0.15);
+      scene.add(foeMesh);
+      foeContact.visible = true;
+    }
+    const ms = 420;
+    const t0 = performance.now();
+    await new Promise<void>((resolve) => {
+      const step = (now: number) => {
+        const u = clamp((now - t0) / ms, 0, 1);
+        const ease = 1 - Math.pow(1 - u, 2.4);
+        const mesh = who === 'player' ? playerMesh : foeMesh;
+        if (mesh) {
+          mesh.position.y = -0.9 + ease * 0.9;
+          mesh.scale.setScalar(0.15 + ease * 0.85);
+        }
+        if (u < 1) requestAnimationFrame(step);
+        else resolve();
+      };
+      requestAnimationFrame(step);
+    });
+    if (who === 'player' && playerMesh) {
+      playerMesh.position.y = 0;
+      playerMesh.scale.setScalar(1);
+    }
+    if (who === 'foe' && foeMesh) {
+      foeMesh.position.y = 0;
+      foeMesh.scale.setScalar(1);
+    }
+  }
+
+  /** Recall sink / scale-out before switch-in */
+  async function stageRecall(who: 'player' | 'foe'): Promise<void> {
+    const mesh = who === 'player' ? playerMesh : foeMesh;
+    if (!mesh) return;
+    const ms = 280;
+    const t0 = performance.now();
+    await new Promise<void>((resolve) => {
+      const step = (now: number) => {
+        const u = clamp((now - t0) / ms, 0, 1);
+        mesh.position.y = -u * 0.85;
+        mesh.scale.setScalar(Math.max(0.05, 1 - u));
+        if (u < 1) requestAnimationFrame(step);
+        else resolve();
+      };
+      requestAnimationFrame(step);
+    });
+  }
+
+  async function enterBattle(
+    foeSpecies: string,
+    foeLevel: number,
+    kind: 'wild' | 'gym' | 'elite' = 'wild',
+  ): Promise<void> {
     mark('roam-to-fight-start');
     mode = 'battle';
+    battleKind = kind;
     foeSink = 0;
+    playerSink = 0;
     playerLunge = 0;
     foeLunge = 0;
     ballArcT = -1;
     ballMesh.visible = false;
     clearEffClasses();
+    battleCam.punch = 0;
+    battleCam.lowAngle = 0.4;
+    battleCam.lookY = 0.7;
 
     const leadBattler =
       party.length > 0
@@ -515,36 +794,55 @@ async function boot(): Promise<void> {
         : battlerFromSpecies(playerSpeciesId, raw.route.playerDefaultLevel, 'player');
     playerSpeciesId = leadBattler.speciesId || playerSpeciesId;
 
-    const foe = battlerFromSpecies(wildSpecies, wildLevel, 'wild');
+    const foe = battlerFromSpecies(foeSpecies, foeLevel, kind === 'wild' ? 'wild' : kind);
     battle = createBattle({ player: leadBattler, foe, typeChart: raw.typeChart });
 
     dispEnemyHp = battle.foe.hp;
     dispAllyHp = battle.player.hp;
 
-    // Send-out staging: rebuild player mesh from party species, foe appears
-    if (playerMesh) scene.remove(playerMesh);
-    playerMesh = shipCreatureMesh(playerSpeciesId, 1);
-    playerMesh.position.set(1.8, 0, 1.4);
-    scene.add(playerMesh);
-
-    if (foeMesh) scene.remove(foeMesh);
-    foeMesh = shipCreatureMesh(wildSpecies, 0.95);
-    foeMesh.position.set(-1.6, 0, -0.8);
-    scene.add(foeMesh);
-
     battleRoot?.classList.add('active');
-    battleMenu?.classList.remove('hidden');
+    // Hide menu until staging done
+    battleMenu?.classList.add('hidden');
     moveMenu?.classList.add('hidden');
-    setMsg(`A wild ${foe.name} appeared!`);
+
+    if (kind === 'wild') {
+      setMsg(`A wild ${foe.name} appeared!`);
+    } else if (kind === 'gym') {
+      const g = raw.route.gym;
+      setMsg(`${g?.leaderName ?? 'Gym Leader'} challenges you with ${foe.name}!`);
+    } else {
+      const e = raw.route.elite;
+      setMsg(`${e?.trainerName ?? 'Elite'} bars the path with ${foe.name}!`);
+    }
     syncBattleHud({ enemyDur: 0, allyDur: 0 });
-    showToast('Battle!');
-    // No entry flashHit('hit') — keeps impact AV grammar clean for real hits
+    showToast(kind === 'wild' ? 'Battle!' : kind === 'gym' ? 'Gym battle!' : 'Elite gate!');
+
+    // Foe appear → settle → partner send-out → Fight interactive
+    await stageSendOut('foe', foeSpecies, 0.95);
+    await waitMs(180);
+    await stageSendOut('player', playerSpeciesId, 1);
+    setMsg(`Go! ${battle.player.name}!`);
+    await waitMs(120);
+
+    battleMenu?.classList.remove('hidden');
     updateSwapButton();
 
     requestAnimationFrame(() => {
       mark('roam-to-fight-ready');
       measureLog('roam→Fight', 'roam-to-fight-start', 'roam-to-fight-ready', 400);
     });
+  }
+
+  function warpToHealPad(): void {
+    if (!explore) return;
+    // Place just outside heal pad solid so player can walk rim
+    explore.pos.x = 3.1;
+    explore.pos.z = 4.5;
+    explore.vel.x = 0;
+    explore.vel.z = 0;
+    if (playerMesh) {
+      playerMesh.position.set(explore.pos.x, 0, explore.pos.z);
+    }
   }
 
   function exitBattle(msg: string): void {
@@ -560,8 +858,12 @@ async function boot(): Promise<void> {
     battleRoot?.classList.remove('active');
     clearEffClasses();
     foeSink = 0;
+    playerSink = 0;
     ballArcT = -1;
     ballMesh.visible = false;
+    foeContact.visible = false;
+    battleCam.punch = 0;
+    battleCam.lowAngle = 0;
     if (foeMesh) {
       scene.remove(foeMesh);
       foeMesh = null;
@@ -570,6 +872,7 @@ async function boot(): Promise<void> {
     if (playerMesh) {
       scene.remove(playerMesh);
       playerMesh = shipCreatureMesh(playerSpeciesId, 1);
+      enableCast(playerMesh);
       scene.add(playerMesh);
     }
     if (playerMesh && explore) {
@@ -585,6 +888,8 @@ async function boot(): Promise<void> {
     const faintName = win ? battle?.foe.name : battle?.player.name;
     setMsg(`${faintName ?? 'Foe'} fainted!`);
     battleMsg?.classList.add('faint-beat');
+    battleCam.punch = 0.35;
+    battleCam.lowAngle = 0.45;
     if (win && foeMesh) {
       const st = getClipState(foeMesh);
       if (st) playFaint(st);
@@ -598,22 +903,120 @@ async function boot(): Promise<void> {
       const step = (now: number) => {
         const u = clamp((now - t0) / sinkMs, 0, 1);
         if (win) foeSink = u * 0.85;
-        else foeSink = 0;
+        else {
+          foeSink = 0;
+          playerSink = u * 0.85;
+        }
         if (u < 1) requestAnimationFrame(step);
         else resolve();
       };
       requestAnimationFrame(step);
     });
-    if (win) {
+    if (win && battle) {
+      const rew = grantBattleRewards(battle, { party, baseExp: battleKind === 'gym' ? 120 : battleKind === 'elite' ? 160 : 50 });
+      for (const m of rew.messages) {
+        setMsg(m);
+        showToast(m, 3200);
+        await waitMs(420);
+      }
+      if (rew.leveledUp && party[0]) {
+        playerSpeciesId = battle.player.speciesId;
+      }
+      wildWins += 1;
       setMsg('You win! Growth from the battle settles in.');
       showToast('Victory — partner grew stronger.');
     } else {
       setMsg('You were defeated…');
+      // Black-out → heal + warp heal pad
+      healParty(party);
+      warpToHealPad();
+      showToast('Blacked out… healed at the pad.');
     }
     await waitMs(480);
     battleMsg?.classList.remove('faint-beat');
-    exitBattle(win ? 'Victory — back to the hollow.' : 'Fled to heal…');
+    exitBattle(win ? 'Victory — back to the hollow.' : 'Blacked out — back at the heal pad.');
     busy = false;
+  }
+
+  /** When active faints but reserves remain — force-switch UI path */
+  async function handleForceSwitch(): Promise<void> {
+    if (!battle || !battle.needsForceSwitch) return;
+    battleCam.lowAngle = 0.35;
+    setMsg(`${battle.player.name} fainted! Choose a partner!`);
+    if (playerMesh) {
+      const st = getClipState(playerMesh);
+      if (st) playFaint(st);
+    }
+    const sinkMs = 400;
+    const t0 = performance.now();
+    await new Promise<void>((resolve) => {
+      const step = (now: number) => {
+        const u = clamp((now - t0) / sinkMs, 0, 1);
+        playerSink = u * 0.85;
+        if (u < 1) requestAnimationFrame(step);
+        else resolve();
+      };
+      requestAnimationFrame(step);
+    });
+    playerSink = 0;
+    // Auto-pick first conscious if only one, else open swap menu
+    const conscious = party
+      .map((m, i) => ({ m, i }))
+      .filter(({ m, i }) => i !== (battle!.playerPartyIndex ?? 0) && m.battler.hp > 0 && !m.battler.fainted);
+    if (conscious.length === 0) {
+      const ok = forceSwitchPlayer(battle, party);
+      if (!ok) {
+        await stageFaintAndExit(false);
+        return;
+      }
+    }
+    // Open force-swap (no back)
+    await openForceSwapMenu();
+  }
+
+  function openForceSwapMenu(): Promise<void> {
+    return new Promise((resolve) => {
+      if (!battle || !moveMenu) {
+        resolve();
+        return;
+      }
+      moveMenu.innerHTML = '';
+      moveMenu.classList.remove('hidden');
+      battleMenu?.classList.add('hidden');
+      setMsg('Who will you send out?');
+      party.forEach((m, i) => {
+        const b = m.battler;
+        const btn = document.createElement('button');
+        btn.className = 'btn';
+        const active = (battle!.playerPartyIndex ?? 0) === i;
+        btn.innerHTML = `${b.name}<span class="sub">Lv.${b.level} · ${b.hp}/${b.maxHp}${active ? ' · fainted' : ''}</span>`;
+        btn.disabled = busy || b.hp <= 0 || !!b.fainted || active;
+        btn.onclick = () => {
+          void (async () => {
+            if (!battle) return;
+            busy = true;
+            await stageRecall('player');
+            const ok = forceSwitchPlayer(battle, party, i);
+            if (!ok) {
+              await stageFaintAndExit(false);
+              resolve();
+              return;
+            }
+            playerSpeciesId = battle.player.speciesId;
+            await stageSendOut('player', playerSpeciesId, 1);
+            dispAllyHp = battle.player.hp;
+            syncBattleHud();
+            setMsg(`Go! ${battle.player.name}!`);
+            moveMenu.classList.add('hidden');
+            battleMenu?.classList.remove('hidden');
+            busy = false;
+            updateSwapButton();
+            resolve();
+          })();
+        };
+        moveMenu.appendChild(btn);
+      });
+    });
   }
 
   function renderMoveMenu(): void {
@@ -653,21 +1056,22 @@ async function boot(): Promise<void> {
       btn.innerHTML = `${b.name}<span class="sub">Lv.${b.level} · ${b.hp}/${b.maxHp}${active ? ' · out' : ''}</span>`;
       btn.disabled = busy || b.hp <= 0 || !!b.fainted || active;
       btn.onclick = () => {
-        if (!battle || busy) return;
-        busy = true;
-        switchPlayerTo(battle, party, i);
-        playerSpeciesId = battle.player.speciesId;
-        if (playerMesh) scene.remove(playerMesh);
-        playerMesh = shipCreatureMesh(playerSpeciesId, 1);
-        playerMesh.position.set(1.8, 0, 1.4);
-        scene.add(playerMesh);
-        dispAllyHp = battle.player.hp;
-        syncBattleHud();
-        setMsg(battle.log[battle.log.length - 1]?.message ?? `Go! ${battle.player.name}!`);
-        moveMenu.classList.add('hidden');
-        battleMenu?.classList.remove('hidden');
-        busy = false;
-        updateSwapButton();
+        void (async () => {
+          if (!battle || busy) return;
+          busy = true;
+          updateSwapButton();
+          await stageRecall('player');
+          switchPlayerTo(battle, party, i);
+          playerSpeciesId = battle.player.speciesId;
+          await stageSendOut('player', playerSpeciesId, 1);
+          dispAllyHp = battle.player.hp;
+          syncBattleHud();
+          setMsg(battle.log[battle.log.length - 1]?.message ?? `Go! ${battle.player.name}!`);
+          moveMenu.classList.add('hidden');
+          battleMenu?.classList.remove('hidden');
+          busy = false;
+          updateSwapButton();
+        })();
       };
       moveMenu.appendChild(btn);
     });
@@ -751,11 +1155,12 @@ async function boot(): Promise<void> {
 
     const logStart = battle.log.length;
     const foeIdx = pickFirstDamagingMove(battle.foe);
-    const random = 0.85 + Math.random() * 0.15;
+    // Live rolls: omit pinned random so crit/acc/damage independent
     executeTurn(battle, {
       playerMoveIndex: index,
       foeMoveIndex: foeIdx,
-      random,
+      party,
+      liveRolls: true,
     });
 
     const hits = collectHits(battle.log, logStart);
@@ -820,6 +1225,8 @@ async function boot(): Promise<void> {
     if (battle.over) {
       const win = battle.winner === 'player';
       await stageFaintAndExit(!!win);
+    } else if (battle.needsForceSwitch) {
+      await handleForceSwitch();
     } else {
       busy = false;
       battleMenu?.classList.remove('hidden');
@@ -842,6 +1249,7 @@ async function boot(): Promise<void> {
         playerSpeciesId = id;
         if (playerMesh) scene.remove(playerMesh);
         playerMesh = shipCreatureMesh(id, 1);
+        enableCast(playerMesh);
         playerMesh.position.set(0, 0, 1.2);
         scene.add(playerMesh);
         starterOverlay?.classList.remove('show');
@@ -870,7 +1278,7 @@ async function boot(): Promise<void> {
         camera.position.copy(camFollow.pos);
         camera.lookAt(camFollow.look);
 
-        showToast(`${sp.name} joined you. WASD to walk the grass.`);
+        showToast(`${sp.name} joined you. WASD grass · E at gym lantern.`);
         updateSwapButton();
       };
       starterRow.appendChild(card);
@@ -890,8 +1298,16 @@ async function boot(): Promise<void> {
       else if (act === 'swap') {
         if (party.length > 1) renderSwapMenu();
       } else if (act === 'run' && battle) {
+        if (battleKind !== 'wild') {
+          showToast("Can't run from a trainer battle!");
+          return;
+        }
         exitBattle('Got away safely!');
       } else if (act === 'ball' && battle && !battle.over) {
+        if (battleKind !== 'wild') {
+          showToast("Can't catch a trainer's creature!");
+          return;
+        }
         if (busy) return;
         busy = true;
         updateSwapButton();
@@ -956,10 +1372,17 @@ async function boot(): Promise<void> {
     camera.aspect = w / h;
     camera.updateProjectionMatrix();
     renderer.setSize(w, h);
+    if (useMedium) {
+      renderer.setPixelRatio(Math.min(devicePixelRatio, maxPr));
+    }
   });
 
   progress(1, 'Ready');
-  showToast('Twilight Route · Wave-0 · original ship pack only');
+  showToast(
+    useMedium
+      ? `Twilight Route · medium preset DPR≤${maxPr}`
+      : 'Twilight Route · Wave-0 · original ship pack only',
+  );
   requestAnimationFrame(() => {
     bootEl?.classList.add('done');
     setTimeout(() => bootEl?.remove(), 900);
@@ -986,14 +1409,13 @@ async function boot(): Promise<void> {
       }
     }
 
-    // Grass ambient sway + rustle boost
+    // Grass ambient sway + rustle boost (throttle: every blade still cheap shared mat)
     grassRustleBoost = Math.max(0, grassRustleBoost - dt * 3.5);
     for (let i = 0; i < grassBlades.length; i++) {
       const b = grassBlades[i];
       const base = grassBaseRot[i];
       const sway = Math.sin(t * 2.1 + i * 0.4) * 0.08 + grassRustleBoost * Math.sin(t * 18 + i) * 0.35;
       b.rotation.z = base + sway;
-      b.scale.y = 1 + grassRustleBoost * 0.08 * Math.sin(t * 12 + i);
     }
 
     // Ball throw arc (player → foe)
@@ -1012,6 +1434,10 @@ async function boot(): Promise<void> {
       ballMesh.rotation.z += dt * 9;
     }
 
+    // Decay battle cam punches
+    battleCam.punch *= Math.exp(-dt * 4.5);
+    battleCam.lowAngle *= Math.exp(-dt * 2.8);
+
     if (mode === 'explore' && explore && playerMesh) {
       if (healCooldown > 0) healCooldown = Math.max(0, healCooldown - dt);
 
@@ -1028,6 +1454,9 @@ async function boot(): Promise<void> {
       playerMesh.position.y = 0;
       playerMesh.rotation.y = explore.yaw;
 
+      playerContact.position.set(explore.pos.x, 0.03, explore.pos.z);
+      playerContact.visible = true;
+
       if (res.footPlant) {
         const side = explore.footPhase === 0 ? -1 : 1;
         spawnDust(explore.pos.x, explore.pos.z, side);
@@ -1037,6 +1466,7 @@ async function boot(): Promise<void> {
         if (res.grassRustle) grassRustleBoost = Math.min(1, grassRustleBoost + 0.65);
       }
 
+      // Heal on pad rim (solid blocks center)
       if (healCooldown <= 0 && isOnHealPad(explore.pos, healPad) && party.length > 0) {
         healParty(party);
         healCooldown = 2.5;
@@ -1047,11 +1477,35 @@ async function boot(): Promise<void> {
         }, 160);
       }
 
+      // Gym / elite interact (E)
+      const wantInteract = explore.keys.has('e');
+      if (!wantInteract) interactArmed = true;
+      if (res.nearInteract && interactArmed && wantInteract && !busy) {
+        interactArmed = false;
+        if (res.nearInteract === 'gym' && raw.route.gym) {
+          busy = true;
+          void enterBattle(raw.route.gym.species, raw.route.gym.level, 'gym').finally(() => {
+            busy = false;
+          });
+        } else if (res.nearInteract === 'elite' && raw.route.elite) {
+          busy = true;
+          void enterBattle(raw.route.elite.species, raw.route.elite.level, 'elite').finally(() => {
+            busy = false;
+          });
+        }
+      } else if (res.nearInteract && !busy) {
+        // Soft prompt
+        if (Math.floor(t * 2) % 4 === 0) {
+          /* toast throttled below via flag */
+        }
+      }
+
       if (res.encounter && !busy) {
         busy = true;
         const w = pickWild();
-        enterBattle(w.species, w.level);
-        busy = false;
+        void enterBattle(w.species, w.level, 'wild').finally(() => {
+          busy = false;
+        });
       }
 
       const yawBlend = 1 - Math.exp(-4.2 * dt);
@@ -1062,9 +1516,17 @@ async function boot(): Promise<void> {
       while (dy < -Math.PI) dy += Math.PI * 2;
       camFollow.yaw += dy * yawBlend;
 
-      const idealX = playerMesh.position.x - Math.sin(camFollow.yaw) * camFollow.dist;
-      const idealZ = playerMesh.position.z - Math.cos(camFollow.yaw) * camFollow.dist;
-      const idealY = camFollow.height;
+      // Collision-aware camera pull-in vs landmarks
+      const safeDist = cameraCollisionDist(
+        playerMesh.position.x,
+        playerMesh.position.z,
+        camFollow.yaw,
+        camFollow.dist,
+        explore.obstacles,
+      );
+      const idealX = playerMesh.position.x - Math.sin(camFollow.yaw) * safeDist;
+      const idealZ = playerMesh.position.z - Math.cos(camFollow.yaw) * safeDist;
+      const idealY = camFollow.height + (camFollow.dist - safeDist) * 0.15;
       camFollow.pos.x += (idealX - camFollow.pos.x) * posBlend;
       camFollow.pos.z += (idealZ - camFollow.pos.z) * posBlend;
       camFollow.pos.y += (idealY - camFollow.pos.y) * posBlend;
@@ -1083,18 +1545,23 @@ async function boot(): Promise<void> {
       playerMesh.position.x = explore.pos.x;
       playerMesh.position.z = explore.pos.z;
     } else if (mode === 'battle') {
+      playerContact.visible = true;
       if (playerMesh) {
         const baseX = 1.8;
         const baseZ = 1.4;
         playerMesh.position.x = baseX - playerLunge * 0.9;
         playerMesh.position.z = baseZ - playerLunge * 0.55;
-        playerMesh.position.y = 0;
+        playerMesh.position.y = -playerSink * 1.1;
         playerMesh.rotation.y = -0.55;
+        if (playerSink > 0) {
+          playerMesh.scale.setScalar(Math.max(0.05, 1 - playerSink * 0.35));
+        }
         const st = getClipState(playerMesh);
         if (st) {
-          st.baseY = 0;
+          st.baseY = -playerSink * 1.1;
           st.baseRotY = -0.55;
         }
+        playerContact.position.set(playerMesh.position.x, 0.03, playerMesh.position.z);
       }
       if (foeMesh) {
         const baseX = -1.6;
@@ -1109,6 +1576,8 @@ async function boot(): Promise<void> {
           st.baseY = -foeSink * 1.1;
           st.baseRotY = 0.55;
         }
+        foeContact.position.set(foeMesh.position.x, 0.03, foeMesh.position.z);
+        foeContact.visible = true;
       }
       tickMeshClips(dt, t);
       // Restore battle XZ after clip z lunge
@@ -1124,13 +1593,16 @@ async function boot(): Promise<void> {
         foeMesh.position.x = baseX + foeLunge * 0.9;
         foeMesh.position.z = baseZ + foeLunge * 0.55;
       }
-      const bx = 0.3;
-      const by = 2.6;
-      const bz = 6.2;
+      // Battle camera: base + impact punch + send-out low angle
+      const punch = battleCam.punch;
+      const low = battleCam.lowAngle;
+      const bx = battleCam.base.x + punch * 0.15;
+      const by = battleCam.base.y - low * 0.85 - punch * 0.2;
+      const bz = battleCam.base.z - punch * 1.1 - low * 0.4;
       camera.position.x += (bx - camera.position.x) * Math.min(1, 3 * dt);
       camera.position.y += (by - camera.position.y) * Math.min(1, 3 * dt);
       camera.position.z += (bz - camera.position.z) * Math.min(1, 3 * dt);
-      camera.lookAt(0.1, 0.7 - foeSink * 0.3, 0.2);
+      camera.lookAt(0.1, battleCam.lookY - foeSink * 0.3 - playerSink * 0.15 - low * 0.2, 0.2);
     } else {
       // Starter mode: idle camera over hollow + soft sky
       camera.position.x += (0 - camera.position.x) * Math.min(1, 2 * dt);
@@ -1138,10 +1610,14 @@ async function boot(): Promise<void> {
       camera.position.z += (8.2 - camera.position.z) * Math.min(1, 2 * dt);
       camera.lookAt(0, 0.6, 0);
       if (playerMesh) tickMeshClips(dt, t);
+      playerContact.visible = !!playerMesh;
+      if (playerMesh) playerContact.position.set(playerMesh.position.x, 0.03, playerMesh.position.z);
     }
 
     // Subtle heal pad pulse
     healGlow.material.opacity = 0.35 + Math.sin(t * 2.4) * 0.12;
+    gymOrb.position.y = 1.75 + Math.sin(t * 2.1) * 0.06;
+    eliteOrb.position.y = 1.95 + Math.sin(t * 1.7 + 1) * 0.07;
 
     renderer.render(scene, camera);
     requestAnimationFrame(tick);

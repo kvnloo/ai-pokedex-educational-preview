@@ -443,14 +443,17 @@ function resolveDamageRandom(
   _side: BattleSide,
   actionIndex: number,
 ): number {
+  let r: number;
   if (choices.damageRandoms && choices.damageRandoms[actionIndex] != null) {
-    return choices.damageRandoms[actionIndex]!;
+    r = choices.damageRandoms[actionIndex]!;
+  } else if (choices.random != null) {
+    r = choices.random;
+  } else {
+    // Live default: independent band roll (already in 0.85–1.0)
+    return rollDamageRandom(unitRoll(choices));
   }
-  if (choices.random != null) {
-    return choices.random;
-  }
-  // Live default: independent band roll
-  return rollDamageRandom(unitRoll(choices));
+  // Contract: damage random always in classic 0.85–1.0 band
+  return clampDamageRandom(r);
 }
 
 function resolveCritUnit(choices: TurnChoices, actionIndex: number): number {
