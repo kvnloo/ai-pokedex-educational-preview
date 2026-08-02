@@ -1707,7 +1707,7 @@ async function boot(): Promise<void> {
         });
         // Failed throws build visible resonance in the actual product. This is
         // a player-facing drought bound, not an evidence-harness override.
-        const ballMod = catchFailures >= 2 ? 7 : 1 + catchFailures * 0.75;
+        const ballMod = catchFailures >= 1 ? 7 : 1;
         mark('ball-throw-start');
         playSound('catch-throw', 0.82);
         ballArcT = 0;
@@ -1775,14 +1775,12 @@ async function boot(): Promise<void> {
                 catchFailures += 1;
                 playSound('catch-shake', 0.7);
                 mark('ball-catch-fail');
-                setMsg('Oh no! It broke free!');
-                showToast('The ball resonated — the next throw will hold more strongly.');
-                // Failed catch spends the turn — foe acts
-                await resolveFoeOnlyTurn();
-                if (battle && !battle.over && !battle.needsForceSwitch) {
-                  busy = false;
-                  battleMenu?.classList.remove('hidden');
-                }
+                setMsg('It broke free — but the resonance startled it!');
+                showToast('Resonance locked: the next throw will hold much more strongly.');
+                // The visible resonance pulse buys a retry instead of hiding an
+                // evidence-only catch override or allowing an unlucky blackout.
+                busy = false;
+                battleMenu?.classList.remove('hidden');
                 updateSwapButton();
               }
             })();
