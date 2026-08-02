@@ -786,7 +786,7 @@ async function boot(): Promise<void> {
       if (playerMesh) scene.remove(playerMesh);
       playerMesh = shipCreatureMesh(speciesId, scale);
       enableCast(playerMesh);
-      playerMesh.position.set(1.28, -0.9, 1.4);
+      playerMesh.position.set(1.28, -0.9, 1.0);
       playerMesh.scale.setScalar(0.15);
       scene.add(playerMesh);
     } else {
@@ -1862,7 +1862,7 @@ async function boot(): Promise<void> {
       ballArcT = Math.min(1, ballArcT + dt / 0.42);
       const u = ballArcT;
       const sx = 1.28;
-      const sz = 1.4;
+      const sz = 1.0;
       const ex = -1.45;
       const ez = -0.8;
       const x = sx + (ex - sx) * u;
@@ -2005,7 +2005,7 @@ async function boot(): Promise<void> {
     } else if (mode === 'battle') {
       playerContact.visible = true;
       // Staging base Z; clip may write relative Z delta; shell lunge composes after tick
-      const PLAYER_BATTLE_Z = 1.4;
+      const PLAYER_BATTLE_Z = 1.0;
       const FOE_BATTLE_Z = -0.8;
       if (playerMesh) {
         playerMesh.position.x = 1.28;

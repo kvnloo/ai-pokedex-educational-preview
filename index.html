@@ -115,10 +115,13 @@
     }
     #party-strip.show { opacity: 1; transform: translateX(0); }
     body[data-mode="battle"] #party-strip {
-      opacity: 0;
+      opacity: 0 !important;
       transform: translateX(-12px);
       pointer-events: none;
+      visibility: hidden;
+      transition: none;
     }
+    body[data-mode="battle"] #hud-explore { opacity: 0; visibility: hidden; }
     .party-slot {
       min-height: 50px; border-radius: 14px;
       background: linear-gradient(100deg, rgba(12,25,31,.88), rgba(18,33,40,.7));
