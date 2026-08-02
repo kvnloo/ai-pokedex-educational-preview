@@ -1,0 +1,23 @@
+{
+  "wave": "wave3-post",
+  "modes_used": [1, 3, 5, 6],
+  "typecheck": true,
+  "test_battle": {"passed": 97, "failed": 0},
+  "test_playtest": {"passed": 48, "failed": 0, "harness": "green"},
+  "build": true,
+  "mode1_capture": {
+    "label": "wave3-post",
+    "black_frame": false,
+    "pass_hard_gates": true,
+    "luma_mean": 121.13,
+    "unique_samples": 84,
+    "near_black_frac": 0,
+    "shot": "shots/wave3-post/shot-000.png",
+    "source": "browser-threejs"
+  },
+  "packages": ["W3-P1", "W3-P2", "W3-P3", "W3-P4"],
+  "commit": "a46e08d",
+  "pass_hard": true,
+  "loop_exit": false,
+  "notes": "Post-land wave3: typecheck/battle(97)/playtest(48)/build green. Capture wave3-post black_frame=false pass_hard_gates=true. Ship boundary tool landed. Mode-4 p99 advisory still >16.7 from wave3 profile; mode-7 not claimed (playtest green ≠ loop exit)."
+}
