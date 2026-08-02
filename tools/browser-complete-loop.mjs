@@ -30,6 +30,7 @@ const flag = (name, fallback) => {
   const value = argv[index + 1];
   return value && !value.startsWith('--') ? value : fallback;
 };
+const has = (name) => argv.includes(`--${name}`);
 const URL = String(
   flag(
     'url',
