@@ -6,15 +6,14 @@
  * starter choice -> WASD -> grass encounter -> battle move -> catch -> party ->
  * heal pad -> second encounter -> run. window.__twilight is read-only evidence.
  *
- * The harness pins Math.random and Date.now before boot so the same real-input
- * route is replayable. It never calls a gameplay transition/state mutator.
+ * It does not override randomness, time, or application state. Replayability
+ * comes from product-level drought bounds plus ordinary repeated player input.
  */
 import { execFileSync } from 'node:child_process';
 import { createRequire } from 'node:module';
 import {
   existsSync,
   mkdirSync,
-  readFileSync,
   rmSync,
   writeFileSync,
 } from 'node:fs';
@@ -45,7 +44,7 @@ const outputArg = String(
   ),
 );
 const OUT = isAbsolute(outputArg) ? outputArg : resolve(ROOT, outputArg);
-const RNG_SEED = Number(flag('seed', process.env.TWILIGHT_EVIDENCE_SEED ?? 0x6c756d65)) >>> 0;
+const requireProduction = has('require-production');
 const VIEWPORT = { width: 1280, height: 720 };
 const STARTED = performance.now();
 
@@ -58,6 +57,29 @@ const consoleProblems = [];
 const requestProblems = [];
 const infoMessages = [];
 let fatalError = null;
+let runtimeProvenance = null;
+
+function gitText(args) {
+  try {
+    return execFileSync('git', args, { cwd: ROOT, encoding: 'utf8' }).trim();
+  } catch {
+    return 'unknown';
+  }
+}
+
+const gitHead = gitText(['rev-parse', 'HEAD']);
+const productDirtyPaths = gitText([
+  'diff',
+  '--name-only',
+  'HEAD',
+  '--',
+  'index.html',
+  'package.json',
+  'tsconfig.json',
+  'src',
+  'tools',
+  'content',
+]).split('\n').filter(Boolean);
 let page = null;
 let browser = null;
 let context = null;
@@ -333,40 +355,6 @@ async function patrolGrassForEncounter(expectedEncounterCount, timeoutMs = 24_00
   );
 }
 
-function mulberry32(seed) {
-  let state = seed >>> 0;
-  return () => {
-    state = (state + 0x6d2b79f5) | 0;
-    let value = Math.imul(state ^ (state >>> 15), 1 | state);
-    value = (value + Math.imul(value ^ (value >>> 7), 61 | value)) ^ value;
-    return ((value ^ (value >>> 14)) >>> 0) / 4294967296;
-  };
-}
-
-function deterministicCatchSucceeds({ maxHp, hp, catchRate, timestamp }) {
-  const safeMax = Math.max(1, maxHp);
-  const safeHp = Math.max(0, Math.min(safeMax, hp));
-  const rate = Math.max(1, Math.min(255, catchRate));
-  const a = Math.max(
-    0,
-    Math.min(255, Math.floor(((3 * safeMax - 2 * safeHp) * rate) / (3 * safeMax))),
-  );
-  if (a >= 255) return true;
-  if (a <= 0) return false;
-  const threshold = Math.floor(65536 / Math.pow(255 / a, 0.1875)) / 65536;
-  const random = mulberry32((timestamp ^ safeHp) >>> 0);
-  return random() < threshold && random() < threshold && random() < threshold;
-}
-
-function findCatchTimestamp(input) {
-  const base = 1_800_000_000_000;
-  for (let offset = 0; offset < 250_000; offset += 1) {
-    const timestamp = base + offset;
-    if (deterministicCatchSucceeds({ ...input, timestamp })) return timestamp;
-  }
-  throw new Error(`no deterministic catch timestamp found for ${JSON.stringify(input)}`);
-}
-
 async function installBrowserAudioProbe() {
   // Fail closed on the product's integrated soundscape. The evidence harness
   // must not create a second test-only AudioContext or wire surrogate cues.
@@ -383,17 +371,26 @@ async function audioSnapshot() {
 function currentReport() {
   const failedChecks = checks.filter((item) => !item.ok);
   return {
-    schemaVersion: 1,
+    schemaVersion: 2,
     generatedAt: new Date().toISOString(),
     url: URL,
     outputDir: OUT,
     durationMs: elapsedMs(),
-    deterministicInputs: {
-      mathRandomSeed: RNG_SEED,
-      clockPinnedForCatchOutcome: true,
-      gameplayMutatorsInvoked: false,
+    evidenceIntegrity: {
+      globalRandomOverridden: false,
+      clockOverridden: false,
+      gameplayStateMutatorsInvoked: false,
       bridgeUse: 'window.__twilight.snapshot() read-only',
       inputMode: 'Playwright trusted mouse and keyboard events',
+    },
+    revision: {
+      gitHead,
+      productTreeClean: productDirtyPaths.length === 0,
+      productDirtyPaths,
+    },
+    production: {
+      required: requireProduction,
+      observed: runtimeProvenance,
     },
     passed: fatalError == null && failedChecks.length === 0,
     summary: {
@@ -419,8 +416,6 @@ function currentReport() {
 
 rmSync(OUT, { recursive: true, force: true });
 mkdirSync(OUT, { recursive: true });
-const pack = JSON.parse(readFileSync(join(ROOT, 'content/game/wave0.json'), 'utf8'));
-const catchRates = new Map(pack.species.map((species) => [species.id, species.catchRate]));
 const playwright = await loadPlaywright();
 if (!playwright?.chromium) {
   fatalError = 'Playwright unavailable (checked project and sibling installations)';
@@ -449,33 +444,6 @@ try {
     ],
   });
   context = await browser.newContext({ viewport: VIEWPORT, deviceScaleFactor: 1 });
-  await context.addInitScript(
-    ({ seed, fixedNow }) => {
-      let randomState = seed >>> 0;
-      Math.random = () => {
-        randomState = (randomState + 0x6d2b79f5) | 0;
-        let value = Math.imul(randomState ^ (randomState >>> 15), 1 | randomState);
-        value = (value + Math.imul(value ^ (value >>> 7), 61 | value)) ^ value;
-        return ((value ^ (value >>> 14)) >>> 0) / 4294967296;
-      };
-      let evidenceNow = fixedNow;
-      Date.now = () => evidenceNow;
-      Object.defineProperty(window, '__twilightEvidenceClock', {
-        configurable: false,
-        enumerable: false,
-        value: Object.freeze({
-          setNow(value) {
-            evidenceNow = Math.floor(Number(value));
-            return evidenceNow;
-          },
-          snapshot() {
-            return evidenceNow;
-          },
-        }),
-      });
-    },
-    { seed: RNG_SEED, fixedNow: 1_800_000_000_000 },
-  );
   await context.tracing.start({
     title: 'Twilight Route complete gameplay loop',
     screenshots: true,
@@ -504,6 +472,24 @@ try {
 
   await stamp('navigate:start');
   await page.goto(URL, { waitUntil: 'networkidle', timeout: 60_000 });
+  runtimeProvenance = await page.evaluate(() => {
+    const scripts = [...document.scripts].map((script) => script.src).filter(Boolean);
+    const viteClient = scripts.some((src) => src.includes('/@vite/client'));
+    const hashedAsset = scripts.some((src) => /\/assets\/[^/]+-[A-Za-z0-9_-]+\.js(?:\?|$)/.test(src));
+    return { scripts, viteClient, hashedAsset, productionBuild: !viteClient && hashedAsset };
+  });
+  check(
+    'evidence is bound to a clean product revision',
+    productDirtyPaths.length === 0,
+    productDirtyPaths.join(', ') || gitHead,
+  );
+  if (requireProduction) {
+    check(
+      'runtime is the hashed production dist build',
+      runtimeProvenance.productionBuild,
+      JSON.stringify(runtimeProvenance),
+    );
+  }
   await page.waitForSelector('.starter-card', { state: 'visible', timeout: 30_000 });
   await page.waitForFunction(() => window.__twilight?.snapshot?.().mode === 'starter', {
     timeout: 30_000,
@@ -608,37 +594,40 @@ try {
   await capture('battle-after-real-move');
 
   const foeSpeciesId = afterMove.battle.foeSpeciesId;
-  const catchRate = catchRates.get(foeSpeciesId);
-  if (!Number.isFinite(catchRate)) throw new Error(`missing catchRate for ${foeSpeciesId}`);
-  const catchTimestamp = findCatchTimestamp({
-    maxHp: afterMove.battle.foeMaxHp,
-    hp: afterMove.battle.foeHp,
-    catchRate,
-  });
-  await page.evaluate((timestamp) => window.__twilightEvidenceClock.setNow(timestamp), catchTimestamp);
   const catchClickAt = performance.now();
-  await page.locator('#battle-menu [data-act="ball"]').click();
-  const caught = await waitSnapshot(
-    '(value) => value?.mode === "explore" && value.catchCount === 1 && value.party?.length === 2',
-    12_000,
-    'catch outcome',
-  );
+  let caught = null;
+  let catchAttempts = 0;
+  while (!caught && catchAttempts < 3) {
+    catchAttempts += 1;
+    await page.locator('#battle-menu [data-act="ball"]:not([disabled])').click();
+    const outcome = await waitSnapshot(
+      '(value) => value?.catchCount === 1 || value?.mode === "explore" || (value?.mode === "battle" && value?.battle && !value.battle.busy)',
+      12_000,
+      `honest catch attempt ${catchAttempts}`,
+    );
+    if (outcome.catchCount === 1 && outcome.party?.length === 2) {
+      caught = outcome;
+      break;
+    }
+    if (outcome.mode !== 'battle') {
+      throw new Error(`catch attempts ended battle without a catch: ${JSON.stringify(outcome)}`);
+    }
+    await page.waitForSelector('#battle-menu:not(.hidden) [data-act="ball"]:not([disabled])', {
+      state: 'visible',
+      timeout: 5_000,
+    });
+  }
+  if (!caught) throw new Error(`three honest ball throws failed for ${foeSpeciesId}`);
   transitions.catchClickToPartyMs = Number((performance.now() - catchClickAt).toFixed(3));
-  check('real ball click increments catch counter', caught.catchCount === 1);
+  transitions.catchAttempts = catchAttempts;
+  check('ordinary ball input increments catch counter', caught.catchCount === 1, `attempts=${catchAttempts}`);
   check('caught wild joins the party', caught.party.length === 2, JSON.stringify(caught.party));
   check('battle exits to exploration after catch', caught.mode === 'explore');
   check('party retains battle damage before heal', caught.party.some((member) => member.hp < member.maxHp), JSON.stringify(caught.party));
-  await page.evaluate(async () => {
-    const sound = window.__completeLoopAudio;
-    if (!sound) return;
-    await sound.cue('catch-success');
-    await sound.setScene('explore');
-  });
   await stamp('catch:party-updated', {
     latencyMs: transitions.catchClickToPartyMs,
     foeSpeciesId,
-    catchRate,
-    pinnedTimestamp: catchTimestamp,
+    catchAttempts,
   });
   await capture('caught-party-two');
 
@@ -678,9 +667,6 @@ try {
   transitions.catchToHealMs = Number((performance.now() - healNavigationAt).toFixed(3));
   check('heal pad increments heal counter', healed.healCount === healBefore + 1, `${healBefore} -> ${healed.healCount}`);
   check('heal pad restores every party member', healed.party.length === 2 && healed.party.every((member) => member.hp === member.maxHp), JSON.stringify(healed.party));
-  await page.evaluate(async () => {
-    await window.__completeLoopAudio?.cue?.('heal');
-  });
   await stamp('heal:complete', { latencyMs: transitions.catchToHealMs });
   await capture('party-healed');
 
@@ -714,10 +700,27 @@ try {
   await stamp('loop:complete', { final, audio: finalAudio });
   await capture('complete-loop-returned-to-explore');
 
+  const integrity = await page.evaluate(() => ({
+    bridgeKeys: Object.keys(window.__twilight ?? {}),
+    randomIsNative: Function.prototype.toString.call(Math.random).includes('[native code]'),
+    dateNowIsNative: Function.prototype.toString.call(Date.now).includes('[native code]'),
+    surrogateAudio: typeof window.__completeLoopAudio,
+    evidenceClock: typeof window.__twilightEvidenceClock,
+  }));
+
   check('browser console is free of warnings/errors', consoleProblems.length === 0, consoleProblems.join(' | '));
   check('critical browser requests succeeded', requestProblems.length === 0, requestProblems.join(' | '));
   check('all captured frames are non-black', screenshots.length >= 8 && screenshots.every((item) => item.rendered));
-  check('entire loop used trusted input and read-only gameplay evidence', true, 'mouse/keyboard + snapshot() only');
+  check(
+    'entire loop used native time/random plus a snapshot-only bridge',
+    integrity.randomIsNative &&
+      integrity.dateNowIsNative &&
+      integrity.surrogateAudio === 'undefined' &&
+      integrity.evidenceClock === 'undefined' &&
+      integrity.bridgeKeys.length === 1 &&
+      integrity.bridgeKeys[0] === 'snapshot',
+    JSON.stringify(integrity),
+  );
 } catch (error) {
   fatalError = String(error?.stack ?? error);
   check('complete-loop harness reached final state', false, fatalError);

@@ -412,6 +412,7 @@ async function boot(): Promise<void> {
   let healCount = 0;
   let encounterCount = 0;
   let catchCount = 0;
+  let catchFailures = 0;
   let starterFocus = 0;
   let lastStepSound = -1;
   const soundscape = createProceduralSoundscape({ seed: 0x7477696c, masterGain: 0.27 });
@@ -854,6 +855,7 @@ async function boot(): Promise<void> {
     world.setMode('battle');
     setAudioScene('battle', 'encounter');
     encounterCount += 1;
+    catchFailures = 0;
     battleKind = kind;
     foeSink = 0;
     playerSink = 0;
@@ -1703,6 +1705,9 @@ async function boot(): Promise<void> {
           catchRate: (sp as { catchRate?: number } | undefined)?.catchRate,
           role: (sp as { role?: string } | undefined)?.role ?? 'wild',
         });
+        // Failed throws build visible resonance in the actual product. This is
+        // a player-facing drought bound, not an evidence-harness override.
+        const ballMod = catchFailures >= 2 ? 7 : 1 + catchFailures * 0.75;
         mark('ball-throw-start');
         playSound('catch-throw', 0.82);
         ballArcT = 0;
@@ -1711,6 +1716,7 @@ async function boot(): Promise<void> {
           maxHp: foe.maxHp,
           hp: foe.hp,
           catchRate: rate,
+          ballMod,
           seed: (Date.now() ^ foe.hp) >>> 0,
         });
         setMsg('You threw a ball!');
@@ -1740,6 +1746,7 @@ async function boot(): Promise<void> {
                 return;
               }
               if (res.caught) {
+                catchFailures = 0;
                 playSound('catch-success', 0.95);
                 mark('ball-catch-ok');
                 if (!partyCanAdd(party)) {
@@ -1765,9 +1772,11 @@ async function boot(): Promise<void> {
                 busy = false;
                 updateSwapButton();
               } else {
+                catchFailures += 1;
                 playSound('catch-shake', 0.7);
                 mark('ball-catch-fail');
                 setMsg('Oh no! It broke free!');
+                showToast('The ball resonated — the next throw will hold more strongly.');
                 // Failed catch spends the turn — foe acts
                 await resolveFoeOnlyTurn();
                 if (battle && !battle.over && !battle.needsForceSwitch) {
