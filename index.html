@@ -153,68 +153,85 @@
     /* Starter select */
     #starter-overlay {
       position: absolute; inset: 0; z-index: 40;
-      display: none; place-items: center;
-      background: radial-gradient(80% 70% at 50% 40%, rgba(20,40,70,.55), rgba(4,8,16,.88));
-      backdrop-filter: blur(6px);
+      display: none;
+      background:
+        linear-gradient(180deg, rgba(5,9,16,.68) 0%, transparent 24%, transparent 64%, rgba(3,7,13,.82) 100%),
+        radial-gradient(70% 55% at 50% 45%, transparent 45%, rgba(2,6,12,.38) 100%);
       pointer-events: auto;
     }
-    #starter-overlay.show { display: grid; }
+    #starter-overlay.show { display: block; }
     .starter-card-wrap {
-      width: min(920px, 94vw);
-      padding: 28px 24px 24px;
-      border-radius: 28px;
-      background: linear-gradient(180deg, rgba(18,30,52,.92), rgba(8,14,26,.94));
-      border: 1px solid rgba(160,200,255,.2);
-      box-shadow: 0 30px 80px rgba(0,0,0,.55);
+      position: absolute; inset: 0;
+      padding: clamp(22px, 4vh, 42px) clamp(18px, 4vw, 56px);
+      pointer-events: none;
     }
     .starter-card-wrap h1 {
-      text-align: center; font-size: clamp(22px, 4vw, 32px); font-weight: 800;
-      margin-bottom: 6px;
+      text-align: center; font-size: clamp(27px, 3vw, 44px); font-weight: 850;
+      letter-spacing: -.035em;
+      text-shadow: 0 3px 18px rgba(0,0,0,.9), 0 0 48px rgba(85,144,220,.36);
+      margin: 0 0 5px;
     }
     .starter-card-wrap p.lead {
-      text-align: center; color: var(--muted); margin-bottom: 22px; font-size: 14px;
+      text-align: center; color: rgba(230,240,255,.82); margin: 0; font-size: clamp(12px, 1.3vw, 15px);
+      text-shadow: 0 2px 12px rgba(0,0,0,.95);
     }
     .starter-row {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+      position: absolute; left: 50%; bottom: clamp(16px, 3vh, 30px);
+      width: min(1060px, calc(100vw - 34px));
+      transform: translateX(-50%);
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px;
+      pointer-events: auto;
     }
     @media (max-width: 720px) {
-      .starter-row { grid-template-columns: 1fr; }
+      .starter-card-wrap { padding-top: 16px; }
+      .starter-card-wrap p.lead { display: none; }
+      .starter-row {
+        display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
+        width: calc(100vw - 20px); gap: 8px; bottom: 10px;
+      }
+      .starter-card { min-width: min(78vw, 310px); scroll-snap-align: center; }
     }
     .starter-card {
       cursor: pointer; border: 1px solid rgba(255,255,255,.1);
-      border-radius: 20px; padding: 18px 14px 16px;
-      background: rgba(255,255,255,.03);
-      transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
-      text-align: center;
+      border-radius: 17px; padding: 13px 14px 12px;
+      background: linear-gradient(120deg, rgba(9,16,27,.9), rgba(17,29,42,.72));
+      backdrop-filter: blur(15px) saturate(1.25);
+      box-shadow: 0 12px 32px rgba(0,0,0,.38), inset 0 1px rgba(255,255,255,.055);
+      color: #f8fbff;
+      display: grid; grid-template-columns: 32px minmax(0,1fr) auto;
+      align-items: center; gap: 10px;
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+      text-align: left;
     }
-    .starter-card:hover, .starter-card:focus-visible {
-      transform: translateY(-4px);
+    .starter-card:hover, .starter-card:focus-visible, .starter-card.selected {
+      transform: translateY(-5px);
       border-color: color-mix(in srgb, var(--accent-c, #7ec8ff) 70%, white);
-      box-shadow: 0 16px 40px color-mix(in srgb, var(--accent-c, #7ec8ff) 25%, transparent);
+      background: linear-gradient(120deg, color-mix(in srgb, var(--accent-c, #7ec8ff) 20%, #09101b), rgba(17,29,42,.9));
+      box-shadow: 0 18px 46px color-mix(in srgb, var(--accent-c, #7ec8ff) 23%, transparent), inset 0 1px rgba(255,255,255,.1);
       outline: none;
     }
-    .starter-card .preview {
-      height: 120px; display: grid; place-items: center; margin-bottom: 8px;
+    .starter-index {
+      color: color-mix(in srgb, var(--accent-c, #7ec8ff) 78%, white);
+      font: 800 12px/1 'JetBrains Mono', monospace;
+      align-self: start; padding-top: 4px;
     }
-    .starter-card .preview-orb {
-      width: 88px; height: 88px; border-radius: 50%;
-      background: radial-gradient(circle at 30% 28%, #fff 0%, var(--accent-c) 42%, #101828 100%);
-      box-shadow: 0 12px 30px color-mix(in srgb, var(--accent-c) 40%, transparent);
-      animation: floaty 2.6s ease-in-out infinite;
+    .starter-copy { min-width: 0; display: grid; gap: 2px; }
+    .starter-copy .name {
+      font-size: clamp(15px, 1.35vw, 18px); font-weight: 850; letter-spacing: -.01em;
     }
-    @keyframes floaty {
-      0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
-    .starter-card h3 { font-size: 18px; font-weight: 800; }
-    .starter-card .type {
-      display: inline-block; margin-top: 6px; padding: 3px 10px; border-radius: 999px;
-      font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase;
-      background: color-mix(in srgb, var(--accent-c) 28%, transparent);
-      color: #fff; border: 1px solid color-mix(in srgb, var(--accent-c) 50%, white 10%);
+    .starter-copy .types {
+      color: color-mix(in srgb, var(--accent-c, #7ec8ff) 74%, white);
+      font-size: 10px; font-weight: 800; letter-spacing: .09em; text-transform: uppercase;
     }
     .starter-card .blurb {
-      margin-top: 10px; font-size: 12.5px; color: var(--muted); line-height: 1.45;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      font-size: 11px; color: rgba(218,229,242,.62); line-height: 1.35;
+    }
+    .starter-choose {
+      border-radius: 999px; padding: 7px 10px;
+      background: color-mix(in srgb, var(--accent-c, #7ec8ff) 18%, transparent);
+      color: color-mix(in srgb, var(--accent-c, #7ec8ff) 72%, white);
+      font-size: 10px; font-weight: 850; letter-spacing: .05em; text-transform: uppercase;
     }
 
     /* Battle UI */
