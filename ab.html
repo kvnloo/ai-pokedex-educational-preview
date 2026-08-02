@@ -3,51 +3,42 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Wooloo A/B — Hunyuan shape</title>
+  <title>Research A/B (local only)</title>
   <style>
     * { box-sizing: border-box; margin: 0; }
     html, body { height: 100%; background: #0a0f18; color: #e8eef7; font-family: system-ui, sans-serif; }
-    #wrap { display: grid; grid-template-columns: 280px 1fr; height: 100%; }
-    aside {
-      padding: 16px; border-right: 1px solid rgba(255,255,255,.08);
-      background: #0d1522; overflow: auto;
-    }
-    h1 { font-size: 15px; margin-bottom: 12px; }
-    .meta { font-size: 12px; color: #8aa0b8; line-height: 1.5; margin-bottom: 14px; }
-    img.ref {
-      width: 100%; border-radius: 12px; border: 1px solid rgba(255,255,255,.1);
-      margin-bottom: 12px; background: #111; min-height: 120px; object-fit: contain;
-    }
+    main { max-width: 40rem; margin: 10vh auto; padding: 24px; line-height: 1.5; }
+    h1 { font-size: 1.25rem; margin-bottom: 12px; }
+    p { color: #8aa0b8; font-size: 14px; margin-bottom: 10px; }
+    code { color: #9fd0ff; font-size: 12px; }
+    a { color: #7ec8ff; }
     .pill {
       display: inline-block; font-size: 11px; padding: 3px 8px; border-radius: 999px;
-      background: rgba(126,200,255,.12); color: #9fd0ff; border: 1px solid rgba(126,200,255,.25);
-      margin-bottom: 10px;
+      background: rgba(255,140,100,.12); color: #ffb08a; border: 1px solid rgba(255,140,100,.3);
+      margin-bottom: 14px;
     }
-    #view { position: relative; min-width: 0; min-height: 0; }
-    #c { width: 100%; height: 100%; display: block; }
-    a { color: #7ec8ff; }
-    code { font-size: 11px; word-break: break-all; }
   </style>
 </head>
 <body>
-  <div id="wrap">
-    <aside>
-      <div class="pill">Hunyuan A · shape-only</div>
-      <h1>Wooloo A/B plate</h1>
-      <img class="ref" id="refimg" src="/ab/wooloo_ref.png" alt="reference crop" />
-      <p class="meta">
-        Source: TW ep keyframe crop<br />
-        Gen: local Hunyuan3D :8081<br />
-        Texture: off (VRAM)<br />
-        File: <code>/ab/wooloo_shape.glb</code><br />
-        <br />
-        Drag orbit · scroll zoom<br />
-        <a href="/">← main demo</a>
-      </p>
-      <p class="meta" id="stats">Loading mesh…</p>
-    </aside>
-    <div id="view"><canvas id="c"></canvas></div>
-  </div>
-  <script type="module" src="/src/ab/viewer.ts"></script>
+  <main>
+    <div class="pill">research · not ship</div>
+    <h1>A/B research viewer removed from ship surface</h1>
+    <p>
+      Official-name plates, TW keyframe crops, and Hunyuan research GLBs are
+      <strong>study-only</strong>. They must not ship under <code>public/</code>
+      or the production Vite multi-page build.
+    </p>
+    <p>
+      Mode-1 stills come from <code>node tools/capture.mjs</code> against the
+      original-name ship scene (<code>index.html</code>), source
+      <code>browser-threejs</code>.
+    </p>
+    <p>
+      Local mesh QA / research assets: keep under
+      <code>/mnt/zer0models/…</code> or a non-public research tree — never
+      copy into <code>shots/</code> as certified frames.
+    </p>
+    <p><a href="/">← main demo (ship)</a></p>
+  </main>
 </body>
 </html>

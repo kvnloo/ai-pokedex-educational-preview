@@ -33,6 +33,12 @@ export function normalizeSpecies(raw: Record<string, unknown>): SpeciesDef {
     (raw.learnset as string[] | undefined) ??
     (raw.moves as string[] | undefined) ??
     [];
+  const catchRate =
+    typeof raw.catchRate === "number"
+      ? raw.catchRate
+      : typeof raw.captureRate === "number"
+        ? raw.captureRate
+        : undefined;
   return {
     id,
     slug: typeof raw.slug === "string" ? raw.slug : id,
@@ -44,5 +50,6 @@ export function normalizeSpecies(raw: Record<string, unknown>): SpeciesDef {
     role: typeof raw.role === "string" ? raw.role : undefined,
     color: typeof raw.color === "string" ? raw.color : undefined,
     flavor: typeof raw.flavor === "string" ? raw.flavor : undefined,
+    catchRate,
   };
 }

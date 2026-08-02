@@ -234,7 +234,23 @@
       display: block; height: 100%; width: 100%;
       background: linear-gradient(90deg, #3ecf72, var(--hp));
       transform-origin: left center;
-      transition: transform 420ms cubic-bezier(.2,.8,.2,1), background 200ms ease;
+      /* Duration set per hit via --hp-dur (damage-scaled 180–900ms) */
+      transition: transform var(--hp-dur, 420ms) cubic-bezier(.2,.8,.2,1), background 200ms ease;
+    }
+    #battle-flash.se { background: #ffeb3b; }
+    #battle-flash.nve { background: #90caf9; }
+    #battle-flash.crit { background: #ff8a65; }
+    #battle-flash.on { opacity: .55; }
+    #battle-flash.on.crit { opacity: .72; }
+    #battle-msg.eff-se { color: #ffe082; text-shadow: 0 0 18px rgba(255,220,80,.45); }
+    #battle-msg.eff-nve { color: #90caf9; }
+    #battle-msg.eff-crit { color: #ffab91; text-shadow: 0 0 20px rgba(255,120,80,.5); }
+    #battle-msg.faint-beat {
+      animation: faintPulse 520ms ease-in-out 2;
+    }
+    @keyframes faintPulse {
+      0%,100% { transform: translateX(-50%) scale(1); }
+      50% { transform: translateX(-50%) scale(1.02); filter: brightness(1.15); }
     }
     .hp-card .hp-text {
       margin-top: 6px; text-align: right;
@@ -314,9 +330,8 @@
     }
     #battle-flash {
       position: absolute; inset: 0; z-index: 30; pointer-events: none;
-      background: #fff; opacity: 0; transition: opacity 80ms linear;
+      background: #fff; opacity: 0; transition: opacity 70ms linear;
     }
-    #battle-flash.on { opacity: .55; }
 
     #fatal {
       position: absolute; inset: 0; z-index: 200; display: none; place-items: center;

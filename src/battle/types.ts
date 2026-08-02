@@ -11,6 +11,17 @@ export interface BaseStats {
   spe: number;
 }
 
+/** Mutable battle stages −6…+6 (classic). */
+export type StatStageKey = "atk" | "def" | "spa" | "spd" | "spe";
+
+export interface StatStages {
+  atk: number;
+  def: number;
+  spa: number;
+  spd: number;
+  spe: number;
+}
+
 /** Move definition as used at runtime (normalized from content). */
 export interface MoveDef {
   /** Stable string key (slug or id from content) */
@@ -42,6 +53,8 @@ export interface SpeciesDef {
   flavor?: string;
   speciesId?: number;
   slug?: string;
+  /** Catch rate 1–255 (higher = easier). */
+  catchRate?: number;
 }
 
 export interface Battler {
@@ -55,6 +68,10 @@ export interface Battler {
   stats: BaseStats;
   moves: MoveDef[];
   fainted?: boolean;
+  /** Current PP remaining per move index (optional; defaults to move.pp). */
+  movePp?: number[];
+  /** In-battle stages; absent → all 0. */
+  stages?: StatStages;
 }
 
 export type TypeChart = Record<string, Record<string, number>>;
@@ -66,6 +83,7 @@ export interface DamageInput {
   power: number;
   stab: number;
   typeEffectiveness: number;
+  /** Classic random band 0.85–1.0 */
   random: number;
   critical?: number;
 }
@@ -88,13 +106,23 @@ export interface BattleEvent {
     | "damage"
     | "faint"
     | "message"
-    | "battle-end";
+    | "battle-end"
+    | "switch"
+    | "status"
+    | "miss"
+    | "crit";
   side?: BattleSide;
   moveId?: string;
   damage?: number;
   effectiveness?: number;
+  critical?: boolean;
   message?: string;
   winner?: BattleSide | "draw";
+  /** For switch events */
+  partyIndex?: number;
+  /** Stat stage change magnitude (status) */
+  stageDelta?: number;
+  stageStat?: StatStageKey;
 }
 
 export interface BattleState {
@@ -105,6 +133,8 @@ export interface BattleState {
   winner?: BattleSide | "draw";
   log: BattleEvent[];
   typeChart: TypeChart;
+  /** Index into player party for active battler (when party-linked). */
+  playerPartyIndex?: number;
 }
 
 export interface Wave0Content {

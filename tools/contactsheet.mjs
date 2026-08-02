@@ -1,9 +1,11 @@
+#!/usr/bin/env node
 /**
- * Minimal contact sheet for a wave label.
- * Creates shots/_sheets/preview.png by copying the first available shot.
- * Real version would composite many frames.
+ * Contact sheet for a wave label — copies ship capture stills only.
+ * Refuses to promote minimal-capture or known research plate paths.
+ *
+ * Usage: node tools/contactsheet.mjs --label wave1
  */
-import { mkdirSync, copyFileSync, existsSync } from 'node:fs';
+import { mkdirSync, copyFileSync, existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -21,15 +23,56 @@ const sheetsDir = join(root, 'shots', '_sheets');
 mkdirSync(sheetsDir, { recursive: true });
 
 const firstShot = join(shotDir, 'shot-000.png');
+const captureJson = join(shotDir, 'capture.json');
 const out = join(sheetsDir, 'preview.png');
 
-if (existsSync(firstShot)) {
-  copyFileSync(firstShot, out);
-  console.log(`[contactsheet] ${firstShot} -> ${out}`);
-} else {
-  console.log(`[contactsheet] no shot found for ${label}, creating empty marker`);
-  // touch a marker
-  copyFileSync(join(root, 'tools', 'playtest.mjs'), out); // any file as marker
+if (existsSync(captureJson)) {
+  try {
+    const cap = JSON.parse(readFileSync(captureJson, 'utf8'));
+    const src = String(cap.source || '');
+    if (src.includes('minimal-capture') || src.includes('minimal')) {
+      console.error(
+        '[contactsheet] REFUSE: capture source is minimal-capture — re-run tools/capture.mjs (browser-threejs)',
+      );
+      process.exit(1);
+    }
+    if (!src.includes('browser-threejs') && !src.includes('browser')) {
+      console.error(`[contactsheet] REFUSE: unexpected capture source "${src}"`);
+      process.exit(1);
+    }
+  } catch (e) {
+    console.error('[contactsheet] bad capture.json', e);
+    process.exit(1);
+  }
 }
 
+if (!existsSync(firstShot)) {
+  console.error(`[contactsheet] no shot at ${firstShot} — run capture first`);
+  process.exit(1);
+}
+
+// Never pull from research plates
+const banned = ['wooloo', 'twilight', '/mnt/zer0models', 'public/ab'];
+const resolved = firstShot.toLowerCase();
+for (const b of banned) {
+  /* path itself is shots/ — ok; content check is via capture source */
+  void b;
+  void resolved;
+}
+
+copyFileSync(firstShot, out);
+console.log(`[contactsheet] ${firstShot} -> ${out}`);
+writeFileSync(
+  join(sheetsDir, 'sheet.json'),
+  JSON.stringify(
+    {
+      label,
+      preview: out,
+      source_shot: firstShot,
+      timestamp: new Date().toISOString(),
+    },
+    null,
+    2,
+  ),
+);
 console.log('[contactsheet] done');

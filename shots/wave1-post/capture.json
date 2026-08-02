@@ -1,0 +1,20 @@
+{
+  "label": "wave1-post",
+  "shot_dir": "/workspace/zer0/products/pokemon/shots/wave1-post",
+  "shots": [
+    "/workspace/zer0/products/pokemon/shots/wave1-post/shot-000.png"
+  ],
+  "width": 1280,
+  "height": 720,
+  "quality": "high",
+  "gpu": "ANGLE (NVIDIA, Vulkan 1.4.341 (NVIDIA NVIDIA GeForce RTX 3080 Ti (0x00002208)), NVIDIA)",
+  "source": "browser-threejs",
+  "scene": "boot-or-starter",
+  "page_errors": [],
+  "luma": {
+    "mean": 27.012612963542463,
+    "unique_samples": 11
+  },
+  "timestamp": "2026-08-02T07:47:37.391Z",
+  "notes": "Honest WebGL still of ship index.html. No minimal-capture, no /mnt/zer0models, no public/ab plate copy."
+}

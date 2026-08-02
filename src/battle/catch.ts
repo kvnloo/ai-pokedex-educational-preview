@@ -103,3 +103,17 @@ export function defaultCatchRate(role?: string): number {
   if (role === "wild") return 190;
   return 120;
 }
+
+/**
+ * Resolve catch rate from species fields, then role default.
+ * Prefer explicit per-species catchRate over role stubs.
+ */
+export function speciesCatchRate(species: {
+  catchRate?: number;
+  role?: string;
+}): number {
+  if (typeof species.catchRate === "number" && Number.isFinite(species.catchRate)) {
+    return Math.max(1, Math.min(255, Math.floor(species.catchRate)));
+  }
+  return defaultCatchRate(species.role);
+}

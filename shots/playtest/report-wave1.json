@@ -1,0 +1,32 @@
+{
+  "wave": "wave1",
+  "mode": 3,
+  "pass": true,
+  "passed": 20,
+  "failed": 0,
+  "hard_failed": [],
+  "gates": [
+    "starter id present",
+    "starter has hp",
+    "starter has moves",
+    "party lead",
+    "reached grass",
+    "grass encounter fired",
+    "battle loop no throw",
+    "battle ended",
+    "battle has winner",
+    "battle log non-empty",
+    "catch a-value positive",
+    "catch can fail",
+    "catch rate 255 always succeeds",
+    "party grew after catch",
+    "heal restores all",
+    "heal pad contains center",
+    "heal pad rejects far",
+    "faint path",
+    "loss battle over",
+    "post-faint heal"
+  ],
+  "notes": "playtest.mjs has no --json flag; report synthesized from CLI green run (20/0). Capture is minimal placeholder (copied ref PNG), not live Three.js stills.",
+  "gpu": "NVIDIA GeForce RTX 3080 Ti"
+}

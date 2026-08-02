@@ -1,11 +1,11 @@
 {
   "version": "0.1.0",
   "wave": 0,
-  "title": "Twilight Route — Wave 0",
+  "title": "Twilight Route \u2014 Wave 0",
   "identity": {
     "region": "Lumen",
     "startLocation": "twilight-lane",
-    "notes": "Original names only. No official Pokémon IP in this pack."
+    "notes": "Original names only. No official Pok\u00e9mon IP in this pack."
   },
   "types": [
     "normal",
@@ -168,7 +168,7 @@
       "pp": 20,
       "priority": 0,
       "effect": "lower-atk-1",
-      "description": "Softens the foe's stance. (wave0 stub)",
+      "description": "Softens the foe's attack stance.",
       "id": "growl-down"
     }
   ],
@@ -202,7 +202,8 @@
         "cinder-spark",
         "wool-rush",
         "growl-down"
-      ]
+      ],
+      "catchRate": 45
     },
     {
       "speciesId": 2,
@@ -233,7 +234,40 @@
         "tide-slap",
         "growl-down",
         "leaf-dart"
-      ]
+      ],
+      "catchRate": 45
+    },
+    {
+      "speciesId": 5,
+      "slug": "leafkit",
+      "name": "Leafkit",
+      "types": [
+        "grass"
+      ],
+      "baseStats": {
+        "hp": 48,
+        "atk": 50,
+        "def": 50,
+        "spa": 55,
+        "spd": 52,
+        "spe": 50
+      },
+      "learnset": [
+        "nudge",
+        "leaf-dart",
+        "growl-down",
+        "wool-rush"
+      ],
+      "role": "starter",
+      "flavor": "A sprout-eared kit that smells like rain on moss.",
+      "id": "leafkit",
+      "moves": [
+        "nudge",
+        "leaf-dart",
+        "growl-down",
+        "wool-rush"
+      ],
+      "catchRate": 45
     },
     {
       "speciesId": 3,
@@ -262,7 +296,8 @@
         "nudge",
         "wool-rush",
         "growl-down"
-      ]
+      ],
+      "catchRate": 255
     },
     {
       "speciesId": 4,
@@ -294,7 +329,8 @@
         "pollen-puff",
         "nudge",
         "cinder-spark"
-      ]
+      ],
+      "catchRate": 120
     }
   ],
   "route": {
@@ -303,7 +339,8 @@
     "description": "A short dusk path of tall grass outside the starter grove.",
     "starterChoices": [
       "emberpup",
-      "dewkin"
+      "dewkin",
+      "leafkit"
     ],
     "wildEncounters": [
       {

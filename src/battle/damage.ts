@@ -9,6 +9,25 @@
 
 import type { DamageInput, DamageResult, TypeChart } from "./types.ts";
 
+/** Classic damage random band lower bound (inclusive via floor path). */
+export const DAMAGE_RANDOM_MIN = 0.85;
+/** Classic damage random band upper bound. */
+export const DAMAGE_RANDOM_MAX = 1.0;
+
+/**
+ * Map a unit roll [0,1) into classic 0.85–1.0 damage band.
+ * Gen uses discrete 85–100 / 100; we use continuous equivalent.
+ */
+export function rollDamageRandom(unitRoll: number): number {
+  const u = Math.min(1, Math.max(0, unitRoll));
+  return DAMAGE_RANDOM_MIN + u * (DAMAGE_RANDOM_MAX - DAMAGE_RANDOM_MIN);
+}
+
+/** Clamp an explicit random into the legal band. */
+export function clampDamageRandom(r: number): number {
+  return Math.min(DAMAGE_RANDOM_MAX, Math.max(DAMAGE_RANDOM_MIN, r));
+}
+
 export function typeEffectiveness(
   moveType: string,
   defenderTypes: readonly string[],

@@ -102,11 +102,16 @@ Raw multi-MB shapes are not battle meshes. See `docs/MESH-PIPELINE.md`,
 ```bash
 npm run typecheck
 npm run test:battle
+npm run test:playtest
 npm run build
-# later (COD parity):
-# node tools/playtest.mjs
-# node tools/perf-session.mjs
+# mode-1 stills (must be browser-threejs; refuse minimal-capture):
+# node tools/capture.mjs --label wave1
+# node tools/contactsheet.mjs --label wave1
+# later: node tools/perf-session.mjs
 ```
+
+Standing re-measure list: `shots/playtest/standing-gates.json`.
+Visual bar: `docs/VISUAL-BAR.md`. Capture fail-closed without browser; black shots are blockers.
 
 Modes 1–7 and categories A–G live in `prompt.md`. Stills-only waves must not
 claim play quality. Gauntlet/ultracode: `.grok/workflows/ultracode-wave.rhai`

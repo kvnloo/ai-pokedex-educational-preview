@@ -3,50 +3,20 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Wooloo A/B — Hunyuan shape</title>
+  <title>Research path — not ship content</title>
   <style>
-    * { box-sizing: border-box; margin: 0; }
-    html, body { height: 100%; background: #0a0f18; color: #e8eef7; font-family: system-ui, sans-serif; }
-    #wrap { display: grid; grid-template-columns: 280px 1fr; height: 100%; }
-    aside {
-      padding: 16px; border-right: 1px solid rgba(255,255,255,.08);
-      background: #0d1522; overflow: auto;
+    body {
+      margin: 0; min-height: 100vh; display: grid; place-items: center;
+      background: #0a0f18; color: #9aafc8; font-family: system-ui, sans-serif;
+      text-align: center; padding: 2rem;
     }
-    h1 { font-size: 15px; margin-bottom: 12px; }
-    .meta { font-size: 12px; color: #8aa0b8; line-height: 1.5; margin-bottom: 14px; }
-    img.ref {
-      width: 100%; border-radius: 12px; border: 1px solid rgba(255,255,255,.1);
-      margin-bottom: 12px; background: #111; min-height: 120px; object-fit: contain;
-    }
-    .pill {
-      display: inline-block; font-size: 11px; padding: 3px 8px; border-radius: 999px;
-      background: rgba(126,200,255,.12); color: #9fd0ff; border: 1px solid rgba(126,200,255,.25);
-      margin-bottom: 10px;
-    }
-    #c { width: 100%; height: 100%; display: block; }
-    a { color: #7ec8ff; }
-    code { font-size: 11px; word-break: break-all; }
+    code { color: #7ec8ff; }
   </style>
 </head>
 <body>
-  <div id="wrap">
-    <aside>
-      <div class="pill">Hunyuan A · shape-only</div>
-      <h1>Wooloo A/B plate</h1>
-      <img class="ref" id="refimg" src="./wooloo_ref.png" alt="reference crop" />
-      <p class="meta">
-        Source: TW ep keyframe crop<br />
-        Gen: local Hunyuan3D :8081<br />
-        Texture: off (VRAM)<br />
-        File: <code>wooloo_shape.glb</code> (~8.3MB, ~480k tris — research only)<br />
-        <br />
-        Drag orbit · scroll zoom<br />
-        <a href="/">← main demo</a>
-      </p>
-      <p class="meta" id="stats">Loading mesh…</p>
-    </aside>
-    <canvas id="c"></canvas>
+  <div>
+    <p><strong>public/ab</strong> is a reserved research gate — empty of GLB/TW plates.</p>
+    <p>Ship demo: <code>/</code> · Capture: <code>node tools/capture.mjs --label wave1</code></p>
   </div>
-  <script type="module" src="./viewer.ts"></script>
 </body>
 </html>

@@ -31,11 +31,14 @@ const exploreMod = await import(
 const {
   buildBattler,
   createBattle,
+  createBattleFromParty,
   executeTurn,
   pickFirstDamagingMove,
+  switchPlayerTo,
+  syncBattlePlayerToParty,
 } = battleMod;
 const { normalizeMove, normalizeSpecies } = contentMod;
-const { attemptCatch, defaultCatchRate, computeA } = catchMod;
+const { attemptCatch, defaultCatchRate, computeA, speciesCatchRate } = catchMod;
 const { createParty, healParty, addToParty, lead } = partyMod;
 const {
   createExploreState,
@@ -108,6 +111,15 @@ ok("starter has moves", player.moves.length >= 1);
 
 let party = createParty([{ battler: player }]);
 ok("party lead", lead(party)?.battler.speciesId === starterId);
+ok(
+  "three starters triangle",
+  (pack.route.starterChoices ?? []).length >= 3 &&
+    pack.route.starterChoices.includes("leafkit"),
+);
+ok("leafkit in species", speciesById.has("leafkit"));
+const leafkit = battlerFromSpecies("leafkit", 5, "leaf-check");
+ok("leafkit is grass", leafkit.types.includes("grass"));
+
 
 // 2) Explore WASD into grass
 const explore = createExploreState({
@@ -137,14 +149,14 @@ for (let i = 0; i < 120; i++) {
 ok("reached grass", hitGrass, `pos=${JSON.stringify(explore.pos)}`);
 ok("grass encounter fired", encounter);
 
-// 3) Battle fight until faint (one side)
+// 3) Battle from party lead (preserves HP) until faint
+// bruise lead first to prove no full-HP rebuild
+party[0].battler.hp = Math.max(1, party[0].battler.maxHp - 3);
+const hpAtEnter = party[0].battler.hp;
 const wild = pack.route.wildEncounters[0];
 const foe = battlerFromSpecies(wild.species, wild.minLevel, "wild");
-const battle = createBattle({
-  player: lead(party).battler,
-  foe,
-  typeChart: pack.typeChart,
-});
+const battle = createBattleFromParty(party, foe, pack.typeChart);
+ok("enterBattle uses party HP", battle.player.hp === hpAtEnter);
 
 assertNoThrow("battle loop no throw", () => {
   let guard = 0;
@@ -158,17 +170,66 @@ ok("battle ended", battle.over === true);
 ok("battle has winner", battle.winner === "player" || battle.winner === "foe");
 ok("battle log non-empty", battle.log.length > 2);
 
-// Sync party HP from battle player
-party[0].battler.hp = battle.player.hp;
-party[0].battler.fainted = battle.player.fainted;
+// Sync party HP from battle player via API
+syncBattlePlayerToParty(battle, party);
+ok(
+  "sync on exit matches battle",
+  party[battle.playerPartyIndex ?? 0].battler.hp === battle.player.hp,
+);
+
+// Switch API with second member
+const second = battlerFromSpecies("dustbun", 5, "bench");
+addToParty(party, { battler: second });
+const switchBattle = createBattleFromParty(
+  party,
+  battlerFromSpecies("sparkmoth", 4, "wild2"),
+  pack.typeChart,
+);
+// use conscious bench if lead fainted
+const benchIdx = party.findIndex((m, i) => i > 0 && m.battler.hp > 0);
+if (benchIdx >= 0 && (switchBattle.player.hp > 0)) {
+  // ensure lead conscious for switch-out
+  if (party[0].battler.hp <= 0) {
+    party[0].battler.hp = party[0].battler.maxHp;
+    party[0].battler.fainted = false;
+    switchBattle.player.hp = party[0].battler.hp;
+    switchBattle.player.fainted = false;
+  }
+  switchPlayerTo(switchBattle, party, benchIdx);
+  ok("switch-to index API", switchBattle.playerPartyIndex === benchIdx);
+  ok("switch event logged", switchBattle.log.some((e) => e.type === "switch"));
+} else {
+  ok("switch-to index API", false, "no bench");
+}
+
+// Status stage move
+const statusB = createBattle({
+  player: battlerFromSpecies(starterId, 5, "st-p"),
+  foe: battlerFromSpecies("dustbun", 4, "st-f"),
+  typeChart: pack.typeChart,
+});
+const growlIdx = statusB.player.moves.findIndex((m) => m.effect === "lower-atk-1");
+if (growlIdx >= 0) {
+  executeTurn(statusB, {
+    playerMoveIndex: growlIdx,
+    foeMoveIndex: pickFirstDamagingMove(statusB.foe),
+    random: 1,
+  });
+  ok("real stat-stage status", statusB.foe.stages?.atk === -1);
+} else {
+  ok("real stat-stage status", false, "no growl-down");
+}
 
 // 4) Catch flow (fresh low-HP foe)
 const catchFoe = battlerFromSpecies("dustbun", 3, "catch-wild");
 catchFoe.hp = 1;
+const dustSp = speciesById.get("dustbun");
+const dustRate = speciesCatchRate(dustSp);
+ok("per-species catchRate", dustRate === (dustSp.catchRate ?? defaultCatchRate(dustSp.role)));
 const a = computeA({
   maxHp: catchFoe.maxHp,
   hp: catchFoe.hp,
-  catchRate: defaultCatchRate("wild"),
+  catchRate: dustRate,
   ballMod: 1,
 });
 ok("catch a-value positive", a > 0);

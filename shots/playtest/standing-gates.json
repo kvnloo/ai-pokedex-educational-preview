@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "description": "Standing re-measure list for wave land. Mode-3 green alone is not wave exit.",
+  "refuse": {
+    "capture_source_forbidden": ["minimal-capture", "minimal", "placeholder", "plate-copy"],
+    "capture_source_required_substring": "browser-threejs",
+    "black_or_empty_shot": true,
+    "official_names_in_ship_content": true,
+    "wooloo_or_tw_plates_under_shots": true
+  },
+  "mode_1": [
+    {
+      "id": "capture-browser-threejs",
+      "measure": "shots/<label>/capture.json source includes browser-threejs and excludes minimal-capture",
+      "cmd": "node tools/capture.mjs --label wave1"
+    },
+    {
+      "id": "shot-non-black",
+      "measure": "shot-000.png mean luma > 4 and unique samples >= 8; dimensions >= 64x64",
+      "cmd": "node tools/capture.mjs --label wave1"
+    },
+    {
+      "id": "no-research-plates-in-shots",
+      "measure": "No Wooloo/TW plates under shots/wave* or shots/_sheets; contactsheet refuses minimal-capture",
+      "cmd": "node tools/contactsheet.mjs --label wave1"
+    },
+    {
+      "id": "visual-bar-checklist",
+      "measure": "docs/VISUAL-BAR.md reviewed against still vs TW presentation (not claim of mode-7 win)",
+      "doc": "docs/VISUAL-BAR.md"
+    }
+  ],
+  "mode_3": [
+    {
+      "id": "playtest-wave0-loop",
+      "measure": "npm run test:playtest green — starter, grass, battle, catch, heal, no official name leak",
+      "cmd": "npm run test:playtest"
+    }
+  ],
+  "mode_7_note": "Blind A/B must prefer US over Twilight Wings reference; playtest green is not sufficient.",
+  "land_cmd": "npm run typecheck && npm run test:battle && npm run test:playtest && npm run build && node tools/capture.mjs --label wave1",
+  "updated": "2026-08-02"
+}
