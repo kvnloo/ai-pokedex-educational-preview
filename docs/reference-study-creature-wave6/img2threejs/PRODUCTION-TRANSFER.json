@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Auditable transfer from a rights-cleared original concept through img2threejs intake into the shipped procedural creature implementation",
+  "rightsBoundary": {
+    "input": "docs/reference-study-creature-wave6/original/emberpup-continuous-concept.png",
+    "inputSha256": "2807ea368ff87eaf5905a0b61fdde9b45bd73f14056e96cad01926d378270fa5",
+    "officialPixelsUsedAsPipelineInput": false,
+    "shippingTextureImport": false
+  },
+  "img2threejsRuns": [
+    {
+      "stage": "probe",
+      "tool": "/home/kvn/workspace/img2threejs/forge/stage1_intake/probe_image.py",
+      "result": "1024x1024 RGB PNG; object isolated on a neutral authored plate",
+      "evidence": "probe.txt"
+    },
+    {
+      "stage": "detail-zone intake",
+      "tool": "/home/kvn/workspace/img2threejs/forge/stage1_intake/build_detail_inventory.py",
+      "result": "nine 3x3 inspection crops generated from the original plate",
+      "evidence": "../original/img2threejs-detail-zones"
+    },
+    {
+      "stage": "reference PBR extraction",
+      "tool": "/home/kvn/workspace/img2threejs/forge/stage3_build/reference_pbr_extractor.py",
+      "result": "separate albedo, roughness, normal, height and AO study maps",
+      "confidence": 0.64,
+      "implementationPolicy": "Below the 0.70 texture-import threshold. Maps are study evidence only; no generated map is loaded by public/ or dist/. Palette, matte response and frequency separation were transferred parametrically."
+    }
+  ],
+  "studyMapHashes": {
+    "albedo": "a3c159e817bb3a89b358215ad0f7de483ff4e91c81458b503e8dadaf68e5d315",
+    "roughness": "bd5abb6d630bd84450a705753318b6cb6f93596b11587f9d4e425dd1d52a93d9",
+    "normal": "1b930b3371cad4bce746be0e3f6dc74d301d8183d67f77dcb3fb573cbe46df1e",
+    "ao": "a31763959d859f4fb1ea8c9e07a5e61caa58e90dfa21a1098bdad059a3e76b7c"
+  },
+  "runtimeTransfer": [
+    {
+      "finding": "A single pelvis-to-muzzle silhouette must carry the body mass; no sphere-stack torso",
+      "implementation": "src/creatures/speciesMeshes.ts:179-201 uses a continuous 15-ring createDepthLoftGeometry core"
+    },
+    {
+      "finding": "Legs require embedded shoulder/hip roots and tapered paws rather than detached capsules",
+      "implementation": "src/creatures/speciesMeshes.ts uses addEmbeddedLoftLeg for all four Emberpup legs"
+    },
+    {
+      "finding": "Ear and tail roots must overlap sockets while preserving negative space",
+      "implementation": "src/creatures/speciesMeshes.ts uses tapered curved appendages with embedded roots"
+    },
+    {
+      "finding": "Warm matte fur needs independent meso normal and roughness response, not metallic plastic",
+      "implementation": "src/render/materials.ts creates deterministic fur normal/roughness maps; metalness remains zero and roughness is tuned matte"
+    },
+    {
+      "finding": "Gameplay-distance facial life requires anterior-lateral eyes, irises and catchlights",
+      "implementation": "src/creatures/speciesMeshes.ts:225-239 exposes layered eyes above the muzzle"
+    }
+  ],
+  "scaffoldStatus": {
+    "assessment.json": "intake scaffold; not a completed visual assessment",
+    "detail-inventory.json": "generated zone skeleton; not a completed semantic inventory",
+    "sculpt-spec.json": "blockout scaffold; does not pass img2threejs --strict-quality",
+    "claim": "These scaffolds are retained as reproducible intake evidence, not represented as validated production specs. The transferred runtime implementation and numeric mesh QA are the production artifacts."
+  }
+}

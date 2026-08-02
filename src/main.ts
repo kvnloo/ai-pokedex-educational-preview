@@ -2087,10 +2087,17 @@ async function boot(): Promise<void> {
         const model = starterMeshes[i]!;
         const st = getClipState(model);
         if (st) tickCreatureClip(model, st, dt, t);
-        const targetScale = i === starterFocus ? 1.12 : 0.84;
+        const speciesId = raw.route.starterChoices[i];
+        const targetScale = i === starterFocus
+          ? (speciesId === 'emberpup' ? 1.32 : 1.08)
+          : 0.78;
         const easedScale = model.scale.x + (targetScale - model.scale.x) * Math.min(1, dt * 7);
         model.scale.setScalar(easedScale);
-        starterLights[i]!.intensity += ((i === starterFocus ? 3.2 : 0.8) - starterLights[i]!.intensity) * Math.min(1, dt * 7);
+        starterLights[i]!.intensity += ((i === starterFocus ? 3.8 : 0.55) - starterLights[i]!.intensity) * Math.min(1, dt * 7);
+        const inlay = starterInlays[i];
+        if (inlay) {
+          inlay.material.emissiveIntensity += ((i === starterFocus ? 0.9 : 0.18) - inlay.material.emissiveIntensity) * Math.min(1, dt * 7);
+        }
       }
       playerContact.visible = false;
     }
