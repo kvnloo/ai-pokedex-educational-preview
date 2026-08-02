@@ -515,6 +515,7 @@ async function boot(): Promise<void> {
   ballMesh.visible = false;
   scene.add(ballMesh);
   const cinematicFx = createCinematicEffects(scene, useMedium);
+  const effectPoint = new THREE.Vector3();
 
   let explore: ExploreState | null = null;
   let party: PartyMember[] = [];
@@ -852,6 +853,7 @@ async function boot(): Promise<void> {
     mark('roam-to-fight-start');
     mode = 'battle';
     document.body.dataset.mode = 'battle';
+    pulseSceneTransition('battle');
     world.setMode('battle');
     setAudioScene('battle', 'encounter');
     encounterCount += 1;
@@ -946,6 +948,7 @@ async function boot(): Promise<void> {
   function exitBattle(msg: string): void {
     mode = 'explore';
     document.body.dataset.mode = 'explore';
+    pulseSceneTransition('return');
     world.setMode('explore');
     setAudioScene('explore');
     if (battle && party.length > 0) {
@@ -1613,6 +1616,7 @@ async function boot(): Promise<void> {
       card.addEventListener('mouseenter', focusStarter);
       card.addEventListener('focus', focusStarter);
       card.onclick = () => {
+        pulseSceneTransition('depart');
         setAudioScene('explore', 'starter-confirm');
         world.setMode('explore');
         playerSpeciesId = id;
@@ -1929,6 +1933,8 @@ async function boot(): Promise<void> {
         healCount += 1;
         renderPartyStrip();
         showToast('Moonwell restored every partner.');
+        effectPoint.set(explore.pos.x, 0.72, explore.pos.z);
+        cinematicFx.burst(effectPoint, 'catch');
         playSound('heal', 0.92);
         playerMesh.scale.setScalar(1.1);
         setTimeout(() => {
@@ -2069,20 +2075,22 @@ async function boot(): Promise<void> {
       camera.position.z += (bz - camera.position.z) * Math.min(1, 3 * dt);
       camera.lookAt(0.1, battleCam.lookY - foeSink * 0.3 - playerSink * 0.15 - low * 0.2, 0.2);
     } else {
-      // Starter ceremony: slow cinematic drift while all three live models idle.
-      const ceremonyX = Math.sin(t * 0.18) * 0.16;
+      // Starter ceremony: a restrained dolly gives the focused partner a clear
+      // emotional beat while preserving all three live silhouettes.
+      const focusX = starterMeshes[starterFocus]?.position.x ?? 0;
+      const ceremonyX = focusX * 0.18 + Math.sin(t * 0.18) * 0.12;
       camera.position.x += (ceremonyX - camera.position.x) * Math.min(1, 2 * dt);
-      camera.position.y += (2.85 - camera.position.y) * Math.min(1, 2 * dt);
-      camera.position.z += (7.25 - camera.position.z) * Math.min(1, 2 * dt);
-      camera.lookAt(0, 0.82, 0.55);
+      camera.position.y += (2.78 - camera.position.y) * Math.min(1, 2 * dt);
+      camera.position.z += (7.05 - camera.position.z) * Math.min(1, 2 * dt);
+      camera.lookAt(focusX * 0.1, 0.84, 0.55);
       for (let i = 0; i < starterMeshes.length; i++) {
         const model = starterMeshes[i]!;
         const st = getClipState(model);
         if (st) tickCreatureClip(model, st, dt, t);
-        const targetScale = i === starterFocus ? 1.08 : 0.92;
+        const targetScale = i === starterFocus ? 1.12 : 0.84;
         const easedScale = model.scale.x + (targetScale - model.scale.x) * Math.min(1, dt * 7);
         model.scale.setScalar(easedScale);
-        starterLights[i]!.intensity += ((i === starterFocus ? 2.8 : 1.15) - starterLights[i]!.intensity) * Math.min(1, dt * 7);
+        starterLights[i]!.intensity += ((i === starterFocus ? 3.2 : 0.8) - starterLights[i]!.intensity) * Math.min(1, dt * 7);
       }
       playerContact.visible = false;
     }
