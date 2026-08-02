@@ -284,9 +284,9 @@ export function buildEmberpup(scale: number): THREE.Group {
 
   // Layered eyes and catchlights are deliberately oversized for gameplay-distance life.
   for (const side of [-1, 1] as const) {
-    addMesh(g, new THREE.SphereGeometry(0.071, 14, 12), eye, side * 0.105 * scale, 0.71 * scale, 1.005 * scale, 0.9 * scale, 1.22 * scale, 0.42 * scale);
-    addMesh(g, new THREE.SphereGeometry(0.043, 12, 10), iris, side * 0.105 * scale, 0.714 * scale, 1.034 * scale, 0.82 * scale, 1.08 * scale, 0.3 * scale);
-    addMesh(g, new THREE.SphereGeometry(0.014, 8, 6), catchlight, (side * 0.105 - 0.012) * scale, 0.744 * scale, 1.052 * scale, scale, scale, 0.25 * scale);
+    addMesh(g, new THREE.SphereGeometry(0.071, 14, 12), eye, side * 0.18 * scale, 0.71 * scale, 1.09 * scale, 0.9 * scale, 1.22 * scale, 0.42 * scale);
+    addMesh(g, new THREE.SphereGeometry(0.043, 12, 10), iris, side * 0.18 * scale, 0.714 * scale, 1.13 * scale, 0.82 * scale, 1.08 * scale, 0.3 * scale);
+    addMesh(g, new THREE.SphereGeometry(0.014, 8, 6), catchlight, (side * 0.18 - 0.012) * scale, 0.744 * scale, 1.15 * scale, scale, scale, 0.25 * scale);
   }
   addMesh(g, new THREE.SphereGeometry(0.055, 12, 9), pad, 0, 0.57 * scale, 1.205 * scale, 1.15 * scale, 0.76 * scale, 0.8 * scale);
   addMesh(g, new THREE.TorusGeometry(0.072, 0.012, 6, 18, Math.PI), pad, 0, 0.515 * scale, 1.14 * scale, scale, 0.7 * scale, 0.45 * scale, 0, 0, Math.PI);
