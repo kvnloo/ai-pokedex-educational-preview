@@ -29,7 +29,6 @@ import {
   GRASS_PATH_HALF,
   type ExploreState,
 } from './world/explore.ts';
-import { addCinematicScenery } from './world/scenery.ts';
 import {
   createProceduralSoundscape,
   type SoundCue,
@@ -51,6 +50,13 @@ import {
   resolvePresetFromQuery,
   MEDIUM_1080P,
 } from './core/frameStats.ts';
+import {
+  addCeremonyArchitecture,
+  createCatchOrb,
+  createCinematicEffects,
+  createLumenWorld,
+  type ImpactKind,
+} from './render/index.ts';
 
 const bootFill = document.getElementById('boot-fill') as HTMLElement | null;
 const bootStatus = document.getElementById('boot-status') as HTMLElement | null;
@@ -249,309 +255,77 @@ async function boot(): Promise<void> {
   renderer.shadowMap.type = THREE.PCFShadowMap;
 
   const scene = new THREE.Scene();
-  // Graded twilight sky — warm horizon, cool zenith (not near-black navy void)
-  const sky = new THREE.Color(0x6a8ec8);
-  scene.background = sky;
-  scene.fog = new THREE.Fog(0x8eabcc, 18, 55);
 
-  // Soft gradient dome for richer sky read in stills
-  const skyDome = new THREE.Mesh(
-    new THREE.SphereGeometry(48, 32, 16),
-    new THREE.ShaderMaterial({
-      side: THREE.BackSide,
-      depthWrite: false,
-      uniforms: {
-        topColor: { value: new THREE.Color(0x3a5a9a) },
-        midColor: { value: new THREE.Color(0xc48a6a) },
-        botColor: { value: new THREE.Color(0xf0c4a0) },
-      },
-      vertexShader: `
-        varying vec3 vW;
-        void main() {
-          vec4 w = modelMatrix * vec4(position, 1.0);
-          vW = w.xyz;
-          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-        }
-      `,
-      fragmentShader: `
-        uniform vec3 topColor;
-        uniform vec3 midColor;
-        uniform vec3 botColor;
-        varying vec3 vW;
-        void main() {
-          float h = normalize(vW).y;
-          vec3 col = mix(botColor, midColor, smoothstep(-0.15, 0.25, h));
-          col = mix(col, topColor, smoothstep(0.2, 0.85, h));
-          gl_FragColor = vec4(col, 1.0);
-        }
-      `,
-    }),
-  );
-  scene.add(skyDome);
-
-  const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100);
-  camera.position.set(0, 3.2, 7.5);
-  camera.lookAt(0, 0.8, 0);
+  const camera = new THREE.PerspectiveCamera(44, window.innerWidth / window.innerHeight, 0.1, 120);
+  camera.position.set(0, 2.25, 6.4);
+  const cameraLook = new THREE.Vector3(0, 0.9, 0.45);
+  camera.lookAt(cameraLook);
 
   // Soft follow state (lagged yaw + lerped position + collision pull-in)
   const camFollow = {
     yaw: Math.PI,
-    pos: new THREE.Vector3(0, 2.65, 5.4),
-    look: new THREE.Vector3(0, 0.85, 0),
-    // Soft third-person: room for route + grass band + landmarks in stills
-    dist: 4.85,
-    height: 2.55,
+    pos: new THREE.Vector3(0, 2.35, 5.75),
+    look: new THREE.Vector3(0, 0.92, 0),
+    // Low, roomy chase framing keeps the creature grounded and the route landmark-led.
+    dist: 5.35,
+    height: 2.32,
     ready: false,
   };
 
-  // Battle camera punch state (impact / SE / faint / send-out)
+  // Battle camera punch state (impact / effectiveness / faint / send-out)
   const battleCam = {
-    base: new THREE.Vector3(0.3, 2.6, 6.2),
+    base: new THREE.Vector3(0.55, 2.12, 6.72),
     punch: 0,
     lowAngle: 0,
-    lookY: 0.7,
+    lookY: 0.86,
+    orbit: 0,
   };
 
-  // Soft GI bar: ambient + hemi + key + fill (readable under ACES)
-  scene.add(new THREE.AmbientLight(0xd8e6ff, 0.42));
-  const hemi = new THREE.HemisphereLight(0xffe2c4, 0x3a6b48, 0.85);
+  // Warm sunset key, cool sky fill, and a soft eye-light. Long side light separates silhouettes.
+  const ambient = new THREE.AmbientLight(0xc8d8ee, useMedium ? 0.28 : 0.32);
+  scene.add(ambient);
+  const hemi = new THREE.HemisphereLight(0xffd8bf, 0x24433b, useMedium ? 0.68 : 0.78);
   hemi.position.set(0, 12, 0);
   scene.add(hemi);
-  const key = new THREE.DirectionalLight(0xfff2dd, 1.55);
-  key.position.set(5, 12, 4);
+  const key = new THREE.DirectionalLight(0xffdfbb, useMedium ? 1.28 : 1.62);
+  key.position.set(-9, 13, -8);
   key.castShadow = true;
   const shadowMapSize = useMedium ? 512 : 1024;
   key.shadow.mapSize.set(shadowMapSize, shadowMapSize);
   key.shadow.camera.near = 0.5;
-  key.shadow.camera.far = useMedium ? 28 : 40;
-  const fr = useMedium ? 9 : 14;
+  key.shadow.camera.far = useMedium ? 34 : 52;
+  const fr = useMedium ? 10 : 15;
   key.shadow.camera.left = -fr;
   key.shadow.camera.right = fr;
   key.shadow.camera.top = fr;
   key.shadow.camera.bottom = -fr;
-  key.shadow.bias = -0.0008;
-  if (useMedium) {
-    key.intensity = 1.25;
-    hemi.intensity = 0.7;
-  }
+  key.shadow.bias = -0.00065;
+  key.shadow.normalBias = 0.025;
   scene.add(key);
-  const fill = new THREE.DirectionalLight(0x88aadd, 0.55);
-  fill.position.set(-6, 4, -3);
+  const fill = new THREE.DirectionalLight(0x789bd4, useMedium ? 0.42 : 0.52);
+  fill.position.set(8, 5, 9);
   scene.add(fill);
-  const rim = new THREE.DirectionalLight(0xffb090, 0.35);
-  rim.position.set(-2, 2, 6);
+  const rim = new THREE.DirectionalLight(0xff9579, useMedium ? 0.52 : 0.68);
+  rim.position.set(-7, 3, -10);
   scene.add(rim);
-  const scenery = addCinematicScenery(scene, useMedium);
+  const eyeLight = new THREE.DirectionalLight(0xe4f1ff, useMedium ? 0.18 : 0.26);
+  eyeLight.position.set(0, 3, 7);
+  scene.add(eyeLight);
 
-  // Ground disc with micro-relief ring layers + horizon massing
-  const ground = new THREE.Mesh(
-    new THREE.CircleGeometry(12, 64),
-    new THREE.MeshStandardMaterial({
-      color: 0x4a8a55,
-      roughness: 0.88,
-      metalness: 0.02,
-    }),
-  );
-  ground.rotation.x = -Math.PI / 2;
-  ground.receiveShadow = true;
-  scene.add(ground);
-
-  // Layered ground rings (micro-relief read, still non-void)
-  const ringMat = new THREE.MeshStandardMaterial({
-    color: 0x477f50,
-    roughness: 0.92,
-    metalness: 0.02,
+  // Authored route world: layered terrain, winding path, shrine landmarks, distant observatory,
+  // deterministic whispergrass, atmospheric motes, and a dedicated battle clearing.
+  const world = createLumenWorld(scene, {
+    useMedium,
+    grassPathHalf: GRASS_PATH_HALF,
   });
-  for (let i = 0; i < 3; i++) {
-    const ring = new THREE.Mesh(new THREE.RingGeometry(3.35 + i * 2.25, 3.46 + i * 2.25, 64), ringMat);
-    ring.rotation.x = -Math.PI / 2;
-    ring.position.y = 0.012 + i * 0.004;
-    ring.receiveShadow = true;
-    scene.add(ring);
-  }
-  // Horizon berm masses (silhouette against sky)
-  const bermMat = new THREE.MeshStandardMaterial({ color: 0x3a6b48, roughness: 0.9, metalness: 0 });
-  for (let i = 0; i < 7; i++) {
-    const a = (i / 7) * Math.PI * 2 + 0.22;
-    const berm = new THREE.Mesh(new THREE.IcosahedronGeometry(1.35 + (i % 3) * 0.28, 2), bermMat);
-    berm.scale.set(1.65 + (i % 2) * 0.22, 0.46 + (i % 3) * 0.08, 1.08);
-    berm.rotation.set(i * 0.13, i * 0.71, i * 0.09);
-    berm.position.set(Math.cos(a) * 10.8, -0.28, Math.sin(a) * 10.8);
-    berm.receiveShadow = true;
-    berm.castShadow = true;
-    scene.add(berm);
-  }
-
-  // Dirt path toward grass / hollow
-  const path = new THREE.Mesh(
-    new THREE.PlaneGeometry(1.8, 10),
-    new THREE.MeshStandardMaterial({ color: 0xc4a878, roughness: 0.95, metalness: 0 }),
-  );
-  path.rotation.x = -Math.PI / 2;
-  path.position.set(0, 0.02, 1.5);
-  path.receiveShadow = true;
-  scene.add(path);
-
-  // Heal pad landmark (town edge)
-  const healPadMesh = new THREE.Mesh(
-    new THREE.CylinderGeometry(1.35, 1.45, 0.08, 32),
-    new THREE.MeshStandardMaterial({
-      color: 0x7ec8ff,
-      emissive: 0x3a80c0,
-      emissiveIntensity: 0.35,
-      roughness: 0.4,
-      metalness: 0.15,
-    }),
-  );
-  healPadMesh.position.set(4.5, 0.04, 4.5);
-  healPadMesh.receiveShadow = true;
-  healPadMesh.castShadow = true;
-  scene.add(healPadMesh);
-  const healGlow = new THREE.Mesh(
-    new THREE.RingGeometry(1.2, 1.5, 32),
-    new THREE.MeshBasicMaterial({ color: 0xa8dcff, transparent: true, opacity: 0.45, side: THREE.DoubleSide }),
-  );
-  healGlow.rotation.x = -Math.PI / 2;
-  healGlow.position.set(4.5, 0.09, 4.5);
-  scene.add(healGlow);
-
-  // Town stone marker (Lumen Hollow read)
-  const stone = new THREE.Mesh(
-    new THREE.BoxGeometry(0.9, 0.55, 0.55),
-    new THREE.MeshStandardMaterial({ color: 0x9aa8b8, roughness: 0.7, metalness: 0.05 }),
-  );
-  stone.position.set(5.2, 0.28, 5.6);
-  stone.castShadow = true;
-  stone.receiveShadow = true;
-  scene.add(stone);
-  const roof = new THREE.Mesh(
-    new THREE.ConeGeometry(0.7, 0.45, 4),
-    new THREE.MeshStandardMaterial({ color: 0xd47858, roughness: 0.65 }),
-  );
-  roof.position.set(5.2, 0.75, 5.6);
-  roof.rotation.y = Math.PI / 4;
-  roof.castShadow = true;
-  scene.add(roof);
-
-  // Gym / elite stake posts (interact with E)
-  const gymPost = new THREE.Mesh(
-    new THREE.CylinderGeometry(0.22, 0.28, 1.6, 10),
-    new THREE.MeshStandardMaterial({
-      color: 0xe8d070,
-      emissive: 0x886020,
-      emissiveIntensity: 0.25,
-      metalness: 0.35,
-      roughness: 0.45,
-    }),
-  );
-  gymPost.position.set(-5.75, 0.8, 3.15);
-  gymPost.castShadow = true;
-  scene.add(gymPost);
-  const gymOrb = new THREE.Mesh(
-    new THREE.SphereGeometry(0.28, 12, 10),
-    new THREE.MeshStandardMaterial({
-      color: 0xfff0a0,
-      emissive: 0xffc040,
-      emissiveIntensity: 0.55,
-      metalness: 0.2,
-      roughness: 0.3,
-    }),
-  );
-  gymOrb.position.set(-5.75, 1.75, 3.15);
-  gymOrb.castShadow = true;
-  scene.add(gymOrb);
-
-  const elitePost = new THREE.Mesh(
-    new THREE.CylinderGeometry(0.24, 0.3, 1.8, 10),
-    new THREE.MeshStandardMaterial({
-      color: 0x6a4a8a,
-      emissive: 0x3a2060,
-      emissiveIntensity: 0.3,
-      metalness: 0.4,
-      roughness: 0.4,
-    }),
-  );
-  elitePost.position.set(-6.25, 0.9, 0.25);
-  elitePost.castShadow = true;
-  scene.add(elitePost);
-  const eliteOrb = new THREE.Mesh(
-    new THREE.SphereGeometry(0.32, 12, 10),
-    new THREE.MeshStandardMaterial({
-      color: 0xb090e0,
-      emissive: 0x6040a0,
-      emissiveIntensity: 0.5,
-      metalness: 0.25,
-      roughness: 0.35,
-    }),
-  );
-  eliteOrb.position.set(-6.25, 1.95, 0.25);
-  eliteOrb.castShadow = true;
-  scene.add(eliteOrb);
-
-  // Tall grass risk strip — path corridor clear; multi-blade clumps; dark undergrowth flanks
-  const grassColors = [0x3d8a4a, 0x2f6f3c, 0x4a9a58, 0x286838, 0x55a864, 0x347844, 0x3a7a48];
-  const grassMats = grassColors.map(
-    (gCol) =>
-      new THREE.MeshStandardMaterial({
-        color: gCol,
-        roughness: 0.82,
-        metalness: 0.02,
-        emissive: gCol,
-        emissiveIntensity: 0.04,
-      }),
-  );
-  // Continuous undergrowth flanks (path intentionally clear) — readable risk strip vs lawn
-  const underMat = new THREE.MeshStandardMaterial({
-    color: 0x1a3824,
-    roughness: 0.96,
-    metalness: 0,
-  });
-  for (const side of [-1, 1] as const) {
-    const undergrowth = new THREE.Mesh(new THREE.PlaneGeometry(1.75, 5.1), underMat);
-    undergrowth.rotation.x = -Math.PI / 2;
-    // Centers sit outside path half so strip reads continuous on each flank
-    undergrowth.position.set(side * (GRASS_PATH_HALF + 0.88), 0.022, -1.2);
-    undergrowth.receiveShadow = true;
-    scene.add(undergrowth);
-  }
-
-  const grassBlades: THREE.Mesh[] = [];
-  const grassBaseRot: number[] = [];
-  const GRASS_N = useMedium ? 110 : 220;
-  const grassGeo = new THREE.ConeGeometry(0.075, 0.88, useMedium ? 4 : 5);
-  const grassGeoTall = new THREE.ConeGeometry(0.06, 1.15, useMedium ? 3 : 4);
-  let placed = 0;
-  let attempts = 0;
-  while (placed < GRASS_N && attempts < GRASS_N * 12) {
-    attempts++;
-    // Dense rectangular band matching grass.half (~2.6) around cz=-1.2; reject path
-    const gx = (Math.random() * 2 - 1) * 2.55;
-    const gz = -1.2 + (Math.random() * 2 - 1) * 2.45;
-    if (Math.abs(gx) < GRASS_PATH_HALF) continue;
-    // Prefer flanks density (more blades near path edge for silhouette)
-    if (Math.abs(gx) > 2.35 && Math.random() < 0.35) continue;
-    const clump = 1 + ((placed + attempts) % 3); // multi-blade volume clumps
-    for (let c = 0; c < clump && placed < GRASS_N; c++) {
-      const mat = grassMats[placed % grassMats.length];
-      const tall = c === 0 && Math.random() > 0.45;
-      const blade = new THREE.Mesh(tall ? grassGeoTall : grassGeo, mat);
-      const ox = gx + (c - (clump - 1) * 0.5) * 0.11 + (Math.random() - 0.5) * 0.06;
-      const oz = gz + (Math.random() - 0.5) * 0.12;
-      if (Math.abs(ox) < GRASS_PATH_HALF) continue;
-      const h = tall ? 0.52 + Math.random() * 0.22 : 0.38 + Math.random() * 0.22;
-      blade.position.set(ox, h * 0.5, oz);
-      blade.rotation.z = (Math.random() - 0.5) * 0.32;
-      blade.rotation.y = Math.random() * Math.PI;
-      blade.scale.y = 0.95 + Math.random() * 0.55;
-      blade.scale.x = 0.85 + Math.random() * 0.4;
-      blade.scale.z = 0.85 + Math.random() * 0.35;
-      blade.castShadow = !useMedium && placed % 8 === 0;
-      grassBaseRot.push(blade.rotation.z);
-      grassBlades.push(blade);
-      scene.add(blade);
-      placed++;
-    }
-  }
+  world.setMode('starter');
+  const {
+    healGlow,
+    gymOrb,
+    eliteOrb,
+    grassBlades,
+    grassBaseRot,
+  } = world;
 
   // Local rustle particles (part telegraph under feet — not sway-only)
   const rustlePool: THREE.Mesh[] = [];
@@ -662,19 +436,21 @@ async function boot(): Promise<void> {
     void soundscape.cue(cue, { intensity }).catch(() => undefined);
   };
 
-  // In-world companion ceremony: three real runtime meshes, not CSS stand-ins.
+  // In-world companion ceremony: the selector only captions three live runtime meshes.
   const starterStage = new THREE.Group();
   starterStage.name = 'companion-ceremony';
+  addCeremonyArchitecture(starterStage, useMedium);
   const starterMeshes: THREE.Group[] = [];
   const starterLights: THREE.PointLight[] = [];
-  const starterXs = [-2.15, 0, 2.15];
-  const daisMat = new THREE.MeshStandardMaterial({ color: 0x273c3d, roughness: 0.78, metalness: 0.12 });
+  const starterInlays: THREE.Mesh<THREE.TorusGeometry, THREE.MeshStandardMaterial>[] = [];
+  const starterXs = [-2.18, 0, 2.18];
+  const daisMat = new THREE.MeshStandardMaterial({ color: 0x25393a, roughness: 0.76, metalness: 0.14 });
   const inlayMat = new THREE.MeshStandardMaterial({
-    color: 0xd6b878,
-    emissive: 0x6b421f,
-    emissiveIntensity: 0.24,
-    roughness: 0.44,
-    metalness: 0.38,
+    color: 0xe0bd73,
+    emissive: 0x805126,
+    emissiveIntensity: 0.34,
+    roughness: 0.4,
+    metalness: 0.48,
   });
   for (let i = 0; i < raw.route.starterChoices.length; i++) {
     const id = raw.route.starterChoices[i]!;
@@ -682,14 +458,22 @@ async function boot(): Promise<void> {
     const alcove = new THREE.Group();
     alcove.position.set(x, 0, 0.55);
 
-    const dais = new THREE.Mesh(new THREE.CylinderGeometry(0.82, 0.94, 0.2, 48), daisMat);
-    dais.position.y = 0.1;
+    const dais = new THREE.Mesh(new THREE.CylinderGeometry(0.84, 0.98, 0.22, 48), daisMat);
+    dais.position.y = 0.13;
     dais.receiveShadow = true;
     alcove.add(dais);
-    const inlay = new THREE.Mesh(new THREE.TorusGeometry(0.66, 0.025, 8, 48), inlayMat.clone());
+    const inlay = new THREE.Mesh(new THREE.TorusGeometry(0.69, 0.032, 8, 48), inlayMat.clone());
     inlay.rotation.x = Math.PI / 2;
-    inlay.position.y = 0.215;
+    inlay.position.y = 0.25;
     alcove.add(inlay);
+    starterInlays.push(inlay);
+    const stageShadow = new THREE.Mesh(
+      new THREE.CircleGeometry(0.52, 24),
+      new THREE.MeshBasicMaterial({ color: 0x08110f, transparent: true, opacity: 0.32, depthWrite: false }),
+    );
+    stageShadow.rotation.x = -Math.PI / 2;
+    stageShadow.position.set(0, 0.255, 0.04);
+    alcove.add(stageShadow);
 
     const archCurve = new THREE.CatmullRomCurve3([
       new THREE.Vector3(-0.62, 0.22, -0.14),
@@ -702,16 +486,14 @@ async function boot(): Promise<void> {
     arch.castShadow = true;
     alcove.add(arch);
 
-    const creature = shipCreatureMesh(id, 1.18);
-    creature.position.set(0, 0.22, 0.04);
+    const creature = shipCreatureMesh(id, 1.24);
+    creature.position.set(0, 0.27, 0.04);
     const stageClip = getClipState(creature);
     if (stageClip) {
-      stageClip.baseY = 0.22;
-      // A three-quarter ceremony angle exposes the quadruped torso instead of
-      // foreshortening it behind Emberpup's muzzle.
+      stageClip.baseY = 0.27;
       if (id === 'emberpup') stageClip.baseRotY = -0.5;
     }
-    creature.userData.stageBaseY = 0.22;
+    creature.userData.stageBaseY = 0.27;
     creature.userData.stageIndex = i;
     enableCast(creature);
     alcove.add(creature);
@@ -734,19 +516,10 @@ async function boot(): Promise<void> {
   let playerSink = 0;
   let playerBobPhase = 0;
   let ballArcT = -1; // -1 idle; 0..1 throw progress
-  const ballMesh = new THREE.Mesh(
-    new THREE.SphereGeometry(0.12, 12, 10),
-    new THREE.MeshStandardMaterial({
-      color: 0xff5a5a,
-      metalness: 0.35,
-      roughness: 0.35,
-      emissive: 0x440000,
-      emissiveIntensity: 0.2,
-    }),
-  );
+  const ballMesh = createCatchOrb();
   ballMesh.visible = false;
-  ballMesh.castShadow = true;
   scene.add(ballMesh);
+  const cinematicFx = createCinematicEffects(scene, useMedium);
 
   let explore: ExploreState | null = null;
   let party: PartyMember[] = [];
@@ -778,6 +551,8 @@ async function boot(): Promise<void> {
   const toast = document.getElementById('toast');
   const flash = document.getElementById('battle-flash');
   const partyStrip = document.getElementById('party-strip');
+  const sceneTransition = document.getElementById('scene-transition');
+  const battleKicker = document.getElementById('battle-kicker');
   const swapBtn = battleMenu?.querySelector('[data-act="swap"]') as HTMLButtonElement | null;
 
   window.__twilight = {
@@ -788,7 +563,7 @@ async function boot(): Promise<void> {
         ? { x: playerMesh.position.x, y: playerMesh.position.y, z: playerMesh.position.z }
         : null,
       camera: { x: camera.position.x, y: camera.position.y, z: camera.position.z },
-      cameraLook: { x: camFollow.look.x, y: camFollow.look.y, z: camFollow.look.z },
+      cameraLook: { x: cameraLook.x, y: cameraLook.y, z: cameraLook.z },
       input: { held: explore ? [...explore.keys].sort() : [] },
       party: party.map((member) => ({
         speciesId: member.battler.speciesId,
@@ -839,6 +614,26 @@ async function boot(): Promise<void> {
     toast.textContent = text;
     toast.classList.add('show');
     setTimeout(() => toast.classList.remove('show'), ms);
+  }
+
+  function pulseSceneTransition(kind: 'depart' | 'battle' | 'return'): void {
+    if (!sceneTransition) return;
+    sceneTransition.className = '';
+    void sceneTransition.offsetWidth;
+    sceneTransition.classList.add('pulse', kind);
+    setTimeout(() => sceneTransition.classList.remove('pulse', kind), kind === 'battle' ? 760 : 620);
+  }
+
+  function impactAt(side: 'player' | 'foe', kind: ImpactKind): void {
+    const target = side === 'player' ? playerMesh : foeMesh;
+    if (!target) return;
+    const position = target.position.clone();
+    position.y += 0.84;
+    cinematicFx.burst(position, kind);
+    document.body.classList.remove('battle-impact');
+    void document.body.offsetWidth;
+    document.body.classList.add('battle-impact');
+    setTimeout(() => document.body.classList.remove('battle-impact'), kind === 'crit' ? 190 : 130);
   }
 
   function setMsg(text: string): void {
@@ -902,7 +697,13 @@ async function boot(): Promise<void> {
   }
 
   /** Stack effectiveness tint + crit accent within 100ms of hit (not mutually exclusive). */
-  function flashEffectivenessAndCrit(eff: number, crit: boolean): void {
+  function flashEffectivenessAndCrit(
+    eff: number,
+    crit: boolean,
+    target: 'player' | 'foe' = 'foe',
+  ): void {
+    const impactKind: ImpactKind = crit ? 'crit' : eff >= 2 ? 'se' : eff > 0 && eff <= 0.5 ? 'nve' : 'hit';
+    impactAt(target, impactKind);
     if (eff >= 2) flashHit('se');
     else if (eff > 0 && eff <= 0.5) flashHit('nve');
     else if (!crit) flashHit('hit');
@@ -1056,6 +857,7 @@ async function boot(): Promise<void> {
     mark('roam-to-fight-start');
     mode = 'battle';
     document.body.dataset.mode = 'battle';
+    world.setMode('battle');
     setAudioScene('battle', 'encounter');
     encounterCount += 1;
     battleKind = kind;
@@ -1135,7 +937,7 @@ async function boot(): Promise<void> {
 
   function warpToHealPad(): void {
     if (!explore) return;
-    // Place on the west edge of the now-traversable moonwell.
+    // Place on the west edge of the traversable moonwell.
     explore.pos.x = 3.1;
     explore.pos.z = 4.5;
     explore.vel.x = 0;
@@ -1148,6 +950,7 @@ async function boot(): Promise<void> {
   function exitBattle(msg: string): void {
     mode = 'explore';
     document.body.dataset.mode = 'explore';
+    world.setMode('explore');
     setAudioScene('explore');
     if (battle && party.length > 0) {
       try {
@@ -1640,7 +1443,7 @@ async function boot(): Promise<void> {
     let impactDur = 0;
     await playLunge('foe', 130, () => {
       if (!battle) return;
-      flashEffectivenessAndCrit(eff, crit.isCrit);
+      flashEffectivenessAndCrit(eff, crit.isCrit, 'player');
       impactDur = hpDrainMs(dealt, battle.player.maxHp);
       dispAllyHp = battle.player.hp;
       setHpBar(allyHp, dispAllyHp, battle.player.maxHp, impactDur);
@@ -1727,7 +1530,7 @@ async function boot(): Promise<void> {
           mark('first-attack-frame');
           measureLog('move→first-attack-frame', 'move-confirm', 'first-attack-frame', 180);
         }
-        flashEffectivenessAndCrit(eff, crit);
+        flashEffectivenessAndCrit(eff, crit, hit.side);
         playSound('hit', crit ? 1 : eff >= 2 ? 0.9 : 0.62);
         if (crit) battleMsg?.classList.add('eff-crit');
         if (eff >= 2) battleMsg?.classList.add('eff-se');
@@ -1815,6 +1618,7 @@ async function boot(): Promise<void> {
       card.addEventListener('focus', focusStarter);
       card.onclick = () => {
         setAudioScene('explore', 'starter-confirm');
+        world.setMode('explore');
         playerSpeciesId = id;
         scene.remove(starterStage);
         if (playerMesh) scene.remove(playerMesh);
@@ -2016,7 +1820,8 @@ async function boot(): Promise<void> {
     const dt = Math.min(0.1, Math.max(0.005, (now - lastFrame) / 1000));
     lastFrame = now;
     const t = (now - t0) / 1000;
-    scenery.update(t);
+    world.tick(t, dt, mode);
+    cinematicFx.tick(dt, t);
 
     // Dust life (upward drift + soft fade)
     for (let i = dustLife.length - 1; i >= 0; i--) {
@@ -2074,6 +1879,7 @@ async function boot(): Promise<void> {
       const z = sz + (ez - sz) * u;
       const y = 0.6 + Math.sin(u * Math.PI) * 1.4;
       ballMesh.position.set(x, y, z);
+      cinematicFx.trail(ballMesh.position, 0xffd17a);
       ballMesh.rotation.x += dt * 12;
       ballMesh.rotation.z += dt * 9;
     }
