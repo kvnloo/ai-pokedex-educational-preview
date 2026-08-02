@@ -839,6 +839,39 @@ assertEq("sparkmoth catchRate 120", speciesCatchRate(spark), 120);
   );
 }
 
+// Live speed ties use the supplied RNG instead of silently favoring the player.
+{
+  const tiedPlayer = buildBattler({
+    id: "tie-player",
+    name: ember.name,
+    speciesId: ember.id,
+    types: ember.types,
+    level: 5,
+    baseStats: ember.baseStats,
+    moves: resolveMoves(["nudge"]),
+  });
+  const tiedFoe = buildBattler({
+    id: "tie-foe",
+    name: dust.name,
+    speciesId: dust.id,
+    types: dust.types,
+    level: 5,
+    baseStats: dust.baseStats,
+    moves: resolveMoves(["nudge"]),
+  });
+  tiedPlayer.stats.spe = 20;
+  tiedFoe.stats.spe = 20;
+  const tied = createBattle({ player: tiedPlayer, foe: tiedFoe, typeChart: wave0.typeChart });
+  executeTurn(tied, {
+    playerMoveIndex: 0,
+    foeMoveIndex: 0,
+    liveRolls: true,
+    forceAccuracyHit: true,
+    rng: () => 0.9,
+  });
+  assertEq("live speed tie high roll lets foe act first", tied.log.find((e) => e.type === "move")?.side, "foe");
+}
+
 // ballMod affects a-value
 {
   const base = {
