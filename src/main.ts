@@ -30,6 +30,12 @@ import {
   type ExploreState,
 } from './world/explore.ts';
 import { addCinematicScenery } from './world/scenery.ts';
+import {
+  createProceduralSoundscape,
+  type SoundCue,
+  type SoundScene,
+  type SoundscapeSnapshot,
+} from './audio/index.ts';
 import { attemptCatch, speciesCatchRate } from './battle/catch.ts';
 import { createParty, healParty, addToParty, partyCanAdd, syncBattlerToParty, leadIndex, type PartyMember } from './battle/party.ts';
 import {
@@ -118,6 +124,7 @@ interface TwilightRuntimeSnapshot {
   healCount: number;
   encounterCount: number;
   catchCount: number;
+  audio: SoundscapeSnapshot;
 }
 
 declare global {
@@ -638,6 +645,22 @@ async function boot(): Promise<void> {
   let encounterCount = 0;
   let catchCount = 0;
   let starterFocus = 0;
+  let lastStepSound = -1;
+  const soundscape = createProceduralSoundscape({ seed: 0x7477696c, masterGain: 0.27 });
+  const setAudioScene = (sceneName: SoundScene, cue?: SoundCue): void => {
+    void (async () => {
+      try {
+        await soundscape.setScene(sceneName);
+        if (cue) await soundscape.cue(cue);
+      } catch {
+        // WebAudio can be unavailable in kiosk/headless contexts; gameplay stays live.
+      }
+    })();
+  };
+  const playSound = (cue: SoundCue, intensity = 0.65): void => {
+    if (soundscape.snapshot().contextState === 'uninitialized') return;
+    void soundscape.cue(cue, { intensity }).catch(() => undefined);
+  };
 
   // In-world companion ceremony: three real runtime meshes, not CSS stand-ins.
   const starterStage = new THREE.Group();
@@ -682,7 +705,12 @@ async function boot(): Promise<void> {
     const creature = shipCreatureMesh(id, 1.18);
     creature.position.set(0, 0.22, 0.04);
     const stageClip = getClipState(creature);
-    if (stageClip) stageClip.baseY = 0.22;
+    if (stageClip) {
+      stageClip.baseY = 0.22;
+      // A three-quarter ceremony angle exposes the quadruped torso instead of
+      // foreshortening it behind Emberpup's muzzle.
+      if (id === 'emberpup') stageClip.baseRotY = -0.5;
+    }
     creature.userData.stageBaseY = 0.22;
     creature.userData.stageIndex = i;
     enableCast(creature);
@@ -782,6 +810,7 @@ async function boot(): Promise<void> {
       healCount,
       encounterCount,
       catchCount,
+      audio: soundscape.snapshot(),
     }),
   };
 
@@ -1027,6 +1056,7 @@ async function boot(): Promise<void> {
     mark('roam-to-fight-start');
     mode = 'battle';
     document.body.dataset.mode = 'battle';
+    setAudioScene('battle', 'encounter');
     encounterCount += 1;
     battleKind = kind;
     foeSink = 0;
@@ -1092,6 +1122,7 @@ async function boot(): Promise<void> {
       stageSendOut('player', playerSpeciesId, 1),
     ]);
     setMsg(`Go! ${battle.player.name}!`);
+    playSound('battle-start', kind === 'wild' ? 0.68 : 0.9);
 
     battleMenu?.classList.remove('hidden');
     updateSwapButton();
@@ -1104,7 +1135,7 @@ async function boot(): Promise<void> {
 
   function warpToHealPad(): void {
     if (!explore) return;
-    // Place just outside heal pad solid so player can walk rim
+    // Place on the west edge of the now-traversable moonwell.
     explore.pos.x = 3.1;
     explore.pos.z = 4.5;
     explore.vel.x = 0;
@@ -1117,6 +1148,7 @@ async function boot(): Promise<void> {
   function exitBattle(msg: string): void {
     mode = 'explore';
     document.body.dataset.mode = 'explore';
+    setAudioScene('explore');
     if (battle && party.length > 0) {
       try {
         syncBattlerToParty(party, battle.player, battle.playerPartyIndex ?? 0);
@@ -1156,6 +1188,7 @@ async function boot(): Promise<void> {
   }
 
   async function stageFaintAndExit(win: boolean): Promise<void> {
+    if (win) playSound('victory', 0.9);
     const faintName = win ? battle?.foe.name : battle?.player.name;
     setMsg(`${faintName ?? 'Foe'} fainted!`);
     battleMsg?.classList.add('faint-beat');
@@ -1660,6 +1693,7 @@ async function boot(): Promise<void> {
       }
     }
     busy = true;
+    playSound('move', 0.72);
     updateSwapButton();
     clearEffClasses();
     moveMenu?.classList.add('hidden');
@@ -1694,6 +1728,7 @@ async function boot(): Promise<void> {
           measureLog('move→first-attack-frame', 'move-confirm', 'first-attack-frame', 180);
         }
         flashEffectivenessAndCrit(eff, crit);
+        playSound('hit', crit ? 1 : eff >= 2 ? 0.9 : 0.62);
         if (crit) battleMsg?.classList.add('eff-crit');
         if (eff >= 2) battleMsg?.classList.add('eff-se');
         else if (eff > 0 && eff <= 0.5) battleMsg?.classList.add('eff-nve');
@@ -1779,6 +1814,7 @@ async function boot(): Promise<void> {
       card.addEventListener('mouseenter', focusStarter);
       card.addEventListener('focus', focusStarter);
       card.onclick = () => {
+        setAudioScene('explore', 'starter-confirm');
         playerSpeciesId = id;
         scene.remove(starterStage);
         if (playerMesh) scene.remove(playerMesh);
@@ -1870,6 +1906,7 @@ async function boot(): Promise<void> {
           role: (sp as { role?: string } | undefined)?.role ?? 'wild',
         });
         mark('ball-throw-start');
+        playSound('catch-throw', 0.82);
         ballArcT = 0;
         ballMesh.visible = true;
         const res = attemptCatch({
@@ -1905,6 +1942,7 @@ async function boot(): Promise<void> {
                 return;
               }
               if (res.caught) {
+                playSound('catch-success', 0.95);
                 mark('ball-catch-ok');
                 if (!partyCanAdd(party)) {
                   showToast('Party is full — can\'t catch more!');
@@ -1929,6 +1967,7 @@ async function boot(): Promise<void> {
                 busy = false;
                 updateSwapButton();
               } else {
+                playSound('catch-shake', 0.7);
                 mark('ball-catch-fail');
                 setMsg('Oh no! It broke free!');
                 // Failed catch spends the turn — foe acts
@@ -2065,23 +2104,29 @@ async function boot(): Promise<void> {
       if (res.footPlant) {
         const side = explore.footPhase === 0 ? -1 : 1;
         spawnDust(explore.pos.x, explore.pos.z, side, res.inGrass, explore.runBlend);
+        if (t - lastStepSound >= 0.18) {
+          lastStepSound = t;
+          playSound('step', 0.32 + explore.runBlend * 0.25);
+        }
       }
 
       if (res.grassRustle || (res.inGrass && res.moved)) {
         if (res.grassRustle) {
+          playSound('grass-rustle', 0.58);
           grassRustleBoost = Math.min(1, grassRustleBoost + 0.75);
           spawnGrassPart(explore.pos.x, explore.pos.z);
           spawnGrassPart(explore.pos.x, explore.pos.z);
         }
       }
 
-      // Heal on pad rim (solid blocks center)
+      // Heal anywhere within the traversable moonwell.
       if (healCooldown <= 0 && isOnHealPad(explore.pos, healPad) && party.length > 0) {
         healParty(party);
         healCooldown = 2.5;
         healCount += 1;
         renderPartyStrip();
         showToast('Moonwell restored every partner.');
+        playSound('heal', 0.92);
         playerMesh.scale.setScalar(1.1);
         setTimeout(() => {
           if (playerMesh) playerMesh.scale.setScalar(1);

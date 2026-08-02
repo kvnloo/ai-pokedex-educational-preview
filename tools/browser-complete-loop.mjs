@@ -368,37 +368,16 @@ function findCatchTimestamp(input) {
 }
 
 async function installBrowserAudioProbe() {
-  await page.evaluate(async (seed) => {
-    const module = await import('/src/audio/index.ts');
-    const soundscape = module.createProceduralSoundscape({ seed, masterGain: 0.32 });
-    window.__completeLoopAudio = soundscape;
-    const safe = (task) => {
-      void task.catch((error) => console.error('[complete-loop-audio]', error));
-    };
-    document.addEventListener('click', (event) => {
-      const button = event.target instanceof Element ? event.target.closest('button') : null;
-      if (!(button instanceof HTMLButtonElement)) return;
-      const action = button.dataset.act;
-      if (action === 'fight') {
-        safe(
-          soundscape
-            .resume()
-            .then(() => soundscape.setScene('battle'))
-            .then(() => soundscape.cue('battle-start')),
-        );
-      } else if (button.closest('#move-menu') && !button.classList.contains('ghost')) {
-        safe(soundscape.cue('move', { intensity: 0.65 }));
-      } else if (action === 'ball') {
-        safe(soundscape.cue('catch-throw'));
-      } else if (action === 'run') {
-        safe(soundscape.setScene('explore'));
-      }
-    });
-  }, RNG_SEED ^ 0xa0d10);
+  // Fail closed on the product's integrated soundscape. The evidence harness
+  // must not create a second test-only AudioContext or wire surrogate cues.
+  await page.waitForFunction(
+    () => window.__twilight?.snapshot?.().audio?.contextState === 'running',
+    { timeout: 5_000, polling: 25 },
+  );
 }
 
 async function audioSnapshot() {
-  return page.evaluate(() => window.__completeLoopAudio?.snapshot?.() ?? null);
+  return page.evaluate(() => window.__twilight?.snapshot?.().audio ?? null);
 }
 
 function currentReport() {
