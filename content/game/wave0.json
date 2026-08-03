@@ -1,624 +1,1173 @@
 {
-  "version": "0.1.0",
+  "version": "1.0.0",
   "wave": 0,
-  "title": "Twilight Route \u2014 Wave 0",
+  "title": "Galar Route — Wave 0",
   "identity": {
-    "region": "Lumen",
-    "startLocation": "twilight-lane",
-    "notes": "Original names only. No official franchise creature IP in this pack."
+    "region": "Galar",
+    "startLocation": "galar-route-1",
+    "notes": "Canonical Pokémon species and battle data sourced from PokéAPI; route placement is authored for this game slice."
+  },
+  "provenance": {
+    "generator": "tools/build-game-pack.mjs",
+    "species": {
+      "system": "pokeapi",
+      "source": "content/canonical/species.jsonl",
+      "canonicalSpeciesCount": 1025,
+      "syncedAt": "2026-08-02T06:47:55.319Z"
+    },
+    "moves": {
+      "system": "pokeapi",
+      "cache": "tools/data/pokeapi-wave0-moves.json",
+      "fetchedAt": "2026-08-03T03:01:06.143Z",
+      "baseUrl": "https://pokeapi.co/api/v2"
+    },
+    "typeChart": {
+      "system": "pokeapi",
+      "source": "content/derived/type-chart.json"
+    }
   },
   "types": [
     "normal",
+    "flying",
+    "bug",
+    "steel",
     "fire",
     "water",
     "grass",
     "electric",
-    "bug"
+    "dark"
   ],
   "typeChart": {
     "normal": {
       "normal": 1,
+      "flying": 1,
+      "bug": 1,
+      "steel": 0.5,
       "fire": 1,
       "water": 1,
       "grass": 1,
       "electric": 1,
-      "bug": 1
+      "dark": 1
     },
-    "fire": {
+    "flying": {
       "normal": 1,
-      "fire": 0.5,
-      "water": 0.5,
-      "grass": 2,
-      "electric": 1,
-      "bug": 2
-    },
-    "water": {
-      "normal": 1,
-      "fire": 2,
-      "water": 0.5,
-      "grass": 0.5,
-      "electric": 1,
-      "bug": 1
-    },
-    "grass": {
-      "normal": 1,
-      "fire": 0.5,
-      "water": 2,
-      "grass": 0.5,
-      "electric": 1,
-      "bug": 0.5
-    },
-    "electric": {
-      "normal": 1,
+      "flying": 1,
+      "bug": 2,
+      "steel": 0.5,
       "fire": 1,
-      "water": 2,
-      "grass": 0.5,
+      "water": 1,
+      "grass": 2,
       "electric": 0.5,
-      "bug": 1
+      "dark": 1
     },
     "bug": {
       "normal": 1,
+      "flying": 0.5,
+      "bug": 1,
+      "steel": 0.5,
       "fire": 0.5,
       "water": 1,
       "grass": 2,
       "electric": 1,
-      "bug": 1
+      "dark": 2
+    },
+    "steel": {
+      "normal": 1,
+      "flying": 1,
+      "bug": 1,
+      "steel": 0.5,
+      "fire": 0.5,
+      "water": 0.5,
+      "grass": 1,
+      "electric": 0.5,
+      "dark": 1
+    },
+    "fire": {
+      "normal": 1,
+      "flying": 1,
+      "bug": 2,
+      "steel": 2,
+      "fire": 0.5,
+      "water": 0.5,
+      "grass": 2,
+      "electric": 1,
+      "dark": 1
+    },
+    "water": {
+      "normal": 1,
+      "flying": 1,
+      "bug": 1,
+      "steel": 1,
+      "fire": 2,
+      "water": 0.5,
+      "grass": 0.5,
+      "electric": 1,
+      "dark": 1
+    },
+    "grass": {
+      "normal": 1,
+      "flying": 0.5,
+      "bug": 0.5,
+      "steel": 0.5,
+      "fire": 0.5,
+      "water": 2,
+      "grass": 0.5,
+      "electric": 1,
+      "dark": 1
+    },
+    "electric": {
+      "normal": 1,
+      "flying": 2,
+      "bug": 1,
+      "steel": 1,
+      "fire": 1,
+      "water": 2,
+      "grass": 0.5,
+      "electric": 0.5,
+      "dark": 1
+    },
+    "dark": {
+      "normal": 1,
+      "flying": 1,
+      "bug": 1,
+      "steel": 1,
+      "fire": 1,
+      "water": 1,
+      "grass": 1,
+      "electric": 1,
+      "dark": 0.5
     }
   },
   "moves": [
     {
       "moveId": 1,
-      "slug": "nudge",
-      "name": "Nudge",
+      "slug": "pound",
+      "name": "Pound",
       "type": "normal",
       "category": "physical",
       "power": 40,
       "accuracy": 100,
       "pp": 35,
       "priority": 0,
-      "description": "A gentle bump with surprising force.",
-      "id": "nudge"
+      "target": "selected-foe",
+      "description": "Inflicts regular damage with no additional effect.",
+      "id": "pound"
     },
     {
-      "moveId": 2,
-      "slug": "cinder-spark",
-      "name": "Cinder Spark",
+      "moveId": 10,
+      "slug": "scratch",
+      "name": "Scratch",
+      "type": "normal",
+      "category": "physical",
+      "power": 40,
+      "accuracy": 100,
+      "pp": 35,
+      "priority": 0,
+      "target": "selected-foe",
+      "description": "Inflicts regular damage with no additional effect.",
+      "id": "scratch"
+    },
+    {
+      "moveId": 29,
+      "slug": "headbutt",
+      "name": "Headbutt",
+      "type": "normal",
+      "category": "physical",
+      "power": 70,
+      "accuracy": 100,
+      "pp": 15,
+      "priority": 0,
+      "target": "selected-foe",
+      "description": "Has a chance to make the target flinch.",
+      "id": "headbutt"
+    },
+    {
+      "moveId": 33,
+      "slug": "tackle",
+      "name": "Tackle",
+      "type": "normal",
+      "category": "physical",
+      "power": 40,
+      "accuracy": 100,
+      "pp": 35,
+      "priority": 0,
+      "target": "selected-foe",
+      "description": "Inflicts regular damage with no additional effect.",
+      "id": "tackle"
+    },
+    {
+      "moveId": 39,
+      "slug": "tail-whip",
+      "name": "Tail Whip",
+      "type": "normal",
+      "category": "status",
+      "power": null,
+      "accuracy": 100,
+      "pp": 30,
+      "priority": 0,
+      "target": "all-foes",
+      "description": "Lowers the target’s Defense by one stage.",
+      "id": "tail-whip",
+      "effect": "lower-def-1"
+    },
+    {
+      "moveId": 43,
+      "slug": "leer",
+      "name": "Leer",
+      "type": "normal",
+      "category": "status",
+      "power": null,
+      "accuracy": 100,
+      "pp": 30,
+      "priority": 0,
+      "target": "all-foes",
+      "description": "Lowers the target’s Defense by one stage.",
+      "id": "leer",
+      "effect": "lower-def-1"
+    },
+    {
+      "moveId": 44,
+      "slug": "bite",
+      "name": "Bite",
+      "type": "dark",
+      "category": "physical",
+      "power": 60,
+      "accuracy": 100,
+      "pp": 25,
+      "priority": 0,
+      "target": "selected-foe",
+      "description": "Has a chance to make the target flinch.",
+      "id": "bite"
+    },
+    {
+      "moveId": 45,
+      "slug": "growl",
+      "name": "Growl",
+      "type": "normal",
+      "category": "status",
+      "power": null,
+      "accuracy": 100,
+      "pp": 40,
+      "priority": 0,
+      "target": "all-foes",
+      "description": "Lowers the target’s Attack by one stage.",
+      "id": "growl",
+      "effect": "lower-atk-1"
+    },
+    {
+      "moveId": 52,
+      "slug": "ember",
+      "name": "Ember",
       "type": "fire",
       "category": "special",
       "power": 40,
       "accuracy": 100,
       "pp": 25,
       "priority": 0,
-      "description": "Tiny embers leap from the user's coat.",
-      "id": "cinder-spark"
+      "target": "selected-foe",
+      "description": "Has a chance to burn the target.",
+      "id": "ember"
     },
     {
-      "moveId": 3,
-      "slug": "tide-slap",
-      "name": "Tide Slap",
+      "moveId": 55,
+      "slug": "water-gun",
+      "name": "Water Gun",
       "type": "water",
       "category": "special",
       "power": 40,
       "accuracy": 100,
       "pp": 25,
       "priority": 0,
-      "description": "A dense bead of water snaps forward.",
-      "id": "tide-slap"
+      "target": "selected-foe",
+      "description": "Inflicts regular damage with no additional effect.",
+      "id": "water-gun"
     },
     {
-      "moveId": 4,
-      "slug": "leaf-dart",
-      "name": "Leaf Dart",
-      "type": "grass",
+      "moveId": 64,
+      "slug": "peck",
+      "name": "Peck",
+      "type": "flying",
       "category": "physical",
-      "power": 40,
+      "power": 35,
       "accuracy": 100,
-      "pp": 25,
+      "pp": 35,
       "priority": 0,
-      "description": "Razor flecks of leaf whip the foe.",
-      "id": "leaf-dart"
+      "target": "selected-foe",
+      "description": "Inflicts regular damage with no additional effect.",
+      "id": "peck"
     },
     {
-      "moveId": 5,
-      "slug": "static-nibble",
-      "name": "Static Nibble",
-      "type": "electric",
-      "category": "special",
-      "power": 40,
-      "accuracy": 100,
-      "pp": 30,
-      "priority": 0,
-      "description": "A bristling charge of static.",
-      "id": "static-nibble"
-    },
-    {
-      "moveId": 6,
-      "slug": "wool-rush",
-      "name": "Wool Rush",
-      "type": "normal",
+      "moveId": 75,
+      "slug": "razor-leaf",
+      "name": "Razor Leaf",
+      "type": "grass",
       "category": "physical",
       "power": 55,
       "accuracy": 95,
-      "pp": 20,
-      "priority": 0,
-      "description": "A fluffy body-check.",
-      "id": "wool-rush"
-    },
-    {
-      "moveId": 7,
-      "slug": "haze-puff",
-      "name": "Haze Puff",
-      "type": "bug",
-      "category": "special",
-      "power": 40,
-      "accuracy": 100,
       "pp": 25,
       "priority": 0,
-      "description": "A puff of charged pollen.",
-      "id": "haze-puff"
+      "target": "all-foes",
+      "description": "Has an increased chance for a critical hit.",
+      "id": "razor-leaf"
     },
     {
-      "moveId": 8,
-      "slug": "growl-down",
-      "name": "Growl Down",
-      "type": "normal",
-      "category": "status",
-      "power": null,
-      "accuracy": 100,
-      "pp": 20,
-      "priority": 0,
-      "effect": "lower-atk-1",
-      "description": "Softens the foe's attack stance.",
-      "id": "growl-down"
-    },
-    {
-      "moveId": 9,
-      "slug": "quick-gleam",
-      "name": "Quick Gleam",
+      "moveId": 98,
+      "slug": "quick-attack",
+      "name": "Quick Attack",
       "type": "normal",
       "category": "physical",
       "power": 40,
       "accuracy": 100,
       "pp": 30,
       "priority": 1,
-      "description": "A flash-step strike that lands first.",
-      "id": "quick-gleam"
+      "target": "selected-foe",
+      "description": "Inflicts regular damage with no additional effect.",
+      "id": "quick-attack"
     },
     {
-      "moveId": 10,
-      "slug": "guard-curl",
-      "name": "Guard Curl",
+      "moveId": 111,
+      "slug": "defense-curl",
+      "name": "Defense Curl",
       "type": "normal",
       "category": "status",
       "power": null,
+      "accuracy": null,
+      "pp": 40,
+      "priority": 0,
+      "target": "self",
+      "description": "Raises user’s Defense by one stage.",
+      "id": "defense-curl",
+      "effect": "raise-def-1"
+    },
+    {
+      "moveId": 209,
+      "slug": "spark",
+      "name": "Spark",
+      "type": "electric",
+      "category": "physical",
+      "power": 65,
       "accuracy": 100,
       "pp": 20,
       "priority": 0,
-      "effect": "raise-def-1",
-      "description": "Tucks in tight; hardens the user's stance.",
-      "id": "guard-curl"
+      "target": "selected-foe",
+      "description": "Has a chance to paralyze the target.",
+      "id": "spark"
     },
     {
-      "moveId": 11,
-      "slug": "soft-sap",
-      "name": "Soft Sap",
+      "moveId": 211,
+      "slug": "steel-wing",
+      "name": "Steel Wing",
+      "type": "steel",
+      "category": "physical",
+      "power": 70,
+      "accuracy": 90,
+      "pp": 25,
+      "priority": 0,
+      "target": "selected-foe",
+      "description": "Has a chance to raise the user’s Defense by one stage.",
+      "id": "steel-wing"
+    },
+    {
+      "moveId": 229,
+      "slug": "rapid-spin",
+      "name": "Rapid Spin",
+      "type": "normal",
+      "category": "physical",
+      "power": 50,
+      "accuracy": 100,
+      "pp": 40,
+      "priority": 0,
+      "target": "selected-foe",
+      "description": "Frees the user from binding moves, removes Leech Seed, and blows away Spikes.",
+      "id": "rapid-spin"
+    },
+    {
+      "moveId": 268,
+      "slug": "charge",
+      "name": "Charge",
+      "type": "electric",
+      "category": "status",
+      "power": null,
+      "accuracy": null,
+      "pp": 20,
+      "priority": 0,
+      "target": "self",
+      "description": "Raises the user’s Special Defense by one stage. User’s Electric moves have doubled power next turn.",
+      "id": "charge",
+      "effect": "raise-spd-1"
+    },
+    {
+      "moveId": 331,
+      "slug": "bullet-seed",
+      "name": "Bullet Seed",
       "type": "grass",
+      "category": "physical",
+      "power": 25,
+      "accuracy": 100,
+      "pp": 30,
+      "priority": 0,
+      "target": "selected-foe",
+      "description": "Hits 2-5 times in one turn.",
+      "id": "bullet-seed"
+    },
+    {
+      "moveId": 334,
+      "slug": "iron-defense",
+      "name": "Iron Defense",
+      "type": "steel",
       "category": "status",
       "power": null,
+      "accuracy": null,
+      "pp": 15,
+      "priority": 0,
+      "target": "self",
+      "description": "Raises the user’s Defense by two stages.",
+      "id": "iron-defense",
+      "effect": "raise-def-2"
+    },
+    {
+      "moveId": 352,
+      "slug": "water-pulse",
+      "name": "Water Pulse",
+      "type": "water",
+      "category": "special",
+      "power": 60,
       "accuracy": 100,
       "pp": 20,
       "priority": 0,
-      "effect": "lower-spa-1",
-      "description": "A sticky sap film dulls special force.",
-      "id": "soft-sap"
+      "target": "selected-foe",
+      "description": "Has a chance to confuse the target.",
+      "id": "water-pulse"
     },
     {
-      "moveId": 12,
-      "slug": "tide-brace",
-      "name": "Tide Brace",
-      "type": "water",
+      "moveId": 468,
+      "slug": "hone-claws",
+      "name": "Hone Claws",
+      "type": "dark",
       "category": "status",
       "power": null,
+      "accuracy": null,
+      "pp": 15,
+      "priority": 0,
+      "target": "self",
+      "description": "Raises the user’s Attack and accuracy by one stage.",
+      "id": "hone-claws",
+      "effect": "raise-atk-1"
+    },
+    {
+      "moveId": 496,
+      "slug": "round",
+      "name": "Round",
+      "type": "normal",
+      "category": "special",
+      "power": 60,
       "accuracy": 100,
       "pp": 15,
       "priority": 0,
-      "effect": "raise-spd-1",
-      "description": "A shell of cool water steadies special guard.",
-      "id": "tide-brace"
+      "target": "selected-foe",
+      "description": "Has double power if it’s used more than once per turn.",
+      "id": "round"
+    },
+    {
+      "moveId": 522,
+      "slug": "struggle-bug",
+      "name": "Struggle Bug",
+      "type": "bug",
+      "category": "special",
+      "power": 50,
+      "accuracy": 100,
+      "pp": 20,
+      "priority": 0,
+      "target": "all-foes",
+      "description": "Has a chance to lower the target’s Special Attack by one stage.",
+      "id": "struggle-bug"
+    },
+    {
+      "moveId": 609,
+      "slug": "nuzzle",
+      "name": "Nuzzle",
+      "type": "electric",
+      "category": "physical",
+      "power": 20,
+      "accuracy": 100,
+      "pp": 20,
+      "priority": 0,
+      "target": "selected-foe",
+      "description": "Has a chance to paralyze the target.",
+      "id": "nuzzle"
+    },
+    {
+      "moveId": 611,
+      "slug": "infestation",
+      "name": "Infestation",
+      "type": "bug",
+      "category": "special",
+      "power": 20,
+      "accuracy": 100,
+      "pp": 20,
+      "priority": 0,
+      "target": "selected-foe",
+      "description": "Prevents the target from fleeing and inflicts damage for 2-5 turns.",
+      "id": "infestation"
+    },
+    {
+      "moveId": 670,
+      "slug": "leafage",
+      "name": "Leafage",
+      "type": "grass",
+      "category": "physical",
+      "power": 40,
+      "accuracy": 100,
+      "pp": 40,
+      "priority": 0,
+      "target": "selected-foe",
+      "description": "Inflicts regular damage with no additional effect.",
+      "id": "leafage"
+    },
+    {
+      "moveId": 681,
+      "slug": "power-trip",
+      "name": "Power Trip",
+      "type": "dark",
+      "category": "physical",
+      "power": 20,
+      "accuracy": 100,
+      "pp": 10,
+      "priority": 0,
+      "target": "selected-foe",
+      "description": "Power is higher the more the user’s stats have been raised, to a maximum of 31×.",
+      "id": "power-trip"
+    },
+    {
+      "moveId": 715,
+      "slug": "tearful-look",
+      "name": "Tearful Look",
+      "type": "normal",
+      "category": "status",
+      "power": null,
+      "accuracy": null,
+      "pp": 20,
+      "priority": 0,
+      "target": "selected-foe",
+      "description": "Lowers the target’s Attack and Special Attack by one stage.",
+      "id": "tearful-look",
+      "effect": "lower-spa-1"
+    },
+    {
+      "moveId": 785,
+      "slug": "branch-poke",
+      "name": "Branch Poke",
+      "type": "grass",
+      "category": "physical",
+      "power": 40,
+      "accuracy": 100,
+      "pp": 40,
+      "priority": 0,
+      "target": "selected-foe",
+      "description": "Inflicts regular damage with no additional effect.",
+      "id": "branch-poke"
     }
   ],
   "species": [
     {
-      "speciesId": 1,
-      "slug": "emberpup",
-      "name": "Emberpup",
+      "speciesId": 813,
+      "nationalId": 813,
+      "slug": "scorbunny",
+      "name": "Scorbunny",
       "types": [
         "fire"
       ],
       "baseStats": {
-        "hp": 45,
-        "atk": 52,
+        "hp": 50,
+        "atk": 71,
         "def": 40,
-        "spa": 60,
-        "spd": 45,
-        "spe": 55
+        "spa": 40,
+        "spd": 40,
+        "spe": 69
       },
       "learnset": [
-        "nudge",
-        "cinder-spark",
-        "wool-rush",
-        "growl-down"
+        "tackle",
+        "growl",
+        "ember",
+        "quick-attack"
       ],
       "role": "starter",
-      "flavor": "A warm-eyed pup whose fur holds cinder sparks.",
-      "id": "emberpup",
+      "flavor": "It has special pads on the backs of its feet, and one on its nose. Once it’s raring to fight, these pads radiate tremendous heat.",
+      "source": {
+        "system": "pokeapi",
+        "syncedAt": "2026-08-02T06:47:55.319Z",
+        "pokemonUrl": "https://pokeapi.co/api/v2/pokemon/813/",
+        "speciesUrl": "https://pokeapi.co/api/v2/pokemon-species/813/"
+      },
+      "id": "scorbunny",
       "moves": [
-        "nudge",
-        "cinder-spark",
-        "wool-rush",
-        "growl-down"
+        "tackle",
+        "growl",
+        "ember",
+        "quick-attack"
       ],
       "catchRate": 45,
-      "baseExp": 62
+      "captureRate": 45,
+      "baseExp": 62,
+      "baseExperience": 62
     },
     {
-      "speciesId": 2,
-      "slug": "dewkin",
-      "name": "Dewkin",
+      "speciesId": 816,
+      "nationalId": 816,
+      "slug": "sobble",
+      "name": "Sobble",
       "types": [
         "water"
       ],
       "baseStats": {
         "hp": 50,
-        "atk": 45,
-        "def": 48,
-        "spa": 58,
-        "spd": 50,
-        "spe": 48
+        "atk": 40,
+        "def": 40,
+        "spa": 70,
+        "spd": 40,
+        "spe": 70
       },
       "learnset": [
-        "nudge",
-        "tide-slap",
-        "growl-down",
-        "tide-brace"
+        "pound",
+        "growl",
+        "water-gun",
+        "tearful-look"
       ],
       "role": "starter",
-      "flavor": "Dew beads roll off its coat when it runs.",
-      "id": "dewkin",
+      "flavor": "When it gets wet, its skin changes color, and this Pokémon becomes invisible as if it were camouflaged.",
+      "source": {
+        "system": "pokeapi",
+        "syncedAt": "2026-08-02T06:47:55.319Z",
+        "pokemonUrl": "https://pokeapi.co/api/v2/pokemon/816/",
+        "speciesUrl": "https://pokeapi.co/api/v2/pokemon-species/816/"
+      },
+      "id": "sobble",
       "moves": [
-        "nudge",
-        "tide-slap",
-        "growl-down",
-        "tide-brace"
+        "pound",
+        "growl",
+        "water-gun",
+        "tearful-look"
       ],
       "catchRate": 45,
-      "baseExp": 62
+      "captureRate": 45,
+      "baseExp": 62,
+      "baseExperience": 62
     },
     {
-      "speciesId": 5,
-      "slug": "leafkit",
-      "name": "Leafkit",
+      "speciesId": 810,
+      "nationalId": 810,
+      "slug": "grookey",
+      "name": "Grookey",
       "types": [
         "grass"
       ],
       "baseStats": {
-        "hp": 48,
-        "atk": 50,
+        "hp": 50,
+        "atk": 65,
         "def": 50,
-        "spa": 55,
-        "spd": 52,
-        "spe": 50
+        "spa": 40,
+        "spd": 40,
+        "spe": 65
       },
       "learnset": [
-        "nudge",
-        "leaf-dart",
-        "growl-down",
-        "soft-sap"
+        "scratch",
+        "growl",
+        "branch-poke",
+        "razor-leaf"
       ],
       "role": "starter",
-      "flavor": "A sprout-eared kit that smells like rain on moss.",
-      "id": "leafkit",
+      "flavor": "It attacks with rapid beats of its stick. As it strikes with amazing speed, it gets more and more pumped.",
+      "source": {
+        "system": "pokeapi",
+        "syncedAt": "2026-08-02T06:47:55.319Z",
+        "pokemonUrl": "https://pokeapi.co/api/v2/pokemon/810/",
+        "speciesUrl": "https://pokeapi.co/api/v2/pokemon-species/810/"
+      },
+      "id": "grookey",
       "moves": [
-        "nudge",
-        "leaf-dart",
-        "growl-down",
-        "soft-sap"
+        "scratch",
+        "growl",
+        "branch-poke",
+        "razor-leaf"
       ],
       "catchRate": 45,
-      "baseExp": 62
+      "captureRate": 45,
+      "baseExp": 62,
+      "baseExperience": 62
     },
     {
-      "speciesId": 3,
-      "slug": "dustbun",
-      "name": "Dustbun",
+      "speciesId": 831,
+      "nationalId": 831,
+      "slug": "wooloo",
+      "name": "Wooloo",
       "types": [
         "normal"
-      ],
-      "baseStats": {
-        "hp": 55,
-        "atk": 48,
-        "def": 48,
-        "spa": 35,
-        "spd": 45,
-        "spe": 40
-      },
-      "learnset": [
-        "nudge",
-        "wool-rush",
-        "growl-down",
-        "guard-curl"
-      ],
-      "role": "wild",
-      "flavor": "Round and dusty; rolls through hollow grass.",
-      "id": "dustbun",
-      "moves": [
-        "nudge",
-        "wool-rush",
-        "growl-down",
-        "guard-curl"
-      ],
-      "catchRate": 255,
-      "baseExp": 45
-    },
-    {
-      "speciesId": 4,
-      "slug": "sparkmoth",
-      "name": "Sparkmoth",
-      "types": [
-        "bug",
-        "electric"
-      ],
-      "baseStats": {
-        "hp": 40,
-        "atk": 35,
-        "def": 35,
-        "spa": 62,
-        "spd": 45,
-        "spe": 70
-      },
-      "learnset": [
-        "static-nibble",
-        "haze-puff",
-        "nudge",
-        "cinder-spark"
-      ],
-      "role": "wild",
-      "flavor": "Tiny arcs flash between its wing veins.",
-      "id": "sparkmoth",
-      "moves": [
-        "static-nibble",
-        "haze-puff",
-        "nudge",
-        "cinder-spark"
-      ],
-      "catchRate": 120,
-      "baseExp": 55
-    },
-    {
-      "speciesId": 6,
-      "slug": "ironwisp",
-      "name": "Ironwisp",
-      "types": [
-        "electric",
-        "bug"
-      ],
-      "baseStats": {
-        "hp": 55,
-        "atk": 48,
-        "def": 60,
-        "spa": 78,
-        "spd": 62,
-        "spe": 70
-      },
-      "learnset": [
-        "static-nibble",
-        "haze-puff",
-        "nudge",
-        "wool-rush"
-      ],
-      "role": "gym",
-      "flavor": "A lantern-moth of the dusk gym; sparks dance in its iron lace wings.",
-      "id": "ironwisp",
-      "moves": [
-        "static-nibble",
-        "haze-puff",
-        "nudge",
-        "wool-rush"
-      ],
-      "catchRate": 45,
-      "baseExp": 120
-    },
-    {
-      "speciesId": 7,
-      "slug": "gloomhorn",
-      "name": "Gloomhorn",
-      "types": [
-        "grass",
-        "normal"
-      ],
-      "baseStats": {
-        "hp": 70,
-        "atk": 80,
-        "def": 65,
-        "spa": 55,
-        "spd": 55,
-        "spe": 50
-      },
-      "learnset": [
-        "leaf-dart",
-        "wool-rush",
-        "nudge",
-        "growl-down"
-      ],
-      "role": "elite",
-      "flavor": "Elite-path guardian; moss horns funnel soft dusk light.",
-      "id": "gloomhorn",
-      "moves": [
-        "leaf-dart",
-        "wool-rush",
-        "nudge",
-        "growl-down"
-      ],
-      "catchRate": 45,
-      "baseExp": 160
-    },
-    {
-      "speciesId": 8,
-      "slug": "mossprite",
-      "name": "Mossprite",
-      "types": [
-        "grass"
-      ],
-      "baseStats": {
-        "hp": 45,
-        "atk": 42,
-        "def": 48,
-        "spa": 52,
-        "spd": 50,
-        "spe": 45
-      },
-      "learnset": [
-        "leaf-dart",
-        "soft-sap",
-        "nudge",
-        "growl-down"
-      ],
-      "role": "wild",
-      "flavor": "A leaf-sprite that hides in hollow grass stems.",
-      "id": "mossprite",
-      "moves": [
-        "leaf-dart",
-        "soft-sap",
-        "nudge",
-        "growl-down"
-      ],
-      "catchRate": 200,
-      "baseExp": 48
-    },
-    {
-      "speciesId": 9,
-      "slug": "rivlet",
-      "name": "Rivlet",
-      "types": [
-        "water"
       ],
       "baseStats": {
         "hp": 42,
         "atk": 40,
-        "def": 40,
-        "spa": 55,
-        "spd": 48,
-        "spe": 58
+        "def": 55,
+        "spa": 40,
+        "spd": 45,
+        "spe": 48
       },
       "learnset": [
-        "tide-slap",
-        "tide-brace",
-        "nudge",
-        "growl-down"
+        "tackle",
+        "growl",
+        "defense-curl",
+        "headbutt"
       ],
       "role": "wild",
-      "flavor": "A stream-slick kit that darts between dew pools.",
-      "id": "rivlet",
+      "flavor": "If its fleece grows too long, Wooloo won’t be able to move. Cloth made with the wool of this Pokémon is surprisingly strong.",
+      "source": {
+        "system": "pokeapi",
+        "syncedAt": "2026-08-02T06:47:55.319Z",
+        "pokemonUrl": "https://pokeapi.co/api/v2/pokemon/831/",
+        "speciesUrl": "https://pokeapi.co/api/v2/pokemon-species/831/"
+      },
+      "id": "wooloo",
       "moves": [
-        "tide-slap",
-        "tide-brace",
-        "nudge",
-        "growl-down"
+        "tackle",
+        "growl",
+        "defense-curl",
+        "headbutt"
+      ],
+      "catchRate": 255,
+      "captureRate": 255,
+      "baseExp": 122,
+      "baseExperience": 122
+    },
+    {
+      "speciesId": 819,
+      "nationalId": 819,
+      "slug": "skwovet",
+      "name": "Skwovet",
+      "types": [
+        "normal"
+      ],
+      "baseStats": {
+        "hp": 70,
+        "atk": 55,
+        "def": 55,
+        "spa": 35,
+        "spd": 35,
+        "spe": 25
+      },
+      "learnset": [
+        "tackle",
+        "tail-whip",
+        "bite",
+        "bullet-seed"
+      ],
+      "role": "wild",
+      "flavor": "It eats berries nonstop—a habit that has made it more resilient than it looks. It’ll show up on farms, searching for yet more berries.",
+      "source": {
+        "system": "pokeapi",
+        "syncedAt": "2026-08-02T06:47:55.319Z",
+        "pokemonUrl": "https://pokeapi.co/api/v2/pokemon/819/",
+        "speciesUrl": "https://pokeapi.co/api/v2/pokemon-species/819/"
+      },
+      "id": "skwovet",
+      "moves": [
+        "tackle",
+        "tail-whip",
+        "bite",
+        "bullet-seed"
+      ],
+      "catchRate": 255,
+      "captureRate": 255,
+      "baseExp": 55,
+      "baseExperience": 55
+    },
+    {
+      "speciesId": 821,
+      "nationalId": 821,
+      "slug": "rookidee",
+      "name": "Rookidee",
+      "types": [
+        "flying"
+      ],
+      "baseStats": {
+        "hp": 38,
+        "atk": 47,
+        "def": 35,
+        "spa": 33,
+        "spd": 35,
+        "spe": 57
+      },
+      "learnset": [
+        "peck",
+        "leer",
+        "power-trip",
+        "hone-claws"
+      ],
+      "role": "wild",
+      "flavor": "Jumping nimbly about, this small-bodied Pokémon takes advantage of even the slightest opportunity to disorient larger opponents.",
+      "source": {
+        "system": "pokeapi",
+        "syncedAt": "2026-08-02T06:47:55.319Z",
+        "pokemonUrl": "https://pokeapi.co/api/v2/pokemon/821/",
+        "speciesUrl": "https://pokeapi.co/api/v2/pokemon-species/821/"
+      },
+      "id": "rookidee",
+      "moves": [
+        "peck",
+        "leer",
+        "power-trip",
+        "hone-claws"
+      ],
+      "catchRate": 255,
+      "captureRate": 255,
+      "baseExp": 49,
+      "baseExperience": 49
+    },
+    {
+      "speciesId": 824,
+      "nationalId": 824,
+      "slug": "blipbug",
+      "name": "Blipbug",
+      "types": [
+        "bug"
+      ],
+      "baseStats": {
+        "hp": 25,
+        "atk": 20,
+        "def": 20,
+        "spa": 25,
+        "spd": 45,
+        "spe": 45
+      },
+      "learnset": [
+        "struggle-bug",
+        "infestation"
+      ],
+      "role": "wild",
+      "flavor": "Often found in gardens, this Pokémon has hairs on its body that it uses to assess its surroundings.",
+      "source": {
+        "system": "pokeapi",
+        "syncedAt": "2026-08-02T06:47:55.319Z",
+        "pokemonUrl": "https://pokeapi.co/api/v2/pokemon/824/",
+        "speciesUrl": "https://pokeapi.co/api/v2/pokemon-species/824/"
+      },
+      "id": "blipbug",
+      "moves": [
+        "struggle-bug",
+        "infestation"
+      ],
+      "catchRate": 255,
+      "captureRate": 255,
+      "baseExp": 36,
+      "baseExperience": 36
+    },
+    {
+      "speciesId": 835,
+      "nationalId": 835,
+      "slug": "yamper",
+      "name": "Yamper",
+      "types": [
+        "electric"
+      ],
+      "baseStats": {
+        "hp": 59,
+        "atk": 45,
+        "def": 50,
+        "spa": 40,
+        "spd": 50,
+        "spe": 26
+      },
+      "learnset": [
+        "nuzzle",
+        "tackle",
+        "charge",
+        "spark"
+      ],
+      "role": "wild",
+      "flavor": "This gluttonous Pokémon only assists people with their work because it wants treats. As it runs, it crackles with electricity.",
+      "source": {
+        "system": "pokeapi",
+        "syncedAt": "2026-08-02T06:47:55.319Z",
+        "pokemonUrl": "https://pokeapi.co/api/v2/pokemon/835/",
+        "speciesUrl": "https://pokeapi.co/api/v2/pokemon-species/835/"
+      },
+      "id": "yamper",
+      "moves": [
+        "nuzzle",
+        "tackle",
+        "charge",
+        "spark"
+      ],
+      "catchRate": 255,
+      "captureRate": 255,
+      "baseExp": 54,
+      "baseExperience": 54
+    },
+    {
+      "speciesId": 829,
+      "nationalId": 829,
+      "slug": "gossifleur",
+      "name": "Gossifleur",
+      "types": [
+        "grass"
+      ],
+      "baseStats": {
+        "hp": 40,
+        "atk": 40,
+        "def": 60,
+        "spa": 40,
+        "spd": 60,
+        "spe": 10
+      },
+      "learnset": [
+        "leafage",
+        "rapid-spin",
+        "razor-leaf",
+        "round"
+      ],
+      "role": "wild",
+      "flavor": "It whirls around in the wind while singing a joyous song. This delightful display has charmed many into raising this Pokémon.",
+      "source": {
+        "system": "pokeapi",
+        "syncedAt": "2026-08-02T06:47:55.319Z",
+        "pokemonUrl": "https://pokeapi.co/api/v2/pokemon/829/",
+        "speciesUrl": "https://pokeapi.co/api/v2/pokemon-species/829/"
+      },
+      "id": "gossifleur",
+      "moves": [
+        "leafage",
+        "rapid-spin",
+        "razor-leaf",
+        "round"
       ],
       "catchRate": 190,
-      "baseExp": 50
+      "captureRate": 190,
+      "baseExp": 50,
+      "baseExperience": 50
+    },
+    {
+      "speciesId": 833,
+      "nationalId": 833,
+      "slug": "chewtle",
+      "name": "Chewtle",
+      "types": [
+        "water"
+      ],
+      "baseStats": {
+        "hp": 50,
+        "atk": 64,
+        "def": 50,
+        "spa": 38,
+        "spd": 38,
+        "spe": 44
+      },
+      "learnset": [
+        "tackle",
+        "water-gun",
+        "bite",
+        "water-pulse"
+      ],
+      "role": "wild",
+      "flavor": "It starts off battles by attacking with its rock-hard horn, but as soon as the opponent flinches, this Pokémon bites down and never lets go.",
+      "source": {
+        "system": "pokeapi",
+        "syncedAt": "2026-08-02T06:47:55.319Z",
+        "pokemonUrl": "https://pokeapi.co/api/v2/pokemon/833/",
+        "speciesUrl": "https://pokeapi.co/api/v2/pokemon-species/833/"
+      },
+      "id": "chewtle",
+      "moves": [
+        "tackle",
+        "water-gun",
+        "bite",
+        "water-pulse"
+      ],
+      "catchRate": 255,
+      "captureRate": 255,
+      "baseExp": 57,
+      "baseExperience": 57
+    },
+    {
+      "speciesId": 830,
+      "nationalId": 830,
+      "slug": "eldegoss",
+      "name": "Eldegoss",
+      "types": [
+        "grass"
+      ],
+      "baseStats": {
+        "hp": 60,
+        "atk": 50,
+        "def": 90,
+        "spa": 80,
+        "spd": 120,
+        "spe": 60
+      },
+      "learnset": [
+        "leafage",
+        "rapid-spin",
+        "razor-leaf",
+        "round"
+      ],
+      "role": "gym",
+      "flavor": "The cotton on the head of this Pokémon can be spun into a glossy, gorgeous yarn—a Galar regional specialty.",
+      "source": {
+        "system": "pokeapi",
+        "syncedAt": "2026-08-02T06:47:55.319Z",
+        "pokemonUrl": "https://pokeapi.co/api/v2/pokemon/830/",
+        "speciesUrl": "https://pokeapi.co/api/v2/pokemon-species/830/"
+      },
+      "id": "eldegoss",
+      "moves": [
+        "leafage",
+        "rapid-spin",
+        "razor-leaf",
+        "round"
+      ],
+      "catchRate": 75,
+      "captureRate": 75,
+      "baseExp": 161,
+      "baseExperience": 161
+    },
+    {
+      "speciesId": 823,
+      "nationalId": 823,
+      "slug": "corviknight",
+      "name": "Corviknight",
+      "types": [
+        "flying",
+        "steel"
+      ],
+      "baseStats": {
+        "hp": 98,
+        "atk": 87,
+        "def": 105,
+        "spa": 53,
+        "spd": 85,
+        "spe": 67
+      },
+      "learnset": [
+        "peck",
+        "power-trip",
+        "steel-wing",
+        "iron-defense"
+      ],
+      "role": "elite",
+      "flavor": "With their great intellect and flying skills, these Pokémon very successfully act as the Galar region’s airborne taxi service.",
+      "source": {
+        "system": "pokeapi",
+        "syncedAt": "2026-08-02T06:47:55.319Z",
+        "pokemonUrl": "https://pokeapi.co/api/v2/pokemon/823/",
+        "speciesUrl": "https://pokeapi.co/api/v2/pokemon-species/823/"
+      },
+      "id": "corviknight",
+      "moves": [
+        "peck",
+        "power-trip",
+        "steel-wing",
+        "iron-defense"
+      ],
+      "catchRate": 45,
+      "captureRate": 45,
+      "baseExp": 248,
+      "baseExperience": 248
     }
   ],
   "route": {
-    "id": "twilight-lane",
-    "name": "Twilight Lane",
-    "description": "A short dusk path of tall grass outside the starter grove.",
+    "id": "galar-route-1",
+    "name": "Galar Route 1",
+    "description": "A compact game slice inspired by the opening routes of the Galar Pokédex.",
     "starterChoices": [
-      "emberpup",
-      "dewkin",
-      "leafkit"
+      "scorbunny",
+      "sobble",
+      "grookey"
     ],
     "wildEncounters": [
       {
-        "species": "dustbun",
+        "species": "wooloo",
         "minLevel": 3,
         "maxLevel": 5,
-        "weight": 40,
+        "weight": 30,
         "band": "early"
       },
       {
-        "species": "sparkmoth",
-        "minLevel": 4,
-        "maxLevel": 6,
+        "species": "skwovet",
+        "minLevel": 3,
+        "maxLevel": 5,
+        "weight": 25,
+        "band": "early"
+      },
+      {
+        "species": "rookidee",
+        "minLevel": 3,
+        "maxLevel": 5,
         "weight": 20,
         "band": "early"
       },
       {
-        "species": "mossprite",
+        "species": "blipbug",
         "minLevel": 3,
         "maxLevel": 5,
         "weight": 15,
         "band": "early"
       },
       {
-        "species": "rivlet",
+        "species": "yamper",
         "minLevel": 4,
         "maxLevel": 6,
         "weight": 10,
         "band": "early"
       },
       {
-        "species": "mossprite",
-        "minLevel": 6,
-        "maxLevel": 8,
+        "species": "gossifleur",
+        "minLevel": 5,
+        "maxLevel": 7,
+        "weight": 20,
+        "band": "mid"
+      },
+      {
+        "species": "chewtle",
+        "minLevel": 5,
+        "maxLevel": 7,
         "weight": 18,
         "band": "mid"
       },
       {
-        "species": "rivlet",
+        "species": "yamper",
         "minLevel": 6,
         "maxLevel": 8,
-        "weight": 16,
+        "weight": 12,
         "band": "mid"
       },
       {
-        "species": "dustbun",
-        "minLevel": 6,
-        "maxLevel": 8,
-        "weight": 8,
-        "band": "mid"
-      },
-      {
-        "species": "sparkmoth",
+        "species": "rookidee",
         "minLevel": 7,
         "maxLevel": 9,
-        "weight": 8,
+        "weight": 10,
         "band": "late"
       },
       {
-        "species": "mossprite",
+        "species": "wooloo",
         "minLevel": 8,
         "maxLevel": 10,
-        "weight": 5,
+        "weight": 8,
         "band": "late"
       }
     ],
     "playerDefaultLevel": 5,
     "gym": {
-      "id": "lumen-dusk-gym",
-      "name": "Lumen Dusk Gym",
-      "leaderName": "Warden Brisa",
-      "species": "ironwisp",
-      "level": 8,
-      "description": "First badge gate on Twilight Lane \u2014 electric/bug specialty."
+      "id": "turffield-gym",
+      "name": "Turffield Gym",
+      "leaderName": "Milo",
+      "species": "eldegoss",
+      "level": 9,
+      "description": "A compressed first-gym battle against Milo’s Grass-type ace."
     },
     "elite": {
-      "id": "hollow-elite-gate",
-      "name": "Hollow Elite Gate",
-      "trainerName": "Elite Mora",
-      "species": "gloomhorn",
-      "level": 11,
-      "description": "Demo elite stake beyond the gym for vertical-slice escalation."
+      "id": "galar-league-gate",
+      "name": "Galar League Gate",
+      "trainerName": "League Challenger",
+      "species": "corviknight",
+      "level": 12,
+      "description": "A late-slice challenge featuring Galar’s fully evolved Flying/Steel sentinel."
     }
   }
 }

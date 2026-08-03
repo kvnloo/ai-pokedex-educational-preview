@@ -1,0 +1,602 @@
+{
+  "version": 1,
+  "source": {
+    "system": "pokeapi",
+    "baseUrl": "https://pokeapi.co/api/v2",
+    "fetchedAt": "2026-08-03T03:01:06.143Z",
+    "descriptionField": "effect_entries[language=en].short_effect",
+    "descriptionNormalization": "collapse whitespace; expand $effect_chance when present",
+    "pokemonEndpoints": [
+      "https://pokeapi.co/api/v2/pokemon/813/",
+      "https://pokeapi.co/api/v2/pokemon/816/",
+      "https://pokeapi.co/api/v2/pokemon/810/",
+      "https://pokeapi.co/api/v2/pokemon/831/",
+      "https://pokeapi.co/api/v2/pokemon/819/",
+      "https://pokeapi.co/api/v2/pokemon/821/",
+      "https://pokeapi.co/api/v2/pokemon/824/",
+      "https://pokeapi.co/api/v2/pokemon/835/",
+      "https://pokeapi.co/api/v2/pokemon/829/",
+      "https://pokeapi.co/api/v2/pokemon/833/",
+      "https://pokeapi.co/api/v2/pokemon/830/",
+      "https://pokeapi.co/api/v2/pokemon/823/"
+    ]
+  },
+  "moves": [
+    {
+      "moveId": 1,
+      "slug": "pound",
+      "name": "Pound",
+      "type": "normal",
+      "category": "physical",
+      "power": 40,
+      "accuracy": 100,
+      "pp": 35,
+      "priority": 0,
+      "effectChance": null,
+      "rawTarget": "selected-pokemon",
+      "description": "Inflicts regular damage with no additional effect.",
+      "learnedBy": [
+        "sobble"
+      ],
+      "sourceUrl": "https://pokeapi.co/api/v2/move/1/"
+    },
+    {
+      "moveId": 10,
+      "slug": "scratch",
+      "name": "Scratch",
+      "type": "normal",
+      "category": "physical",
+      "power": 40,
+      "accuracy": 100,
+      "pp": 35,
+      "priority": 0,
+      "effectChance": null,
+      "rawTarget": "selected-pokemon",
+      "description": "Inflicts regular damage with no additional effect.",
+      "learnedBy": [
+        "grookey"
+      ],
+      "sourceUrl": "https://pokeapi.co/api/v2/move/10/"
+    },
+    {
+      "moveId": 29,
+      "slug": "headbutt",
+      "name": "Headbutt",
+      "type": "normal",
+      "category": "physical",
+      "power": 70,
+      "accuracy": 100,
+      "pp": 15,
+      "priority": 0,
+      "effectChance": 30,
+      "rawTarget": "selected-pokemon",
+      "description": "Has a chance to make the target flinch.",
+      "learnedBy": [
+        "scorbunny",
+        "wooloo",
+        "chewtle"
+      ],
+      "sourceUrl": "https://pokeapi.co/api/v2/move/29/"
+    },
+    {
+      "moveId": 33,
+      "slug": "tackle",
+      "name": "Tackle",
+      "type": "normal",
+      "category": "physical",
+      "power": 40,
+      "accuracy": 100,
+      "pp": 35,
+      "priority": 0,
+      "effectChance": null,
+      "rawTarget": "selected-pokemon",
+      "description": "Inflicts regular damage with no additional effect.",
+      "learnedBy": [
+        "scorbunny",
+        "wooloo",
+        "skwovet",
+        "yamper",
+        "chewtle"
+      ],
+      "sourceUrl": "https://pokeapi.co/api/v2/move/33/"
+    },
+    {
+      "moveId": 39,
+      "slug": "tail-whip",
+      "name": "Tail Whip",
+      "type": "normal",
+      "category": "status",
+      "power": null,
+      "accuracy": 100,
+      "pp": 30,
+      "priority": 0,
+      "effectChance": null,
+      "rawTarget": "all-opponents",
+      "description": "Lowers the target’s Defense by one stage.",
+      "learnedBy": [
+        "skwovet",
+        "yamper"
+      ],
+      "sourceUrl": "https://pokeapi.co/api/v2/move/39/"
+    },
+    {
+      "moveId": 43,
+      "slug": "leer",
+      "name": "Leer",
+      "type": "normal",
+      "category": "status",
+      "power": null,
+      "accuracy": 100,
+      "pp": 30,
+      "priority": 0,
+      "effectChance": 100,
+      "rawTarget": "all-opponents",
+      "description": "Lowers the target’s Defense by one stage.",
+      "learnedBy": [
+        "rookidee",
+        "corviknight"
+      ],
+      "sourceUrl": "https://pokeapi.co/api/v2/move/43/"
+    },
+    {
+      "moveId": 44,
+      "slug": "bite",
+      "name": "Bite",
+      "type": "dark",
+      "category": "physical",
+      "power": 60,
+      "accuracy": 100,
+      "pp": 25,
+      "priority": 0,
+      "effectChance": 30,
+      "rawTarget": "selected-pokemon",
+      "description": "Has a chance to make the target flinch.",
+      "learnedBy": [
+        "skwovet",
+        "yamper",
+        "chewtle"
+      ],
+      "sourceUrl": "https://pokeapi.co/api/v2/move/44/"
+    },
+    {
+      "moveId": 45,
+      "slug": "growl",
+      "name": "Growl",
+      "type": "normal",
+      "category": "status",
+      "power": null,
+      "accuracy": 100,
+      "pp": 40,
+      "priority": 0,
+      "effectChance": null,
+      "rawTarget": "all-opponents",
+      "description": "Lowers the target’s Attack by one stage.",
+      "learnedBy": [
+        "scorbunny",
+        "sobble",
+        "grookey",
+        "wooloo"
+      ],
+      "sourceUrl": "https://pokeapi.co/api/v2/move/45/"
+    },
+    {
+      "moveId": 52,
+      "slug": "ember",
+      "name": "Ember",
+      "type": "fire",
+      "category": "special",
+      "power": 40,
+      "accuracy": 100,
+      "pp": 25,
+      "priority": 0,
+      "effectChance": 10,
+      "rawTarget": "selected-pokemon",
+      "description": "Has a chance to burn the target.",
+      "learnedBy": [
+        "scorbunny"
+      ],
+      "sourceUrl": "https://pokeapi.co/api/v2/move/52/"
+    },
+    {
+      "moveId": 55,
+      "slug": "water-gun",
+      "name": "Water Gun",
+      "type": "water",
+      "category": "special",
+      "power": 40,
+      "accuracy": 100,
+      "pp": 25,
+      "priority": 0,
+      "effectChance": null,
+      "rawTarget": "selected-pokemon",
+      "description": "Inflicts regular damage with no additional effect.",
+      "learnedBy": [
+        "sobble",
+        "chewtle"
+      ],
+      "sourceUrl": "https://pokeapi.co/api/v2/move/55/"
+    },
+    {
+      "moveId": 64,
+      "slug": "peck",
+      "name": "Peck",
+      "type": "flying",
+      "category": "physical",
+      "power": 35,
+      "accuracy": 100,
+      "pp": 35,
+      "priority": 0,
+      "effectChance": null,
+      "rawTarget": "selected-pokemon",
+      "description": "Inflicts regular damage with no additional effect.",
+      "learnedBy": [
+        "rookidee",
+        "corviknight"
+      ],
+      "sourceUrl": "https://pokeapi.co/api/v2/move/64/"
+    },
+    {
+      "moveId": 75,
+      "slug": "razor-leaf",
+      "name": "Razor Leaf",
+      "type": "grass",
+      "category": "physical",
+      "power": 55,
+      "accuracy": 95,
+      "pp": 25,
+      "priority": 0,
+      "effectChance": null,
+      "rawTarget": "all-opponents",
+      "description": "Has an increased chance for a critical hit.",
+      "learnedBy": [
+        "grookey",
+        "gossifleur",
+        "eldegoss"
+      ],
+      "sourceUrl": "https://pokeapi.co/api/v2/move/75/"
+    },
+    {
+      "moveId": 98,
+      "slug": "quick-attack",
+      "name": "Quick Attack",
+      "type": "normal",
+      "category": "physical",
+      "power": 40,
+      "accuracy": 100,
+      "pp": 30,
+      "priority": 1,
+      "effectChance": null,
+      "rawTarget": "selected-pokemon",
+      "description": "Inflicts regular damage with no additional effect.",
+      "learnedBy": [
+        "scorbunny"
+      ],
+      "sourceUrl": "https://pokeapi.co/api/v2/move/98/"
+    },
+    {
+      "moveId": 111,
+      "slug": "defense-curl",
+      "name": "Defense Curl",
+      "type": "normal",
+      "category": "status",
+      "power": null,
+      "accuracy": null,
+      "pp": 40,
+      "priority": 0,
+      "effectChance": null,
+      "rawTarget": "user",
+      "description": "Raises user’s Defense by one stage.",
+      "learnedBy": [
+        "wooloo",
+        "skwovet"
+      ],
+      "sourceUrl": "https://pokeapi.co/api/v2/move/111/"
+    },
+    {
+      "moveId": 209,
+      "slug": "spark",
+      "name": "Spark",
+      "type": "electric",
+      "category": "physical",
+      "power": 65,
+      "accuracy": 100,
+      "pp": 20,
+      "priority": 0,
+      "effectChance": 30,
+      "rawTarget": "selected-pokemon",
+      "description": "Has a chance to paralyze the target.",
+      "learnedBy": [
+        "yamper"
+      ],
+      "sourceUrl": "https://pokeapi.co/api/v2/move/209/"
+    },
+    {
+      "moveId": 211,
+      "slug": "steel-wing",
+      "name": "Steel Wing",
+      "type": "steel",
+      "category": "physical",
+      "power": 70,
+      "accuracy": 90,
+      "pp": 25,
+      "priority": 0,
+      "effectChance": 10,
+      "rawTarget": "selected-pokemon",
+      "description": "Has a chance to raise the user’s Defense by one stage.",
+      "learnedBy": [
+        "corviknight"
+      ],
+      "sourceUrl": "https://pokeapi.co/api/v2/move/211/"
+    },
+    {
+      "moveId": 229,
+      "slug": "rapid-spin",
+      "name": "Rapid Spin",
+      "type": "normal",
+      "category": "physical",
+      "power": 50,
+      "accuracy": 100,
+      "pp": 40,
+      "priority": 0,
+      "effectChance": 100,
+      "rawTarget": "selected-pokemon",
+      "description": "Frees the user from binding moves, removes Leech Seed, and blows away Spikes.",
+      "learnedBy": [
+        "gossifleur",
+        "eldegoss"
+      ],
+      "sourceUrl": "https://pokeapi.co/api/v2/move/229/"
+    },
+    {
+      "moveId": 268,
+      "slug": "charge",
+      "name": "Charge",
+      "type": "electric",
+      "category": "status",
+      "power": null,
+      "accuracy": null,
+      "pp": 20,
+      "priority": 0,
+      "effectChance": null,
+      "rawTarget": "user",
+      "description": "Raises the user’s Special Defense by one stage. User’s Electric moves have doubled power next turn.",
+      "learnedBy": [
+        "yamper"
+      ],
+      "sourceUrl": "https://pokeapi.co/api/v2/move/268/"
+    },
+    {
+      "moveId": 331,
+      "slug": "bullet-seed",
+      "name": "Bullet Seed",
+      "type": "grass",
+      "category": "physical",
+      "power": 25,
+      "accuracy": 100,
+      "pp": 30,
+      "priority": 0,
+      "effectChance": null,
+      "rawTarget": "selected-pokemon",
+      "description": "Hits 2-5 times in one turn.",
+      "learnedBy": [
+        "grookey",
+        "skwovet",
+        "gossifleur",
+        "eldegoss"
+      ],
+      "sourceUrl": "https://pokeapi.co/api/v2/move/331/"
+    },
+    {
+      "moveId": 334,
+      "slug": "iron-defense",
+      "name": "Iron Defense",
+      "type": "steel",
+      "category": "status",
+      "power": null,
+      "accuracy": null,
+      "pp": 15,
+      "priority": 0,
+      "effectChance": null,
+      "rawTarget": "user",
+      "description": "Raises the user’s Defense by two stages.",
+      "learnedBy": [
+        "corviknight"
+      ],
+      "sourceUrl": "https://pokeapi.co/api/v2/move/334/"
+    },
+    {
+      "moveId": 352,
+      "slug": "water-pulse",
+      "name": "Water Pulse",
+      "type": "water",
+      "category": "special",
+      "power": 60,
+      "accuracy": 100,
+      "pp": 20,
+      "priority": 0,
+      "effectChance": 20,
+      "rawTarget": "selected-pokemon",
+      "description": "Has a chance to confuse the target.",
+      "learnedBy": [
+        "sobble",
+        "chewtle"
+      ],
+      "sourceUrl": "https://pokeapi.co/api/v2/move/352/"
+    },
+    {
+      "moveId": 468,
+      "slug": "hone-claws",
+      "name": "Hone Claws",
+      "type": "dark",
+      "category": "status",
+      "power": null,
+      "accuracy": null,
+      "pp": 15,
+      "priority": 0,
+      "effectChance": null,
+      "rawTarget": "user",
+      "description": "Raises the user’s Attack and accuracy by one stage.",
+      "learnedBy": [
+        "rookidee",
+        "corviknight"
+      ],
+      "sourceUrl": "https://pokeapi.co/api/v2/move/468/"
+    },
+    {
+      "moveId": 496,
+      "slug": "round",
+      "name": "Round",
+      "type": "normal",
+      "category": "special",
+      "power": 60,
+      "accuracy": 100,
+      "pp": 15,
+      "priority": 0,
+      "effectChance": null,
+      "rawTarget": "selected-pokemon",
+      "description": "Has double power if it’s used more than once per turn.",
+      "learnedBy": [
+        "scorbunny",
+        "sobble",
+        "grookey",
+        "wooloo",
+        "skwovet",
+        "rookidee",
+        "yamper",
+        "gossifleur",
+        "chewtle",
+        "eldegoss",
+        "corviknight"
+      ],
+      "sourceUrl": "https://pokeapi.co/api/v2/move/496/"
+    },
+    {
+      "moveId": 522,
+      "slug": "struggle-bug",
+      "name": "Struggle Bug",
+      "type": "bug",
+      "category": "special",
+      "power": 50,
+      "accuracy": 100,
+      "pp": 20,
+      "priority": 0,
+      "effectChance": 100,
+      "rawTarget": "all-opponents",
+      "description": "Has a chance to lower the target’s Special Attack by one stage.",
+      "learnedBy": [
+        "blipbug"
+      ],
+      "sourceUrl": "https://pokeapi.co/api/v2/move/522/"
+    },
+    {
+      "moveId": 609,
+      "slug": "nuzzle",
+      "name": "Nuzzle",
+      "type": "electric",
+      "category": "physical",
+      "power": 20,
+      "accuracy": 100,
+      "pp": 20,
+      "priority": 0,
+      "effectChance": 100,
+      "rawTarget": "selected-pokemon",
+      "description": "Has a chance to paralyze the target.",
+      "learnedBy": [
+        "yamper"
+      ],
+      "sourceUrl": "https://pokeapi.co/api/v2/move/609/"
+    },
+    {
+      "moveId": 611,
+      "slug": "infestation",
+      "name": "Infestation",
+      "type": "bug",
+      "category": "special",
+      "power": 20,
+      "accuracy": 100,
+      "pp": 20,
+      "priority": 0,
+      "effectChance": 100,
+      "rawTarget": "selected-pokemon",
+      "description": "Prevents the target from fleeing and inflicts damage for 2-5 turns.",
+      "learnedBy": [
+        "blipbug"
+      ],
+      "sourceUrl": "https://pokeapi.co/api/v2/move/611/"
+    },
+    {
+      "moveId": 670,
+      "slug": "leafage",
+      "name": "Leafage",
+      "type": "grass",
+      "category": "physical",
+      "power": 40,
+      "accuracy": 100,
+      "pp": 40,
+      "priority": 0,
+      "effectChance": null,
+      "rawTarget": "selected-pokemon",
+      "description": "Inflicts regular damage with no additional effect.",
+      "learnedBy": [
+        "gossifleur",
+        "eldegoss"
+      ],
+      "sourceUrl": "https://pokeapi.co/api/v2/move/670/"
+    },
+    {
+      "moveId": 681,
+      "slug": "power-trip",
+      "name": "Power Trip",
+      "type": "dark",
+      "category": "physical",
+      "power": 20,
+      "accuracy": 100,
+      "pp": 10,
+      "priority": 0,
+      "effectChance": null,
+      "rawTarget": "selected-pokemon",
+      "description": "Power is higher the more the user’s stats have been raised, to a maximum of 31×.",
+      "learnedBy": [
+        "rookidee",
+        "corviknight"
+      ],
+      "sourceUrl": "https://pokeapi.co/api/v2/move/681/"
+    },
+    {
+      "moveId": 715,
+      "slug": "tearful-look",
+      "name": "Tearful Look",
+      "type": "normal",
+      "category": "status",
+      "power": null,
+      "accuracy": null,
+      "pp": 20,
+      "priority": 0,
+      "effectChance": 100,
+      "rawTarget": "selected-pokemon",
+      "description": "Lowers the target’s Attack and Special Attack by one stage.",
+      "learnedBy": [
+        "sobble"
+      ],
+      "sourceUrl": "https://pokeapi.co/api/v2/move/715/"
+    },
+    {
+      "moveId": 785,
+      "slug": "branch-poke",
+      "name": "Branch Poke",
+      "type": "grass",
+      "category": "physical",
+      "power": 40,
+      "accuracy": 100,
+      "pp": 40,
+      "priority": 0,
+      "effectChance": null,
+      "rawTarget": "selected-pokemon",
+      "description": "Inflicts regular damage with no additional effect.",
+      "learnedBy": [
+        "grookey"
+      ],
+      "sourceUrl": "https://pokeapi.co/api/v2/move/785/"
+    }
+  ]
+}
