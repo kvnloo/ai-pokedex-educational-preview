@@ -22,6 +22,9 @@ export {
   playIdle,
   tickCreatureClip,
   type ClipName,
+  type GaitPoseName,
+  type GaitPoseWeights,
+  type CreatureLocomotionState,
 } from './clips.ts';
 
 export {
