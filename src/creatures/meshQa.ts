@@ -20,12 +20,17 @@ export interface MeshQaResult {
   meshCount: number;
   triangleCount: number;
   primitiveSphereVolumeShare: number;
+  /** All obvious analytic assembly primitives, not only spheres. */
+  primitiveAssemblyVolumeShare: number;
   organicCoreCount: number;
   organicCoreTriangles: number;
   organicCoreAxisPlanes: { x: number; y: number; z: number };
   organicCoreThinRatio: number;
   organicCoreVolumeShare: number;
   socketedAppendageCount: number;
+  semanticJointCount: number;
+  layeredWingPlaneCount: number;
+  facePlaneCount: number;
 }
 
 const CUBE_VOL_THRESHOLD = 0.75;
@@ -36,6 +41,32 @@ const STARTER_CORE_THIN_RATIO_MIN = 0.28;
 const STARTER_CORE_VOLUME_SHARE_MIN = 0.45;
 const STARTER_SPHERE_VOLUME_SHARE_MAX = 0.12;
 const STARTER_SOCKETED_APPENDAGE_MIN = 6;
+const WILD_CORE_TRIANGLE_MIN = 450;
+const WILD_CORE_AXIS_PLANES_MIN = 10;
+const WILD_CORE_THIN_RATIO_MIN = 0.3;
+const WILD_CORE_VOLUME_SHARE_MIN = 0.3;
+const WILD_PRIMITIVE_ASSEMBLY_SHARE_MAX = 0.16;
+const WILD_SOCKETED_APPENDAGE_MIN = 11;
+const WILD_SEMANTIC_JOINT_MIN = 20;
+const WILD_LAYERED_WING_PLANE_MIN = 4;
+const WILD_FACE_PLANE_MIN = 7;
+
+const ASSEMBLY_PRIMITIVE_TYPES = new Set([
+  'BoxGeometry',
+  'CapsuleGeometry',
+  'CircleGeometry',
+  'ConeGeometry',
+  'CylinderGeometry',
+  'DodecahedronGeometry',
+  'IcosahedronGeometry',
+  'OctahedronGeometry',
+  'PlaneGeometry',
+  'RingGeometry',
+  'SphereGeometry',
+  'TetrahedronGeometry',
+  'TorusGeometry',
+  'TorusKnotGeometry',
+]);
 
 interface MeshMeasure {
   mesh: THREE.Mesh;
@@ -111,6 +142,9 @@ function measureGroup(root: THREE.Object3D): {
   extents: { x: number; y: number; z: number };
   meshes: MeshMeasure[];
   socketedAppendageCount: number;
+  semanticJointCount: number;
+  layeredWingPlaneCount: number;
+  facePlaneCount: number;
 } {
   root.updateWorldMatrix(true, true);
   const box = new THREE.Box3().setFromObject(root);
@@ -121,9 +155,15 @@ function measureGroup(root: THREE.Object3D): {
 
   let conservativeVolume = 0;
   let socketedAppendageCount = 0;
+  let semanticJointCount = 0;
+  let layeredWingPlaneCount = 0;
+  let facePlaneCount = 0;
   const meshes: MeshMeasure[] = [];
   root.traverse((obj) => {
     if (obj.userData.attachment === 'embedded-socket') socketedAppendageCount++;
+    if (obj.userData.joint) semanticJointCount++;
+    if (obj.userData.qaRole === 'wing-plane') layeredWingPlaneCount++;
+    if (obj.userData.qaRole === 'face-plane') facePlaneCount++;
     const mesh = obj as THREE.Mesh;
     if (!mesh.isMesh || !mesh.geometry) return;
     if (!mesh.geometry.boundingBox) mesh.geometry.computeBoundingBox();
@@ -146,11 +186,29 @@ function measureGroup(root: THREE.Object3D): {
     });
   });
 
-  return { conservativeVolume, bboxVolume, extents, meshes, socketedAppendageCount };
+  return {
+    conservativeVolume,
+    bboxVolume,
+    extents,
+    meshes,
+    socketedAppendageCount,
+    semanticJointCount,
+    layeredWingPlaneCount,
+    facePlaneCount,
+  };
 }
 
 export function evaluateMeshQa(root: THREE.Object3D): MeshQaResult {
-  const { conservativeVolume, bboxVolume, extents, meshes, socketedAppendageCount } = measureGroup(root);
+  const {
+    conservativeVolume,
+    bboxVolume,
+    extents,
+    meshes,
+    socketedAppendageCount,
+    semanticJointCount,
+    layeredWingPlaneCount,
+    facePlaneCount,
+  } = measureGroup(root);
   const volumeOverBbox = conservativeVolume / bboxVolume;
   const measuredVolume = meshes.reduce((sum, item) => sum + item.triangleVolume, 0);
   const actualVolumeOverBbox = measuredVolume / bboxVolume;
@@ -163,6 +221,10 @@ export function evaluateMeshQa(root: THREE.Object3D): MeshQaResult {
     .filter((item) => item.mesh.geometry.type === 'SphereGeometry')
     .reduce((sum, item) => sum + item.triangleVolume, 0);
   const primitiveSphereVolumeShare = sphereVolume / Math.max(measuredVolume, 1e-9);
+  const assemblyPrimitiveVolume = meshes
+    .filter((item) => ASSEMBLY_PRIMITIVE_TYPES.has(item.mesh.geometry.type))
+    .reduce((sum, item) => sum + item.triangleVolume, 0);
+  const primitiveAssemblyVolumeShare = assemblyPrimitiveVolume / Math.max(measuredVolume, 1e-9);
   const cores = meshes.filter((item) => item.mesh.userData.qaRole === 'organic-core');
   const organicCoreTriangles = cores.reduce((sum, item) => sum + item.triangleCount, 0);
   const organicCoreVolume = cores.reduce((sum, item) => sum + item.triangleVolume, 0);
@@ -219,6 +281,54 @@ export function evaluateMeshQa(root: THREE.Object3D): MeshQaResult {
     }
   }
 
+  if (root.userData.fidelityTier === 'authored-wild') {
+    if (cores.length !== 1) reasons.push(`authored wild needs exactly one organic core; got ${cores.length}`);
+    if (organicCoreTriangles < WILD_CORE_TRIANGLE_MIN) {
+      reasons.push(`authored wild organic core triangles=${organicCoreTriangles} < ${WILD_CORE_TRIANGLE_MIN}`);
+    }
+    const minPlanes = Math.min(
+      organicCoreAxisPlanes.x,
+      organicCoreAxisPlanes.y,
+      organicCoreAxisPlanes.z,
+    );
+    if (minPlanes < WILD_CORE_AXIS_PLANES_MIN) {
+      reasons.push(
+        `authored wild organic core coordinate planes=${organicCoreAxisPlanes.x}/${organicCoreAxisPlanes.y}/${organicCoreAxisPlanes.z}; min < ${WILD_CORE_AXIS_PLANES_MIN}`,
+      );
+    }
+    if (organicCoreThinRatio < WILD_CORE_THIN_RATIO_MIN) {
+      reasons.push(
+        `authored wild organic core min/max=${organicCoreThinRatio.toFixed(3)} < ${WILD_CORE_THIN_RATIO_MIN}`,
+      );
+    }
+    if (organicCoreVolumeShare < WILD_CORE_VOLUME_SHARE_MIN) {
+      reasons.push(
+        `authored wild organic core volume share=${organicCoreVolumeShare.toFixed(3)} < ${WILD_CORE_VOLUME_SHARE_MIN}`,
+      );
+    }
+    if (primitiveAssemblyVolumeShare > WILD_PRIMITIVE_ASSEMBLY_SHARE_MAX) {
+      reasons.push(
+        `authored wild primitive assembly volume share=${primitiveAssemblyVolumeShare.toFixed(3)} > ${WILD_PRIMITIVE_ASSEMBLY_SHARE_MAX}`,
+      );
+    }
+    if (socketedAppendageCount < WILD_SOCKETED_APPENDAGE_MIN) {
+      reasons.push(
+        `authored wild socketed appendages=${socketedAppendageCount} < ${WILD_SOCKETED_APPENDAGE_MIN}`,
+      );
+    }
+    if (semanticJointCount < WILD_SEMANTIC_JOINT_MIN) {
+      reasons.push(`authored wild semantic joints=${semanticJointCount} < ${WILD_SEMANTIC_JOINT_MIN}`);
+    }
+    if (layeredWingPlaneCount < WILD_LAYERED_WING_PLANE_MIN) {
+      reasons.push(
+        `authored wild wing planes=${layeredWingPlaneCount} < ${WILD_LAYERED_WING_PLANE_MIN}`,
+      );
+    }
+    if (facePlaneCount < WILD_FACE_PLANE_MIN) {
+      reasons.push(`authored wild face planes=${facePlaneCount} < ${WILD_FACE_PLANE_MIN}`);
+    }
+  }
+
   return {
     ok: reasons.length === 0,
     reasons,
@@ -229,12 +339,16 @@ export function evaluateMeshQa(root: THREE.Object3D): MeshQaResult {
     meshCount: meshes.length,
     triangleCount: totalTriangles,
     primitiveSphereVolumeShare,
+    primitiveAssemblyVolumeShare,
     organicCoreCount: cores.length,
     organicCoreTriangles,
     organicCoreAxisPlanes,
     organicCoreThinRatio,
     organicCoreVolumeShare,
     socketedAppendageCount,
+    semanticJointCount,
+    layeredWingPlaneCount,
+    facePlaneCount,
   };
 }
 

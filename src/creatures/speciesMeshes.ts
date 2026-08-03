@@ -158,6 +158,148 @@ function addPivotedPart(
   return pivot;
 }
 
+/** A shallow authored crescent with real bevel, used for gameplay-readable mouths. */
+function makeCrescentMouthGeometry(width: number, height: number, depth = 0.025): THREE.ExtrudeGeometry {
+  const shape = new THREE.Shape();
+  shape.moveTo(-width * 0.5, height * 0.12);
+  shape.quadraticCurveTo(0, -height * 0.62, width * 0.5, height * 0.12);
+  shape.quadraticCurveTo(0, -height * 0.28, -width * 0.5, height * 0.12);
+  shape.closePath();
+  const geometry = new THREE.ExtrudeGeometry(shape, {
+    depth,
+    bevelEnabled: true,
+    bevelSegments: 2,
+    bevelSize: depth * 0.28,
+    bevelThickness: depth * 0.3,
+    curveSegments: 10,
+  });
+  geometry.center();
+  return geometry;
+}
+
+/**
+ * Four separate planes use this root-authored outline. The first outline point
+ * is the thorax socket, so rotation happens at an embedded wing root rather
+ * than at the centre of a flattened sphere.
+ */
+function makeMothWingGeometry(
+  side: -1 | 1,
+  layer: 'fore' | 'hind',
+  depth = 0.038,
+): THREE.ExtrudeGeometry {
+  const s = side;
+  const shape = new THREE.Shape();
+  shape.moveTo(0, 0);
+  if (layer === 'fore') {
+    shape.bezierCurveTo(s * 0.22, 0.03, s * 0.52, 0.02, s * 0.72, -0.17);
+    shape.bezierCurveTo(s * 0.84, -0.32, s * 0.65, -0.55, s * 0.4, -0.52);
+    shape.bezierCurveTo(s * 0.22, -0.48, s * 0.1, -0.22, 0, 0);
+  } else {
+    shape.bezierCurveTo(s * 0.17, -0.02, s * 0.43, -0.12, s * 0.55, -0.34);
+    shape.bezierCurveTo(s * 0.63, -0.52, s * 0.47, -0.69, s * 0.27, -0.62);
+    shape.bezierCurveTo(s * 0.12, -0.54, s * 0.05, -0.25, 0, 0);
+  }
+  shape.closePath();
+  const geometry = new THREE.ExtrudeGeometry(shape, {
+    depth,
+    bevelEnabled: true,
+    bevelSegments: 2,
+    bevelSize: depth * 0.32,
+    bevelThickness: depth * 0.34,
+    curveSegments: 14,
+  });
+  // ExtrudeGeometry is XY with depth Z. Rotate it into an XZ wing plane with
+  // thickness along Y while keeping the authored root at local origin.
+  geometry.translate(0, 0, -depth * 0.5);
+  geometry.rotateX(Math.PI / 2);
+  return geometry;
+}
+
+interface JointedLegOpts {
+  part: 'legFL' | 'legFR' | 'legBL' | 'legBR';
+  x: number;
+  y: number;
+  z: number;
+  scale: number;
+  front: boolean;
+  upperMaterial: THREE.Material;
+  lowerMaterial: THREE.Material;
+  pawMaterial: THREE.Material;
+}
+
+/** Two-link pup leg with semantic shoulder/hip, elbow/hock, and paw pivots. */
+function addJointedQuadrupedLeg(parent: THREE.Group, opts: JointedLegOpts): THREE.Group {
+  const upperLength = opts.front ? 0.265 : 0.275;
+  const lowerLength = opts.front ? 0.235 : 0.225;
+  const root = new THREE.Group();
+  root.name = `${opts.part}-${opts.front ? 'shoulder' : 'hip'}-joint`;
+  root.position.set(opts.x * opts.scale, opts.y * opts.scale, opts.z * opts.scale);
+  root.scale.setScalar(opts.scale);
+  root.userData.part = opts.part;
+  root.userData.joint = opts.front ? 'shoulder' : 'hip';
+  root.userData.attachment = 'embedded-socket';
+  root.userData.gaitRig = {
+    upperLength,
+    lowerLength,
+    restZ: opts.front ? 0.035 : -0.025,
+    front: opts.front,
+  };
+
+  const upper = new THREE.Mesh(
+    createVerticalLoftGeometry([
+      { y: -upperLength, z: opts.front ? -0.018 : 0.025, radiusX: 0.082, radiusZ: 0.095, shapePower: 2.25 },
+      { y: -upperLength * 0.64, z: opts.front ? -0.008 : 0.014, radiusX: 0.092, radiusZ: 0.105, shapePower: 2.35 },
+      { y: -upperLength * 0.25, radiusX: 0.108, radiusZ: 0.12, shapePower: 2.4 },
+      { y: 0, radiusX: 0.14, radiusZ: 0.145, shapePower: 2.35 },
+    ], 16, `${opts.part}-upper-limb-loft`),
+    opts.upperMaterial,
+  );
+  upper.name = `${opts.part}-upper-form`;
+  upper.userData.explodeWithParent = true;
+  root.add(upper);
+
+  const knee = new THREE.Group();
+  knee.name = `${opts.part}-${opts.front ? 'elbow' : 'hock'}-joint`;
+  knee.position.y = -upperLength;
+  knee.userData.joint = opts.front ? 'elbow' : 'hock';
+  knee.userData.gaitParent = opts.part;
+  const lower = new THREE.Mesh(
+    createVerticalLoftGeometry([
+      { y: -lowerLength, z: 0.012, radiusX: 0.072, radiusZ: 0.075, shapePower: 2.2 },
+      { y: -lowerLength * 0.6, z: 0.006, radiusX: 0.068, radiusZ: 0.074 },
+      { y: -lowerLength * 0.22, radiusX: 0.079, radiusZ: 0.084 },
+      { y: 0, radiusX: 0.105, radiusZ: 0.11, shapePower: 2.3 },
+    ], 14, `${opts.part}-lower-limb-loft`),
+    opts.lowerMaterial,
+  );
+  lower.name = `${opts.part}-lower-form`;
+  lower.userData.explodeWithParent = true;
+  knee.add(lower);
+  root.add(knee);
+
+  const paw = new THREE.Group();
+  paw.name = `${opts.part}-paw-joint`;
+  paw.position.y = -lowerLength;
+  paw.userData.joint = 'paw';
+  paw.userData.gaitParent = opts.part;
+  paw.userData.footContact = [0, -0.045, 0.105];
+  const pawMesh = new THREE.Mesh(
+    createDepthLoftGeometry([
+      { z: -0.08, y: -0.012, radiusX: 0.07, radiusY: 0.045, shapePower: 2.4 },
+      { z: 0.015, y: -0.018, radiusX: 0.1, radiusY: 0.052, shapePower: 2.5 },
+      { z: 0.13, y: -0.022, radiusX: 0.115, radiusY: 0.055, shapePower: 2.6 },
+      { z: 0.205, y: -0.018, radiusX: 0.07, radiusY: 0.038, shapePower: 2.3 },
+    ], 14, `${opts.part}-paw-plane-loft`),
+    opts.pawMaterial,
+  );
+  pawMesh.name = `${opts.part}-paw-form`;
+  pawMesh.userData.explodeWithParent = true;
+  paw.add(pawMesh);
+  knee.add(paw);
+  parent.add(root);
+  return root;
+}
+
 /**
  * Fire pup rebuilt from a rights-cleared concept and form-only frame study.
  * One 15-ring macro loft carries pelvis → ribcage → neck → skull → muzzle;
@@ -206,29 +348,17 @@ export function buildEmberpup(scale: number): THREE.Group {
   core.name = 'emberpup-continuous-core';
   core.userData.qaRole = 'organic-core';
   core.userData.form = 'pelvis-ribcage-neck-skull-muzzle-loft';
+  core.userData.part = 'spine';
 
-  // Integrated leg-and-paw lofts: upper rings embed 0.10–0.14 into the torso.
-  const frontLeg = createVerticalLoftGeometry([
-    { y: -0.4, z: 0.075, radiusX: 0.095, radiusZ: 0.145, shapePower: 2.4 },
-    { y: -0.31, z: 0.04, radiusX: 0.072, radiusZ: 0.09 },
-    { y: -0.16, z: 0.015, radiusX: 0.078, radiusZ: 0.085 },
-    { y: 0, radiusX: 0.115, radiusZ: 0.125, shapePower: 2.2 },
-  ], 16, 'emberpup-foreleg-loft');
-  const backLeg = createVerticalLoftGeometry([
-    { y: -0.39, z: 0.06, radiusX: 0.105, radiusZ: 0.15, shapePower: 2.45 },
-    { y: -0.29, z: 0.025, radiusX: 0.08, radiusZ: 0.095 },
-    { y: -0.14, z: -0.005, radiusX: 0.095, radiusZ: 0.1 },
-    { y: 0, radiusX: 0.13, radiusZ: 0.135, shapePower: 2.25 },
-  ], 16, 'emberpup-hindleg-loft');
-  for (const [x, z, part, geometry, material] of [
-    [-0.22, 0.34, 'legFL', frontLeg, dark],
-    [0.22, 0.34, 'legFR', frontLeg, fur],
-    [-0.23, -0.43, 'legBL', backLeg, dark],
-    [0.23, -0.43, 'legBR', backLeg, fur],
+  // Shoulder/hip → elbow/hock → paw hierarchies provide real gait pivots. Each
+  // upper root overlaps the core while the broad paw carries a readable plane.
+  for (const opts of [
+    { part: 'legFL', x: -0.22, z: 0.37, front: true, upperMaterial: dark, lowerMaterial: dark, pawMaterial: pad },
+    { part: 'legFR', x: 0.22, z: 0.37, front: true, upperMaterial: fur, lowerMaterial: fur, pawMaterial: pad },
+    { part: 'legBL', x: -0.23, z: -0.43, front: false, upperMaterial: dark, lowerMaterial: dark, pawMaterial: pad },
+    { part: 'legBR', x: 0.23, z: -0.43, front: false, upperMaterial: fur, lowerMaterial: fur, pawMaterial: pad },
   ] as const) {
-    const leg = addMesh(g, geometry, material, x * scale, 0.4 * scale, z * scale, scale, scale, scale, 0, 0, 0, part);
-    leg.name = `${part}-continuous-leg-paw`;
-    leg.userData.attachment = 'embedded-socket';
+    addJointedQuadrupedLeg(g, { ...opts, y: 0.55, scale });
   }
 
   // Bevelled collar catches the key light and hides no neck seam.
@@ -236,16 +366,27 @@ export function buildEmberpup(scale: number): THREE.Group {
   ruff.name = 'emberpup-directional-chest-ruff';
   ruff.userData.explodeWithParent = true;
 
+  // Face/ear details share a neck pivot, letting the gaze counter body turns
+  // while the single macro loft keeps the skull physically continuous.
+  const headRig = new THREE.Group();
+  headRig.name = 'emberpup-head-counter-pivot';
+  headRig.position.set(0, 0.62 * scale, 0.57 * scale);
+  headRig.scale.setScalar(scale);
+  headRig.userData.part = 'head';
+  headRig.userData.joint = 'neck';
+  headRig.userData.attachment = 'embedded-socket';
+  g.add(headRig);
+
   // Ear plates pivot at their roots rather than rocking around their centres.
   const earGeometry = makeLeafGeometry(0.19, 0.5, 0.065);
   for (const [x, part, rz] of [[-0.17, 'earL', 0.2], [0.17, 'earR', -0.2]] as const) {
     const ear = addPivotedPart(
-      g,
+      headRig,
       earGeometry,
       dark,
       part,
-      new THREE.Vector3(x * scale, 0.83 * scale, 0.73 * scale),
-      scale,
+      new THREE.Vector3(x, 0.21, 0.16),
+      1,
       new THREE.Vector3(0, 0.2, 0),
       new THREE.Euler(-0.08, x < 0 ? 0.08 : -0.08, rz),
     );
@@ -284,12 +425,12 @@ export function buildEmberpup(scale: number): THREE.Group {
 
   // Layered eyes and catchlights are deliberately oversized for gameplay-distance life.
   for (const side of [-1, 1] as const) {
-    addMesh(g, new THREE.SphereGeometry(0.071, 14, 12), eye, side * 0.18 * scale, 0.71 * scale, 1.09 * scale, 0.9 * scale, 1.22 * scale, 0.42 * scale);
-    addMesh(g, new THREE.SphereGeometry(0.043, 12, 10), iris, side * 0.18 * scale, 0.714 * scale, 1.13 * scale, 0.82 * scale, 1.08 * scale, 0.3 * scale);
-    addMesh(g, new THREE.SphereGeometry(0.014, 8, 6), catchlight, (side * 0.18 - 0.012) * scale, 0.744 * scale, 1.15 * scale, scale, scale, 0.25 * scale);
+    addMesh(headRig, new THREE.SphereGeometry(0.071, 14, 12), eye, side * 0.18, 0.09, 0.52, 0.9, 1.22, 0.42);
+    addMesh(headRig, new THREE.SphereGeometry(0.043, 12, 10), iris, side * 0.18, 0.094, 0.56, 0.82, 1.08, 0.3);
+    addMesh(headRig, new THREE.SphereGeometry(0.014, 8, 6), catchlight, side * 0.18 - 0.012, 0.124, 0.58, 1, 1, 0.25);
   }
-  addMesh(g, new THREE.SphereGeometry(0.055, 12, 9), pad, 0, 0.57 * scale, 1.205 * scale, 1.15 * scale, 0.76 * scale, 0.8 * scale);
-  addMesh(g, new THREE.TorusGeometry(0.072, 0.012, 6, 18, Math.PI), pad, 0, 0.515 * scale, 1.14 * scale, scale, 0.7 * scale, 0.45 * scale, 0, 0, Math.PI);
+  addMesh(headRig, new THREE.SphereGeometry(0.055, 12, 9), pad, 0, -0.05, 0.635, 1.15, 0.76, 0.8);
+  addMesh(headRig, new THREE.TorusGeometry(0.072, 0.012, 6, 18, Math.PI), pad, 0, -0.105, 0.57, 1, 0.7, 0.45, 0, 0, Math.PI);
 
   g.userData.speciesId = 'emberpup';
   g.userData.materialKind = 'fur';
@@ -672,42 +813,224 @@ export function buildDustbun(scale: number): THREE.Group {
   return g;
 }
 
-/** Bug/electric moth: elongated thorax, large wings, antennae. Feather + shell. */
+/**
+ * Electric orchard moth rebuilt as one continuous head–thorax–abdomen envelope.
+ * Four root-authored wing planes overlap embedded sockets; six legs use coxa,
+ * knee, and tarsus joints instead of cylinder sticks.
+ */
 export function buildSparkmoth(scale: number): THREE.Group {
   const g = new THREE.Group();
   const body = mat(0xc9d44a, 'shell');
-  const dark = mat(0x6a7030, 'shell');
-  const wing = mat(0xe8f06a, 'feather', { emissive: 0xa0d020, emissiveIntensity: 0.25 });
-  const spark = mat(0xfff59a, 'ember', { emissive: 0xffee66, emissiveIntensity: 0.55 });
-  const eye = mat(0x1a1a08, 'shell');
+  const dark = mat(0x4f5728, 'shell');
+  const belly = mat(0x899538, 'shell');
+  const wingFore = mat(0xf0ef7d, 'feather', { emissive: 0xb3d42b, emissiveIntensity: 0.26 });
+  const wingHind = mat(0xa8ca4f, 'feather', { emissive: 0x6f9f25, emissiveIntensity: 0.18 });
+  const wingVein = mat(0x68772f, 'shell');
+  const spark = mat(0xfff3a0, 'ember', { emissive: 0xffe55d, emissiveIntensity: 0.62 });
+  const eye = mat(0x171b0b, 'shell');
+  const iris = mat(0x69d9d0, 'wet');
+  const mouth = mat(0x343018, 'shell');
 
-  // Thorax / abdomen (horizontal capsule — moth profile)
-  addMesh(g, new THREE.CapsuleGeometry(0.18, 0.55, 6, 10), body, 0, 0.7 * scale, 0, scale, scale, scale, 0, 0, Math.PI / 2);
-  // Head
-  addMesh(g, new THREE.SphereGeometry(0.2, 14, 12), dark, 0, 0.75 * scale, 0.42 * scale, scale, scale, scale);
-  // Wings (wide — silhouette at battle distance)
-  addMesh(g, new THREE.SphereGeometry(0.45, 16, 12), wing, -0.45 * scale, 0.85 * scale, 0, 1.1 * scale, 0.25 * scale, 0.7 * scale, 0.2, 0.3, 0.15, 'wingL');
-  addMesh(g, new THREE.SphereGeometry(0.45, 16, 12), wing, 0.45 * scale, 0.85 * scale, 0, 1.1 * scale, 0.25 * scale, 0.7 * scale, 0.2, -0.3, -0.15, 'wingR');
-  // Lower wings
-  addMesh(g, new THREE.SphereGeometry(0.28, 12, 10), wing, -0.3 * scale, 0.55 * scale, -0.15 * scale, scale, 0.2 * scale, 0.7 * scale);
-  addMesh(g, new THREE.SphereGeometry(0.28, 12, 10), wing, 0.3 * scale, 0.55 * scale, -0.15 * scale, scale, 0.2 * scale, 0.7 * scale);
-  // Antennae
-  addMesh(g, new THREE.CylinderGeometry(0.02, 0.02, 0.4, 6), dark, -0.08 * scale, 1.05 * scale, 0.5 * scale, scale, scale, scale, 0.4, 0, 0.3, 'antennaL');
-  addMesh(g, new THREE.CylinderGeometry(0.02, 0.02, 0.4, 6), dark, 0.08 * scale, 1.05 * scale, 0.5 * scale, scale, scale, scale, 0.4, 0, -0.3, 'antennaR');
-  addMesh(g, new THREE.SphereGeometry(0.06, 8, 8), spark, -0.12 * scale, 1.22 * scale, 0.58 * scale, scale, scale, scale);
-  addMesh(g, new THREE.SphereGeometry(0.06, 8, 8), spark, 0.12 * scale, 1.22 * scale, 0.58 * scale, scale, scale, scale);
-  // Legs thin but multiple for volume
-  for (let i = 0; i < 3; i++) {
-    const z = 0.15 - i * 0.15;
-    addMesh(g, new THREE.CylinderGeometry(0.025, 0.02, 0.35, 5), dark, -0.12 * scale, 0.4 * scale, z * scale, scale, scale, scale, 0, 0, 0.5);
-    addMesh(g, new THREE.CylinderGeometry(0.025, 0.02, 0.35, 5), dark, 0.12 * scale, 0.4 * scale, z * scale, scale, scale, scale, 0, 0, -0.5);
+  const core = addMesh(
+    g,
+    createDepthLoftGeometry([
+      { z: -0.66, y: 0.63, radiusX: 0.075, radiusY: 0.075 },
+      { z: -0.56, y: 0.64, radiusX: 0.17, radiusY: 0.16, shapePower: 2.2 },
+      { z: -0.39, y: 0.66, radiusX: 0.245, radiusY: 0.22, shapePower: 2.4, dorsalRidge: 0.025 },
+      { z: -0.18, y: 0.69, radiusX: 0.285, radiusY: 0.27, shapePower: 2.5, dorsalRidge: 0.035 },
+      { z: 0.03, y: 0.72, radiusX: 0.31, radiusY: 0.3, shapePower: 2.55, dorsalRidge: 0.04 },
+      { z: 0.2, y: 0.74, radiusX: 0.26, radiusY: 0.275, shapePower: 2.35, dorsalRidge: 0.025 },
+      { z: 0.36, y: 0.75, radiusX: 0.285, radiusY: 0.265, shapePower: 2.45 },
+      { z: 0.51, y: 0.72, radiusX: 0.25, radiusY: 0.225, shapePower: 2.4 },
+      { z: 0.64, y: 0.67, radiusX: 0.16, radiusY: 0.135, shapePower: 2.25 },
+      { z: 0.72, y: 0.65, radiusX: 0.075, radiusY: 0.065 },
+    ], 26, 'sparkmoth-head-thorax-abdomen-loft'),
+    body,
+    0,
+    0,
+    0,
+    scale,
+    scale,
+    scale,
+  );
+  core.name = 'sparkmoth-continuous-core';
+  core.userData.qaRole = 'organic-core';
+  core.userData.form = 'continuous-head-thorax-abdomen-silhouette';
+  core.userData.part = 'spine';
+
+  // Overlapping shell scutes articulate the abdomen direction without splitting
+  // its macro silhouette into balls.
+  for (const [z, sx, sy] of [[-0.46, 0.64, 0.58], [-0.29, 0.78, 0.66]] as const) {
+    const scute = addMesh(g, makeTeardropGeometry(0.3, 0.22, 0.028), belly, 0, 0.7 * scale, z * scale, sx * scale, sy * scale, scale, Math.PI / 2, 0, Math.PI);
+    scute.name = `sparkmoth-abdomen-scute-${z}`;
+    scute.userData.explodeWithParent = true;
   }
-  // Eyes
-  addMesh(g, new THREE.SphereGeometry(0.06, 8, 8), eye, -0.08 * scale, 0.78 * scale, 0.55 * scale, scale, scale, scale);
-  addMesh(g, new THREE.SphereGeometry(0.06, 8, 8), eye, 0.08 * scale, 0.78 * scale, 0.55 * scale, scale, scale, scale);
+
+  // Four independently rooted planes create a layered wing read and preserve a
+  // thorax overlap through the whole flap range.
+  for (const [side, sideName] of [[-1, 'L'], [1, 'R']] as const) {
+    for (const [layer, y, z, material, rest] of [
+      ['fore', 0.82, 0.07, wingFore, 0.08],
+      ['hind', 0.76, -0.09, wingHind, -0.04],
+    ] as const) {
+      const part = side < 0 ? 'wingL' : 'wingR';
+      const pivot = addPivotedPart(
+        g,
+        makeMothWingGeometry(side, layer),
+        material,
+        part,
+        new THREE.Vector3(side * 0.19 * scale, y * scale, z * scale),
+        scale,
+        new THREE.Vector3(),
+        new THREE.Euler(rest, 0, side * (layer === 'fore' ? -0.035 : 0.045)),
+      );
+      pivot.name = `sparkmoth-wing${sideName}-${layer}-root`;
+      pivot.userData.joint = 'wing-root';
+      pivot.userData.layer = layer;
+      const plane = pivot.children[0] as THREE.Mesh;
+      plane.name = `sparkmoth-wing${sideName}-${layer}-plane`;
+      plane.userData.qaRole = 'wing-plane';
+      plane.userData.layer = layer;
+
+      // A short raised vein reinforces root-to-tip flow without outlining the
+      // wing as another ellipsoid.
+      const vein = new THREE.Mesh(
+        createTaperedCurveGeometry([
+          new THREE.Vector3(0, 0.012, -0.015),
+          new THREE.Vector3(side * (layer === 'fore' ? 0.24 : 0.17), 0.016, layer === 'fore' ? -0.16 : -0.2),
+          new THREE.Vector3(side * (layer === 'fore' ? 0.48 : 0.34), 0.012, layer === 'fore' ? -0.31 : -0.4),
+        ], [0.016, 0.011, 0.004], 10, 6, `sparkmoth-wing${sideName}-${layer}-vein`),
+        wingVein,
+      );
+      vein.name = `sparkmoth-wing${sideName}-${layer}-vein`;
+      vein.userData.explodeWithParent = true;
+      pivot.add(vein);
+    }
+  }
+
+  // Curved antennae grow from head sockets and end in bevelled spark leaves,
+  // replacing cylinder stalks and sphere tips.
+  for (const [side, part] of [[-1, 'antennaL'], [1, 'antennaR']] as const) {
+    const antenna = addPivotedPart(
+      g,
+      createTaperedCurveGeometry([
+        new THREE.Vector3(0, 0, 0),
+        new THREE.Vector3(side * 0.055, 0.14, 0.045),
+        new THREE.Vector3(side * 0.14, 0.27, 0.075),
+        new THREE.Vector3(side * 0.22, 0.34, 0.045),
+      ], [0.032, 0.022, 0.013, 0.006], 18, 8, `sparkmoth-${part}-feel`),
+      dark,
+      part,
+      new THREE.Vector3(side * 0.105 * scale, 0.9 * scale, 0.47 * scale),
+      scale,
+    );
+    antenna.name = `sparkmoth-${part}-root`;
+    antenna.userData.joint = 'antenna-root';
+    const tip = new THREE.Mesh(makeTeardropGeometry(0.09, 0.15, 0.035), spark);
+    tip.name = `sparkmoth-${part}-spark-leaf`;
+    tip.position.set(side * 0.22, 0.35, 0.05);
+    tip.rotation.z = side * -0.42;
+    tip.userData.explodeWithParent = true;
+    antenna.add(tip);
+  }
+
+  // Six three-joint legs: coxa roots embed in the thorax, knees break the
+  // silhouette, and tarsi terminate in narrow hooked sweeps.
+  for (const [side, sideName] of [[-1, 'L'], [1, 'R']] as const) {
+    for (let index = 0; index < 3; index++) {
+      const part = `mothLeg${sideName}${index + 1}`;
+      const z = 0.23 - index * 0.23;
+      const foreAft = (1 - index) * 0.055;
+      const coxaEnd = new THREE.Vector3(side * (0.15 + index * 0.018), -0.12, foreAft);
+      const coxa = new THREE.Group();
+      coxa.name = `sparkmoth-${part}-coxa-joint`;
+      coxa.position.set(side * 0.17 * scale, 0.59 * scale, z * scale);
+      coxa.scale.setScalar(scale);
+      coxa.userData.part = part;
+      coxa.userData.joint = 'coxa';
+      coxa.userData.attachment = 'embedded-socket';
+      const upper = new THREE.Mesh(
+        createTaperedCurveGeometry([
+          new THREE.Vector3(0, 0, 0),
+          new THREE.Vector3(side * 0.075, -0.05, foreAft * 0.45),
+          coxaEnd,
+        ], [0.042, 0.032, 0.023], 10, 7, `sparkmoth-${part}-femur`),
+        dark,
+      );
+      upper.name = `sparkmoth-${part}-femur`;
+      upper.userData.explodeWithParent = true;
+      coxa.add(upper);
+
+      const knee = new THREE.Group();
+      knee.name = `sparkmoth-${part}-knee-joint`;
+      knee.position.copy(coxaEnd);
+      knee.userData.joint = 'knee';
+      const tibiaEnd = new THREE.Vector3(side * (0.11 + index * 0.012), -0.17, 0.045 + foreAft);
+      const lower = new THREE.Mesh(
+        createTaperedCurveGeometry([
+          new THREE.Vector3(0, 0, 0),
+          new THREE.Vector3(side * 0.06, -0.075, 0.018),
+          tibiaEnd,
+        ], [0.027, 0.019, 0.012], 10, 7, `sparkmoth-${part}-tibia`),
+        dark,
+      );
+      lower.name = `sparkmoth-${part}-tibia`;
+      lower.userData.explodeWithParent = true;
+      knee.add(lower);
+
+      const tarsus = new THREE.Group();
+      tarsus.name = `sparkmoth-${part}-tarsus-joint`;
+      tarsus.position.copy(tibiaEnd);
+      tarsus.userData.joint = 'tarsus';
+      const foot = new THREE.Mesh(
+        createTaperedCurveGeometry([
+          new THREE.Vector3(0, 0, 0),
+          new THREE.Vector3(side * 0.045, -0.035, 0.06),
+          new THREE.Vector3(side * 0.075, -0.04, 0.13),
+        ], [0.015, 0.01, 0.004], 8, 6, `sparkmoth-${part}-hooked-foot`),
+        dark,
+      );
+      foot.name = `sparkmoth-${part}-hooked-foot`;
+      foot.userData.explodeWithParent = true;
+      tarsus.add(foot);
+      knee.add(tarsus);
+      coxa.add(knee);
+      g.add(coxa);
+    }
+  }
+
+  // All readable face planes share a neck counter-pivot. Oversized contrasting
+  // irises and catchlights survive the small battle presentation.
+  const faceRig = new THREE.Group();
+  faceRig.name = 'sparkmoth-head-counter-pivot';
+  faceRig.position.set(0, 0.69 * scale, 0.43 * scale);
+  faceRig.scale.setScalar(scale);
+  faceRig.userData.part = 'head';
+  faceRig.userData.joint = 'neck';
+  faceRig.userData.attachment = 'embedded-socket';
+  g.add(faceRig);
+  for (const side of [-1, 1] as const) {
+    const eyePlate = addMesh(faceRig, makeTeardropGeometry(0.18, 0.24, 0.036), eye, side * 0.105, 0.055, 0.19, 1, 1, 1, 0, 0, side * -0.08);
+    eyePlate.name = `sparkmoth-eye${side < 0 ? 'L' : 'R'}-plane`;
+    eyePlate.userData.qaRole = 'face-plane';
+    const irisPlate = addMesh(faceRig, makeTeardropGeometry(0.105, 0.145, 0.027), iris, side * 0.105, 0.055, 0.219, 1, 1, 1, 0, 0, side * -0.08);
+    irisPlate.name = `sparkmoth-iris${side < 0 ? 'L' : 'R'}-plane`;
+    irisPlate.userData.qaRole = 'face-plane';
+    const catchPlate = addMesh(faceRig, makeTeardropGeometry(0.034, 0.052, 0.018), spark, side * 0.084, 0.094, 0.24, 1, 1, 1, 0, 0, side * -0.08);
+    catchPlate.name = `sparkmoth-catchlight${side < 0 ? 'L' : 'R'}-plane`;
+    catchPlate.userData.qaRole = 'face-plane';
+    const cheek = addMesh(faceRig, makeLeafGeometry(0.09, 0.14, 0.024), spark, side * 0.19, -0.04, 0.19, 1, 1, 1, 0, 0, side * -0.7);
+    cheek.name = `sparkmoth-cheek${side < 0 ? 'L' : 'R'}-spark-plane`;
+    cheek.userData.qaRole = 'face-plane';
+  }
+  const mouthPlane = addMesh(faceRig, makeCrescentMouthGeometry(0.15, 0.1, 0.025), mouth, 0, -0.09, 0.225);
+  mouthPlane.name = 'sparkmoth-mouth-plane';
+  mouthPlane.userData.qaRole = 'face-plane';
 
   g.userData.speciesId = 'sparkmoth';
   g.userData.materialKind = 'feather';
+  g.userData.fidelityTier = 'authored-wild';
+  g.userData.formContract = 'single continuous head-thorax-abdomen loft + layered socketed wings + jointed legs';
   return g;
 }
 
