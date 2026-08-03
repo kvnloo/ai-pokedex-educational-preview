@@ -259,7 +259,7 @@ export function createCinematicEffects(scene: THREE.Scene, useMedium = false): C
     blending: THREE.AdditiveBlending,
   });
   const directionRibbon = new THREE.Mesh(
-    new THREE.CylinderGeometry(0.026, 0.082, 1, 8, 1, true),
+    new THREE.CylinderGeometry(0.045, 0.12, 1, 10, 1, true),
     directionMaterial,
   );
   directionRibbon.name = 'attack-direction-ribbon';
@@ -267,7 +267,7 @@ export function createCinematicEffects(scene: THREE.Scene, useMedium = false): C
   directionRibbon.renderOrder = 8;
   root.add(directionRibbon);
   const directionHead = new THREE.Mesh(
-    new THREE.ConeGeometry(0.13, 0.34, 12),
+    new THREE.ConeGeometry(0.18, 0.42, 12),
     directionMaterial.clone(),
   );
   directionHead.name = 'attack-direction-head';
@@ -367,7 +367,7 @@ export function createCinematicEffects(scene: THREE.Scene, useMedium = false): C
     directionRibbon.quaternion.setFromUnitVectors(upAxis, direction);
     directionRibbon.scale.set(1 + Math.sin(u * Math.PI) * 0.45, length, 1);
     directionRibbon.material.color.setHex(color);
-    directionRibbon.material.opacity = 0.72 + Math.sin(u * Math.PI) * 0.22;
+    directionRibbon.material.opacity = 0.84 + Math.sin(u * Math.PI) * 0.14;
     directionRibbon.visible = true;
 
     directionHead.position.copy(directionTo);

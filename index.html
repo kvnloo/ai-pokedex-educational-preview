@@ -316,8 +316,8 @@
     #battle-flash.se { background: #ffeb3b; }
     #battle-flash.nve { background: #90caf9; }
     #battle-flash.crit { background: #ff8a65; }
-    #battle-flash.on { opacity: .55; }
-    #battle-flash.on.crit { opacity: .72; }
+    #battle-flash.on { opacity: .3; }
+    #battle-flash.on.crit { opacity: .42; }
     #battle-msg.eff-se { color: #ffe082; text-shadow: 0 0 18px rgba(255,220,80,.45); }
     #battle-msg.eff-nve { color: #90caf9; }
     #battle-msg.eff-crit { color: #ffab91; text-shadow: 0 0 20px rgba(255,120,80,.5); }
@@ -401,14 +401,14 @@
     }
     #battle-action-frame::before,
     #battle-action-frame::after {
-      content: ''; position: absolute; left: 18%; top: 48%; width: 64%; height: 3px;
+      content: ''; position: absolute; left: 15%; top: 48%; width: 70%; height: 5px;
       border-radius: 999px; transform: rotate(-17deg) scaleX(.1); opacity: 0;
       transform-origin: center;
-      background: linear-gradient(90deg, transparent, rgba(255,190,105,.35), rgba(255,255,255,.92), rgba(113,216,255,.28), transparent);
-      filter: drop-shadow(0 0 12px rgba(255,189,104,.7));
+      background: linear-gradient(90deg, transparent, rgba(255,171,73,.72), rgba(255,255,255,.98), rgba(86,211,255,.62), transparent);
+      filter: drop-shadow(0 0 10px rgba(255,189,104,.78));
     }
     #battle-action-frame::after {
-      top: 53%; height: 1px; transform: rotate(-17deg) scaleX(.08);
+      top: 53%; height: 2px; transform: rotate(-17deg) scaleX(.08);
       filter: blur(.2px) drop-shadow(0 0 7px rgba(112,211,255,.75));
     }
     body[data-attack-side="foe"] #battle-action-frame::before,
@@ -425,16 +425,16 @@
     body[data-attack-phase="contact"] #battle-action-frame {
       opacity: 1;
       background:
-        linear-gradient(107deg, transparent 39%, rgba(255,177,82,.18) 47%, rgba(255,255,255,.48) 50%, transparent 61%),
+        linear-gradient(107deg, transparent 39%, rgba(255,177,82,.16) 47%, rgba(255,255,255,.28) 50%, transparent 61%),
         linear-gradient(90deg, rgba(5,8,18,.5), transparent 30% 70%, rgba(5,8,18,.5));
       box-shadow: inset 0 0 0 2px rgba(255,236,192,.14);
     }
     body[data-attack-side="foe"][data-attack-phase="contact"] #battle-action-frame {
       background:
-        linear-gradient(73deg, transparent 39%, rgba(115,206,255,.18) 47%, rgba(255,255,255,.48) 50%, transparent 61%),
+        linear-gradient(73deg, transparent 39%, rgba(115,206,255,.16) 47%, rgba(255,255,255,.28) 50%, transparent 61%),
         linear-gradient(90deg, rgba(5,8,18,.5), transparent 30% 70%, rgba(5,8,18,.5));
     }
-    body[data-attack-phase="recoil"] #battle-action-frame { opacity: .6; }
+    body[data-attack-phase="recoil"] #battle-action-frame { opacity: .35; }
     body[data-attack-phase="settle"] #battle-action-frame { opacity: .24; }
 
 
@@ -515,7 +515,7 @@
     }
     #battle-flash {
       position: absolute; inset: 0; z-index: 30; pointer-events: none;
-      background: #fff; opacity: 0; transition: opacity 70ms linear;
+      background: #fff; opacity: 0; transition: opacity 35ms linear;
     }
 
     #fatal {

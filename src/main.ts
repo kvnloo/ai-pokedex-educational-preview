@@ -824,7 +824,7 @@ async function boot(): Promise<void> {
     if (kind === 'se' || kind === 'crit') battleCam.lowAngle = 0.25;
     setTimeout(() => {
       flash.classList.remove('on', 'se', 'nve', 'crit');
-    }, kind === 'crit' ? 140 : 90);
+    }, kind === 'crit' ? 95 : 60);
   }
 
   /** Stack effectiveness tint + crit accent within 100ms of hit (not mutually exclusive). */
@@ -1020,6 +1020,9 @@ async function boot(): Promise<void> {
     mark('roam-to-fight-start');
     mode = 'battle';
     document.body.dataset.mode = 'battle';
+    // Starter guidance must never survive into a fast natural encounter and
+    // compete with wordless action framing.
+    toast?.classList.remove('show');
     setPayoffPhase('idle');
     publishAttackPhase('idle');
     document.body.classList.remove('returning');
