@@ -57,6 +57,12 @@ import {
   createLumenWorld,
   type ImpactKind,
 } from './render/index.ts';
+import {
+  AUTHORED_ATTACK_TIMELINE,
+  attackPhaseProgress,
+  type AttackPhase,
+  type ScreenRect,
+} from './render/cinematicEffects.ts';
 
 const bootFill = document.getElementById('boot-fill') as HTMLElement | null;
 const bootStatus = document.getElementById('boot-status') as HTMLElement | null;
@@ -131,6 +137,20 @@ interface TwilightRuntimeSnapshot {
   encounterCount: number;
   catchCount: number;
   audio: SoundscapeSnapshot;
+  cinematic: {
+    attack: {
+      sequence: number;
+      phase: AttackPhase;
+      attacker: 'player' | 'foe' | null;
+      elapsedMs: number;
+      phaseStartedAtMs: number;
+      startedAtMs: number;
+      timeline: typeof AUTHORED_ATTACK_TIMELINE;
+    };
+    payoff: string;
+    subjects: { player: ScreenRect | null; foe: ScreenRect | null };
+    uiSafeMarginPx: number;
+  };
 }
 
 declare global {
@@ -288,10 +308,10 @@ async function boot(): Promise<void> {
 
   // Battle camera punch state (impact / effectiveness / faint / send-out)
   const battleCam = {
-    base: new THREE.Vector3(0.55, 2.12, 6.72),
+    base: new THREE.Vector3(0.18, 2.24, 7.34),
     punch: 0,
     lowAngle: 0,
-    lookY: 0.86,
+    lookY: 0.88,
     orbit: 0,
   };
 
@@ -518,13 +538,45 @@ async function boot(): Promise<void> {
   scene.add(starterStage);
   document.body.dataset.mode = 'starter';
 
-  // Lunge offsets (rAF-driven)
+  // Battle staging and authored action-pose channels. All channels compose in
+  // the render tick, so rAF animation never fights clip or camera writes.
+  const BATTLE_STAGE = {
+    player: new THREE.Vector3(0.98, 0, 1.04),
+    foe: new THREE.Vector3(-1.48, 0, -0.86),
+  } as const;
   let playerLunge = 0;
   let foeLunge = 0;
+  let playerRecoil = 0;
+  let foeRecoil = 0;
+  let playerAnticipation = 0;
+  let foeAnticipation = 0;
+  let playerActionSquash = 0;
+  let foeActionSquash = 0;
+  let playerActionTilt = 0;
+  let foeActionTilt = 0;
+  let playerActionLift = 0;
+  let foeActionLift = 0;
+  let playerStageScale = 1;
+  let foeStageScale = 1;
+  let playerStageY = 0;
+  let foeStageY = 0;
+  let foeContainment = 0;
+  let attackSequence = 0;
+  let attackPhase: AttackPhase = 'idle';
+  let attackAttacker: 'player' | 'foe' | null = null;
+  let attackStartedAtMs = 0;
+  let attackPhaseStartedAtMs = 0;
+  let payoffPhase = 'idle';
   let foeSink = 0;
   let playerSink = 0;
   let playerBobPhase = 0;
   let ballArcT = -1; // -1 idle; 0..1 throw progress
+  let ballShake = 0;
+  let healCeremonyActive = false;
+  let healPose = 0;
+  document.body.dataset.attackPhase = 'idle';
+  document.body.dataset.attackSide = 'none';
+  document.body.dataset.payoff = 'idle';
   const ballMesh = createCatchOrb();
   ballMesh.visible = false;
   scene.add(ballMesh);
@@ -563,7 +615,60 @@ async function boot(): Promise<void> {
   const partyStrip = document.getElementById('party-strip');
   const sceneTransition = document.getElementById('scene-transition');
   const battleKicker = document.getElementById('battle-kicker');
+  const payoffVignette = document.getElementById('payoff-vignette');
   const swapBtn = battleMenu?.querySelector('[data-act="swap"]') as HTMLButtonElement | null;
+
+  const projectionBox = new THREE.Box3();
+  const projectionPoint = new THREE.Vector3();
+  const UI_SAFE_MARGIN_PX = 8;
+
+  function projectedSubjectRect(root: THREE.Object3D | null): ScreenRect | null {
+    if (!root || !root.parent || !root.visible) return null;
+    root.updateWorldMatrix(true, true);
+    projectionBox.setFromObject(root, true);
+    if (projectionBox.isEmpty()) return null;
+    const { min, max } = projectionBox;
+    let left = Number.POSITIVE_INFINITY;
+    let top = Number.POSITIVE_INFINITY;
+    let right = Number.NEGATIVE_INFINITY;
+    let bottom = Number.NEGATIVE_INFINITY;
+    for (const x of [min.x, max.x]) {
+      for (const y of [min.y, max.y]) {
+        for (const z of [min.z, max.z]) {
+          projectionPoint.set(x, y, z).project(camera);
+          const sx = (projectionPoint.x * 0.5 + 0.5) * window.innerWidth;
+          const sy = (-projectionPoint.y * 0.5 + 0.5) * window.innerHeight;
+          left = Math.min(left, sx);
+          right = Math.max(right, sx);
+          top = Math.min(top, sy);
+          bottom = Math.max(bottom, sy);
+        }
+      }
+    }
+    if (![left, top, right, bottom].every(Number.isFinite)) return null;
+    return {
+      left: Number(left.toFixed(2)),
+      top: Number(top.toFixed(2)),
+      right: Number(right.toFixed(2)),
+      bottom: Number(bottom.toFixed(2)),
+    };
+  }
+
+  function setPayoffPhase(phase: string, focus?: THREE.Object3D | null): void {
+    payoffPhase = phase;
+    document.body.dataset.payoff = phase;
+    const rect = projectedSubjectRect(focus ?? null);
+    if (payoffVignette && rect) {
+      payoffVignette.style.setProperty('--payoff-x', `${((rect.left + rect.right) * 0.5).toFixed(1)}px`);
+      payoffVignette.style.setProperty('--payoff-y', `${((rect.top + rect.bottom) * 0.5).toFixed(1)}px`);
+    }
+  }
+
+  function publishAttackPhase(phase: AttackPhase): void {
+    if (attackPhase !== phase) attackPhaseStartedAtMs = performance.now();
+    attackPhase = phase;
+    document.body.dataset.attackPhase = phase;
+  }
 
   window.__twilight = {
     snapshot: (): TwilightRuntimeSnapshot => ({
@@ -596,6 +701,23 @@ async function boot(): Promise<void> {
       encounterCount,
       catchCount,
       audio: soundscape.snapshot(),
+      cinematic: {
+        attack: {
+          sequence: attackSequence,
+          phase: attackPhase,
+          attacker: attackAttacker,
+          elapsedMs: attackPhase === 'idle' ? 0 : Math.max(0, performance.now() - attackStartedAtMs),
+          phaseStartedAtMs: attackPhaseStartedAtMs,
+          startedAtMs: attackStartedAtMs,
+          timeline: AUTHORED_ATTACK_TIMELINE,
+        },
+        payoff: payoffPhase,
+        subjects: {
+          player: mode === 'battle' ? projectedSubjectRect(playerMesh) : null,
+          foe: mode === 'battle' ? projectedSubjectRect(foeMesh) : null,
+        },
+        uiSafeMarginPx: UI_SAFE_MARGIN_PX,
+      },
     }),
   };
 
@@ -631,7 +753,7 @@ async function boot(): Promise<void> {
     sceneTransition.className = '';
     void sceneTransition.offsetWidth;
     sceneTransition.classList.add('pulse', kind);
-    setTimeout(() => sceneTransition.classList.remove('pulse', kind), kind === 'battle' ? 760 : 620);
+    setTimeout(() => sceneTransition.classList.remove('pulse', kind), kind === 'battle' ? 380 : 620);
   }
 
   function impactAt(side: 'player' | 'foe', kind: ImpactKind): void {
@@ -794,54 +916,84 @@ async function boot(): Promise<void> {
     });
   }
 
-  /** Directed send-out: rise from below + scale-in + low cam */
+  /** Directed send-out: rise from below + scale-in + silhouette burst. */
   async function stageSendOut(who: 'player' | 'foe', speciesId: string, scale = 1): Promise<void> {
     battleCam.lowAngle = 0.55;
     battleCam.punch = 0.2;
+    const stage = who === 'player' ? BATTLE_STAGE.player : BATTLE_STAGE.foe;
     if (who === 'player') {
       if (playerMesh) scene.remove(playerMesh);
       playerMesh = shipCreatureMesh(speciesId, scale);
       enableCast(playerMesh);
-      playerMesh.position.set(1.28, -0.9, 1.0);
-      playerMesh.scale.setScalar(0.15);
+      playerStageScale = 0.15;
+      playerStageY = -0.9;
+      playerMesh.position.copy(stage);
+      playerMesh.position.y = playerStageY;
+      playerMesh.scale.setScalar(playerStageScale);
       scene.add(playerMesh);
     } else {
       if (foeMesh) scene.remove(foeMesh);
       foeMesh = shipCreatureMesh(speciesId, scale);
       enableCast(foeMesh);
-      foeMesh.position.set(-1.45, -0.9, -0.8);
-      foeMesh.scale.setScalar(0.15);
+      foeStageScale = 0.15;
+      foeStageY = -0.9;
+      foeMesh.position.copy(stage);
+      foeMesh.position.y = foeStageY;
+      foeMesh.scale.setScalar(foeStageScale);
       scene.add(foeMesh);
       foeContact.visible = true;
     }
-    // Snappy send-out — free-roam→Fight budget ≤400ms with parallel staging
+    // Snappy send-out — free-roam→Fight budget ≤400ms with parallel staging.
     const ms = 160;
     const t0 = performance.now();
+    let burstFired = false;
     await new Promise<void>((resolve) => {
       const step = (now: number) => {
         const u = clamp((now - t0) / ms, 0, 1);
         const ease = 1 - Math.pow(1 - u, 2.4);
+        const stageScale = 0.15 + ease * 0.85;
+        const stageY = -0.9 + ease * 0.9;
+        if (who === 'player') {
+          playerStageScale = stageScale;
+          playerStageY = stageY;
+        } else {
+          foeStageScale = stageScale;
+          foeStageY = stageY;
+        }
         const mesh = who === 'player' ? playerMesh : foeMesh;
         if (mesh) {
-          mesh.position.y = -0.9 + ease * 0.9;
-          mesh.scale.setScalar(0.15 + ease * 0.85);
+          mesh.position.y = stageY;
+          mesh.scale.setScalar(stageScale);
+        }
+        if (!burstFired && u >= 0.46) {
+          burstFired = true;
+          effectPoint.copy(stage);
+          effectPoint.y = 0.64;
+          cinematicFx.burst(effectPoint, 'catch');
         }
         if (u < 1) requestAnimationFrame(step);
         else resolve();
       };
       requestAnimationFrame(step);
     });
-    if (who === 'player' && playerMesh) {
-      playerMesh.position.y = 0;
-      playerMesh.scale.setScalar(1);
-    }
-    if (who === 'foe' && foeMesh) {
-      foeMesh.position.y = 0;
-      foeMesh.scale.setScalar(1);
+    if (who === 'player') {
+      playerStageY = 0;
+      playerStageScale = 1;
+      if (playerMesh) {
+        playerMesh.position.y = 0;
+        playerMesh.scale.setScalar(1);
+      }
+    } else {
+      foeStageY = 0;
+      foeStageScale = 1;
+      if (foeMesh) {
+        foeMesh.position.y = 0;
+        foeMesh.scale.setScalar(1);
+      }
     }
   }
 
-  /** Recall sink / scale-out before switch-in */
+  /** Recall sink / scale-out before switch-in. */
   async function stageRecall(who: 'player' | 'foe'): Promise<void> {
     const mesh = who === 'player' ? playerMesh : foeMesh;
     if (!mesh) return;
@@ -850,8 +1002,17 @@ async function boot(): Promise<void> {
     await new Promise<void>((resolve) => {
       const step = (now: number) => {
         const u = clamp((now - t0) / ms, 0, 1);
-        mesh.position.y = -u * 0.85;
-        mesh.scale.setScalar(Math.max(0.05, 1 - u));
+        const y = -u * 0.85;
+        const scale = Math.max(0.05, 1 - u);
+        if (who === 'player') {
+          playerStageY = y;
+          playerStageScale = scale;
+        } else {
+          foeStageY = y;
+          foeStageScale = scale;
+        }
+        mesh.position.y = y;
+        mesh.scale.setScalar(scale);
         if (u < 1) requestAnimationFrame(step);
         else resolve();
       };
@@ -867,6 +1028,13 @@ async function boot(): Promise<void> {
     mark('roam-to-fight-start');
     mode = 'battle';
     document.body.dataset.mode = 'battle';
+    setPayoffPhase('idle');
+    publishAttackPhase('idle');
+    document.body.classList.remove('returning');
+    document.body.classList.remove('encounter-beat');
+    void (battleKicker?.offsetWidth ?? document.body.offsetWidth);
+    document.body.classList.add('encounter-beat');
+    setTimeout(() => document.body.classList.remove('encounter-beat'), 380);
     pulseSceneTransition('battle');
     world.setMode('battle');
     setAudioScene('battle', 'encounter');
@@ -875,14 +1043,20 @@ async function boot(): Promise<void> {
     battleKind = kind;
     foeSink = 0;
     playerSink = 0;
-    playerLunge = 0;
-    foeLunge = 0;
+    resetActionPose();
+    playerStageScale = 1;
+    foeStageScale = 1;
+    playerStageY = 0;
+    foeStageY = 0;
+    foeContainment = 0;
     ballArcT = -1;
+    ballShake = 0;
     ballMesh.visible = false;
     clearEffClasses();
     battleCam.punch = 0;
     battleCam.lowAngle = 0.4;
-    battleCam.lookY = 0.7;
+    battleCam.lookY = 0.82;
+    battleCam.orbit = kind === 'wild' ? 0.42 : 0.58;
 
     // Conscious lead — never open with fainted party[0] after force-switch / mid-party KO
     if (party.length > 0) {
@@ -928,12 +1102,11 @@ async function boot(): Promise<void> {
       setMsg(`${e?.trainerName ?? 'Elite'} bars the path with ${foe.name}!`);
     }
     syncBattleHud({ enemyDur: 0, allyDur: 0 });
-    showToast(kind === 'wild' ? 'Battle!' : kind === 'gym' ? 'Gym battle!' : 'Elite gate!');
 
-    // Parallel send-outs under free-roam→Fight ≤400ms budget
+    // Parallel send-outs under free-roam→Fight ≤400ms budget.
     await Promise.all([
-      stageSendOut('foe', foeSpecies, 0.95),
-      stageSendOut('player', playerSpeciesId, 1),
+      stageSendOut('foe', foeSpecies, 1.02),
+      stageSendOut('player', playerSpeciesId, 0.9),
     ]);
     setMsg(`Go! ${battle.player.name}!`);
     playSound('battle-start', kind === 'wild' ? 0.68 : 0.9);
@@ -964,8 +1137,11 @@ async function boot(): Promise<void> {
   }
 
   function exitBattle(msg: string): void {
+    setPayoffPhase('return', playerMesh);
+    document.body.classList.add('returning');
     mode = 'explore';
     document.body.dataset.mode = 'explore';
+    publishAttackPhase('idle');
     pulseSceneTransition('return');
     world.setMode('explore');
     setAudioScene('explore');
@@ -979,9 +1155,17 @@ async function boot(): Promise<void> {
     battle = null;
     battleRoot?.classList.remove('active');
     clearEffClasses();
+    cinematicFx.clearDirectedTrail();
+    resetActionPose();
     foeSink = 0;
     playerSink = 0;
+    playerStageScale = 1;
+    foeStageScale = 1;
+    playerStageY = 0;
+    foeStageY = 0;
+    foeContainment = 0;
     ballArcT = -1;
+    ballShake = 0;
     ballMesh.visible = false;
     foeContact.visible = false;
     battleCam.punch = 0;
@@ -1003,8 +1187,14 @@ async function boot(): Promise<void> {
       playerMesh.position.set(0, 0, 1.2);
     }
     renderPartyStrip();
-    showToast(msg);
     updateSwapButton();
+    // The return iris and preserved silhouette lead; text confirms only after
+    // the camera/HUD settle rather than carrying the state change.
+    setTimeout(() => showToast(msg), 360);
+    setTimeout(() => {
+      document.body.classList.remove('returning');
+      if (payoffPhase === 'return') setPayoffPhase('idle');
+    }, 540);
   }
 
   async function stageFaintAndExit(win: boolean): Promise<void> {
@@ -1228,6 +1418,154 @@ async function boot(): Promise<void> {
       battleMenu?.classList.remove('hidden');
     };
     moveMenu.appendChild(back);
+  }
+
+  type AuthoredAttackOptions = {
+    color?: number;
+    recoil?: boolean;
+    onFirstFrame?: () => void;
+    onContact?: () => void;
+  };
+
+  function resetActionPose(): void {
+    playerLunge = 0;
+    foeLunge = 0;
+    playerRecoil = 0;
+    foeRecoil = 0;
+    playerAnticipation = 0;
+    foeAnticipation = 0;
+    playerActionSquash = 0;
+    foeActionSquash = 0;
+    playerActionTilt = 0;
+    foeActionTilt = 0;
+    playerActionLift = 0;
+    foeActionLift = 0;
+  }
+
+  /**
+   * Authored 600ms attack grammar: menu hide → 120ms anticipation → directed
+   * travel → 64ms contact hit-stop → 190ms target recoil → settle. The same
+   * visual grammar is mirrored for either side so causality reads without UI.
+   */
+  async function playAuthoredAttack(
+    who: 'player' | 'foe',
+    options: AuthoredAttackOptions = {},
+  ): Promise<void> {
+    const attackerMesh = who === 'player' ? playerMesh : foeMesh;
+    const targetMesh = who === 'player' ? foeMesh : playerMesh;
+    if (!attackerMesh || !targetMesh) return;
+    const origin = (who === 'player' ? BATTLE_STAGE.player : BATTLE_STAGE.foe).clone();
+    const target = (who === 'player' ? BATTLE_STAGE.foe : BATTLE_STAGE.player).clone();
+    origin.y = who === 'player' ? 0.82 : 0.9;
+    target.y = who === 'player' ? 0.78 : 0.82;
+    const color = options.color ?? (who === 'player' ? 0xffaa58 : 0x83d9ff);
+    const clip = getClipState(attackerMesh);
+    if (clip) playAttack(clip);
+
+    battleMenu?.classList.add('hidden');
+    moveMenu?.classList.add('hidden');
+    attackSequence += 1;
+    attackAttacker = who;
+    document.body.dataset.attackSide = who;
+    attackStartedAtMs = performance.now();
+    attackPhaseStartedAtMs = attackStartedAtMs;
+    publishAttackPhase('anticipation');
+    resetActionPose();
+
+    let firstFrame = false;
+    let contactFired = false;
+    try {
+      await new Promise<void>((resolve, reject) => {
+        const step = (now: number) => {
+          try {
+            const elapsed = now - attackStartedAtMs;
+            const { phase, progress } = attackPhaseProgress(elapsed);
+            if (phase === 'idle') {
+              resolve();
+              return;
+            }
+            publishAttackPhase(phase);
+            if (!firstFrame) {
+              firstFrame = true;
+              options.onFirstFrame?.();
+            }
+            resetActionPose();
+            const smooth = progress * progress * (3 - 2 * progress);
+            const setAttacker = (drive: number, anticipation: number, squash: number, tilt: number): void => {
+              if (who === 'player') {
+                playerLunge = drive;
+                playerAnticipation = anticipation;
+                playerActionSquash = squash;
+                playerActionTilt = tilt;
+              } else {
+                foeLunge = drive;
+                foeAnticipation = anticipation;
+                foeActionSquash = squash;
+                foeActionTilt = -tilt;
+              }
+            };
+            const setTarget = (recoil: number, squash: number, tilt: number, lift: number): void => {
+              if (who === 'player') {
+                foeRecoil = recoil;
+                foeActionSquash = squash;
+                foeActionTilt = -tilt;
+                foeActionLift = lift;
+              } else {
+                playerRecoil = recoil;
+                playerActionSquash = squash;
+                playerActionTilt = tilt;
+                playerActionLift = lift;
+              }
+            };
+
+            if (phase === 'anticipation') {
+              setAttacker(0, smooth * 0.32, smooth * 0.16, smooth * 0.08);
+              battleCam.orbit = (who === 'player' ? -1 : 1) * smooth * 0.22;
+            } else if (phase === 'travel') {
+              setAttacker(0.12 + smooth * 0.58, (1 - smooth) * 0.32, (1 - smooth) * 0.12, (1 - smooth) * 0.05);
+              battleCam.orbit = (who === 'player' ? -1 : 1) * (0.22 + smooth * 0.12);
+              cinematicFx.directedTrail(origin, target, progress, color);
+            } else if (phase === 'contact') {
+              cinematicFx.clearDirectedTrail();
+              setAttacker(0.7, 0, 0.04, 0.025);
+              setTarget(0.12, 0.18, 0.08, 0.035);
+              // Hold the impulse for the full contact interval; creature clips
+              // are frozen in the render tick while this phase is active.
+              battleCam.punch = Math.max(battleCam.punch, 0.48 - progress * 0.08);
+              battleCam.lowAngle = Math.max(battleCam.lowAngle, 0.18);
+              battleCam.orbit = (who === 'player' ? -1 : 1) * 0.34;
+              if (!contactFired) {
+                contactFired = true;
+                options.onContact?.();
+              }
+            } else if (phase === 'recoil') {
+              const recoilWave = Math.sin(Math.PI * (0.18 + progress * 0.82));
+              setAttacker((1 - smooth) * 0.7, 0, 0, (1 - smooth) * 0.02);
+              if (options.recoil !== false) {
+                setTarget(recoilWave * 0.58, recoilWave * 0.12, recoilWave * 0.24, recoilWave * 0.18);
+              }
+              battleCam.orbit = (who === 'player' ? -1 : 1) * (1 - smooth) * 0.26;
+            } else {
+              const settle = (1 - smooth) * (1 - smooth);
+              setAttacker(0, 0, settle * 0.025, -settle * 0.018);
+              if (options.recoil !== false) setTarget(settle * 0.08, settle * 0.035, settle * 0.04, settle * 0.025);
+              battleCam.orbit *= 1 - smooth;
+            }
+            requestAnimationFrame(step);
+          } catch (error) {
+            reject(error);
+          }
+        };
+        requestAnimationFrame(step);
+      });
+    } finally {
+      cinematicFx.clearDirectedTrail();
+      resetActionPose();
+      battleCam.orbit = 0;
+      attackAttacker = null;
+      document.body.dataset.attackSide = 'none';
+      publishAttackPhase('idle');
+    }
   }
 
   /**
@@ -1458,24 +1796,29 @@ async function boot(): Promise<void> {
     });
 
     let impactDur = 0;
-    await playLunge('foe', 130, () => {
-      if (!battle) return;
-      flashEffectivenessAndCrit(eff, crit.isCrit, 'player');
-      impactDur = hpDrainMs(dealt, battle.player.maxHp);
-      dispAllyHp = battle.player.hp;
-      setHpBar(allyHp, dispAllyHp, battle.player.maxHp, impactDur);
-      if (allyHpText) allyHpText.textContent = `${battle.player.hp}/${battle.player.maxHp}`;
-      setMsg(
-        crit.isCrit && eff >= 2
-          ? `Critical hit! Super effective! (${dealt})`
-          : crit.isCrit
-            ? `Critical hit! ${dealt} damage!`
-            : eff >= 2
-              ? `It's super effective! (${dealt})`
-              : `${battle.foe.name} hits for ${dealt}!`,
-      );
+    await playAuthoredAttack('foe', {
+      color: SHIP_COLOR[battle.foe.speciesId] ?? 0x83d9ff,
+      onContact: () => {
+        if (!battle) return;
+        flashEffectivenessAndCrit(eff, crit.isCrit, 'player');
+        playSound('hit', crit.isCrit ? 1 : eff >= 2 ? 0.9 : 0.68);
+        // HP motion closes inside the authored settle window.
+        impactDur = Math.min(340, hpDrainMs(dealt, battle.player.maxHp));
+        dispAllyHp = battle.player.hp;
+        setHpBar(allyHp, dispAllyHp, battle.player.maxHp, impactDur);
+        if (allyHpText) allyHpText.textContent = `${battle.player.hp}/${battle.player.maxHp}`;
+        setMsg(
+          crit.isCrit && eff >= 2
+            ? `Critical hit! Super effective! (${dealt})`
+            : crit.isCrit
+              ? `Critical hit! ${dealt} damage!`
+              : eff >= 2
+                ? `It's super effective! (${dealt})`
+                : `${battle.foe.name} hits for ${dealt}!`,
+        );
+      },
     });
-    await waitMs(Math.max(impactDur, 80));
+    clearEffClasses();
 
     if (battle.player.hp <= 0) {
       battle.player.fainted = true;
@@ -1534,67 +1877,73 @@ async function boot(): Promise<void> {
     const hits = collectHits(battle.log, logStart);
     const msgs = battle.log.slice(logStart).filter((e) => e.message).map((e) => e.message!);
 
-    // Lunge the attacker; flash+HP at apex (u≈0.5), not at rest
+    // Render every logged damage event through one authored causal grammar.
     let firstAttackMarked = false;
     for (const hit of hits) {
       const attacker: 'player' | 'foe' = hit.side === 'foe' ? 'player' : 'foe';
+      const attackerSpecies = attacker === 'player' ? battle.player.speciesId : battle.foe.speciesId;
       const crit = isCritEvent(hit.critical);
       const eff = hit.effectiveness ?? 1;
-      let drainMs = 0;
-      await playLunge(attacker, attacker === 'player' ? 150 : 130, () => {
-        if (!firstAttackMarked) {
-          firstAttackMarked = true;
-          mark('first-attack-frame');
-          measureLog('move→first-attack-frame', 'move-confirm', 'first-attack-frame', 180);
-        }
-        flashEffectivenessAndCrit(eff, crit, hit.side);
-        playSound('hit', crit ? 1 : eff >= 2 ? 0.9 : 0.62);
-        if (crit) battleMsg?.classList.add('eff-crit');
-        if (eff >= 2) battleMsg?.classList.add('eff-se');
-        else if (eff > 0 && eff <= 0.5) battleMsg?.classList.add('eff-nve');
+      await playAuthoredAttack(attacker, {
+        color: SHIP_COLOR[attackerSpecies] ?? (attacker === 'player' ? 0xffaa58 : 0x83d9ff),
+        onFirstFrame: !firstAttackMarked
+          ? () => {
+              firstAttackMarked = true;
+              mark('first-attack-frame');
+              measureLog('move→first-attack-frame', 'move-confirm', 'first-attack-frame', 180);
+            }
+          : undefined,
+        onContact: () => {
+          if (!battle) return;
+          flashEffectivenessAndCrit(eff, crit, hit.side);
+          playSound('hit', crit ? 1 : eff >= 2 ? 0.9 : 0.62);
+          if (crit) battleMsg?.classList.add('eff-crit');
+          if (eff >= 2) battleMsg?.classList.add('eff-se');
+          else if (eff > 0 && eff <= 0.5) battleMsg?.classList.add('eff-nve');
 
-        if (crit && eff >= 2) {
-          setMsg(hit.message ? `${hit.message} Critical hit!` : "Critical hit! It's super effective!");
-        } else if (crit) {
-          setMsg(
-            hit.message && !/critical/i.test(hit.message)
-              ? `${hit.message} Critical hit!`
-              : hit.message ?? 'Critical hit!',
-          );
-        } else if (eff >= 2) {
-          setMsg(hit.message ?? "It's super effective!");
-        } else if (eff > 0 && eff <= 0.5) {
-          setMsg(hit.message ?? "It's not very effective…");
-        } else {
-          setMsg(hit.message ?? (msgs.join(' ') || '…'));
-        }
+          if (crit && eff >= 2) {
+            setMsg(hit.message ? `${hit.message} Critical hit!` : "Critical hit! It's super effective!");
+          } else if (crit) {
+            setMsg(
+              hit.message && !/critical/i.test(hit.message)
+                ? `${hit.message} Critical hit!`
+                : hit.message ?? 'Critical hit!',
+            );
+          } else if (eff >= 2) {
+            setMsg(hit.message ?? "It's super effective!");
+          } else if (eff > 0 && eff <= 0.5) {
+            setMsg(hit.message ?? "It's not very effective…");
+          } else {
+            setMsg(hit.message ?? (msgs.join(' ') || '…'));
+          }
 
-        if (hit.side === 'foe') {
-          drainMs = hpDrainMs(hit.damage, battle!.foe.maxHp);
-          dispEnemyHp = battle!.foe.hp;
-          setHpBar(enemyHp, dispEnemyHp, battle!.foe.maxHp, drainMs);
-        } else if (hit.damage > 0) {
-          drainMs = hpDrainMs(hit.damage, battle!.player.maxHp);
-          dispAllyHp = battle!.player.hp;
-          setHpBar(allyHp, dispAllyHp, battle!.player.maxHp, drainMs);
-          if (allyHpText) allyHpText.textContent = `${battle!.player.hp}/${battle!.player.maxHp}`;
-        } else {
-          drainMs = 220;
-        }
+          if (hit.side === 'foe') {
+            const drainMs = Math.min(340, hpDrainMs(hit.damage, battle.foe.maxHp));
+            dispEnemyHp = battle.foe.hp;
+            setHpBar(enemyHp, dispEnemyHp, battle.foe.maxHp, drainMs);
+          } else if (hit.damage > 0) {
+            const drainMs = Math.min(340, hpDrainMs(hit.damage, battle.player.maxHp));
+            dispAllyHp = battle.player.hp;
+            setHpBar(allyHp, dispAllyHp, battle.player.maxHp, drainMs);
+            if (allyHpText) allyHpText.textContent = `${battle.player.hp}/${battle.player.maxHp}`;
+          }
+        },
       });
-      // Hold contact / drain after apex; lunge already zeroed at end of playLunge
-      await waitMs(Math.max(drainMs, 80));
       clearEffClasses();
     }
 
     if (hits.length === 0) {
-      // Status / miss — apex-timed first-attack-frame mark
-      await playLunge('player', 150, () => {
-        mark('first-attack-frame');
-        measureLog('move→first-attack-frame', 'move-confirm', 'first-attack-frame', 180);
-        setMsg(msgs.join(' ') || '…');
+      // Miss/status still receives anticipation and directional intent, but no
+      // target recoil. Text is confirmation after the visual non-contact read.
+      await playAuthoredAttack('player', {
+        color: SHIP_COLOR[battle.player.speciesId] ?? 0xffaa58,
+        recoil: false,
+        onFirstFrame: () => {
+          mark('first-attack-frame');
+          measureLog('move→first-attack-frame', 'move-confirm', 'first-attack-frame', 180);
+        },
+        onContact: () => setMsg(msgs.join(' ') || '…'),
       });
-      await waitMs(280);
     }
 
     dispEnemyHp = battle.foe.hp;
