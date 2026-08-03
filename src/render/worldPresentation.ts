@@ -19,6 +19,202 @@ export interface LumenWorldPresentation {
   tick: (time: number, dt: number, mode: PresentationMode) => void;
 }
 
+export type WorldDepthBand = 'near' | 'mid' | 'far';
+export type GrassSilhouette = 'spear' | 'ribbon-left' | 'ribbon-right' | 'fan';
+
+export interface RouteControlPoint {
+  x: number;
+  z: number;
+  halfWidth: number;
+}
+
+export interface TerrainMassSpec {
+  id: string;
+  depthBand: WorldDepthBand;
+  color: number;
+  elevation: number;
+  points: Array<{ x: number; z: number }>;
+}
+
+export interface GrassClusterSpec {
+  id: string;
+  x: number;
+  z: number;
+  radiusX: number;
+  radiusZ: number;
+  count: number;
+  seed: number;
+  heightMin: number;
+  heightMax: number;
+  silhouettes: GrassSilhouette[];
+}
+
+export interface WorldRouteBlueprint {
+  path: {
+    safeHalfWidth: number;
+    centerline: RouteControlPoint[];
+  };
+  terrainMasses: TerrainMassSpec[];
+  grassClusters: GrassClusterSpec[];
+  destination: {
+    x: number;
+    z: number;
+    openingWidth: number;
+    openingHeight: number;
+    thresholdLight: 'warm-local';
+  };
+}
+
+/**
+ * Authored route data doubles as a deterministic QA surface. Keeping the scene
+ * grammar declarative makes irregularity measurable without rendering pixels,
+ * while all gameplay/collision coordinates remain owned by world/explore.ts.
+ */
+export const WORLD_ROUTE_BLUEPRINT: WorldRouteBlueprint = {
+  path: {
+    safeHalfWidth: 0.95,
+    centerline: [
+      { x: 0.02, z: 10.8, halfWidth: 1.76 },
+      { x: -0.48, z: 7.75, halfWidth: 1.66 },
+      { x: 0.58, z: 5.1, halfWidth: 1.6 },
+      { x: -0.62, z: 2.25, halfWidth: 1.72 },
+      { x: 0.7, z: -0.65, halfWidth: 1.76 },
+      { x: -0.52, z: -3.75, halfWidth: 1.7 },
+      { x: 0.62, z: -6.55, halfWidth: 1.56 },
+      { x: -0.88, z: -9.35, halfWidth: 1.46 },
+      { x: -1.08, z: -12.42, halfWidth: 1.72 },
+    ],
+  },
+  terrainMasses: [
+    {
+      id: 'near-west-shadow-bank',
+      depthBand: 'near',
+      color: 0x345448,
+      elevation: 0.004,
+      points: [
+        { x: -18.2, z: 13.8 }, { x: -7.1, z: 14.1 }, { x: -3.9, z: 10.4 },
+        { x: -4.8, z: 6.2 }, { x: -7.8, z: 3.7 }, { x: -13.8, z: 4.2 },
+        { x: -18.6, z: 7.1 }, { x: -19.1, z: 11.2 },
+      ],
+    },
+    {
+      id: 'near-east-moss-fan',
+      depthBand: 'near',
+      color: 0x3a5949,
+      elevation: 0.006,
+      points: [
+        { x: 3.2, z: 13.9 }, { x: 17.8, z: 13.4 }, { x: 19.0, z: 7.3 },
+        { x: 15.1, z: 2.2 }, { x: 9.3, z: 1.4 }, { x: 5.1, z: 5.0 },
+        { x: 2.8, z: 9.2 },
+      ],
+    },
+    {
+      id: 'moonwell-lodge-shelf',
+      depthBand: 'mid',
+      color: 0x536e57,
+      elevation: 0.012,
+      points: [
+        { x: 1.8, z: 8.7 }, { x: 5.1, z: 9.9 }, { x: 10.8, z: 8.6 },
+        { x: 12.6, z: 5.4 }, { x: 10.7, z: 2.2 }, { x: 7.2, z: 0.8 },
+        { x: 3.9, z: 2.0 }, { x: 2.0, z: 4.7 }, { x: 1.2, z: 6.5 },
+      ],
+    },
+    {
+      id: 'lantern-shoulder',
+      depthBand: 'mid',
+      color: 0x456451,
+      elevation: 0.015,
+      points: [
+        { x: -11.4, z: 6.7 }, { x: -6.2, z: 7.8 }, { x: -2.2, z: 5.6 },
+        { x: -2.8, z: 0.6 }, { x: -8.5, z: -0.8 }, { x: -12.2, z: 2.6 },
+      ],
+    },
+    {
+      id: 'whispergrass-west-fold',
+      depthBand: 'mid',
+      color: 0x3d5f4d,
+      elevation: 0.019,
+      points: [
+        { x: -8.8, z: 2.5 }, { x: -4.1, z: 3.6 }, { x: -1.2, z: 1.8 },
+        { x: -0.9, z: -1.1 }, { x: -2.0, z: -4.7 }, { x: -5.6, z: -6.2 },
+        { x: -9.9, z: -4.8 }, { x: -11.6, z: -2.2 }, { x: -11.0, z: 0.1 },
+        { x: -9.7, z: 1.3 },
+      ],
+    },
+    {
+      id: 'whispergrass-east-fold',
+      depthBand: 'mid',
+      color: 0x496652,
+      elevation: 0.022,
+      points: [
+        { x: 1.0, z: 2.3 }, { x: 4.2, z: 3.3 }, { x: 9.7, z: 1.5 },
+        { x: 11.3, z: -2.4 }, { x: 8.0, z: -5.5 }, { x: 3.0, z: -5.9 },
+        { x: 0.9, z: -3.1 }, { x: 0.4, z: -0.3 },
+      ],
+    },
+    {
+      id: 'destination-basin',
+      depthBand: 'far',
+      color: 0x596d6c,
+      elevation: 0.026,
+      points: [
+        { x: -10.5, z: -4.0 }, { x: -6.8, z: -3.3 }, { x: -2.5, z: -5.1 },
+        { x: 1.4, z: -4.5 }, { x: 7.8, z: -6.1 }, { x: 10.9, z: -10.6 },
+        { x: 8.7, z: -15.7 }, { x: 2.7, z: -18.1 }, { x: -4.2, z: -17.2 },
+        { x: -10.4, z: -13.5 }, { x: -12.3, z: -8.1 },
+      ],
+    },
+    {
+      id: 'far-west-violet-moor',
+      depthBand: 'far',
+      color: 0x536568,
+      elevation: 0.018,
+      points: [
+        { x: -18.8, z: -2.4 }, { x: -11.2, z: -1.0 }, { x: -8.7, z: -6.2 },
+        { x: -10.8, z: -12.9 }, { x: -15.4, z: -16.8 }, { x: -19.5, z: -12.2 },
+        { x: -20.1, z: -6.5 },
+      ],
+    },
+    {
+      id: 'far-east-blue-moor',
+      depthBand: 'far',
+      color: 0x586a6d,
+      elevation: 0.014,
+      points: [
+        { x: 8.1, z: -2.6 }, { x: 14.4, z: -1.2 }, { x: 19.2, z: -4.7 },
+        { x: 19.8, z: -11.1 }, { x: 16.0, z: -16.2 }, { x: 10.8, z: -17.8 },
+        { x: 7.7, z: -14.8 }, { x: 9.1, z: -9.7 }, { x: 7.0, z: -6.3 },
+      ],
+    },
+  ],
+  grassClusters: [
+    { id: 'west-copper-turn', x: -1.78, z: 1.24, radiusX: 0.64, radiusZ: 0.3, count: 18, seed: 0x71a1, heightMin: 0.72, heightMax: 1.34, silhouettes: ['fan', 'ribbon-left', 'spear'] },
+    { id: 'west-lantern-pocket', x: -2.08, z: 0.02, radiusX: 0.72, radiusZ: 0.38, count: 23, seed: 0x71a2, heightMin: 0.54, heightMax: 1.08, silhouettes: ['ribbon-right', 'spear'] },
+    { id: 'west-middle-hook', x: -1.76, z: -1.26, radiusX: 0.68, radiusZ: 0.4, count: 20, seed: 0x71a3, heightMin: 0.7, heightMax: 1.46, silhouettes: ['ribbon-left', 'ribbon-right', 'fan'] },
+    { id: 'west-deep-crescent', x: -2.18, z: -2.58, radiusX: 0.8, radiusZ: 0.46, count: 27, seed: 0x71a4, heightMin: 0.5, heightMax: 1.14, silhouettes: ['spear', 'fan', 'ribbon-right'] },
+    { id: 'west-exit-tuft', x: -1.62, z: -3.52, radiusX: 0.52, radiusZ: 0.26, count: 12, seed: 0x71a5, heightMin: 0.66, heightMax: 1.38, silhouettes: ['fan', 'ribbon-left'] },
+    { id: 'east-entry-fan', x: 2.18, z: 0.58, radiusX: 0.72, radiusZ: 0.32, count: 17, seed: 0x71b1, heightMin: 0.54, heightMax: 1.02, silhouettes: ['fan', 'spear', 'ribbon-right'] },
+    { id: 'east-blue-pocket', x: 1.82, z: -0.58, radiusX: 0.68, radiusZ: 0.38, count: 24, seed: 0x71b2, heightMin: 0.7, heightMax: 1.4, silhouettes: ['ribbon-left', 'spear'] },
+    { id: 'east-narrow-turn', x: 2.18, z: -1.86, radiusX: 0.76, radiusZ: 0.34, count: 18, seed: 0x71b3, heightMin: 0.52, heightMax: 1.16, silhouettes: ['ribbon-right', 'fan'] },
+    { id: 'east-deep-island', x: 1.86, z: -3.14, radiusX: 0.72, radiusZ: 0.44, count: 29, seed: 0x71b4, heightMin: 0.66, heightMax: 1.5, silhouettes: ['spear', 'ribbon-left', 'ribbon-right', 'fan'] },
+  ],
+  destination: {
+    x: -1.08,
+    z: -12.42,
+    openingWidth: 2.36,
+    openingHeight: 2.82,
+    thresholdLight: 'warm-local',
+  },
+};
+
+export const WORLD_LIGHTING_PROFILE = {
+  nearFogDensity: 0.002,
+  farFogDensity: 0.027,
+  globalEmissiveMax: 0.015,
+  warmLightStrategy: 'localized-rim-bounce' as const,
+  shadowField: 'cool' as const,
+};
+
 function mulberry32(seed: number): () => number {
   let state = seed >>> 0;
   return () => {
@@ -86,32 +282,127 @@ function cloudTexture(): THREE.CanvasTexture {
   return texture;
 }
 
-function pathGeometry(): THREE.ShapeGeometry {
+interface RouteBoundarySample {
+  center: THREE.Vector3[];
+  left: THREE.Vector3[];
+  right: THREE.Vector3[];
+}
+
+function sampleRouteBoundaries(samplesPerSpan = 8, widthScale = 1): RouteBoundarySample {
+  const controls = WORLD_ROUTE_BLUEPRINT.path.centerline;
+  const curve = new THREE.CatmullRomCurve3(
+    controls.map((point) => new THREE.Vector3(point.x, 0, point.z)),
+    false,
+    'centripetal',
+    0.42,
+  );
+  const sampleCount = (controls.length - 1) * samplesPerSpan;
+  const center: THREE.Vector3[] = [];
+  const left: THREE.Vector3[] = [];
+  const right: THREE.Vector3[] = [];
+
+  for (let i = 0; i <= sampleCount; i++) {
+    const t = i / sampleCount;
+    const point = curve.getPoint(t);
+    const tangent = curve.getTangent(t).normalize();
+    const widthIndex = t * (controls.length - 1);
+    const fromIndex = Math.min(controls.length - 2, Math.floor(widthIndex));
+    const widthBlend = widthIndex - fromIndex;
+    const halfWidth = THREE.MathUtils.lerp(
+      controls[fromIndex]!.halfWidth,
+      controls[fromIndex + 1]!.halfWidth,
+      widthBlend,
+    ) * widthScale;
+    // Left normal for a route travelling toward negative Z.
+    const normal = new THREE.Vector3(tangent.z, 0, -tangent.x).normalize();
+    center.push(point);
+    left.push(point.clone().addScaledVector(normal, halfWidth));
+    right.push(point.clone().addScaledVector(normal, -halfWidth));
+  }
+
+  return { center, left, right };
+}
+
+function pathGeometry(widthScale = 1): THREE.ShapeGeometry {
+  const { left, right } = sampleRouteBoundaries(8, widthScale);
   const shape = new THREE.Shape();
-  const left: Array<[number, number]> = [
-    [-1.55, 10.5],
-    [-1.32, 7.2],
-    [-1.05, 3.9],
-    [-0.97, -3.9],
-    [-1.32, -7.2],
-    [-2.75, -12.8],
-  ];
-  const right: Array<[number, number]> = [
-    [1.55, 10.5],
-    [1.32, 7.2],
-    [1.05, 3.9],
-    [0.97, -3.9],
-    [0.35, -7.2],
-    [-1.05, -12.8],
-  ];
-  const [firstX, firstZ] = left[0]!;
-  shape.moveTo(firstX, -firstZ);
-  for (const [x, z] of left.slice(1)) shape.lineTo(x, -z);
-  for (const [x, z] of [...right].reverse()) shape.lineTo(x, -z);
+  shape.moveTo(left[0]!.x, -left[0]!.z);
+  for (const point of left.slice(1)) shape.lineTo(point.x, -point.z);
+  for (const point of [...right].reverse()) shape.lineTo(point.x, -point.z);
   shape.closePath();
   const geometry = new THREE.ShapeGeometry(shape, 12);
   geometry.rotateX(-Math.PI / 2);
   geometry.computeVertexNormals();
+  return geometry;
+}
+
+function terrainMassGeometry(points: Array<{ x: number; z: number }>): THREE.ShapeGeometry {
+  const contour = new THREE.CatmullRomCurve3(
+    points.map((point) => new THREE.Vector3(point.x, 0, point.z)),
+    true,
+    'centripetal',
+    0.42,
+  ).getPoints(points.length * 6);
+  const shape = new THREE.Shape();
+  shape.moveTo(contour[0]!.x, -contour[0]!.z);
+  for (const point of contour.slice(1)) shape.lineTo(point.x, -point.z);
+  shape.closePath();
+  const geometry = new THREE.ShapeGeometry(shape, 8);
+  geometry.rotateX(-Math.PI / 2);
+  geometry.computeVertexNormals();
+  return geometry;
+}
+
+function grassSilhouetteGeometry(kind: GrassSilhouette): THREE.BufferGeometry {
+  if (kind === 'spear') {
+    const geometry = new THREE.ConeGeometry(0.075, 1, 4);
+    geometry.translate(0, 0.5, 0);
+    return geometry;
+  }
+
+  const shape = new THREE.Shape();
+  if (kind === 'fan') {
+    shape.moveTo(-0.035, 0);
+    shape.bezierCurveTo(-0.08, 0.23, -0.24, 0.38, -0.2, 0.58);
+    shape.lineTo(-0.07, 0.5);
+    shape.lineTo(0, 0.84);
+    shape.lineTo(0.075, 0.5);
+    shape.lineTo(0.21, 0.58);
+    shape.bezierCurveTo(0.23, 0.36, 0.08, 0.2, 0.035, 0);
+  } else {
+    const bend = kind === 'ribbon-left' ? -1 : 1;
+    shape.moveTo(-0.038, 0);
+    shape.bezierCurveTo(-0.055, 0.32, bend * 0.15 - 0.04, 0.68, bend * 0.18, 0.98);
+    shape.bezierCurveTo(bend * 0.11, 0.73, 0.045, 0.32, 0.038, 0);
+  }
+  shape.closePath();
+  const geometry = new THREE.ShapeGeometry(shape, 5);
+  geometry.computeVertexNormals();
+  return geometry;
+}
+
+function clusterUnderlayGeometry(spec: GrassClusterSpec): THREE.ShapeGeometry {
+  const rng = mulberry32(spec.seed ^ 0x5eeda11);
+  const rawPoints: THREE.Vector3[] = [];
+  const points = 11;
+  for (let i = 0; i < points; i++) {
+    const angle = (i / points) * Math.PI * 2;
+    const irregularity = 0.82 + rng() * 0.3;
+    rawPoints.push(
+      new THREE.Vector3(
+        spec.x + Math.cos(angle) * spec.radiusX * irregularity,
+        0,
+        spec.z + Math.sin(angle) * spec.radiusZ * irregularity,
+      ),
+    );
+  }
+  const contour = new THREE.CatmullRomCurve3(rawPoints, true, 'centripetal', 0.45).getPoints(44);
+  const shape = new THREE.Shape();
+  shape.moveTo(contour[0]!.x, -contour[0]!.z);
+  for (const point of contour.slice(1)) shape.lineTo(point.x, -point.z);
+  shape.closePath();
+  const geometry = new THREE.ShapeGeometry(shape, 4);
+  geometry.rotateX(-Math.PI / 2);
   return geometry;
 }
 
@@ -149,10 +440,10 @@ function addTree(
   });
   const leaves = new THREE.MeshStandardMaterial({
     color: tint,
-    roughness: 0.82,
+    roughness: 0.86,
     metalness: 0,
     emissive: tint,
-    emissiveIntensity: 0.025,
+    emissiveIntensity: 0.008,
   });
   const trunk = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.34, 2.5, useMedium ? 7 : 10), bark);
   trunk.position.y = 1.18;
@@ -255,9 +546,9 @@ function addLanternStake(
   const metal = new THREE.MeshStandardMaterial({
     color,
     emissive,
-    emissiveIntensity: 0.34,
-    roughness: 0.38,
-    metalness: 0.54,
+    emissiveIntensity: 0.08,
+    roughness: 0.46,
+    metalness: 0.46,
   });
   const base = new THREE.Mesh(new THREE.CylinderGeometry(0.36, 0.48, 0.28, 10), darkStone);
   base.position.y = 0.14;
@@ -298,37 +589,140 @@ function addLanternStake(
 function addDistantTower(parent: THREE.Object3D, useMedium: boolean): void {
   const tower = new THREE.Group();
   tower.name = 'hollow-observatory';
-  tower.position.set(-1.7, 0.1, -17.5);
-  const stone = new THREE.MeshStandardMaterial({ color: 0x526071, roughness: 0.92, metalness: 0.02 });
+  tower.position.set(WORLD_ROUTE_BLUEPRINT.destination.x, 0.1, -18.15);
+  const stone = new THREE.MeshStandardMaterial({ color: 0x64717b, roughness: 0.94, metalness: 0.01 });
   const copper = new THREE.MeshStandardMaterial({
-    color: 0x8b6559,
-    roughness: 0.56,
-    metalness: 0.34,
-    emissive: 0x351a13,
-    emissiveIntensity: 0.12,
+    color: 0x846b65,
+    roughness: 0.64,
+    metalness: 0.24,
+    emissive: 0x2c1714,
+    emissiveIntensity: WORLD_LIGHTING_PROFILE.globalEmissiveMax,
   });
-  const base = new THREE.Mesh(new THREE.CylinderGeometry(1.25, 1.65, 4.1, useMedium ? 8 : 14), stone);
-  base.position.y = 2.05;
+  const base = new THREE.Mesh(new THREE.CylinderGeometry(1.18, 1.58, 4.15, useMedium ? 8 : 14), stone);
+  base.position.y = 2.08;
   tower.add(base);
-  const balcony = new THREE.Mesh(new THREE.CylinderGeometry(1.72, 1.72, 0.18, 18), copper);
-  balcony.position.y = 3.48;
+  const balcony = new THREE.Mesh(new THREE.CylinderGeometry(1.7, 1.7, 0.18, 18), copper);
+  balcony.position.y = 3.52;
   tower.add(balcony);
-  const dome = new THREE.Mesh(new THREE.SphereGeometry(1.35, 18, 10, 0, Math.PI * 2, 0, Math.PI / 2), copper);
-  dome.position.y = 4.12;
+  const dome = new THREE.Mesh(new THREE.SphereGeometry(1.34, 18, 10, 0, Math.PI * 2, 0, Math.PI / 2), copper);
+  dome.position.y = 4.17;
   tower.add(dome);
-  const needle = new THREE.Mesh(new THREE.ConeGeometry(0.16, 1.8, 8), copper);
-  needle.position.y = 5.75;
+  const needle = new THREE.Mesh(new THREE.ConeGeometry(0.14, 1.72, 8), copper);
+  needle.position.y = 5.72;
   tower.add(needle);
   for (const x of [-0.48, 0, 0.48]) {
     const window = new THREE.Mesh(
-      new THREE.PlaneGeometry(0.22, 0.5),
-      new THREE.MeshBasicMaterial({ color: 0xffc66d, transparent: true, opacity: 0.88 }),
+      new THREE.PlaneGeometry(0.2, 0.46),
+      new THREE.MeshBasicMaterial({ color: 0xe8b46f, transparent: true, opacity: 0.68 }),
     );
-    window.position.set(x, 2.6, 1.26);
+    window.position.set(x, 2.58, 1.22);
     tower.add(window);
   }
-  setShadow(tower, !useMedium, true);
+  setShadow(tower, false, true);
   parent.add(tower);
+}
+
+function addDestinationEntrance(parent: THREE.Object3D, useMedium: boolean): void {
+  const destination = WORLD_ROUTE_BLUEPRINT.destination;
+  const gate = new THREE.Group();
+  gate.name = 'observatory-threshold-entrance';
+  gate.position.set(destination.x, 0, destination.z);
+
+  const coolStone = new THREE.MeshStandardMaterial({
+    color: 0x3d5056,
+    roughness: 0.91,
+    metalness: 0.03,
+  });
+  const edgeStone = new THREE.MeshStandardMaterial({
+    color: 0x718084,
+    roughness: 0.82,
+    metalness: 0.04,
+  });
+  const openingMat = new THREE.MeshBasicMaterial({ color: 0x101a20, side: THREE.DoubleSide });
+  const thresholdMat = new THREE.MeshBasicMaterial({
+    color: 0xf5a65f,
+    transparent: true,
+    opacity: 0.72,
+  });
+
+  const radius = destination.openingWidth * 0.5;
+  const springY = destination.openingHeight - radius;
+  const pierOffset = radius + 0.31;
+  for (const side of [-1, 1]) {
+    const pier = new THREE.Mesh(new THREE.BoxGeometry(0.54, springY + 0.2, 0.72), coolStone);
+    pier.position.set(side * pierOffset, (springY + 0.2) * 0.5, 0);
+    pier.rotation.z = side * 0.018;
+    gate.add(pier);
+
+    const foot = new THREE.Mesh(new THREE.DodecahedronGeometry(0.48, 0), edgeStone);
+    foot.position.set(side * pierOffset, 0.28, 0.03);
+    foot.scale.set(1.0, 0.62, 0.9);
+    gate.add(foot);
+
+    const marker = new THREE.Mesh(
+      new THREE.SphereGeometry(0.095, useMedium ? 8 : 12, 8),
+      new THREE.MeshBasicMaterial({ color: 0xf2b36f }),
+    );
+    marker.position.set(side * (radius + 0.05), springY - 0.16, 0.39);
+    gate.add(marker);
+  }
+
+  const arch = new THREE.Mesh(
+    new THREE.TorusGeometry(radius, 0.16, useMedium ? 6 : 9, useMedium ? 28 : 42, Math.PI),
+    edgeStone,
+  );
+  arch.position.set(0, springY, 0.02);
+  gate.add(arch);
+
+  const openingShape = new THREE.Shape();
+  openingShape.moveTo(-radius, 0);
+  openingShape.lineTo(-radius, springY);
+  openingShape.absarc(0, springY, radius, Math.PI, 0, true);
+  openingShape.lineTo(radius, 0);
+  openingShape.closePath();
+  const opening = new THREE.Mesh(new THREE.ShapeGeometry(openingShape, 8), openingMat);
+  opening.position.set(0, 0.035, -0.39);
+  gate.add(opening);
+
+  const threshold = new THREE.Mesh(
+    new THREE.BoxGeometry(destination.openingWidth * 0.76, 0.055, 0.42),
+    thresholdMat,
+  );
+  threshold.position.set(0, 0.07, 0.14);
+  gate.add(threshold);
+
+  const thresholdLight = new THREE.PointLight(0xffa45f, useMedium ? 0.72 : 1.05, 4.6, 2.1);
+  thresholdLight.position.set(0, 0.92, -0.08);
+  gate.add(thresholdLight);
+
+  setShadow(gate, !useMedium, true);
+  opening.castShadow = false;
+  threshold.castShadow = false;
+  parent.add(gate);
+}
+
+function tuneSceneLighting(scene: THREE.Scene, useMedium: boolean): void {
+  // Main owns gameplay/camera lights; presentation only retunes their broad fill
+  // so warm energy comes from local route fixtures rather than every surface.
+  scene.traverse((object) => {
+    if ((object as THREE.AmbientLight).isAmbientLight) {
+      const light = object as THREE.AmbientLight;
+      light.color.setHex(0xaec2dc);
+      light.intensity = useMedium ? 0.19 : 0.22;
+    } else if ((object as THREE.HemisphereLight).isHemisphereLight) {
+      const light = object as THREE.HemisphereLight;
+      light.color.setHex(0xb9c9e2);
+      light.groundColor.setHex(0x182e35);
+      light.intensity = useMedium ? 0.5 : 0.57;
+    } else if ((object as THREE.DirectionalLight).isDirectionalLight) {
+      const light = object as THREE.DirectionalLight;
+      const color = light.color.getHex();
+      if (color === 0xffdfbb) light.intensity = useMedium ? 0.98 : 1.18;
+      else if (color === 0xff9579) light.intensity = useMedium ? 0.2 : 0.27;
+      else if (color === 0x789bd4) light.intensity = useMedium ? 0.4 : 0.48;
+      else if (color === 0xe4f1ff) light.intensity = useMedium ? 0.14 : 0.19;
+    }
+  });
 }
 
 export function addCeremonyArchitecture(stage: THREE.Group, useMedium: boolean): void {
@@ -402,8 +796,9 @@ export function createLumenWorld(
   root.name = 'lumen-hollow-world';
   scene.add(root);
 
-  scene.background = new THREE.Color(0x6f84aa);
-  scene.fog = new THREE.FogExp2(0x8aa0af, useMedium ? 0.022 : 0.018);
+  tuneSceneLighting(scene, useMedium);
+  scene.background = new THREE.Color(0x60758f);
+  scene.fog = new THREE.Fog(0x718696, useMedium ? 10.5 : 12.5, useMedium ? 34 : 40);
 
   const skyDome = new THREE.Mesh(
     new THREE.SphereGeometry(66, useMedium ? 24 : 48, useMedium ? 12 : 24),
@@ -411,12 +806,12 @@ export function createLumenWorld(
       side: THREE.BackSide,
       depthWrite: false,
       uniforms: {
-        zenith: { value: new THREE.Color(0x253c68) },
-        upper: { value: new THREE.Color(0x566f9d) },
-        horizon: { value: new THREE.Color(0xd79a82) },
-        nadir: { value: new THREE.Color(0xf0c092) },
-        sunColor: { value: new THREE.Color(0xffe5ad) },
-        sunDir: { value: new THREE.Vector3(-0.42, 0.16, -0.9).normalize() },
+        zenith: { value: new THREE.Color(0x1c3156) },
+        upper: { value: new THREE.Color(0x485f82) },
+        horizon: { value: new THREE.Color(0xb77776) },
+        nadir: { value: new THREE.Color(0x8d6c72) },
+        sunColor: { value: new THREE.Color(0xffd19a) },
+        sunDir: { value: new THREE.Vector3(-0.5, 0.19, -0.86).normalize() },
       },
       vertexShader: `
         varying vec3 vDir;
@@ -438,9 +833,9 @@ export function createLumenWorld(
           vec3 col = mix(nadir, horizon, smoothstep(0.0, 0.42, h));
           col = mix(col, upper, smoothstep(0.38, 0.72, h));
           col = mix(col, zenith, smoothstep(0.68, 1.0, h));
-          float sun = pow(max(dot(normalize(vDir), sunDir), 0.0), 180.0);
-          float haze = pow(max(dot(normalize(vDir), sunDir), 0.0), 14.0) * 0.32;
-          col += sunColor * (sun * 2.1 + haze);
+          float sun = pow(max(dot(normalize(vDir), sunDir), 0.0), 210.0);
+          float haze = pow(max(dot(normalize(vDir), sunDir), 0.0), 18.0) * 0.13;
+          col += sunColor * (sun * 1.35 + haze);
           gl_FragColor = vec4(col, 1.0);
         }
       `,
@@ -452,20 +847,20 @@ export function createLumenWorld(
   const cloudMap = cloudTexture();
   const clouds: THREE.Sprite[] = [];
   const cloudPositions: Array<[number, number, number, number]> = [
-    [-15, 10.5, -30, 12],
-    [2, 13, -38, 16],
-    [18, 9.2, -29, 10],
-    [-26, 7.8, -12, 9],
-    [28, 12.4, -18, 13],
-    [7, 8.4, 26, 11],
+    [-17, 11.2, -31, 11],
+    [4, 13.5, -40, 15],
+    [20, 9.8, -30, 9],
+    [-27, 8.4, -10, 8],
+    [29, 12.9, -20, 12],
+    [8, 9.1, 27, 10],
   ];
   for (const [x, y, z, size] of cloudPositions) {
     const cloud = new THREE.Sprite(
       new THREE.SpriteMaterial({
         map: cloudMap,
-        color: 0xffdfd7,
+        color: 0xd9ced7,
         transparent: true,
-        opacity: 0.46,
+        opacity: 0.27,
         depthWrite: false,
         fog: false,
       }),
@@ -479,131 +874,194 @@ export function createLumenWorld(
   const sun = new THREE.Sprite(
     new THREE.SpriteMaterial({
       map: radialTexture(),
-      color: 0xffd79c,
+      color: 0xffc985,
       transparent: true,
-      opacity: 0.72,
+      opacity: 0.44,
       depthWrite: false,
       blending: THREE.AdditiveBlending,
       fog: false,
     }),
   );
-  sun.position.set(-18, 8.2, -36);
-  sun.scale.set(10, 10, 1);
+  sun.position.set(-22, 9.5, -40);
+  sun.scale.set(7.1, 7.1, 1);
   root.add(sun);
 
   const groundMat = new THREE.MeshStandardMaterial({
-    color: 0x466b51,
-    roughness: 0.98,
+    color: 0x29443c,
+    roughness: 0.99,
     metalness: 0,
-    emissive: 0x14271c,
-    emissiveIntensity: 0.08,
   });
-  const ground = new THREE.Mesh(new THREE.CircleGeometry(18.5, useMedium ? 64 : 128), groundMat);
+  const ground = new THREE.Mesh(new THREE.CircleGeometry(19.5, useMedium ? 56 : 96), groundMat);
   ground.rotation.x = -Math.PI / 2;
-  ground.position.y = -0.02;
+  ground.position.y = -0.025;
   ground.receiveShadow = true;
+  ground.name = 'cool-shadow-field';
   root.add(ground);
 
-  const terraceMats = [0x3a5e48, 0x52775a, 0x365344].map(
-    (color) => new THREE.MeshStandardMaterial({ color, roughness: 0.96, metalness: 0 }),
-  );
-  for (let i = 0; i < 4; i++) {
-    const ring = new THREE.Mesh(
-      new THREE.RingGeometry(4.8 + i * 2.5, 5.08 + i * 2.5, useMedium ? 48 : 96),
-      terraceMats[i % terraceMats.length]!,
+  for (const spec of WORLD_ROUTE_BLUEPRINT.terrainMasses) {
+    const mass = new THREE.Mesh(
+      terrainMassGeometry(spec.points),
+      new THREE.MeshStandardMaterial({
+        color: spec.color,
+        roughness: spec.depthBand === 'far' ? 0.99 : 0.96,
+        metalness: 0,
+      }),
     );
-    ring.rotation.x = -Math.PI / 2;
-    ring.position.y = 0.006 + i * 0.004;
-    ring.scale.z = 0.82 + i * 0.035;
-    ring.receiveShadow = true;
-    root.add(ring);
+    mass.name = `terrain-mass-${spec.id}`;
+    mass.position.y = spec.elevation;
+    mass.receiveShadow = true;
+    mass.castShadow = false;
+    root.add(mass);
   }
 
   const path = new THREE.Mesh(
     pathGeometry(),
     new THREE.MeshStandardMaterial({
-      color: 0xc8ab7b,
-      roughness: 0.94,
+      color: 0xb99d73,
+      roughness: 0.97,
       metalness: 0,
-      emissive: 0x483824,
-      emissiveIntensity: 0.055,
     }),
   );
-  path.position.y = 0.026;
+  path.name = 'winding-lantern-route';
+  path.position.y = 0.045;
   path.receiveShadow = true;
   root.add(path);
 
-  const borderMat = new THREE.MeshStandardMaterial({ color: 0x8b755b, roughness: 0.92, metalness: 0.01 });
-  const leftCurve = new THREE.CatmullRomCurve3([
-    new THREE.Vector3(-1.5, 0.055, 10),
-    new THREE.Vector3(-1.18, 0.055, 3.5),
-    new THREE.Vector3(-1.05, 0.055, -3.8),
-    new THREE.Vector3(-1.4, 0.055, -7.2),
-    new THREE.Vector3(-2.72, 0.055, -12.6),
-  ]);
-  const rightCurve = new THREE.CatmullRomCurve3([
-    new THREE.Vector3(1.5, 0.055, 10),
-    new THREE.Vector3(1.18, 0.055, 3.5),
-    new THREE.Vector3(1.05, 0.055, -3.8),
-    new THREE.Vector3(0.35, 0.055, -7.2),
-    new THREE.Vector3(-1.02, 0.055, -12.6),
-  ]);
-  for (const curve of [leftCurve, rightCurve]) {
-    const edge = new THREE.Mesh(new THREE.TubeGeometry(curve, 64, 0.045, 6, false), borderMat);
-    edge.receiveShadow = true;
-    root.add(edge);
+  const routeCore = new THREE.Mesh(
+    pathGeometry(0.39),
+    new THREE.MeshStandardMaterial({ color: 0xc4aa82, roughness: 0.99, metalness: 0 }),
+  );
+  routeCore.name = 'worn-route-core';
+  routeCore.position.y = 0.052;
+  routeCore.receiveShadow = true;
+  root.add(routeCore);
+
+  const borderMat = new THREE.MeshStandardMaterial({ color: 0x716858, roughness: 0.99, metalness: 0 });
+  const routeBoundary = sampleRouteBoundaries();
+  const edgeSpans = [
+    [[0, 13], [20, 31], [39, 51], [57, routeBoundary.left.length]],
+    [[5, 17], [25, 37], [45, 58]],
+  ] as const;
+  for (const [sideIndex, points] of [routeBoundary.left, routeBoundary.right].entries()) {
+    for (const [start, end] of edgeSpans[sideIndex]!) {
+      const span = points.slice(start, end);
+      if (span.length < 2) continue;
+      const curve = new THREE.CatmullRomCurve3(
+        span.map((point) => new THREE.Vector3(point.x, 0.072, point.z)),
+        false,
+        'centripetal',
+        0.4,
+      );
+      const edge = new THREE.Mesh(
+        new THREE.TubeGeometry(curve, Math.max(8, span.length * 2), 0.025, 5, false),
+        borderMat,
+      );
+      edge.name = `weathered-route-edge-${sideIndex}-${start}`;
+      edge.receiveShadow = true;
+      edge.castShadow = false;
+      root.add(edge);
+    }
   }
 
-  const pebbleMat = new THREE.MeshStandardMaterial({ color: 0xa89475, roughness: 0.98, metalness: 0 });
-  for (let i = 0; i < (useMedium ? 22 : 42); i++) {
-    const z = -10 + rng() * 19;
-    const taper = 1.1 + Math.abs(z) * 0.025;
-    const side = rng() < 0.5 ? -1 : 1;
+  const pebbleMat = new THREE.MeshStandardMaterial({ color: 0x91836d, roughness: 0.98, metalness: 0 });
+  const pathStoneSpecs: Array<[number, number, number, number, number]> = [
+    [-2.02, 9.1, 0.3, 0.14, 0.22], [1.55, 8.55, 0.18, 0.1, 0.28],
+    [-1.88, 7.2, 0.2, 0.09, 0.17], [1.96, 6.45, 0.28, 0.13, 0.19],
+    [-1.24, 5.35, 0.16, 0.08, 0.24], [2.18, 4.65, 0.24, 0.1, 0.34],
+    [-2.32, 3.15, 0.34, 0.14, 0.2], [1.22, 2.42, 0.18, 0.09, 0.16],
+    [-1.1, 1.12, 0.22, 0.1, 0.3], [2.34, 0.48, 0.31, 0.13, 0.2],
+    [-1.42, -0.86, 0.19, 0.08, 0.27], [2.13, -1.42, 0.26, 0.12, 0.18],
+    [-2.08, -2.76, 0.32, 0.13, 0.23], [1.1, -3.58, 0.17, 0.08, 0.25],
+    [-1.22, -4.82, 0.24, 0.11, 0.17], [2.12, -5.52, 0.3, 0.12, 0.26],
+    [-1.05, -6.68, 0.16, 0.08, 0.22], [1.45, -7.45, 0.28, 0.13, 0.19],
+    [-2.12, -8.52, 0.2, 0.09, 0.31], [0.82, -9.28, 0.34, 0.14, 0.21],
+    [-2.62, -10.42, 0.26, 0.11, 0.2], [0.54, -11.08, 0.18, 0.09, 0.28],
+    [-2.72, -12.0, 0.32, 0.13, 0.18], [0.48, -12.24, 0.22, 0.1, 0.3],
+  ];
+  for (let i = 0; i < pathStoneSpecs.length; i++) {
+    if (useMedium && i % 3 === 1) continue;
+    const [x, z, sx, sy, sz] = pathStoneSpecs[i]!;
     const pebble = makeRock(
       rng,
       pebbleMat,
-      new THREE.Vector3(side * (taper + rng() * 0.42), 0.055, z),
-      new THREE.Vector3(0.13 + rng() * 0.18, 0.08 + rng() * 0.09, 0.16 + rng() * 0.2),
+      new THREE.Vector3(x, 0.065, z),
+      new THREE.Vector3(sx, sy, sz),
     );
     pebble.castShadow = false;
     root.add(pebble);
   }
 
-  const ridgeMat = new THREE.MeshStandardMaterial({ color: 0x344c48, roughness: 0.92, metalness: 0 });
-  const farRidgeMat = new THREE.MeshStandardMaterial({ color: 0x53666d, roughness: 0.98, metalness: 0 });
-  for (let i = 0; i < 11; i++) {
-    const angle = (i / 11) * Math.PI * 2 + 0.18;
-    const radius = 13.2 + (i % 3) * 1.4;
-    const ridge = new THREE.Mesh(new THREE.IcosahedronGeometry(1.35 + (i % 4) * 0.32, 1), i % 3 === 0 ? farRidgeMat : ridgeMat);
-    ridge.position.set(Math.cos(angle) * radius, 0.18 + (i % 2) * 0.12, Math.sin(angle) * radius);
-    ridge.scale.set(2.3 + rng(), 0.65 + rng() * 0.25, 1.35 + rng() * 0.7);
-    ridge.rotation.y = rng() * Math.PI;
-    ridge.castShadow = !useMedium;
+  const ridgeMaterials: Record<WorldDepthBand, THREE.MeshStandardMaterial> = {
+    near: new THREE.MeshStandardMaterial({ color: 0x304b48, roughness: 0.93, metalness: 0 }),
+    mid: new THREE.MeshStandardMaterial({ color: 0x485e5f, roughness: 0.96, metalness: 0 }),
+    far: new THREE.MeshStandardMaterial({ color: 0x65747c, roughness: 0.99, metalness: 0 }),
+  };
+  const ridgeGeometry = new THREE.IcosahedronGeometry(1.45, 1);
+  const ridgeSpecs: Array<[
+    string,
+    WorldDepthBand,
+    number,
+    number,
+    number,
+    number,
+    number,
+    number,
+    number,
+  ]> = [
+    ['west-foreground-bank', 'near', -11.8, 6.2, 0.42, 3.8, 0.78, 2.15, 0.18],
+    ['east-foreground-bank', 'near', 12.9, 8.0, 0.36, 4.5, 0.72, 2.5, -0.12],
+    ['west-lantern-berm', 'mid', -9.4, -0.8, 0.46, 3.1, 0.86, 1.65, 0.44],
+    ['east-moonwell-berm', 'mid', 10.6, -2.6, 0.4, 3.9, 0.75, 1.9, -0.24],
+    ['west-route-fold', 'mid', -7.5, -6.8, 0.38, 2.8, 0.72, 1.5, 0.63],
+    ['east-route-fold', 'mid', 7.8, -8.1, 0.41, 3.4, 0.82, 1.7, -0.38],
+    ['west-gate-frame', 'far', -6.7, -13.5, 0.52, 3.0, 1.0, 1.8, 0.2],
+    ['east-gate-frame', 'far', 5.7, -14.8, 0.56, 3.8, 1.08, 2.0, -0.34],
+    ['west-horizon-step', 'far', -13.2, -15.2, 0.62, 4.6, 1.18, 2.6, 0.48],
+    ['east-horizon-step', 'far', 12.1, -17.0, 0.66, 5.2, 1.1, 2.8, -0.22],
+  ];
+  for (const [id, band, x, z, y, sx, sy, sz, rotation] of ridgeSpecs) {
+    const ridge = new THREE.Mesh(ridgeGeometry, ridgeMaterials[band]);
+    ridge.name = `authored-ridge-${id}`;
+    ridge.position.set(x, y, z);
+    ridge.scale.set(sx, sy, sz);
+    ridge.rotation.y = rotation;
+    ridge.castShadow = !useMedium && band !== 'far';
     ridge.receiveShadow = true;
     root.add(ridge);
   }
 
-  const rockMat = new THREE.MeshStandardMaterial({ color: 0x596a68, roughness: 0.86, metalness: 0.03 });
-  const warmRockMat = new THREE.MeshStandardMaterial({ color: 0x76645b, roughness: 0.88, metalness: 0.02 });
+  const rockMat = new THREE.MeshStandardMaterial({ color: 0x52615f, roughness: 0.9, metalness: 0.02 });
+  const warmRockMat = new THREE.MeshStandardMaterial({ color: 0x675b55, roughness: 0.91, metalness: 0.01 });
   const heroRocks: Array<[number, number, number, number, number, number]> = [
-    [-9.8, -5.6, 1.1, 2.6, 1.05, 1.1],
-    [9.2, -7.8, 1.0, 3.5, 1.25, 1.35],
-    [7.4, 8.4, 0.62, 1.35, 0.7, 0.92],
-    [-8.2, 7.3, 0.72, 1.8, 0.82, 1.05],
+    [-9.2, -5.1, 1.0, 2.15, 0.9, 1.05],
+    [9.0, -6.9, 0.9, 2.75, 1.05, 1.25],
+    [7.7, 8.25, 0.58, 1.25, 0.64, 0.86],
+    [-8.45, 7.0, 0.68, 1.55, 0.72, 0.96],
+    [-4.5, -10.9, 0.52, 1.1, 0.58, 0.78],
   ];
   for (const [x, z, y, sx, sy, sz] of heroRocks) {
-    root.add(makeRock(rng, z < 0 ? rockMat : warmRockMat, new THREE.Vector3(x, y * 0.5, z), new THREE.Vector3(sx, sy, sz)));
+    root.add(
+      makeRock(
+        rng,
+        z < 0 ? rockMat : warmRockMat,
+        new THREE.Vector3(x, y * 0.5, z),
+        new THREE.Vector3(sx, sy, sz),
+      ),
+    );
   }
 
   const treeSpecs: Array<[number, number, number, number]> = [
-    [-8.6, -2.6, 1.05, 0x25483d],
-    [-10.1, 2.2, 1.15, 0x345344],
-    [-7.8, 7.6, 0.92, 0x3b5b44],
-    [8.9, -2.8, 1.15, 0x2c5140],
-    [10.2, 2.2, 1.0, 0x3d5d46],
-    [7.7, 8.2, 0.88, 0x456448],
-    [-5.2, -9.8, 0.8, 0x2a4a3d],
-    [5.1, -10.4, 0.92, 0x314e42],
+    [-9.4, 3.1, 1.22, 0x203f39],
+    [-7.6, 7.9, 0.86, 0x345044],
+    [-11.0, -2.6, 1.05, 0x294a43],
+    [-6.9, -8.6, 0.76, 0x3a5350],
+    [9.7, 1.2, 0.96, 0x315145],
+    [7.4, 8.5, 0.78, 0x47634c],
+    [10.8, -4.2, 1.13, 0x2b4c45],
+    [5.4, -10.7, 0.7, 0x465a58],
+    [-3.9, -12.8, 0.62, 0x536363],
+    [3.8, -14.1, 0.68, 0x59696b],
+    [13.4, -10.2, 0.88, 0x4b6261],
   ];
   for (const [x, z, scale, tint] of treeSpecs) addTree(root, rng, x, z, scale, tint, useMedium);
 
@@ -620,14 +1078,14 @@ export function createLumenWorld(
   const water = new THREE.Mesh(
     new THREE.CircleGeometry(1.16, 48),
     new THREE.MeshPhysicalMaterial({
-      color: 0x8bd7dd,
-      emissive: 0x267f94,
-      emissiveIntensity: 0.42,
-      roughness: 0.14,
-      metalness: 0.12,
-      transmission: useMedium ? 0 : 0.2,
+      color: 0x74b8c1,
+      emissive: 0x18536a,
+      emissiveIntensity: 0.12,
+      roughness: 0.2,
+      metalness: 0.08,
+      transmission: useMedium ? 0 : 0.14,
       transparent: true,
-      opacity: 0.92,
+      opacity: 0.9,
       depthWrite: true,
     }),
   );
@@ -639,7 +1097,7 @@ export function createLumenWorld(
     new THREE.MeshBasicMaterial({
       color: 0xb8f3ff,
       transparent: true,
-      opacity: 0.48,
+      opacity: 0.3,
       side: THREE.DoubleSide,
       depthWrite: false,
       blending: THREE.AdditiveBlending,
@@ -655,7 +1113,7 @@ export function createLumenWorld(
     block.rotation.y = -a;
     wellGroup.add(block);
   }
-  const wellLight = new THREE.PointLight(0x7fd9ff, useMedium ? 1.1 : 1.7, 6, 2);
+  const wellLight = new THREE.PointLight(0x7fc9e5, useMedium ? 0.68 : 0.96, 5.2, 2.2);
   wellLight.position.y = 0.85;
   wellGroup.add(wellLight);
   setShadow(wellGroup, !useMedium, true);
@@ -667,78 +1125,114 @@ export function createLumenWorld(
   const eliteOrb = elite.orb;
 
   addDistantTower(root, useMedium);
+  addDestinationEntrance(root, useMedium);
+
+  const routeRim = new THREE.SpotLight(
+    0xff9c67,
+    useMedium ? 0.62 : 0.86,
+    14,
+    Math.PI * 0.21,
+    0.88,
+    2.2,
+  );
+  routeRim.name = 'localized-sunset-route-rim';
+  routeRim.position.set(-4.8, 4.6, -4.8);
+  routeRim.target.position.set(0.1, 0.25, 1.2);
+  routeRim.castShadow = false;
+  root.add(routeRim, routeRim.target);
 
   const underMat = new THREE.MeshStandardMaterial({
-    color: 0x2a503b,
-    roughness: 0.98,
+    color: 0x1d3a31,
+    roughness: 0.99,
     metalness: 0,
-    emissive: 0x10271b,
-    emissiveIntensity: 0.05,
   });
-  for (const side of [-1, 1] as const) {
-    const undergrowth = new THREE.Mesh(new THREE.PlaneGeometry(1.78, 4.0), underMat);
-    undergrowth.rotation.x = -Math.PI / 2;
-    undergrowth.position.set(side * (grassPathHalf + 0.9), 0.035, -1.65);
+  for (const spec of WORLD_ROUTE_BLUEPRINT.grassClusters) {
+    const undergrowth = new THREE.Mesh(clusterUnderlayGeometry(spec), underMat);
+    undergrowth.name = `grass-cluster-footprint-${spec.id}`;
+    undergrowth.position.y = 0.052;
     undergrowth.receiveShadow = true;
     root.add(undergrowth);
   }
 
-  const grassColors = [0x2f7144, 0x3c8650, 0x235b38, 0x4a9658, 0x326d45, 0x568b57];
+  const grassColors = [0x24523f, 0x2f6849, 0x1b4638, 0x3a704d, 0x355f47, 0x4a7655];
   const grassMats = grassColors.map(
     (color) => new THREE.MeshStandardMaterial({
       color,
-      roughness: 0.86,
+      roughness: 0.9,
       metalness: 0,
-      emissive: color,
-      emissiveIntensity: 0.035,
+      side: THREE.DoubleSide,
     }),
   );
   const grassBlades: THREE.Mesh[] = [];
   const grassBaseRot: number[] = [];
-  const count = useMedium ? 120 : 240;
-  const bladeGeos = [
-    new THREE.ConeGeometry(0.065, 0.95, useMedium ? 3 : 5),
-    new THREE.ConeGeometry(0.052, 1.25, useMedium ? 3 : 4),
-  ];
+  const silhouetteGeometries: Record<GrassSilhouette, THREE.BufferGeometry> = {
+    spear: grassSilhouetteGeometry('spear'),
+    'ribbon-left': grassSilhouetteGeometry('ribbon-left'),
+    'ribbon-right': grassSilhouetteGeometry('ribbon-right'),
+    fan: grassSilhouetteGeometry('fan'),
+  };
   let placed = 0;
-  let attempts = 0;
-  while (placed < count && attempts < count * 20) {
-    attempts++;
-    const x = (rng() * 2 - 1) * 2.58;
-    const z = -1.65 + (rng() * 2 - 1) * 2.0;
-    if (Math.abs(x) < grassPathHalf) continue;
-    const cluster = 1 + Math.floor(rng() * 3);
-    for (let j = 0; j < cluster && placed < count; j++) {
-      const px = x + (j - (cluster - 1) / 2) * 0.11 + (rng() - 0.5) * 0.08;
-      if (Math.abs(px) < grassPathHalf) continue;
-      const pz = z + (rng() - 0.5) * 0.14;
+  const goldenAngle = Math.PI * (3 - Math.sqrt(5));
+  for (const spec of WORLD_ROUTE_BLUEPRINT.grassClusters) {
+    const clusterRng = mulberry32(spec.seed);
+    const targetCount = useMedium ? Math.max(8, Math.round(spec.count * 0.52)) : spec.count;
+    let clusterPlaced = 0;
+    let attempts = 0;
+    while (clusterPlaced < targetCount && attempts < targetCount * 14) {
+      const sampleIndex = attempts++;
+      const angle = sampleIndex * goldenAngle + (clusterRng() - 0.5) * 0.5;
+      const radius = Math.sqrt((sampleIndex + 0.35) / (targetCount * 1.25));
+      const envelope = Math.min(1, radius) * (0.76 + clusterRng() * 0.25);
+      const px = spec.x + Math.cos(angle) * spec.radiusX * envelope;
+      const pz = spec.z + Math.sin(angle) * spec.radiusZ * envelope;
+      if (Math.abs(px) < grassPathHalf + 0.015) continue;
       const intersectsCeremony = [-2.18, 0, 2.18].some(
-        (stageX) => Math.hypot(px - stageX, pz - 0.55) < 0.94,
+        (stageX) => Math.hypot(px - stageX, pz - 0.55) < 0.9,
       );
       if (intersectsCeremony) continue;
-      const tall = rng() > 0.58;
-      const blade = new THREE.Mesh(bladeGeos[tall ? 1 : 0], grassMats[placed % grassMats.length]);
-      const scaleY = 0.82 + rng() * 0.55;
-      blade.position.set(px, (tall ? 0.57 : 0.43) * scaleY, pz);
-      blade.scale.set(0.78 + rng() * 0.42, scaleY, 0.76 + rng() * 0.38);
-      blade.rotation.set((rng() - 0.5) * 0.2, rng() * Math.PI, (rng() - 0.5) * 0.34);
-      blade.castShadow = !useMedium && placed % 9 === 0;
+
+      const silhouette = spec.silhouettes[
+        (clusterPlaced + Math.floor(clusterRng() * spec.silhouettes.length)) % spec.silhouettes.length
+      ]!;
+      const materialIndex = (placed + spec.seed) % grassMats.length;
+      const blade = new THREE.Mesh(silhouetteGeometries[silhouette], grassMats[materialIndex]);
+      const height = THREE.MathUtils.lerp(spec.heightMin, spec.heightMax, clusterRng());
+      const width = 0.76 + clusterRng() * 0.52;
+      blade.name = `grass-${spec.id}-${silhouette}`;
+      blade.position.set(px, 0.055, pz);
+      blade.scale.set(width, height, 0.72 + clusterRng() * 0.46);
+      blade.rotation.set((clusterRng() - 0.5) * 0.15, clusterRng() * Math.PI * 2, (clusterRng() - 0.5) * 0.28);
+      blade.castShadow = !useMedium && placed % 11 === 0;
       blade.receiveShadow = !useMedium;
       grassBaseRot.push(blade.rotation.z);
       grassBlades.push(blade);
       root.add(blade);
+      clusterPlaced++;
       placed++;
     }
   }
 
-  const flowerMats = [0xffc978, 0xaed9ff, 0xe7b3ff].map(
-    (color) => new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0.82, side: THREE.DoubleSide }),
+  const flowerMats = [0xe6b66e, 0x9fc9dc, 0xc8a5d8].map(
+    (color) => new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0.68, side: THREE.DoubleSide }),
   );
-  for (let i = 0; i < (useMedium ? 16 : 34); i++) {
-    const flower = new THREE.Mesh(new THREE.CircleGeometry(0.045 + rng() * 0.035, 6), flowerMats[i % flowerMats.length]);
-    const side = rng() < 0.5 ? -1 : 1;
-    flower.position.set(side * (1.15 + rng() * 5.5), 0.08 + rng() * 0.16, -8 + rng() * 16);
-    flower.rotation.set(-Math.PI / 2 + (rng() - 0.5) * 0.3, 0, rng() * Math.PI);
+  const flowerSpecs: Array<[number, number, number, number, number]> = [
+    [-4.8, 4.4, 0.055, 0.85, 0], [-5.15, 4.62, 0.052, 0.64, 2],
+    [-3.92, 3.84, 0.058, 0.72, 1], [3.18, 6.25, 0.06, 0.9, 1],
+    [3.52, 6.48, 0.052, 0.66, 2], [6.18, 4.04, 0.06, 0.8, 0],
+    [6.48, 3.7, 0.05, 0.58, 1], [-3.0, 0.22, 0.052, 0.76, 2],
+    [3.08, -0.9, 0.055, 0.7, 0], [-3.18, -2.7, 0.058, 0.92, 1],
+    [3.3, -3.55, 0.05, 0.62, 2], [-2.72, -5.45, 0.055, 0.72, 0],
+    [2.7, -6.15, 0.052, 0.82, 1], [-3.36, -7.72, 0.06, 0.66, 2],
+    [2.1, -8.22, 0.052, 0.76, 0], [-3.14, -10.22, 0.056, 0.86, 1],
+    [0.98, -10.9, 0.052, 0.62, 2], [-3.26, -11.55, 0.055, 0.72, 0],
+  ];
+  for (let i = 0; i < flowerSpecs.length; i++) {
+    if (useMedium && i % 2 === 1) continue;
+    const [x, z, radius, scale, materialIndex] = flowerSpecs[i]!;
+    const flower = new THREE.Mesh(new THREE.CircleGeometry(radius, 6), flowerMats[materialIndex]);
+    flower.position.set(x, 0.085 + (i % 3) * 0.028, z);
+    flower.scale.setScalar(scale);
+    flower.rotation.set(-Math.PI / 2 + ((i % 5) - 2) * 0.035, 0, i * 1.17);
     root.add(flower);
   }
 
@@ -774,7 +1268,7 @@ export function createLumenWorld(
     roughness: 0.78,
     metalness: 0.06,
     emissive: 0x102e27,
-    emissiveIntensity: 0.18,
+    emissiveIntensity: WORLD_LIGHTING_PROFILE.globalEmissiveMax,
     transparent: true,
     opacity: 0.96,
   });
@@ -816,12 +1310,12 @@ export function createLumenWorld(
 
   const tick = (time: number, _dt: number, mode: PresentationMode): void => {
     if (mode !== currentMode) setMode(mode);
-    healGlow.material.opacity = 0.37 + Math.sin(time * 2.35) * 0.11;
+    healGlow.material.opacity = 0.22 + Math.sin(time * 2.35) * 0.075;
     water.position.y = 0.176 + Math.sin(time * 1.55) * 0.008;
     gymOrb.position.y = 1.5 + Math.sin(time * 2.05) * 0.055;
     eliteOrb.position.y = 1.7 + Math.sin(time * 1.72 + 1.1) * 0.065;
     motes.rotation.y = Math.sin(time * 0.08) * 0.12;
-    (motes.material as THREE.PointsMaterial).opacity = 0.52 + Math.sin(time * 0.65) * 0.13;
+    (motes.material as THREE.PointsMaterial).opacity = 0.31 + Math.sin(time * 0.65) * 0.075;
     for (let i = 0; i < clouds.length; i++) {
       clouds[i]!.position.x += Math.sin(time * 0.035 + i * 1.9) * 0.0015;
     }
