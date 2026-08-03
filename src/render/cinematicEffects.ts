@@ -1,11 +1,85 @@
 import * as THREE from 'three';
 
 export type ImpactKind = 'hit' | 'se' | 'nve' | 'crit' | 'catch';
+export type AttackPhase = 'anticipation' | 'travel' | 'contact' | 'recoil' | 'settle' | 'idle';
+
+export interface ScreenRect {
+  left: number;
+  top: number;
+  right: number;
+  bottom: number;
+}
+
+/**
+ * One authored attack grammar shared by player and foe actions.
+ *
+ * The first rendered frame is anticipation, contact owns a true 64ms
+ * hit-stop, recoil stays readable for 190ms, and the whole pose is home by
+ * 600ms. Keep these values in the critic-defined perceptual windows.
+ */
+export const AUTHORED_ATTACK_TIMELINE = Object.freeze({
+  anticipationMs: 120,
+  travelMs: 100,
+  contactMs: 64,
+  recoilMs: 190,
+  settleMs: 126,
+  totalMs: 600,
+});
+
+export function attackPhaseProgress(elapsedMs: number): {
+  phase: AttackPhase;
+  progress: number;
+} {
+  const spec = AUTHORED_ATTACK_TIMELINE;
+  const elapsed = Math.max(0, elapsedMs);
+  const travelAt = spec.anticipationMs;
+  const contactAt = travelAt + spec.travelMs;
+  const recoilAt = contactAt + spec.contactMs;
+  const settleAt = recoilAt + spec.recoilMs;
+  if (elapsed < travelAt) {
+    return { phase: 'anticipation', progress: elapsed / spec.anticipationMs };
+  }
+  if (elapsed < contactAt) {
+    return { phase: 'travel', progress: (elapsed - travelAt) / spec.travelMs };
+  }
+  if (elapsed < recoilAt) {
+    return { phase: 'contact', progress: (elapsed - contactAt) / spec.contactMs };
+  }
+  if (elapsed < settleAt) {
+    return { phase: 'recoil', progress: (elapsed - recoilAt) / spec.recoilMs };
+  }
+  if (elapsed < spec.totalMs) {
+    return { phase: 'settle', progress: (elapsed - settleAt) / spec.settleMs };
+  }
+  return { phase: 'idle', progress: 1 };
+}
+
+export function attackPhaseAt(elapsedMs: number): AttackPhase {
+  return attackPhaseProgress(elapsedMs).phase;
+}
+
+/** Margin-aware screen-space collision used by the production evidence gate. */
+export function screenRectsOverlap(a: ScreenRect, b: ScreenRect, marginPx = 0): boolean {
+  const margin = Math.max(0, marginPx);
+  return !(
+    a.right + margin <= b.left ||
+    b.right + margin <= a.left ||
+    a.bottom + margin <= b.top ||
+    b.bottom + margin <= a.top
+  );
+}
 
 export interface CinematicEffects {
   root: THREE.Group;
   burst: (position: THREE.Vector3, kind: ImpactKind) => void;
   trail: (position: THREE.Vector3, color?: number) => void;
+  directedTrail: (
+    origin: THREE.Vector3,
+    target: THREE.Vector3,
+    progress: number,
+    color?: number,
+  ) => void;
+  clearDirectedTrail: () => void;
   tick: (dt: number, time: number) => void;
 }
 
@@ -175,6 +249,37 @@ export function createCinematicEffects(scene: THREE.Scene, useMedium = false): C
   let trailCursor = 0;
   let burstCursor = 0;
 
+  // Persistent travel geometry makes attack direction legible in a single
+  // frame. The pooled glow motes remain secondary wake, not the only signal.
+  const directionMaterial = new THREE.MeshBasicMaterial({
+    color: 0xb8f6ff,
+    transparent: true,
+    opacity: 0,
+    depthWrite: false,
+    blending: THREE.AdditiveBlending,
+  });
+  const directionRibbon = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.026, 0.082, 1, 8, 1, true),
+    directionMaterial,
+  );
+  directionRibbon.name = 'attack-direction-ribbon';
+  directionRibbon.visible = false;
+  directionRibbon.renderOrder = 8;
+  root.add(directionRibbon);
+  const directionHead = new THREE.Mesh(
+    new THREE.ConeGeometry(0.13, 0.34, 12),
+    directionMaterial.clone(),
+  );
+  directionHead.name = 'attack-direction-head';
+  directionHead.visible = false;
+  directionHead.renderOrder = 9;
+  root.add(directionHead);
+  const directionFrom = new THREE.Vector3();
+  const directionTo = new THREE.Vector3();
+  const directionDelta = new THREE.Vector3();
+  const directionMid = new THREE.Vector3();
+  const upAxis = new THREE.Vector3(0, 1, 0);
+
   const burst = (position: THREE.Vector3, kind: ImpactKind): void => {
     const color = IMPACT_COLOR[kind];
     const count = kind === 'crit' || kind === 'catch' ? burstCount : Math.ceil(burstCount * 0.68);
@@ -238,6 +343,49 @@ export function createCinematicEffects(scene: THREE.Scene, useMedium = false): C
     particle.life = 0.24 + (trailCursor % 3) * 0.035;
   };
 
+  const directedTrail = (
+    origin: THREE.Vector3,
+    target: THREE.Vector3,
+    progress: number,
+    color = 0xffb45f,
+  ): void => {
+    const u = Math.max(0, Math.min(1, progress));
+    const eased = u * u * (3 - 2 * u);
+    const tailU = Math.max(0, eased - 0.38);
+    directionTo.lerpVectors(origin, target, eased);
+    directionFrom.lerpVectors(origin, target, tailU);
+    // A shallow authored arc keeps the projectile off both silhouettes while
+    // its endpoints still communicate semantic origin and destination.
+    directionTo.y += Math.sin(eased * Math.PI) * 0.24;
+    directionFrom.y += Math.sin(tailU * Math.PI) * 0.24;
+    directionDelta.subVectors(directionTo, directionFrom);
+    const length = Math.max(0.035, directionDelta.length());
+    const direction = directionDelta.normalize();
+    directionMid.addVectors(directionFrom, directionTo).multiplyScalar(0.5);
+
+    directionRibbon.position.copy(directionMid);
+    directionRibbon.quaternion.setFromUnitVectors(upAxis, direction);
+    directionRibbon.scale.set(1 + Math.sin(u * Math.PI) * 0.45, length, 1);
+    directionRibbon.material.color.setHex(color);
+    directionRibbon.material.opacity = 0.72 + Math.sin(u * Math.PI) * 0.22;
+    directionRibbon.visible = true;
+
+    directionHead.position.copy(directionTo);
+    directionHead.quaternion.setFromUnitVectors(upAxis, direction);
+    directionHead.scale.setScalar(0.82 + Math.sin(u * Math.PI) * 0.42);
+    directionHead.material.color.setHex(color);
+    directionHead.material.opacity = 0.94;
+    directionHead.visible = true;
+    trail(directionTo, color);
+  };
+
+  const clearDirectedTrail = (): void => {
+    directionRibbon.visible = false;
+    directionRibbon.material.opacity = 0;
+    directionHead.visible = false;
+    directionHead.material.opacity = 0;
+  };
+
   const tick = (dt: number, time: number): void => {
     for (const particle of burstPool) {
       if (!particle.mesh.visible) continue;
@@ -280,5 +428,5 @@ export function createCinematicEffects(scene: THREE.Scene, useMedium = false): C
     if (lightAge > 0.4) light.intensity = 0;
   };
 
-  return { root, burst, trail, tick };
+  return { root, burst, trail, directedTrail, clearDirectedTrail, tick };
 }
