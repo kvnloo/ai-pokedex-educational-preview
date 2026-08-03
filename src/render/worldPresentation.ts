@@ -708,18 +708,18 @@ function tuneSceneLighting(scene: THREE.Scene, useMedium: boolean): void {
     if ((object as THREE.AmbientLight).isAmbientLight) {
       const light = object as THREE.AmbientLight;
       light.color.setHex(0xaec2dc);
-      light.intensity = useMedium ? 0.19 : 0.22;
+      light.intensity = useMedium ? 0.24 : 0.27;
     } else if ((object as THREE.HemisphereLight).isHemisphereLight) {
       const light = object as THREE.HemisphereLight;
       light.color.setHex(0xb9c9e2);
       light.groundColor.setHex(0x182e35);
-      light.intensity = useMedium ? 0.5 : 0.57;
+      light.intensity = useMedium ? 0.6 : 0.66;
     } else if ((object as THREE.DirectionalLight).isDirectionalLight) {
       const light = object as THREE.DirectionalLight;
       const color = light.color.getHex();
-      if (color === 0xffdfbb) light.intensity = useMedium ? 0.98 : 1.18;
-      else if (color === 0xff9579) light.intensity = useMedium ? 0.2 : 0.27;
-      else if (color === 0x789bd4) light.intensity = useMedium ? 0.4 : 0.48;
+      if (color === 0xffdfbb) light.intensity = useMedium ? 1.14 : 1.3;
+      else if (color === 0xff9579) light.intensity = useMedium ? 0.3 : 0.38;
+      else if (color === 0x789bd4) light.intensity = useMedium ? 0.46 : 0.54;
       else if (color === 0xe4f1ff) light.intensity = useMedium ? 0.14 : 0.19;
     }
   });
@@ -1141,8 +1141,12 @@ export function createLumenWorld(
   routeRim.castShadow = false;
   root.add(routeRim, routeRim.target);
 
+  const grassField = new THREE.Group();
+  grassField.name = 'whispergrass-field';
+  root.add(grassField);
+
   const underMat = new THREE.MeshStandardMaterial({
-    color: 0x1d3a31,
+    color: 0x2b5142,
     roughness: 0.99,
     metalness: 0,
   });
@@ -1151,10 +1155,10 @@ export function createLumenWorld(
     undergrowth.name = `grass-cluster-footprint-${spec.id}`;
     undergrowth.position.y = 0.052;
     undergrowth.receiveShadow = true;
-    root.add(undergrowth);
+    grassField.add(undergrowth);
   }
 
-  const grassColors = [0x24523f, 0x2f6849, 0x1b4638, 0x3a704d, 0x355f47, 0x4a7655];
+  const grassColors = [0x32654e, 0x407757, 0x2b5a48, 0x4d825c, 0x416d53, 0x5b8a66];
   const grassMats = grassColors.map(
     (color) => new THREE.MeshStandardMaterial({
       color,
@@ -1196,8 +1200,8 @@ export function createLumenWorld(
       ]!;
       const materialIndex = (placed + spec.seed) % grassMats.length;
       const blade = new THREE.Mesh(silhouetteGeometries[silhouette], grassMats[materialIndex]);
-      const height = THREE.MathUtils.lerp(spec.heightMin, spec.heightMax, clusterRng());
-      const width = 0.76 + clusterRng() * 0.52;
+      const height = THREE.MathUtils.lerp(spec.heightMin, spec.heightMax, clusterRng()) * 0.84;
+      const width = 0.7 + clusterRng() * 0.44;
       blade.name = `grass-${spec.id}-${silhouette}`;
       blade.position.set(px, 0.055, pz);
       blade.scale.set(width, height, 0.72 + clusterRng() * 0.46);
@@ -1206,7 +1210,7 @@ export function createLumenWorld(
       blade.receiveShadow = !useMedium;
       grassBaseRot.push(blade.rotation.z);
       grassBlades.push(blade);
-      root.add(blade);
+      grassField.add(blade);
       clusterPlaced++;
       placed++;
     }
@@ -1304,7 +1308,7 @@ export function createLumenWorld(
     battleArena.visible = mode === 'battle';
     // Keep the encounter silhouettes and impact VFX readable; the grass returns
     // immediately when the player exits back to exploration.
-    for (const blade of grassBlades) blade.visible = mode !== 'battle';
+    grassField.visible = mode !== 'battle';
   };
   setMode('starter');
 

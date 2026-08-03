@@ -336,12 +336,14 @@ async function main() {
         window.__profile = {
           times: [],
           workTimes: [],
+          longFrames: [],
           running: true,
           warmupHint,
           kind: 'presented-frame',
           source: 'inject',
         };
         let lastPresented = 0;
+        let lastState = null;
         let frameStart = 0;
         let pending = false;
         const ch = new MessageChannel();
@@ -360,9 +362,31 @@ async function main() {
             const presented = now - lastPresented;
             // Keep multi-second tab freezes out of percentile as sampling artifacts,
             // but retain hitches up to 250ms (gate cares about >50ms).
-            if (presented > 0 && presented < 2500) p.times.push(presented);
+            if (presented > 0 && presented < 2500) {
+              p.times.push(presented);
+              if (presented > 50) {
+                const body = document.body;
+                p.longFrames.push({
+                  sampleIndex: p.times.length - 1,
+                  ms: presented,
+                  mode: body?.dataset.mode ?? '',
+                  attackPhase: body?.dataset.attackPhase ?? '',
+                  attackSide: body?.dataset.attackSide ?? '',
+                  bodyClass: body?.className ?? '',
+                  previousState: lastState,
+                });
+                if (p.longFrames.length > 64) p.longFrames.shift();
+              }
+            }
           }
           lastPresented = now;
+          const stateBody = document.body;
+          lastState = {
+            mode: stateBody?.dataset.mode ?? '',
+            attackPhase: stateBody?.dataset.attackPhase ?? '',
+            attackSide: stateBody?.dataset.attackSide ?? '',
+            bodyClass: stateBody?.className ?? '',
+          };
           frameStart = performance.now();
           if (!pending) {
             pending = true;
@@ -435,6 +459,7 @@ async function main() {
       if (window.__profile) {
         window.__profile.times = [];
         window.__profile.workTimes = [];
+        window.__profile.longFrames = [];
       }
       if (window.__frameStats && typeof window.__frameStats.reset === 'function') {
         window.__frameStats.reset();
@@ -607,6 +632,7 @@ async function main() {
           source: 'engine-__frameStats',
           kind: bridge.kind || 'presented-frame',
           snapshot: typeof bridge.snapshot === 'function' ? bridge.snapshot() : null,
+          longFrames: Array.isArray(bridge.longFrames) ? bridge.longFrames.slice() : [],
         };
       }
       return {
@@ -615,6 +641,7 @@ async function main() {
         source: prof?.source || 'inject',
         kind: 'presented-frame',
         snapshot: null,
+        longFrames: (prof?.longFrames ?? []).slice(),
       };
     });
 
@@ -634,6 +661,10 @@ async function main() {
     report.source = 'browser-threejs-profile';
     report.metric_source = harvested.source;
     report.battle_vfx_forced = battleForced;
+    report.long_frame_events = (harvested.longFrames ?? []).filter(
+      (event) => event.sampleIndex >= Math.min(warmupFrames, Math.floor(times.length * 0.1)),
+    );
+
     // Independent CPU work-time gate.
     let workP99Ok = false;
     if (harvested.workTimes?.length) {

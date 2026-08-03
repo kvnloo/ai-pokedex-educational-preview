@@ -229,8 +229,8 @@ interface JointedLegOpts {
 
 /** Two-link pup leg with semantic shoulder/hip, elbow/hock, and paw pivots. */
 function addJointedQuadrupedLeg(parent: THREE.Group, opts: JointedLegOpts): THREE.Group {
-  const upperLength = opts.front ? 0.265 : 0.275;
-  const lowerLength = opts.front ? 0.235 : 0.225;
+  const upperLength = opts.front ? 0.29 : 0.3;
+  const lowerLength = opts.front ? 0.255 : 0.245;
   const root = new THREE.Group();
   root.name = `${opts.part}-${opts.front ? 'shoulder' : 'hip'}-joint`;
   root.position.set(opts.x * opts.scale, opts.y * opts.scale, opts.z * opts.scale);
@@ -353,12 +353,12 @@ export function buildEmberpup(scale: number): THREE.Group {
   // Shoulder/hip → elbow/hock → paw hierarchies provide real gait pivots. Each
   // upper root overlaps the core while the broad paw carries a readable plane.
   for (const opts of [
-    { part: 'legFL', x: -0.22, z: 0.37, front: true, upperMaterial: dark, lowerMaterial: dark, pawMaterial: pad },
-    { part: 'legFR', x: 0.22, z: 0.37, front: true, upperMaterial: fur, lowerMaterial: fur, pawMaterial: pad },
-    { part: 'legBL', x: -0.23, z: -0.43, front: false, upperMaterial: dark, lowerMaterial: dark, pawMaterial: pad },
-    { part: 'legBR', x: 0.23, z: -0.43, front: false, upperMaterial: fur, lowerMaterial: fur, pawMaterial: pad },
+    { part: 'legFL', x: -0.28, z: 0.37, front: true, upperMaterial: dark, lowerMaterial: dark, pawMaterial: pad },
+    { part: 'legFR', x: 0.28, z: 0.37, front: true, upperMaterial: fur, lowerMaterial: fur, pawMaterial: pad },
+    { part: 'legBL', x: -0.29, z: -0.43, front: false, upperMaterial: dark, lowerMaterial: dark, pawMaterial: pad },
+    { part: 'legBR', x: 0.29, z: -0.43, front: false, upperMaterial: fur, lowerMaterial: fur, pawMaterial: pad },
   ] as const) {
-    addJointedQuadrupedLeg(g, { ...opts, y: 0.55, scale });
+    addJointedQuadrupedLeg(g, { ...opts, y: 0.59, scale });
   }
 
   // Bevelled collar catches the key light and hides no neck seam.

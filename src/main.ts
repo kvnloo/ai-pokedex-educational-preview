@@ -614,7 +614,6 @@ async function boot(): Promise<void> {
   const flash = document.getElementById('battle-flash');
   const partyStrip = document.getElementById('party-strip');
   const sceneTransition = document.getElementById('scene-transition');
-  const battleKicker = document.getElementById('battle-kicker');
   const payoffVignette = document.getElementById('payoff-vignette');
   const swapBtn = battleMenu?.querySelector('[data-act="swap"]') as HTMLButtonElement | null;
 
@@ -946,7 +945,6 @@ async function boot(): Promise<void> {
     // Snappy send-out — free-roam→Fight budget ≤400ms with parallel staging.
     const ms = 160;
     const t0 = performance.now();
-    let burstFired = false;
     await new Promise<void>((resolve) => {
       const step = (now: number) => {
         const u = clamp((now - t0) / ms, 0, 1);
@@ -964,12 +962,6 @@ async function boot(): Promise<void> {
         if (mesh) {
           mesh.position.y = stageY;
           mesh.scale.setScalar(stageScale);
-        }
-        if (!burstFired && u >= 0.46) {
-          burstFired = true;
-          effectPoint.copy(stage);
-          effectPoint.y = 0.64;
-          cinematicFx.burst(effectPoint, 'catch');
         }
         if (u < 1) requestAnimationFrame(step);
         else resolve();
@@ -1032,9 +1024,6 @@ async function boot(): Promise<void> {
     publishAttackPhase('idle');
     document.body.classList.remove('returning');
     document.body.classList.remove('encounter-beat');
-    void (battleKicker?.offsetWidth ?? document.body.offsetWidth);
-    document.body.classList.add('encounter-beat');
-    setTimeout(() => document.body.classList.remove('encounter-beat'), 380);
     pulseSceneTransition('battle');
     world.setMode('battle');
     setAudioScene('battle', 'encounter');
@@ -1083,7 +1072,6 @@ async function boot(): Promise<void> {
       const leadBattler = battlerFromSpecies(playerSpeciesId, raw.route.playerDefaultLevel, 'player');
       battle = createBattle({ player: leadBattler, foe, typeChart: raw.typeChart, playerPartyIndex: 0 });
     }
-
     dispEnemyHp = battle.foe.hp;
     dispAllyHp = battle.player.hp;
 
@@ -1103,11 +1091,15 @@ async function boot(): Promise<void> {
     }
     syncBattleHud({ enemyDur: 0, allyDur: 0 });
 
+    // Commit the arena and HUD shell on their own presented frame before
+    // attaching two detailed creature hierarchies. Splitting those first-use
+    // draws keeps the encounter transition inside one-vsync work slices.
+    await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
+
     // Parallel send-outs under free-roam→Fight ≤400ms budget.
-    await Promise.all([
-      stageSendOut('foe', foeSpecies, 1.02),
-      stageSendOut('player', playerSpeciesId, 0.9),
-    ]);
+    const foeSendOut = stageSendOut('foe', foeSpecies, 1.02);
+    const playerSendOut = stageSendOut('player', playerSpeciesId, 0.9);
+    await Promise.all([foeSendOut, playerSendOut]);
     setMsg(`Go! ${battle.player.name}!`);
     playSound('battle-start', kind === 'wild' ? 0.68 : 0.9);
 
@@ -2179,17 +2171,35 @@ async function boot(): Promise<void> {
   // First encounter must not pay procedural geometry + shader compilation in
   // the presented-frame budget. Cache the shipped battle scales while the boot
   // curtain is still visible, then compile their shared materials once.
-  for (const entry of species) creatureTemplate(entry.id, 1);
-  const foeIds = new Set([
-    ...raw.route.wildEncounters.map((entry) => entry.species),
-    raw.route.gym?.species,
-    raw.route.elite?.species,
-  ].filter((id): id is string => Boolean(id)));
-  for (const id of foeIds) creatureTemplate(id, 0.95);
+  // Match the exact runtime scales used by stageSendOut. A near-miss scale
+  // creates a different template key and would rebuild every loft on the first
+  // encounter despite nominal prewarming.
+  for (const entry of species) {
+    creatureTemplate(entry.id, 1);
+    creatureTemplate(entry.id, 0.9);
+    creatureTemplate(entry.id, 1.02);
+  }
   const prewarm = new THREE.Group();
   for (const template of creatureTemplateCache.values()) prewarm.add(template.clone(true));
   scene.add(prewarm);
+  // Hidden pooled VFX are skipped by renderer.compile(). Briefly expose every
+  // pooled draw object under the opaque boot curtain so the first send-out
+  // burst cannot pay shader/program setup inside the frame gate.
+  const vfxVisibility = new Map<THREE.Object3D, boolean>();
+  cinematicFx.root.traverse((object) => {
+    vfxVisibility.set(object, object.visible);
+    object.visible = true;
+  });
+  world.setMode('battle');
   renderer.compile(scene, camera);
+  // compile() prepares programs but does not guarantee geometry buffers and
+  // draw-state have reached the GPU. Render one fully hidden boot frame while
+  // the templates are still attached so battle entry only reuses hot draws.
+  renderer.render(scene, camera);
+  world.setMode('starter');
+  cinematicFx.root.traverse((object) => {
+    object.visible = vfxVisibility.get(object) ?? true;
+  });
   scene.remove(prewarm);
 
   progress(1, 'Ready');
