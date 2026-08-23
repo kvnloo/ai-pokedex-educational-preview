@@ -1,0 +1,139 @@
+{
+  "schema": "CreatureAssetManifest",
+  "schemaVersion": 1,
+  "manifestRevision": 1,
+  "identity": {
+    "nationalDexId": 6,
+    "slug": "charizard",
+    "form": "standard",
+    "shiny": false
+  },
+  "artifactPolicy": {
+    "privateRoot": "/mnt/zer0models/pokemon_anime/pipeline/golden/charizard-006",
+    "protectedPixelsAllowedInPublic": false,
+    "repoMayContain": ["contracts", "schemas", "commands", "hashes", "metrics", "derivative-glb-pointer"],
+    "repoMustNotContain": ["official-artwork", "anime-frame", "pixel-derived-plate"]
+  },
+  "status": {
+    "productionApproved": false,
+    "blockedAt": "source-plate-hitl",
+    "reason": "No immutable, visually reviewed Charizard plate set exists yet. Mesh generation is fail-closed until Kevin accepts the exact private source bytes."
+  },
+  "canonicalRecognitionContract": {
+    "landmarks": [
+      "recognizable Charizard head, eyes, snout and paired rear-pointing horns",
+      "exactly two wings with blue-green inner membranes and orange outer surfaces",
+      "exactly two arms and two digitigrade legs",
+      "three visible claws per hand and foot where the source view supports counting",
+      "continuous cream ventral field from lower snout through belly",
+      "long tapering tail terminating at a dedicated flame socket",
+      "orange body, cream ventral field, blue-green membranes, white claws and canonical eye palette",
+      "standard Charizard proportions and silhouette; never Mega, Gigantamax or generic dragon"
+    ],
+    "viewRoles": ["front", "front-three-quarter", "side", "rear-three-quarter", "rear"],
+    "viewTruthLabels": ["observed", "inferred"],
+    "jury": "labels-hidden"
+  },
+  "stages": [
+    {
+      "id": "identity-contract",
+      "status": "complete",
+      "requires": [],
+      "acceptance": ["National Dex 006", "standard non-shiny form", "landmarks fixed before source selection"],
+      "cacheKeyInputs": ["identity", "canonicalRecognitionContract", "manifestRevision"],
+      "manualIntervention": "Kevin fixed species/form and hero/stress role."
+    },
+    {
+      "id": "source-matrix",
+      "status": "blocked",
+      "requires": ["identity-contract"],
+      "acceptance": ["native and transformed sources retain independent hashes", "every view is labeled observed or inferred", "front, three-quarter, side and rear evidence represented without false consensus", "Kevin approves exact private plate bytes before shape generation"],
+      "cacheKeyInputs": ["source-ledger hashes", "transform parameters", "model revisions", "seeds"],
+      "manualIntervention": "Art director selects authoritative plates and rejects identity drift."
+    },
+    {
+      "id": "segmentation-plate-qa",
+      "status": "pending",
+      "requires": ["source-matrix"],
+      "acceptance": ["exactly one solo full-body subject", "head, horns, both wings, arms, legs, feet and tail are complete", "no trainer, prop, crop panel, alpha debris or background slab", "orientation verified from pixels"],
+      "cacheKeyInputs": ["source hashes", "segmentation implementation revision", "mask parameters"],
+      "manualIntervention": "Manual cleanup is allowed only with before/after hashes and an intervention note."
+    },
+    {
+      "id": "matched-shape-sweep",
+      "status": "pending",
+      "requires": ["segmentation-plate-qa"],
+      "acceptance": ["source sweep holds seed, steps, guidance and octree constant", "generator sweep begins only after a source winner", "model and implementation revisions, VRAM, RAM and duration recorded", "raw GLBs are immutable"],
+      "cacheKeyInputs": ["plate hash", "Hunyuan model revision", "implementation revision", "seed", "steps", "guidance", "octree"],
+      "manualIntervention": "No sculpt correction in the matched source sweep."
+    },
+    {
+      "id": "component-mesh-qa",
+      "status": "pending",
+      "requires": ["matched-shape-sweep"],
+      "acceptance": ["connected component face share, extents, thin ratio, watertightness, area and volume recorded before decimation", "no substantial background slab component", "correct limb count", "two separable readable wings without fused membrane failure", "tail is continuous, tapered and not collapsed", "not paper-thin or cube-like", "blue-clay 12-angle render agrees with structural metrics"],
+      "cacheKeyInputs": ["raw GLB hash", "QA implementation revision", "turntable settings"],
+      "manualIntervention": "Failed mesh returns to corrected plate or generator sweep; decimation cannot repair it."
+    },
+    {
+      "id": "blind-identity-jury",
+      "status": "pending",
+      "requires": ["component-mesh-qa"],
+      "acceptance": ["anonymous A/B grid hash frozen before ballots", "judges see no provenance", "identity, anatomy, rear/tail, wings, grounding and production readiness scored", "Kevin accepts a candidate before reveal and downstream investment"],
+      "cacheKeyInputs": ["candidate hashes", "12-angle render hashes", "grid generator revision"],
+      "manualIntervention": "Kevin HITL is mandatory; unanimous rejection is valid."
+    },
+    {
+      "id": "retopo-material-lod",
+      "status": "pending",
+      "requires": ["blind-identity-jury"],
+      "acceptance": ["deformation loops at shoulders, hips, neck, tail and wing fingers", "separate body, belly, membrane, eye and claw materials", "LOD0 <= 90000 triangles, LOD1 <= 45000, LOD2 <= 18000", "LOD switches at projected heights 420px and 180px with 15% hysteresis", "initial compressed transfer <= 12 MiB and resident texture budget <= 64 MiB"],
+      "cacheKeyInputs": ["approved raw mesh hash", "DCC revision", "retopo recipe", "texture hashes", "LOD settings"],
+      "manualIntervention": "Manual retopo, UV and material art must be logged as authored work, not deterministic generation."
+    },
+    {
+      "id": "rig",
+      "status": "pending",
+      "requires": ["retopo-material-lod"],
+      "acceptance": ["root, pelvis, spine, neck, head and jaw hierarchy", "independent arms, hands, claws, legs, feet and toes", "full tail chain and tail-flame socket", "independent wing roots and finger chains", "blink controls and ground-contact metadata", "<= 96 deform bones and <= 4 influences per vertex", "joint-limit, skinning and self-intersection tests pass"],
+      "cacheKeyInputs": ["retopo mesh hash", "rig recipe revision", "weight hashes", "joint limits"],
+      "manualIntervention": "Weight painting and corrective shapes are art-directed and versioned."
+    },
+    {
+      "id": "animation",
+      "status": "pending",
+      "requires": ["rig"],
+      "acceptance": ["root motion is assigned exactly once", "support contacts include XYZ and independently measured slip", "loop seams and transition pops stay within clip manifest tolerances", "wing membranes do not clip through torso or fold inverted", "flight trajectories and banking preserve silhouette"],
+      "cacheKeyInputs": ["rig hash", "clip hashes", "animation manifest", "retarget revision"],
+      "manualIntervention": "Authored and retargeted clips are identified separately and visually accepted.",
+      "requiredClips": ["grounded-idle", "alert-look", "tap-reaction", "walk", "run", "turn-in-place-left", "turn-in-place-right", "start", "stop", "takeoff", "hover", "forward-flight", "bank-left", "bank-right", "ascend", "descend", "landing", "wing-flap", "wing-fold", "wing-unfold", "melee-swipe", "bite", "tail-attack", "fire-breath", "hit-ground", "hit-air", "faint", "landed-recovery"]
+    },
+    {
+      "id": "living-encounter",
+      "status": "pending",
+      "requires": ["animation"],
+      "acceptance": ["one Canvas and requestAnimationFrame owner", "deterministic state machine", "tap reaction and environment response", "audio is explicit and optional", "reduced-motion mode", "desktop and mobile smoke", "no foot slide, foot penetration or wing clipping", "bounded runtime smoke passes without weakening separate long certification"],
+      "cacheKeyInputs": ["GLB hash", "animation manifest hash", "runtime revision", "quality tier", "viewport", "DPR"],
+      "manualIntervention": "Visual acceptance required with production UI enabled."
+    },
+    {
+      "id": "final-evidence",
+      "status": "pending",
+      "requires": ["living-encounter"],
+      "acceptance": ["neutral and styled 12-angle turntables", "animation contact sheet and videos", "topology and weights debug views", "browser frame-time, triangles, draw calls, texture residency and transfer metrics", "exact hashes and revisions", "rollback pointer", "Kevin final runtime approval"],
+      "cacheKeyInputs": ["all promoted artifact hashes", "capture harness revision", "browser revision", "hardware row"],
+      "manualIntervention": "Final review is a HITL release gate, not inferred from file existence."
+    }
+  ],
+  "failureTaxonomy": ["identity-drift", "view-role-violation", "source-occlusion", "segmentation-debris", "background-slab", "fused-wing", "collapsed-tail", "wrong-limb-count", "paper-thin", "cube-like", "topology-failure", "deformation-failure", "material-identity-failure", "foot-slide", "wing-clipping", "transition-pop", "runtime-performance-regression"],
+  "validationCohort": {
+    "policy": "future-only",
+    "batchPermission": "Charizard must pass, then at least three cross-class cohort species must reveal and fix failures.",
+    "species": [
+      {"nationalDexId": 448, "slug": "lucario", "class": "biped-combat"},
+      {"nationalDexId": 831, "slug": "wooloo", "class": "quadruped-fur"},
+      {"nationalDexId": 130, "slug": "gyarados", "class": "serpentine-water"},
+      {"nationalDexId": 132, "slug": "ditto", "class": "simple-control"}
+    ]
+  }
+}
