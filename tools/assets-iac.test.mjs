@@ -185,3 +185,45 @@ test('verify rejects a same-size valid-JSON output mutation', async () => {
     /OUTPUT_INTEGRITY_MISMATCH/,
   );
 });
+
+async function builtVerificationFixture() {
+  const { root } = await fixture();
+  const options = { cwd: path.resolve(import.meta.dirname, '..'), env: { ...process.env, POKEMON_IAC_ROOT: root } };
+  await execFile(process.execPath, ['tools/assets-iac.mjs', 'build', '--profile', 'distributable'], options);
+  const reportFile = path.join(root, 'reports', 'build-distributable.json');
+  const checkpointFile = path.join(root, 'work', 'distributable', 'checkpoints.json');
+  const verify = () => execFile(process.execPath, ['tools/assets-iac.mjs', 'verify', '--profile', 'distributable'], options);
+  return { reportFile, checkpointFile, verify };
+}
+
+test('verify rejects an omitted build-report node', async () => {
+  const { reportFile, verify } = await builtVerificationFixture();
+  const report = JSON.parse(await readFile(reportFile, 'utf8'));
+  report.nodes = [];
+  await writeFile(reportFile, JSON.stringify(report));
+  await assert.rejects(verify(), /BUILD_REPORT_NODE_INVENTORY_MISMATCH/);
+});
+
+test('verify rejects an omitted checkpoint node', async () => {
+  const { checkpointFile, verify } = await builtVerificationFixture();
+  const checkpoint = JSON.parse(await readFile(checkpointFile, 'utf8'));
+  checkpoint.nodes = {};
+  await writeFile(checkpointFile, JSON.stringify(checkpoint));
+  await assert.rejects(verify(), /CHECKPOINT_NODE_INVENTORY_MISMATCH/);
+});
+
+test('verify rejects duplicate and extra build-report nodes', async () => {
+  const { reportFile, verify } = await builtVerificationFixture();
+  const report = JSON.parse(await readFile(reportFile, 'utf8'));
+  report.nodes.push(report.nodes[0], { ...report.nodes[0], id: 'unexpected' });
+  await writeFile(reportFile, JSON.stringify(report));
+  await assert.rejects(verify(), /BUILD_REPORT_NODE_INVENTORY_MISMATCH/);
+});
+
+test('verify rejects an extra checkpoint node', async () => {
+  const { checkpointFile, verify } = await builtVerificationFixture();
+  const checkpoint = JSON.parse(await readFile(checkpointFile, 'utf8'));
+  checkpoint.nodes.unexpected = checkpoint.nodes[Object.keys(checkpoint.nodes)[0]];
+  await writeFile(checkpointFile, JSON.stringify(checkpoint));
+  await assert.rejects(verify(), /CHECKPOINT_NODE_INVENTORY_MISMATCH/);
+});

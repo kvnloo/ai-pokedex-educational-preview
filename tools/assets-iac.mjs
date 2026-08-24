@@ -33,6 +33,14 @@ async function ensureRoot() {
 }
 
 function eligibleRecipes() { return recipes.recipes.filter((recipe) => recipe.profiles.includes(profileName)); }
+function expectedGraphNodes() {
+  return graph.nodes.flatMap((node) => {
+    const recipe = recipes.recipes.find((candidate) => candidate.assetId === node.recipe);
+    if (!recipe) throw new Error(`GRAPH_RECIPE_MISSING: ${node.recipe}`);
+    if (!recipe.profiles.includes(profileName)) return [];
+    return [{ id: node.id, dependsOn: node.dependsOn, input: { recipe, sourceDigests: undefined }, output: path.join(root, 'outputs', profile.outputNamespace, `${node.id}.json`) }];
+  });
+}
 function requiredSources() {
   const ids = new Set(eligibleRecipes().flatMap((recipe) => recipe.sources));
   return manifest.sources.filter((source) => ids.has(source.sourceId));
@@ -104,12 +112,7 @@ async function writeReport(kind, body) {
 async function buildAssets() {
   const observations = await bootstrap();
   const sourceDigests = Object.fromEntries(observations.map((item) => [item.sourceId, item.digest]));
-  const nodes = graph.nodes.flatMap((node) => {
-    const recipe = recipes.recipes.find((candidate) => candidate.assetId === node.recipe);
-    if (!recipe) throw new Error(`GRAPH_RECIPE_MISSING: ${node.recipe}`);
-    if (!recipe.profiles.includes(profileName)) return [];
-    return [{ id: node.id, dependsOn: node.dependsOn, input: { recipe, sourceDigests }, output: path.join(root, 'outputs', profile.outputNamespace, `${node.id}.json`) }];
-  });
+  const nodes = expectedGraphNodes().map((node) => ({ ...node, input: { ...node.input, sourceDigests } }));
   const result = await executeGraph({ nodes }, path.join(root, 'work', profileName, 'checkpoints.json'));
   await writeReport('build', { nodes: result.nodes });
   return result;
@@ -123,7 +126,23 @@ async function verifyAssets() {
   let checkpoint;
   try { report = JSON.parse(await readFile(reportFile, 'utf8')); } catch { throw new Error(`BUILD_REPORT_MISSING: ${reportFile}`); }
   try { checkpoint = JSON.parse(await readFile(checkpointFile, 'utf8')); } catch { throw new Error(`CHECKPOINT_MISSING: ${checkpointFile}`); }
-  for (const node of report.nodes) {
+  const expectedIds = expectedGraphNodes().map(({ id }) => id);
+  const reportIds = Array.isArray(report.nodes) ? report.nodes.map((node) => node?.id) : [];
+  const checkpointIds = checkpoint.nodes && typeof checkpoint.nodes === 'object' && !Array.isArray(checkpoint.nodes)
+    ? Object.keys(checkpoint.nodes) : [];
+  const assertInventory = (kind, ids) => {
+    const duplicates = ids.filter((id, index) => ids.indexOf(id) !== index);
+    const missing = expectedIds.filter((id) => !ids.includes(id));
+    const extra = ids.filter((id) => !expectedIds.includes(id));
+    if (duplicates.length || missing.length || extra.length || ids.length !== expectedIds.length) {
+      throw new Error(`${kind}_NODE_INVENTORY_MISMATCH: expected=${JSON.stringify(expectedIds)} actual=${JSON.stringify(ids)}`);
+    }
+  };
+  assertInventory('BUILD_REPORT', reportIds);
+  assertInventory('CHECKPOINT', checkpointIds);
+  const reportById = new Map(report.nodes.map((node) => [node.id, node]));
+  for (const id of expectedIds) {
+    const node = reportById.get(id);
     const output = path.join(root, 'outputs', profile.outputNamespace, `${node.id}.json`);
     const committed = checkpoint.nodes?.[node.id];
     if (!committed?.complete || committed.inputHash !== node.inputHash || committed.outputHash !== node.outputHash
