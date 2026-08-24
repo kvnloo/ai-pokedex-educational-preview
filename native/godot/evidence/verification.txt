@@ -1,7 +1,7 @@
 Verification run on branch native/godot-frontend from base 18821d22d57bd3e8533af29cff3e858ebf963901.
 
 PASS: PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s tests/native -v
-Result: 5 tests passed.
+Result: 7 tests passed, including a nested canonical-discovery frozen-evidence hash and tracked-state regression.
 PASS: bash -n native/godot/scripts/*.sh
 PASS: npm run typecheck
 PASS: npm run build
@@ -10,6 +10,9 @@ PASS: bash native/godot/scripts/verify_import.sh
 PASS: bash native/godot/scripts/headless_smoke.sh
 PASS: bash native/godot/scripts/capture_performance.sh 600
 
-Final performance capture: Forward+ Vulkan 1.4.341, NVIDIA GeForce RTX 3080 Ti, 600 measured frames after 60 warmup frames, mean 2.507606 ms, p95 4.824910 ms, p99 9.092810 ms, 15 draw calls, 1020 triangles, software_renderer=false. This 960x540 synthetic result is not the separate 2560x1440 production gate.
+Final performance capture: Forward+ Vulkan 1.4.341, NVIDIA GeForce RTX 3080 Ti, 600 measured frames after 60 warmup frames, mean 1.707299 ms, p95 2.995848 ms, p99 5.505667 ms, 15 draw calls, 1020 triangles, software_renderer=false. Requested, observed window, viewport and drawing-buffer dimensions are all exactly 960x540; PNG IHDR is independently verified as 960x540. This synthetic-only result is not the separate 2560x1440 production gate.
+
+PASS: official Godot archive SHA-512 check and live version `4.7.2.stable.official.ed1daf0bf`.
+PASS: `vulkaninfo --summary` reports proprietary NVIDIA Vulkan 1.4.341 on NVIDIA GeForce RTX 3080 Ti; generated reports reject software renderers.
 
 Known host-tool note: the Arch-packaged Blender 5.2 startup emits extension-manager cattrs and optional MeshOptimizer availability messages. Blender exits 0; the GLB exporter completes; GLB magic/hash/provenance validate; and Godot imports exactly one PackedScene. These messages are preserved in blender-export-log.txt rather than hidden.

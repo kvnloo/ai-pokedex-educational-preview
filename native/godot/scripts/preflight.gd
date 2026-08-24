@@ -2,6 +2,7 @@ extends Node3D
 
 const Bindings = preload("res://generated/native_contract_bindings.gd")
 const EXPECTED_HASH := "64ba98824cdb8f2d4c0aa31c51bcb235438361d23d985b5d642659b36629653e"
+const REQUESTED_DIMENSIONS := Vector2i(960, 540)
 
 var _frame_limit := 24
 var _warmup_frames := 0
@@ -21,6 +22,10 @@ var _final_hash := ""
 
 func _ready() -> void:
     _parse_arguments()
+    get_window().unresizable = true
+    get_window().borderless = true
+    get_window().size = REQUESTED_DIMENSIONS
+    get_window().content_scale_size = REQUESTED_DIMENSIONS
     _scene_fixture = _load_fixture("canonical-scene.json", "canonical_scene")
     _intent_fixture = _load_fixture("movement-intent.json", "movement_intent")
     _replay_fixture = _load_fixture("battle-replay.json", "battle_replay")
@@ -190,8 +195,13 @@ func _percentile(values: Array[float], fraction: float) -> float:
 
 func _finalize() -> void:
     await RenderingServer.frame_post_draw
+    var window_dimensions := DisplayServer.window_get_size()
+    var viewport_dimensions := Vector2i(get_viewport().get_visible_rect().size)
+    var drawing_buffer_dimensions := Vector2i(get_viewport().get_texture().get_size())
+    var image: Image
     if not _capture_path.is_empty():
-        var image := get_viewport().get_texture().get_image()
+        image = get_viewport().get_texture().get_image()
+        drawing_buffer_dimensions = image.get_size()
         var capture_error := image.save_png(_capture_path)
         if capture_error != OK:
             push_error("failed to save native screenshot")
@@ -218,9 +228,14 @@ func _finalize() -> void:
         "p95_frame_ms": _percentile(_frame_times_ms, 0.95),
         "p99_frame_ms": _percentile(_frame_times_ms, 0.99),
         "renderer": "Forward+",
+        "requested_dimensions": [REQUESTED_DIMENSIONS.x, REQUESTED_DIMENSIONS.y],
         "schema_version": Bindings.SCHEMA_VERSION,
         "software_renderer": software,
+        "synthetic_only": true,
         "triangles": Performance.get_monitor(Performance.RENDER_TOTAL_PRIMITIVES_IN_FRAME),
+        "window_dimensions": [window_dimensions.x, window_dimensions.y],
+        "viewport_dimensions": [viewport_dimensions.x, viewport_dimensions.y],
+        "drawing_buffer_dimensions": [drawing_buffer_dimensions.x, drawing_buffer_dimensions.y],
     }
     var report_file := FileAccess.open(_report_path, FileAccess.WRITE)
     if report_file == null:
@@ -229,6 +244,10 @@ func _finalize() -> void:
         return
     report_file.store_string(JSON.stringify(report, "  ") + "\n")
     print("NATIVE_PREFLIGHT_REPORT ", JSON.stringify(report))
+    if window_dimensions != REQUESTED_DIMENSIONS or viewport_dimensions != REQUESTED_DIMENSIONS or drawing_buffer_dimensions != REQUESTED_DIMENSIONS:
+        push_error("native preflight dimensions mismatch: requested=%s window=%s viewport=%s drawing_buffer=%s" % [REQUESTED_DIMENSIONS, window_dimensions, viewport_dimensions, drawing_buffer_dimensions])
+        get_tree().quit(4)
+        return
     if software or not device.contains("NVIDIA GeForce RTX 3080 Ti"):
         push_error("native preflight requires RTX 3080 Ti Vulkan, got: %s" % device)
         get_tree().quit(3)

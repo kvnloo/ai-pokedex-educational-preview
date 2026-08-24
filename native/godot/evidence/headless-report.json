@@ -3,18 +3,35 @@
   "asset_loaded": true,
   "device": "NVIDIA GeForce RTX 3080 Ti",
   "draw_calls": 15.0,
+  "drawing_buffer_dimensions": [
+    960,
+    540
+  ],
   "final_hash": "64ba98824cdb8f2d4c0aa31c51bcb235438361d23d985b5d642659b36629653e",
   "frames": 24,
-  "mean_frame_ms": 19.2900138888889,
+  "mean_frame_ms": 13.0234583333333,
   "movement_cell": [
     1,
     0
   ],
   "objects": 12.0,
-  "p95_frame_ms": 120.120333333333,
-  "p99_frame_ms": 149.581333333333,
+  "p95_frame_ms": 78.572,
+  "p99_frame_ms": 88.0946666666667,
   "renderer": "Forward+",
+  "requested_dimensions": [
+    960,
+    540
+  ],
   "schema_version": "native-preflight/v1",
   "software_renderer": false,
-  "triangles": 1020.0
+  "synthetic_only": true,
+  "triangles": 1020.0,
+  "viewport_dimensions": [
+    960,
+    540
+  ],
+  "window_dimensions": [
+    960,
+    540
+  ]
 }

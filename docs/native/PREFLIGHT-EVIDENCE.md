@@ -12,6 +12,8 @@ Acceptance is intentionally narrow:
 - generated binding validation over three synthetic versioned fixtures;
 - synthetic Blender IaC GLB export and Godot import;
 - movement-intent consumption and ordered replay final hash;
-- deterministic viewport capture and renderer telemetry.
+- exact 960×540 requested and observed window/viewport/drawing-buffer dimensions, independently verified PNG dimensions, and renderer telemetry.
 
 It does not establish Kanto content readiness, cross-client production parity, backend implementation, five-minute allocation stability, 1440p performance, or final visual quality. Those remain dependency-gated and independently reviewed.
+
+The canonical native unittest suite writes generated reports, captures and logs only to temporary directories and includes a nested regression run that hashes every frozen evidence file and compares tracked Git state before and after the exact discovery command.

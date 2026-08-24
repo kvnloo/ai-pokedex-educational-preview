@@ -3,7 +3,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)"
 PROJECT="$ROOT/native/godot"
 GODOT="${GODOT4:-/home/kvn/.local/bin/godot4}"
-EVIDENCE="$PROJECT/evidence"
+EVIDENCE="${NATIVE_EVIDENCE_DIR:-$PROJECT/evidence}"
 mkdir -p "$EVIDENCE"
 
 blender --background --python "$PROJECT/assets/source/build_synthetic_beacon.py" 2>&1 | tee "$EVIDENCE/blender-export-log.txt"

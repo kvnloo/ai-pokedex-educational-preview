@@ -29,14 +29,14 @@ Exception in module register(): /usr/share/blender/5.2/scripts/addons_core/bl_pk
 Exception in module register(): /usr/share/blender/5.2/scripts/addons_core/bl_pkg/__init__.py
 INFO Draco is available, use library at /usr/lib/blender/5.2/scripts/addons_core/io_scene_gltf2/libbf_intern_draco_bridge.so
 ERROR MeshOptimizer is not available because library could not be found at /usr/lib/blender/5.2/scripts/addons_core/io_scene_gltf2/libbf_intern_meshopt_bridge.so
-14:43:34 | INFO: Starting glTF 2.0 export
-14:43:34 | INFO: Extracting primitive: Cylinder
-14:43:34 | INFO: Primitives created: 1
-14:43:34 | INFO: Extracting primitive: Icosphere
-14:43:34 | INFO: Primitives created: 1
-14:43:34 | INFO: Extracting primitive: Torus
-14:43:34 | INFO: Primitives created: 1
-14:43:34 | INFO: Finished glTF 2.0 export in 0.026266098022460938 s
+15:28:49 | INFO: Starting glTF 2.0 export
+15:28:49 | INFO: Extracting primitive: Cylinder
+15:28:49 | INFO: Primitives created: 1
+15:28:49 | INFO: Extracting primitive: Icosphere
+15:28:49 | INFO: Primitives created: 1
+15:28:49 | INFO: Extracting primitive: Torus
+15:28:49 | INFO: Primitives created: 1
+15:28:49 | INFO: Finished glTF 2.0 export in 0.04132223129272461 s
 
 WROTE /workspace/zer0/products/pokemon/.worktrees/native-godot/native/godot/assets/generated/synthetic_beacon.glb
 Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-15 11:48:12)

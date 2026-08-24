@@ -18,7 +18,7 @@ The committed fixtures are deliberately synthetic and CC0. No ROM, official/priv
 Godot 4.7.2 advertises the `headless` display driver with only the `dummy` rendering driver. Therefore the smoke script is fail-closed and records both modes:
 
 1. literal `--headless` validates fixture loading, GLB resource loading, intent consumption and replay hashing without rendering;
-2. an automated offscreen X11 run at position `10000,10000` performs the real Forward+/Vulkan render and rejects llvmpipe, lavapipe, SwiftShader, generic software-renderer strings, or any adapter other than the RTX 3080 Ti.
+2. an automated offscreen X11 run performs the real Forward+/Vulkan render and rejects llvmpipe, lavapipe, SwiftShader, generic software-renderer strings, or any adapter other than the RTX 3080 Ti. On Hyprland, the scripts move the window to a silent special workspace and explicitly float/resize it so compositor tiling cannot invalidate the measured render size.
 
 This distinction avoids falsely claiming Vulkan rendering from Godot's literal dummy headless mode.
 
@@ -46,7 +46,7 @@ Literal non-rendering headless launch:
 /home/kvn/.local/bin/godot4 --headless --path native/godot -- --contract-only --report=native/godot/evidence/literal-headless-report.json
 ```
 
-The scripts accept `GODOT4=/path/to/godot4` when the pinned symlink is unavailable.
+The scripts accept `GODOT4=/path/to/godot4` when the pinned symlink is unavailable. They also accept `NATIVE_EVIDENCE_DIR=/temporary/or/reviewer/path`; native unittests always use temporary directories, so the canonical unittest command cannot replace frozen 600-frame evidence or write nondeterministic logs into tracked files.
 
 ## Blender → GLB → Godot
 
@@ -71,4 +71,4 @@ SHA-256: `64ba98824cdb8f2d4c0aa31c51bcb235438361d23d985b5d642659b36629653e`.
 - `evidence/native-preflight.png`: genuine viewport capture.
 - `evidence/*-log.txt`: raw Blender, Godot import, headless and Vulkan device output.
 
-The capture is a deterministic synthetic two-cell scene at 960×540. Its performance numbers are preflight telemetry, not evidence for the separate 2560×1440 production gate and not a visual-quality promotion.
+The capture is a deterministic synthetic two-cell scene at exactly 960×540. The renderer report records requested, observed window, viewport and drawing-buffer dimensions and exits nonzero if any differ. The capture script independently parses the PNG IHDR and rejects any image other than 960×540. Its performance numbers are synthetic-only preflight telemetry, not evidence for the separate 2560×1440 production gate and not a visual-quality promotion.
