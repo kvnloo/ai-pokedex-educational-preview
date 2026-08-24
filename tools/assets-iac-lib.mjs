@@ -41,6 +41,28 @@ async function verifyCasObject(target, expectedDigest, expectedBytes) {
   }
 }
 
+export async function verifyStableFile(target, expectedDigest, expectedBytes, label = 'OUTPUT_INTEGRITY_MISMATCH') {
+  let handle;
+  try {
+    const pathBefore = await lstat(target, { bigint: true });
+    if (pathBefore.isSymbolicLink() || !pathBefore.isFile()) throw new Error(`${label}: ${target}`);
+    handle = await open(target, constants.O_RDONLY | constants.O_NOFOLLOW | constants.O_CLOEXEC);
+    const descriptorBefore = await handle.stat({ bigint: true });
+    if (identity(pathBefore) !== identity(descriptorBefore)) throw new Error(`${label}: ${target}`);
+    const result = await hashHandle(handle);
+    const descriptorAfter = await handle.stat({ bigint: true });
+    const pathAfter = await lstat(target, { bigint: true });
+    if (identity(descriptorBefore) !== identity(descriptorAfter) || identity(descriptorAfter) !== identity(pathAfter)
+      || result.digest !== expectedDigest || result.bytes !== expectedBytes) throw new Error(`${label}: ${target}`);
+    return result;
+  } catch (error) {
+    if (error?.code === 'ENOENT' || error?.code === 'ELOOP') throw new Error(`${label}: ${target}`);
+    throw error;
+  } finally {
+    await handle?.close();
+  }
+}
+
 export async function ingestSource(sourcePath, casDirectory, options = {}) {
   let pathBefore;
   try {
@@ -114,17 +136,72 @@ export function validatePins(pins) {
   }
 }
 
-export async function executeGraph(graph, statePath) {
+export function validatePinBindings(pins, locks, runtimeVersion) {
+  validatePins(pins);
+  const resolved = {};
+  for (const kind of ['tool', 'model', 'container']) {
+    const expectedKind = `${kind}s`;
+    const lock = locks?.[kind];
+    if (lock?.kind !== expectedKind) throw new Error(`PIN_LOCK_KIND_MISMATCH: ${kind}`);
+    const matches = lock.entries.filter(({ digest }) => digest === pins[kind]);
+    if (matches.length !== 1) throw new Error(`PIN_LOCK_MISSING: ${kind} ${pins[kind]}`);
+    resolved[kind] = matches[0];
+  }
+  const version = runtimeVersion.replace(/^v/, '');
+  if (resolved.tool.id !== 'node' || resolved.tool.version !== version
+    || resolved.container.locator !== `host:node-v${version}`) {
+    throw new Error(`RUNTIME_IDENTITY_MISMATCH: actual node-v${version}`);
+  }
+  return resolved;
+}
+
+function topologicalNodes(nodes) {
+  const byId = new Map();
+  for (const node of nodes) {
+    if (byId.has(node.id)) throw new Error(`DUPLICATE_GRAPH_NODE: ${node.id}`);
+    byId.set(node.id, node);
+  }
+  const ordered = [];
+  const visiting = new Set();
+  const visited = new Set();
+  const visit = (node) => {
+    if (visiting.has(node.id)) throw new Error(`GRAPH_CYCLE: ${node.id}`);
+    if (visited.has(node.id)) return;
+    visiting.add(node.id);
+    for (const dependency of node.dependsOn ?? []) {
+      const upstream = byId.get(dependency);
+      if (!upstream) throw new Error(`DANGLING_GRAPH_NODE: ${dependency}`);
+      visit(upstream);
+    }
+    visiting.delete(node.id);
+    visited.add(node.id);
+    ordered.push(node);
+  };
+  for (const node of nodes) visit(node);
+  return ordered;
+}
+
+export async function executeGraph(graph, statePath, options = {}) {
   await mkdir(path.dirname(statePath), { recursive: true, mode: 0o700 });
   let prior = { nodes: {} };
   try { prior = JSON.parse(await readFile(statePath, 'utf8')); } catch (error) { if (error?.code !== 'ENOENT' && !(error instanceof SyntaxError)) throw error; }
   const result = { nodes: [] };
-  for (const node of graph.nodes) {
-    const inputHash = createHash('sha256').update(JSON.stringify(node.input)).digest('hex');
-    let outputHash;
-    try { outputHash = createHash('sha256').update(await readFile(node.output)).digest('hex'); } catch (error) { if (error?.code !== 'ENOENT') outputHash = undefined; }
+  const completed = new Map();
+  for (const node of topologicalNodes(graph.nodes)) {
+    const dependencyOutputHashes = (node.dependsOn ?? []).map((id) => ({ id, outputHash: completed.get(id).outputHash }));
+    const inputHash = createHash('sha256').update(JSON.stringify({ input: node.input, dependencyOutputHashes })).digest('hex');
     const checkpoint = prior.nodes[node.id];
-    const cacheHit = checkpoint?.inputHash === inputHash && checkpoint?.outputHash === outputHash;
+    let outputHash;
+    let cacheHit = false;
+    if (checkpoint?.complete === true && checkpoint.inputHash === inputHash) {
+      try {
+        await verifyStableFile(node.output, checkpoint.outputHash, checkpoint.outputBytes, 'CHECKPOINT_OUTPUT_MISMATCH');
+        outputHash = checkpoint.outputHash;
+        cacheHit = true;
+      } catch (error) {
+        if (!/CHECKPOINT_OUTPUT_MISMATCH/.test(error.message)) throw error;
+      }
+    }
     if (!cacheHit) {
       await mkdir(path.dirname(node.output), { recursive: true, mode: 0o700 });
       const temp = `${node.output}.partial-${process.pid}`;
@@ -133,12 +210,17 @@ export async function executeGraph(graph, statePath) {
       const handle = await open(temp, 'r'); await handle.sync(); await handle.close();
       await rename(temp, node.output);
       outputHash = createHash('sha256').update(bytes).digest('hex');
-      prior.nodes[node.id] = { inputHash, outputHash, complete: true };
+      const outputBytes = Buffer.byteLength(bytes);
+      prior.nodes[node.id] = { inputHash, dependencyOutputHashes, outputHash, outputBytes, complete: true };
       const stateTemp = `${statePath}.partial-${process.pid}`;
       await writeFile(stateTemp, JSON.stringify(prior, null, 2) + '\n', { mode: 0o600 });
       await rename(stateTemp, statePath);
     }
-    result.nodes.push({ id: node.id, cacheHit, outputHash });
+    const outputBytes = Number((await stat(node.output)).size);
+    const completedNode = { id: node.id, cacheHit, inputHash, dependencyOutputHashes, outputHash, outputBytes };
+    completed.set(node.id, completedNode);
+    result.nodes.push(completedNode);
+    await options.afterNode?.(completedNode);
   }
   return result;
 }

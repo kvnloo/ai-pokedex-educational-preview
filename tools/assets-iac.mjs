@@ -1,10 +1,9 @@
 #!/usr/bin/env node
 import Ajv2020 from 'ajv/dist/2020.js';
-import { constants } from 'node:fs';
-import { lstat, mkdir, open, readFile, readdir, stat, writeFile } from 'node:fs/promises';
+import { lstat, mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import process from 'node:process';
-import { executeGraph, ingestSource, validatePins } from './assets-iac-lib.mjs';
+import { executeGraph, ingestSource, validatePinBindings, verifyStableFile } from './assets-iac-lib.mjs';
 
 const repo = path.resolve(import.meta.dirname, '..');
 const root = path.resolve(process.env.POKEMON_IAC_ROOT ?? '/mnt/zer0models/pokemon-iac');
@@ -15,6 +14,11 @@ const manifest = await json('asset-iac/sources/kanto.manifest.json');
 const recipes = await json('asset-iac/recipes/kanto-minimal.json');
 const graph = await json('asset-iac/graphs/kanto-pallet-pewter.json');
 const profile = await json(`asset-iac/profiles/${profileName}.json`).catch(() => { throw new Error(`UNKNOWN_PROFILE: ${profileName}`); });
+const locks = {
+  tool: await json('asset-iac/locks/tools.lock.json'),
+  model: await json('asset-iac/locks/models.lock.json'),
+  container: await json('asset-iac/locks/containers.lock.json'),
+};
 
 async function ensureRoot() {
   try {
@@ -37,7 +41,7 @@ function requiredSources() {
 async function validateControlPlane() {
   for (const [schemaFile, document] of [
     ['source.schema.json', manifest], ['recipe.schema.json', recipes],
-    ['lock.schema.json', await json('asset-iac/locks/tools.lock.json')], ['lock.schema.json', await json('asset-iac/locks/models.lock.json')], ['lock.schema.json', await json('asset-iac/locks/containers.lock.json')],
+    ['lock.schema.json', locks.tool], ['lock.schema.json', locks.model], ['lock.schema.json', locks.container],
     ['profile.schema.json', await json('asset-iac/profiles/private-local.json')], ['profile.schema.json', await json('asset-iac/profiles/distributable.json')],
     ['graph.schema.json', graph],
   ]) {
@@ -46,7 +50,7 @@ async function validateControlPlane() {
     const validate = ajv.compile(schema);
     if (!validate(document)) throw new Error(`SCHEMA_INVALID ${schemaFile}: ${ajv.errorsText(validate.errors)}`);
   }
-  for (const recipe of eligibleRecipes()) validatePins(recipe.pins);
+  for (const recipe of recipes.recipes) validatePinBindings(recipe.pins, locks, process.version);
   const sourceIds = new Set(manifest.sources.map(({ sourceId }) => sourceId));
   const recipeIds = new Set(recipes.recipes.map(({ assetId }) => assetId));
   for (const recipe of recipes.recipes) {
@@ -104,7 +108,7 @@ async function buildAssets() {
     const recipe = recipes.recipes.find((candidate) => candidate.assetId === node.recipe);
     if (!recipe) throw new Error(`GRAPH_RECIPE_MISSING: ${node.recipe}`);
     if (!recipe.profiles.includes(profileName)) return [];
-    return [{ id: node.id, input: { recipe, sourceDigests }, output: path.join(root, 'outputs', profile.outputNamespace, `${node.id}.json`) }];
+    return [{ id: node.id, dependsOn: node.dependsOn, input: { recipe, sourceDigests }, output: path.join(root, 'outputs', profile.outputNamespace, `${node.id}.json`) }];
   });
   const result = await executeGraph({ nodes }, path.join(root, 'work', profileName, 'checkpoints.json'));
   await writeReport('build', { nodes: result.nodes });
@@ -114,13 +118,21 @@ async function buildAssets() {
 async function verifyAssets() {
   await validateControlPlane();
   const reportFile = path.join(root, 'reports', `build-${profileName}.json`);
+  const checkpointFile = path.join(root, 'work', profileName, 'checkpoints.json');
   let report;
+  let checkpoint;
   try { report = JSON.parse(await readFile(reportFile, 'utf8')); } catch { throw new Error(`BUILD_REPORT_MISSING: ${reportFile}`); }
+  try { checkpoint = JSON.parse(await readFile(checkpointFile, 'utf8')); } catch { throw new Error(`CHECKPOINT_MISSING: ${checkpointFile}`); }
   for (const node of report.nodes) {
     const output = path.join(root, 'outputs', profile.outputNamespace, `${node.id}.json`);
+    const committed = checkpoint.nodes?.[node.id];
+    if (!committed?.complete || committed.inputHash !== node.inputHash || committed.outputHash !== node.outputHash
+      || committed.outputBytes !== node.outputBytes
+      || JSON.stringify(committed.dependencyOutputHashes) !== JSON.stringify(node.dependencyOutputHashes)) {
+      throw new Error(`CHECKPOINT_REPORT_MISMATCH: ${node.id}`);
+    }
+    await verifyStableFile(output, node.outputHash, node.outputBytes);
     JSON.parse(await readFile(output, 'utf8'));
-    const outputStat = await stat(output);
-    if (!outputStat.isFile()) throw new Error(`PARTIAL_OUTPUT: ${output}`);
   }
   if (profileName === 'distributable') await leakScan(path.join(root, 'outputs', profile.outputNamespace));
   await writeReport('verify', { verifiedNodes: report.nodes.length, reproducibility: eligibleRecipes().map(({ assetId, reproducibility, acceptance }) => ({ assetId, reproducibility, acceptance })) });

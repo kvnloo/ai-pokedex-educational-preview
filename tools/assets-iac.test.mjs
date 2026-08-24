@@ -7,7 +7,7 @@ import os from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
 
-import { executeGraph, ingestSource, validatePins } from './assets-iac-lib.mjs';
+import { executeGraph, ingestSource, validatePinBindings, validatePins } from './assets-iac-lib.mjs';
 
 const sha256 = (value) => createHash('sha256').update(value).digest('hex');
 const execFile = promisify(execFileCallback);
@@ -90,6 +90,28 @@ test('unpinned tool, model, and container revisions fail closed', () => {
   }
 });
 
+test('recipe pins must resolve to declared lock entries', () => {
+  const pins = { tool: 'sha256:' + '1'.repeat(64), model: 'sha256:' + '2'.repeat(64), container: 'sha256:' + '3'.repeat(64) };
+  const locks = {
+    tool: { kind: 'tools', entries: [] },
+    model: { kind: 'models', entries: [{ id: 'model', version: '1', digest: pins.model, locator: 'repository:model' }] },
+    container: { kind: 'containers', entries: [{ id: 'host', version: '1', digest: pins.container, locator: 'host:node-v26.4.0' }] },
+  };
+  assert.throws(() => validatePinBindings(pins, locks, 'v26.4.0'), /PIN_LOCK_MISSING: tool/);
+  locks.tool.entries.push({ id: 'node', version: '26.4.0', digest: 'sha256:' + '4'.repeat(64), locator: 'https://nodejs.org/' });
+  assert.throws(() => validatePinBindings(pins, locks, 'v26.4.0'), /PIN_LOCK_MISSING: tool/);
+});
+
+test('locked executable and host runtime must match the actual Node identity', () => {
+  const pins = { tool: 'sha256:' + '1'.repeat(64), model: 'sha256:' + '2'.repeat(64), container: 'sha256:' + '3'.repeat(64) };
+  const locks = {
+    tool: { kind: 'tools', entries: [{ id: 'node', version: '99.0.0', digest: pins.tool, locator: 'https://nodejs.org/' }] },
+    model: { kind: 'models', entries: [{ id: 'model', version: '1', digest: pins.model, locator: 'repository:model' }] },
+    container: { kind: 'containers', entries: [{ id: 'host', version: '1', digest: pins.container, locator: 'host:node-v99.0.0' }] },
+  };
+  assert.throws(() => validatePinBindings(pins, locks, 'v26.4.0'), /RUNTIME_IDENTITY_MISMATCH/);
+});
+
 test('graph resumes after partial output and only valid checkpoints hit cache', async () => {
   const { root } = await fixture();
   const output = path.join(root, 'outputs', 'stand-in.json');
@@ -107,6 +129,30 @@ test('graph resumes after partial output and only valid checkpoints hit cache', 
   assert.equal(third.nodes[0].cacheHit, false);
 });
 
+test('two-node DAG orders dependencies and invalidates downstream on change while resuming safely', async () => {
+  const { root } = await fixture();
+  const state = path.join(root, 'work', 'dag-state.json');
+  const upstream = { id: 'upstream', input: { revision: 1 }, output: path.join(root, 'outputs', 'upstream.json'), dependsOn: [] };
+  const downstream = { id: 'downstream', input: { transform: 'receipt' }, output: path.join(root, 'outputs', 'downstream.json'), dependsOn: ['upstream'] };
+  const reversedGraph = { nodes: [downstream, upstream] };
+
+  const first = await executeGraph(reversedGraph, state);
+  assert.deepEqual(first.nodes.map(({ id, cacheHit }) => [id, cacheHit]), [['upstream', false], ['downstream', false]]);
+  const second = await executeGraph(reversedGraph, state);
+  assert.deepEqual(second.nodes.map(({ cacheHit }) => cacheHit), [true, true]);
+
+  upstream.input.revision = 2;
+  const changed = await executeGraph(reversedGraph, state);
+  assert.deepEqual(changed.nodes.map(({ cacheHit }) => cacheHit), [false, false]);
+
+  upstream.input.revision = 3;
+  await assert.rejects(executeGraph(reversedGraph, state, { afterNode: ({ id }) => {
+    if (id === 'upstream') throw new Error('INTERRUPTED');
+  } }), /INTERRUPTED/);
+  const resumed = await executeGraph(reversedGraph, state);
+  assert.deepEqual(resumed.nodes.map(({ cacheHit }) => cacheHit), [true, false]);
+});
+
 test('private bootstrap stops for owner input with exact expected hash', async () => {
   const { root } = await fixture();
   await assert.rejects(execFile(process.execPath, ['tools/assets-iac.mjs', 'bootstrap', '--profile', 'private-local'], {
@@ -122,4 +168,20 @@ test('distributable leak scan rejects a known private digest', async () => {
   await assert.rejects(execFile(process.execPath, ['tools/assets-iac.mjs', 'leak-scan', output], {
     cwd: path.resolve(import.meta.dirname, '..'), env: { ...process.env, POKEMON_IAC_ROOT: root },
   }), /PRIVATE_ASSET_LEAK/);
+});
+
+test('verify rejects a same-size valid-JSON output mutation', async () => {
+  const { root } = await fixture();
+  const options = { cwd: path.resolve(import.meta.dirname, '..'), env: { ...process.env, POKEMON_IAC_ROOT: root } };
+  await execFile(process.execPath, ['tools/assets-iac.mjs', 'build', '--profile', 'distributable'], options);
+  const output = path.join(root, 'outputs', 'distributable', 'kanto.pallet-pewter.marker.v1.json');
+  const original = await readFile(output, 'utf8');
+  const mutated = original.replace('marker', 'markez');
+  assert.equal(Buffer.byteLength(mutated), Buffer.byteLength(original));
+  JSON.parse(mutated);
+  await writeFile(output, mutated);
+  await assert.rejects(
+    execFile(process.execPath, ['tools/assets-iac.mjs', 'verify', '--profile', 'distributable'], options),
+    /OUTPUT_INTEGRITY_MISMATCH/,
+  );
 });
