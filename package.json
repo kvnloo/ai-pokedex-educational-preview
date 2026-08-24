@@ -11,14 +11,17 @@
     "typecheck": "tsc --noEmit",
     "test:battle": "node --experimental-strip-types tools/battle-golden.mjs",
     "test:canonical-world": "node --experimental-strip-types tools/canonical-world-golden.mjs",
+    "test:canonical-adversarial": "node tools/canonical-world-adversarial.mjs",
+    "test:browser-canonical": "node tools/browser-objective.mjs",
     "test:ship-boundary": "node tools/ship-boundary-golden.mjs",
+    "test:tracked-canonical-boundary": "node tools/check-tracked-canonical-boundary.mjs",
     "generate:canonical-world": "python tools/generate-canonical-world.py",
     "content:sync": "node tools/pokeapi-sync.mjs",
     "content:sync:smoke": "node tools/pokeapi-sync.mjs --max 20",
     "verify": "npm run typecheck && npm run test:battle && npm run test:playtest && npm run build && npm run check:ship && npm run profile",
     "test:playtest": "node tools/playtest.mjs",
     "profile": "node tools/profile.mjs --seconds 180 --label wave6 --gate",
-    "check:ship": "node tools/check-ship-boundary.mjs"
+    "check:ship": "node tools/check-tracked-canonical-boundary.mjs && node tools/check-ship-boundary.mjs"
   },
   "dependencies": {
     "three": "^0.185.1"

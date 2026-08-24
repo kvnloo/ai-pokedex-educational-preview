@@ -80,12 +80,27 @@ try {
   check('read-only runtime evidence bridge exists', starter.bridge, JSON.stringify(starter.snapshot));
   check('three live starter models stage in world', starter.snapshot?.starterModels === 3, `starterModels=${starter.snapshot?.starterModels}`);
   check('runtime begins in starter mode', starter.snapshot?.mode === 'starter', `mode=${starter.snapshot?.mode}`);
+  const canonical = starter.snapshot?.canonicalWorld;
+  check('browser consumes normalized canonical game', canonical?.activeGameId === 'game:yellow', JSON.stringify(canonical));
+  check('browser consumes normalized Pallet to Pewter traversal',
+    canonical?.path?.[0] === 'location:kanto:pallet-town'
+      && canonical?.path?.at(-1) === 'location:kanto:pewter-city'
+      && canonical?.path?.length === 7,
+    JSON.stringify(canonical?.path));
+  check('browser consumes derived traversal coordinates',
+    canonical?.coordinates?.['location:kanto:pallet-town']?.[1] === 0
+      && canonical?.coordinates?.['location:kanto:pewter-city']?.[1] === 6,
+    JSON.stringify(canonical?.coordinates));
 
   await page.locator('.starter-card').first().click();
   await page.waitForTimeout(700);
   const before = await page.evaluate(() => window.__twilight?.snapshot?.() ?? null);
   await page.screenshot({ path: join(OUT, 'explore-before-w.png') });
   check('starter selection enters explore', before?.mode === 'explore', `mode=${before?.mode}`);
+  check('canonical battle boundary is stable outside battle', before?.battle === null
+    && before?.canonicalWorld?.sliceId === 'world-slice:kanto:pallet-pewter'
+    && before?.canonicalWorld?.presentationPolicy?.privateAssetsInPublicArtifactsAllowed === false,
+  JSON.stringify({ battle: before?.battle, canonicalWorld: before?.canonicalWorld }));
 
   await page.keyboard.down('w');
   await page.waitForTimeout(900);

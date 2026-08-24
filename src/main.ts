@@ -63,6 +63,7 @@ import {
   type AttackPhase,
   type ScreenRect,
 } from './render/cinematicEffects.ts';
+import { canonicalKantoOpening } from './world/canonicalWorld.ts';
 
 const bootFill = document.getElementById('boot-fill') as HTMLElement | null;
 const bootStatus = document.getElementById('boot-status') as HTMLElement | null;
@@ -117,6 +118,7 @@ interface Wave0Pack {
 }
 
 interface TwilightRuntimeSnapshot {
+  canonicalWorld: typeof canonicalKantoOpening;
   mode: 'starter' | 'explore' | 'battle';
   starterModels: number;
   player: { x: number; y: number; z: number } | null;
@@ -671,6 +673,7 @@ async function boot(): Promise<void> {
 
   window.__twilight = {
     snapshot: (): TwilightRuntimeSnapshot => ({
+      canonicalWorld: canonicalKantoOpening,
       mode,
       starterModels: starterStage.parent ? starterMeshes.length : 0,
       player: playerMesh

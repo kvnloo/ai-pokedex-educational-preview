@@ -49,7 +49,10 @@
     "warp": {
       "type": "object", "additionalProperties": false,
       "required": ["id", "toMap", "kind", "oneWay", "reciprocalWarpId", "provenance"],
-      "properties": {"id": {"type": "string", "pattern": "^warp:"}, "toMap": {"type": "string", "pattern": "^map:"}, "kind": {"enum": ["door", "boundary-entrance", "scripted"]}, "oneWay": {"type": "boolean"}, "reciprocalWarpId": {"type": ["string", "null"]}, "provenance": {"$ref": "#/$defs/provenance"}}
+      "properties": {"id": {"type": "string", "pattern": "^warp:"}, "toMap": {"type": "string", "pattern": "^map:"}, "kind": {"enum": ["door", "boundary-entrance", "scripted"]}, "oneWay": {"type": "boolean"}, "reciprocalWarpId": {"type": ["string", "null"], "pattern": "^warp:"}, "provenance": {"$ref": "#/$defs/provenance"}},
+      "if": {"properties": {"oneWay": {"const": true}}},
+      "then": {"properties": {"reciprocalWarpId": {"type": "null"}}},
+      "else": {"properties": {"reciprocalWarpId": {"type": "string", "pattern": "^warp:"}}}
     },
     "map": {
       "type": "object", "additionalProperties": false,

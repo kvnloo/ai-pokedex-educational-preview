@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import Ajv2020 from 'ajv/dist/2020.js';
+import { validateCanonicalCorpus } from './canonical-world-validation.mjs';
 
 const root = new URL('..', import.meta.url).pathname;
 const load = (path) => JSON.parse(readFileSync(join(root, path), 'utf8'));
@@ -34,6 +35,7 @@ assert.ok(assets.assets
   .every((asset) => asset.gitPolicy === 'manifest-only' && !asset.profiles.includes('distributable')));
 
 const byType = Object.fromEntries(documents.map(([, document]) => [document.documentType, document]));
+validateCanonicalCorpus(byType);
 const sourceIds = new Set(byType.sources.sources.map((source) => source.id));
 const provenanceFacts = [];
 for (const [type, document] of Object.entries(byType)) {
