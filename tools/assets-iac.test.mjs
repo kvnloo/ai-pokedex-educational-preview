@@ -168,6 +168,19 @@ test('existing data root permissions are corrected to private mode', async () =>
   assert.equal((await stat(root)).mode & 0o777, 0o700);
 });
 
+test('build and verify replace existing public report files with private reports', async () => {
+  const { root } = await fixture();
+  const reports = path.join(root, 'reports');
+  const reportFiles = ['bootstrap-distributable.json', 'build-distributable.json', 'verify-distributable.json']
+    .map((name) => path.join(reports, name));
+  await mkdir(reports, { recursive: true });
+  for (const reportFile of reportFiles) await writeFile(reportFile, '{}\n', { mode: 0o644 });
+  const options = { cwd: path.resolve(import.meta.dirname, '..'), env: { ...process.env, POKEMON_IAC_ROOT: root } };
+  await execFile(process.execPath, ['tools/assets-iac.mjs', 'build', '--profile', 'distributable'], options);
+  await execFile(process.execPath, ['tools/assets-iac.mjs', 'verify', '--profile', 'distributable'], options);
+  for (const reportFile of reportFiles) assert.equal((await stat(reportFile)).mode & 0o777, 0o600, reportFile);
+});
+
 test('data root symlink and non-directory fail closed', async () => {
   const { root } = await fixture();
   const repo = path.resolve(import.meta.dirname, '..');

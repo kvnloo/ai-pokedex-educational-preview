@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import Ajv2020 from 'ajv/dist/2020.js';
-import { chmod, lstat, mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
+import { chmod, lstat, mkdir, open, readFile, readdir, rename, unlink } from 'node:fs/promises';
+import { randomUUID } from 'node:crypto';
 import path from 'node:path';
 import process from 'node:process';
 import { executeGraph, ingestSource, validatePinBindings, verifyStableFile } from './assets-iac-lib.mjs';
@@ -106,7 +107,24 @@ async function writeReport(kind, body) {
   await ensureRoot();
   const report = { schemaVersion: 1, kind, profile: profileName, graphId: graph.graphId, generatedAt: new Date().toISOString(), ...body };
   const target = path.join(root, 'reports', `${kind}-${profileName}.json`);
-  await writeFile(target, JSON.stringify(report, null, 2) + '\n', { mode: 0o600 });
+  const temporary = path.join(path.dirname(target), `.${path.basename(target)}.${process.pid}.${randomUUID()}.tmp`);
+  let handle;
+  try {
+    handle = await open(temporary, 'wx', 0o600);
+    await handle.writeFile(JSON.stringify(report, null, 2) + '\n');
+    await handle.sync();
+    await handle.close();
+    handle = undefined;
+    await rename(temporary, target);
+    const directory = await open(path.dirname(target), 'r');
+    try { await directory.sync(); } finally { await directory.close(); }
+  } catch (error) {
+    if (handle) await handle.close().catch(() => {});
+    await unlink(temporary).catch((cleanupError) => {
+      if (cleanupError?.code !== 'ENOENT') error.cleanupError = cleanupError;
+    });
+    throw error;
+  }
   return target;
 }
 
