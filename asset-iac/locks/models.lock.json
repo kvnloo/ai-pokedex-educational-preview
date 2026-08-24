@@ -1,0 +1,1 @@
+{ "schemaVersion": 1, "kind": "models", "entries": [{ "id": "no-model-synthetic-transform", "version": "1", "digest": "sha256:f71ccf1ebb1a82f7bfb233550c881115e9ef915f7f7d9075b32d0bb2252daaa5", "locator": "repository:asset-iac/recipes/kanto-minimal.json" }] }

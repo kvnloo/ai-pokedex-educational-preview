@@ -1,0 +1,1 @@
+{ "schemaVersion": 1, "kind": "containers", "entries": [{ "id": "no-container-host-node", "version": "1", "digest": "sha256:5432c39c5517582fc764207f6c2437017b37a8d5a3a3ad04135aac19087608ad", "locator": "host:node-v26.4.0" }] }

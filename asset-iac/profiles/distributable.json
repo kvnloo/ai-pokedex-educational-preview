@@ -1,0 +1,1 @@
+{ "schemaVersion": 1, "profile": "distributable", "privateStorageRequired": false, "allowedPolicies": ["distributable"], "outputNamespace": "distributable", "leakScan": true }
