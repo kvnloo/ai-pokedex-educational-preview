@@ -1,0 +1,21 @@
+{
+  "arcs": [
+    {
+      "id": "arc:ash:kanto:indigo",
+      "name": "Kanto / Indigo League",
+      "order": 1,
+      "plane": "anime",
+      "provenance": {
+        "confidence": "medium",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "CC-BY-SA-facts-paraphrase",
+        "locator": "Ash_Ketchum#Kanto",
+        "sourceId": "source:bulbapedia-ash-kanto",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "regionId": "region:kanto"
+    }
+  ],
+  "documentType": "arcs",
+  "schemaVersion": 1
+}

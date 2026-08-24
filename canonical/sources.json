@@ -1,0 +1,102 @@
+{
+  "documentType": "sources",
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "id": "source:pokeapi",
+      "license": "BSD-3-Clause",
+      "name": "PokeAPI",
+      "provenance": {
+        "confidence": "high",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "project-original",
+        "locator": "docs/CANONICAL-WORLD-PIPELINE.md#sources",
+        "sourceId": "source:original-presentation",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "revision": "accessed-2026-08-24",
+      "url": "https://github.com/PokeAPI/pokeapi",
+      "usagePolicy": "reusable-metadata"
+    },
+    {
+      "id": "source:pret-pokered",
+      "license": "unknown-upstream-content-rights",
+      "name": "pret/pokered",
+      "provenance": {
+        "confidence": "high",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "project-original",
+        "locator": "docs/CANONICAL-WORLD-PIPELINE.md#sources",
+        "sourceId": "source:original-presentation",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "revision": "accessed-2026-08-24",
+      "url": "https://github.com/pret/pokered",
+      "usagePolicy": "research-only"
+    },
+    {
+      "id": "source:pret-pokeyellow",
+      "license": "unknown-upstream-content-rights",
+      "name": "pret/pokeyellow",
+      "provenance": {
+        "confidence": "high",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "project-original",
+        "locator": "docs/CANONICAL-WORLD-PIPELINE.md#sources",
+        "sourceId": "source:original-presentation",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "revision": "accessed-2026-08-24",
+      "url": "https://github.com/pret/pokeyellow",
+      "usagePolicy": "research-only"
+    },
+    {
+      "id": "source:pret-pokefirered",
+      "license": "unknown-upstream-content-rights",
+      "name": "pret/pokefirered",
+      "provenance": {
+        "confidence": "high",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "project-original",
+        "locator": "docs/CANONICAL-WORLD-PIPELINE.md#sources",
+        "sourceId": "source:original-presentation",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "revision": "accessed-2026-08-24",
+      "url": "https://github.com/pret/pokefirered",
+      "usagePolicy": "research-only"
+    },
+    {
+      "id": "source:bulbapedia-ash-kanto",
+      "license": "CC-BY-SA-2.5",
+      "name": "Bulbapedia Ash Kanto chronology",
+      "provenance": {
+        "confidence": "high",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "project-original",
+        "locator": "docs/CANONICAL-WORLD-PIPELINE.md#sources",
+        "sourceId": "source:original-presentation",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "revision": "accessed-2026-08-24",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Ash_Ketchum",
+      "usagePolicy": "citation-only"
+    },
+    {
+      "id": "source:original-presentation",
+      "license": "project-original",
+      "name": "Project-authored presentation",
+      "provenance": {
+        "confidence": "high",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "project-original",
+        "locator": "docs/CANONICAL-WORLD-PIPELINE.md#sources",
+        "sourceId": "source:original-presentation",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "revision": "accessed-2026-08-24",
+      "url": "docs/CANONICAL-WORLD-PIPELINE.md",
+      "usagePolicy": "original"
+    }
+  ]
+}

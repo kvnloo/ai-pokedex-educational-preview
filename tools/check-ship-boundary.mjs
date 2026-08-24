@@ -21,7 +21,8 @@ import {
   readlinkSync,
   statSync,
 } from 'node:fs';
-import { dirname, join, relative, sep } from 'node:path';
+import { createHash } from 'node:crypto';
+import { dirname, extname, join, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -36,6 +37,13 @@ const flag = (n, d = null) => {
 };
 
 const distDir = String(flag('dir', join(ROOT, 'dist')));
+const privateAssetManifest = JSON.parse(readFileSync(join(ROOT, 'canonical/assets.json'), 'utf8'));
+const PRIVATE_ASSET_HASHES = new Set(privateAssetManifest.assets
+  .filter((asset) => asset.scope === 'private-canonical-reference')
+  .map((asset) => asset.sourceSha256));
+const FORBIDDEN_BINARY_EXTENSIONS = new Set([
+  '.gb', '.gbc', '.gba', '.nds', '.3ds', '.cia', '.sav', '.ips', '.ups', '.bps', '.xdelta', '.vcdiff',
+]);
 
 /** Path fragments that must never appear under the ship root. */
 const FORBIDDEN_PATH_PARTS = [
@@ -71,6 +79,8 @@ const FORBIDDEN_STRINGS = [
   { re: /content\/derived/i, label: 'content/derived path' },
   { re: /\/mnt\/zer0models/i, label: '/mnt/zer0models' },
   { re: /nationalId/i, label: 'nationalId warehouse field' },
+  { re: /official-artwork/i, label: 'private official-artwork locator' },
+  { re: /pokemon_anime/i, label: 'private asset-store locator' },
 ];
 
 const TEXT_EXTS = new Set([
@@ -262,6 +272,17 @@ function main() {
 
   for (const abs of files) {
     const rel = relative(distDir, abs);
+    const extension = extname(abs).toLowerCase();
+    if (FORBIDDEN_BINARY_EXTENSIONS.has(extension)) {
+      failures.push(`${rel}: forbidden ROM/save/patch extension ${extension}`);
+      continue;
+    }
+    const bytes = readFileSync(abs);
+    const digest = createHash('sha256').update(bytes).digest('hex');
+    if (PRIVATE_ASSET_HASHES.has(digest)) {
+      failures.push(`${rel}: private canonical asset bytes match manifest hash ${digest}`);
+      continue;
+    }
     const pathHit = pathHasForbidden(rel);
     if (pathHit) {
       failures.push(`${rel}: ${pathHit}`);
@@ -270,7 +291,7 @@ function main() {
     if (!isTextFile(abs)) continue;
     let raw;
     try {
-      const buf = readFileSync(abs);
+      const buf = bytes;
       // skip huge maps over 8MB
       if (buf.length > 8 * 1024 * 1024) continue;
       raw = buf.toString('utf8');

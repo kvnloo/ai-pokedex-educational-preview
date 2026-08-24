@@ -1,0 +1,23 @@
+{
+  "documentType": "regions",
+  "regions": [
+    {
+      "gameIds": [
+        "game:red-blue",
+        "game:yellow",
+        "game:firered-leafgreen"
+      ],
+      "id": "region:kanto",
+      "name": "Kanto",
+      "provenance": {
+        "confidence": "high",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "BSD-3-Clause-metadata",
+        "locator": "api/v2/region/1",
+        "sourceId": "source:pokeapi",
+        "sourceRevision": "accessed-2026-08-24"
+      }
+    }
+  ],
+  "schemaVersion": 1
+}
