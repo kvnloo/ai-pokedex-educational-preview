@@ -6,12 +6,12 @@
     "runtimeUrl": "http://127.0.0.1:5180/?verify=1",
     "captureMethod": "Playwright Chromium screenshot",
     "dimensions": [1280, 720],
-    "sourceCommit": "4bc9a14b4079d537b2a61c77c4bb7a1b72d0b900",
     "storage": "private local 4 TB evidence plane; directories 0700, files 0600"
   },
   "runs": [
     {
       "label": "canonical-repair-browser",
+      "sourceCommit": "4bc9a14b4079d537b2a61c77c4bb7a1b72d0b900",
       "externalDirectory": "/mnt/zer0models/pokemon-iac/evidence/canonical-repair/6945e7e46e07f20c3cf9dcd3780f16c10a0936a9aeedc94a0f053d4748d933fc",
       "passed": 15,
       "failed": 0,
@@ -24,6 +24,7 @@
     },
     {
       "label": "objective-current-preserved",
+      "sourceCommit": "4bc9a14b4079d537b2a61c77c4bb7a1b72d0b900",
       "externalDirectory": "/mnt/zer0models/pokemon-iac/evidence/canonical-repair/160c3b288b6b0fb27d242f40843c113912eb61a71720ebb4708e8407020c647d",
       "passed": 15,
       "failed": 0,
@@ -36,6 +37,7 @@
     },
     {
       "label": "behavioral-canonical-repair",
+      "sourceCommit": "abfff10779553548119999672a870b3cf7b98ca4",
       "externalDirectory": "/mnt/zer0models/pokemon-iac/evidence/canonical-repair/e8e8d0fa2e2dbef6ba4ccdd6ddbf04b4b9b830f6539f849acdd21c0ccd8b2410",
       "passed": 21,
       "failed": 0,
