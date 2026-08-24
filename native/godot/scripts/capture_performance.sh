@@ -73,9 +73,16 @@ if png[:8] != b"\x89PNG\r\n\x1a\n":
 png_dimensions = list(struct.unpack(">II", png[16:24]))
 report = json.loads(report_path.read_text(encoding="utf-8"))
 expected = [960, 540]
-for field in ("requested_dimensions", "window_dimensions", "viewport_dimensions", "drawing_buffer_dimensions"):
+for field in ("requested_client_dimensions", "client_viewport_dimensions", "drawing_buffer_dimensions"):
     if report.get(field) != expected:
         raise SystemExit(f"{field} mismatch: expected {expected}, got {report.get(field)}")
+outer = report.get("outer_window_dimensions")
+if not isinstance(outer, list) or len(outer) != 2 or not all(isinstance(value, int) and value > 0 for value in outer):
+    raise SystemExit(f"invalid outer_window_dimensions: {outer}")
+if report.get("window_decorations_observed") != (outer != expected):
+    raise SystemExit("window_decorations_observed does not match measured outer/client dimensions")
+if report.get("resize_stable_frames") != 3 or report.get("resize_wait_frames", 0) < 3:
+    raise SystemExit(f"client resize did not converge: {report.get('resize_stable_frames')}")
 if png_dimensions != expected:
     raise SystemExit(f"PNG dimensions mismatch: expected {expected}, got {png_dimensions}")
 PY

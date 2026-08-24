@@ -18,7 +18,7 @@ The committed fixtures are deliberately synthetic and CC0. No ROM, official/priv
 Godot 4.7.2 advertises the `headless` display driver with only the `dummy` rendering driver. Therefore the smoke script is fail-closed and records both modes:
 
 1. literal `--headless` validates fixture loading, GLB resource loading, intent consumption and replay hashing without rendering;
-2. an automated offscreen X11 run performs the real Forward+/Vulkan render and rejects llvmpipe, lavapipe, SwiftShader, generic software-renderer strings, or any adapter other than the RTX 3080 Ti. On Hyprland, the scripts move the window to a silent special workspace and explicitly float/resize it so compositor tiling cannot invalidate the measured render size.
+2. an automated offscreen X11 run performs the real Forward+/Vulkan render and rejects llvmpipe, lavapipe, SwiftShader, generic software-renderer strings, or any adapter other than the RTX 3080 Ti. On Hyprland, the scripts move the window to a silent special workspace and explicitly float/resize it so compositor tiling cannot invalidate the measured client render size. The client requests a borderless window, but the contract does not assume every X11 window manager honors that hint.
 
 This distinction avoids falsely claiming Vulkan rendering from Godot's literal dummy headless mode.
 
@@ -71,4 +71,4 @@ SHA-256: `64ba98824cdb8f2d4c0aa31c51bcb235438361d23d985b5d642659b36629653e`.
 - `evidence/native-preflight.png`: genuine viewport capture.
 - `evidence/*-log.txt`: raw Blender, Godot import, headless and Vulkan device output.
 
-The capture is a deterministic synthetic two-cell scene at exactly 960×540. The renderer report records requested, observed window, viewport and drawing-buffer dimensions and exits nonzero if any differ. The capture script independently parses the PNG IHDR and rejects any image other than 960×540. Its performance numbers are synthetic-only preflight telemetry, not evidence for the separate 2560×1440 production gate and not a visual-quality promotion.
+The capture is a deterministic synthetic two-cell scene with an exact 960×540 client viewport and drawing buffer. Sampling begins only after both dimensions remain converged for three consecutive frames. The renderer report records the requested client size, observed client viewport/drawing buffer, and the measured outer OS window separately; compositor decorations may make the truthful outer dimensions larger and are recorded rather than treated as a client-rendering failure. The current frozen X11 evidence truthfully records a 960×620 outer window around the exact 960×540 client. The capture script independently parses the PNG IHDR and rejects any image other than 960×540. Its performance numbers are synthetic-only preflight telemetry, not evidence for the separate 2560×1440 production gate and not a visual-quality promotion.

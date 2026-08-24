@@ -12,7 +12,7 @@ Acceptance is intentionally narrow:
 - generated binding validation over three synthetic versioned fixtures;
 - synthetic Blender IaC GLB export and Godot import;
 - movement-intent consumption and ordered replay final hash;
-- exact 960×540 requested and observed window/viewport/drawing-buffer dimensions, independently verified PNG dimensions, and renderer telemetry.
+- exact 960×540 requested client viewport/drawing-buffer dimensions after resize convergence, independently verified PNG dimensions, truthful outer-window dimensions (which may include compositor decorations), and renderer telemetry.
 
 It does not establish Kanto content readiness, cross-client production parity, backend implementation, five-minute allocation stability, 1440p performance, or final visual quality. Those remain dependency-gated and independently reviewed.
 

@@ -9,6 +9,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from typing import Any
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -16,6 +17,36 @@ TOOL = ROOT / "contracts" / "native" / "generate_bindings.py"
 
 
 class NativeContractPreflightTest(unittest.TestCase):
+    def assert_client_sizing_contract(self, report: dict[str, Any], png_dimensions: list[int]) -> None:
+        expected = [960, 540]
+        for field in (
+            "requested_client_dimensions",
+            "client_viewport_dimensions",
+            "drawing_buffer_dimensions",
+            "outer_window_dimensions",
+            "window_decorations_observed",
+            "resize_stable_frames",
+            "resize_wait_frames",
+        ):
+            self.assertIn(field, report)
+        self.assertEqual(report["requested_client_dimensions"], expected)
+        self.assertEqual(report["client_viewport_dimensions"], expected)
+        self.assertEqual(report["drawing_buffer_dimensions"], expected)
+        self.assertEqual(png_dimensions, expected)
+        self.assertEqual(report["resize_stable_frames"], 3)
+        self.assertGreaterEqual(report["resize_wait_frames"], 3)
+
+        outer = report["outer_window_dimensions"]
+        self.assertIsInstance(outer, list)
+        self.assertEqual(len(outer), 2)
+        self.assertTrue(all(isinstance(value, int) and value > 0 for value in outer))
+        self.assertGreaterEqual(outer[0], expected[0])
+        self.assertGreaterEqual(outer[1], expected[1])
+        self.assertEqual(
+            report["window_decorations_observed"],
+            outer != expected,
+        )
+
     def test_canonical_unittest_run_preserves_frozen_evidence_and_tracked_state(self) -> None:
         if os.environ.get("NATIVE_FROZEN_EVIDENCE_GUARD") == "1":
             self.skipTest("inner canonical run")
@@ -58,18 +89,13 @@ class NativeContractPreflightTest(unittest.TestCase):
         self.assertEqual(frozen_hashes(), before_hashes)
         self.assertEqual(tracked_state(), before_state)
 
-    def test_frozen_capture_reports_exact_requested_and_observed_dimensions(self) -> None:
+    def test_frozen_capture_reports_exact_client_dimensions_and_truthful_outer_window(self) -> None:
         evidence = ROOT / "native" / "godot" / "evidence"
         screenshot = evidence / "native-preflight.png"
         report = json.loads((evidence / "performance-report.json").read_text(encoding="utf-8"))
         png_width, png_height = struct.unpack(">II", screenshot.read_bytes()[16:24])
 
-        expected = [960, 540]
-        self.assertEqual(report["requested_dimensions"], expected)
-        self.assertEqual(report["window_dimensions"], expected)
-        self.assertEqual(report["viewport_dimensions"], expected)
-        self.assertEqual(report["drawing_buffer_dimensions"], expected)
-        self.assertEqual([png_width, png_height], expected)
+        self.assert_client_sizing_contract(report, [png_width, png_height])
 
     def test_synthetic_contract_fixtures_validate_and_match_replay_hash(self) -> None:
         result = subprocess.run(
@@ -162,12 +188,10 @@ class NativeContractPreflightTest(unittest.TestCase):
             self.assertEqual(screenshot.read_bytes()[:8], b"\x89PNG\r\n\x1a\n")
             self.assertEqual(report["device"], "NVIDIA GeForce RTX 3080 Ti")
             self.assertEqual(report["frames"], 120)
-            expected = [960, 540]
-            self.assertEqual(report["requested_dimensions"], expected)
-            self.assertEqual(report["window_dimensions"], expected)
-            self.assertEqual(report["viewport_dimensions"], expected)
-            self.assertEqual(report["drawing_buffer_dimensions"], expected)
-            self.assertEqual(list(struct.unpack(">II", screenshot.read_bytes()[16:24])), expected)
+            self.assert_client_sizing_contract(
+                report,
+                list(struct.unpack(">II", screenshot.read_bytes()[16:24])),
+            )
             self.assertGreater(report["triangles"], 0)
             self.assertGreater(report["draw_calls"], 0)
             self.assertFalse(report["software_renderer"])

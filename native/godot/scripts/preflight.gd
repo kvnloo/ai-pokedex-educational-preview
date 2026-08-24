@@ -3,10 +3,15 @@ extends Node3D
 const Bindings = preload("res://generated/native_contract_bindings.gd")
 const EXPECTED_HASH := "64ba98824cdb8f2d4c0aa31c51bcb235438361d23d985b5d642659b36629653e"
 const REQUESTED_DIMENSIONS := Vector2i(960, 540)
+const RESIZE_STABLE_FRAMES := 3
+const RESIZE_TIMEOUT_FRAMES := 600
 
 var _frame_limit := 24
 var _warmup_frames := 0
 var _seen_frames := 0
+var _resize_stable_frames := 0
+var _resize_wait_frames := 0
+var _client_size_converged := false
 var _frame_times_ms: Array[float] = []
 var _report_path := "res://evidence/headless-report.json"
 var _capture_path := ""
@@ -42,6 +47,8 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+    if not _contract_only and not _client_size_has_converged():
+        return
     _seen_frames += 1
     if _seen_frames <= _warmup_frames:
         return
@@ -49,6 +56,27 @@ func _process(delta: float) -> void:
     if not _finishing and _frame_times_ms.size() >= _frame_limit:
         _finishing = true
         _finalize.call_deferred()
+
+
+func _client_size_has_converged() -> bool:
+    if _client_size_converged:
+        return true
+    var client_viewport_dimensions := Vector2i(get_viewport().get_visible_rect().size)
+    var drawing_buffer_dimensions := Vector2i(get_viewport().get_texture().get_size())
+    _resize_wait_frames += 1
+    if client_viewport_dimensions == REQUESTED_DIMENSIONS and drawing_buffer_dimensions == REQUESTED_DIMENSIONS:
+        _resize_stable_frames += 1
+    else:
+        _resize_stable_frames = 0
+        get_window().size = REQUESTED_DIMENSIONS
+        get_window().content_scale_size = REQUESTED_DIMENSIONS
+    if _resize_stable_frames >= RESIZE_STABLE_FRAMES:
+        _client_size_converged = true
+        return true
+    if _resize_wait_frames >= RESIZE_TIMEOUT_FRAMES:
+        push_error("client viewport/drawing buffer did not converge to %s: viewport=%s drawing_buffer=%s" % [REQUESTED_DIMENSIONS, client_viewport_dimensions, drawing_buffer_dimensions])
+        get_tree().quit(4)
+    return false
 
 
 func _parse_arguments() -> void:
@@ -195,8 +223,8 @@ func _percentile(values: Array[float], fraction: float) -> float:
 
 func _finalize() -> void:
     await RenderingServer.frame_post_draw
-    var window_dimensions := DisplayServer.window_get_size()
-    var viewport_dimensions := Vector2i(get_viewport().get_visible_rect().size)
+    var outer_window_dimensions := DisplayServer.window_get_size()
+    var client_viewport_dimensions := Vector2i(get_viewport().get_visible_rect().size)
     var drawing_buffer_dimensions := Vector2i(get_viewport().get_texture().get_size())
     var image: Image
     if not _capture_path.is_empty():
@@ -228,14 +256,17 @@ func _finalize() -> void:
         "p95_frame_ms": _percentile(_frame_times_ms, 0.95),
         "p99_frame_ms": _percentile(_frame_times_ms, 0.99),
         "renderer": "Forward+",
-        "requested_dimensions": [REQUESTED_DIMENSIONS.x, REQUESTED_DIMENSIONS.y],
+        "requested_client_dimensions": [REQUESTED_DIMENSIONS.x, REQUESTED_DIMENSIONS.y],
+        "resize_stable_frames": _resize_stable_frames,
+        "resize_wait_frames": _resize_wait_frames,
         "schema_version": Bindings.SCHEMA_VERSION,
         "software_renderer": software,
         "synthetic_only": true,
         "triangles": Performance.get_monitor(Performance.RENDER_TOTAL_PRIMITIVES_IN_FRAME),
-        "window_dimensions": [window_dimensions.x, window_dimensions.y],
-        "viewport_dimensions": [viewport_dimensions.x, viewport_dimensions.y],
+        "outer_window_dimensions": [outer_window_dimensions.x, outer_window_dimensions.y],
+        "client_viewport_dimensions": [client_viewport_dimensions.x, client_viewport_dimensions.y],
         "drawing_buffer_dimensions": [drawing_buffer_dimensions.x, drawing_buffer_dimensions.y],
+        "window_decorations_observed": outer_window_dimensions != client_viewport_dimensions,
     }
     var report_file := FileAccess.open(_report_path, FileAccess.WRITE)
     if report_file == null:
@@ -244,8 +275,8 @@ func _finalize() -> void:
         return
     report_file.store_string(JSON.stringify(report, "  ") + "\n")
     print("NATIVE_PREFLIGHT_REPORT ", JSON.stringify(report))
-    if window_dimensions != REQUESTED_DIMENSIONS or viewport_dimensions != REQUESTED_DIMENSIONS or drawing_buffer_dimensions != REQUESTED_DIMENSIONS:
-        push_error("native preflight dimensions mismatch: requested=%s window=%s viewport=%s drawing_buffer=%s" % [REQUESTED_DIMENSIONS, window_dimensions, viewport_dimensions, drawing_buffer_dimensions])
+    if client_viewport_dimensions != REQUESTED_DIMENSIONS or drawing_buffer_dimensions != REQUESTED_DIMENSIONS:
+        push_error("native preflight client dimensions mismatch: requested=%s viewport=%s drawing_buffer=%s outer_window=%s" % [REQUESTED_DIMENSIONS, client_viewport_dimensions, drawing_buffer_dimensions, outer_window_dimensions])
         get_tree().quit(4)
         return
     if software or not device.contains("NVIDIA GeForce RTX 3080 Ti"):

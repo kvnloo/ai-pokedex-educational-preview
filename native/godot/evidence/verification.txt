@@ -10,7 +10,7 @@ PASS: bash native/godot/scripts/verify_import.sh
 PASS: bash native/godot/scripts/headless_smoke.sh
 PASS: bash native/godot/scripts/capture_performance.sh 600
 
-Final performance capture: Forward+ Vulkan 1.4.341, NVIDIA GeForce RTX 3080 Ti, 600 measured frames after 60 warmup frames, mean 1.707299 ms, p95 2.995848 ms, p99 5.505667 ms, 15 draw calls, 1020 triangles, software_renderer=false. Requested, observed window, viewport and drawing-buffer dimensions are all exactly 960x540; PNG IHDR is independently verified as 960x540. This synthetic-only result is not the separate 2560x1440 production gate.
+Final performance capture: Forward+ Vulkan 1.4.341, NVIDIA GeForce RTX 3080 Ti, 600 measured frames after three stable resize-convergence frames and 60 warmup frames, mean 2.837634 ms, p95 5.708000 ms, p99 11.440111 ms, 15 draw calls, 1020 triangles, software_renderer=false. Requested client, observed client viewport and drawing-buffer dimensions are exactly 960x540; PNG IHDR is independently verified as 960x540. The decorated outer X11 window is truthfully recorded as 960x620 and is not treated as the render buffer. This synthetic-only result is not the separate 2560x1440 production gate.
 
 PASS: official Godot archive SHA-512 check and live version `4.7.2.stable.official.ed1daf0bf`.
 PASS: `vulkaninfo --summary` reports proprietary NVIDIA Vulkan 1.4.341 on NVIDIA GeForce RTX 3080 Ti; generated reports reject software renderers.
