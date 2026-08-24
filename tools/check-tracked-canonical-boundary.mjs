@@ -8,8 +8,11 @@ const policy = JSON.parse(readFileSync(join(root, 'canonical/content-policy.json
 const tracked = execFileSync('git', ['ls-files'], { cwd: root, encoding: 'utf8' }).trim().split('\n').filter(Boolean);
 const failures = [];
 for (const path of tracked) {
-  if (!path.startsWith('content/canonical/')) continue;
-  if (policy.forbiddenTrackedExtensions.includes(extname(path).toLowerCase())) failures.push(`${path}: official/presentation bytes forbidden in Git`);
+  const forbiddenBinary = policy.forbiddenTrackedExtensions.includes(extname(path).toLowerCase());
+  const canonicalPlane = path.startsWith('content/canonical/') || path.startsWith('canonical/');
+  const canonicalCapture = path.startsWith('shots/canonical-');
+  if (forbiddenBinary && (canonicalPlane || canonicalCapture)) failures.push(`${path}: canonical/private presentation capture bytes forbidden in Git; retain only a hash manifest`);
+  if (path.startsWith('shots/objective-') && forbiddenBinary) failures.push(`${path}: browser objective evidence must remain outside Git`);
 }
 const speciesPath = 'content/canonical/species.jsonl';
 if (tracked.includes(speciesPath)) {
@@ -24,4 +27,5 @@ if (failures.length) {
   console.error(`tracked canonical boundary FAIL (${failures.length})\n${failures.slice(0, 20).join('\n')}`);
   process.exit(1);
 }
-console.log('tracked canonical boundary: factual metadata classified; presentation text/art absent from tracked canonical tree');
+const trackedCaptures = tracked.filter((path) => path.startsWith('shots/') && policy.forbiddenTrackedExtensions.includes(extname(path).toLowerCase()));
+console.log(`tracked canonical boundary: ${trackedCaptures.length} tracked captures audited; canonical/private presentation bytes absent; species metadata classified`);

@@ -28,6 +28,18 @@ export function validateCanonicalCorpus(corpus) {
   const mapsByGameLocation = new Map(corpus.maps.maps.map((x) => [`${x.gameId}\0${x.locationId}`, x]));
   const nestedIds = new Set();
 
+  const visitProvenance = (value, path) => {
+    if (!value || typeof value !== 'object') return;
+    if (value.provenance && typeof value.provenance === 'object') {
+      requireRef(sourceIds, value.provenance.sourceId, `${path}.provenance.sourceId`);
+    }
+    if (Array.isArray(value)) value.forEach((item, index) => visitProvenance(item, `${path}[${index}]`));
+    else for (const [key, child] of Object.entries(value)) {
+      if (key !== 'provenance') visitProvenance(child, `${path}.${key}`);
+    }
+  };
+  for (const [name, document] of Object.entries(corpus)) visitProvenance(document, name);
+
   for (const region of corpus.regions.regions) for (const id of region.gameIds) requireRef(gameIds, id, region.id);
   for (const location of corpus.locations.locations) requireRef(regionIds, location.regionId, location.id);
   for (const arc of corpus.arcs.arcs) requireRef(regionIds, arc.regionId, arc.id);

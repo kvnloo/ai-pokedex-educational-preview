@@ -20,6 +20,7 @@ const rejects = (name, mutate) => {
 };
 
 validateCanonicalCorpus(valid);
+rejects('nested provenance -> source', (c) => { c.maps.maps[0].connections[0].provenance.sourceId = 'source:missing'; });
 rejects('event -> arc', (c) => { c.events.events[0].arcId = 'arc:missing'; });
 rejects('arc -> region', (c) => { c.arcs.arcs[0].regionId = 'region:missing'; });
 rejects('runtime region', (c) => { c.runtime.regionId = 'region:missing'; });
@@ -36,4 +37,4 @@ rejects('one-way warp retains reciprocal id', (c) => { c.maps.maps[0].warps[0].o
 rejects('two-way warp lacks reciprocal id', (c) => { c.maps.maps[0].warps[0].reciprocalWarpId = null; });
 rejects('reciprocal warp points wrong map', (c) => { c.maps.maps[1].warps[0].toMap = c.maps.maps[1].id; });
 
-console.log('canonical-world adversarial: 15 malformed reference, uniqueness, reciprocal, direction and one-way cases rejected');
+console.log('canonical-world adversarial: 16 malformed provenance, reference, uniqueness, reciprocal, direction and one-way cases rejected');
