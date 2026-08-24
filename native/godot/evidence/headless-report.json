@@ -1,0 +1,20 @@
+{
+  "api_version": "1.4.341",
+  "asset_loaded": true,
+  "device": "NVIDIA GeForce RTX 3080 Ti",
+  "draw_calls": 15.0,
+  "final_hash": "64ba98824cdb8f2d4c0aa31c51bcb235438361d23d985b5d642659b36629653e",
+  "frames": 24,
+  "mean_frame_ms": 19.2900138888889,
+  "movement_cell": [
+    1,
+    0
+  ],
+  "objects": 12.0,
+  "p95_frame_ms": 120.120333333333,
+  "p99_frame_ms": 149.581333333333,
+  "renderer": "Forward+",
+  "schema_version": "native-preflight/v1",
+  "software_renderer": false,
+  "triangles": 1020.0
+}

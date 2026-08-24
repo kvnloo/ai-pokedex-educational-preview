@@ -1,0 +1,7 @@
+{
+  "schema_version": "native-preflight/v1",
+  "fixture_kinds": ["canonical_scene", "movement_intent", "battle_replay"],
+  "intent_only_client": true,
+  "authoritative_domains": ["world", "battle", "save"],
+  "binding_target": "GDScript"
+}

@@ -1,0 +1,11 @@
+{
+  "asset_loaded": true,
+  "display_driver": "headless",
+  "final_hash": "64ba98824cdb8f2d4c0aa31c51bcb235438361d23d985b5d642659b36629653e",
+  "movement_cell": [
+    1,
+    0
+  ],
+  "renderer": "dummy (no rendering)",
+  "schema_version": "native-preflight/v1"
+}

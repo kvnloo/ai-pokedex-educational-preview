@@ -1,0 +1,7 @@
+{
+  "generator": "Blender 5.2 Python API",
+  "license": "CC0-1.0 synthetic fixture",
+  "private_assets": false,
+  "sha256": "059e68ef0576d4ab14b513a775220183121dbe602b182d1e30e6929731c6bdd0",
+  "source": "native/godot/assets/source/build_synthetic_beacon.py"
+}

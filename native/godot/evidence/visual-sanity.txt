@@ -1,0 +1,5 @@
+Visual sanity verdict: PASS for synthetic preflight scope.
+
+Inspected native-preflight.png after the final 600-frame Vulkan capture. The 960×540 image is genuine and nonblank. It visibly contains two adjacent blue synthetic map-cell slabs and the imported low-poly beacon on the left cell: a dark faceted cylindrical base, bright cyan ring, and cyan faceted core. Lighting, perspective, mesh silhouettes and shadows are coherent. No missing mesh, black frame, clipping catastrophe, NaN geometry, texture corruption or obvious renderer artifact is visible.
+
+This is a renderer/import sanity verdict only, not a production visual-quality promotion.

@@ -1,0 +1,13 @@
+{
+  "schema_version": "native-preflight/v1",
+  "kind": "battle_replay",
+  "replay_id": "synthetic-battle-0001",
+  "initial_hp": {"training_red": 10, "training_blue": 12},
+  "events": [
+    {"sequence": 1, "type": "damage", "actor": "training_red", "target": "training_blue", "amount": 5},
+    {"sequence": 2, "type": "damage", "actor": "training_blue", "target": "training_red", "amount": 3},
+    {"sequence": 3, "type": "damage", "actor": "training_red", "target": "training_blue", "amount": 7}
+  ],
+  "expected_winner": "training_red",
+  "expected_final_hash": "64ba98824cdb8f2d4c0aa31c51bcb235438361d23d985b5d642659b36629653e"
+}

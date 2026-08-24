@@ -1,0 +1,6 @@
+godot_command=4.7.2.stable.official.ed1daf0bf
+godot_binary=/mnt/zer0models/tools/godot/4.7.2/Godot_v4.7.2-stable_linux.x86_64
+godot_binary_sha256=8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e  /home/kvn/.local/bin/godot4
+official_archive_check=Godot_v4.7.2-stable_linux.x86_64.zip: OK
+blender=Blender 5.2.0 LTS
+nvidia=NVIDIA GeForce RTX 3080 Ti, 610.43.03, 12288 MiB

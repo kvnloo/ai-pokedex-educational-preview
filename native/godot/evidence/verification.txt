@@ -1,0 +1,15 @@
+Verification run on branch native/godot-frontend from base 18821d22d57bd3e8533af29cff3e858ebf963901.
+
+PASS: PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s tests/native -v
+Result: 5 tests passed.
+PASS: bash -n native/godot/scripts/*.sh
+PASS: npm run typecheck
+PASS: npm run build
+Build note: existing Vite bundle-size advisory for the 717.18 kB main chunk; build completed successfully.
+PASS: bash native/godot/scripts/verify_import.sh
+PASS: bash native/godot/scripts/headless_smoke.sh
+PASS: bash native/godot/scripts/capture_performance.sh 600
+
+Final performance capture: Forward+ Vulkan 1.4.341, NVIDIA GeForce RTX 3080 Ti, 600 measured frames after 60 warmup frames, mean 2.507606 ms, p95 4.824910 ms, p99 9.092810 ms, 15 draw calls, 1020 triangles, software_renderer=false. This 960x540 synthetic result is not the separate 2560x1440 production gate.
+
+Known host-tool note: the Arch-packaged Blender 5.2 startup emits extension-manager cattrs and optional MeshOptimizer availability messages. Blender exits 0; the GLB exporter completes; GLB magic/hash/provenance validate; and Godot imports exactly one PackedScene. These messages are preserved in blender-export-log.txt rather than hidden.

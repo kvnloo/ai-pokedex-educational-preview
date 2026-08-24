@@ -1,0 +1,3 @@
+base_main_sha=18821d22d57bd3e8533af29cff3e858ebf963901
+branch=native/godot-frontend
+worktree=/workspace/zer0/products/pokemon/.worktrees/native-godot

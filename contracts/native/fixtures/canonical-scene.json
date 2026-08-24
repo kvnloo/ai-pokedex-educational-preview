@@ -1,0 +1,12 @@
+{
+  "schema_version": "native-preflight/v1",
+  "kind": "canonical_scene",
+  "scene_id": "synthetic-grid-v1",
+  "seed": 3080,
+  "spawn_cell": [0, 0],
+  "cells": [
+    {"id": "origin", "grid": [0, 0], "height": 0.0, "surface": "synthetic_stone"},
+    {"id": "east", "grid": [1, 0], "height": 0.0, "surface": "synthetic_stone"}
+  ],
+  "asset_uri": "res://assets/generated/synthetic_beacon.glb"
+}

@@ -1,0 +1,9 @@
+{
+  "schema_version": "native-preflight/v1",
+  "kind": "movement_intent",
+  "intent_id": "move-synthetic-0001",
+  "entity_id": "synthetic_player",
+  "sequence": 1,
+  "direction": [1, 0],
+  "expected_cell": [1, 0]
+}
