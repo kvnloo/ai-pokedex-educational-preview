@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import Ajv2020 from 'ajv/dist/2020.js';
-import { lstat, mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
+import { chmod, lstat, mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import process from 'node:process';
 import { executeGraph, ingestSource, validatePinBindings, verifyStableFile } from './assets-iac-lib.mjs';
@@ -29,6 +29,7 @@ async function ensureRoot() {
     if (error?.code !== 'ENOENT') throw error;
     await mkdir(root, { recursive: true, mode: 0o700 });
   }
+  await chmod(root, 0o700);
   for (const directory of ['sources', 'cas', 'work', 'outputs', 'reports', 'models']) await mkdir(path.join(root, directory), { recursive: true, mode: 0o700 });
 }
 

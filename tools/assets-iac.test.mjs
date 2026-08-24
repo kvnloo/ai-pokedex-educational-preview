@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { mkdtemp, mkdir, readFile, readdir, rename, stat, symlink, writeFile } from 'node:fs/promises';
+import { chmod, mkdtemp, mkdir, readFile, readdir, rename, stat, symlink, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { execFile as execFileCallback } from 'node:child_process';
 import { promisify } from 'node:util';
@@ -158,6 +158,30 @@ test('private bootstrap stops for owner input with exact expected hash', async (
   await assert.rejects(execFile(process.execPath, ['tools/assets-iac.mjs', 'bootstrap', '--profile', 'private-local'], {
     cwd: path.resolve(import.meta.dirname, '..'), env: { ...process.env, POKEMON_IAC_ROOT: root },
   }), /OWNER_SOURCE_REQUIRED: pokemon\.owner-art\.example\.v1 expected sha256:2d711642b726b04401627ca9fbac32f5c8530fb1903cc4db02258717921a4881 bytes:1/);
+});
+
+test('existing data root permissions are corrected to private mode', async () => {
+  const { root } = await fixture();
+  await chmod(root, 0o755);
+  const options = { cwd: path.resolve(import.meta.dirname, '..'), env: { ...process.env, POKEMON_IAC_ROOT: root } };
+  await execFile(process.execPath, ['tools/assets-iac.mjs', 'doctor', '--profile', 'distributable'], options);
+  assert.equal((await stat(root)).mode & 0o777, 0o700);
+});
+
+test('data root symlink and non-directory fail closed', async () => {
+  const { root } = await fixture();
+  const repo = path.resolve(import.meta.dirname, '..');
+  const target = path.join(root, 'target');
+  const link = path.join(root, 'root-link');
+  const file = path.join(root, 'root-file');
+  await mkdir(target);
+  await symlink(target, link);
+  await writeFile(file, 'not a directory');
+  for (const [candidate, expected] of [[link, /DATA_ROOT_SYMLINK/], [file, /DATA_ROOT_NOT_DIRECTORY/]]) {
+    await assert.rejects(execFile(process.execPath, ['tools/assets-iac.mjs', 'doctor', '--profile', 'distributable'], {
+      cwd: repo, env: { ...process.env, POKEMON_IAC_ROOT: candidate },
+    }), expected);
+  }
 });
 
 test('distributable leak scan rejects a known private digest', async () => {
