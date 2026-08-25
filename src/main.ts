@@ -265,8 +265,8 @@ async function boot(): Promise<void> {
     ? 'private-local'
     : 'distributable';
   const assetProfile = resolveRuntimeAssetProfile(requestedAssetProfile, {
-    distributable: { markerHref: '/content/assets/distributable.json', policy: 'distributable' },
-    'private-local': { markerHref: '/content/assets/private-local.json', policy: 'private-only' },
+    distributable: { markerHref: '/content/game/runtime-assets/distributable.json', policy: 'distributable' },
+    'private-local': { markerHref: '/content/game/runtime-assets/private-local.json', policy: 'private-only' },
   });
   const assetResponse = await fetch(assetProfile.markerHref, { cache: 'no-store' });
   if (!assetResponse.ok) throw new Error(`Runtime asset contract missing for ${assetProfile.profile}`);
