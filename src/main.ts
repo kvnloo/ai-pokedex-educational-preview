@@ -315,12 +315,38 @@ async function boot(): Promise<void> {
   // Three r185 maps the old soft mode to PCF with a deprecation warning.
   renderer.shadowMap.type = THREE.PCFShadowMap;
 
+  // Mobile browsers can reclaim WebGL while the tab remains alive. Prevent the
+  // default terminal loss, retain the last composited page instead of exposing
+  // a black canvas, and make recovery visible and empirically testable.
+  const graphicsNotice = document.createElement('div');
+  graphicsNotice.id = 'graphics-recovery-notice';
+  graphicsNotice.hidden = true;
+  graphicsNotice.setAttribute('role', 'status');
+  graphicsNotice.textContent = 'Graphics paused — restoring the route…';
+  Object.assign(graphicsNotice.style, {
+    position: 'fixed', inset: 'auto 50% 1.25rem auto', transform: 'translateX(50%)',
+    zIndex: '10000', padding: '.65rem 1rem', borderRadius: '999px',
+    color: '#f7f0df', background: 'rgba(8, 14, 20, .88)',
+    font: '600 13px/1.2 system-ui, sans-serif', pointerEvents: 'none',
+  });
+  document.body.appendChild(graphicsNotice);
   const scene = new THREE.Scene();
 
   const camera = new THREE.PerspectiveCamera(44, window.innerWidth / window.innerHeight, 0.1, 120);
   camera.position.set(0, 2.25, 6.4);
   const cameraLook = new THREE.Vector3(0, 0.9, 0.45);
   camera.lookAt(cameraLook);
+  canvas.addEventListener('webglcontextlost', (event) => {
+    event.preventDefault();
+    graphicsNotice.hidden = false;
+    document.body.dataset.graphics = 'recovering';
+  });
+  canvas.addEventListener('webglcontextrestored', () => {
+    renderer.resetState();
+    renderer.compile(scene, camera);
+    graphicsNotice.hidden = true;
+    document.body.dataset.graphics = 'ready';
+  });
 
   // Soft follow state (lagged yaw + lerped position + collision pull-in)
   const camFollow = {
