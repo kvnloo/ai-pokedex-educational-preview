@@ -653,6 +653,17 @@ try {
 
   // Leave the pad, walk back into grass, and prove a second playable encounter.
   await driveUntil('a', (value) => value?.player?.x <= 1.38, 4_000, 'leave heal pad west');
+  const replayFlank = await snapshot();
+  // Acceleration can carry the player through the authored grass edge into the
+  // central dirt corridor after keyup. Re-center on the same grass flank used
+  // for the first encounter before beginning the bounded north/south patrol.
+  if (replayFlank.player.x < 1.18) {
+    await driveUntil('d', (value) => value?.player?.x >= 1.28, 2_000, 're-center replay grass flank east');
+  } else if (replayFlank.player.x > 1.55) {
+    await driveUntil('a', (value) => value?.player?.x <= 1.42, 2_000, 're-center replay grass flank west');
+  }
+  const replayStaged = await snapshot();
+  check('replay patrol starts inside authored grass flank', replayStaged.player.x >= 1.18 && replayStaged.player.x <= 1.55, `x=${replayStaged.player.x.toFixed(4)}`);
   const replayStartAt = performance.now();
   await stamp('replay:grass-patrol-start');
   const replayEncounter = await patrolGrassForEncounter(2);
