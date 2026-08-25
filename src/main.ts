@@ -64,6 +64,7 @@ import {
   type ScreenRect,
 } from './render/cinematicEffects.ts';
 import { canonicalKantoOpening } from './world/canonicalWorld.ts';
+import { normalizeInputFrame, resolveRuntimeAssetProfile } from './campaign/campaign.ts';
 
 const bootFill = document.getElementById('boot-fill') as HTMLElement | null;
 const bootStatus = document.getElementById('boot-status') as HTMLElement | null;
@@ -260,6 +261,20 @@ function isCritEvent(critical: unknown): boolean {
 }
 
 async function boot(): Promise<void> {
+  const requestedAssetProfile = new URLSearchParams(location.search).get('assetProfile') === 'private-local'
+    ? 'private-local'
+    : 'distributable';
+  const assetProfile = resolveRuntimeAssetProfile(requestedAssetProfile, {
+    distributable: { markerHref: '/content/assets/distributable.json', policy: 'distributable' },
+    'private-local': { markerHref: '/content/assets/private-local.json', policy: 'private-only' },
+  });
+  const assetResponse = await fetch(assetProfile.markerHref, { cache: 'no-store' });
+  if (!assetResponse.ok) throw new Error(`Runtime asset contract missing for ${assetProfile.profile}`);
+  const assetMarker = await assetResponse.json() as { profile?: string; policy?: string; bytesEmbedded?: boolean };
+  if (assetMarker.profile !== assetProfile.profile || assetMarker.policy !== assetProfile.policy || assetMarker.bytesEmbedded === true) {
+    throw new Error(`Runtime asset contract rejected for ${assetProfile.profile}`);
+  }
+  document.body.dataset.assetProfile = assetProfile.profile;
   progress(0.08, 'Loading wave0 ship pack');
   const res = await fetch('/content/game/wave0.json');
   if (!res.ok) throw new Error(`wave0 pack missing (${res.status}). Expected content/game/wave0.json`);
@@ -636,6 +651,19 @@ async function boot(): Promise<void> {
   const effectPoint = new THREE.Vector3();
 
   let explore: ExploreState | null = null;
+  const touchAxis = { x: 0, y: 0 };
+  const touchPad = document.getElementById('touch-pad');
+  const updateTouch = (event: PointerEvent): void => {
+    if (!touchPad) return;
+    const box = touchPad.getBoundingClientRect();
+    touchAxis.x = clamp((event.clientX - (box.left + box.width / 2)) / (box.width * 0.35), -1, 1);
+    touchAxis.y = clamp((event.clientY - (box.top + box.height / 2)) / (box.height * 0.35), -1, 1);
+  };
+  touchPad?.addEventListener('pointerdown', (event) => { touchPad.setPointerCapture(event.pointerId); updateTouch(event); });
+  touchPad?.addEventListener('pointermove', (event) => { if (touchPad.hasPointerCapture(event.pointerId)) updateTouch(event); });
+  const clearTouch = (): void => { touchAxis.x = 0; touchAxis.y = 0; };
+  touchPad?.addEventListener('pointerup', clearTouch);
+  touchPad?.addEventListener('pointercancel', clearTouch);
   let party: PartyMember[] = [];
   const healPad = createDefaultHealPad();
   let healCooldown = 0;
@@ -2345,6 +2373,18 @@ async function boot(): Promise<void> {
     if (mode === 'explore' && explore && playerMesh) {
       if (healCooldown > 0) healCooldown = Math.max(0, healCooldown - dt);
 
+      const pad = navigator.getGamepads?.()[0];
+      const dead = (value: number): number => Math.abs(value) < 0.18 ? 0 : value;
+      const input = normalizeInputFrame({
+        // Keyboard remains authoritative in tickExplore; this frame contributes
+        // only transport-neutral analog sources so held keys are not double-counted.
+        keys: new Set<string>(),
+        touch: touchAxis,
+        gamepad: pad ? { x: dead(pad.axes[0] ?? 0), y: dead(pad.axes[1] ?? 0), interact: Boolean(pad.buttons[0]?.pressed) } : undefined,
+      });
+      explore.analog.x = input.x;
+      explore.analog.z = input.y;
+      explore.analog.interact = input.interact;
       const res = tickExplore(explore, dt);
       if (res.moved && campaign.visitedLocationIds.length < canonicalKantoOpening.path.length) {
         campaign.traversedMeters += res.speed * dt;
@@ -2416,7 +2456,7 @@ async function boot(): Promise<void> {
       }
 
       // Gym / elite interact (E)
-      const wantInteract = explore.keys.has('e');
+      const wantInteract = explore.keys.has('e') || explore.analog.interact;
       if (!wantInteract) interactArmed = true;
       if (res.nearInteract && interactArmed && wantInteract && !busy) {
         interactArmed = false;
@@ -2450,13 +2490,8 @@ async function boot(): Promise<void> {
         });
       }
 
-      const yawBlend = 1 - Math.exp(-4.2 * dt);
-      const posBlend = 1 - Math.exp(-6.5 * dt);
-      const lookBlend = 1 - Math.exp(-8 * dt);
-      let dy = explore.yaw - camFollow.yaw;
-      while (dy > Math.PI) dy -= Math.PI * 2;
-      while (dy < -Math.PI) dy += Math.PI * 2;
-      camFollow.yaw += dy * yawBlend;
+      // Presentation-rate hard follow: no lag spring or 60 Hz stair-step.
+      camFollow.yaw = explore.yaw;
 
       // Collision-aware camera pull-in vs landmarks
       const safeDist = cameraCollisionDist(
@@ -2469,18 +2504,14 @@ async function boot(): Promise<void> {
       const idealX = playerMesh.position.x - Math.sin(camFollow.yaw) * safeDist;
       const idealZ = playerMesh.position.z - Math.cos(camFollow.yaw) * safeDist;
       const idealY = camFollow.height + (camFollow.dist - safeDist) * 0.15;
-      camFollow.pos.x += (idealX - camFollow.pos.x) * posBlend;
-      camFollow.pos.z += (idealZ - camFollow.pos.z) * posBlend;
-      camFollow.pos.y += (idealY - camFollow.pos.y) * posBlend;
+      camFollow.pos.set(idealX, idealY, idealZ);
 
       // Look slightly ahead of player toward facing so route + grass + landmarks read in stills
       const lookLead = 1.35;
       const lx = playerMesh.position.x + Math.sin(camFollow.yaw) * lookLead;
       const ly = 0.85;
       const lz = playerMesh.position.z + Math.cos(camFollow.yaw) * lookLead;
-      camFollow.look.x += (lx - camFollow.look.x) * lookBlend;
-      camFollow.look.y += (ly - camFollow.look.y) * lookBlend;
-      camFollow.look.z += (lz - camFollow.look.z) * lookBlend;
+      camFollow.look.set(lx, ly, lz);
 
       camera.position.copy(camFollow.pos);
       camera.lookAt(camFollow.look);

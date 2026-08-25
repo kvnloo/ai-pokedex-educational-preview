@@ -17,6 +17,7 @@
     "test:ship-boundary": "node tools/ship-boundary-golden.mjs",
     "test:tracked-canonical-boundary": "node tools/check-tracked-canonical-boundary.mjs",
     "test:assets-iac": "node --test tools/assets-iac.test.mjs",
+    "test:campaign": "node --experimental-strip-types --test tools/campaign.test.mjs",
     "assets:doctor": "node tools/assets-iac.mjs doctor",
     "assets:plan": "node tools/assets-iac.mjs plan",
     "assets:bootstrap": "node tools/assets-iac.mjs bootstrap",

@@ -56,6 +56,8 @@ export interface ExploreState {
   obstacles: Obstacle[];
   /** Keys currently held */
   keys: Set<string>;
+  /** Analog movement from touch/controller; merged with keyboard every frame. */
+  analog: { x: number; z: number; interact: boolean };
   /** Steps taken inside grass since last encounter check */
   grassSteps: number;
   /** Cooldown seconds before another encounter can fire */
@@ -176,6 +178,7 @@ export function createExploreState(opts?: Partial<ExploreState>): ExploreState {
     },
     obstacles: opts?.obstacles ?? createDefaultObstacles(),
     keys: opts?.keys ?? new Set(),
+    analog: opts?.analog ?? { x: 0, z: 0, interact: false },
     grassSteps: 0,
     encounterCooldown: opts?.encounterCooldown ?? 0,
     gaitDist: opts?.gaitDist ?? 0,
@@ -353,8 +356,8 @@ export function tickExplore(
   }
 
   const k = state.keys;
-  let ix = 0;
-  let iz = 0;
+  let ix = state.analog.x;
+  let iz = state.analog.z;
   if (k.has("w") || k.has("arrowup")) iz -= 1;
   if (k.has("s") || k.has("arrowdown")) iz += 1;
   if (k.has("a") || k.has("arrowleft")) ix -= 1;
