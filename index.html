@@ -38,6 +38,14 @@
       position: absolute; inset: 0; width: 100%; height: 100%;
       display: block; touch-action: none;
     }
+    #touch-pad {
+      display: none; position: absolute; left: max(18px, env(safe-area-inset-left));
+      bottom: max(18px, env(safe-area-inset-bottom)); width: 116px; height: 116px;
+      z-index: 65; border: 1px solid rgba(255,255,255,.38); border-radius: 50%;
+      background: rgba(8,16,22,.38); touch-action: none;
+    }
+    #touch-pad::after { content: ''; position: absolute; inset: 38px; border-radius: 50%; background: rgba(243,199,122,.72); }
+    @media (pointer: coarse) { body[data-mode="explore"] #touch-pad { display: block; } }
     #scene-transition {
       position: absolute; inset: 0; z-index: 72; pointer-events: none;
       opacity: 0;
@@ -532,6 +540,7 @@
 <body>
   <div id="app">
     <canvas id="viewport"></canvas>
+    <div id="touch-pad" aria-label="Movement joystick"></div>
     <div id="vignette"></div>
     <div id="battle-flash"></div>
     <div id="ui-root">

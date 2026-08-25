@@ -129,27 +129,10 @@ class NativeContractPreflightTest(unittest.TestCase):
         self.assertEqual(report["canonical_cell"], "location:kanto:pallet-town")
         self.assertEqual(report["movement_target"], "location:kanto:route-1")
         self.assertEqual(report["save_location"], "location:kanto:route-1")
-        self.assertEqual(report["native_final_hash"], report["browser_final_hash"])
-        self.assertEqual(report["native_final_hash"], report["expected_final_hash"])
+        self.assertNotIn("browser_final_hash", report)
+        self.assertNotIn("native_final_hash", report)
+        self.assertEqual(report["shared_replay_final_hash"], report["expected_final_hash"])
         self.assertEqual(report["authoritative_domains"], ["world", "battle", "story", "save", "inventory", "economy"])
-
-    def test_browser_contract_consumer_matches_shared_replay_hash(self) -> None:
-        result = subprocess.run(
-            ["node", "tools/shared-client-contract.mjs"],
-            cwd=ROOT,
-            text=True,
-            capture_output=True,
-            check=False,
-        )
-
-        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        report = json.loads(result.stdout)
-        self.assertEqual(report.get("client"), "browser")
-        self.assertEqual(report.get("schemaVersion"), "authoritative-client/v1")
-        self.assertEqual(report.get("canonicalCell"), "location:kanto:pallet-town")
-        self.assertEqual(report.get("orderedEvents"), 3)
-        self.assertEqual(report.get("finalHash"), "395db323b45f3a5d5379a68702c3f8e96e14e5362aa927f67b232c030d7ac1d6")
-        self.assertTrue(report.get("saveAcknowledged"))
 
     def test_cross_client_evidence_compares_hashes_without_pixel_parity_claim(self) -> None:
         with tempfile.TemporaryDirectory(prefix="cross-client-") as temporary:
@@ -184,8 +167,40 @@ class NativeContractPreflightTest(unittest.TestCase):
             report = json.loads(comparison.read_text(encoding="utf-8"))
             self.assertTrue(report.get("hashesMatch"))
             self.assertFalse(report.get("pixelParityClaimed"))
-            self.assertEqual(report.get("orderedEvents"), 3)
-            self.assertEqual(report.get("nativeFinalHash"), report.get("browserFinalHash"))
+            self.assertEqual(report.get("approvedInputs", {}).get("browserM2"), "7e01d16bbd7c5c1d58177d4abaa512600026d2e6")
+            clients = report.get("clients", {})
+            self.assertEqual(set(clients), {"backend", "browser", "native"})
+            self.assertEqual(clients["backend"]["callPath"], "src/backend/authoritativeReplay.ts")
+            self.assertEqual(clients["browser"]["callPath"], "src/main.ts -> createProductionBrowserParityEvidence")
+            self.assertEqual(clients["native"]["callPath"], "native/godot/scripts/preflight.gd")
+            for hash_name in ("contentHash", "replayHash", "finalHash"):
+                values = {client[hash_name] for client in clients.values()}
+                self.assertEqual(len(values), 1, f"{hash_name} differs across clients: {values}")
+                self.assertRegex(values.pop(), r"^[a-f0-9]{64}$")
+
+    def test_loaded_synthetic_stand_in_is_reported_as_synthetic_only(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="native-presentation-truth-") as temporary:
+            report_path = Path(temporary) / "report.json"
+            result = subprocess.run(
+                [
+                    os.environ.get("GODOT4", "/home/kvn/.local/bin/godot4"),
+                    "--headless",
+                    "--path",
+                    str(ROOT / "native" / "godot"),
+                    "--",
+                    "--contract-only",
+                    f"--report={report_path}",
+                ],
+                cwd=ROOT,
+                text=True,
+                capture_output=True,
+                check=False,
+            )
+
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+            report = json.loads(report_path.read_text(encoding="utf-8"))
+            self.assertEqual(report.get("presentation_asset_classification"), "CC0 synthetic stand-in")
+            self.assertTrue(report.get("synthetic_only"))
 
     def test_godot_contract_only_consumes_shared_kanto_authority(self) -> None:
         with tempfile.TemporaryDirectory(prefix="native-kanto-contract-") as temporary:

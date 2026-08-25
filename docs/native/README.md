@@ -28,7 +28,8 @@ From the worktree root:
 
 ```sh
 python contracts/native/generate_bindings.py --check
-node tools/shared-client-contract.mjs
+node --experimental-strip-types tools/backend-replay-evidence.mjs
+node tools/production-browser-parity-evidence.mjs
 bash native/godot/scripts/verify_import.sh
 bash native/godot/scripts/headless_smoke.sh
 bash native/godot/scripts/capture_performance.sh 600
@@ -60,7 +61,7 @@ The shared movement intent starts at `location:kanto:pallet-town` and the author
 
 `authoritative-client/v1|training_red:7|training_blue:0|winner:training_red|events:3`
 
-SHA-256: `395db323b45f3a5d5379a68702c3f8e96e14e5362aa927f67b232c030d7ac1d6` in both the browser contract consumer and Godot client.
+SHA-256: `395db323b45f3a5d5379a68702c3f8e96e14e5362aa927f67b232c030d7ac1d6`. `tools/native-cross-client-evidence.mjs` obtains content, ordered-replay and final-state hashes independently from the authoritative backend wrapper, the built production browser application bridge and native Godot, then fails unless all three triplets match. The browser bridge is revision-bound to approved M2 SHA `7e01d16bbd7c5c1d58177d4abaa512600026d2e6`; it is not a standalone fixture consumer relabeled as a client.
 
 ## Durable evidence
 
@@ -73,7 +74,7 @@ SHA-256: `395db323b45f3a5d5379a68702c3f8e96e14e5362aa927f67b232c030d7ac1d6` in b
 - `evidence/native-preflight.png`: genuine viewport capture.
 - `evidence/performance-1440p-report.json`: 600-frame RTX 3080 Ti Forward+ quality-tier p95/p99 telemetry after import and shader prewarm.
 - `evidence/native-kanto-1440p.png`: genuine 2560×1440 canonical-projection viewport capture.
-- `evidence/cross-client-hash-comparison.json`: ordered-event/final-hash comparison with `pixelParityClaimed: false`.
+- `evidence/cross-client-hash-comparison.json`: production browser/backend/native content, ordered-replay and final-state hash comparison with explicit call paths and `pixelParityClaimed: false`.
 - `evidence/*-log.txt`: raw Blender, Godot import, headless and Vulkan device output.
 
-The legacy preflight capture remains frozen at an exact 960×540 client viewport/drawing buffer with a truthful 960×620 decorated outer window. The canonical quality-tier capture independently verifies a 2560×1440 client viewport, drawing buffer and PNG, records the truthful outer-window dimensions instead of inferring them, and measures p95/p99 only after import prewarm, three stable resize frames and the configured shader warmup. This is renderer telemetry for the smallest canonical projection and is not a pixel-parity or visual-quality promotion claim.
+The legacy preflight capture remains frozen at an exact 960×540 client viewport/drawing buffer with its measured outer-window dimensions. The canonical quality-tier capture independently verifies a 2560×1440 client viewport, drawing buffer and PNG, records the truthful outer-window dimensions instead of inferring them, and measures p95/p99 only after import prewarm, three stable resize frames and the configured shader warmup. This is renderer telemetry for the smallest canonical projection and is not a pixel-parity or visual-quality promotion claim.

@@ -14,6 +14,7 @@
     2560,
     1440
   ],
+  "content_hash": "f0a3883eba4199da812c095f95a54b383536a98833960704154d87b14852d516",
   "device": "NVIDIA GeForce RTX 3080 Ti",
   "draw_calls": 30.0,
   "drawing_buffer_dimensions": [
@@ -23,7 +24,7 @@
   "final_hash": "395db323b45f3a5d5379a68702c3f8e96e14e5362aa927f67b232c030d7ac1d6",
   "frames": 600,
   "import_prewarmed": true,
-  "mean_frame_ms": 1.61688388888889,
+  "mean_frame_ms": 0.487188333333333,
   "movement_cell": [
     0,
     1
@@ -36,14 +37,15 @@
     1440
   ],
   "p95_budget_ms": 16.667,
-  "p95_frame_ms": 2.38095238095238,
+  "p95_frame_ms": 0.991,
   "p99_budget_ms": 25.0,
-  "p99_frame_ms": 3.669,
+  "p99_frame_ms": 1.21,
   "performance_gate_passed": true,
   "performance_tier": "quality",
   "presentation_asset_classification": "CC0 synthetic stand-in",
   "private_source_loaded": false,
   "renderer": "Forward+",
+  "replay_hash": "b1616d0b1bcfcc038cc1370432dc3e29a63d5e72bb54c20d27257dcf12432dc8",
   "requested_client_dimensions": [
     2560,
     1440
@@ -55,7 +57,7 @@
   "schema_version": "authoritative-client/v1",
   "shader_prewarm_frames": 120,
   "software_renderer": false,
-  "synthetic_only": false,
+  "synthetic_only": true,
   "target_hardware": "NVIDIA GeForce RTX 3080 Ti",
   "triangles": 1200.0,
   "window_decorations_observed": false

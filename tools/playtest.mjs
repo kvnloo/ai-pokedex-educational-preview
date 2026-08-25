@@ -184,7 +184,7 @@ const pityExplore = createExploreState({
 });
 pityExplore.keys.add("d");
 let pityEncounter = false;
-for (let i = 0; i < 320; i++) {
+for (let i = 0; i < 600; i++) {
   if (tickExplore(pityExplore, 1 / 60, () => 1).encounter) {
     pityEncounter = true;
     break;

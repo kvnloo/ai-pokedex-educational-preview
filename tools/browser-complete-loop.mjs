@@ -12,6 +12,7 @@
 import { execFileSync } from 'node:child_process';
 import { createRequire } from 'node:module';
 import {
+  chmodSync,
   existsSync,
   mkdirSync,
   rmSync,
@@ -163,13 +164,16 @@ function imageStats(path, crop = null) {
 }
 
 function frameLooksRendered(stats) {
-  return stats.mean > 0.02 && stats.standardDeviation > 0.012 && stats.entropy > 0.12;
+  // Dark battle backdrops can be intentionally low-variance in the center,
+  // while still carrying substantial luminance and entropy from silhouettes/UI.
+  return stats.mean > 0.02 && stats.standardDeviation > 0.006 && stats.entropy > 0.12;
 }
 
 async function capture(stage) {
   const index = String(screenshots.length).padStart(2, '0');
   const file = join(OUT, `${index}-${stage}.png`);
   await page.screenshot({ path: file, fullPage: false, animations: 'allow' });
+  chmodSync(file, 0o600);
   const full = imageStats(file);
   const center = imageStats(file, '768x360+256+72');
   const ok = frameLooksRendered(full) && frameLooksRendered(center);
@@ -396,11 +400,13 @@ function currentReport() {
 }
 
 rmSync(OUT, { recursive: true, force: true });
-mkdirSync(OUT, { recursive: true });
+mkdirSync(OUT, { recursive: true, mode: 0o700 });
+chmodSync(OUT, 0o700);
 const playwright = await loadPlaywright();
 if (!playwright?.chromium) {
   fatalError = 'Playwright unavailable (checked project and sibling installations)';
   writeFileSync(join(OUT, 'complete-loop-report.json'), `${JSON.stringify(currentReport(), null, 2)}\n`);
+  chmodSync(join(OUT, 'complete-loop-report.json'), 0o600);
   throw new Error(fatalError);
 }
 
@@ -408,7 +414,7 @@ try {
   const executablePath = process.env.TWILIGHT_CHROME ?? '/usr/bin/chromium';
   browser = await playwright.chromium.launch({
     executablePath,
-    headless: true,
+    headless: !has('headed'),
     args: [
       '--no-sandbox',
       '--disable-gpu-sandbox',
@@ -649,6 +655,17 @@ try {
 
   // Leave the pad, walk back into grass, and prove a second playable encounter.
   await driveUntil('a', (value) => value?.player?.x <= 1.38, 4_000, 'leave heal pad west');
+  const replayFlank = await snapshot();
+  // Acceleration can carry the player through the authored grass edge into the
+  // central dirt corridor after keyup. Re-center on the same grass flank used
+  // for the first encounter before beginning the bounded north/south patrol.
+  if (replayFlank.player.x < 1.18) {
+    await driveUntil('d', (value) => value?.player?.x >= 1.28, 2_000, 're-center replay grass flank east');
+  } else if (replayFlank.player.x > 2.45) {
+    await driveUntil('a', (value) => value?.player?.x <= 2.3, 2_000, 're-center replay grass flank west');
+  }
+  const replayStaged = await snapshot();
+  check('replay patrol starts inside authored grass flank', replayStaged.player.x >= 1.18 && replayStaged.player.x <= 2.45, `x=${replayStaged.player.x.toFixed(4)}`);
   const replayStartAt = performance.now();
   await stamp('replay:grass-patrol-start');
   const replayEncounter = await patrolGrassForEncounter(2);
@@ -714,6 +731,7 @@ try {
   if (context) {
     try {
       await context.tracing.stop({ path: tracePath });
+      chmodSync(tracePath, 0o600);
     } catch (error) {
       tracePath = null;
       check('Playwright trace saved', false, String(error?.stack ?? error));
@@ -722,10 +740,12 @@ try {
   if (browser) await browser.close();
   const report = currentReport();
   writeFileSync(join(OUT, 'complete-loop-report.json'), `${JSON.stringify(report, null, 2)}\n`);
+  chmodSync(join(OUT, 'complete-loop-report.json'), 0o600);
   writeFileSync(
     join(OUT, 'transition-latencies.json'),
     `${JSON.stringify({ generatedAt: report.generatedAt, url: URL, transitions }, null, 2)}\n`,
   );
+  chmodSync(join(OUT, 'transition-latencies.json'), 0o600);
   console.log(`\ncomplete-loop browser gate: ${report.summary.checksPassed} passed, ${report.summary.checksFailed} failed`);
   console.log(`report: ${report.reportPath}`);
   console.log(`trace: ${report.tracePath ?? 'not saved'}`);

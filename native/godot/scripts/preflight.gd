@@ -39,6 +39,8 @@ var _asset_loaded := false
 var _movement_cell := [0, 0]
 var _movement_from := ""
 var _movement_location := ""
+var _content_hash := ""
+var _replay_hash := ""
 var _final_hash := ""
 
 
@@ -55,6 +57,7 @@ func _ready() -> void:
     _replay_fixture = _load_shared_fixture("battle-replay.json", "battle_replay")
     _save_fixture = _load_shared_fixture("save.json", "save_snapshot")
     _resolve_asset_manifest()
+    _content_hash = _hash_contract_content()
     _build_scene()
     _consume_movement_intent()
     _final_hash = _replay_battle()
@@ -137,6 +140,7 @@ func _write_contract_only_report() -> void:
         "asset_profile": _asset_profile,
         "canonical_path_count": _runtime_fixture["path"].size(),
         "canonical_slice_id": _runtime_fixture["sliceId"],
+        "content_hash": _content_hash,
         "display_driver": DisplayServer.get_name(),
         "final_hash": _final_hash,
         "intent_only_client": Bindings.INTENT_ONLY_CLIENT,
@@ -146,9 +150,11 @@ func _write_contract_only_report() -> void:
         "presentation_asset_classification": _resolved_asset["classification"],
         "private_source_loaded": _private_source_loaded,
         "renderer": "dummy (no rendering)",
+        "replay_hash": _replay_hash,
         "resolved_asset_id": _resolved_asset_id,
         "save_location": _save_fixture["location_id"],
         "schema_version": Bindings.SCHEMA_VERSION,
+        "synthetic_only": _resolved_asset["classification"] == "CC0 synthetic stand-in",
     }
     var report_file := FileAccess.open(_report_path, FileAccess.WRITE)
     if report_file == null:
@@ -305,16 +311,36 @@ func _consume_movement_intent() -> void:
         get_tree().quit(2)
 
 
+func _hash_contract_content() -> String:
+    var path_parts := PackedStringArray()
+    for location_id in _runtime_fixture["path"]:
+        path_parts.append(str(location_id))
+    var canonical := "%s|%s|%s|%s|%d:%s->%s|%s" % [
+        Bindings.SCHEMA_VERSION,
+        _runtime_fixture["sliceId"],
+        _runtime_fixture["activeGameId"],
+        ",".join(path_parts),
+        _intent_fixture["sequence"],
+        _intent_fixture["from_location_id"],
+        _intent_fixture["expected_location_id"],
+        _replay_fixture["replay_id"],
+    ]
+    return canonical.sha256_text()
+
+
 func _replay_battle() -> String:
     var hp: Dictionary = _replay_fixture["initial_hp"].duplicate()
     var expected_sequence := 1
+    var replay_parts := PackedStringArray()
     for event in _replay_fixture["events"]:
         if event["sequence"] != expected_sequence or event["type"] != "damage":
             push_error("invalid authoritative battle event order/type")
             get_tree().quit(2)
             return ""
         hp[event["target"]] = maxi(0, int(hp[event["target"]]) - int(event["amount"]))
+        replay_parts.append("%d:%s:%s:%s:%d" % [event["sequence"], event["type"], event["actor"], event["target"], event["amount"]])
         expected_sequence += 1
+    _replay_hash = "|".join(replay_parts).sha256_text()
     var canonical := "%s|training_red:%d|training_blue:%d|winner:%s|events:%d" % [
         _replay_fixture["schema_version"],
         hp["training_red"],
@@ -367,6 +393,7 @@ func _finalize() -> void:
         "asset_profile": _asset_profile,
         "canonical_path_count": _runtime_fixture["path"].size(),
         "canonical_slice_id": _runtime_fixture["sliceId"],
+        "content_hash": _content_hash,
         "device": device,
         "draw_calls": Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME),
         "final_hash": _final_hash,
@@ -385,6 +412,7 @@ func _finalize() -> void:
         "performance_tier": _performance_tier,
         "presentation_asset_classification": _resolved_asset["classification"],
         "renderer": "Forward+",
+        "replay_hash": _replay_hash,
         "resolved_asset_id": _resolved_asset_id,
         "requested_client_dimensions": [_requested_dimensions.x, _requested_dimensions.y],
         "resize_stable_frames": _resize_stable_frames,
@@ -395,7 +423,7 @@ func _finalize() -> void:
         "software_renderer": software,
         "target_hardware": _target_hardware,
         "private_source_loaded": _private_source_loaded,
-        "synthetic_only": false,
+        "synthetic_only": _resolved_asset["classification"] == "CC0 synthetic stand-in",
         "triangles": Performance.get_monitor(Performance.RENDER_TOTAL_PRIMITIVES_IN_FRAME),
         "outer_window_dimensions": [outer_window_dimensions.x, outer_window_dimensions.y],
         "client_viewport_dimensions": [client_viewport_dimensions.x, client_viewport_dimensions.y],

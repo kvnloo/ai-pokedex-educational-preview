@@ -1,17 +1,51 @@
 {
-  "schemaVersion": "cross-client-evidence/v1",
+  "schemaVersion": "cross-client-evidence/v2",
   "approvedInputs": {
     "canonical": "d9a1dad7b76aa0bea89c473f87bf82048a16eaff",
     "assetsAsCode": "f77ec8876ffc212b75f83fde5efdd31c335b705d",
-    "godotThinClient": "b663bb0bd4124c285277a923fb21533f0981b5a8"
+    "godotThinClient": "b663bb0bd4124c285277a923fb21533f0981b5a8",
+    "browserM2": "7e01d16bbd7c5c1d58177d4abaa512600026d2e6"
   },
   "contractSchemaVersion": "authoritative-client/v1",
-  "canonicalCell": "location:kanto:pallet-town",
-  "movementLocation": "location:kanto:route-1",
-  "orderedEvents": 3,
-  "nativeFinalHash": "395db323b45f3a5d5379a68702c3f8e96e14e5362aa927f67b232c030d7ac1d6",
-  "browserFinalHash": "395db323b45f3a5d5379a68702c3f8e96e14e5362aa927f67b232c030d7ac1d6",
+  "comparedHashNames": [
+    "contentHash",
+    "replayHash",
+    "finalHash"
+  ],
+  "clients": {
+    "backend": {
+      "source": "authoritative-backend-replay",
+      "callPath": "src/backend/authoritativeReplay.ts",
+      "schemaVersion": "authoritative-client/v1",
+      "contentHash": "f0a3883eba4199da812c095f95a54b383536a98833960704154d87b14852d516",
+      "replayHash": "b1616d0b1bcfcc038cc1370432dc3e29a63d5e72bb54c20d27257dcf12432dc8",
+      "finalHash": "395db323b45f3a5d5379a68702c3f8e96e14e5362aa927f67b232c030d7ac1d6",
+      "orderedEvents": 3,
+      "movementLocation": "location:kanto:route-1",
+      "saveAcknowledged": true
+    },
+    "browser": {
+      "source": "production-browser-application",
+      "callPath": "src/main.ts -> createProductionBrowserParityEvidence",
+      "approvedRevision": "7e01d16bbd7c5c1d58177d4abaa512600026d2e6",
+      "schemaVersion": "authoritative-client/v1",
+      "contentHash": "f0a3883eba4199da812c095f95a54b383536a98833960704154d87b14852d516",
+      "replayHash": "b1616d0b1bcfcc038cc1370432dc3e29a63d5e72bb54c20d27257dcf12432dc8",
+      "finalHash": "395db323b45f3a5d5379a68702c3f8e96e14e5362aa927f67b232c030d7ac1d6",
+      "orderedEvents": 3,
+      "movementLocation": "location:kanto:route-1",
+      "saveAcknowledged": true
+    },
+    "native": {
+      "source": "native-godot-production-preflight",
+      "callPath": "native/godot/scripts/preflight.gd",
+      "schemaVersion": "authoritative-client/v1",
+      "contentHash": "f0a3883eba4199da812c095f95a54b383536a98833960704154d87b14852d516",
+      "replayHash": "b1616d0b1bcfcc038cc1370432dc3e29a63d5e72bb54c20d27257dcf12432dc8",
+      "finalHash": "395db323b45f3a5d5379a68702c3f8e96e14e5362aa927f67b232c030d7ac1d6"
+    }
+  },
   "hashesMatch": true,
   "pixelParityClaimed": false,
-  "nativeReportSha256": "c09e34d4af1ba79f4c411f2649d35b4cd8353b062e071ec1935395aeadb6d1c7"
+  "nativeReportSha256": "c7ee3abc7b296de9733dbd9af1d66d2b282e5a5930fa4def92a060d399aae7fc"
 }
