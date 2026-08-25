@@ -12,6 +12,7 @@
 import { execFileSync } from 'node:child_process';
 import { createRequire } from 'node:module';
 import {
+  chmodSync,
   existsSync,
   mkdirSync,
   rmSync,
@@ -170,6 +171,7 @@ async function capture(stage) {
   const index = String(screenshots.length).padStart(2, '0');
   const file = join(OUT, `${index}-${stage}.png`);
   await page.screenshot({ path: file, fullPage: false, animations: 'allow' });
+  chmodSync(file, 0o600);
   const full = imageStats(file);
   const center = imageStats(file, '768x360+256+72');
   const ok = frameLooksRendered(full) && frameLooksRendered(center);
@@ -396,11 +398,13 @@ function currentReport() {
 }
 
 rmSync(OUT, { recursive: true, force: true });
-mkdirSync(OUT, { recursive: true });
+mkdirSync(OUT, { recursive: true, mode: 0o700 });
+chmodSync(OUT, 0o700);
 const playwright = await loadPlaywright();
 if (!playwright?.chromium) {
   fatalError = 'Playwright unavailable (checked project and sibling installations)';
   writeFileSync(join(OUT, 'complete-loop-report.json'), `${JSON.stringify(currentReport(), null, 2)}\n`);
+  chmodSync(join(OUT, 'complete-loop-report.json'), 0o600);
   throw new Error(fatalError);
 }
 
@@ -714,6 +718,7 @@ try {
   if (context) {
     try {
       await context.tracing.stop({ path: tracePath });
+      chmodSync(tracePath, 0o600);
     } catch (error) {
       tracePath = null;
       check('Playwright trace saved', false, String(error?.stack ?? error));
@@ -722,10 +727,12 @@ try {
   if (browser) await browser.close();
   const report = currentReport();
   writeFileSync(join(OUT, 'complete-loop-report.json'), `${JSON.stringify(report, null, 2)}\n`);
+  chmodSync(join(OUT, 'complete-loop-report.json'), 0o600);
   writeFileSync(
     join(OUT, 'transition-latencies.json'),
     `${JSON.stringify({ generatedAt: report.generatedAt, url: URL, transitions }, null, 2)}\n`,
   );
+  chmodSync(join(OUT, 'transition-latencies.json'), 0o600);
   console.log(`\ncomplete-loop browser gate: ${report.summary.checksPassed} passed, ${report.summary.checksFailed} failed`);
   console.log(`report: ${report.reportPath}`);
   console.log(`trace: ${report.tracePath ?? 'not saved'}`);

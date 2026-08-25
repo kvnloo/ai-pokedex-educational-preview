@@ -60,6 +60,8 @@ export interface ExploreState {
   analog: { x: number; z: number; interact: boolean };
   /** Steps taken inside grass since last encounter check */
   grassSteps: number;
+  /** Traversed grass distance since the last encounter/grass exit. */
+  grassDroughtMeters: number;
   /** Cooldown seconds before another encounter can fire */
   encounterCooldown: number;
   /** Distance accumulator for foot plants */
@@ -180,6 +182,7 @@ export function createExploreState(opts?: Partial<ExploreState>): ExploreState {
     keys: opts?.keys ?? new Set(),
     analog: opts?.analog ?? { x: 0, z: 0, interact: false },
     grassSteps: 0,
+    grassDroughtMeters: 0,
     encounterCooldown: opts?.encounterCooldown ?? 0,
     gaitDist: opts?.gaitDist ?? 0,
     footPhase: opts?.footPhase ?? 0,
@@ -457,22 +460,25 @@ export function tickExplore(
 
   if (moved && inGrass && state.encounterCooldown <= 0) {
     state.grassSteps += 1;
+    state.grassDroughtMeters += movedDist;
     // Telegraph: need several steps + rustle pulses before first roll, then ramp chance
     const MIN_STEPS = 4;
-    const PITY_TICKS = 240;
+    const MAX_DROUGHT_METERS = 24;
     if (state.grassSteps >= MIN_STEPS) {
       const ramp = Math.min(1.35, 0.45 + (state.grassSteps - MIN_STEPS) * 0.12);
       const p = state.grass.encounterChance * ramp * Math.min(1, dt * 4);
       // A bounded pity path prevents unlucky real play (and replay after heal)
       // from wandering indefinitely without mutating or scripting an encounter.
-      if (state.grassSteps >= PITY_TICKS || rng() < p) {
+      if (state.grassDroughtMeters >= MAX_DROUGHT_METERS || rng() < p) {
         encounter = true;
         state.grassSteps = 0;
+        state.grassDroughtMeters = 0;
         state.encounterCooldown = 1.35;
       }
     }
   } else if (!inGrass) {
     state.grassSteps = 0;
+    state.grassDroughtMeters = 0;
   }
 
   const nearInteract = nearestInteract(state.pos, state.obstacles);

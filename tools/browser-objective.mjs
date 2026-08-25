@@ -46,6 +46,7 @@ const pw = await loadPlaywright();
 if (!pw?.chromium) throw new Error('Playwright unavailable');
 const chrome = process.env.TWILIGHT_CHROME || '/usr/bin/chromium';
 mkdirSync(EVIDENCE_ROOT, { recursive: true, mode: 0o700 });
+chmodSync(EVIDENCE_ROOT, 0o700);
 mkdirSync(OUT, { mode: 0o700 });
 const browser = await pw.chromium.launch({
   executablePath: chrome,
