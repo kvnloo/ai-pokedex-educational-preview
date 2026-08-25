@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "profile": "distributable",
+  "assets": [
+    {
+      "assetId": "kanto.pallet-pewter.marker.v1",
+      "classification": "CC0 synthetic stand-in",
+      "loadable": true,
+      "privateOnly": false,
+      "formats": {
+        "glb": [{"uri": "res://assets/generated/synthetic_beacon.glb", "sha256": "059e68ef0576d4ab14b513a775220183121dbe602b182d1e30e6929731c6bdd0"}],
+        "ktx2": [],
+        "animations": [],
+        "materials": [{"materialId": "material:kanto-marker:embedded-v1", "embeddedInGlb": true}]
+      }
+    }
+  ]
+}

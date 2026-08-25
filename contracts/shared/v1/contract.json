@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "authoritative-client/v1",
+  "intentOnlyClient": true,
+  "authoritativeDomains": ["world", "battle", "story", "save", "inventory", "economy"],
+  "fixtureKinds": ["movement_intent", "battle_replay", "save_snapshot"],
+  "canonicalRuntime": "canonical/runtime/kanto-opening.json",
+  "canonicalMaps": "canonical/maps/kanto-opening.json",
+  "assetRecipe": "asset-iac/recipes/kanto-minimal.json",
+  "assetGraph": "asset-iac/graphs/kanto-pallet-pewter.json",
+  "assetManifests": {
+    "distributable": "asset-iac/manifests/distributable.json",
+    "private-local": "asset-iac/manifests/private-local.json"
+  }
+}

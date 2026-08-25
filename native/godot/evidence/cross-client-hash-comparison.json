@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "cross-client-evidence/v1",
+  "approvedInputs": {
+    "canonical": "d9a1dad7b76aa0bea89c473f87bf82048a16eaff",
+    "assetsAsCode": "f77ec8876ffc212b75f83fde5efdd31c335b705d",
+    "godotThinClient": "b663bb0bd4124c285277a923fb21533f0981b5a8"
+  },
+  "contractSchemaVersion": "authoritative-client/v1",
+  "canonicalCell": "location:kanto:pallet-town",
+  "movementLocation": "location:kanto:route-1",
+  "orderedEvents": 3,
+  "nativeFinalHash": "395db323b45f3a5d5379a68702c3f8e96e14e5362aa927f67b232c030d7ac1d6",
+  "browserFinalHash": "395db323b45f3a5d5379a68702c3f8e96e14e5362aa927f67b232c030d7ac1d6",
+  "hashesMatch": true,
+  "pixelParityClaimed": false,
+  "nativeReportSha256": "c09e34d4af1ba79f4c411f2649d35b4cd8353b062e071ec1935395aeadb6d1c7"
+}

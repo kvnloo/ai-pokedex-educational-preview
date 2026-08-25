@@ -1,0 +1,10 @@
+{
+  "schema_version": "authoritative-client/v1",
+  "kind": "save_snapshot",
+  "save_id": "save:kanto:shared-golden-0001",
+  "revision": 1,
+  "location_id": "location:kanto:route-1",
+  "last_intent_sequence": 1,
+  "last_battle_replay_id": "battle:kanto:shared-golden-0001",
+  "last_battle_final_hash": "395db323b45f3a5d5379a68702c3f8e96e14e5362aa927f67b232c030d7ac1d6"
+}

@@ -1,0 +1,10 @@
+{
+  "schema_version": "authoritative-client/v1",
+  "kind": "movement_intent",
+  "intent_id": "move-kanto-pallet-route1-0001",
+  "entity_id": "player:ash",
+  "sequence": 1,
+  "from_location_id": "location:kanto:pallet-town",
+  "direction": [0, 1],
+  "expected_location_id": "location:kanto:route-1"
+}

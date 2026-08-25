@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://twilight-route.local/schemas/authoritative-client-v1.schema.json",
+  "title": "Shared authoritative client envelope",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "intentOnlyClient", "authoritativeDomains", "fixtureKinds", "canonicalRuntime", "canonicalMaps", "assetRecipe", "assetGraph", "assetManifests"],
+  "properties": {
+    "schemaVersion": {"const": "authoritative-client/v1"},
+    "intentOnlyClient": {"const": true},
+    "authoritativeDomains": {
+      "const": ["world", "battle", "story", "save", "inventory", "economy"]
+    },
+    "fixtureKinds": {
+      "const": ["movement_intent", "battle_replay", "save_snapshot"]
+    },
+    "canonicalRuntime": {"const": "canonical/runtime/kanto-opening.json"},
+    "canonicalMaps": {"const": "canonical/maps/kanto-opening.json"},
+    "assetRecipe": {"const": "asset-iac/recipes/kanto-minimal.json"},
+    "assetGraph": {"const": "asset-iac/graphs/kanto-pallet-pewter.json"},
+    "assetManifests": {
+      "const": {
+        "distributable": "asset-iac/manifests/distributable.json",
+        "private-local": "asset-iac/manifests/private-local.json"
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "hardware": "NVIDIA GeForce RTX 3080 Ti",
+  "renderer": "Godot 4.7.2 Forward+ Vulkan",
+  "clientDimensions": [2560, 1440],
+  "tiers": {
+    "quality": {"p95BudgetMs": 16.667, "p99BudgetMs": 25.0, "shaderPrewarmFrames": 120},
+    "balanced": {"p95BudgetMs": 11.112, "p99BudgetMs": 16.667, "shaderPrewarmFrames": 120},
+    "performance": {"p95BudgetMs": 8.334, "p99BudgetMs": 12.5, "shaderPrewarmFrames": 180}
+  }
+}

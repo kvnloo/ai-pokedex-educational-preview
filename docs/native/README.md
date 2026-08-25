@@ -1,12 +1,12 @@
-# Native Godot/Vulkan contract preflight
+# Native Godot/Vulkan canonical Kanto client
 
-This is an independent synthetic renderer/client preflight. It is not a Kanto port, a second gameplay implementation, or a claim that the current browser renderer is wgpu. The browser remains a separate client and may progressively adopt measured WebGPU/WASM paths.
+The approved synthetic renderer/client preflight remains as a legacy fixture, and the native client now consumes the approved canonical Pallet-to-Pewter runtime directly. It is not a second gameplay implementation and does not claim that the current browser renderer is wgpu. The browser remains a separate presentation client.
 
 ## Authority boundary
 
-Godot owns only rendering, camera, local input collection and renderer telemetry. It loads the versioned engine-neutral fixtures under `contracts/native/`, emits movement intents, and consumes ordered battle events. It does not own world, battle, story, save, inventory, economy, backend or asset-recipe databases. `contracts/native/v1/contract.json` explicitly marks the client `intent_only_client: true`; the generated GDScript binding is derived by `contracts/native/generate_bindings.py`.
+Godot owns only rendering, camera, local input collection and renderer telemetry. Generated GDScript bindings come from `contracts/shared/v1/client-contract.schema.json`. The client reads `canonical/runtime/kanto-opening.json` and `canonical/maps/kanto-opening.json` directly, emits the shared movement intent, consumes ordered replay and save fixtures, and resolves stable Assets-as-Code IDs through the selected `distributable` or `private-local` manifest. It does not own world, battle, story, save, inventory, economy, backend or asset-recipe databases.
 
-The committed fixtures are deliberately synthetic and CC0. No ROM, official/private Pokémon asset, Kanto content, copied database or private reference is present. Matching the synthetic replay hash proves only this preflight contract path, not browser/backend or production-content parity.
+The rendered marker remains a clearly classified CC0 synthetic stand-in. The private profile exposes only a non-loadable owner-source receipt; no ROM or private presentation bytes are tracked or loaded. Matching ordered events and the final hash proves shared contract parity, not pixel parity or production visual quality.
 
 ## Pinned tools and GPU
 
@@ -28,9 +28,11 @@ From the worktree root:
 
 ```sh
 python contracts/native/generate_bindings.py --check
+node tools/shared-client-contract.mjs
 bash native/godot/scripts/verify_import.sh
 bash native/godot/scripts/headless_smoke.sh
 bash native/godot/scripts/capture_performance.sh 600
+bash native/godot/scripts/capture_performance.sh 600 quality
 python -m unittest discover -s tests/native -v
 ```
 
@@ -54,11 +56,11 @@ The scripts accept `GODOT4=/path/to/godot4` when the pinned symlink is unavailab
 
 ## Deterministic contract result
 
-The movement intent resolves to synthetic cell `[1, 0]`. Three authoritative damage events produce canonical final state:
+The shared movement intent starts at `location:kanto:pallet-town` and the authoritative edge resolves to `location:kanto:route-1` / canonical coordinate `[0, 1]`. Three authoritative damage events produce canonical final state:
 
-`native-preflight/v1|training_red:7|training_blue:0|winner:training_red|events:3`
+`authoritative-client/v1|training_red:7|training_blue:0|winner:training_red|events:3`
 
-SHA-256: `64ba98824cdb8f2d4c0aa31c51bcb235438361d23d985b5d642659b36629653e`.
+SHA-256: `395db323b45f3a5d5379a68702c3f8e96e14e5362aa927f67b232c030d7ac1d6` in both the browser contract consumer and Godot client.
 
 ## Durable evidence
 
@@ -69,6 +71,9 @@ SHA-256: `64ba98824cdb8f2d4c0aa31c51bcb235438361d23d985b5d642659b36629653e`.
 - `evidence/headless-report.json`: automated offscreen Forward+/Vulkan smoke result.
 - `evidence/performance-report.json`: warmed native frame telemetry.
 - `evidence/native-preflight.png`: genuine viewport capture.
+- `evidence/performance-1440p-report.json`: 600-frame RTX 3080 Ti Forward+ quality-tier p95/p99 telemetry after import and shader prewarm.
+- `evidence/native-kanto-1440p.png`: genuine 2560×1440 canonical-projection viewport capture.
+- `evidence/cross-client-hash-comparison.json`: ordered-event/final-hash comparison with `pixelParityClaimed: false`.
 - `evidence/*-log.txt`: raw Blender, Godot import, headless and Vulkan device output.
 
-The capture is a deterministic synthetic two-cell scene with an exact 960×540 client viewport and drawing buffer. Sampling begins only after both dimensions remain converged for three consecutive frames. The renderer report records the requested client size, observed client viewport/drawing buffer, and the measured outer OS window separately; compositor decorations may make the truthful outer dimensions larger and are recorded rather than treated as a client-rendering failure. The current frozen X11 evidence truthfully records a 960×620 outer window around the exact 960×540 client. The capture script independently parses the PNG IHDR and rejects any image other than 960×540. Its performance numbers are synthetic-only preflight telemetry, not evidence for the separate 2560×1440 production gate and not a visual-quality promotion.
+The legacy preflight capture remains frozen at an exact 960×540 client viewport/drawing buffer with a truthful 960×620 decorated outer window. The canonical quality-tier capture independently verifies a 2560×1440 client viewport, drawing buffer and PNG, records the truthful outer-window dimensions instead of inferring them, and measures p95/p99 only after import prewarm, three stable resize frames and the configured shader warmup. This is renderer telemetry for the smallest canonical projection and is not a pixel-parity or visual-quality promotion claim.
