@@ -10,6 +10,7 @@
     "preview": "vite preview --port 4180 --strictPort",
     "typecheck": "tsc --noEmit",
     "test:battle": "node --experimental-strip-types tools/battle-golden.mjs",
+    "test:field": "node --experimental-strip-types --test tools/echoing-stone.test.mjs",
     "test:canonical-world": "node --experimental-strip-types tools/canonical-world-golden.mjs",
     "test:canonical-adversarial": "node tools/canonical-world-adversarial.mjs",
     "test:browser-canonical": "node tools/browser-objective.mjs",

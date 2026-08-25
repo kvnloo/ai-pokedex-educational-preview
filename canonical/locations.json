@@ -105,6 +105,21 @@
         "sourceRevision": "accessed-2026-08-24"
       },
       "regionId": "region:kanto"
+    },
+    {
+      "id": "location:kanto:route-3",
+      "kind": "route",
+      "name": "Route 3",
+      "order": 7,
+      "provenance": {
+        "confidence": "medium",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "BSD-3-Clause-metadata",
+        "locator": "api/v2/location/route-3",
+        "sourceId": "source:pokeapi",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "regionId": "region:kanto"
     }
   ],
   "schemaVersion": 1

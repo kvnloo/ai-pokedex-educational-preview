@@ -82,6 +82,8 @@ for (const gameId of games) {
   assert.equal(Object.keys(coordinates).length, byType.locations.locations.length);
 }
 const runtime = byType.runtime;
+assert.equal(runtime.path.at(-1), 'location:kanto:route-3', 'M3 runtime must extend post-Pewter to canonical Route 3');
+assert.deepEqual(runtime.coordinates['location:kanto:route-3'], [1, 6], 'Route 3 must be east of Pewter');
 assert.deepEqual(runtime.coordinates, deriveCoordinates(byType.maps.maps, runtime.activeGameId, runtime.path[0]));
 assert.equal(runtime.presentationPolicy.privateCanonicalAssetsAllowed, true);
 assert.equal(runtime.presentationPolicy.distributableAssetsOnly, true);

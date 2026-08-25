@@ -22,6 +22,10 @@
       0,
       3
     ],
+    "location:kanto:route-3": [
+      1,
+      6
+    ],
     "location:kanto:viridian-city": [
       0,
       2
@@ -39,7 +43,8 @@
     "location:kanto:route-2-south",
     "location:kanto:viridian-forest",
     "location:kanto:route-2-north",
-    "location:kanto:pewter-city"
+    "location:kanto:pewter-city",
+    "location:kanto:route-3"
   ],
   "presentationPolicy": {
     "distributableAssetsOnly": true,

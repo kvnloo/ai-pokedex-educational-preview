@@ -491,6 +491,24 @@
             "sourceRevision": "accessed-2026-08-24"
           },
           "to": "location:kanto:route-2-north"
+        },
+        {
+          "direction": "east",
+          "id": "edge:red-blue:pewter-city:route-3",
+          "offset": [
+            1,
+            0
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/pewter-city#connection-east",
+            "sourceId": "source:pret-pokered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:route-3"
         }
       ],
       "gameId": "game:red-blue",
@@ -520,6 +538,72 @@
           },
           "reciprocalWarpId": "warp:red-blue:route-2-north:pewter-city",
           "toMap": "map:red-blue:route-2-north"
+        },
+        {
+          "id": "warp:red-blue:pewter-city:route-3",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/pewter-city#entrance-east",
+            "sourceId": "source:pret-pokered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:red-blue:route-3:pewter-city",
+          "toMap": "map:red-blue:route-3"
+        }
+      ]
+    },
+    {
+      "connections": [
+        {
+          "direction": "west",
+          "id": "edge:red-blue:route-3:pewter-city",
+          "offset": [
+            -1,
+            0
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-3#connection-west",
+            "sourceId": "source:pret-pokered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:pewter-city"
+        }
+      ],
+      "gameId": "game:red-blue",
+      "id": "map:red-blue:route-3",
+      "locationId": "location:kanto:route-3",
+      "plane": "game",
+      "provenance": {
+        "confidence": "high",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "research-facts",
+        "locator": "maps/route-3",
+        "sourceId": "source:pret-pokered",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "warps": [
+        {
+          "id": "warp:red-blue:route-3:pewter-city",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-3#entrance-west",
+            "sourceId": "source:pret-pokered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:red-blue:pewter-city:route-3",
+          "toMap": "map:red-blue:pewter-city"
         }
       ]
     },
@@ -1013,6 +1097,24 @@
             "sourceRevision": "accessed-2026-08-24"
           },
           "to": "location:kanto:route-2-north"
+        },
+        {
+          "direction": "east",
+          "id": "edge:yellow:pewter-city:route-3",
+          "offset": [
+            1,
+            0
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/pewter-city#connection-east",
+            "sourceId": "source:pret-pokeyellow",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:route-3"
         }
       ],
       "gameId": "game:yellow",
@@ -1042,6 +1144,72 @@
           },
           "reciprocalWarpId": "warp:yellow:route-2-north:pewter-city",
           "toMap": "map:yellow:route-2-north"
+        },
+        {
+          "id": "warp:yellow:pewter-city:route-3",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/pewter-city#entrance-east",
+            "sourceId": "source:pret-pokeyellow",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:yellow:route-3:pewter-city",
+          "toMap": "map:yellow:route-3"
+        }
+      ]
+    },
+    {
+      "connections": [
+        {
+          "direction": "west",
+          "id": "edge:yellow:route-3:pewter-city",
+          "offset": [
+            -1,
+            0
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-3#connection-west",
+            "sourceId": "source:pret-pokeyellow",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:pewter-city"
+        }
+      ],
+      "gameId": "game:yellow",
+      "id": "map:yellow:route-3",
+      "locationId": "location:kanto:route-3",
+      "plane": "game",
+      "provenance": {
+        "confidence": "high",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "research-facts",
+        "locator": "maps/route-3",
+        "sourceId": "source:pret-pokeyellow",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "warps": [
+        {
+          "id": "warp:yellow:route-3:pewter-city",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-3#entrance-west",
+            "sourceId": "source:pret-pokeyellow",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:yellow:pewter-city:route-3",
+          "toMap": "map:yellow:pewter-city"
         }
       ]
     },
@@ -1535,6 +1703,24 @@
             "sourceRevision": "accessed-2026-08-24"
           },
           "to": "location:kanto:route-2-north"
+        },
+        {
+          "direction": "east",
+          "id": "edge:firered-leafgreen:pewter-city:route-3",
+          "offset": [
+            1,
+            0
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/pewter-city#connection-east",
+            "sourceId": "source:pret-pokefirered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:route-3"
         }
       ],
       "gameId": "game:firered-leafgreen",
@@ -1564,6 +1750,72 @@
           },
           "reciprocalWarpId": "warp:firered-leafgreen:route-2-north:pewter-city",
           "toMap": "map:firered-leafgreen:route-2-north"
+        },
+        {
+          "id": "warp:firered-leafgreen:pewter-city:route-3",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/pewter-city#entrance-east",
+            "sourceId": "source:pret-pokefirered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:firered-leafgreen:route-3:pewter-city",
+          "toMap": "map:firered-leafgreen:route-3"
+        }
+      ]
+    },
+    {
+      "connections": [
+        {
+          "direction": "west",
+          "id": "edge:firered-leafgreen:route-3:pewter-city",
+          "offset": [
+            -1,
+            0
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-3#connection-west",
+            "sourceId": "source:pret-pokefirered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:pewter-city"
+        }
+      ],
+      "gameId": "game:firered-leafgreen",
+      "id": "map:firered-leafgreen:route-3",
+      "locationId": "location:kanto:route-3",
+      "plane": "game",
+      "provenance": {
+        "confidence": "high",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "research-facts",
+        "locator": "maps/route-3",
+        "sourceId": "source:pret-pokefirered",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "warps": [
+        {
+          "id": "warp:firered-leafgreen:route-3:pewter-city",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-3#entrance-west",
+            "sourceId": "source:pret-pokefirered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:firered-leafgreen:pewter-city:route-3",
+          "toMap": "map:firered-leafgreen:pewter-city"
         }
       ]
     }

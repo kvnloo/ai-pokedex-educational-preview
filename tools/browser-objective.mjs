@@ -89,10 +89,10 @@ try {
   check('runtime begins in starter mode', starter.snapshot?.mode === 'starter', `mode=${starter.snapshot?.mode}`);
   const canonical = starter.snapshot?.canonicalWorld;
   check('browser consumes normalized canonical game', canonical?.activeGameId === 'game:yellow', JSON.stringify(canonical));
-  check('browser consumes normalized Pallet to Pewter traversal',
+  check('browser consumes normalized Pallet through post-Pewter Route 3 traversal',
     canonical?.path?.[0] === 'location:kanto:pallet-town'
-      && canonical?.path?.at(-1) === 'location:kanto:pewter-city'
-      && canonical?.path?.length === 7,
+      && canonical?.path?.at(-1) === 'location:kanto:route-3'
+      && canonical?.path?.length === 8,
     JSON.stringify(canonical?.path));
   check('browser consumes derived traversal coordinates',
     canonical?.coordinates?.['location:kanto:pallet-town']?.[1] === 0
@@ -146,22 +146,22 @@ try {
     await page.locator('#battle-menu [data-act="run"]').click();
     await page.waitForFunction(() => window.__twilight?.snapshot?.().mode === 'explore');
   }
-  const pewter = await page.evaluate(() => window.__twilight?.snapshot?.() ?? null);
-  check('trusted movement traverses normalized Pallet to Pewter path',
-    pewter?.campaign?.currentLocationId === canonical.path.at(-1)
-      && JSON.stringify(pewter?.campaign?.visitedLocationIds) === JSON.stringify(canonical.path),
-    JSON.stringify(pewter?.campaign));
+  const route3 = await page.evaluate(() => window.__twilight?.snapshot?.() ?? null);
+  check('trusted movement traverses normalized Pallet to Route 3 path',
+    route3?.campaign?.currentLocationId === canonical.path.at(-1)
+      && JSON.stringify(route3?.campaign?.visitedLocationIds) === JSON.stringify(canonical.path),
+    JSON.stringify(route3?.campaign));
   check('normalized story triggers fire once in canonical order',
-    JSON.stringify(pewter?.campaign?.storyEventIds) === JSON.stringify(canonical.events.map(event => event.id)),
-    JSON.stringify(pewter?.campaign?.storyEventIds));
-  check('Route 1 traversal crosses a real encounter and battle boundary', sawBattle && pewter?.encounterCount >= 1, `sawBattle=${sawBattle} encounters=${pewter?.encounterCount}`);
+    JSON.stringify(route3?.campaign?.storyEventIds) === JSON.stringify(canonical.events.map(event => event.id)),
+    JSON.stringify(route3?.campaign?.storyEventIds));
+  check('Route 1 traversal crosses a real encounter and battle boundary', sawBattle && route3?.encounterCount >= 1, `sawBattle=${sawBattle} encounters=${route3?.encounterCount}`);
 
   await page.reload({ waitUntil: 'networkidle' });
-  await page.waitForFunction(() => window.__twilight?.snapshot?.().campaign?.currentLocationId === 'location:kanto:pewter-city');
+  await page.waitForFunction(() => window.__twilight?.snapshot?.().campaign?.currentLocationId === 'location:kanto:route-3');
   const reloaded = await page.evaluate(() => window.__twilight?.snapshot?.() ?? null);
-  check('canonical traversal save reload restores Pewter and ordered story',
-    reloaded?.campaign?.currentLocationId === pewter?.campaign?.currentLocationId
-      && JSON.stringify(reloaded?.campaign?.storyEventIds) === JSON.stringify(pewter?.campaign?.storyEventIds)
+  check('canonical traversal save reload restores Route 3 and ordered story',
+    reloaded?.campaign?.currentLocationId === route3?.campaign?.currentLocationId
+      && JSON.stringify(reloaded?.campaign?.storyEventIds) === JSON.stringify(route3?.campaign?.storyEventIds)
       && reloaded?.campaign?.saveRevision > 0,
     JSON.stringify(reloaded?.campaign));
   const pixels = await page.locator('#viewport').screenshot();

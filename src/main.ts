@@ -65,6 +65,7 @@ import {
 } from './render/cinematicEffects.ts';
 import { canonicalKantoOpening } from './world/canonicalWorld.ts';
 import { normalizeInputFrame, resolveRuntimeAssetProfile } from './campaign/campaign.ts';
+import { ECHOING_STONE_FIELD, ECHO_TRANSITION_TIMING } from './battle/echoingStone.ts';
 
 const bootFill = document.getElementById('boot-fill') as HTMLElement | null;
 const bootStatus = document.getElementById('boot-status') as HTMLElement | null;
@@ -136,6 +137,7 @@ interface TwilightRuntimeSnapshot {
     foeMaxHp: number;
     foeSpeciesId: string;
     busy: boolean;
+    field: BattleState['field'];
   };
   healCount: number;
   encounterCount: number;
@@ -381,6 +383,28 @@ async function boot(): Promise<void> {
   });
   world.setMode('starter');
   const { grassBlades, grassBaseRot } = world;
+
+  // M3 authored non-color-only cue: ten irregular stones physically rise around
+  // the battle clearing while Echo is charged, then settle when consumed/expired.
+  const echoStoneRing = new THREE.Group();
+  echoStoneRing.name = 'field:route-3:echoing-stone:ring';
+  const echoStones: THREE.Mesh[] = [];
+  for (let i = 0; i < 10; i++) {
+    const angle = (i / 10) * Math.PI * 2 + (i % 2) * 0.035;
+    const stone = new THREE.Mesh(
+      new THREE.DodecahedronGeometry(0.18 + (i % 3) * 0.025, 0),
+      new THREE.MeshStandardMaterial({ color: 0x756d62, roughness: 0.92, metalness: 0 }),
+    );
+    stone.position.set(Math.cos(angle) * (2.15 + (i % 2) * 0.12), -0.16, Math.sin(angle) * (1.24 + (i % 3) * 0.06));
+    stone.rotation.set(i * 0.19, angle, i * 0.11);
+    stone.castShadow = true;
+    echoStoneRing.add(stone);
+    echoStones.push(stone);
+  }
+  echoStoneRing.visible = false;
+  scene.add(echoStoneRing);
+  let echoRingLift = 0;
+  let echoRingTarget = 0;
 
   // Local rustle particles (part telegraph under feet — not sway-only)
   const rustlePool: THREE.Mesh[] = [];
@@ -674,13 +698,15 @@ async function boot(): Promise<void> {
   let dispAllyHp = 0;
 
   const loc = document.getElementById('loc-label');
-  if (loc) loc.textContent = raw.route.name;
+  if (loc) loc.textContent = campaign.currentLocationId.split(':').at(-1)!.replaceAll('-', ' ');
 
   // --- UI refs ---
   const starterOverlay = document.getElementById('starter-overlay');
   const starterRow = document.getElementById('starter-row');
   const battleRoot = document.getElementById('battle-root');
   const battleMsg = document.getElementById('battle-msg');
+  const fieldStatus = document.getElementById('field-status');
+  const fieldSummary = document.getElementById('field-summary');
   const battleMenu = document.getElementById('battle-menu');
   const moveMenu = document.getElementById('move-menu');
   const enemyName = document.getElementById('enemy-name');
@@ -776,6 +802,7 @@ async function boot(): Promise<void> {
             foeMaxHp: battle.foe.maxHp,
             foeSpeciesId: battle.foe.speciesId,
             busy,
+            field: battle.field ? structuredClone(battle.field) : undefined,
           }
         : null,
       healCount,
@@ -1151,14 +1178,21 @@ async function boot(): Promise<void> {
     }
     const foe = battlerFromSpecies(foeSpecies, foeLevel, kind === 'wild' ? 'wild' : kind);
     if (party.length > 0) {
-      battle = createBattleFromParty(party, foe, raw.typeChart);
+      battle = createBattleFromParty(party, foe, raw.typeChart, campaign.currentLocationId);
       playerSpeciesId = battle.player.speciesId || playerSpeciesId;
     } else {
       const leadBattler = battlerFromSpecies(playerSpeciesId, raw.route.playerDefaultLevel, 'player');
-      battle = createBattle({ player: leadBattler, foe, typeChart: raw.typeChart, playerPartyIndex: 0 });
+      battle = createBattle({ player: leadBattler, foe, typeChart: raw.typeChart, playerPartyIndex: 0, locationId: campaign.currentLocationId });
     }
     dispEnemyHp = battle.foe.hp;
     dispAllyHp = battle.player.hp;
+    const fieldActive = battle.field?.id === ECHOING_STONE_FIELD.id;
+    echoStoneRing.visible = fieldActive;
+    echoRingLift = 0;
+    echoRingTarget = 0;
+    fieldStatus?.classList.toggle('active', fieldActive);
+    if (fieldStatus) fieldStatus.dataset.echo = 'settled';
+    if (fieldSummary) fieldSummary.textContent = fieldActive ? ECHOING_STONE_FIELD.accessibleSummary : '';
 
     battleRoot?.classList.add('active');
     // Hide menu until staging done
@@ -1230,6 +1264,9 @@ async function boot(): Promise<void> {
       }
     }
     battle = null;
+    echoStoneRing.visible = false;
+    echoRingTarget = 0;
+    fieldStatus?.classList.remove('active');
     battleRoot?.classList.remove('active');
     clearEffClasses();
     cinematicFx.clearDirectedTrail();
@@ -1951,6 +1988,18 @@ async function boot(): Promise<void> {
       liveRolls: true,
     });
 
+    const fieldEvents = battle.log.slice(logStart).filter((event) => event.type === 'field');
+    for (const fieldEvent of fieldEvents) {
+      echoRingTarget = fieldEvent.fieldAction === 'echo-charged' ? 1 : 0;
+      if (fieldStatus) {
+        fieldStatus.dataset.echo = echoRingTarget > 0 ? 'charged' : 'settled';
+        const copy = fieldStatus.querySelector('span');
+        if (copy) copy.textContent = fieldEvent.message ?? ECHOING_STONE_FIELD.accessibleSummary;
+      }
+      if (fieldSummary) fieldSummary.textContent = fieldEvent.message ?? ECHOING_STONE_FIELD.accessibleSummary;
+      await waitMs(fieldEvent.fieldAction === 'echo-charged' ? ECHO_TRANSITION_TIMING.riseMs : ECHO_TRANSITION_TIMING.settleMs);
+    }
+
     const hits = collectHits(battle.log, logStart);
     const msgs = battle.log.slice(logStart).filter((e) => e.message).map((e) => e.message!);
 
@@ -2520,6 +2569,12 @@ async function boot(): Promise<void> {
       playerMesh.position.x = explore.pos.x;
       playerMesh.position.z = explore.pos.z;
     } else if (mode === 'battle') {
+      echoRingLift += (echoRingTarget - echoRingLift) * Math.min(1, dt * 8.5);
+      for (let i = 0; i < echoStones.length; i++) {
+        const stone = echoStones[i]!;
+        stone.position.y = -0.16 + echoRingLift * (0.42 + (i % 3) * 0.055);
+        stone.rotation.z += dt * echoRingLift * (i % 2 === 0 ? 0.22 : -0.18);
+      }
       playerContact.visible = true;
       // Staging base Z; clip may write relative Z delta; shell lunge composes after tick
       const PLAYER_BATTLE_Z = 1.0;

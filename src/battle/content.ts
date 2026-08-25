@@ -33,6 +33,9 @@ export function normalizeMove(raw: Record<string, unknown>): MoveDef {
     priority: Number(raw.priority ?? 0),
     target: typeof raw.target === "string" ? raw.target : undefined,
     effect: typeof raw.effect === "string" ? raw.effect : undefined,
+    tags: Array.isArray(raw.tags)
+      ? raw.tags.filter((tag): tag is "sound" | "contact" => tag === "sound" || tag === "contact")
+      : undefined,
     description:
       typeof raw.description === "string" ? raw.description : undefined,
   };
