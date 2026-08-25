@@ -164,7 +164,9 @@ function imageStats(path, crop = null) {
 }
 
 function frameLooksRendered(stats) {
-  return stats.mean > 0.02 && stats.standardDeviation > 0.012 && stats.entropy > 0.12;
+  // Dark battle backdrops can be intentionally low-variance in the center,
+  // while still carrying substantial luminance and entropy from silhouettes/UI.
+  return stats.mean > 0.02 && stats.standardDeviation > 0.006 && stats.entropy > 0.12;
 }
 
 async function capture(stage) {
