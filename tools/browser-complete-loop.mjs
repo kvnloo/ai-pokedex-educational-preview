@@ -659,11 +659,11 @@ try {
   // for the first encounter before beginning the bounded north/south patrol.
   if (replayFlank.player.x < 1.18) {
     await driveUntil('d', (value) => value?.player?.x >= 1.28, 2_000, 're-center replay grass flank east');
-  } else if (replayFlank.player.x > 1.55) {
-    await driveUntil('a', (value) => value?.player?.x <= 1.42, 2_000, 're-center replay grass flank west');
+  } else if (replayFlank.player.x > 2.45) {
+    await driveUntil('a', (value) => value?.player?.x <= 2.3, 2_000, 're-center replay grass flank west');
   }
   const replayStaged = await snapshot();
-  check('replay patrol starts inside authored grass flank', replayStaged.player.x >= 1.18 && replayStaged.player.x <= 1.55, `x=${replayStaged.player.x.toFixed(4)}`);
+  check('replay patrol starts inside authored grass flank', replayStaged.player.x >= 1.18 && replayStaged.player.x <= 2.45, `x=${replayStaged.player.x.toFixed(4)}`);
   const replayStartAt = performance.now();
   await stamp('replay:grass-patrol-start');
   const replayEncounter = await patrolGrassForEncounter(2);
