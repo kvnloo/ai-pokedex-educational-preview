@@ -15,6 +15,7 @@ const EVIDENCE_ROOT = process.env.TWILIGHT_EVIDENCE_ROOT
   || '/mnt/zer0models/pokemon-iac/evidence/canonical-repair';
 let OUT = join(EVIDENCE_ROOT, `.pending-${process.pid}`);
 const URL = process.env.TWILIGHT_URL || 'http://127.0.0.1:5180/?verify=1';
+const HEADED = process.argv.includes('--headed');
 const require = createRequire(import.meta.url);
 
 async function loadPlaywright() {
@@ -48,7 +49,7 @@ mkdirSync(EVIDENCE_ROOT, { recursive: true, mode: 0o700 });
 mkdirSync(OUT, { mode: 0o700 });
 const browser = await pw.chromium.launch({
   executablePath: chrome,
-  headless: true,
+  headless: !HEADED,
   args: [
     '--no-sandbox', '--disable-gpu-sandbox', '--disable-dev-shm-usage',
     '--ozone-platform=headless', '--use-gl=angle', '--use-angle=vulkan',

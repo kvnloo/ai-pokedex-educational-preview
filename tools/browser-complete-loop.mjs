@@ -408,7 +408,7 @@ try {
   const executablePath = process.env.TWILIGHT_CHROME ?? '/usr/bin/chromium';
   browser = await playwright.chromium.launch({
     executablePath,
-    headless: true,
+    headless: !has('headed'),
     args: [
       '--no-sandbox',
       '--disable-gpu-sandbox',
