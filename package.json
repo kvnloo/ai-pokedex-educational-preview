@@ -22,6 +22,11 @@
     "test:encounter-drought": "node --experimental-strip-types --test tools/explore-encounter.test.mjs",
     "test:browser-input": "node tools/browser-input.mjs --headed",
     "test:browser-complete-loop-repeat": "node tools/browser-complete-loop-repeat.mjs",
+    "gauntlet:capture": "node tools/gauntlet-harness.mjs --mode=all",
+    "gauntlet:shotset": "node tools/gauntlet-harness.mjs --mode=shotset",
+    "gauntlet:profile": "node tools/gauntlet-harness.mjs --mode=profile",
+    "gauntlet:resilience": "node tools/gauntlet-harness.mjs --mode=resilience",
+    "gauntlet:judgeset": "node tools/gauntlet-judgeset.mjs",
     "assets:doctor": "node tools/assets-iac.mjs doctor",
     "assets:plan": "node tools/assets-iac.mjs plan",
     "assets:bootstrap": "node tools/assets-iac.mjs bootstrap",
@@ -47,5 +52,8 @@
     "ajv": "^8.20.0",
     "typescript": "^5.8.2",
     "vite": "^6.2.0"
+  },
+  "allowScripts": {
+    "esbuild@0.25.12": true
   }
 }
