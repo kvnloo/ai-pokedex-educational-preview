@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "documentType": "assets",
+  "assets": [
+    {
+      "assetId": "asset:pokemon:831:wooloo:official-artwork:private-source",
+      "sourceId": "source:pokeapi",
+      "sourceLocator": "PokeAPI sprites official-artwork/831.png; private data-plane path resolved by downstream Assets-as-Code adapter",
+      "sourceRevision": "observed-2026-08-24",
+      "sourceSha256": "0e19e0cfa526a939b651c40a48dbe011816fd077655e7e1accdc824b99b31f8c",
+      "byteSize": 95893,
+      "acquiredAt": "2026-08-02",
+      "scope": "private-canonical-reference",
+      "profiles": ["private-local"],
+      "gitPolicy": "manifest-only",
+      "provenanceClass": "lawfully-sourced-official"
+    }
+  ]
+}

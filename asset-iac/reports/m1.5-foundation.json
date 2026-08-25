@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "milestone": "M1.5-assets-as-code-foundation",
+  "base": "d9a1dad7b76aa0bea89c473f87bf82048a16eaff",
+  "generatedAt": "2026-08-24T20:00:00Z",
+  "scope": "minimal-kanto-control-plane",
+  "results": {
+    "adversarialTests": { "passed": 11, "failed": 0 },
+    "privateOwnerGate": "missing input rejected with OWNER_SOURCE_REQUIRED and exact hash/size",
+    "privateRecreation": "passed with explicitly restored one-byte demonstrative owner fixture; two nodes built and verified; Vite built 30 modules",
+    "distributableRecreation": "passed from a new isolated empty root without private storage; one node built and verified; check:ship passed",
+    "cache": "first distributable graph run miss; second run hit with identical output hash 69387c2ba01315442a141f5aa67aa9692d442e052cc55c1e3f4729190f21a794",
+    "leakAdversarial": "known private source digest injection rejected",
+    "rootSymlinkAdversarial": "data root symlink rejected"
+  },
+  "caveats": [
+    "This foundation graph generates only an original JSON marker and private lineage receipt; it does not claim complete game asset recreation.",
+    "The owner fixture is a one-byte demonstrator, not official artwork.",
+    "Vite emits its existing greater-than-500-kB chunk warning.",
+    "npm audit reports one high severity development dependency advisory; no dependency update was performed in this bounded task."
+  ]
+}

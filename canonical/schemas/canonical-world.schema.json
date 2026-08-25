@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://twilight-route.local/schemas/canonical-world.schema.json",
+  "title": "Strict canonical Kanto document",
+  "$defs": {
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sourceId", "locator", "sourceRevision", "extractionMethod", "confidence", "licenseClass"],
+      "properties": {
+        "sourceId": {"type": "string", "pattern": "^source:[a-z0-9-]+$"},
+        "locator": {"type": "string", "minLength": 1},
+        "sourceRevision": {"type": "string", "minLength": 1},
+        "extractionMethod": {"type": "string", "minLength": 1},
+        "confidence": {"enum": ["low", "medium", "high"]},
+        "licenseClass": {"type": "string", "minLength": 1}
+      }
+    },
+    "header": {
+      "type": "object",
+      "required": ["schemaVersion", "documentType"],
+      "properties": {"schemaVersion": {"const": 1}, "documentType": {"type": "string"}}
+    },
+    "source": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "name", "url", "revision", "license", "usagePolicy", "provenance"],
+      "properties": {"id": {"type": "string", "pattern": "^source:"}, "name": {"type": "string", "minLength": 1}, "url": {"type": "string", "minLength": 1}, "revision": {"type": "string", "minLength": 1}, "license": {"type": "string", "minLength": 1}, "usagePolicy": {"enum": ["reusable-metadata", "research-only", "citation-only", "original"]}, "provenance": {"$ref": "#/$defs/provenance"}}
+    },
+    "game": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "name", "generation", "lineage", "provenance"],
+      "properties": {"id": {"type": "string", "pattern": "^game:"}, "name": {"type": "string", "minLength": 1}, "generation": {"type": "integer", "minimum": 1}, "lineage": {"type": "string", "minLength": 1}, "provenance": {"$ref": "#/$defs/provenance"}}
+    },
+    "region": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "name", "gameIds", "provenance"],
+      "properties": {"id": {"type": "string", "pattern": "^region:"}, "name": {"type": "string", "minLength": 1}, "gameIds": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "pattern": "^game:"}}, "provenance": {"$ref": "#/$defs/provenance"}}
+    },
+    "location": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "regionId", "name", "kind", "order", "provenance"],
+      "properties": {"id": {"type": "string", "pattern": "^location:"}, "regionId": {"type": "string", "pattern": "^region:"}, "name": {"type": "string", "minLength": 1}, "kind": {"enum": ["town", "city", "route", "forest"]}, "order": {"type": "integer", "minimum": 0}, "provenance": {"$ref": "#/$defs/provenance"}}
+    },
+    "edge": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "to", "direction", "offset", "oneWay", "provenance"],
+      "properties": {"id": {"type": "string", "pattern": "^edge:"}, "to": {"type": "string", "pattern": "^location:"}, "direction": {"enum": ["north", "south", "east", "west"]}, "offset": {"type": "array", "prefixItems": [{"type": "integer"}, {"type": "integer"}], "items": false, "minItems": 2, "maxItems": 2}, "oneWay": {"type": "boolean"}, "provenance": {"$ref": "#/$defs/provenance"}}
+    },
+    "warp": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "toMap", "kind", "oneWay", "reciprocalWarpId", "provenance"],
+      "properties": {"id": {"type": "string", "pattern": "^warp:"}, "toMap": {"type": "string", "pattern": "^map:"}, "kind": {"enum": ["door", "boundary-entrance", "scripted"]}, "oneWay": {"type": "boolean"}, "reciprocalWarpId": {"type": ["string", "null"], "pattern": "^warp:"}, "provenance": {"$ref": "#/$defs/provenance"}},
+      "if": {"properties": {"oneWay": {"const": true}}},
+      "then": {"properties": {"reciprocalWarpId": {"type": "null"}}},
+      "else": {"properties": {"reciprocalWarpId": {"type": "string", "pattern": "^warp:"}}}
+    },
+    "map": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "plane", "gameId", "locationId", "connections", "warps", "provenance"],
+      "properties": {"id": {"type": "string", "pattern": "^map:"}, "plane": {"const": "game"}, "gameId": {"type": "string", "pattern": "^game:"}, "locationId": {"type": "string", "pattern": "^location:"}, "connections": {"type": "array", "items": {"$ref": "#/$defs/edge"}}, "warps": {"type": "array", "items": {"$ref": "#/$defs/warp"}}, "provenance": {"$ref": "#/$defs/provenance"}}
+    },
+    "arc": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "plane", "name", "order", "regionId", "provenance"],
+      "properties": {"id": {"type": "string", "pattern": "^arc:"}, "plane": {"const": "anime"}, "name": {"type": "string", "minLength": 1}, "order": {"type": "integer", "minimum": 1}, "regionId": {"type": "string", "pattern": "^region:"}, "provenance": {"$ref": "#/$defs/provenance"}}
+    },
+    "event": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "arcId", "plane", "order", "locationId", "summary", "provenance"],
+      "properties": {"id": {"type": "string", "pattern": "^story-event:"}, "arcId": {"type": "string", "pattern": "^arc:"}, "plane": {"const": "anime"}, "order": {"type": "integer", "minimum": 1}, "locationId": {"type": "string", "pattern": "^location:"}, "summary": {"type": "string", "minLength": 1}, "provenance": {"$ref": "#/$defs/provenance"}}
+    },
+    "divergence": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "kind", "summary", "resolution", "provenance"],
+      "properties": {"id": {"type": "string", "pattern": "^divergence:"}, "kind": {"enum": ["anime-game", "version-topology"]}, "summary": {"type": "string", "minLength": 1}, "resolution": {"enum": ["preserve-both", "versioned-maps"]}, "provenance": {"$ref": "#/$defs/provenance"}}
+    }
+  },
+  "oneOf": [
+    {"type": "object", "additionalProperties": false, "required": ["schemaVersion", "documentType", "sources"], "properties": {"schemaVersion": {"const": 1}, "documentType": {"const": "sources"}, "sources": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/source"}}}},
+    {"type": "object", "additionalProperties": false, "required": ["schemaVersion", "documentType", "games"], "properties": {"schemaVersion": {"const": 1}, "documentType": {"const": "games"}, "games": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/game"}}}},
+    {"type": "object", "additionalProperties": false, "required": ["schemaVersion", "documentType", "regions"], "properties": {"schemaVersion": {"const": 1}, "documentType": {"const": "regions"}, "regions": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/region"}}}},
+    {"type": "object", "additionalProperties": false, "required": ["schemaVersion", "documentType", "locations"], "properties": {"schemaVersion": {"const": 1}, "documentType": {"const": "locations"}, "locations": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/location"}}}},
+    {"type": "object", "additionalProperties": false, "required": ["schemaVersion", "documentType", "maps"], "properties": {"schemaVersion": {"const": 1}, "documentType": {"const": "maps"}, "maps": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/map"}}}},
+    {"type": "object", "additionalProperties": false, "required": ["schemaVersion", "documentType", "arcs"], "properties": {"schemaVersion": {"const": 1}, "documentType": {"const": "arcs"}, "arcs": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/arc"}}}},
+    {"type": "object", "additionalProperties": false, "required": ["schemaVersion", "documentType", "events"], "properties": {"schemaVersion": {"const": 1}, "documentType": {"const": "events"}, "events": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/event"}}}},
+    {"type": "object", "additionalProperties": false, "required": ["schemaVersion", "documentType", "divergences"], "properties": {"schemaVersion": {"const": 1}, "documentType": {"const": "conflicts"}, "divergences": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/divergence"}}}},
+    {"type": "object", "additionalProperties": false, "required": ["schemaVersion", "documentType", "sliceId", "regionId", "path", "coordinates", "activeGameId", "ashArcId", "presentationPolicy", "provenance"], "properties": {"schemaVersion": {"const": 1}, "documentType": {"const": "runtime"}, "sliceId": {"type": "string", "pattern": "^world-slice:"}, "regionId": {"type": "string", "pattern": "^region:"}, "path": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "pattern": "^location:"}}, "coordinates": {"type": "object", "minProperties": 1, "additionalProperties": {"type": "array", "prefixItems": [{"type": "integer"}, {"type": "integer"}], "items": false, "minItems": 2, "maxItems": 2}}, "activeGameId": {"type": "string", "pattern": "^game:"}, "ashArcId": {"type": "string", "pattern": "^arc:"}, "presentationPolicy": {"type": "object", "additionalProperties": false, "required": ["privateCanonicalAssetsAllowed", "distributableAssetsOnly", "privateAssetsInPublicArtifactsAllowed"], "properties": {"privateCanonicalAssetsAllowed": {"const": true}, "distributableAssetsOnly": {"const": true}, "privateAssetsInPublicArtifactsAllowed": {"const": false}}}, "provenance": {"$ref": "#/$defs/provenance"}}}
+  ]
+}

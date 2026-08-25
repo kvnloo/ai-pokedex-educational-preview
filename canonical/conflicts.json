@@ -1,0 +1,48 @@
+{
+  "divergences": [
+    {
+      "id": "divergence:kanto:starter-departure",
+      "kind": "anime-game",
+      "provenance": {
+        "confidence": "medium",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "research-facts",
+        "locator": "Ash_Ketchum#EP001",
+        "sourceId": "source:bulbapedia-ash-kanto",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "resolution": "preserve-both",
+      "summary": "Ash chronology begins with a late starter handoff; game versions use player-selected starter flows."
+    },
+    {
+      "id": "divergence:kanto:viridian-gym-order",
+      "kind": "anime-game",
+      "provenance": {
+        "confidence": "medium",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "research-facts",
+        "locator": "Ash_Ketchum#Viridian",
+        "sourceId": "source:bulbapedia-ash-kanto",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "resolution": "preserve-both",
+      "summary": "The opening anime route passes through Viridian without completing its gym."
+    },
+    {
+      "id": "divergence:kanto:route-2-segmentation",
+      "kind": "version-topology",
+      "provenance": {
+        "confidence": "medium",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "research-facts",
+        "locator": "maps/route-2",
+        "sourceId": "source:pret-pokeyellow",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "resolution": "versioned-maps",
+      "summary": "Route 2 and Viridian Forest remain explicit nodes while each game retains separate maps."
+    }
+  ],
+  "documentType": "conflicts",
+  "schemaVersion": 1
+}

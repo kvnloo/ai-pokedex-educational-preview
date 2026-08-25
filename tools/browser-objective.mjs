@@ -1,16 +1,19 @@
 #!/usr/bin/env node
 /**
  * Real-browser objective gate for Twilight Route.
- * Phase 1: authored starter scene + trusted keyboard/player/camera displacement.
+ * Canonical Pallet-to-Pewter traversal, story, battle boundary, controls and persistence.
  * This intentionally fails closed when the runtime does not expose read-only evidence.
  */
-import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
+import { chmodSync, existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { dirname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { createRequire } from 'node:module';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const OUT = join(ROOT, 'shots', process.env.TWILIGHT_EVIDENCE_LABEL || 'objective-current');
+const EVIDENCE_ROOT = process.env.TWILIGHT_EVIDENCE_ROOT
+  || '/mnt/zer0models/pokemon-iac/evidence/canonical-repair';
+let OUT = join(EVIDENCE_ROOT, `.pending-${process.pid}`);
 const URL = process.env.TWILIGHT_URL || 'http://127.0.0.1:5180/?verify=1';
 const require = createRequire(import.meta.url);
 
@@ -41,7 +44,8 @@ function check(name, ok, detail = '') {
 const pw = await loadPlaywright();
 if (!pw?.chromium) throw new Error('Playwright unavailable');
 const chrome = process.env.TWILIGHT_CHROME || '/usr/bin/chromium';
-mkdirSync(OUT, { recursive: true });
+mkdirSync(EVIDENCE_ROOT, { recursive: true, mode: 0o700 });
+mkdirSync(OUT, { mode: 0o700 });
 const browser = await pw.chromium.launch({
   executablePath: chrome,
   headless: true,
@@ -65,6 +69,7 @@ try {
   await page.waitForSelector('.starter-card', { timeout: 30_000 });
   await page.waitForTimeout(500);
   await page.screenshot({ path: join(OUT, 'starter.png') });
+  chmodSync(join(OUT, 'starter.png'), 0o600);
 
   const starter = await page.evaluate(() => {
     const bridge = window.__twilight;
@@ -80,12 +85,28 @@ try {
   check('read-only runtime evidence bridge exists', starter.bridge, JSON.stringify(starter.snapshot));
   check('three live starter models stage in world', starter.snapshot?.starterModels === 3, `starterModels=${starter.snapshot?.starterModels}`);
   check('runtime begins in starter mode', starter.snapshot?.mode === 'starter', `mode=${starter.snapshot?.mode}`);
+  const canonical = starter.snapshot?.canonicalWorld;
+  check('browser consumes normalized canonical game', canonical?.activeGameId === 'game:yellow', JSON.stringify(canonical));
+  check('browser consumes normalized Pallet to Pewter traversal',
+    canonical?.path?.[0] === 'location:kanto:pallet-town'
+      && canonical?.path?.at(-1) === 'location:kanto:pewter-city'
+      && canonical?.path?.length === 7,
+    JSON.stringify(canonical?.path));
+  check('browser consumes derived traversal coordinates',
+    canonical?.coordinates?.['location:kanto:pallet-town']?.[1] === 0
+      && canonical?.coordinates?.['location:kanto:pewter-city']?.[1] === 6,
+    JSON.stringify(canonical?.coordinates));
 
   await page.locator('.starter-card').first().click();
   await page.waitForTimeout(700);
   const before = await page.evaluate(() => window.__twilight?.snapshot?.() ?? null);
   await page.screenshot({ path: join(OUT, 'explore-before-w.png') });
+  chmodSync(join(OUT, 'explore-before-w.png'), 0o600);
   check('starter selection enters explore', before?.mode === 'explore', `mode=${before?.mode}`);
+  check('canonical battle boundary is stable outside battle', before?.battle === null
+    && before?.canonicalWorld?.sliceId === 'world-slice:kanto:pallet-pewter'
+    && before?.canonicalWorld?.presentationPolicy?.privateAssetsInPublicArtifactsAllowed === false,
+  JSON.stringify({ battle: before?.battle, canonicalWorld: before?.canonicalWorld }));
 
   await page.keyboard.down('w');
   await page.waitForTimeout(900);
@@ -94,6 +115,7 @@ try {
   await page.waitForTimeout(350);
   const after = await page.evaluate(() => window.__twilight?.snapshot?.() ?? null);
   await page.screenshot({ path: join(OUT, 'explore-after-w.png') });
+  chmodSync(join(OUT, 'explore-after-w.png'), 0o600);
 
   const playerTravel = distance3(before?.player, held?.player);
   const cameraTravel = distance3(before?.camera, after?.camera);
@@ -101,6 +123,48 @@ try {
   check('trusted W displaces player', playerTravel >= 0.75, `travel=${playerTravel.toFixed(3)}`);
   check('follow camera responds to W', cameraTravel >= 0.35, `travel=${cameraTravel.toFixed(3)}`);
   check('keyup clears W', after?.input?.held?.includes('w') === false, JSON.stringify(after?.input));
+  check('canonical traversal starts behaviorally in Pallet', after?.campaign?.currentLocationId === canonical.path[0], JSON.stringify(after?.campaign));
+
+  let sawBattle = false;
+  for (let step = 0; step < 12; step += 1) {
+    if ((await page.evaluate(() => window.__twilight?.snapshot?.().mode)) === 'battle') {
+      sawBattle = true;
+      await page.locator('#battle-menu [data-act="run"]').click();
+      await page.waitForFunction(() => window.__twilight?.snapshot?.().mode === 'explore');
+    }
+    const key = step % 2 === 0 ? 'w' : 's';
+    await page.keyboard.down(key);
+    await page.waitForTimeout(800);
+    await page.keyboard.up(key);
+    const progress = await page.evaluate(() => window.__twilight?.snapshot?.().campaign ?? null);
+    if (progress?.currentLocationId === canonical.path.at(-1)) break;
+  }
+  if ((await page.evaluate(() => window.__twilight?.snapshot?.().mode)) === 'battle') {
+    sawBattle = true;
+    await page.locator('#battle-menu [data-act="run"]').click();
+    await page.waitForFunction(() => window.__twilight?.snapshot?.().mode === 'explore');
+  }
+  const pewter = await page.evaluate(() => window.__twilight?.snapshot?.() ?? null);
+  check('trusted movement traverses normalized Pallet to Pewter path',
+    pewter?.campaign?.currentLocationId === canonical.path.at(-1)
+      && JSON.stringify(pewter?.campaign?.visitedLocationIds) === JSON.stringify(canonical.path),
+    JSON.stringify(pewter?.campaign));
+  check('normalized story triggers fire once in canonical order',
+    JSON.stringify(pewter?.campaign?.storyEventIds) === JSON.stringify(canonical.events.map(event => event.id)),
+    JSON.stringify(pewter?.campaign?.storyEventIds));
+  check('Route 1 traversal crosses a real encounter and battle boundary', sawBattle && pewter?.encounterCount >= 1, `sawBattle=${sawBattle} encounters=${pewter?.encounterCount}`);
+
+  await page.reload({ waitUntil: 'networkidle' });
+  await page.waitForFunction(() => window.__twilight?.snapshot?.().campaign?.currentLocationId === 'location:kanto:pewter-city');
+  const reloaded = await page.evaluate(() => window.__twilight?.snapshot?.() ?? null);
+  check('canonical traversal save reload restores Pewter and ordered story',
+    reloaded?.campaign?.currentLocationId === pewter?.campaign?.currentLocationId
+      && JSON.stringify(reloaded?.campaign?.storyEventIds) === JSON.stringify(pewter?.campaign?.storyEventIds)
+      && reloaded?.campaign?.saveRevision > 0,
+    JSON.stringify(reloaded?.campaign));
+  const pixels = await page.locator('#viewport').screenshot();
+  const nonBlackBytes = pixels.reduce((count, byte) => count + (byte > 8 ? 1 : 0), 0);
+  check('reloaded canonical traversal renders non-black canvas evidence', nonBlackBytes > pixels.length * 0.01, `nonBlackBytes=${nonBlackBytes}/${pixels.length}`);
   check('live browser has no console/page errors', consoleProblems.length === 0, consoleProblems.join(' | '));
 } finally {
   await browser.close();
@@ -114,6 +178,18 @@ const report = {
   passed: checks.filter(x => x.ok).length,
   failed: checks.filter(x => !x.ok).length,
 };
+const captureNames = ['explore-after-w.png', 'explore-before-w.png', 'starter.png'];
+const contentHash = createHash('sha256');
+for (const name of captureNames) {
+  const digest = createHash('sha256').update(readFileSync(join(OUT, name))).digest('hex');
+  contentHash.update(`${name}\0${digest}\n`);
+}
+const finalOut = join(EVIDENCE_ROOT, contentHash.digest('hex'));
+renameSync(OUT, finalOut);
+OUT = finalOut;
+report.evidenceDirectory = OUT;
 writeFileSync(join(OUT, 'report.json'), `${JSON.stringify(report, null, 2)}\n`);
+chmodSync(join(OUT, 'report.json'), 0o600);
 console.log(`\nobjective browser gate: ${report.passed} passed, ${report.failed} failed`);
+console.log(`evidence: ${OUT}`);
 if (report.failed) process.exit(1);

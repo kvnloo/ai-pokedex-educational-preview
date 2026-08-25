@@ -1,0 +1,1 @@
+{ "schemaVersion": 1, "graphId": "kanto-pallet-pewter-minimal-v1", "nodes": [{ "id": "kanto.pallet-pewter.marker.v1", "recipe": "kanto.pallet-pewter.marker.v1", "dependsOn": [] }, { "id": "kanto.private-owner-art.receipt.v1", "recipe": "kanto.private-owner-art.receipt.v1", "dependsOn": ["kanto.pallet-pewter.marker.v1"] }] }

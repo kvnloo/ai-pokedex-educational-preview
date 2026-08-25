@@ -1,0 +1,497 @@
+{
+  "attributablePatch": {
+    "excludes": [
+      "canonical/reports/*"
+    ],
+    "path": "canonical/reports/m0-attributable.patch.b64",
+    "sha256": "5cea350ec384fb840d2f64520988454c20fbe364ea802eb55b2f32566b84b0d7"
+  },
+  "base": {
+    "branch": "main",
+    "head": "18821d22d57bd3e8533af29cff3e858ebf963901"
+  },
+  "bindingDocumentHashes": {
+    "docs/ASSETS-AS-CODE.md": "1b6caca303b176c3143e73b944f4b2859a470a30c6c9ec9a351ad6627b1eaf04",
+    "docs/FULL-POKEMON-AUTONOMOUS-GOAL.md": "eb416190486158f6126a2b29b3bbc2bf6d3f69380d57f7f21055cc00c5c3014c",
+    "prompt.md": "52262c4c0aec2a2b1dff00a476633f7551745b1850d65b5651635b4ec9c74105"
+  },
+  "canonicalSourceHashes": {
+    "canonical/ash/arcs.json": "230bcff37ab6d4fdbef2da7ab3b2ecebc57aa22a2715e56f94d1db214f498d8d",
+    "canonical/ash/events/kanto-opening.json": "c201ace5cdf1aff54cc30e3a6ef488f13af879f6eb9509d2612d495d5a1dd5e1",
+    "canonical/assets.json": "83cabafd552b5cb53f24b30e826479fce8a2acab3923129672b113a0dda433f8",
+    "canonical/conflicts.json": "fb418629f6926623be069052aeb226e4bef5beae4de8cefb1189529fffb84209",
+    "canonical/games.json": "f06e6bf65f3dfdc9d8d3ced1d3930081d06c30222b2001228239b586910873e5",
+    "canonical/locations.json": "32c07af456d15d1b4bd335dfebcddccae0e61f42f5ebe0ee05fd8a2fe50e0c92",
+    "canonical/maps/kanto-opening.json": "e509f3462fcfb0b91eaa130d93d60ca8999fe4497b708d7f71a2ccd75e804f80",
+    "canonical/regions.json": "8c9310e40c261d81a0ce478ad51c952c0e2573004515921d5f1994383403a609",
+    "canonical/runtime/kanto-opening.json": "57ca8cabca768c9feaac8c5632243d50e69309ef4f9bf0ddec059ac31e2db449",
+    "canonical/sources.json": "8263f1ba2ce10977d9e75a5749157af3c15da529240411db38456b7ecf300959"
+  },
+  "capturedAt": "2026-08-24",
+  "dirtyMainPaths": [
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "content/game/wave0.json",
+      "status": " M"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "index.html",
+      "status": " M"
+    },
+    {
+      "classification": "shared-hotspot-preserved-not-copied",
+      "path": "package.json",
+      "status": " M"
+    },
+    {
+      "classification": "operator-superseded-binding-document-synced-by-hash",
+      "path": "prompt.md",
+      "status": " M"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "shots/_sheets/preview.png",
+      "status": " D"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "shots/_sheets/sheet.json",
+      "status": " D"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "shots/playtest/WAVE-1-PACKAGES.md",
+      "status": " D"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "shots/playtest/WAVE-2-PACKAGES.md",
+      "status": " D"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "shots/playtest/WAVE-3-PACKAGES.md",
+      "status": " D"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "shots/playtest/WAVE-4-PACKAGES.md",
+      "status": " D"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "shots/playtest/report-wave1-post.json",
+      "status": " D"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "shots/playtest/report-wave1.json",
+      "status": " D"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "shots/playtest/report-wave2-post.json",
+      "status": " D"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "shots/playtest/report-wave3-post.json",
+      "status": " D"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "shots/playtest/report-wave3.json",
+      "status": " D"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "shots/playtest/report-wave4-post.json",
+      "status": " D"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "shots/playtest/report-wave5-post.json",
+      "status": " D"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "shots/playtest/standing-gates.json",
+      "status": " D"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "shots/preview/preview.png",
+      "status": " D"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "shots/wave0-test/capture.json",
+      "status": " D"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "shots/wave0-test/shot-000.png",
+      "status": " D"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "shots/wave1-critic-h/capture.json",
+      "status": " D"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "shots/wave1-critic-h/shot-000.png",
+      "status": " D"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "shots/wave1-post/capture.json",
+      "status": " D"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "shots/wave1-post/shot-000.png",
+      "status": " D"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "shots/wave1/capture.json",
+      "status": " D"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "shots/wave1/shot-000.png",
+      "status": " D"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "shots/wave2-critic-a/capture.json",
+      "status": " D"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "shots/wave2-critic-a/shot-000.png",
+      "status": " D"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "shots/wave2-post/capture.json",
+      "status": " D"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "shots/wave2-post/profile.json",
+      "status": " D"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "shots/wave2-post/shot-000.png",
+      "status": " D"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "shots/wave2/capture.json",
+      "status": " D"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "shots/wave2/measure-report.json",
+      "status": " D"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "shots/wave2/profile.json",
+      "status": " D"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "shots/wave2/shot-000.png",
+      "status": " D"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "shots/wave3-post/capture.json",
+      "status": " D"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "shots/wave3-post/shot-000.png",
+      "status": " D"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "shots/wave3/capture.json",
+      "status": " D"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "shots/wave3/profile.json",
+      "status": " D"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "shots/wave3/shot-000.png",
+      "status": " D"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "shots/wave4-post/capture.json",
+      "status": " D"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "shots/wave4-post/shot-000.png",
+      "status": " D"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "shots/wave5-post/capture.json",
+      "status": " D"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "shots/wave5-post/shot-000.png",
+      "status": " D"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "src/battle/content.ts",
+      "status": " M"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "src/battle/types.ts",
+      "status": " M"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "src/creatures/index.ts",
+      "status": " M"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "src/creatures/makeCreature.ts",
+      "status": " M"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "src/creatures/speciesMeshes.ts",
+      "status": " M"
+    },
+    {
+      "classification": "shared-hotspot-preserved-not-copied",
+      "path": "src/main.ts",
+      "status": " M"
+    },
+    {
+      "classification": "shared-hotspot-preserved-not-copied",
+      "path": "tools/battle-golden.mjs",
+      "status": " M"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "tools/playtest.mjs",
+      "status": " M"
+    },
+    {
+      "classification": "inherited-canonical-candidate",
+      "path": "canonical/ash/arcs.json",
+      "status": "??"
+    },
+    {
+      "classification": "inherited-canonical-candidate",
+      "path": "canonical/ash/events/kanto-opening.json",
+      "status": "??"
+    },
+    {
+      "classification": "inherited-canonical-candidate",
+      "path": "canonical/conflicts.json",
+      "status": "??"
+    },
+    {
+      "classification": "inherited-canonical-candidate",
+      "path": "canonical/games.json",
+      "status": "??"
+    },
+    {
+      "classification": "inherited-canonical-candidate",
+      "path": "canonical/locations.json",
+      "status": "??"
+    },
+    {
+      "classification": "inherited-canonical-candidate",
+      "path": "canonical/maps/kanto-opening.json",
+      "status": "??"
+    },
+    {
+      "classification": "inherited-canonical-candidate",
+      "path": "canonical/regions.json",
+      "status": "??"
+    },
+    {
+      "classification": "inherited-canonical-candidate",
+      "path": "canonical/runtime/kanto-opening.json",
+      "status": "??"
+    },
+    {
+      "classification": "inherited-canonical-candidate",
+      "path": "canonical/schemas/canonical-world.schema.json",
+      "status": "??"
+    },
+    {
+      "classification": "inherited-canonical-candidate",
+      "path": "canonical/sources.json",
+      "status": "??"
+    },
+    {
+      "classification": "operator-superseded-binding-document-synced-by-hash",
+      "path": "docs/ASSETS-AS-CODE.md",
+      "status": "??"
+    },
+    {
+      "classification": "inherited-canonical-candidate",
+      "path": "docs/CANONICAL-WORLD-PIPELINE.md",
+      "status": "??"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "docs/COMMUNITY-GAMEPLAY-DONORS.md",
+      "status": "??"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "docs/CREATURE-ASSET-EXPERIMENT-LAB.md",
+      "status": "??"
+    },
+    {
+      "classification": "operator-superseded-binding-document-synced-by-hash",
+      "path": "docs/FULL-POKEMON-AUTONOMOUS-GOAL.md",
+      "status": "??"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "experiments/wooloo-pilot/source-variations.json",
+      "status": "??"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "shots",
+      "status": "??"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "src/creatures/pokeapiMeshes.ts",
+      "status": "??"
+    },
+    {
+      "classification": "inherited-canonical-candidate",
+      "path": "src/world/canonicalWorld.ts",
+      "status": "??"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "tools/__pycache__/hunyuan-source-bakeoff.cpython-311.pyc",
+      "status": "??"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "tools/__pycache__/mine-creature-frames.cpython-311.pyc",
+      "status": "??"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "tools/__pycache__/render-glb-turntable.cpython-311.pyc",
+      "status": "??"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "tools/__pycache__/run-creature-source-experiments.cpython-311.pyc",
+      "status": "??"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "tools/__pycache__/select-multiview-consensus.cpython-311.pyc",
+      "status": "??"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "tools/__pycache__/zero123-multiview.cpython-311.pyc",
+      "status": "??"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "tools/build-pokeapi-wave0.mjs",
+      "status": "??"
+    },
+    {
+      "classification": "inherited-canonical-candidate",
+      "path": "tools/canonical-world-golden.mjs",
+      "status": "??"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "tools/hunyuan-source-bakeoff.py",
+      "status": "??"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "tools/make-blind-grid.py",
+      "status": "??"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "tools/mine-creature-frames.py",
+      "status": "??"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "tools/pokeapi-mesh-golden.mjs",
+      "status": "??"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "tools/render-glb-turntable.py",
+      "status": "??"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "tools/run-creature-source-experiments.py",
+      "status": "??"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "tools/select-multiview-consensus.py",
+      "status": "??"
+    },
+    {
+      "classification": "unrelated-user-work-preserved",
+      "path": "tools/zero123-multiview.py",
+      "status": "??"
+    }
+  ],
+  "dirtyMainStatusSha256": "b198bc1d1abc30c4d24291ffc5747042cfb905f9d34c957ff3f18e72afd1541f",
+  "mainDiskBytes": 770241585,
+  "preservation": "No reset, stash, clean, source deletion, or unrelated dirty-main edit was performed.",
+  "prunableWorktreeAssessment": {
+    "action": "registration pruned; no directory or work bytes removed",
+    "directoryWasAbsent": true,
+    "dryRunFinding": "gitdir file points to non-existent location",
+    "path": "/tmp/pokemon-sol-integration"
+  },
+  "repair": {
+    "branch": "repair/t_48d15348",
+    "worktree": "/workspace/zer0/products/pokemon-canonical-repair"
+  },
+  "schemaVersion": 1,
+  "taskId": "t_48d15348",
+  "worktrees": [
+    "worktree /workspace/zer0/products/pokemon",
+    "HEAD 18821d22d57bd3e8533af29cff3e858ebf963901",
+    "branch refs/heads/main",
+    "",
+    "worktree /workspace/zer0/products/pokemon-canonical-repair",
+    "HEAD 18821d22d57bd3e8533af29cff3e858ebf963901",
+    "branch refs/heads/repair/t_48d15348"
+  ]
+}

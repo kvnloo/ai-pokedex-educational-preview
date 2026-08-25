@@ -1,0 +1,1 @@
+{ "schemaVersion": 1, "kind": "tools", "entries": [{ "id": "node", "version": "26.4.0", "digest": "sha256:c648044be9689a15c1d7b5e2b3eb0b9dcccca1eac83a9ec8a4be3fb53a1e038c", "locator": "https://nodejs.org/dist/v26.4.0/" }] }

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "recipe.schema.json",
+  "type": "object", "additionalProperties": false,
+  "required": ["schemaVersion", "recipes"],
+  "properties": { "schemaVersion": { "const": 1 }, "recipes": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/recipe" } } },
+  "$defs": { "recipe": {
+    "type": "object", "additionalProperties": false,
+    "required": ["assetId", "role", "sources", "dependencies", "profiles", "pins", "prompt", "negativePrompt", "seed", "preprocessing", "transforms", "conventions", "output", "reproducibility", "acceptance", "resources", "verification", "fallback", "failurePolicy"],
+    "properties": {
+      "assetId": { "type": "string", "pattern": "^[a-z0-9][a-z0-9.-]+$" }, "role": { "type": "string", "minLength": 1 },
+      "sources": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }, "dependencies": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+      "profiles": { "type": "array", "items": { "enum": ["private-local", "distributable"] }, "minItems": 1, "uniqueItems": true },
+      "pins": { "type": "object", "additionalProperties": false, "required": ["tool", "model", "container"], "properties": { "tool": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" }, "model": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" }, "container": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" } } },
+      "prompt": { "type": "string" }, "negativePrompt": { "type": "string" }, "seed": { "type": "integer", "minimum": 0 },
+      "preprocessing": { "type": "array", "items": { "type": "string" } }, "transforms": { "type": "array", "items": { "type": "string" } },
+      "conventions": { "type": "object", "additionalProperties": false, "required": ["coordinates", "units", "colorSpace"], "properties": { "coordinates": { "type": "string" }, "units": { "type": "string" }, "colorSpace": { "type": "string" } } },
+      "output": { "type": "object", "additionalProperties": false, "required": ["format", "schema"], "properties": { "format": { "type": "string" }, "schema": { "type": "string" } } },
+      "reproducibility": { "enum": ["byte", "structural", "quality"] }, "acceptance": { "type": "object", "minProperties": 1 },
+      "resources": { "type": "object", "additionalProperties": false, "required": ["gpu", "vramMiB", "ramMiB", "diskMiB", "seconds"], "properties": { "gpu": { "type": "string" }, "vramMiB": { "type": "integer", "minimum": 0 }, "ramMiB": { "type": "integer", "minimum": 1 }, "diskMiB": { "type": "integer", "minimum": 1 }, "seconds": { "type": "integer", "minimum": 1 } } },
+      "verification": { "type": "array", "minItems": 1, "items": { "type": "string" } }, "fallback": { "type": "string", "minLength": 1 }, "failurePolicy": { "const": "fail-closed" }
+    }
+  } }
+}

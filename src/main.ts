@@ -63,6 +63,7 @@ import {
   type AttackPhase,
   type ScreenRect,
 } from './render/cinematicEffects.ts';
+import { canonicalKantoOpening } from './world/canonicalWorld.ts';
 
 const bootFill = document.getElementById('boot-fill') as HTMLElement | null;
 const bootStatus = document.getElementById('boot-status') as HTMLElement | null;
@@ -117,6 +118,8 @@ interface Wave0Pack {
 }
 
 interface TwilightRuntimeSnapshot {
+  canonicalWorld: typeof canonicalKantoOpening;
+  campaign: CanonicalCampaignSave;
   mode: 'starter' | 'explore' | 'battle';
   starterModels: number;
   player: { x: number; y: number; z: number } | null;
@@ -151,6 +154,15 @@ interface TwilightRuntimeSnapshot {
     subjects: { player: ScreenRect | null; foe: ScreenRect | null };
     uiSafeMarginPx: number;
   };
+}
+
+interface CanonicalCampaignSave {
+  sliceId: string;
+  currentLocationId: string;
+  visitedLocationIds: string[];
+  storyEventIds: string[];
+  traversedMeters: number;
+  saveRevision: number;
 }
 
 declare global {
@@ -449,6 +461,46 @@ async function boot(): Promise<void> {
   let catchFailures = 0;
   let starterFocus = 0;
   let lastStepSound = -1;
+  const CAMPAIGN_SAVE_KEY = `twilight:${canonicalKantoOpening.sliceId}:save-v1`;
+  const newCampaign = (): CanonicalCampaignSave => ({
+    sliceId: canonicalKantoOpening.sliceId,
+    currentLocationId: canonicalKantoOpening.path[0]!,
+    visitedLocationIds: [canonicalKantoOpening.path[0]!],
+    storyEventIds: [],
+    traversedMeters: 0,
+    saveRevision: 0,
+  });
+  const loadCampaign = (): CanonicalCampaignSave => {
+    try {
+      const parsed = JSON.parse(localStorage.getItem(CAMPAIGN_SAVE_KEY) ?? 'null') as Partial<CanonicalCampaignSave> | null;
+      const index = parsed ? canonicalKantoOpening.path.indexOf(parsed.currentLocationId ?? '') : -1;
+      if (parsed?.sliceId !== canonicalKantoOpening.sliceId || index < 0) return newCampaign();
+      const eventIds = canonicalKantoOpening.events.map((event) => event.id);
+      return {
+        sliceId: canonicalKantoOpening.sliceId,
+        currentLocationId: canonicalKantoOpening.path[index]!,
+        visitedLocationIds: canonicalKantoOpening.path.slice(0, index + 1),
+        storyEventIds: eventIds.filter((id) => parsed.storyEventIds?.includes(id)),
+        traversedMeters: Math.max(0, Number(parsed.traversedMeters) || 0),
+        saveRevision: Math.max(0, Number(parsed.saveRevision) || 0),
+      };
+    } catch {
+      return newCampaign();
+    }
+  };
+  const campaign = loadCampaign();
+  let canonicalEncounterTriggered = campaign.visitedLocationIds.length > 1;
+  const saveCampaign = (): void => {
+    campaign.saveRevision += 1;
+    try { localStorage.setItem(CAMPAIGN_SAVE_KEY, JSON.stringify(campaign)); } catch { /* storage may be disabled */ }
+  };
+  const triggerStoryAt = (locationId: string): void => {
+    for (const event of canonicalKantoOpening.events) {
+      if (event.locationId === locationId && !campaign.storyEventIds.includes(event.id)) campaign.storyEventIds.push(event.id);
+    }
+    const order = new Map(canonicalKantoOpening.events.map((event) => [event.id, event.order]));
+    campaign.storyEventIds.sort((a, b) => (order.get(a) ?? 0) - (order.get(b) ?? 0));
+  };
   const soundscape = createProceduralSoundscape({ seed: 0x7477696c, masterGain: 0.27 });
   const setAudioScene = (sceneName: SoundScene, cue?: SoundCue): void => {
     void (async () => {
@@ -671,6 +723,8 @@ async function boot(): Promise<void> {
 
   window.__twilight = {
     snapshot: (): TwilightRuntimeSnapshot => ({
+      canonicalWorld: canonicalKantoOpening,
+      campaign: structuredClone(campaign),
       mode,
       starterModels: starterStage.parent ? starterMeshes.length : 0,
       player: playerMesh
@@ -1995,6 +2049,8 @@ async function boot(): Promise<void> {
         if (starterOverlay) starterOverlay.style.display = 'none';
         mode = 'explore';
         document.body.dataset.mode = 'explore';
+        triggerStoryAt(campaign.currentLocationId);
+        saveCampaign();
         explore = createExploreState({
           speed: 4.6,
           runMultiplier: 1.85,
@@ -2290,6 +2346,26 @@ async function boot(): Promise<void> {
       if (healCooldown > 0) healCooldown = Math.max(0, healCooldown - dt);
 
       const res = tickExplore(explore, dt);
+      if (res.moved && campaign.visitedLocationIds.length < canonicalKantoOpening.path.length) {
+        campaign.traversedMeters += res.speed * dt;
+        const nextIndex = campaign.visitedLocationIds.length;
+        if (campaign.traversedMeters >= nextIndex * 5) {
+          const locationId = canonicalKantoOpening.path[nextIndex]!;
+          campaign.currentLocationId = locationId;
+          campaign.visitedLocationIds.push(locationId);
+          triggerStoryAt(locationId);
+          saveCampaign();
+          const locationName = locationId.split(':').at(-1)!.replaceAll('-', ' ');
+          if (loc) loc.textContent = locationName;
+          showToast(`Arrived: ${locationName}`);
+          if (nextIndex === 1 && !canonicalEncounterTriggered && !busy) {
+            canonicalEncounterTriggered = true;
+            busy = true;
+            const w = pickWild();
+            void enterBattle(w.species, w.level, 'wild').finally(() => { busy = false; });
+          }
+        }
+      }
       playerMesh.position.x = explore.pos.x;
       playerMesh.position.z = explore.pos.z;
       playerBobPhase += res.speed * dt * 8;

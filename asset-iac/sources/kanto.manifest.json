@@ -1,0 +1,7 @@
+{
+  "schemaVersion": 1,
+  "sources": [
+    { "sourceId": "twilight-route.kanto-standin.v1", "owner": "Twilight Route contributors", "classification": "repository-original", "locator": "asset-iac/sources/files/kanto-standin.txt", "expectedSha256": "7e031d1728d725aa6a97d6fde09b91a2eb7d473f59cdae675e89456c69ab458b", "expectedBytes": 42, "adapter": "local-file", "adapterVersion": "1.0.0", "acquiredAt": "2026-08-24", "terms": { "snapshot": "Repository-authored stand-in; project license/policy applies", "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" }, "policy": "distributable", "credentials": [], "offlineCache": "allowed", "drift": "fail", "takedown": "Remove recipe reference and issue a new manifest version; never rewrite this digest." },
+    { "sourceId": "pokemon.owner-art.example.v1", "owner": "The Pokémon Company / owner-supplied by Kevin", "classification": "owner-supplied", "locator": "owner-supplied/pokemon-kanto-art.bin", "expectedSha256": "2d711642b726b04401627ca9fbac32f5c8530fb1903cc4db02258717921a4881", "expectedBytes": 1, "adapter": "owner-supplied", "adapterVersion": "1.0.0", "acquiredAt": "2026-08-24", "terms": { "snapshot": "Private local educational use only; owner must supply lawful bytes", "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc" }, "policy": "private-only", "credentials": [], "offlineCache": "required", "drift": "fail", "takedown": "Remove private cache object and disable dependent private recipes after explicit owner approval." }
+  ]
+}
