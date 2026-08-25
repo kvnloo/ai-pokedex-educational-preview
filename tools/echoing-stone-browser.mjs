@@ -2,8 +2,10 @@
 import { chmodSync, mkdirSync, renameSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { execFileSync } from 'node:child_process';
 
 const root = '/workspace/zer0/products/pokemon-m3-t_fc50f0bf';
+const sourceRevision = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' }).trim();
 const evidenceRoot = process.env.TWILIGHT_EVIDENCE_ROOT || '/mnt/zer0models/pokemon-iac/evidence/m3-echoing-stone';
 const pending = join(evidenceRoot, `.pending-${process.pid}`);
 mkdirSync(evidenceRoot, { recursive: true, mode: 0o700 });
@@ -64,7 +66,7 @@ try {
 } finally {
   await page.close(); await context.close(); await browser.close();
 }
-const report = { sourceRoot: root, url: process.env.TWILIGHT_URL || 'http://127.0.0.1:5180/?verify=1', headed: true, checks, problems, passed: checks.filter(x => x.ok).length, total: checks.length };
+const report = { sourceRoot: root, sourceRevision, url: process.env.TWILIGHT_URL || 'http://127.0.0.1:5180/?verify=1', headed: true, checks, problems, passed: checks.filter(x => x.ok).length, total: checks.length };
 writeFileSync(join(pending, 'report.json'), JSON.stringify(report, null, 2) + '\n', { mode: 0o600 });
 for (const file of ['route-3-arrival.png','echo-settled.png','echo-charged-ring-risen.png','echo-consumed-ring-settled.png']) chmodSync(join(pending, file), 0o600);
 const finalDir = join(evidenceRoot, `run-${Date.now()}`);
