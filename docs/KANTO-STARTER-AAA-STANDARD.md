@@ -28,9 +28,9 @@ Before a run, record peak 12 GB measurements separately for view generation, pre
 
 ### Frozen camera contract
 
-All sheets and render-backs use meters, Y up, subject forward `+Z`; image front camera looks from `+Z` toward ground-contact center. Perspective 55 mm equivalent, square 768 px, camera elevation at 52% of subject height, aim at 52% height, subject occupancy 82% of image height, neutral pose and level ground. Roles and yaw about Y: front 0°, front-right 45°, right 90°, rear-right 135°, rear 180°, rear-left 225°, left 270°, front-left 315°. No mirrored reuse. Record intrinsics/extrinsics and crop transform. A generated role that contradicts observed landmarks is rejected, never averaged into consensus.
+All sheets and render-backs use meters, Y up, subject forward `+Z`; image front camera looks from `+Z` toward ground-contact center. Perspective 55 mm equivalent, square 768 px, camera elevation/aim at 52% of subject height, subject occupancy 82% ±1% of image height, neutral pose and level ground. The canonical 8-role sheet uses yaw about Y: front 0°, front-right 45°, right 90°, rear-right 135°, rear 180°, rear-left 225°, left 270°, front-left 315°. The 12-view evidence packet preserves all eight roles and adds the four diagnostic interstitials defined below. No mirrored reuse. Record intrinsics/extrinsics, imported-axis mapping, measured pixel occupancy and per-role camera-distance crop transform in `camera-manifest.json`. A generated role that contradicts observed landmarks is rejected, never averaged into consensus.
 
-Each entrant receives a 12-view neutral blue-clay turntable plus a 12-view textured lookdev under frozen camera/light/color settings. Anonymous labels are hash-frozen before review. Promotion to retopo requires all hard structural gates and a labels-hidden jury win on canonical recognition, cross-view consistency, anatomy/topology, material fidelity and runtime feasibility. Minimum promotion is mean 4.25/5, no category below 4/5, no blocking dissent, and at least +0.35/5 over B0 with 3 or more non-builder judges. Kevin is the final identity gate.
+Each entrant receives a 12-view neutral blue-clay turntable plus a 12-view textured lookdev under frozen camera/light/color settings. The 12-view packet contains the eight canonical roles at 0/45/90/135/180/225/270/315 degrees plus four explicitly non-canonical diagnostic interstitials at 22.5/112.5/202.5/292.5 degrees; filenames and the camera manifest bind every role to its yaw. Anonymous labels are hash-frozen before review. Promotion to retopo requires all hard structural gates and a labels-hidden jury win on canonical recognition, cross-view consistency, anatomy/topology, material fidelity and runtime feasibility. Minimum promotion is mean 4.25/5, no category below 4/5, no blocking dissent, and at least +0.35/5 over B0 with 3 or more non-builder judges. Kevin is the final identity gate.
 
 Reject: contradictory landmarks, wrong limb/digit count, fused appendages, collapsed tail/vine/shell/bulb, substantial slab, dominant relief, blob/cube, view leakage, missing back anatomy, or a candidate that wins only by sharper rendering. Preserve every rejection byte-for-byte.
 
@@ -119,7 +119,7 @@ Probe commands:
 
 ```bash
 env PYTHONDONTWRITEBYTECODE=1 /workspace/venv/hunyuan3d/venv/bin/python tools/component_glb_qa.py INPUT.glb --output REPORT.json
-blender --background --python tools/render_glb_turntable.py -- --input INPUT.glb --out-dir PRIVATE_DIR --views 12 --size 768
+blender --background --python tools/render_glb_turntable.py -- --input INPUT.glb --out-dir PRIVATE_DIR --size 768
 npm run kanto-starters:validate
 npm run typecheck
 npm run build
