@@ -9,6 +9,7 @@
     "build": "vite build",
     "preview": "vite preview --port 4180 --strictPort",
     "typecheck": "tsc --noEmit",
+    "kanto-starters:validate": "node tools/kanto-starters-validate.mjs",
     "test:battle": "node --experimental-strip-types tools/battle-golden.mjs",
     "content:sync": "node tools/pokeapi-sync.mjs",
     "content:sync:smoke": "node tools/pokeapi-sync.mjs --max 20",

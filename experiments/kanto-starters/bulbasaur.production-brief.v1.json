@@ -1,0 +1,30 @@
+{
+  "schema": "KantoStarterProductionBrief",
+  "schemaVersion": 1,
+  "standard": "docs/KANTO-STARTER-AAA-STANDARD.md",
+  "identity": {"nationalDexId": 1, "speciesId": "bulbasaur", "form": "standard", "heightM": 0.7, "forward": "+Z"},
+  "privateRoot": "/mnt/zer0models/pokemon_anime/pipeline/pokeapi/kanto-starters/bulbasaur",
+  "authority": {"role": "observed", "path": "reference/bulbasaur_official_artwork.png", "sha256": "7233d8d8b03b5fa91d835a3069d25769155db93c9ef91b6066e215ed3895e9d8", "dimensions": [475, 475]},
+  "baseline": {
+    "classification": "blockout-only-visual-review-required",
+    "raw": {"path": "hunyuan/bulbasaur_shape.glb", "sha256": "ae1606a4dc765fd36c8d565c4e1252ad254fbaa53f8160c2af17f61760a41ef1", "bytes": 8250580, "faces": 458320},
+    "lod8k": {"path": "hunyuan/bulbasaur_shape_8k.glb", "sha256": "cad6e93a2e77d21148f932c27688ff07c5028eb87f3ba9f891a2f3f5ad8e1354", "bytes": 144964, "faces": 8000}
+  },
+  "recognitionLandmarks": ["low quadruped body", "large head with short blunt muzzle", "triangular ears with dark inner fields", "red eyes", "blue-green hide with irregular dark patches", "three claws on each visible paw", "large planted bulb integrated into the back", "two visible pointed teeth where view permits"],
+  "forbiddenDrift": ["generic frog", "upright biped", "detachable backpack bulb", "flowering or evolved bulb", "smooth unmarked hide", "wrong paw count"],
+  "rig": {"archetype": "species-quadruped-bulb-vines", "deformBoneMax": 62, "speciesSockets": ["socket_vine_tip_l", "socket_vine_tip_r", "socket_leaf_emit_l", "socket_leaf_emit_r", "socket_bulb_top"]},
+  "budgets": {"triangles": {"lod0": 70000, "lod1": 34000, "lod2": 14000}, "switchProjectedHeightPx": [360, 150], "drawCalls": [6, 4, 2], "compressedTransferMiB": 9, "residentTextureMiB": 48},
+  "movePackage": {
+    "authorityVariant": "firered-leafgreen-level-up",
+    "chronology": {"tackle": 1, "growl": 4, "vine-whip": 10, "razor-leaf": 20},
+    "redBlueVariant": {"tackle": 1, "growl": 1, "vine-whip": 13, "razor-leaf": 27},
+    "moves": [
+      {"moveId": "tackle", "beats": ["lower center and load rear diagonal paws", "short gameplay-root burst with head and shoulder leading", "shoulder/chest contact marker", "forelegs catch mass and bulb lags", "four-paw settle with bulb rebound"], "contactSocket": "socket_chest"},
+      {"moveId": "growl", "beats": ["brace wide and inhale through lifting chest", "jaw opens as throat/chest pulse releases", "voice-pressure contact marker reaches targets", "jaw and ears recoil asymmetrically", "mouth closes and stance relaxes"], "contactSocket": "socket_mouth"},
+      {"moveId": "vine-whip", "beats": ["bulb compresses and opposite paws brace", "two vines uncoil on offset arcs", "tip contact markers strike sequentially", "vines overshoot and bulb rocks forward", "vines retract into bulb without popping"], "contactSocket": "socket_vine_tip_l"},
+      {"moveId": "razor-leaf", "beats": ["crouch as bulb plates flare and leaves gather", "paired spiral release with readable leaf planes", "leaf volley contact crossing marker", "bulb twists opposite release and leaves trail", "plates reseat and body rises"], "contactSocket": "socket_leaf_emit_l"}
+    ]
+  },
+  "deformationTests": ["bulb compression never intersects spine", "vines preserve volume at full extension", "all four paw contacts independently sampled in XYZ", "ears and bulb show bounded lag after stop"],
+  "status": "child-ready-contract-not-production-approved"
+}

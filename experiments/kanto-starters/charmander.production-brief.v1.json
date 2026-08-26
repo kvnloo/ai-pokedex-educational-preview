@@ -1,0 +1,30 @@
+{
+  "schema": "KantoStarterProductionBrief",
+  "schemaVersion": 1,
+  "standard": "docs/KANTO-STARTER-AAA-STANDARD.md",
+  "identity": {"nationalDexId": 4, "speciesId": "charmander", "form": "standard", "heightM": 0.6, "forward": "+Z"},
+  "privateRoot": "/mnt/zer0models/pokemon_anime/pipeline/pokeapi/kanto-starters/charmander",
+  "authority": {"role": "observed", "path": "reference/charmander_official_artwork.png", "sha256": "0c8e36e321cbd6578d0b669324edf6cb819f8e510dbac43cee22c4221db80b4d", "dimensions": [475, 475]},
+  "baseline": {
+    "classification": "blockout-only-visual-review-required",
+    "raw": {"path": "hunyuan/charmander_shape.glb", "sha256": "a1771c6c3d12864ad524783b41e2623295d15e175b8a7241e1b31b447b038a8d", "bytes": 5724460, "faces": 318000},
+    "lod8k": {"path": "hunyuan/charmander_shape_8k.glb", "sha256": "82c90f71d325d3e93803978cb66e8b6eaceeda5d4280706d9eb388a81975acd2", "bytes": 144244, "faces": 8000}
+  },
+  "recognitionLandmarks": ["upright orange reptilian juvenile", "large rounded head and short muzzle", "blue-green eyes", "cream field from chest through belly and tail underside", "two arms and two strong legs", "three claws per hand and foot where visible", "long continuous tapering tail", "dedicated living tail flame"],
+  "forbiddenDrift": ["generic lizard", "dragon horns or wings", "four-legged stance", "detached flame mesh", "short blunt tail", "wrong cream boundary or digit count"],
+  "rig": {"archetype": "species-biped-reptile-tail", "deformBoneMax": 58, "speciesSockets": ["socket_tail_flame", "socket_claw_l", "socket_claw_r", "socket_ember_emit", "socket_smoke_emit"]},
+  "budgets": {"triangles": {"lod0": 62000, "lod1": 30000, "lod2": 12000}, "switchProjectedHeightPx": [340, 140], "drawCalls": [6, 4, 2], "compressedTransferMiB": 8, "residentTextureMiB": 44},
+  "movePackage": {
+    "authorityVariant": "firered-leafgreen-level-up",
+    "chronology": {"scratch": 1, "growl": 1, "ember": 7, "smokescreen": 19},
+    "redBlueVariant": {"scratch": 1, "growl": 1, "ember": 9, "smokescreen": null, "note": "PokeAPI has no Red/Blue level-up Smokescreen row; never merge it silently."},
+    "moves": [
+      {"moveId": "scratch", "beats": ["drop hips and draw dominant claw across chest", "cross-step and shoulder-led slash travel", "three-claw contact marker at target plane", "wrist follows through as tail counter-swings", "recover foot then guard"], "contactSocket": "socket_claw_r"},
+      {"moveId": "growl", "beats": ["plant tail-side foot and inhale", "head thrust and jaw-open vocal release", "voice-pressure contact marker reaches targets", "jaw/head recoil while flame flares", "chest and flame settle on different frequencies"], "contactSocket": "socket_mouth"},
+      {"moveId": "ember", "beats": ["tail flame draws inward as chest heats", "head snaps forward and discrete ember stream releases", "first ember contact marker with target material response", "jaw recoils and embers arc past", "smoke wisp clears as flame returns to idle"], "contactSocket": "socket_ember_emit"},
+      {"moveId": "smokescreen", "beats": ["crouch behind raised forearms and inhale", "dense low smoke jet sweeps target line", "occlusion/status contact marker commits", "head turns away and tail fans cloud", "remain wary as cloud decays spatially"], "contactSocket": "socket_smoke_emit"}
+    ]
+  },
+  "deformationTests": ["tail preserves taper and never kinks", "tail flame socket remains continuous at every LOD", "hands preserve three-claw silhouette through Scratch", "feet remain planted through biped start/turn/stop"],
+  "status": "child-ready-contract-not-production-approved"
+}
