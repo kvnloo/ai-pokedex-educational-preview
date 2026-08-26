@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-26T07:42:44.791Z",
+  "url": "http://127.0.0.1:5292/?verify=1",
+  "outputDir": "/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_f523dc89/shots/provenance-final-desktop-1",
+  "durationMs": 31719.468,
+  "evidenceIntegrity": {
+    "globalRandomOverridden": false,
+    "clockOverridden": false,
+    "gameplayStateMutatorsInvoked": false,
+    "bridgeUse": "window.__twilight.snapshot() read-only",
+    "inputMode": "Playwright trusted mouse and keyboard events"
+  },
+  "revision": {
+    "gitHead": "061f4720196afbf1e4cfbe21513ce6a1296be389",
+    "productTreeClean": true,
+    "productDirtyPaths": []
+  },
+  "production": {
+    "required": true,
+    "observed": {
+      "scripts": [
+        "http://127.0.0.1:5292/assets/main-DmP_X1gP.js"
+      ],
+      "viteClient": false,
+      "hashedAsset": true,
+      "manifest": null,
+      "launcherReceipt": {
+        "schemaVersion": 1,
+        "manifestSha256": "b7d6a64dde3a71deb48ad19af0276ef4abc74bbac74a3b2e82eb6f9fe778c7e9",
+        "gitSha": "061f4720196afbf1e4cfbe21513ce6a1296be389",
+        "files": {
+          "assets/main-DmP_X1gP.js": {
+            "sha256": "bece7671efd7372236842ac355f314b6b361c97c6aa07d25e318964998df5f8f",
+            "bytes": 813280
+          },
+          "assets/main-DmP_X1gP.js.map": {
+            "sha256": "20a8be86ceada218cf9d6a343353d535e9e8af955c267f0bfb2efaef424f6a87",
+            "bytes": 895181
+          },
+          "content/game/kanto-private.json": {
+            "sha256": "a04243f3b61c0ad72160671f2f6aa76d90a768bb0f931d57f93cc2e49014044a",
+            "bytes": 5153
+          },
+          "content/game/runtime-assets/distributable.json": {
+            "sha256": "95b6e4d03c4409a7c465ab468a6a308c39998c4446ab245e80f444275b620548",
+            "bytes": 154
+          },
+          "content/game/runtime-assets/private-local.json": {
+            "sha256": "3c8e71fd56a247e7787df5d87668bc8f55849d5194b9e503fe6b527edbdcc3ed",
+            "bytes": 183
+          },
+          "index.html": {
+            "sha256": "c83e58470db275f306c0f32798d26d3ca5da5a9ae79f0ae4e8987388f8888857",
+            "bytes": 28199
+          }
+        }
+      },
+      "hashFailures": [
+        "Error: manifest HTTP 404"
+      ],
+      "productionBuild": false
+    }
+  },
+  "passed": false,
+  "summary": {
+    "checksPassed": 2,
+    "checksFailed": 4,
+    "consoleProblems": 2,
+    "requestProblems": 2,
+    "screenshots": 0
+  },
+  "fatalError": "page.waitForSelector: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator('.starter-card') to be visible\n\n    at /mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_f523dc89/tools/browser-complete-loop.mjs:556:14",
+  "checks": [
+    {
+      "name": "evidence is bound to a clean product revision",
+      "ok": true,
+      "detail": "061f4720196afbf1e4cfbe21513ce6a1296be389",
+      "elapsedMs": 1653.286
+    },
+    {
+      "name": "external launcher receipt matches reviewed root",
+      "ok": true,
+      "detail": "{\"schemaVersion\":1,\"manifestSha256\":\"b7d6a64dde3a71deb48ad19af0276ef4abc74bbac74a3b2e82eb6f9fe778c7e9\",\"gitSha\":\"061f4720196afbf1e4cfbe21513ce6a1296be389\",\"files\":{\"assets/main-DmP_X1gP.js\":{\"sha256\":\"bece7671efd7372236842ac355f314b6b361c97c6aa07d25e318964998df5f8f\",\"bytes\":813280},\"assets/main-DmP_X1gP.js.map\":{\"sha256\":\"20a8be86ceada218cf9d6a343353d535e9e8af955c267f0bfb2efaef424f6a87\",\"bytes\":895181},\"content/game/kanto-private.json\":{\"sha256\":\"a04243f3b61c0ad72160671f2f6aa76d90a768bb0f931d57f93cc2e49014044a\",\"bytes\":5153},\"content/game/runtime-assets/distributable.json\":{\"sha256\":\"95b6e4d03c4409a7c465ab468a6a308c39998c4446ab245e80f444275b620548\",\"bytes\":154},\"content/game/runtime-assets/private-local.json\":{\"sha256\":\"3c8e71fd56a247e7787df5d87668bc8f55849d5194b9e503fe6b527edbdcc3ed\",\"bytes\":183},\"index.html\":{\"sha256\":\"c83e58470db275f306c0f32798d26d3ca5da5a9ae79f0ae4e8987388f8888857\",\"bytes\":28199}}}",
+      "elapsedMs": 1653.397
+    },
+    {
+      "name": "runtime is the hashed production dist build",
+      "ok": false,
+      "detail": "{\"scripts\":[\"http://127.0.0.1:5292/assets/main-DmP_X1gP.js\"],\"viteClient\":false,\"hashedAsset\":true,\"manifest\":null,\"launcherReceipt\":{\"schemaVersion\":1,\"manifestSha256\":\"b7d6a64dde3a71deb48ad19af0276ef4abc74bbac74a3b2e82eb6f9fe778c7e9\",\"gitSha\":\"061f4720196afbf1e4cfbe21513ce6a1296be389\",\"files\":{\"assets/main-DmP_X1gP.js\":{\"sha256\":\"bece7671efd7372236842ac355f314b6b361c97c6aa07d25e318964998df5f8f\",\"bytes\":813280},\"assets/main-DmP_X1gP.js.map\":{\"sha256\":\"20a8be86ceada218cf9d6a343353d535e9e8af955c267f0bfb2efaef424f6a87\",\"bytes\":895181},\"content/game/kanto-private.json\":{\"sha256\":\"a04243f3b61c0ad72160671f2f6aa76d90a768bb0f931d57f93cc2e49014044a\",\"bytes\":5153},\"content/game/runtime-assets/distributable.json\":{\"sha256\":\"95b6e4d03c4409a7c465ab468a6a308c39998c4446ab245e80f444275b620548\",\"bytes\":154},\"content/game/runtime-assets/private-local.json\":{\"sha256\":\"3c8e71fd56a247e7787df5d87668bc8f55849d5194b9e503fe6b527edbdcc3ed\",\"bytes\":183},\"index.html\":{\"sha256\":\"c83e58470db275f306c0f32798d26d3ca5da5a9ae79f0ae4e8987388f8888857\",\"bytes\":28199}}},\"hashFailures\":[\"Error: manifest HTTP 404\"],\"productionBuild\":false}",
+      "elapsedMs": 1653.438
+    },
+    {
+      "name": "served dist manifest is the reviewed clean exact revision",
+      "ok": false,
+      "detail": "",
+      "elapsedMs": 1653.456
+    },
+    {
+      "name": "every served dist byte matches its immutable manifest hash",
+      "ok": false,
+      "detail": "Error: manifest HTTP 404",
+      "elapsedMs": 1653.472
+    },
+    {
+      "name": "complete-loop harness reached final state",
+      "ok": false,
+      "detail": "page.waitForSelector: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator('.starter-card') to be visible\n\n    at /mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_f523dc89/tools/browser-complete-loop.mjs:556:14",
+      "elapsedMs": 31657.095
+    }
+  ],
+  "transitions": {},
+  "controls": [],
+  "timeline": [
+    {
+      "name": "navigate:start",
+      "elapsedMs": 1115.075,
+      "browserMs": 188.7,
+      "detail": {}
+    }
+  ],
+  "screenshots": [],
+  "consoleProblems": [
+    "error: Failed to load module script: Expected a JavaScript-or-Wasm module script but the server responded with a MIME type of \"\". Strict MIME type checking is enforced for module scripts per HTML spec.",
+    "error: Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ],
+  "requestProblems": [
+    "http 404: http://127.0.0.1:5292/build-manifest.json",
+    "requestfailed: GET http://127.0.0.1:5292/build-manifest.json — net::ERR_ABORTED"
+  ],
+  "infoMessages": [],
+  "tracePath": "/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_f523dc89/shots/provenance-final-desktop-1/complete-loop-trace.zip",
+  "reportPath": "/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_f523dc89/shots/provenance-final-desktop-1/complete-loop-report.json"
+}

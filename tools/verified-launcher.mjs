@@ -75,9 +75,9 @@ export function serveVerifiedBuild(directory, receipt, port) {
     const file = join(directory, requested);
     try {
       const bytes = readFileSync(file);
-      const expected = receipt.files[requested];
-      if (!expected || sha256(bytes) !== expected.sha256) throw new Error('response drift');
-      response.setHeader('x-verified-sha256', expected.sha256);
+      const expectedSha256 = requested === MANIFEST ? receipt.manifestSha256 : receipt.files[requested]?.sha256;
+      if (!expectedSha256 || sha256(bytes) !== expectedSha256) throw new Error('response drift');
+      response.setHeader('x-verified-sha256', expectedSha256);
       response.setHeader('cache-control', 'no-store');
       response.end(bytes);
     } catch { response.statusCode = 404; response.end(); }
