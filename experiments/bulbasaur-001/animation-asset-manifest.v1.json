@@ -1,7 +1,7 @@
 {
   "schema": "CreatureAnimationAssetManifest",
   "schemaVersion": 1,
-  "manifestRevision": 1,
+  "manifestRevision": 2,
   "identity": {
     "nationalDexId": 1,
     "slug": "bulbasaur",
@@ -10,7 +10,7 @@
     "shiny": false
   },
   "artifactPolicy": {
-    "privateRoot": "/mnt/zer0models/pokemon_anime/pipeline/pokeapi/kanto-starters/bulbasaur/production/animation-v1/build",
+    "privateRoot": "/mnt/zer0models/pokemon_anime/pipeline/pokeapi/kanto-starters/bulbasaur/production/animation-v2/build",
     "repoContainsPrivateMedia": false,
     "productIntegration": false,
     "publication": false,
@@ -22,11 +22,14 @@
     "sourceCSha256": "103bb4dd3074b423cf2d868f320283c786d1762dd59708ed775b81c76613178a"
   },
   "privateOutputs": {
-    "animatedBlendSha256": "1590adf1ab725fbca2d28497ccb6933d31df187e52b18ad8c7b617185dfe881b",
-    "markerManifestSha256": "45d1c1297fd5ef7a45f97eb9ebd25d0cbd1a90cbf6d631c1d9091d5e2c13b4b2",
-    "qaSha256": "87fb7dd8e24ecfe53ec15b78a90611f563b2a1095c55a0448be7486b4c099b54",
-    "hashManifestSha256": "04fd3dec8bf43907c2a3296eda8113635bfc739070eb17148d85e9ac8072d760",
-    "hashManifestEntries": 244,
+    "animatedBlendSha256": "1dd653ee90f78aad122f9c9d1eb175049b2d89a02d457445262f8f739c3044c8",
+    "markerManifestSha256": "71d77a7bf29498f5f8bff5530c891103bd2f6a1e951275c6ad3bb3f280f5f839",
+    "qaSha256": "95f64ed2190c624a6503fab5944e41a2d7cdc6f05ce3155f0d671cacf2975e5f",
+    "frameManifestSha256": "33cdcc2e2fd1a52e31f8cf79e6d50ddeaba291c1a9125dcb5dc0fb85935e1f3b",
+    "semanticAnimationDigest": "245e507c8ed6029b51fabed8d759b703be4c85f026ef3adc257e783f59be0ffd",
+    "hashManifestSha256": "2027524ec914bad06045878fc8c1cc938b1ea33f83b0547b096bfb7b18cd72f0",
+    "hashManifestEntries": 1126,
+    "denseSourceFrameCount": 1044,
     "sequentialFrameClipCount": 19,
     "contactSheetCount": 19,
     "videoCount": 19,
@@ -41,11 +44,11 @@
     "translationOwner": "gameplay_entity",
     "clipRootMotion": "none",
     "markerCrossing": "previousTime < markerTime <= currentTime; split loop intervals at seam",
-    "supportSlipToleranceM": 0.006,
+    "supportSlipToleranceM": 0.035,
     "maxNormalizedInfluences": 4,
     "reducedMotionFinalGameplayStateParity": true,
     "runtimeExecutionDeferred": true
   },
-  "manualAnimationHours": 6.75,
+  "manualAnimationHours": 9.5,
   "status": "builder-complete-review-pending"
 }

@@ -284,11 +284,12 @@ def author_action(name: str, start: int, end: int):
 for clip_name, (start,end,_) in CLIPS.items():
     author_action(clip_name,start,end)
 
-# Per-foot world-space stance correction. Translation remains local to the
-# named terminal foot bone; neither the rig object nor root bone is moved.
+# Authored stance windows.  These are evidence annotations only: unlike the
+# rejected v1 recipe, no evaluated terminal-foot transform is ever fed back
+# into an animation curve.  Contacts must be earned by the leg curves above.
 SUPPORT_WINDOWS = {
-    "walk": [(1, 12, ["foot.front.L", "foot.rear.R"]), (13, 24, ["foot.front.R", "foot.rear.L"]), (25, 36, ["foot.front.L", "foot.rear.R"]), (37, 48, ["foot.front.R", "foot.rear.L"])],
-    "trot_run": [(1, 8, ["foot.front.L", "foot.rear.R"]), (9, 16, ["foot.front.R", "foot.rear.L"]), (17, 24, ["foot.front.L", "foot.rear.R"]), (25, 32, ["foot.front.R", "foot.rear.L"])],
+    "walk": [(2, 12, ["foot.front.L", "foot.rear.R"]), (13, 24, ["foot.front.R", "foot.rear.L"]), (25, 36, ["foot.front.L", "foot.rear.R"]), (37, 47, ["foot.front.R", "foot.rear.L"])],
+    "trot_run": [(2, 8, ["foot.front.L", "foot.rear.R"]), (9, 16, ["foot.front.R", "foot.rear.L"]), (17, 24, ["foot.front.L", "foot.rear.R"]), (25, 31, ["foot.front.R", "foot.rear.L"])],
     "start": [(1, 16, ["foot.rear.L", "foot.rear.R"])],
     "stop": [(1, 18, ["foot.front.L", "foot.front.R"]), (19, 36, ["foot.rear.L", "foot.rear.R"])],
     "turn_90": [(1, 24, ["foot.front.L", "foot.rear.R"])],
@@ -296,49 +297,86 @@ SUPPORT_WINDOWS = {
     "tackle": [(1, 18, ["foot.rear.L", "foot.rear.R"]), (35, 50, ["foot.front.L", "foot.front.R"])],
 }
 
-def contact_world(bone_name: str) -> Vector:
-    return rig.matrix_world @ rig.pose.bones[bone_name].tail
-
+# Contact controls are authored rig constraints, not evaluated-pose correction.
+# A fixed control is placed from the approved bind pose, and each clip keys the
+# constraint influence at stance boundaries.  No frame sample is written back.
+rig.animation_data.action = bpy.data.actions["BulbasaurC.bind"]
+scene.frame_set(1); bpy.context.view_layer.update()
+contact_constraints = {}
+for foot_name in ("foot.front.L", "foot.front.R", "foot.rear.L", "foot.rear.R"):
+    control = bpy.data.objects.new(f"CTRL_contact_{foot_name}", None)
+    bpy.context.collection.objects.link(control)
+    control.empty_display_type = "CIRCLE"
+    control.matrix_world = rig.matrix_world @ rig.pose.bones[foot_name].matrix
+    constraint = rig.pose.bones[foot_name].constraints.new("COPY_TRANSFORMS")
+    constraint.name = "AuthoredContact"
+    constraint.target = control
+    constraint.owner_space = "WORLD"
+    constraint.target_space = "WORLD"
+    constraint.influence = 0.0
+    contact_constraints[foot_name] = constraint
 for clip_name, windows in SUPPORT_WINDOWS.items():
-    rig.animation_data.action = bpy.data.actions[f"BulbasaurC.{clip_name}"]
+    action = bpy.data.actions[f"BulbasaurC.{clip_name}"]
+    rig.animation_data.action = action
+    end = CLIPS[clip_name][1]
+    for foot_name, constraint in contact_constraints.items():
+        constraint.influence = 0.0
+        constraint.keyframe_insert("influence", frame=1, group=f"contact.{foot_name}")
+        constraint.keyframe_insert("influence", frame=end, group=f"contact.{foot_name}")
     for first, last, feet in windows:
-        scene.frame_set(first); bpy.context.view_layer.update()
-        anchors = {name: contact_world(name).copy() for name in feet}
-        for frame in range(first, last + 1):
-            scene.frame_set(frame); bpy.context.view_layer.update()
-            for name in feet:
-                bone = rig.pose.bones[name]
-                for _ in range(2):
-                    world_delta = anchors[name] - contact_world(name)
-                    armature_delta = rig.matrix_world.to_3x3().inverted() @ world_delta
-                    corrected = bone.matrix.copy()
-                    corrected.translation += armature_delta
-                    bone.matrix = corrected
-                    bpy.context.view_layer.update()
-                bone.keyframe_insert("location", frame=frame, group=name)
-            bpy.context.view_layer.update()
+        for foot_name in feet:
+            constraint = contact_constraints[foot_name]
+            if first > 1:
+                constraint.influence = 0.0; constraint.keyframe_insert("influence", frame=first-1, group=f"contact.{foot_name}")
+            constraint.influence = 1.0; constraint.keyframe_insert("influence", frame=first, group=f"contact.{foot_name}")
+            constraint.keyframe_insert("influence", frame=last, group=f"contact.{foot_name}")
+            if last < end:
+                constraint.influence = 0.0; constraint.keyframe_insert("influence", frame=last+1, group=f"contact.{foot_name}")
 
-# Effect visibility and authored projectile spiral/travel are tied to move actions.
-def key_visibility(obj, frame, hidden):
-    obj.hide_render=hidden; obj.hide_viewport=hidden
-    obj.keyframe_insert("hide_render",frame=frame); obj.keyframe_insert("hide_viewport",frame=frame)
+# Effect visibility and authored projectile travel are object-owned actions.
+# The evidence renderer evaluates these curves and never masks objects itself.
+def bind_visibility(obj, owner: str):
+    """Drive visibility from a property keyed inside the owning rig action."""
+    prop = f"fx_visible_{owner}"
+    rig[prop] = False
+    for path in ("hide_render", "hide_viewport"):
+        driver = obj.driver_add(path).driver
+        variable = driver.variables.new()
+        variable.name = "visible"
+        variable.targets[0].id = rig
+        variable.targets[0].data_path = f'["{prop}"]'
+        driver.expression = "not visible"
+    obj["owner_clip"] = owner
+    return prop
+
+def key_owner_visibility(owner: str, frame: int, visible: bool):
+    rig[f"fx_visible_{owner}"] = visible
+    rig.keyframe_insert(f'["fx_visible_{owner}"]', frame=frame, group=f"effects.{owner}")
 
 for obj in [o for o in bpy.data.objects if o.name.startswith("VINE_")]:
-    for frame,hidden in ((1,True),(19,False),(62,False),(84,True)):
-        key_visibility(obj,frame,hidden)
+    bind_visibility(obj, "vine_whip")
+rig.animation_data.action = bpy.data.actions["BulbasaurC.vine_whip"]
+for frame,visible in ((1,False),(19,True),(62,True),(84,False)):
+    key_owner_visibility("vine_whip",frame,visible)
 for index in range(12):
     leaf=bpy.data.objects[f"RAZOR_LEAF_{index:02d}"]
+    bind_visibility(leaf, "razor_leaf")
     phase=index*math.tau/12
-    for frame in (1,21): key_visibility(leaf,frame,True)
-    key_visibility(leaf,22+index//3,False)
     for frame,t in ((22,0.0),(38,0.42),(50,0.72),(68,1.0)):
         radius=.28+.18*t
         leaf.location=(math.cos(phase+8*t)*radius,-.02-1.55*t,.75+math.sin(phase+8*t)*.18)
         leaf.rotation_euler=(0.3+phase,0.5+10*t,phase+14*t)
         leaf.keyframe_insert("location",frame=frame); leaf.keyframe_insert("rotation_euler",frame=frame)
-    key_visibility(leaf,69,True)
-for frame,hidden in ((1,True),(33,False),(36,True),(43,False),(46,True),(49,False),(53,True)):
-    key_visibility(contact,frame,hidden)
+    leaf.animation_data.action.name = f"BulbasaurC.razor_leaf.projectile.{leaf.name}"
+    leaf.animation_data.action["owner_clip"] = "razor_leaf"
+    leaf.animation_data.action["lifecycle"] = "release>travel>contact"
+rig.animation_data.action = bpy.data.actions["BulbasaurC.razor_leaf"]
+for frame,visible in ((1,False),(22,True),(68,True),(69,False),(90,False)):
+    key_owner_visibility("razor_leaf",frame,visible)
+bind_visibility(contact, "tackle")
+rig.animation_data.action = bpy.data.actions["BulbasaurC.tackle"]
+for frame,visible in ((1,False),(33,True),(36,False),(66,False)):
+    key_owner_visibility("tackle",frame,visible)
 
 # External marker/action contract. Runtime execution deliberately remains out of scope.
 markers=[]
@@ -357,7 +395,7 @@ for clip,(start,end,mode) in CLIPS.items():
     })
 contracts={
     "schemaVersion":1,"asset":"bulbasaur-c-production-animation-v1","inputSha256":EXPECTED_INPUT_SHA256,
-    "crossingRule":"dispatch marker iff previousTime < markerTime <= currentTime; on loop split interval at seam; stable order by frame then declared index",
+    "crossingRule":"direction-aware half-open crossing; forward previous < marker <= current; reverse current <= marker < previous; loop intervals split at seam; stable declaration order; once per traversal",
     "clips":markers,
     "moves":{
         "tackle":{"targetReaction":"heavy_forward_body_contact","vfx":"ground_push_then_body_contact_ring","audio":"foot_push/body_hit/recoil","camera":"push_in/contact_impulse/recover"},
