@@ -1,0 +1,51 @@
+{
+  "version": "1.0.0-private-local",
+  "title": "Pokémon — Kanto: Pallet to Pewter",
+  "identity": {
+    "region": "Kanto",
+    "topology": "Pokémon Yellow world path with the canonical Red/Blue starter ceremony",
+    "ashChronology": "Ash receives Pikachu rather than an available lab starter; this private milestone preserves that chronology as narrative law while offering Bulbasaur, Charmander, and Squirtle as the game-style player choice."
+  },
+  "types": ["normal", "flying", "fire", "water", "grass", "poison", "bug", "rock", "ground"],
+  "typeChart": {
+    "normal": {"normal":1,"flying":1,"fire":1,"water":1,"grass":1,"poison":1,"bug":1,"rock":0.5,"ground":1},
+    "flying": {"normal":1,"flying":1,"fire":1,"water":1,"grass":2,"poison":1,"bug":2,"rock":0.5,"ground":1},
+    "fire": {"normal":1,"flying":1,"fire":0.5,"water":0.5,"grass":2,"poison":1,"bug":2,"rock":0.5,"ground":1},
+    "water": {"normal":1,"flying":1,"fire":2,"water":0.5,"grass":0.5,"poison":1,"bug":1,"rock":2,"ground":2},
+    "grass": {"normal":1,"flying":0.5,"fire":0.5,"water":2,"grass":0.5,"poison":0.5,"bug":0.5,"rock":2,"ground":2},
+    "poison": {"normal":1,"flying":1,"fire":1,"water":1,"grass":2,"poison":0.5,"bug":1,"rock":0.5,"ground":0.5},
+    "bug": {"normal":1,"flying":0.5,"fire":0.5,"water":1,"grass":2,"poison":0.5,"bug":1,"rock":1,"ground":1},
+    "rock": {"normal":1,"flying":2,"fire":2,"water":1,"grass":1,"poison":1,"bug":2,"rock":1,"ground":0.5},
+    "ground": {"normal":1,"flying":0,"fire":2,"water":1,"grass":0.5,"poison":2,"bug":0.5,"rock":2,"ground":1}
+  },
+  "moves": [
+    {"id":"tackle","moveId":33,"name":"Tackle","type":"normal","category":"physical","power":40,"accuracy":100,"pp":35,"priority":0},
+    {"id":"scratch","moveId":10,"name":"Scratch","type":"normal","category":"physical","power":40,"accuracy":100,"pp":35,"priority":0},
+    {"id":"growl","moveId":45,"name":"Growl","type":"normal","category":"status","power":null,"accuracy":100,"pp":40,"priority":0,"effect":"lower-atk-1"},
+    {"id":"tail-whip","moveId":39,"name":"Tail Whip","type":"normal","category":"status","power":null,"accuracy":100,"pp":30,"priority":0,"effect":"lower-def-1"},
+    {"id":"vine-whip","moveId":22,"name":"Vine Whip","type":"grass","category":"physical","power":45,"accuracy":100,"pp":25,"priority":0},
+    {"id":"ember","moveId":52,"name":"Ember","type":"fire","category":"special","power":40,"accuracy":100,"pp":25,"priority":0},
+    {"id":"water-gun","moveId":55,"name":"Water Gun","type":"water","category":"special","power":40,"accuracy":100,"pp":25,"priority":0},
+    {"id":"gust","moveId":16,"name":"Gust","type":"flying","category":"special","power":40,"accuracy":100,"pp":35,"priority":0},
+    {"id":"string-shot","moveId":81,"name":"String Shot","type":"bug","category":"status","power":null,"accuracy":95,"pp":40,"priority":0},
+    {"id":"rock-throw","moveId":88,"name":"Rock Throw","type":"rock","category":"physical","power":50,"accuracy":90,"pp":15,"priority":0},
+    {"id":"defense-curl","moveId":111,"name":"Defense Curl","type":"normal","category":"status","power":null,"accuracy":100,"pp":40,"priority":0,"effect":"raise-def-1"}
+  ],
+  "species": [
+    {"id":"bulbasaur","slug":"bulbasaur","speciesId":1,"name":"Bulbasaur","types":["grass","poison"],"baseStats":{"hp":45,"atk":49,"def":49,"spa":65,"spd":65,"spe":45},"moves":["tackle","growl","vine-whip"],"role":"starter","catchRate":45,"baseExp":64},
+    {"id":"charmander","slug":"charmander","speciesId":4,"name":"Charmander","types":["fire"],"baseStats":{"hp":39,"atk":52,"def":43,"spa":60,"spd":50,"spe":65},"moves":["scratch","growl","ember"],"role":"starter","catchRate":45,"baseExp":62},
+    {"id":"squirtle","slug":"squirtle","speciesId":7,"name":"Squirtle","types":["water"],"baseStats":{"hp":44,"atk":48,"def":65,"spa":50,"spd":64,"spe":43},"moves":["tackle","tail-whip","water-gun"],"role":"starter","catchRate":45,"baseExp":63},
+    {"id":"pidgey","slug":"pidgey","speciesId":16,"name":"Pidgey","types":["normal","flying"],"baseStats":{"hp":40,"atk":45,"def":40,"spa":35,"spd":35,"spe":56},"moves":["tackle","gust"],"role":"wild","catchRate":255,"baseExp":50},
+    {"id":"caterpie","slug":"caterpie","speciesId":10,"name":"Caterpie","types":["bug"],"baseStats":{"hp":45,"atk":30,"def":35,"spa":20,"spd":20,"spe":45},"moves":["tackle","string-shot"],"role":"wild","catchRate":255,"baseExp":39},
+    {"id":"geodude","slug":"geodude","speciesId":74,"name":"Geodude","types":["rock","ground"],"baseStats":{"hp":40,"atk":80,"def":100,"spa":30,"spd":30,"spe":20},"moves":["tackle","defense-curl","rock-throw"],"role":"gym","catchRate":255,"baseExp":60}
+  ],
+  "route": {
+    "id":"kanto-pallet-pewter","name":"Pallet Town → Pewter City","starterChoices":["bulbasaur","charmander","squirtle"],
+    "wildEncounters":[
+      {"species":"pidgey","minLevel":2,"maxLevel":5,"weight":75,"band":"early"},
+      {"species":"caterpie","minLevel":3,"maxLevel":5,"weight":25,"band":"mid"}
+    ],
+    "playerDefaultLevel":5,
+    "gym":{"id":"pewter-gym","name":"Pewter Gym","leaderName":"Brock","species":"geodude","level":12,"description":"Brock's canonical opening Geodude."}
+  }
+}

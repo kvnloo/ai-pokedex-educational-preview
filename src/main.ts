@@ -46,6 +46,10 @@ import {
   tickCreatureClip,
 } from './creatures/index.ts';
 import {
+  canonicalPrivateMesh,
+  preloadCanonicalPrivateMeshes,
+} from '@/creatures/privateCanonical.ts';
+import {
   applyGraphicsPreset,
   resolvePresetFromQuery,
   MEDIUM_1080P,
@@ -231,6 +235,7 @@ function hpDrainMs(damage: number, maxHp: number): number {
 }
 
 const creatureTemplateCache = new Map<string, THREE.Group>();
+let activeAssetProfile: 'private-local' | 'distributable' = 'distributable';
 
 function creatureTemplate(speciesId: string, scale: number): THREE.Group {
   const cacheKey = `${speciesId}@${scale.toFixed(3)}`;
@@ -249,6 +254,7 @@ function creatureTemplate(speciesId: string, scale: number): THREE.Group {
 
 /** Runtime meshes clone prevalidated templates; geometry/materials stay shared. */
 function shipCreatureMesh(speciesId: string, scale = 1): THREE.Group {
+  if (activeAssetProfile === 'private-local') return canonicalPrivateMesh(speciesId, scale);
   const root = creatureTemplate(speciesId, scale).clone(true);
   root.userData.speciesId = speciesId;
   const clip = getClipState(root);
@@ -276,15 +282,35 @@ async function boot(): Promise<void> {
   if (assetMarker.profile !== assetProfile.profile || assetMarker.policy !== assetProfile.policy || assetMarker.bytesEmbedded === true) {
     throw new Error(`Runtime asset contract rejected for ${assetProfile.profile}`);
   }
+  activeAssetProfile = assetProfile.profile;
   document.body.dataset.assetProfile = assetProfile.profile;
-  progress(0.08, 'Loading wave0 ship pack');
-  const res = await fetch('/content/game/wave0.json');
-  if (!res.ok) throw new Error(`wave0 pack missing (${res.status}). Expected content/game/wave0.json`);
+  if (assetProfile.profile === 'private-local') {
+    for (let index = localStorage.length - 1; index >= 0; index--) {
+      const key = localStorage.key(index);
+      if (key?.startsWith('twilight:') && key !== `twilight:${canonicalKantoOpening.sliceId}:save-v1`) {
+        localStorage.removeItem(key);
+      }
+    }
+  }
+  const packHref = assetProfile.profile === 'private-local'
+    ? '/content/game/kanto-private.json'
+    : '/content/game/wave0.json';
+  progress(0.08, assetProfile.profile === 'private-local' ? 'Loading canonical Kanto pack' : 'Loading distributable pack');
+  const res = await fetch(packHref);
+  if (!res.ok) throw new Error(`${packHref} missing (${res.status})`);
   const raw = (await res.json()) as Wave0Pack;
   const moves = raw.moves.map((m) => normalizeMove(m));
   const moveById = new Map(moves.map((m) => [m.id, m]));
   const species = raw.species.map((s) => normalizeSpecies(s));
   const speciesById = new Map(species.map((s) => [s.id, s]));
+  if (assetProfile.profile === 'private-local') {
+    const requiredSpecies = new Set<string>([
+      ...raw.route.starterChoices,
+      ...raw.route.wildEncounters.map((entry) => entry.species),
+      ...(raw.route.gym ? [raw.route.gym.species] : []),
+    ]);
+    await preloadCanonicalPrivateMeshes([...requiredSpecies]);
+  }
 
   progress(0.25, 'Init renderer');
   const canvas = document.getElementById('viewport') as HTMLCanvasElement | null;
@@ -515,7 +541,7 @@ async function boot(): Promise<void> {
   let foeMesh: THREE.Group | null = null;
   let mode: 'starter' | 'explore' | 'battle' = 'starter';
   let battle: BattleState | null = null;
-  let playerSpeciesId = 'emberpup';
+  let playerSpeciesId = raw.route.starterChoices[0]!;
   let busy = false;
   let battleKind: 'wild' | 'gym' | 'elite' = 'wild';
   let wildWins = 0;

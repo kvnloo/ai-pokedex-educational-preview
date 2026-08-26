@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "3D creature-collector demo (Twilight Route) \u2014 original region, original creatures, original presentation. Zero binary third-party game assets.",
+  "description": "3D creature-collector demo (Twilight Route) — original region, original creatures, original presentation. Zero binary third-party game assets.",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -19,6 +19,7 @@
     "test:tracked-canonical-boundary": "node tools/check-tracked-canonical-boundary.mjs",
     "test:assets-iac": "node --test tools/assets-iac.test.mjs",
     "test:campaign": "node --experimental-strip-types --test tools/campaign.test.mjs",
+    "test:private-canonical": "node --experimental-strip-types tools/private-canonical-golden.mjs",
     "test:encounter-drought": "node --experimental-strip-types --test tools/explore-encounter.test.mjs",
     "test:browser-input": "node tools/browser-input.mjs --headed",
     "test:browser-complete-loop-repeat": "node tools/browser-complete-loop-repeat.mjs",
@@ -33,7 +34,7 @@
     "assets:build": "node tools/assets-iac.mjs build",
     "assets:verify": "node tools/assets-iac.mjs verify",
     "assets:leak-scan": "node tools/assets-iac.mjs leak-scan",
-    "build:private": "npm run assets:build -- --profile private-local && npm run assets:verify -- --profile private-local && npm run build",
+    "build:private": "npm run assets:build -- --profile private-local && npm run assets:verify -- --profile private-local && vite build --mode private-local",
     "build:distributable": "npm run assets:build -- --profile distributable && npm run assets:verify -- --profile distributable && npm run build && npm run check:ship",
     "recreate:private": "npm run assets:doctor -- --profile private-local && npm run build:private",
     "generate:canonical-world": "python tools/generate-canonical-world.py",
@@ -48,6 +49,7 @@
     "three": "^0.185.1"
   },
   "devDependencies": {
+    "@types/node": "^26.3.0",
     "@types/three": "^0.185.1",
     "ajv": "^8.20.0",
     "typescript": "^5.8.2",
