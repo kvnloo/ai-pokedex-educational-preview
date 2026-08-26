@@ -1077,8 +1077,10 @@ async function boot(): Promise<void> {
       scene.add(foeMesh);
       foeContact.visible = true;
     }
-    // Snappy send-out — free-roam→Fight budget ≤400ms with parallel staging.
-    const ms = 160;
+    // Keep the send-out readable while reserving enough of the fail-closed
+    // roam→Fight budget for first-use creature clone/shader work on a cold GPU.
+    // At 96ms this still presents multiple frames at 60Hz instead of popping.
+    const ms = 96;
     const t0 = performance.now();
     await new Promise<void>((resolve) => {
       const step = (now: number) => {
