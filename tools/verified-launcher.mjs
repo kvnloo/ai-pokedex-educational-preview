@@ -92,6 +92,10 @@ export function serveVerifiedBuild(directory, receipt, port) {
       if (!expectedSha256 || sha256(bytes) !== expectedSha256) throw new Error('response drift');
       response.setHeader('x-verified-sha256', expectedSha256);
       response.setHeader('cache-control', 'no-store');
+      if (requested.endsWith('.js')) response.setHeader('content-type', 'text/javascript; charset=utf-8');
+      else if (requested.endsWith('.html')) response.setHeader('content-type', 'text/html; charset=utf-8');
+      else if (requested.endsWith('.json') || requested.endsWith('.map')) response.setHeader('content-type', 'application/json');
+      else if (requested.endsWith('.glb')) response.setHeader('content-type', 'model/gltf-binary');
       response.end(bytes);
     } catch { response.statusCode = 404; response.end(); }
   }).listen(port, '127.0.0.1');
