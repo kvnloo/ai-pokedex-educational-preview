@@ -1,0 +1,51 @@
+{
+  "schema": "CreatureAnimationAssetManifest",
+  "schemaVersion": 1,
+  "manifestRevision": 1,
+  "identity": {
+    "nationalDexId": 1,
+    "slug": "bulbasaur",
+    "candidate": "C",
+    "form": "standard",
+    "shiny": false
+  },
+  "artifactPolicy": {
+    "privateRoot": "/mnt/zer0models/pokemon_anime/pipeline/pokeapi/kanto-starters/bulbasaur/production/animation-v1/build",
+    "repoContainsPrivateMedia": false,
+    "productIntegration": false,
+    "publication": false,
+    "promotionAuthority": false
+  },
+  "lineage": {
+    "approvedProductionBlendSha256": "9d7281524257ebdd651c7604e9a2ce7f06a66350b33fef7d5ff8750904fcccd6",
+    "approvedReviewPacketSha256": "b82e146b049bf51293bfabdecaaf3487b418943eee1a0ae2ae4afd459448566e",
+    "sourceCSha256": "103bb4dd3074b423cf2d868f320283c786d1762dd59708ed775b81c76613178a"
+  },
+  "privateOutputs": {
+    "animatedBlendSha256": "1590adf1ab725fbca2d28497ccb6933d31df187e52b18ad8c7b617185dfe881b",
+    "markerManifestSha256": "45d1c1297fd5ef7a45f97eb9ebd25d0cbd1a90cbf6d631c1d9091d5e2c13b4b2",
+    "qaSha256": "87fb7dd8e24ecfe53ec15b78a90611f563b2a1095c55a0448be7486b4c099b54",
+    "hashManifestSha256": "04fd3dec8bf43907c2a3296eda8113635bfc739070eb17148d85e9ac8072d760",
+    "hashManifestEntries": 244,
+    "sequentialFrameClipCount": 19,
+    "contactSheetCount": 19,
+    "videoCount": 19,
+    "anonymousCandidateCount": 19
+  },
+  "clipSet": [
+    "bind", "idle", "breathe", "blink", "look", "turn", "walk", "trot_run",
+    "start", "stop", "turn_90", "turn_180", "send_out", "hit", "faint",
+    "tackle", "growl", "vine_whip", "razor_leaf"
+  ],
+  "contracts": {
+    "translationOwner": "gameplay_entity",
+    "clipRootMotion": "none",
+    "markerCrossing": "previousTime < markerTime <= currentTime; split loop intervals at seam",
+    "supportSlipToleranceM": 0.006,
+    "maxNormalizedInfluences": 4,
+    "reducedMotionFinalGameplayStateParity": true,
+    "runtimeExecutionDeferred": true
+  },
+  "manualAnimationHours": 6.75,
+  "status": "builder-complete-review-pending"
+}
