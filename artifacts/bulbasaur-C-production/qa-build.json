@@ -1,0 +1,832 @@
+{
+  "evidence": {
+    "bindAndExtremeRenders": [
+      "review-renders/bind.png",
+      "review-renders/extreme-crouch.png",
+      "review-renders/extreme-reach-L.png",
+      "review-renders/extreme-reach-R.png",
+      "review-renders/extreme-bulb-jaw.png"
+    ],
+    "comparisonLayout": "top=immutable source C clay 12-role; bottom=authored retopo clay same role order/camera",
+    "fixedCameraComparison": "fixed-camera/source-vs-retopo-clay.png",
+    "wireframes": [
+      "review-renders/wireframe-bind-front34.png",
+      "review-renders/wireframe-bind-side.png"
+    ]
+  },
+  "frozenEvidenceBefore": {
+    "algorithm": "sha256(concat(len4be(relpath), relpath, sha256(file)))",
+    "fileCount": 281,
+    "root": "/mnt/zer0models/pokemon_anime/pipeline/pokeapi/kanto-starters/bulbasaur/production/manual-v1",
+    "totalBytes": 60177683,
+    "treeSha256": "ea4c0534306b8c821c5975f34c850955faf4f5919a938c03cdb49a30cf1d1dc2"
+  },
+  "guards": {
+    "automaticRetopoOperatorsUsed": [],
+    "canonicalCertification": false,
+    "frozenEvidenceUnmodifiedAtBuildEnd": true,
+    "gameplayAnimation": false,
+    "merge": false,
+    "productIntegration": false,
+    "publication": false,
+    "sourceUnmodified": true
+  },
+  "production": {
+    "armature": "RIG_Bulbasaur_C",
+    "blend": "bulbasaur_C_production.blend",
+    "bones": 22,
+    "bytes": 380325,
+    "deformBones": 21,
+    "materials": [
+      "PBR_accent",
+      "PBR_bulb",
+      "PBR_bulb_dark",
+      "PBR_eye",
+      "PBR_mouth",
+      "PBR_pupil",
+      "PBR_skin",
+      "PBR_spot"
+    ],
+    "meshObjects": 55,
+    "poses": {
+      "bind": {
+        "lifted": [],
+        "perFootArmatureSpaceZCorrectionsM": {
+          "foot_front_L": -0.020394653,
+          "foot_front_R": -0.02039475,
+          "foot_rear_L": -0.020394534,
+          "foot_rear_R": -0.020394534
+        },
+        "planted": [
+          "foot_front_L",
+          "foot_front_R",
+          "foot_rear_L",
+          "foot_rear_R"
+        ]
+      },
+      "extreme-bulb-jaw": {
+        "lifted": [],
+        "perFootArmatureSpaceZCorrectionsM": {
+          "foot_front_L": -0.020394653,
+          "foot_front_R": -0.02039475,
+          "foot_rear_L": -0.020394534,
+          "foot_rear_R": -0.020394534
+        },
+        "planted": [
+          "foot_front_L",
+          "foot_front_R",
+          "foot_rear_L",
+          "foot_rear_R"
+        ]
+      },
+      "extreme-crouch": {
+        "lifted": [],
+        "perFootArmatureSpaceZCorrectionsM": {
+          "foot_front_L": -0.010081202,
+          "foot_front_R": 0.002762631,
+          "foot_rear_L": 0.05120863,
+          "foot_rear_R": 0.062265143
+        },
+        "planted": [
+          "foot_front_L",
+          "foot_front_R",
+          "foot_rear_L",
+          "foot_rear_R"
+        ]
+      },
+      "extreme-reach-L": {
+        "lifted": [
+          "foot_front_L"
+        ],
+        "perFootArmatureSpaceZCorrectionsM": {
+          "foot_front_L": 0.003659598,
+          "foot_front_R": 0.052254274,
+          "foot_rear_L": -0.020394534,
+          "foot_rear_R": -0.020394534
+        },
+        "planted": [
+          "foot_front_R",
+          "foot_rear_L",
+          "foot_rear_R"
+        ]
+      },
+      "extreme-reach-R": {
+        "lifted": [
+          "foot_front_R"
+        ],
+        "perFootArmatureSpaceZCorrectionsM": {
+          "foot_front_L": 0.052092925,
+          "foot_front_R": -0.001890697,
+          "foot_rear_L": -0.020394534,
+          "foot_rear_R": -0.020394534
+        },
+        "planted": [
+          "foot_front_L",
+          "foot_rear_L",
+          "foot_rear_R"
+        ]
+      }
+    },
+    "retopologizedObjects": [
+      "bulb_attachment",
+      "bulb_core",
+      "bulb_lobe_1",
+      "bulb_lobe_2",
+      "bulb_lobe_3",
+      "bulb_lobe_4",
+      "bulb_lobe_5",
+      "bulb_lobe_6",
+      "chest",
+      "foot_front_L",
+      "foot_front_R",
+      "foot_rear_L",
+      "foot_rear_R",
+      "head",
+      "limb_front_L",
+      "limb_front_R",
+      "limb_rear_L",
+      "limb_rear_R",
+      "muzzle",
+      "torso"
+    ],
+    "sha256": "7347a1160ba32dfad3c8a55ac6b55c8e01750497ac349b725e43537cb834d4dc",
+    "skinnedMeshes": 55,
+    "topologyEvidence": {
+      "bulb_attachment": {
+        "axis": "toroidal-saddle",
+        "method": "authored_explicit_joint_saddle_torus_v2",
+        "namedLoops": {
+          "TOPO_bulb_torso_contact_center": 32,
+          "TOPO_bulb_torso_contact_inner": 32,
+          "TOPO_bulb_torso_contact_outer": 32
+        },
+        "segments": 32,
+        "sourceSurfaceMaxDistanceM": 0.0041602253913879395,
+        "sourceSurfaceMeanDistanceM": 0.0026897747982019666,
+        "stations": 12,
+        "triangles": 768,
+        "vertices": 384
+      },
+      "bulb_core": {
+        "axis": "Z",
+        "method": "authored_explicit_cross_section_loft_v2",
+        "namedLoops": {
+          "TOPO_bulb_core_root_primary": 24,
+          "TOPO_bulb_core_root_support": 24,
+          "TOPO_bulb_core_tip_support": 24
+        },
+        "segments": 24,
+        "sourceSurfaceMaxDistanceM": 0.0023288587108254433,
+        "sourceSurfaceMeanDistanceM": 0.001760031510979356,
+        "stations": [
+          -0.96,
+          -0.9,
+          -0.8,
+          -0.7,
+          -0.58,
+          -0.42,
+          -0.24,
+          -0.04,
+          0.18,
+          0.4,
+          0.6,
+          0.76,
+          0.88,
+          0.95
+        ],
+        "triangles": 672,
+        "vertices": 338
+      },
+      "bulb_lobe_1": {
+        "axis": "Y",
+        "method": "authored_explicit_cross_section_loft_v2",
+        "namedLoops": {
+          "TOPO_bulb_lobe_1_root_primary": 24,
+          "TOPO_bulb_lobe_1_root_support": 24,
+          "TOPO_bulb_lobe_1_tip_support": 24
+        },
+        "segments": 24,
+        "sourceSurfaceMaxDistanceM": 0.004150486551225185,
+        "sourceSurfaceMeanDistanceM": 0.002345784367589558,
+        "stations": [
+          -0.96,
+          -0.9,
+          -0.8,
+          -0.7,
+          -0.58,
+          -0.44,
+          -0.28,
+          -0.1,
+          0.1,
+          0.3,
+          0.48,
+          0.64,
+          0.78,
+          0.88,
+          0.95
+        ],
+        "triangles": 720,
+        "vertices": 362
+      },
+      "bulb_lobe_2": {
+        "axis": "Y",
+        "method": "authored_explicit_cross_section_loft_v2",
+        "namedLoops": {
+          "TOPO_bulb_lobe_2_root_primary": 24,
+          "TOPO_bulb_lobe_2_root_support": 24,
+          "TOPO_bulb_lobe_2_tip_support": 24
+        },
+        "segments": 24,
+        "sourceSurfaceMaxDistanceM": 0.004150464665144682,
+        "sourceSurfaceMeanDistanceM": 0.002345782599009275,
+        "stations": [
+          -0.96,
+          -0.9,
+          -0.8,
+          -0.7,
+          -0.58,
+          -0.44,
+          -0.28,
+          -0.1,
+          0.1,
+          0.3,
+          0.48,
+          0.64,
+          0.78,
+          0.88,
+          0.95
+        ],
+        "triangles": 720,
+        "vertices": 362
+      },
+      "bulb_lobe_3": {
+        "axis": "Y",
+        "method": "authored_explicit_cross_section_loft_v2",
+        "namedLoops": {
+          "TOPO_bulb_lobe_3_root_primary": 24,
+          "TOPO_bulb_lobe_3_root_support": 24,
+          "TOPO_bulb_lobe_3_tip_support": 24
+        },
+        "segments": 24,
+        "sourceSurfaceMaxDistanceM": 0.004150500521063805,
+        "sourceSurfaceMeanDistanceM": 0.0023457833278913934,
+        "stations": [
+          -0.96,
+          -0.9,
+          -0.8,
+          -0.7,
+          -0.58,
+          -0.44,
+          -0.28,
+          -0.1,
+          0.1,
+          0.3,
+          0.48,
+          0.64,
+          0.78,
+          0.88,
+          0.95
+        ],
+        "triangles": 720,
+        "vertices": 362
+      },
+      "bulb_lobe_4": {
+        "axis": "Y",
+        "method": "authored_explicit_cross_section_loft_v2",
+        "namedLoops": {
+          "TOPO_bulb_lobe_4_root_primary": 24,
+          "TOPO_bulb_lobe_4_root_support": 24,
+          "TOPO_bulb_lobe_4_tip_support": 24
+        },
+        "segments": 24,
+        "sourceSurfaceMaxDistanceM": 0.004150489345192909,
+        "sourceSurfaceMeanDistanceM": 0.0023457845629550494,
+        "stations": [
+          -0.96,
+          -0.9,
+          -0.8,
+          -0.7,
+          -0.58,
+          -0.44,
+          -0.28,
+          -0.1,
+          0.1,
+          0.3,
+          0.48,
+          0.64,
+          0.78,
+          0.88,
+          0.95
+        ],
+        "triangles": 720,
+        "vertices": 362
+      },
+      "bulb_lobe_5": {
+        "axis": "Y",
+        "method": "authored_explicit_cross_section_loft_v2",
+        "namedLoops": {
+          "TOPO_bulb_lobe_5_root_primary": 24,
+          "TOPO_bulb_lobe_5_root_support": 24,
+          "TOPO_bulb_lobe_5_tip_support": 24
+        },
+        "segments": 24,
+        "sourceSurfaceMaxDistanceM": 0.004150461871176958,
+        "sourceSurfaceMeanDistanceM": 0.0023457841722240662,
+        "stations": [
+          -0.96,
+          -0.9,
+          -0.8,
+          -0.7,
+          -0.58,
+          -0.44,
+          -0.28,
+          -0.1,
+          0.1,
+          0.3,
+          0.48,
+          0.64,
+          0.78,
+          0.88,
+          0.95
+        ],
+        "triangles": 720,
+        "vertices": 362
+      },
+      "bulb_lobe_6": {
+        "axis": "Y",
+        "method": "authored_explicit_cross_section_loft_v2",
+        "namedLoops": {
+          "TOPO_bulb_lobe_6_root_primary": 24,
+          "TOPO_bulb_lobe_6_root_support": 24,
+          "TOPO_bulb_lobe_6_tip_support": 24
+        },
+        "segments": 24,
+        "sourceSurfaceMaxDistanceM": 0.004150465130805969,
+        "sourceSurfaceMeanDistanceM": 0.0023457862355409304,
+        "stations": [
+          -0.96,
+          -0.9,
+          -0.8,
+          -0.7,
+          -0.58,
+          -0.44,
+          -0.28,
+          -0.1,
+          0.1,
+          0.3,
+          0.48,
+          0.64,
+          0.78,
+          0.88,
+          0.95
+        ],
+        "triangles": 720,
+        "vertices": 362
+      },
+      "chest": {
+        "axis": "Y",
+        "method": "authored_explicit_cross_section_loft_v2",
+        "namedLoops": {
+          "TOPO_chest_neck_primary": 28,
+          "TOPO_chest_neck_support": 28,
+          "TOPO_chest_torso_primary": 28
+        },
+        "segments": 28,
+        "sourceSurfaceMaxDistanceM": 0.004070044029504061,
+        "sourceSurfaceMeanDistanceM": 0.0030371541495576183,
+        "stations": [
+          -0.96,
+          -0.9,
+          -0.8,
+          -0.7,
+          -0.58,
+          -0.44,
+          -0.28,
+          -0.12,
+          0.08,
+          0.28,
+          0.48,
+          0.66,
+          0.8,
+          0.9,
+          0.96
+        ],
+        "triangles": 840,
+        "vertices": 422
+      },
+      "foot_front_L": {
+        "axis": "Y",
+        "method": "authored_explicit_cross_section_loft_v2",
+        "namedLoops": {
+          "TOPO_foot_front_L_ankle_joint": 24,
+          "TOPO_foot_front_L_midfoot": 24,
+          "TOPO_foot_front_L_toe_root": 24
+        },
+        "segments": 24,
+        "sourceSurfaceMaxDistanceM": 0.0033518895506858826,
+        "sourceSurfaceMeanDistanceM": 0.001978208168759654,
+        "stations": [
+          -0.96,
+          -0.9,
+          -0.8,
+          -0.68,
+          -0.54,
+          -0.4,
+          -0.24,
+          -0.06,
+          0.14,
+          0.34,
+          0.52,
+          0.68,
+          0.82,
+          0.91,
+          0.96
+        ],
+        "triangles": 720,
+        "vertices": 362
+      },
+      "foot_front_R": {
+        "axis": "Y",
+        "method": "authored_explicit_cross_section_loft_v2",
+        "namedLoops": {
+          "TOPO_foot_front_R_ankle_joint": 24,
+          "TOPO_foot_front_R_midfoot": 24,
+          "TOPO_foot_front_R_toe_root": 24
+        },
+        "segments": 24,
+        "sourceSurfaceMaxDistanceM": 0.0033518557902425528,
+        "sourceSurfaceMeanDistanceM": 0.001978201195578353,
+        "stations": [
+          -0.96,
+          -0.9,
+          -0.8,
+          -0.68,
+          -0.54,
+          -0.4,
+          -0.24,
+          -0.06,
+          0.14,
+          0.34,
+          0.52,
+          0.68,
+          0.82,
+          0.91,
+          0.96
+        ],
+        "triangles": 720,
+        "vertices": 362
+      },
+      "foot_rear_L": {
+        "axis": "Y",
+        "method": "authored_explicit_cross_section_loft_v2",
+        "namedLoops": {
+          "TOPO_foot_rear_L_ankle_joint": 24,
+          "TOPO_foot_rear_L_midfoot": 24,
+          "TOPO_foot_rear_L_toe_root": 24
+        },
+        "segments": 24,
+        "sourceSurfaceMaxDistanceM": 0.003351854858919978,
+        "sourceSurfaceMeanDistanceM": 0.0019782050382487412,
+        "stations": [
+          -0.96,
+          -0.9,
+          -0.8,
+          -0.68,
+          -0.54,
+          -0.4,
+          -0.24,
+          -0.06,
+          0.14,
+          0.34,
+          0.52,
+          0.68,
+          0.82,
+          0.91,
+          0.96
+        ],
+        "triangles": 720,
+        "vertices": 362
+      },
+      "foot_rear_R": {
+        "axis": "Y",
+        "method": "authored_explicit_cross_section_loft_v2",
+        "namedLoops": {
+          "TOPO_foot_rear_R_ankle_joint": 24,
+          "TOPO_foot_rear_R_midfoot": 24,
+          "TOPO_foot_rear_R_toe_root": 24
+        },
+        "segments": 24,
+        "sourceSurfaceMaxDistanceM": 0.003351857652887702,
+        "sourceSurfaceMeanDistanceM": 0.0019782077402419294,
+        "stations": [
+          -0.96,
+          -0.9,
+          -0.8,
+          -0.68,
+          -0.54,
+          -0.4,
+          -0.24,
+          -0.06,
+          0.14,
+          0.34,
+          0.52,
+          0.68,
+          0.82,
+          0.91,
+          0.96
+        ],
+        "triangles": 720,
+        "vertices": 362
+      },
+      "head": {
+        "axis": "Y",
+        "method": "authored_explicit_cross_section_loft_v2",
+        "namedLoops": {
+          "TOPO_head_muzzle_primary": 32,
+          "TOPO_head_muzzle_support": 32,
+          "TOPO_head_neck_primary": 32,
+          "TOPO_head_neck_support": 32
+        },
+        "segments": 32,
+        "sourceSurfaceMaxDistanceM": 0.0033003948628902435,
+        "sourceSurfaceMeanDistanceM": 0.0023158441565193397,
+        "stations": [
+          -0.96,
+          -0.9,
+          -0.8,
+          -0.68,
+          -0.56,
+          -0.42,
+          -0.26,
+          -0.08,
+          0.12,
+          0.3,
+          0.48,
+          0.64,
+          0.78,
+          0.88,
+          0.94,
+          0.97
+        ],
+        "triangles": 1024,
+        "vertices": 514
+      },
+      "limb_front_L": {
+        "axis": "Z",
+        "method": "authored_explicit_cross_section_loft_v2",
+        "namedLoops": {
+          "TOPO_limb_front_L_body_joint": 20,
+          "TOPO_limb_front_L_foot_joint": 20,
+          "TOPO_limb_front_L_knee_joint": 20
+        },
+        "segments": 20,
+        "sourceSurfaceMaxDistanceM": 0.0028215795755386353,
+        "sourceSurfaceMeanDistanceM": 0.0018524297436742444,
+        "stations": [
+          -0.96,
+          -0.9,
+          -0.82,
+          -0.7,
+          -0.56,
+          -0.42,
+          -0.26,
+          -0.08,
+          0.12,
+          0.32,
+          0.5,
+          0.66,
+          0.8,
+          0.9,
+          0.96
+        ],
+        "triangles": 600,
+        "vertices": 302
+      },
+      "limb_front_R": {
+        "axis": "Z",
+        "method": "authored_explicit_cross_section_loft_v2",
+        "namedLoops": {
+          "TOPO_limb_front_R_body_joint": 20,
+          "TOPO_limb_front_R_foot_joint": 20,
+          "TOPO_limb_front_R_knee_joint": 20
+        },
+        "segments": 20,
+        "sourceSurfaceMaxDistanceM": 0.0028215795755386353,
+        "sourceSurfaceMeanDistanceM": 0.0018524296476894262,
+        "stations": [
+          -0.96,
+          -0.9,
+          -0.82,
+          -0.7,
+          -0.56,
+          -0.42,
+          -0.26,
+          -0.08,
+          0.12,
+          0.32,
+          0.5,
+          0.66,
+          0.8,
+          0.9,
+          0.96
+        ],
+        "triangles": 600,
+        "vertices": 302
+      },
+      "limb_rear_L": {
+        "axis": "Z",
+        "method": "authored_explicit_cross_section_loft_v2",
+        "namedLoops": {
+          "TOPO_limb_rear_L_body_joint": 20,
+          "TOPO_limb_rear_L_foot_joint": 20,
+          "TOPO_limb_rear_L_knee_joint": 20
+        },
+        "segments": 20,
+        "sourceSurfaceMaxDistanceM": 0.0028216170612722635,
+        "sourceSurfaceMeanDistanceM": 0.0018524302918285082,
+        "stations": [
+          -0.96,
+          -0.9,
+          -0.82,
+          -0.7,
+          -0.56,
+          -0.42,
+          -0.26,
+          -0.08,
+          0.12,
+          0.32,
+          0.5,
+          0.66,
+          0.8,
+          0.9,
+          0.96
+        ],
+        "triangles": 600,
+        "vertices": 302
+      },
+      "limb_rear_R": {
+        "axis": "Z",
+        "method": "authored_explicit_cross_section_loft_v2",
+        "namedLoops": {
+          "TOPO_limb_rear_R_body_joint": 20,
+          "TOPO_limb_rear_R_foot_joint": 20,
+          "TOPO_limb_rear_R_knee_joint": 20
+        },
+        "segments": 20,
+        "sourceSurfaceMaxDistanceM": 0.0028216170612722635,
+        "sourceSurfaceMeanDistanceM": 0.001852430550100911,
+        "stations": [
+          -0.96,
+          -0.9,
+          -0.82,
+          -0.7,
+          -0.56,
+          -0.42,
+          -0.26,
+          -0.08,
+          0.12,
+          0.32,
+          0.5,
+          0.66,
+          0.8,
+          0.9,
+          0.96
+        ],
+        "triangles": 600,
+        "vertices": 302
+      },
+      "muzzle": {
+        "axis": "Y",
+        "method": "authored_explicit_cross_section_loft_v2",
+        "namedLoops": {
+          "TOPO_muzzle_head_primary": 28,
+          "TOPO_muzzle_head_support": 28,
+          "TOPO_muzzle_mouth_primary": 28
+        },
+        "segments": 28,
+        "sourceSurfaceMaxDistanceM": 0.003216290147975087,
+        "sourceSurfaceMeanDistanceM": 0.0015878517458127897,
+        "stations": [
+          -0.96,
+          -0.88,
+          -0.76,
+          -0.64,
+          -0.5,
+          -0.34,
+          -0.16,
+          0.04,
+          0.24,
+          0.44,
+          0.62,
+          0.76,
+          0.88,
+          0.95
+        ],
+        "triangles": 784,
+        "vertices": 394
+      },
+      "torso": {
+        "axis": "Y",
+        "method": "authored_explicit_cross_section_loft_v2",
+        "namedLoops": {
+          "TOPO_torso_chest_primary": 32,
+          "TOPO_torso_chest_support": 32,
+          "TOPO_torso_rear_support": 32
+        },
+        "segments": 32,
+        "sourceSurfaceMaxDistanceM": 0.0039644488133490086,
+        "sourceSurfaceMeanDistanceM": 0.002658209461897271,
+        "stations": [
+          -0.96,
+          -0.9,
+          -0.82,
+          -0.72,
+          -0.62,
+          -0.48,
+          -0.32,
+          -0.16,
+          0.0,
+          0.18,
+          0.38,
+          0.56,
+          0.72,
+          0.84,
+          0.92,
+          0.96
+        ],
+        "triangles": 1024,
+        "vertices": 514
+      }
+    },
+    "triangles": 24944,
+    "uvComplete": true,
+    "vertices": 12576
+  },
+  "schema": "pokemon.bulbasaur.production-build/v2",
+  "scope": "builder-excluded non-canonical retopo/material/rig evidence; not certification",
+  "source": {
+    "canonicalSha256": "7233d8d8b03b5fa91d835a3069d25769155db93c9ef91b6066e215ed3895e9d8",
+    "components": 55,
+    "path": "/mnt/zer0models/pokemon_anime/pipeline/pokeapi/kanto-starters/bulbasaur/production/manual-v1/hypothesis-C/bulbasaur_manual_v1_C.blend",
+    "semanticFeatures": [
+      "bulb_attachment",
+      "bulb_core",
+      "bulb_lobe_1",
+      "bulb_lobe_2",
+      "bulb_lobe_3",
+      "bulb_lobe_4",
+      "bulb_lobe_5",
+      "bulb_lobe_6",
+      "chest",
+      "ear_L",
+      "ear_R",
+      "ear_inner_L",
+      "ear_inner_R",
+      "eye_L",
+      "eye_R",
+      "eye_glint_L",
+      "eye_glint_R",
+      "foot_front_L",
+      "foot_front_R",
+      "foot_rear_L",
+      "foot_rear_R",
+      "head",
+      "limb_front_L",
+      "limb_front_R",
+      "limb_rear_L",
+      "limb_rear_R",
+      "lower_jaw",
+      "mouth_cavity",
+      "muzzle",
+      "pupil_L",
+      "pupil_R",
+      "spot_body_L",
+      "spot_body_R",
+      "spot_cheek_L",
+      "spot_cheek_R",
+      "spot_forehead",
+      "spot_rump",
+      "toe_front_L_1",
+      "toe_front_L_2",
+      "toe_front_L_3",
+      "toe_front_R_1",
+      "toe_front_R_2",
+      "toe_front_R_3",
+      "toe_rear_L_1",
+      "toe_rear_L_2",
+      "toe_rear_L_3",
+      "toe_rear_R_1",
+      "toe_rear_R_2",
+      "toe_rear_R_3",
+      "tongue",
+      "tooth_+1",
+      "tooth_-1",
+      "torso",
+      "vine_root_socket_L",
+      "vine_root_socket_R"
+    ],
+    "sha256": "103bb4dd3074b423cf2d868f320283c786d1762dd59708ed775b81c76613178a",
+    "triangles": 32048,
+    "vertices": 16128
+  }
+}

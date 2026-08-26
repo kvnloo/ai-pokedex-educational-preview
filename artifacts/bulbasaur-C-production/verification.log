@@ -1,0 +1,167 @@
+VERIFY_ROOT=/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_9b50409d
+VERIFY_ARTIFACT_ROOT=/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_9b50409d/artifacts/bulbasaur-C-production
+--- Blender version ---
+Blender 5.2.0 LTS
+	build date: 2026-07-15
+	build time: 11:48:12
+	build commit date: 2026-07-13
+	build commit time: 15:20
+	build hash: fbe6228777e7
+	build branch: makepkg (modified)
+	build platform: Linux
+	build type: Release
+	build c flags:  -Wall -Werror=implicit-function-declaration -Wstrict-prototypes -Werror=return-type -Werror=vla -Wmissing-prototypes -Wno-char-subscripts -Wno-unknown-pragmas -Wpointer-arith -Wunused-parameter -Wwrite-strings -Wlogical-op -Wundef -Winit-self -Wmissing-include-dirs -Wno-div-by-zero -Wtype-limits -Wformat-signedness -Wrestrict -Wno-stringop-overread -Wno-stringop-overflow -Wnonnull -Wabsolute-value -Wuninitialized -Wredundant-decls -Wshadow -Wimplicit-fallthrough=5 -Wno-error=unused-but-set-variable -march=x86-64 -mtune=generic -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -Wformat -Werror=format-security         -fstack-clash-protection -fcf-protection         -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -g -ffile-prefix-map=/build/blender/src=/usr/src/debug/blender -march=x86-64-v2 -std=gnu11 -pipe -fPIC -funsigned-char -fno-strict-aliasing -ffp-contract=off
+	build c++ flags:  -Wuninitialized -Wredundant-decls -Wall -Wno-invalid-offsetof -Wno-sign-compare -Wlogical-op -Winit-self -Wmissing-include-dirs -Wno-div-by-zero -Wtype-limits -Werror=return-type -Wno-char-subscripts -Wno-unknown-pragmas -Wpointer-arith -Wunused-parameter -Wwrite-strings -Wundef -Wcomma-subscript -Wformat-signedness -Wrestrict -Wno-suggest-override -Wuninitialized -Wno-stringop-overread -Wno-stringop-overflow -Wimplicit-fallthrough=5 -Wundef -Wmissing-declarations -march=x86-64 -mtune=generic -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -Wformat -Werror=format-security         -fstack-clash-protection -fcf-protection         -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer  -g -ffile-prefix-map=/build/blender/src=/usr/src/debug/blender --param=max-vartrack-size=640000000 -Wno-error=format-security -march=x86-64-v2 -pipe -fPIC -funsigned-char -fno-strict-aliasing -ffp-contract=off
+	build link flags:  -latomic
+	build system: CMake
+--- Python syntax ---
+--- Immutable source hashes before build ---
+103bb4dd3074b423cf2d868f320283c786d1762dd59708ed775b81c76613178a  /mnt/zer0models/pokemon_anime/pipeline/pokeapi/kanto-starters/bulbasaur/production/manual-v1/hypothesis-C/bulbasaur_manual_v1_C.blend
+d57a5c3932ce8300d4fdee07c370657db263d1b43c6586561674b0d1e09c57a2  /mnt/zer0models/pokemon_anime/pipeline/pokeapi/kanto-starters/bulbasaur/production/manual-v1/blind-packet-v1/BALLOT.json
+3073e5d6c7790befa2d4400c4da3a1cbeab9a9ed9c995bade6acd9791b6117ca  /mnt/zer0models/pokemon_anime/pipeline/pokeapi/kanto-starters/bulbasaur/production/manual-v1/blind-packet-v1/X01-12role.png
+9e80625c6ccce1c5411d2c720cec0408abf645e7132af695d8f7c069b157dd59  /mnt/zer0models/pokemon_anime/pipeline/pokeapi/kanto-starters/bulbasaur/production/manual-v1/blind-packet-v1/X02-12role.png
+984aedbbc92438eda20c90cf2336a17cdb7d6ad83eb17fa52da4c8e30c2daf98  /mnt/zer0models/pokemon_anime/pipeline/pokeapi/kanto-starters/bulbasaur/production/manual-v1/blind-packet-v1/X03-12role.png
+{
+  "algorithm": "sha256(concat(len4be(relpath), relpath, sha256(file)))",
+  "fileCount": 281,
+  "root": "/mnt/zer0models/pokemon_anime/pipeline/pokeapi/kanto-starters/bulbasaur/production/manual-v1",
+  "selected": {
+    "blind-packet-v1/BALLOT.json": "d57a5c3932ce8300d4fdee07c370657db263d1b43c6586561674b0d1e09c57a2",
+    "blind-packet-v1/X01-12role.png": "3073e5d6c7790befa2d4400c4da3a1cbeab9a9ed9c995bade6acd9791b6117ca",
+    "blind-packet-v1/X02-12role.png": "9e80625c6ccce1c5411d2c720cec0408abf645e7132af695d8f7c069b157dd59",
+    "blind-packet-v1/X03-12role.png": "984aedbbc92438eda20c90cf2336a17cdb7d6ad83eb17fa52da4c8e30c2daf98",
+    "hypothesis-A/bulbasaur_manual_v1_A.blend": "b348eba8e90f5004831e5ddefbf8e52271e886fe4ef3d49546aef56f1f09f7f1",
+    "hypothesis-B/bulbasaur_manual_v1_B.blend": "ebe9a977c080986257df1f889e9d16b7d4f64a4421b2ff50999907c971fac00c",
+    "hypothesis-C/bulbasaur_manual_v1_C.blend": "103bb4dd3074b423cf2d868f320283c786d1762dd59708ed775b81c76613178a"
+  },
+  "totalBytes": 60177683,
+  "treeSha256": "ea4c0534306b8c821c5975f34c850955faf4f5919a938c03cdb49a30cf1d1dc2"
+}
+--- Fresh Blender 5.2 factory-startup build ---
+Traceback (most recent call last):
+  File "/usr/share/blender/5.2/scripts/modules/addon_utils.py", line 543, in enable
+    mod.register()
+    ~~~~~~~~~~~~^^
+  File "/usr/share/blender/5.2/scripts/addons_core/bl_pkg/__init__.py", line 986, in register
+    _remote_asset_library_restore_backups()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/share/blender/5.2/scripts/addons_core/bl_pkg/__init__.py", line 580, in _remote_asset_library_restore_backups
+    from _bpy_internal.assets.remote_library import listing_downloader
+  File "/usr/share/blender/5.2/scripts/modules/_bpy_internal/assets/remote_library/listing_downloader.py", line 32, in <module>
+    from _bpy_internal.http import downloader as http_dl
+  File "/usr/share/blender/5.2/scripts/modules/_bpy_internal/http/downloader.py", line 51, in <module>
+    import cattrs
+ModuleNotFoundError: No module named 'cattrs'
+00:00.306  blend            | Read blend: "/mnt/zer0models/pokemon_anime/pipeline/pokeapi/kanto-starters/bulbasaur/production/manual-v1/hypothesis-C/bulbasaur_manual_v1_C.blend"
+/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_9b50409d/tools/build_bulbasaur_c_production.py:364: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  material.use_nodes = True
+/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_9b50409d/tools/build_bulbasaur_c_production.py:593: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world.use_nodes = True
+/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_9b50409d/tools/build_bulbasaur_c_production.py:603: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  ground_material.use_nodes = True
+00:08.819  render           | Saved: '/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_9b50409d/artifacts/bulbasaur-C-production/review-renders/bind.png'
+00:09.085  render           | Saved: '/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_9b50409d/artifacts/bulbasaur-C-production/review-renders/extreme-crouch.png'
+00:09.345  render           | Saved: '/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_9b50409d/artifacts/bulbasaur-C-production/review-renders/extreme-reach-L.png'
+00:09.600  render           | Saved: '/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_9b50409d/artifacts/bulbasaur-C-production/review-renders/extreme-reach-R.png'
+00:09.854  render           | Saved: '/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_9b50409d/artifacts/bulbasaur-C-production/review-renders/extreme-bulb-jaw.png'
+/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_9b50409d/tools/build_bulbasaur_c_production.py:721: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  wire_material.use_nodes = True
+00:10.306  render           | Saved: '/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_9b50409d/artifacts/bulbasaur-C-production/review-renders/wireframe-bind-front34.png'
+00:10.670  render           | Saved: '/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_9b50409d/artifacts/bulbasaur-C-production/review-renders/wireframe-bind-side.png'
+00:10.813  render           | Saved: '/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_9b50409d/artifacts/bulbasaur-C-production/fixed-camera/retopo-clay/front.png'
+00:10.915  render           | Saved: '/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_9b50409d/artifacts/bulbasaur-C-production/fixed-camera/retopo-clay/front-right-diagnostic.png'
+00:11.020  render           | Saved: '/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_9b50409d/artifacts/bulbasaur-C-production/fixed-camera/retopo-clay/front-right.png'
+00:11.122  render           | Saved: '/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_9b50409d/artifacts/bulbasaur-C-production/fixed-camera/retopo-clay/right.png'
+00:11.222  render           | Saved: '/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_9b50409d/artifacts/bulbasaur-C-production/fixed-camera/retopo-clay/rear-right-diagnostic.png'
+00:11.328  render           | Saved: '/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_9b50409d/artifacts/bulbasaur-C-production/fixed-camera/retopo-clay/rear-right.png'
+00:11.439  render           | Saved: '/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_9b50409d/artifacts/bulbasaur-C-production/fixed-camera/retopo-clay/rear.png'
+00:11.542  render           | Saved: '/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_9b50409d/artifacts/bulbasaur-C-production/fixed-camera/retopo-clay/rear-left-diagnostic.png'
+00:11.641  render           | Saved: '/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_9b50409d/artifacts/bulbasaur-C-production/fixed-camera/retopo-clay/rear-left.png'
+00:11.748  render           | Saved: '/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_9b50409d/artifacts/bulbasaur-C-production/fixed-camera/retopo-clay/left.png'
+00:11.853  render           | Saved: '/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_9b50409d/artifacts/bulbasaur-C-production/fixed-camera/retopo-clay/front-left-diagnostic.png'
+00:11.966  render           | Saved: '/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_9b50409d/artifacts/bulbasaur-C-production/fixed-camera/retopo-clay/front-left.png'
+Exception in module register(): /usr/share/blender/5.2/scripts/addons_core/bl_pkg/__init__.py
+Info: Saved as "bulbasaur_C_production.blend"
+{"built": "/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_9b50409d/artifacts/bulbasaur-C-production/bulbasaur_C_production.blend", "sha256": "7347a1160ba32dfad3c8a55ac6b55c8e01750497ac349b725e43537cb834d4dc", "triangles": 24944, "vertices": 12576}
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-15 11:48:12)
+
+Blender quit
+--- Fresh reopen verification ---
+Traceback (most recent call last):
+  File "/usr/share/blender/5.2/scripts/modules/addon_utils.py", line 543, in enable
+    mod.register()
+    ~~~~~~~~~~~~^^
+  File "/usr/share/blender/5.2/scripts/addons_core/bl_pkg/__init__.py", line 986, in register
+    _remote_asset_library_restore_backups()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/share/blender/5.2/scripts/addons_core/bl_pkg/__init__.py", line 580, in _remote_asset_library_restore_backups
+    from _bpy_internal.assets.remote_library import listing_downloader
+  File "/usr/share/blender/5.2/scripts/modules/_bpy_internal/assets/remote_library/listing_downloader.py", line 32, in <module>
+    from _bpy_internal.http import downloader as http_dl
+  File "/usr/share/blender/5.2/scripts/modules/_bpy_internal/http/downloader.py", line 51, in <module>
+    import cattrs
+ModuleNotFoundError: No module named 'cattrs'
+00:00.305  blend            | Read blend: "/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_9b50409d/artifacts/bulbasaur-C-production/bulbasaur_C_production.blend"
+Exception in module register(): /usr/share/blender/5.2/scripts/addons_core/bl_pkg/__init__.py
+{"output": "/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_9b50409d/artifacts/bulbasaur-C-production/qa-final.json", "productionSha256": "7347a1160ba32dfad3c8a55ac6b55c8e01750497ac349b725e43537cb834d4dc", "qa": "PASS"}
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-15 11:48:12)
+
+Blender quit
+--- Relocated-copy reopen verification ---
+Traceback (most recent call last):
+  File "/usr/share/blender/5.2/scripts/modules/addon_utils.py", line 543, in enable
+    mod.register()
+    ~~~~~~~~~~~~^^
+  File "/usr/share/blender/5.2/scripts/addons_core/bl_pkg/__init__.py", line 986, in register
+    _remote_asset_library_restore_backups()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/share/blender/5.2/scripts/addons_core/bl_pkg/__init__.py", line 580, in _remote_asset_library_restore_backups
+    from _bpy_internal.assets.remote_library import listing_downloader
+  File "/usr/share/blender/5.2/scripts/modules/_bpy_internal/assets/remote_library/listing_downloader.py", line 32, in <module>
+    from _bpy_internal.http import downloader as http_dl
+  File "/usr/share/blender/5.2/scripts/modules/_bpy_internal/http/downloader.py", line 51, in <module>
+    import cattrs
+ModuleNotFoundError: No module named 'cattrs'
+00:00.220  blend            | Read blend: "/tmp/bulbasaur-C-relocated.FjNYA7/bulbasaur_C_production.blend"
+Exception in module register(): /usr/share/blender/5.2/scripts/addons_core/bl_pkg/__init__.py
+{"output": "/tmp/bulbasaur-C-relocated.FjNYA7/qa-relocated.json", "productionSha256": "7347a1160ba32dfad3c8a55ac6b55c8e01750497ac349b725e43537cb834d4dc", "qa": "PASS"}
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-15 11:48:12)
+
+Blender quit
+RELOCATED_ROOT=/tmp/bulbasaur-C-relocated.FjNYA7
+--- Immutable evidence hash after Blender runs ---
+{
+  "algorithm": "sha256(concat(len4be(relpath), relpath, sha256(file)))",
+  "fileCount": 281,
+  "root": "/mnt/zer0models/pokemon_anime/pipeline/pokeapi/kanto-starters/bulbasaur/production/manual-v1",
+  "selected": {
+    "blind-packet-v1/BALLOT.json": "d57a5c3932ce8300d4fdee07c370657db263d1b43c6586561674b0d1e09c57a2",
+    "blind-packet-v1/X01-12role.png": "3073e5d6c7790befa2d4400c4da3a1cbeab9a9ed9c995bade6acd9791b6117ca",
+    "blind-packet-v1/X02-12role.png": "9e80625c6ccce1c5411d2c720cec0408abf645e7132af695d8f7c069b157dd59",
+    "blind-packet-v1/X03-12role.png": "984aedbbc92438eda20c90cf2336a17cdb7d6ad83eb17fa52da4c8e30c2daf98",
+    "hypothesis-A/bulbasaur_manual_v1_A.blend": "b348eba8e90f5004831e5ddefbf8e52271e886fe4ef3d49546aef56f1f09f7f1",
+    "hypothesis-B/bulbasaur_manual_v1_B.blend": "ebe9a977c080986257df1f889e9d16b7d4f64a4421b2ff50999907c971fac00c",
+    "hypothesis-C/bulbasaur_manual_v1_C.blend": "103bb4dd3074b423cf2d868f320283c786d1762dd59708ed775b81c76613178a"
+  },
+  "totalBytes": 60177683,
+  "treeSha256": "ea4c0534306b8c821c5975f34c850955faf4f5919a938c03cdb49a30cf1d1dc2"
+}
+--- Product gates ---
+npm notice run twilight-route@0.1.0 typecheck
+npm notice run tsc --noEmit
+npm notice run twilight-route@0.1.0 build
+npm notice run vite build
+vite v6.4.3 building for production...
+transforming...
+✓ 26 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                26.48 kB │ gzip:   6.54 kB
+dist/assets/main-CjdaM91I.js  717.18 kB │ gzip: 197.89 kB │ map: 3,502.90 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 1.20s
+FINAL_VERIFICATION_PASS

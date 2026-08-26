@@ -1,0 +1,263 @@
+{
+  "artifact": {
+    "bytes": 380325,
+    "path": "bulbasaur_C_production.blend",
+    "sha256": "7347a1160ba32dfad3c8a55ac6b55c8e01750497ac349b725e43537cb834d4dc"
+  },
+  "authority": {
+    "canonicalSha256": "7233d8d8b03b5fa91d835a3069d25769155db93c9ef91b6066e215ed3895e9d8",
+    "frozenEvidenceFileCount": 281,
+    "frozenEvidencePreservedByteForByte": true,
+    "frozenEvidenceTreeAfter": "ea4c0534306b8c821c5975f34c850955faf4f5919a938c03cdb49a30cf1d1dc2",
+    "frozenEvidenceTreeBefore": "ea4c0534306b8c821c5975f34c850955faf4f5919a938c03cdb49a30cf1d1dc2",
+    "frozenPanelSha256": "3073e5d6c7790befa2d4400c4da3a1cbeab9a9ed9c995bade6acd9791b6117ca",
+    "promotedSourceSha256": "103bb4dd3074b423cf2d868f320283c786d1762dd59708ed775b81c76613178a"
+  },
+  "builderDecision": null,
+  "builderMayCertify": false,
+  "candidate": "promoted-hypothesis-C-authored-production-retopo-v2",
+  "canonicalCertification": false,
+  "evidence": {
+    "bulbasaur_C_production.blend": {
+      "bytes": 380325,
+      "sha256": "7347a1160ba32dfad3c8a55ac6b55c8e01750497ac349b725e43537cb834d4dc"
+    },
+    "fixed-camera/source-vs-retopo-clay.png": {
+      "bytes": 2867631,
+      "sha256": "748a726257877f76f51368fe7681d89b10da4a23b872fb532e7b1e6686aa1456"
+    },
+    "frozen-inputs-after.json": {
+      "bytes": 1101,
+      "sha256": "3950623257b2d843eefcc0d78b88a8280874359fb016d173bfa53bac415e827a"
+    },
+    "frozen-inputs-before.json": {
+      "bytes": 611,
+      "sha256": "d5281843190c0da8b70601a094926f06a155ce2615f90051d92e0da026366929"
+    },
+    "qa-build.json": {
+      "bytes": 20814,
+      "sha256": "8af57c77168ce6ed5e945dca7d8526125810a304100565324c96c9f3a328ff78"
+    },
+    "qa-final.json": {
+      "bytes": 61692,
+      "sha256": "3b4e144bbf6629f6c6f978e020272236501cd8979ea7e039f34eed0678bc0d99"
+    },
+    "qa-relocated.json": {
+      "bytes": 61623,
+      "sha256": "da3d72a3b03d52e664bf8d4e02e024c6458913f6fbe3ccf9edc90c862b6fb8f3"
+    },
+    "review-renders/bind.png": {
+      "bytes": 516237,
+      "sha256": "f0a7fd69cc2ba80aebfd3bf894bc0583468473b7e9616082a99af8fe8d716ed9"
+    },
+    "review-renders/extreme-bulb-jaw.png": {
+      "bytes": 517311,
+      "sha256": "3c06c5c0d73ecc3934f7346bec447a51d3c9e494067fdf9db6a7e33732982a4d"
+    },
+    "review-renders/extreme-crouch.png": {
+      "bytes": 523313,
+      "sha256": "a618861cb5f84fde1c4420d635fafdf064eeda457320b47cd8babf272f0acb0a"
+    },
+    "review-renders/extreme-reach-L.png": {
+      "bytes": 527356,
+      "sha256": "8ff17114aa510d4fa4a3d4fb82019b5b907fc1d87f363a83cfe7958555fa2154"
+    },
+    "review-renders/extreme-reach-R.png": {
+      "bytes": 514715,
+      "sha256": "184aad55a2c5b48305052fd3e425915ae82a02dcc58df7744e14e44d1c0f0af4"
+    },
+    "review-renders/wireframe-bind-front34.png": {
+      "bytes": 592761,
+      "sha256": "f8684349e7ffb3acedb783576bb50d6ef84579e6473948a135ada21e9a31585d"
+    },
+    "review-renders/wireframe-bind-side.png": {
+      "bytes": 657974,
+      "sha256": "0c86b1b1aae41a94b3ec3925ca456f988b1422e0099b1144a0ca59bb47c8dd49"
+    },
+    "verification.log": {
+      "bytes": 15296,
+      "sha256": "068b478f0d4b9c71a045d1ec7587d4f6b33f764236ec4ee3d162a9d142fa07bb"
+    }
+  },
+  "explicitLowConfidenceHypotheses": [
+    "rear rump contour retained from promoted C",
+    "twin vine-root socket positions retained as explicit rig metadata"
+  ],
+  "fixedCameraComparison": {
+    "layout": "top immutable source C; bottom authored retopo; twelve matched roles",
+    "path": "fixed-camera/source-vs-retopo-clay.png",
+    "sha256": "748a726257877f76f51368fe7681d89b10da4a23b872fb532e7b1e6686aa1456"
+  },
+  "forbiddenActionsConfirmedAbsent": {
+    "canonicalCertification": true,
+    "gameplayAnimation": true,
+    "merge": true,
+    "productIntegration": true,
+    "publication": true
+  },
+  "mechanicalQa": {
+    "bones": 22,
+    "deformBones": 21,
+    "materials": [
+      "PBR_accent",
+      "PBR_bulb",
+      "PBR_bulb_dark",
+      "PBR_eye",
+      "PBR_mouth",
+      "PBR_pupil",
+      "PBR_skin",
+      "PBR_spot"
+    ],
+    "meshObjects": 55,
+    "poseDeclarations": {
+      "bind": {
+        "footAssemblyMinZ": {
+          "foot_front_L": 8.940696716308594e-08,
+          "foot_front_R": 3.725290298461914e-08,
+          "foot_rear_L": 4.470348358154297e-08,
+          "foot_rear_R": 4.470348358154297e-08
+        },
+        "globalRigTranslation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "lifted": [],
+        "planted": [
+          "foot_front_L",
+          "foot_front_R",
+          "foot_rear_L",
+          "foot_rear_R"
+        ]
+      },
+      "extreme-bulb-jaw": {
+        "footAssemblyMinZ": {
+          "foot_front_L": 8.940696716308594e-08,
+          "foot_front_R": 3.725290298461914e-08,
+          "foot_rear_L": 4.470348358154297e-08,
+          "foot_rear_R": 4.470348358154297e-08
+        },
+        "globalRigTranslation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "lifted": [],
+        "planted": [
+          "foot_front_L",
+          "foot_front_R",
+          "foot_rear_L",
+          "foot_rear_R"
+        ]
+      },
+      "extreme-crouch": {
+        "footAssemblyMinZ": {
+          "foot_front_L": 4.26173210144043e-06,
+          "foot_front_R": -9.5367431640625e-07,
+          "foot_rear_L": 7.450580596923828e-08,
+          "foot_rear_R": 5.960464477539063e-08
+        },
+        "globalRigTranslation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "lifted": [],
+        "planted": [
+          "foot_front_L",
+          "foot_front_R",
+          "foot_rear_L",
+          "foot_rear_R"
+        ]
+      },
+      "extreme-reach-L": {
+        "footAssemblyMinZ": {
+          "foot_front_L": 0.07000002264976501,
+          "foot_front_R": -1.341104507446289e-07,
+          "foot_rear_L": 4.470348358154297e-08,
+          "foot_rear_R": 4.470348358154297e-08
+        },
+        "globalRigTranslation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "lifted": [
+          "foot_front_L"
+        ],
+        "planted": [
+          "foot_front_R",
+          "foot_rear_L",
+          "foot_rear_R"
+        ]
+      },
+      "extreme-reach-R": {
+        "footAssemblyMinZ": {
+          "foot_front_L": -1.1175870895385742e-07,
+          "foot_front_R": 0.0700000524520874,
+          "foot_rear_L": 4.470348358154297e-08,
+          "foot_rear_R": 4.470348358154297e-08
+        },
+        "globalRigTranslation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "lifted": [
+          "foot_front_R"
+        ],
+        "planted": [
+          "foot_front_L",
+          "foot_rear_L",
+          "foot_rear_R"
+        ]
+      }
+    },
+    "thresholds": {
+      "bulbContactMaxP95AbsoluteDistanceM": 0.13,
+      "bulbContactMaxPenetrationM": 0.14,
+      "bulbContactMaxPositiveSeparationM": 0.025,
+      "bulbContactMinInsideFraction": 0.5,
+      "edgeLengthRatioP05Min": 0.62,
+      "edgeLengthRatioP95Max": 1.48,
+      "footContactToleranceM": 0.006,
+      "forbiddenIntersectionMaxPairs": 0,
+      "liftedFootClearanceM": 0.045,
+      "maxInfluencesPerVertex": 4,
+      "minBoundaryMultiInfluenceFraction": 0.8,
+      "minQuadFraction": 0.84,
+      "minSurfaceMultiInfluenceFraction": 0.18,
+      "selfIntersectionMaxPairs": 0,
+      "sourceSurfaceMaxDistanceM": 0.035,
+      "sourceSurfaceMeanDistanceM": 0.01,
+      "surfaceAreaRatioMax": 1.36,
+      "surfaceAreaRatioMin": 0.72,
+      "volumeRatioMax": 1.32,
+      "volumeRatioMin": 0.68
+    },
+    "topologyObjects": 20,
+    "triangles": 24944,
+    "verdict": "PASS_NON_CANONICAL_AUTHORED_RETOPO_SKIN_DEFORMATION_QA",
+    "vertices": 12576
+  },
+  "qualityLabel": "production-retopo/rig candidate; independent review pending; not canonical",
+  "relocationTest": {
+    "productionSha256": "7347a1160ba32dfad3c8a55ac6b55c8e01750497ac349b725e43537cb834d4dc",
+    "reopenedAndVerified": true,
+    "reopenedFrom": "/tmp/bulbasaur-C-relocated.FjNYA7/bulbasaur_C_production.blend",
+    "sameBytesAsOriginal": true
+  },
+  "reviewInstruction": "Independent reviewer must inspect the real .blend, wireframes, fixed-camera comparison, and all posed renders; passing numeric QA cannot certify identity or art quality.",
+  "schema": "pokemon.bulbasaur.builder-excluded-review/v2",
+  "scope": [
+    "explicit authored cross-section and saddle-torus retopology; no Decimate/UNSUBDIV/remesh/shrinkwrap",
+    "55 semantic features preserved",
+    "eight consolidated glTF metallic-roughness PBR materials and complete UVs",
+    "22-bone hierarchy with upper/lower/foot chains and <=4 normalized influences",
+    "closed-loop/valence evidence at torso/chest/head, every limb/foot joint, and bulb saddle",
+    "five deterministic evaluated poses with every foot declared planted or lifted",
+    "per-foot armature-space contact controls; no global rig/root translation",
+    "full 96-vertex bulb attachment contact evaluation",
+    "self/intersection and posed volume/area/edge preservation gates versus bind"
+  ]
+}

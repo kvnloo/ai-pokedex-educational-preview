@@ -1,0 +1,1837 @@
+{
+  "blenderVersion": "5.2.0 LTS",
+  "certification": false,
+  "deformation": {
+    "poses": {
+      "bind": {
+        "bulbAttachment": {
+          "groups": {
+            "TOPO_bulb_torso_contact_center": {
+              "maxPositiveSeparationM": -0.09113342501223087,
+              "meanSignedDistanceM": -0.09854309211959844,
+              "verticesEvaluated": 32
+            },
+            "TOPO_bulb_torso_contact_inner": {
+              "maxPositiveSeparationM": -0.061721753096207976,
+              "meanSignedDistanceM": -0.07005135570534549,
+              "verticesEvaluated": 32
+            },
+            "TOPO_bulb_torso_contact_outer": {
+              "maxPositiveSeparationM": -0.09806390106678009,
+              "meanSignedDistanceM": -0.10339294715913638,
+              "verticesEvaluated": 32
+            }
+          },
+          "insideFraction": 1.0,
+          "maxPenetrationM": 0.11331278950092383,
+          "maxPositiveSeparationM": -0.061721753096207976,
+          "p95AbsoluteDistanceM": 0.11089904420077801,
+          "verticesEvaluated": 96
+        },
+        "declaredLiftedFeet": [],
+        "declaredPlantedFeet": [
+          "foot_front_L",
+          "foot_front_R",
+          "foot_rear_L",
+          "foot_rear_R"
+        ],
+        "footAssemblyMinZ": {
+          "foot_front_L": 8.940696716308594e-08,
+          "foot_front_R": 3.725290298461914e-08,
+          "foot_rear_L": 4.470348358154297e-08,
+          "foot_rear_R": 4.470348358154297e-08
+        },
+        "forbiddenIntersectionPairs": {
+          "foot_front_L|foot_front_R": 0,
+          "foot_front_L|foot_rear_L": 0,
+          "foot_front_R|foot_rear_R": 0,
+          "foot_rear_L|foot_rear_R": 0,
+          "head|bulb_core": 0,
+          "limb_front_L|limb_front_R": 0,
+          "limb_rear_L|limb_rear_R": 0,
+          "muzzle|bulb_attachment": 0
+        },
+        "globalRigTranslation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "perFootArmatureSpaceZCorrectionsM": {
+          "foot_front_L": -0.020394653,
+          "foot_front_R": -0.02039475,
+          "foot_rear_L": -0.020394534,
+          "foot_rear_R": -0.020394534
+        },
+        "selfIntersectionPairs": {
+          "bulb_attachment": 0,
+          "bulb_core": 0,
+          "bulb_lobe_1": 0,
+          "bulb_lobe_2": 0,
+          "bulb_lobe_3": 0,
+          "bulb_lobe_4": 0,
+          "bulb_lobe_5": 0,
+          "bulb_lobe_6": 0,
+          "chest": 0,
+          "foot_front_L": 0,
+          "foot_front_R": 0,
+          "foot_rear_L": 0,
+          "foot_rear_R": 0,
+          "head": 0,
+          "limb_front_L": 0,
+          "limb_front_R": 0,
+          "limb_rear_L": 0,
+          "limb_rear_R": 0,
+          "muzzle": 0,
+          "torso": 0
+        },
+        "shapePreservation": {
+          "bulb_attachment": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "bulb_core": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "bulb_lobe_1": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "bulb_lobe_2": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "bulb_lobe_3": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "bulb_lobe_4": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "bulb_lobe_5": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "bulb_lobe_6": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "chest": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "foot_front_L": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "foot_front_R": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "foot_rear_L": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "foot_rear_R": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "head": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "limb_front_L": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "limb_front_R": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "limb_rear_L": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "limb_rear_R": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "muzzle": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "torso": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          }
+        }
+      },
+      "extreme-bulb-jaw": {
+        "bulbAttachment": {
+          "groups": {
+            "TOPO_bulb_torso_contact_center": {
+              "maxPositiveSeparationM": -0.08127843448892236,
+              "meanSignedDistanceM": -0.09859483675977998,
+              "verticesEvaluated": 32
+            },
+            "TOPO_bulb_torso_contact_inner": {
+              "maxPositiveSeparationM": -0.04731387784704566,
+              "meanSignedDistanceM": -0.07038188292750647,
+              "verticesEvaluated": 32
+            },
+            "TOPO_bulb_torso_contact_outer": {
+              "maxPositiveSeparationM": -0.09080689935944974,
+              "meanSignedDistanceM": -0.10352474226792197,
+              "verticesEvaluated": 32
+            }
+          },
+          "insideFraction": 1.0,
+          "maxPenetrationM": 0.12404942244756967,
+          "maxPositiveSeparationM": -0.04731387784704566,
+          "p95AbsoluteDistanceM": 0.1212852243334055,
+          "verticesEvaluated": 96
+        },
+        "declaredLiftedFeet": [],
+        "declaredPlantedFeet": [
+          "foot_front_L",
+          "foot_front_R",
+          "foot_rear_L",
+          "foot_rear_R"
+        ],
+        "footAssemblyMinZ": {
+          "foot_front_L": 8.940696716308594e-08,
+          "foot_front_R": 3.725290298461914e-08,
+          "foot_rear_L": 4.470348358154297e-08,
+          "foot_rear_R": 4.470348358154297e-08
+        },
+        "forbiddenIntersectionPairs": {
+          "foot_front_L|foot_front_R": 0,
+          "foot_front_L|foot_rear_L": 0,
+          "foot_front_R|foot_rear_R": 0,
+          "foot_rear_L|foot_rear_R": 0,
+          "head|bulb_core": 0,
+          "limb_front_L|limb_front_R": 0,
+          "limb_rear_L|limb_rear_R": 0,
+          "muzzle|bulb_attachment": 0
+        },
+        "globalRigTranslation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "perFootArmatureSpaceZCorrectionsM": {
+          "foot_front_L": -0.020394653,
+          "foot_front_R": -0.02039475,
+          "foot_rear_L": -0.020394534,
+          "foot_rear_R": -0.020394534
+        },
+        "selfIntersectionPairs": {
+          "bulb_attachment": 0,
+          "bulb_core": 0,
+          "bulb_lobe_1": 0,
+          "bulb_lobe_2": 0,
+          "bulb_lobe_3": 0,
+          "bulb_lobe_4": 0,
+          "bulb_lobe_5": 0,
+          "bulb_lobe_6": 0,
+          "chest": 0,
+          "foot_front_L": 0,
+          "foot_front_R": 0,
+          "foot_rear_L": 0,
+          "foot_rear_R": 0,
+          "head": 0,
+          "limb_front_L": 0,
+          "limb_front_R": 0,
+          "limb_rear_L": 0,
+          "limb_rear_R": 0,
+          "muzzle": 0,
+          "torso": 0
+        },
+        "shapePreservation": {
+          "bulb_attachment": {
+            "edgeLengthRatioP05VsBind": 0.9999991106799806,
+            "edgeLengthRatioP95VsBind": 1.0000005740202729,
+            "surfaceAreaRatioVsBind": 0.9999997947845063,
+            "volumeRatioVsBind": 0.9999994553898353
+          },
+          "bulb_core": {
+            "edgeLengthRatioP05VsBind": 0.9398211075834373,
+            "edgeLengthRatioP95VsBind": 1.0808029400876782,
+            "surfaceAreaRatioVsBind": 1.0032036303318423,
+            "volumeRatioVsBind": 1.0005023656443814
+          },
+          "bulb_lobe_1": {
+            "edgeLengthRatioP05VsBind": 0.9114735439252918,
+            "edgeLengthRatioP95VsBind": 1.063522148982567,
+            "surfaceAreaRatioVsBind": 0.9887510194466282,
+            "volumeRatioVsBind": 0.9830707548572549
+          },
+          "bulb_lobe_2": {
+            "edgeLengthRatioP05VsBind": 0.9548071348146732,
+            "edgeLengthRatioP95VsBind": 1.042122556505764,
+            "surfaceAreaRatioVsBind": 0.9964372467106286,
+            "volumeRatioVsBind": 0.9951793737488058
+          },
+          "bulb_lobe_3": {
+            "edgeLengthRatioP05VsBind": 0.9707339007368899,
+            "edgeLengthRatioP95VsBind": 1.0581274461181072,
+            "surfaceAreaRatioVsBind": 1.0093479457438717,
+            "volumeRatioVsBind": 1.0096353703420806
+          },
+          "bulb_lobe_4": {
+            "edgeLengthRatioP05VsBind": 0.9425677697415685,
+            "edgeLengthRatioP95VsBind": 1.1000730695530176,
+            "surfaceAreaRatioVsBind": 1.0134328702398259,
+            "volumeRatioVsBind": 1.0107870011574733
+          },
+          "bulb_lobe_5": {
+            "edgeLengthRatioP05VsBind": 0.9734539958864304,
+            "edgeLengthRatioP95VsBind": 1.0479186555918891,
+            "surfaceAreaRatioVsBind": 1.005115255098386,
+            "volumeRatioVsBind": 1.0029739996895028
+          },
+          "bulb_lobe_6": {
+            "edgeLengthRatioP05VsBind": 0.9519471193147316,
+            "edgeLengthRatioP95VsBind": 1.0401663739750955,
+            "surfaceAreaRatioVsBind": 0.9922528664361346,
+            "volumeRatioVsBind": 0.9886350941465023
+          },
+          "chest": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "foot_front_L": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "foot_front_R": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "foot_rear_L": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "foot_rear_R": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "head": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "limb_front_L": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "limb_front_R": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "limb_rear_L": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "limb_rear_R": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "muzzle": {
+            "edgeLengthRatioP05VsBind": 0.9282116232410405,
+            "edgeLengthRatioP95VsBind": 1.0310194526400045,
+            "surfaceAreaRatioVsBind": 0.9916193349302365,
+            "volumeRatioVsBind": 0.9815596638118107
+          },
+          "torso": {
+            "edgeLengthRatioP05VsBind": 0.9732771683413506,
+            "edgeLengthRatioP95VsBind": 1.0345869426790202,
+            "surfaceAreaRatioVsBind": 0.9992318746544111,
+            "volumeRatioVsBind": 0.9953519102857004
+          }
+        }
+      },
+      "extreme-crouch": {
+        "bulbAttachment": {
+          "groups": {
+            "TOPO_bulb_torso_contact_center": {
+              "maxPositiveSeparationM": -0.09113343856006395,
+              "meanSignedDistanceM": -0.10096575387979101,
+              "verticesEvaluated": 32
+            },
+            "TOPO_bulb_torso_contact_inner": {
+              "maxPositiveSeparationM": -0.061721784935798496,
+              "meanSignedDistanceM": -0.07381907879062055,
+              "verticesEvaluated": 32
+            },
+            "TOPO_bulb_torso_contact_outer": {
+              "maxPositiveSeparationM": -0.09806391067104414,
+              "meanSignedDistanceM": -0.1045565822532808,
+              "verticesEvaluated": 32
+            }
+          },
+          "insideFraction": 1.0,
+          "maxPenetrationM": 0.12460310538881458,
+          "maxPositiveSeparationM": -0.061721784935798496,
+          "p95AbsoluteDistanceM": 0.11858362704515457,
+          "verticesEvaluated": 96
+        },
+        "declaredLiftedFeet": [],
+        "declaredPlantedFeet": [
+          "foot_front_L",
+          "foot_front_R",
+          "foot_rear_L",
+          "foot_rear_R"
+        ],
+        "footAssemblyMinZ": {
+          "foot_front_L": 4.26173210144043e-06,
+          "foot_front_R": -9.5367431640625e-07,
+          "foot_rear_L": 7.450580596923828e-08,
+          "foot_rear_R": 5.960464477539063e-08
+        },
+        "forbiddenIntersectionPairs": {
+          "foot_front_L|foot_front_R": 0,
+          "foot_front_L|foot_rear_L": 0,
+          "foot_front_R|foot_rear_R": 0,
+          "foot_rear_L|foot_rear_R": 0,
+          "head|bulb_core": 0,
+          "limb_front_L|limb_front_R": 0,
+          "limb_rear_L|limb_rear_R": 0,
+          "muzzle|bulb_attachment": 0
+        },
+        "globalRigTranslation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "perFootArmatureSpaceZCorrectionsM": {
+          "foot_front_L": -0.010081202,
+          "foot_front_R": 0.002762631,
+          "foot_rear_L": 0.05120863,
+          "foot_rear_R": 0.062265143
+        },
+        "selfIntersectionPairs": {
+          "bulb_attachment": 0,
+          "bulb_core": 0,
+          "bulb_lobe_1": 0,
+          "bulb_lobe_2": 0,
+          "bulb_lobe_3": 0,
+          "bulb_lobe_4": 0,
+          "bulb_lobe_5": 0,
+          "bulb_lobe_6": 0,
+          "chest": 0,
+          "foot_front_L": 0,
+          "foot_front_R": 0,
+          "foot_rear_L": 0,
+          "foot_rear_R": 0,
+          "head": 0,
+          "limb_front_L": 0,
+          "limb_front_R": 0,
+          "limb_rear_L": 0,
+          "limb_rear_R": 0,
+          "muzzle": 0,
+          "torso": 0
+        },
+        "shapePreservation": {
+          "bulb_attachment": {
+            "edgeLengthRatioP05VsBind": 0.9999994107814403,
+            "edgeLengthRatioP95VsBind": 1.0000004734605257,
+            "surfaceAreaRatioVsBind": 0.9999999421077754,
+            "volumeRatioVsBind": 0.9999998014586685
+          },
+          "bulb_core": {
+            "edgeLengthRatioP05VsBind": 0.9999988549035558,
+            "edgeLengthRatioP95VsBind": 1.0000010389336127,
+            "surfaceAreaRatioVsBind": 0.9999999007329027,
+            "volumeRatioVsBind": 0.9999998231530626
+          },
+          "bulb_lobe_1": {
+            "edgeLengthRatioP05VsBind": 0.999997895710325,
+            "edgeLengthRatioP95VsBind": 1.0000022049723878,
+            "surfaceAreaRatioVsBind": 0.9999999584173427,
+            "volumeRatioVsBind": 0.9999996922187256
+          },
+          "bulb_lobe_2": {
+            "edgeLengthRatioP05VsBind": 0.9999974708519157,
+            "edgeLengthRatioP95VsBind": 1.0000022449818595,
+            "surfaceAreaRatioVsBind": 0.999999866323276,
+            "volumeRatioVsBind": 1.0000001617120655
+          },
+          "bulb_lobe_3": {
+            "edgeLengthRatioP05VsBind": 0.9999976155524252,
+            "edgeLengthRatioP95VsBind": 1.0000019910523847,
+            "surfaceAreaRatioVsBind": 0.9999999728905479,
+            "volumeRatioVsBind": 1.0000001416558155
+          },
+          "bulb_lobe_4": {
+            "edgeLengthRatioP05VsBind": 0.9999976002983049,
+            "edgeLengthRatioP95VsBind": 1.0000021639328251,
+            "surfaceAreaRatioVsBind": 0.9999999225200412,
+            "volumeRatioVsBind": 0.9999996562118955
+          },
+          "bulb_lobe_5": {
+            "edgeLengthRatioP05VsBind": 0.9999976100083833,
+            "edgeLengthRatioP95VsBind": 1.0000023682934187,
+            "surfaceAreaRatioVsBind": 0.9999999451035039,
+            "volumeRatioVsBind": 0.9999995463921784
+          },
+          "bulb_lobe_6": {
+            "edgeLengthRatioP05VsBind": 0.9999976934905899,
+            "edgeLengthRatioP95VsBind": 1.0000022503513424,
+            "surfaceAreaRatioVsBind": 0.9999999578627249,
+            "volumeRatioVsBind": 1.000000276741551
+          },
+          "chest": {
+            "edgeLengthRatioP05VsBind": 0.9976971580328765,
+            "edgeLengthRatioP95VsBind": 1.0151213313902923,
+            "surfaceAreaRatioVsBind": 1.0032108021176167,
+            "volumeRatioVsBind": 1.0044609638463946
+          },
+          "foot_front_L": {
+            "edgeLengthRatioP05VsBind": 0.9890109725810112,
+            "edgeLengthRatioP95VsBind": 1.000001641696299,
+            "surfaceAreaRatioVsBind": 0.9953925153724091,
+            "volumeRatioVsBind": 0.9948213778332616
+          },
+          "foot_front_R": {
+            "edgeLengthRatioP05VsBind": 0.9987336704688636,
+            "edgeLengthRatioP95VsBind": 1.0030955088490516,
+            "surfaceAreaRatioVsBind": 1.000726044112139,
+            "volumeRatioVsBind": 1.001419354705791
+          },
+          "foot_rear_L": {
+            "edgeLengthRatioP05VsBind": 0.9613063660957097,
+            "edgeLengthRatioP95VsBind": 1.0000014338424503,
+            "surfaceAreaRatioVsBind": 0.9813146431969809,
+            "volumeRatioVsBind": 0.9747754948116053
+          },
+          "foot_rear_R": {
+            "edgeLengthRatioP05VsBind": 0.9557330129798419,
+            "edgeLengthRatioP95VsBind": 1.0000014718697887,
+            "surfaceAreaRatioVsBind": 0.9780608046959176,
+            "volumeRatioVsBind": 0.9693291835892852
+          },
+          "head": {
+            "edgeLengthRatioP05VsBind": 0.9926913423259541,
+            "edgeLengthRatioP95VsBind": 1.0595116637161341,
+            "surfaceAreaRatioVsBind": 1.012379165549608,
+            "volumeRatioVsBind": 1.0187375410640633
+          },
+          "limb_front_L": {
+            "edgeLengthRatioP05VsBind": 0.8130641016354058,
+            "edgeLengthRatioP95VsBind": 1.3135025969772025,
+            "surfaceAreaRatioVsBind": 1.0053545941987896,
+            "volumeRatioVsBind": 0.9914982060467865
+          },
+          "limb_front_R": {
+            "edgeLengthRatioP05VsBind": 0.8263220592295939,
+            "edgeLengthRatioP95VsBind": 1.3499782410846124,
+            "surfaceAreaRatioVsBind": 1.0114753450304796,
+            "volumeRatioVsBind": 1.0040083497540895
+          },
+          "limb_rear_L": {
+            "edgeLengthRatioP05VsBind": 0.6329121722991045,
+            "edgeLengthRatioP95VsBind": 1.283818506439524,
+            "surfaceAreaRatioVsBind": 0.9448311024564362,
+            "volumeRatioVsBind": 0.9025756015003275
+          },
+          "limb_rear_R": {
+            "edgeLengthRatioP05VsBind": 0.6583362395345476,
+            "edgeLengthRatioP95VsBind": 1.3008991902663958,
+            "surfaceAreaRatioVsBind": 0.9615906265312775,
+            "volumeRatioVsBind": 0.9255687150962596
+          },
+          "muzzle": {
+            "edgeLengthRatioP05VsBind": 0.9999982324523837,
+            "edgeLengthRatioP95VsBind": 1.0000012497304833,
+            "surfaceAreaRatioVsBind": 0.9999997779562755,
+            "volumeRatioVsBind": 1.0000001560493097
+          },
+          "torso": {
+            "edgeLengthRatioP05VsBind": 0.9933441557813318,
+            "edgeLengthRatioP95VsBind": 1.0410795712601093,
+            "surfaceAreaRatioVsBind": 1.008158423519189,
+            "volumeRatioVsBind": 1.0099328238311969
+          }
+        }
+      },
+      "extreme-reach-L": {
+        "bulbAttachment": {
+          "groups": {
+            "TOPO_bulb_torso_contact_center": {
+              "maxPositiveSeparationM": -0.09113342501223087,
+              "meanSignedDistanceM": -0.09887067077170286,
+              "verticesEvaluated": 32
+            },
+            "TOPO_bulb_torso_contact_inner": {
+              "maxPositiveSeparationM": -0.061721753096207976,
+              "meanSignedDistanceM": -0.07048915666874223,
+              "verticesEvaluated": 32
+            },
+            "TOPO_bulb_torso_contact_outer": {
+              "maxPositiveSeparationM": -0.09806390106678009,
+              "meanSignedDistanceM": -0.10361576280024565,
+              "verticesEvaluated": 32
+            }
+          },
+          "insideFraction": 1.0,
+          "maxPenetrationM": 0.12011132106999867,
+          "maxPositiveSeparationM": -0.061721753096207976,
+          "p95AbsoluteDistanceM": 0.11513869650661945,
+          "verticesEvaluated": 96
+        },
+        "declaredLiftedFeet": [
+          "foot_front_L"
+        ],
+        "declaredPlantedFeet": [
+          "foot_front_R",
+          "foot_rear_L",
+          "foot_rear_R"
+        ],
+        "footAssemblyMinZ": {
+          "foot_front_L": 0.07000002264976501,
+          "foot_front_R": -1.341104507446289e-07,
+          "foot_rear_L": 4.470348358154297e-08,
+          "foot_rear_R": 4.470348358154297e-08
+        },
+        "forbiddenIntersectionPairs": {
+          "foot_front_L|foot_front_R": 0,
+          "foot_front_L|foot_rear_L": 0,
+          "foot_front_R|foot_rear_R": 0,
+          "foot_rear_L|foot_rear_R": 0,
+          "head|bulb_core": 0,
+          "limb_front_L|limb_front_R": 0,
+          "limb_rear_L|limb_rear_R": 0,
+          "muzzle|bulb_attachment": 0
+        },
+        "globalRigTranslation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "perFootArmatureSpaceZCorrectionsM": {
+          "foot_front_L": 0.003659598,
+          "foot_front_R": 0.052254274,
+          "foot_rear_L": -0.020394534,
+          "foot_rear_R": -0.020394534
+        },
+        "selfIntersectionPairs": {
+          "bulb_attachment": 0,
+          "bulb_core": 0,
+          "bulb_lobe_1": 0,
+          "bulb_lobe_2": 0,
+          "bulb_lobe_3": 0,
+          "bulb_lobe_4": 0,
+          "bulb_lobe_5": 0,
+          "bulb_lobe_6": 0,
+          "chest": 0,
+          "foot_front_L": 0,
+          "foot_front_R": 0,
+          "foot_rear_L": 0,
+          "foot_rear_R": 0,
+          "head": 0,
+          "limb_front_L": 0,
+          "limb_front_R": 0,
+          "limb_rear_L": 0,
+          "limb_rear_R": 0,
+          "muzzle": 0,
+          "torso": 0
+        },
+        "shapePreservation": {
+          "bulb_attachment": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "bulb_core": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "bulb_lobe_1": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "bulb_lobe_2": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "bulb_lobe_3": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "bulb_lobe_4": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "bulb_lobe_5": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "bulb_lobe_6": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "chest": {
+            "edgeLengthRatioP05VsBind": 0.9793054130503409,
+            "edgeLengthRatioP95VsBind": 1.049831665796237,
+            "surfaceAreaRatioVsBind": 1.0019004649722243,
+            "volumeRatioVsBind": 1.001782004869337
+          },
+          "foot_front_L": {
+            "edgeLengthRatioP05VsBind": 0.9656252504753281,
+            "edgeLengthRatioP95VsBind": 1.0060703574339214,
+            "surfaceAreaRatioVsBind": 0.9909840885846912,
+            "volumeRatioVsBind": 0.9892803351765296
+          },
+          "foot_front_R": {
+            "edgeLengthRatioP05VsBind": 0.9987258444118404,
+            "edgeLengthRatioP95VsBind": 1.0140480354736723,
+            "surfaceAreaRatioVsBind": 1.0026957663519538,
+            "volumeRatioVsBind": 1.0004380002745914
+          },
+          "foot_rear_L": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "foot_rear_R": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "head": {
+            "edgeLengthRatioP05VsBind": 0.9517057076810996,
+            "edgeLengthRatioP95VsBind": 1.1094077174867205,
+            "surfaceAreaRatioVsBind": 1.0023660301121726,
+            "volumeRatioVsBind": 1.0025125921972118
+          },
+          "limb_front_L": {
+            "edgeLengthRatioP05VsBind": 0.7776651185632917,
+            "edgeLengthRatioP95VsBind": 1.1411978598044923,
+            "surfaceAreaRatioVsBind": 0.9545040666826872,
+            "volumeRatioVsBind": 0.9190289519977389
+          },
+          "limb_front_R": {
+            "edgeLengthRatioP05VsBind": 0.7274790380221727,
+            "edgeLengthRatioP95VsBind": 1.0000012259722653,
+            "surfaceAreaRatioVsBind": 0.897485452861077,
+            "volumeRatioVsBind": 0.8428959995696852
+          },
+          "limb_rear_L": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "limb_rear_R": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "muzzle": {
+            "edgeLengthRatioP05VsBind": 0.9999979757671893,
+            "edgeLengthRatioP95VsBind": 1.0000015245631833,
+            "surfaceAreaRatioVsBind": 0.9999998534848029,
+            "volumeRatioVsBind": 0.9999989154471062
+          },
+          "torso": {
+            "edgeLengthRatioP05VsBind": 0.9921504380376025,
+            "edgeLengthRatioP95VsBind": 1.0296948495355034,
+            "surfaceAreaRatioVsBind": 1.001769585603339,
+            "volumeRatioVsBind": 1.00147736487021
+          }
+        }
+      },
+      "extreme-reach-R": {
+        "bulbAttachment": {
+          "groups": {
+            "TOPO_bulb_torso_contact_center": {
+              "maxPositiveSeparationM": -0.09113342501223087,
+              "meanSignedDistanceM": -0.09847018862956247,
+              "verticesEvaluated": 32
+            },
+            "TOPO_bulb_torso_contact_inner": {
+              "maxPositiveSeparationM": -0.061721753096207976,
+              "meanSignedDistanceM": -0.07018586041321251,
+              "verticesEvaluated": 32
+            },
+            "TOPO_bulb_torso_contact_outer": {
+              "maxPositiveSeparationM": -0.09806390106678009,
+              "meanSignedDistanceM": -0.10316342546911983,
+              "verticesEvaluated": 32
+            }
+          },
+          "insideFraction": 1.0,
+          "maxPenetrationM": 0.11954362550750375,
+          "maxPositiveSeparationM": -0.061721753096207976,
+          "p95AbsoluteDistanceM": 0.11379275470972061,
+          "verticesEvaluated": 96
+        },
+        "declaredLiftedFeet": [
+          "foot_front_R"
+        ],
+        "declaredPlantedFeet": [
+          "foot_front_L",
+          "foot_rear_L",
+          "foot_rear_R"
+        ],
+        "footAssemblyMinZ": {
+          "foot_front_L": -1.1175870895385742e-07,
+          "foot_front_R": 0.0700000524520874,
+          "foot_rear_L": 4.470348358154297e-08,
+          "foot_rear_R": 4.470348358154297e-08
+        },
+        "forbiddenIntersectionPairs": {
+          "foot_front_L|foot_front_R": 0,
+          "foot_front_L|foot_rear_L": 0,
+          "foot_front_R|foot_rear_R": 0,
+          "foot_rear_L|foot_rear_R": 0,
+          "head|bulb_core": 0,
+          "limb_front_L|limb_front_R": 0,
+          "limb_rear_L|limb_rear_R": 0,
+          "muzzle|bulb_attachment": 0
+        },
+        "globalRigTranslation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "perFootArmatureSpaceZCorrectionsM": {
+          "foot_front_L": 0.052092925,
+          "foot_front_R": -0.001890697,
+          "foot_rear_L": -0.020394534,
+          "foot_rear_R": -0.020394534
+        },
+        "selfIntersectionPairs": {
+          "bulb_attachment": 0,
+          "bulb_core": 0,
+          "bulb_lobe_1": 0,
+          "bulb_lobe_2": 0,
+          "bulb_lobe_3": 0,
+          "bulb_lobe_4": 0,
+          "bulb_lobe_5": 0,
+          "bulb_lobe_6": 0,
+          "chest": 0,
+          "foot_front_L": 0,
+          "foot_front_R": 0,
+          "foot_rear_L": 0,
+          "foot_rear_R": 0,
+          "head": 0,
+          "limb_front_L": 0,
+          "limb_front_R": 0,
+          "limb_rear_L": 0,
+          "limb_rear_R": 0,
+          "muzzle": 0,
+          "torso": 0
+        },
+        "shapePreservation": {
+          "bulb_attachment": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "bulb_core": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "bulb_lobe_1": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "bulb_lobe_2": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "bulb_lobe_3": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "bulb_lobe_4": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "bulb_lobe_5": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "bulb_lobe_6": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "chest": {
+            "edgeLengthRatioP05VsBind": 0.9793053045681406,
+            "edgeLengthRatioP95VsBind": 1.0498317701280893,
+            "surfaceAreaRatioVsBind": 1.001893069067021,
+            "volumeRatioVsBind": 1.0018244919919543
+          },
+          "foot_front_L": {
+            "edgeLengthRatioP05VsBind": 0.9987276814275005,
+            "edgeLengthRatioP95VsBind": 1.0140162152613421,
+            "surfaceAreaRatioVsBind": 1.0026775745345056,
+            "volumeRatioVsBind": 1.0004368709703375
+          },
+          "foot_front_R": {
+            "edgeLengthRatioP05VsBind": 0.9676483951393698,
+            "edgeLengthRatioP95VsBind": 1.0067206098056756,
+            "surfaceAreaRatioVsBind": 0.9920225722861112,
+            "volumeRatioVsBind": 0.9905851279430735
+          },
+          "foot_rear_L": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "foot_rear_R": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "head": {
+            "edgeLengthRatioP05VsBind": 0.9517059034463723,
+            "edgeLengthRatioP95VsBind": 1.109407474890626,
+            "surfaceAreaRatioVsBind": 1.002259523800603,
+            "volumeRatioVsBind": 1.0031850668969167
+          },
+          "limb_front_L": {
+            "edgeLengthRatioP05VsBind": 0.7280832907732541,
+            "edgeLengthRatioP95VsBind": 1.0000012141094785,
+            "surfaceAreaRatioVsBind": 0.8976943656230036,
+            "volumeRatioVsBind": 0.8432418745474549
+          },
+          "limb_front_R": {
+            "edgeLengthRatioP05VsBind": 0.772789456331437,
+            "edgeLengthRatioP95VsBind": 1.1422571748412316,
+            "surfaceAreaRatioVsBind": 0.9487770455632519,
+            "volumeRatioVsBind": 0.910869597418188
+          },
+          "limb_rear_L": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "limb_rear_R": {
+            "edgeLengthRatioP05VsBind": 1.0,
+            "edgeLengthRatioP95VsBind": 1.0,
+            "surfaceAreaRatioVsBind": 1.0,
+            "volumeRatioVsBind": 1.0
+          },
+          "muzzle": {
+            "edgeLengthRatioP05VsBind": 0.9999979048200041,
+            "edgeLengthRatioP95VsBind": 1.000001832855497,
+            "surfaceAreaRatioVsBind": 0.9999998371736025,
+            "volumeRatioVsBind": 0.999998861163396
+          },
+          "torso": {
+            "edgeLengthRatioP05VsBind": 0.9921507573788638,
+            "edgeLengthRatioP95VsBind": 1.029694750405195,
+            "surfaceAreaRatioVsBind": 1.001830421710828,
+            "volumeRatioVsBind": 1.0002854004550483
+          }
+        }
+      }
+    },
+    "thresholds": {
+      "bulbContactMaxP95AbsoluteDistanceM": 0.13,
+      "bulbContactMaxPenetrationM": 0.14,
+      "bulbContactMaxPositiveSeparationM": 0.025,
+      "bulbContactMinInsideFraction": 0.5,
+      "edgeLengthRatioP05Min": 0.62,
+      "edgeLengthRatioP95Max": 1.48,
+      "footContactToleranceM": 0.006,
+      "forbiddenIntersectionMaxPairs": 0,
+      "liftedFootClearanceM": 0.045,
+      "maxInfluencesPerVertex": 4,
+      "minBoundaryMultiInfluenceFraction": 0.8,
+      "minQuadFraction": 0.84,
+      "minSurfaceMultiInfluenceFraction": 0.18,
+      "selfIntersectionMaxPairs": 0,
+      "sourceSurfaceMaxDistanceM": 0.035,
+      "sourceSurfaceMeanDistanceM": 0.01,
+      "surfaceAreaRatioMax": 1.36,
+      "surfaceAreaRatioMin": 0.72,
+      "volumeRatioMax": 1.32,
+      "volumeRatioMin": 0.68
+    }
+  },
+  "fixedCameraComparison": {
+    "layout": "top immutable source C; bottom authored retopo; 12 fixed roles each",
+    "path": "fixed-camera/source-vs-retopo-clay.png",
+    "sha256": "748a726257877f76f51368fe7681d89b10da4a23b872fb532e7b1e6686aa1456"
+  },
+  "frozenEvidenceAfter": {
+    "algorithm": "sha256(concat(len4be(relpath), relpath, sha256(file)))",
+    "fileCount": 281,
+    "root": "/mnt/zer0models/pokemon_anime/pipeline/pokeapi/kanto-starters/bulbasaur/production/manual-v1",
+    "totalBytes": 60177683,
+    "treeSha256": "ea4c0534306b8c821c5975f34c850955faf4f5919a938c03cdb49a30cf1d1dc2"
+  },
+  "production": {
+    "bytes": 380325,
+    "materials": [
+      "PBR_accent",
+      "PBR_bulb",
+      "PBR_bulb_dark",
+      "PBR_eye",
+      "PBR_mouth",
+      "PBR_pupil",
+      "PBR_skin",
+      "PBR_spot"
+    ],
+    "nonmanifoldEdges": 0,
+    "objects": 55,
+    "sha256": "7347a1160ba32dfad3c8a55ac6b55c8e01750497ac349b725e43537cb834d4dc",
+    "triangles": 24944,
+    "uvComplete": true,
+    "vertices": 12576,
+    "zeroAreaFaces": 0
+  },
+  "renders": {
+    "bind": {
+      "bytes": 516237,
+      "sha256": "f0a7fd69cc2ba80aebfd3bf894bc0583468473b7e9616082a99af8fe8d716ed9"
+    },
+    "extreme-bulb-jaw": {
+      "bytes": 517311,
+      "sha256": "3c06c5c0d73ecc3934f7346bec447a51d3c9e494067fdf9db6a7e33732982a4d"
+    },
+    "extreme-crouch": {
+      "bytes": 523313,
+      "sha256": "a618861cb5f84fde1c4420d635fafdf064eeda457320b47cd8babf272f0acb0a"
+    },
+    "extreme-reach-L": {
+      "bytes": 527356,
+      "sha256": "8ff17114aa510d4fa4a3d4fb82019b5b907fc1d87f363a83cfe7958555fa2154"
+    },
+    "extreme-reach-R": {
+      "bytes": 514715,
+      "sha256": "184aad55a2c5b48305052fd3e425915ae82a02dcc58df7744e14e44d1c0f0af4"
+    },
+    "wireframe-bind-front34": {
+      "bytes": 592761,
+      "sha256": "f8684349e7ffb3acedb783576bb50d6ef84579e6473948a135ada21e9a31585d"
+    },
+    "wireframe-bind-side": {
+      "bytes": 657974,
+      "sha256": "0c86b1b1aae41a94b3ec3925ca456f988b1422e0099b1144a0ca59bb47c8dd49"
+    }
+  },
+  "reopenedFrom": "/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_9b50409d/artifacts/bulbasaur-C-production/bulbasaur_C_production.blend",
+  "rig": {
+    "armatures": 1,
+    "bones": 22,
+    "deformBones": 21,
+    "maxInfluencesPerVertex": 4,
+    "normalizedWeights": true,
+    "savedBindPose": true,
+    "skinnedMeshes": 55
+  },
+  "schema": "pokemon.bulbasaur.production-qa-final/v2",
+  "scopeGuards": {
+    "builderMayCertify": false,
+    "canonicalCertification": false,
+    "gameplayAnimation": false,
+    "merge": false,
+    "productIntegration": false,
+    "publication": false
+  },
+  "semantic": {
+    "bulbLobes": 6,
+    "feet": 4,
+    "limbs": 4,
+    "lowConfidenceRearHypothesisExplicit": true,
+    "semanticFeatureCount": 55,
+    "toes": 12,
+    "vineSockets": 2
+  },
+  "source": {
+    "sha256": "103bb4dd3074b423cf2d868f320283c786d1762dd59708ed775b81c76613178a",
+    "unchanged": true
+  },
+  "topology": {
+    "bulb_attachment": {
+      "edgeLoops": {
+        "TOPO_bulb_torso_contact_center": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 32,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "multiInfluenceFraction": 1.0,
+          "vertices": 32
+        },
+        "TOPO_bulb_torso_contact_inner": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 32,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "multiInfluenceFraction": 1.0,
+          "vertices": 32
+        },
+        "TOPO_bulb_torso_contact_outer": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 32,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "multiInfluenceFraction": 1.0,
+          "vertices": 32
+        }
+      },
+      "method": "authored_explicit_joint_saddle_torus_v2",
+      "quadFraction": 1.0,
+      "sourceSurfaceMaxDistanceM": 0.0041602253913879395,
+      "sourceSurfaceMeanDistanceM": 0.0026897747982019666
+    },
+    "bulb_core": {
+      "edgeLoops": {
+        "TOPO_bulb_core_root_primary": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 24,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "multiInfluenceFraction": 1.0,
+          "vertices": 24
+        },
+        "TOPO_bulb_core_root_support": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 24,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "multiInfluenceFraction": 1.0,
+          "vertices": 24
+        },
+        "TOPO_bulb_core_tip_support": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 24,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "vertices": 24
+        }
+      },
+      "method": "authored_explicit_cross_section_loft_v2",
+      "quadFraction": 0.8666666666666667,
+      "sourceSurfaceMaxDistanceM": 0.0023288587108254433,
+      "sourceSurfaceMeanDistanceM": 0.001760031510979356
+    },
+    "bulb_lobe_1": {
+      "edgeLoops": {
+        "TOPO_bulb_lobe_1_root_primary": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 24,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "multiInfluenceFraction": 1.0,
+          "vertices": 24
+        },
+        "TOPO_bulb_lobe_1_root_support": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 24,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "multiInfluenceFraction": 1.0,
+          "vertices": 24
+        },
+        "TOPO_bulb_lobe_1_tip_support": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 24,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "vertices": 24
+        }
+      },
+      "method": "authored_explicit_cross_section_loft_v2",
+      "quadFraction": 0.875,
+      "sourceSurfaceMaxDistanceM": 0.004150486551225185,
+      "sourceSurfaceMeanDistanceM": 0.002345784367589558
+    },
+    "bulb_lobe_2": {
+      "edgeLoops": {
+        "TOPO_bulb_lobe_2_root_primary": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 24,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "multiInfluenceFraction": 1.0,
+          "vertices": 24
+        },
+        "TOPO_bulb_lobe_2_root_support": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 24,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "multiInfluenceFraction": 1.0,
+          "vertices": 24
+        },
+        "TOPO_bulb_lobe_2_tip_support": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 24,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "vertices": 24
+        }
+      },
+      "method": "authored_explicit_cross_section_loft_v2",
+      "quadFraction": 0.875,
+      "sourceSurfaceMaxDistanceM": 0.004150464665144682,
+      "sourceSurfaceMeanDistanceM": 0.002345782599009275
+    },
+    "bulb_lobe_3": {
+      "edgeLoops": {
+        "TOPO_bulb_lobe_3_root_primary": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 24,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "multiInfluenceFraction": 1.0,
+          "vertices": 24
+        },
+        "TOPO_bulb_lobe_3_root_support": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 24,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "multiInfluenceFraction": 1.0,
+          "vertices": 24
+        },
+        "TOPO_bulb_lobe_3_tip_support": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 24,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "vertices": 24
+        }
+      },
+      "method": "authored_explicit_cross_section_loft_v2",
+      "quadFraction": 0.875,
+      "sourceSurfaceMaxDistanceM": 0.004150500521063805,
+      "sourceSurfaceMeanDistanceM": 0.0023457833278913934
+    },
+    "bulb_lobe_4": {
+      "edgeLoops": {
+        "TOPO_bulb_lobe_4_root_primary": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 24,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "multiInfluenceFraction": 1.0,
+          "vertices": 24
+        },
+        "TOPO_bulb_lobe_4_root_support": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 24,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "multiInfluenceFraction": 1.0,
+          "vertices": 24
+        },
+        "TOPO_bulb_lobe_4_tip_support": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 24,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "vertices": 24
+        }
+      },
+      "method": "authored_explicit_cross_section_loft_v2",
+      "quadFraction": 0.875,
+      "sourceSurfaceMaxDistanceM": 0.004150489345192909,
+      "sourceSurfaceMeanDistanceM": 0.0023457845629550494
+    },
+    "bulb_lobe_5": {
+      "edgeLoops": {
+        "TOPO_bulb_lobe_5_root_primary": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 24,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "multiInfluenceFraction": 1.0,
+          "vertices": 24
+        },
+        "TOPO_bulb_lobe_5_root_support": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 24,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "multiInfluenceFraction": 1.0,
+          "vertices": 24
+        },
+        "TOPO_bulb_lobe_5_tip_support": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 24,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "vertices": 24
+        }
+      },
+      "method": "authored_explicit_cross_section_loft_v2",
+      "quadFraction": 0.875,
+      "sourceSurfaceMaxDistanceM": 0.004150461871176958,
+      "sourceSurfaceMeanDistanceM": 0.0023457841722240662
+    },
+    "bulb_lobe_6": {
+      "edgeLoops": {
+        "TOPO_bulb_lobe_6_root_primary": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 24,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "multiInfluenceFraction": 1.0,
+          "vertices": 24
+        },
+        "TOPO_bulb_lobe_6_root_support": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 24,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "multiInfluenceFraction": 1.0,
+          "vertices": 24
+        },
+        "TOPO_bulb_lobe_6_tip_support": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 24,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "vertices": 24
+        }
+      },
+      "method": "authored_explicit_cross_section_loft_v2",
+      "quadFraction": 0.875,
+      "sourceSurfaceMaxDistanceM": 0.004150465130805969,
+      "sourceSurfaceMeanDistanceM": 0.0023457862355409304
+    },
+    "chest": {
+      "edgeLoops": {
+        "TOPO_chest_neck_primary": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 28,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "multiInfluenceFraction": 1.0,
+          "vertices": 28
+        },
+        "TOPO_chest_neck_support": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 28,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "multiInfluenceFraction": 1.0,
+          "vertices": 28
+        },
+        "TOPO_chest_torso_primary": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 28,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "multiInfluenceFraction": 1.0,
+          "vertices": 28
+        }
+      },
+      "method": "authored_explicit_cross_section_loft_v2",
+      "quadFraction": 0.875,
+      "sourceSurfaceMaxDistanceM": 0.004070044029504061,
+      "sourceSurfaceMeanDistanceM": 0.0030371541495576183
+    },
+    "foot_front_L": {
+      "edgeLoops": {
+        "TOPO_foot_front_L_ankle_joint": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 24,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "multiInfluenceFraction": 1.0,
+          "vertices": 24
+        },
+        "TOPO_foot_front_L_midfoot": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 24,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "vertices": 24
+        },
+        "TOPO_foot_front_L_toe_root": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 24,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "vertices": 24
+        }
+      },
+      "method": "authored_explicit_cross_section_loft_v2",
+      "quadFraction": 0.875,
+      "sourceSurfaceMaxDistanceM": 0.0033518895506858826,
+      "sourceSurfaceMeanDistanceM": 0.001978208168759654
+    },
+    "foot_front_R": {
+      "edgeLoops": {
+        "TOPO_foot_front_R_ankle_joint": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 24,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "multiInfluenceFraction": 1.0,
+          "vertices": 24
+        },
+        "TOPO_foot_front_R_midfoot": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 24,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "vertices": 24
+        },
+        "TOPO_foot_front_R_toe_root": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 24,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "vertices": 24
+        }
+      },
+      "method": "authored_explicit_cross_section_loft_v2",
+      "quadFraction": 0.875,
+      "sourceSurfaceMaxDistanceM": 0.0033518557902425528,
+      "sourceSurfaceMeanDistanceM": 0.001978201195578353
+    },
+    "foot_rear_L": {
+      "edgeLoops": {
+        "TOPO_foot_rear_L_ankle_joint": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 24,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "multiInfluenceFraction": 1.0,
+          "vertices": 24
+        },
+        "TOPO_foot_rear_L_midfoot": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 24,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "vertices": 24
+        },
+        "TOPO_foot_rear_L_toe_root": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 24,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "vertices": 24
+        }
+      },
+      "method": "authored_explicit_cross_section_loft_v2",
+      "quadFraction": 0.875,
+      "sourceSurfaceMaxDistanceM": 0.003351854858919978,
+      "sourceSurfaceMeanDistanceM": 0.0019782050382487412
+    },
+    "foot_rear_R": {
+      "edgeLoops": {
+        "TOPO_foot_rear_R_ankle_joint": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 24,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "multiInfluenceFraction": 1.0,
+          "vertices": 24
+        },
+        "TOPO_foot_rear_R_midfoot": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 24,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "vertices": 24
+        },
+        "TOPO_foot_rear_R_toe_root": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 24,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "vertices": 24
+        }
+      },
+      "method": "authored_explicit_cross_section_loft_v2",
+      "quadFraction": 0.875,
+      "sourceSurfaceMaxDistanceM": 0.003351857652887702,
+      "sourceSurfaceMeanDistanceM": 0.0019782077402419294
+    },
+    "head": {
+      "edgeLoops": {
+        "TOPO_head_muzzle_primary": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 32,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "vertices": 32
+        },
+        "TOPO_head_muzzle_support": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 32,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "vertices": 32
+        },
+        "TOPO_head_neck_primary": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 32,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "multiInfluenceFraction": 1.0,
+          "vertices": 32
+        },
+        "TOPO_head_neck_support": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 32,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "multiInfluenceFraction": 1.0,
+          "vertices": 32
+        }
+      },
+      "method": "authored_explicit_cross_section_loft_v2",
+      "quadFraction": 0.8823529411764706,
+      "sourceSurfaceMaxDistanceM": 0.0033003948628902435,
+      "sourceSurfaceMeanDistanceM": 0.0023158441565193397
+    },
+    "limb_front_L": {
+      "edgeLoops": {
+        "TOPO_limb_front_L_body_joint": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 20,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "multiInfluenceFraction": 1.0,
+          "vertices": 20
+        },
+        "TOPO_limb_front_L_foot_joint": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 20,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "multiInfluenceFraction": 1.0,
+          "vertices": 20
+        },
+        "TOPO_limb_front_L_knee_joint": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 20,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "multiInfluenceFraction": 1.0,
+          "vertices": 20
+        }
+      },
+      "method": "authored_explicit_cross_section_loft_v2",
+      "quadFraction": 0.875,
+      "sourceSurfaceMaxDistanceM": 0.0028215795755386353,
+      "sourceSurfaceMeanDistanceM": 0.0018524297436742444
+    },
+    "limb_front_R": {
+      "edgeLoops": {
+        "TOPO_limb_front_R_body_joint": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 20,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "multiInfluenceFraction": 1.0,
+          "vertices": 20
+        },
+        "TOPO_limb_front_R_foot_joint": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 20,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "multiInfluenceFraction": 1.0,
+          "vertices": 20
+        },
+        "TOPO_limb_front_R_knee_joint": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 20,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "multiInfluenceFraction": 1.0,
+          "vertices": 20
+        }
+      },
+      "method": "authored_explicit_cross_section_loft_v2",
+      "quadFraction": 0.875,
+      "sourceSurfaceMaxDistanceM": 0.0028215795755386353,
+      "sourceSurfaceMeanDistanceM": 0.0018524296476894262
+    },
+    "limb_rear_L": {
+      "edgeLoops": {
+        "TOPO_limb_rear_L_body_joint": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 20,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "multiInfluenceFraction": 1.0,
+          "vertices": 20
+        },
+        "TOPO_limb_rear_L_foot_joint": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 20,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "multiInfluenceFraction": 1.0,
+          "vertices": 20
+        },
+        "TOPO_limb_rear_L_knee_joint": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 20,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "multiInfluenceFraction": 1.0,
+          "vertices": 20
+        }
+      },
+      "method": "authored_explicit_cross_section_loft_v2",
+      "quadFraction": 0.875,
+      "sourceSurfaceMaxDistanceM": 0.0028216170612722635,
+      "sourceSurfaceMeanDistanceM": 0.0018524302918285082
+    },
+    "limb_rear_R": {
+      "edgeLoops": {
+        "TOPO_limb_rear_R_body_joint": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 20,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "multiInfluenceFraction": 1.0,
+          "vertices": 20
+        },
+        "TOPO_limb_rear_R_foot_joint": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 20,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "multiInfluenceFraction": 1.0,
+          "vertices": 20
+        },
+        "TOPO_limb_rear_R_knee_joint": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 20,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "multiInfluenceFraction": 1.0,
+          "vertices": 20
+        }
+      },
+      "method": "authored_explicit_cross_section_loft_v2",
+      "quadFraction": 0.875,
+      "sourceSurfaceMaxDistanceM": 0.0028216170612722635,
+      "sourceSurfaceMeanDistanceM": 0.001852430550100911
+    },
+    "muzzle": {
+      "edgeLoops": {
+        "TOPO_muzzle_head_primary": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 28,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "vertices": 28
+        },
+        "TOPO_muzzle_head_support": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 28,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "vertices": 28
+        },
+        "TOPO_muzzle_mouth_primary": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 28,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "vertices": 28
+        }
+      },
+      "method": "authored_explicit_cross_section_loft_v2",
+      "quadFraction": 0.8666666666666667,
+      "sourceSurfaceMaxDistanceM": 0.003216290147975087,
+      "sourceSurfaceMeanDistanceM": 0.0015878517458127897
+    },
+    "torso": {
+      "edgeLoops": {
+        "TOPO_torso_chest_primary": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 32,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "multiInfluenceFraction": 1.0,
+          "vertices": 32
+        },
+        "TOPO_torso_chest_support": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 32,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "multiInfluenceFraction": 1.0,
+          "vertices": 32
+        },
+        "TOPO_torso_rear_support": {
+          "closed": true,
+          "connectedComponents": 1,
+          "edges": 32,
+          "meshValenceMax": 4,
+          "meshValenceMin": 4,
+          "vertices": 32
+        }
+      },
+      "method": "authored_explicit_cross_section_loft_v2",
+      "quadFraction": 0.8823529411764706,
+      "sourceSurfaceMaxDistanceM": 0.0039644488133490086,
+      "sourceSurfaceMeanDistanceM": 0.002658209461897271
+    }
+  },
+  "verdict": "PASS_NON_CANONICAL_AUTHORED_RETOPO_SKIN_DEFORMATION_QA"
+}

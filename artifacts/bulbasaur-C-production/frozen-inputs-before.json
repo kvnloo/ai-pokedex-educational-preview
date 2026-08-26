@@ -1,0 +1,12 @@
+{
+  "algorithm": "sha256(concat(len4be(relpath), relpath, sha256(file)))",
+  "fileCount": 281,
+  "root": "/mnt/zer0models/pokemon_anime/pipeline/pokeapi/kanto-starters/bulbasaur/production/manual-v1",
+  "selected": {
+    "ballotSha256": "d57a5c3932ce8300d4fdee07c370657db263d1b43c6586561674b0d1e09c57a2",
+    "promotedPanelSha256": "3073e5d6c7790befa2d4400c4da3a1cbeab9a9ed9c995bade6acd9791b6117ca",
+    "promotedSourceSha256": "103bb4dd3074b423cf2d868f320283c786d1762dd59708ed775b81c76613178a"
+  },
+  "totalBytes": 60177683,
+  "treeSha256": "ea4c0534306b8c821c5975f34c850955faf4f5919a938c03cdb49a30cf1d1dc2"
+}
