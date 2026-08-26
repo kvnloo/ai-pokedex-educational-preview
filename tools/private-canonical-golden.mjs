@@ -30,4 +30,8 @@ assert.doesNotThrow(() => assertCanonicalPrivateSave({ starterSpeciesId: 'bulbas
 const loader = fs.readFileSync(new URL('../src/creatures/privateCanonical.ts', import.meta.url), 'utf8');
 assert.match(loader, /stand-in fallback forbidden/g);
 assert.doesNotMatch(loader, /buildGeneric|SPECIES_BUILDERS|MESH_ALIAS/);
+const vite = fs.readFileSync(new URL('../vite.config.ts', import.meta.url), 'utf8');
+for (const species of pack.species) {
+  assert.match(vite, new RegExp(`\\b${species.id}: \\{ relativePath: '[^']+\\.glb', sha256: '[a-f0-9]{64}' \\}`), `${species.id} requires a hash-pinned private GLB`);
+}
 console.log('private canonical identity golden: PASS');

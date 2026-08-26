@@ -9,6 +9,9 @@ const PRIVATE_CANONICAL_ASSETS: Record<string, { relativePath: string; sha256: s
   bulbasaur: { relativePath: 'kanto-starters/bulbasaur/hunyuan/bulbasaur_shape_8k.glb', sha256: 'cad6e93a2e77d21148f932c27688ff07c5028eb87f3ba9f891a2f3f5ad8e1354' },
   charmander: { relativePath: 'kanto-starters/charmander/hunyuan/charmander_shape_8k.glb', sha256: '82c90f71d325d3e93803978cb66e8b6eaceeda5d4280706d9eb388a81975acd2' },
   squirtle: { relativePath: 'kanto-starters/squirtle/hunyuan/squirtle_shape_8k.glb', sha256: 'b41a8ef1fc5caef02ea38eca7fa795ba974645f090e8a0574509d58c381e5805' },
+  pidgey: { relativePath: 'kanto-private/pidgey/hunyuan/pidgey_klein_shape_8k.glb', sha256: '1685b6f5b9215645d274d31480cf9de8c26011aa7e424700f38b9d70cae4e261' },
+  caterpie: { relativePath: 'kanto-private/caterpie/hunyuan/caterpie_klein_shape_8k.glb', sha256: '0a2093b6a4053a075c515591ae9a8f9c88b27fa66c27b72493cdac3648e247f2' },
+  geodude: { relativePath: 'kanto-private/geodude/hunyuan/geodude_klein_shape_8k.glb', sha256: 'f337566e5eece5d263cd7725d65563d31c0418fd138fa45663be679728d8d809' },
 };
 
 function privateAssetMiddleware(req: { url?: string }, res: import('http').ServerResponse, next: () => void): void {

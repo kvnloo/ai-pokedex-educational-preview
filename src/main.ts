@@ -2364,10 +2364,12 @@ async function boot(): Promise<void> {
   // Match the exact runtime scales used by stageSendOut. A near-miss scale
   // creates a different template key and would rebuild every loft on the first
   // encounter despite nominal prewarming.
-  for (const entry of species) {
-    creatureTemplate(entry.id, 1);
-    creatureTemplate(entry.id, 0.9);
-    creatureTemplate(entry.id, 1.02);
+  if (activeAssetProfile === 'distributable') {
+    for (const entry of species) {
+      creatureTemplate(entry.id, 1);
+      creatureTemplate(entry.id, 0.9);
+      creatureTemplate(entry.id, 1.02);
+    }
   }
   const prewarm = new THREE.Group();
   for (const template of creatureTemplateCache.values()) prewarm.add(template.clone(true));
