@@ -46,6 +46,15 @@ import {
   tickCreatureClip,
 } from './creatures/index.ts';
 import {
+  canonicalPrivateMesh,
+  preloadCanonicalPrivateMeshes,
+} from '@/creatures/privateCanonical.ts';
+import { canonicalBattlePrewarmPlan } from './creatures/canonicalBattlePrewarm.ts';
+import {
+  executeCanonicalBattlePrewarm,
+  type CanonicalBattlePrewarmReceipt,
+} from './render/canonicalBattlePrewarmRuntime.ts';
+import {
   applyGraphicsPreset,
   resolvePresetFromQuery,
   MEDIUM_1080P,
@@ -63,6 +72,13 @@ import {
   type AttackPhase,
   type ScreenRect,
 } from './render/cinematicEffects.ts';
+import { canonicalKantoOpening } from './world/canonicalWorld.ts';
+import { migrateCanonicalPrivateStorage, normalizeInputFrame, resolveRuntimeAssetProfile } from './campaign/campaign.ts';
+import { ECHOING_STONE_FIELD, ECHO_TRANSITION_TIMING } from './battle/echoingStone.ts';
+import { verifyServedBuildFromNetwork } from './core/servedBuildVerification.ts';
+
+declare const __PRIVATE_CANONICAL_BUILD__: boolean;
+declare const __BUILD_GIT_SHA__: string;
 
 const bootFill = document.getElementById('boot-fill') as HTMLElement | null;
 const bootStatus = document.getElementById('boot-status') as HTMLElement | null;
@@ -117,6 +133,9 @@ interface Wave0Pack {
 }
 
 interface TwilightRuntimeSnapshot {
+  buildManifest: BuildManifest | null;
+  canonicalWorld: typeof canonicalKantoOpening;
+  campaign: CanonicalCampaignSave;
   mode: 'starter' | 'explore' | 'battle';
   starterModels: number;
   player: { x: number; y: number; z: number } | null;
@@ -132,10 +151,12 @@ interface TwilightRuntimeSnapshot {
     foeMaxHp: number;
     foeSpeciesId: string;
     busy: boolean;
+    field: BattleState['field'];
   };
   healCount: number;
   encounterCount: number;
   catchCount: number;
+  canonicalBattlePrewarm: CanonicalBattlePrewarmReceipt | null;
   audio: SoundscapeSnapshot;
   cinematic: {
     attack: {
@@ -151,6 +172,25 @@ interface TwilightRuntimeSnapshot {
     subjects: { player: ScreenRect | null; foe: ScreenRect | null };
     uiSafeMarginPx: number;
   };
+}
+
+interface BuildManifest {
+  schemaVersion: 1;
+  git: { sha: string; dirty: boolean };
+  invocation: string[];
+  privateCanonical: boolean;
+  builtAt: string;
+  files: Record<string, { sha256: string; bytes: number }>;
+  canonicalAssets: Record<string, { relativePath: string; sha256: string }>;
+}
+
+interface CanonicalCampaignSave {
+  sliceId: string;
+  currentLocationId: string;
+  visitedLocationIds: string[];
+  storyEventIds: string[];
+  traversedMeters: number;
+  saveRevision: number;
 }
 
 declare global {
@@ -216,6 +256,7 @@ function hpDrainMs(damage: number, maxHp: number): number {
 }
 
 const creatureTemplateCache = new Map<string, THREE.Group>();
+let activeAssetProfile: 'private-local' | 'distributable' = 'distributable';
 
 function creatureTemplate(speciesId: string, scale: number): THREE.Group {
   const cacheKey = `${speciesId}@${scale.toFixed(3)}`;
@@ -234,6 +275,7 @@ function creatureTemplate(speciesId: string, scale: number): THREE.Group {
 
 /** Runtime meshes clone prevalidated templates; geometry/materials stay shared. */
 function shipCreatureMesh(speciesId: string, scale = 1): THREE.Group {
+  if (activeAssetProfile === 'private-local') return canonicalPrivateMesh(speciesId, scale);
   const root = creatureTemplate(speciesId, scale).clone(true);
   root.userData.speciesId = speciesId;
   const clip = getClipState(root);
@@ -248,14 +290,72 @@ function isCritEvent(critical: unknown): boolean {
 }
 
 async function boot(): Promise<void> {
-  progress(0.08, 'Loading wave0 ship pack');
-  const res = await fetch('/content/game/wave0.json');
-  if (!res.ok) throw new Error(`wave0 pack missing (${res.status}). Expected content/game/wave0.json`);
+  const requestedAssetProfile = __PRIVATE_CANONICAL_BUILD__ || new URLSearchParams(location.search).get('assetProfile') === 'private-local'
+    ? 'private-local'
+    : 'distributable';
+  let buildManifest: BuildManifest | null = null;
+  if (__PRIVATE_CANONICAL_BUILD__) {
+    const response = await fetch('/build-manifest.json', { cache: 'no-store' });
+    if (!response.ok) throw new Error(`Exact private build manifest unavailable (${response.status})`);
+    const candidate = await response.json() as BuildManifest;
+    if (
+      candidate.schemaVersion !== 1 ||
+      candidate.privateCanonical !== true ||
+      !/^[a-f0-9]{40}$/.test(candidate.git?.sha ?? '') ||
+      candidate.git.dirty ||
+      Object.keys(candidate.files ?? {}).length === 0
+    ) {
+      throw new Error('Exact private build manifest is invalid or dirty');
+    }
+    await verifyServedBuildFromNetwork(candidate, __BUILD_GIT_SHA__);
+    buildManifest = Object.freeze(candidate);
+  }
+  const assetProfile = resolveRuntimeAssetProfile(requestedAssetProfile, {
+    distributable: { markerHref: '/content/game/runtime-assets/distributable.json', policy: 'distributable' },
+    'private-local': { markerHref: '/content/game/runtime-assets/private-local.json', policy: 'private-only' },
+  });
+  const assetResponse = await fetch(assetProfile.markerHref, { cache: 'no-store' });
+  if (!assetResponse.ok) throw new Error(`Runtime asset contract missing for ${assetProfile.profile}`);
+  const assetMarker = await assetResponse.json() as { profile?: string; policy?: string; bytesEmbedded?: boolean };
+  if (assetMarker.profile !== assetProfile.profile || assetMarker.policy !== assetProfile.policy || assetMarker.bytesEmbedded === true) {
+    throw new Error(`Runtime asset contract rejected for ${assetProfile.profile}`);
+  }
+  activeAssetProfile = assetProfile.profile;
+  document.body.dataset.assetProfile = assetProfile.profile;
+  if (assetProfile.profile === 'private-local') {
+    for (let index = localStorage.length - 1; index >= 0; index--) {
+      const key = localStorage.key(index);
+      if (key?.startsWith('twilight:') && key !== `twilight:${canonicalKantoOpening.sliceId}:save-v1`) {
+        localStorage.removeItem(key);
+      }
+    }
+  }
+  const packHref = assetProfile.profile === 'private-local'
+    ? '/content/game/kanto-private.json'
+    : '/content/game/wave0.json';
+  progress(0.08, assetProfile.profile === 'private-local' ? 'Loading canonical Kanto pack' : 'Loading distributable pack');
+  const res = await fetch(packHref);
+  if (!res.ok) throw new Error(`${packHref} missing (${res.status})`);
   const raw = (await res.json()) as Wave0Pack;
   const moves = raw.moves.map((m) => normalizeMove(m));
   const moveById = new Map(moves.map((m) => [m.id, m]));
   const species = raw.species.map((s) => normalizeSpecies(s));
   const speciesById = new Map(species.map((s) => [s.id, s]));
+  if (assetProfile.profile === 'private-local') {
+    const allowedSpeciesIds = new Set(species.map((entry) => entry.id));
+    migrateCanonicalPrivateStorage(
+      localStorage,
+      `twilight:${canonicalKantoOpening.sliceId}:save-v1`,
+      `twilight:${canonicalKantoOpening.sliceId}:canonical-migration-v1`,
+      allowedSpeciesIds,
+    );
+    const requiredSpecies = new Set<string>([
+      ...raw.route.starterChoices,
+      ...raw.route.wildEncounters.map((entry) => entry.species),
+      ...(raw.route.gym ? [raw.route.gym.species] : []),
+    ]);
+    await preloadCanonicalPrivateMeshes([...requiredSpecies]);
+  }
 
   progress(0.25, 'Init renderer');
   const canvas = document.getElementById('viewport') as HTMLCanvasElement | null;
@@ -288,12 +388,39 @@ async function boot(): Promise<void> {
   // Three r185 maps the old soft mode to PCF with a deprecation warning.
   renderer.shadowMap.type = THREE.PCFShadowMap;
 
+  // Mobile browsers can reclaim WebGL while the tab remains alive. Prevent the
+  // default terminal loss, retain the last composited page instead of exposing
+  // a black canvas, and make recovery visible and empirically testable.
+  const graphicsNotice = document.createElement('div');
+  graphicsNotice.id = 'graphics-recovery-notice';
+  graphicsNotice.hidden = true;
+  graphicsNotice.setAttribute('role', 'status');
+  graphicsNotice.textContent = 'Graphics paused — restoring the route…';
+  Object.assign(graphicsNotice.style, {
+    position: 'fixed', inset: 'auto 50% 1.25rem auto', transform: 'translateX(50%)',
+    zIndex: '10000', padding: '.65rem 1rem', borderRadius: '999px',
+    color: '#f7f0df', background: 'rgba(8, 14, 20, .88)',
+    font: '600 13px/1.2 system-ui, sans-serif', pointerEvents: 'none',
+  });
+  document.body.appendChild(graphicsNotice);
   const scene = new THREE.Scene();
 
   const camera = new THREE.PerspectiveCamera(44, window.innerWidth / window.innerHeight, 0.1, 120);
+  if (window.innerWidth < window.innerHeight) camera.fov = 76;
   camera.position.set(0, 2.25, 6.4);
   const cameraLook = new THREE.Vector3(0, 0.9, 0.45);
   camera.lookAt(cameraLook);
+  canvas.addEventListener('webglcontextlost', (event) => {
+    event.preventDefault();
+    graphicsNotice.hidden = false;
+    document.body.dataset.graphics = 'recovering';
+  });
+  canvas.addEventListener('webglcontextrestored', () => {
+    renderer.resetState();
+    renderer.compile(scene, camera);
+    graphicsNotice.hidden = true;
+    document.body.dataset.graphics = 'ready';
+  });
 
   // Soft follow state (lagged yaw + lerped position + collision pull-in)
   const camFollow = {
@@ -354,6 +481,28 @@ async function boot(): Promise<void> {
   });
   world.setMode('starter');
   const { grassBlades, grassBaseRot } = world;
+
+  // M3 authored non-color-only cue: ten irregular stones physically rise around
+  // the battle clearing while Echo is charged, then settle when consumed/expired.
+  const echoStoneRing = new THREE.Group();
+  echoStoneRing.name = 'field:route-3:echoing-stone:ring';
+  const echoStones: THREE.Mesh[] = [];
+  for (let i = 0; i < 10; i++) {
+    const angle = (i / 10) * Math.PI * 2 + (i % 2) * 0.035;
+    const stone = new THREE.Mesh(
+      new THREE.DodecahedronGeometry(0.18 + (i % 3) * 0.025, 0),
+      new THREE.MeshStandardMaterial({ color: 0x756d62, roughness: 0.92, metalness: 0 }),
+    );
+    stone.position.set(Math.cos(angle) * (2.15 + (i % 2) * 0.12), -0.16, Math.sin(angle) * (1.24 + (i % 3) * 0.06));
+    stone.rotation.set(i * 0.19, angle, i * 0.11);
+    stone.castShadow = true;
+    echoStoneRing.add(stone);
+    echoStones.push(stone);
+  }
+  echoStoneRing.visible = false;
+  scene.add(echoStoneRing);
+  let echoRingLift = 0;
+  let echoRingTarget = 0;
 
   // Local rustle particles (part telegraph under feet — not sway-only)
   const rustlePool: THREE.Mesh[] = [];
@@ -438,7 +587,7 @@ async function boot(): Promise<void> {
   let foeMesh: THREE.Group | null = null;
   let mode: 'starter' | 'explore' | 'battle' = 'starter';
   let battle: BattleState | null = null;
-  let playerSpeciesId = 'emberpup';
+  let playerSpeciesId = raw.route.starterChoices[0]!;
   let busy = false;
   let battleKind: 'wild' | 'gym' | 'elite' = 'wild';
   let wildWins = 0;
@@ -449,6 +598,46 @@ async function boot(): Promise<void> {
   let catchFailures = 0;
   let starterFocus = 0;
   let lastStepSound = -1;
+  const CAMPAIGN_SAVE_KEY = `twilight:${canonicalKantoOpening.sliceId}:save-v1`;
+  const newCampaign = (): CanonicalCampaignSave => ({
+    sliceId: canonicalKantoOpening.sliceId,
+    currentLocationId: canonicalKantoOpening.path[0]!,
+    visitedLocationIds: [canonicalKantoOpening.path[0]!],
+    storyEventIds: [],
+    traversedMeters: 0,
+    saveRevision: 0,
+  });
+  const loadCampaign = (): CanonicalCampaignSave => {
+    try {
+      const parsed = JSON.parse(localStorage.getItem(CAMPAIGN_SAVE_KEY) ?? 'null') as Partial<CanonicalCampaignSave> | null;
+      const index = parsed ? canonicalKantoOpening.path.indexOf(parsed.currentLocationId ?? '') : -1;
+      if (parsed?.sliceId !== canonicalKantoOpening.sliceId || index < 0) return newCampaign();
+      const eventIds = canonicalKantoOpening.events.map((event) => event.id);
+      return {
+        sliceId: canonicalKantoOpening.sliceId,
+        currentLocationId: canonicalKantoOpening.path[index]!,
+        visitedLocationIds: canonicalKantoOpening.path.slice(0, index + 1),
+        storyEventIds: eventIds.filter((id) => parsed.storyEventIds?.includes(id)),
+        traversedMeters: Math.max(0, Number(parsed.traversedMeters) || 0),
+        saveRevision: Math.max(0, Number(parsed.saveRevision) || 0),
+      };
+    } catch {
+      return newCampaign();
+    }
+  };
+  const campaign = loadCampaign();
+  let canonicalEncounterTriggered = campaign.visitedLocationIds.length > 1;
+  const saveCampaign = (): void => {
+    campaign.saveRevision += 1;
+    try { localStorage.setItem(CAMPAIGN_SAVE_KEY, JSON.stringify(campaign)); } catch { /* storage may be disabled */ }
+  };
+  const triggerStoryAt = (locationId: string): void => {
+    for (const event of canonicalKantoOpening.events) {
+      if (event.locationId === locationId && !campaign.storyEventIds.includes(event.id)) campaign.storyEventIds.push(event.id);
+    }
+    const order = new Map(canonicalKantoOpening.events.map((event) => [event.id, event.order]));
+    campaign.storyEventIds.sort((a, b) => (order.get(a) ?? 0) - (order.get(b) ?? 0));
+  };
   const soundscape = createProceduralSoundscape({ seed: 0x7477696c, masterGain: 0.27 });
   const setAudioScene = (sceneName: SoundScene, cue?: SoundCue): void => {
     void (async () => {
@@ -584,6 +773,19 @@ async function boot(): Promise<void> {
   const effectPoint = new THREE.Vector3();
 
   let explore: ExploreState | null = null;
+  const touchAxis = { x: 0, y: 0 };
+  const touchPad = document.getElementById('touch-pad');
+  const updateTouch = (event: PointerEvent): void => {
+    if (!touchPad) return;
+    const box = touchPad.getBoundingClientRect();
+    touchAxis.x = clamp((event.clientX - (box.left + box.width / 2)) / (box.width * 0.35), -1, 1);
+    touchAxis.y = clamp((event.clientY - (box.top + box.height / 2)) / (box.height * 0.35), -1, 1);
+  };
+  touchPad?.addEventListener('pointerdown', (event) => { touchPad.setPointerCapture(event.pointerId); updateTouch(event); });
+  touchPad?.addEventListener('pointermove', (event) => { if (touchPad.hasPointerCapture(event.pointerId)) updateTouch(event); });
+  const clearTouch = (): void => { touchAxis.x = 0; touchAxis.y = 0; };
+  touchPad?.addEventListener('pointerup', clearTouch);
+  touchPad?.addEventListener('pointercancel', clearTouch);
   let party: PartyMember[] = [];
   const healPad = createDefaultHealPad();
   let healCooldown = 0;
@@ -594,13 +796,15 @@ async function boot(): Promise<void> {
   let dispAllyHp = 0;
 
   const loc = document.getElementById('loc-label');
-  if (loc) loc.textContent = raw.route.name;
+  if (loc) loc.textContent = campaign.currentLocationId.split(':').at(-1)!.replaceAll('-', ' ');
 
   // --- UI refs ---
   const starterOverlay = document.getElementById('starter-overlay');
   const starterRow = document.getElementById('starter-row');
   const battleRoot = document.getElementById('battle-root');
   const battleMsg = document.getElementById('battle-msg');
+  const fieldStatus = document.getElementById('field-status');
+  const fieldSummary = document.getElementById('field-summary');
   const battleMenu = document.getElementById('battle-menu');
   const moveMenu = document.getElementById('move-menu');
   const enemyName = document.getElementById('enemy-name');
@@ -669,8 +873,12 @@ async function boot(): Promise<void> {
     document.body.dataset.attackPhase = phase;
   }
 
+  let canonicalBattlePrewarmReceipt: CanonicalBattlePrewarmReceipt | null = null;
   window.__twilight = {
     snapshot: (): TwilightRuntimeSnapshot => ({
+      buildManifest,
+      canonicalWorld: canonicalKantoOpening,
+      campaign: structuredClone(campaign),
       mode,
       starterModels: starterStage.parent ? starterMeshes.length : 0,
       player: playerMesh
@@ -694,11 +902,13 @@ async function boot(): Promise<void> {
             foeMaxHp: battle.foe.maxHp,
             foeSpeciesId: battle.foe.speciesId,
             busy,
+            field: battle.field ? structuredClone(battle.field) : undefined,
           }
         : null,
       healCount,
       encounterCount,
       catchCount,
+      canonicalBattlePrewarm: canonicalBattlePrewarmReceipt,
       audio: soundscape.snapshot(),
       cinematic: {
         attack: {
@@ -942,8 +1152,10 @@ async function boot(): Promise<void> {
       scene.add(foeMesh);
       foeContact.visible = true;
     }
-    // Snappy send-out — free-roam→Fight budget ≤400ms with parallel staging.
-    const ms = 160;
+    // Keep the send-out readable while reserving enough of the fail-closed
+    // roam→Fight budget for first-use creature clone/shader work on a cold GPU.
+    // At 96ms this still presents multiple frames at 60Hz instead of popping.
+    const ms = 96;
     const t0 = performance.now();
     await new Promise<void>((resolve) => {
       const step = (now: number) => {
@@ -1069,14 +1281,21 @@ async function boot(): Promise<void> {
     }
     const foe = battlerFromSpecies(foeSpecies, foeLevel, kind === 'wild' ? 'wild' : kind);
     if (party.length > 0) {
-      battle = createBattleFromParty(party, foe, raw.typeChart);
+      battle = createBattleFromParty(party, foe, raw.typeChart, campaign.currentLocationId);
       playerSpeciesId = battle.player.speciesId || playerSpeciesId;
     } else {
       const leadBattler = battlerFromSpecies(playerSpeciesId, raw.route.playerDefaultLevel, 'player');
-      battle = createBattle({ player: leadBattler, foe, typeChart: raw.typeChart, playerPartyIndex: 0 });
+      battle = createBattle({ player: leadBattler, foe, typeChart: raw.typeChart, playerPartyIndex: 0, locationId: campaign.currentLocationId });
     }
     dispEnemyHp = battle.foe.hp;
     dispAllyHp = battle.player.hp;
+    const fieldActive = battle.field?.id === ECHOING_STONE_FIELD.id;
+    echoStoneRing.visible = fieldActive;
+    echoRingLift = 0;
+    echoRingTarget = 0;
+    fieldStatus?.classList.toggle('active', fieldActive);
+    if (fieldStatus) fieldStatus.dataset.echo = 'settled';
+    if (fieldSummary) fieldSummary.textContent = fieldActive ? ECHOING_STONE_FIELD.accessibleSummary : '';
 
     battleRoot?.classList.add('active');
     // Hide menu until staging done
@@ -1148,6 +1367,9 @@ async function boot(): Promise<void> {
       }
     }
     battle = null;
+    echoStoneRing.visible = false;
+    echoRingTarget = 0;
+    fieldStatus?.classList.remove('active');
     battleRoot?.classList.remove('active');
     clearEffClasses();
     cinematicFx.clearDirectedTrail();
@@ -1869,6 +2091,18 @@ async function boot(): Promise<void> {
       liveRolls: true,
     });
 
+    const fieldEvents = battle.log.slice(logStart).filter((event) => event.type === 'field');
+    for (const fieldEvent of fieldEvents) {
+      echoRingTarget = fieldEvent.fieldAction === 'echo-charged' ? 1 : 0;
+      if (fieldStatus) {
+        fieldStatus.dataset.echo = echoRingTarget > 0 ? 'charged' : 'settled';
+        const copy = fieldStatus.querySelector('span');
+        if (copy) copy.textContent = fieldEvent.message ?? ECHOING_STONE_FIELD.accessibleSummary;
+      }
+      if (fieldSummary) fieldSummary.textContent = fieldEvent.message ?? ECHOING_STONE_FIELD.accessibleSummary;
+      await waitMs(fieldEvent.fieldAction === 'echo-charged' ? ECHO_TRANSITION_TIMING.riseMs : ECHO_TRANSITION_TIMING.settleMs);
+    }
+
     const hits = collectHits(battle.log, logStart);
     const msgs = battle.log.slice(logStart).filter((e) => e.message).map((e) => e.message!);
 
@@ -1995,6 +2229,8 @@ async function boot(): Promise<void> {
         if (starterOverlay) starterOverlay.style.display = 'none';
         mode = 'explore';
         document.body.dataset.mode = 'explore';
+        triggerStoryAt(campaign.currentLocationId);
+        saveCampaign();
         explore = createExploreState({
           speed: 4.6,
           runMultiplier: 1.85,
@@ -2177,14 +2413,16 @@ async function boot(): Promise<void> {
   // Match the exact runtime scales used by stageSendOut. A near-miss scale
   // creates a different template key and would rebuild every loft on the first
   // encounter despite nominal prewarming.
-  for (const entry of species) {
-    creatureTemplate(entry.id, 1);
-    creatureTemplate(entry.id, 0.9);
-    creatureTemplate(entry.id, 1.02);
+  if (activeAssetProfile === 'distributable') {
+    for (const entry of species) {
+      creatureTemplate(entry.id, 1);
+      creatureTemplate(entry.id, 0.9);
+      creatureTemplate(entry.id, 1.02);
+    }
   }
   const prewarm = new THREE.Group();
   for (const template of creatureTemplateCache.values()) prewarm.add(template.clone(true));
-  scene.add(prewarm);
+  if (activeAssetProfile === 'distributable') scene.add(prewarm);
   // Hidden pooled VFX are skipped by renderer.compile(). Briefly expose every
   // pooled draw object under the opaque boot curtain so the first send-out
   // burst cannot pay shader/program setup inside the frame gate.
@@ -2194,16 +2432,25 @@ async function boot(): Promise<void> {
     object.visible = true;
   });
   world.setMode('battle');
-  renderer.compile(scene, camera);
-  // compile() prepares programs but does not guarantee geometry buffers and
-  // draw-state have reached the GPU. Render one fully hidden boot frame while
-  // the templates are still attached so battle entry only reuses hot draws.
-  renderer.render(scene, camera);
+  mark('canonical-battle-prewarm-compile-start');
+  if (activeAssetProfile === 'private-local') {
+    canonicalBattlePrewarmReceipt = await executeCanonicalBattlePrewarm({
+      plan: canonicalBattlePrewarmPlan(raw.route),
+      renderer,
+      makeMesh: (speciesId, scale) => canonicalPrivateMesh(speciesId, scale),
+      curtainOpaque: () => Boolean(bootEl && !bootEl.classList.contains('done')),
+    });
+  } else {
+    await renderer.compileAsync(scene, camera);
+    renderer.render(scene, camera);
+  }
+  mark('canonical-battle-prewarm-compile-end');
+  mark('canonical-battle-prewarm-draw-end');
   world.setMode('starter');
   cinematicFx.root.traverse((object) => {
     object.visible = vfxVisibility.get(object) ?? true;
   });
-  scene.remove(prewarm);
+  if (activeAssetProfile === 'distributable') scene.remove(prewarm);
 
   progress(1, 'Ready');
 
@@ -2289,7 +2536,39 @@ async function boot(): Promise<void> {
     if (mode === 'explore' && explore && playerMesh) {
       if (healCooldown > 0) healCooldown = Math.max(0, healCooldown - dt);
 
+      const pad = navigator.getGamepads?.()[0];
+      const dead = (value: number): number => Math.abs(value) < 0.18 ? 0 : value;
+      const input = normalizeInputFrame({
+        // Keyboard remains authoritative in tickExplore; this frame contributes
+        // only transport-neutral analog sources so held keys are not double-counted.
+        keys: new Set<string>(),
+        touch: touchAxis,
+        gamepad: pad ? { x: dead(pad.axes[0] ?? 0), y: dead(pad.axes[1] ?? 0), interact: Boolean(pad.buttons[0]?.pressed) } : undefined,
+      });
+      explore.analog.x = input.x;
+      explore.analog.z = input.y;
+      explore.analog.interact = input.interact;
       const res = tickExplore(explore, dt);
+      if (res.moved && campaign.visitedLocationIds.length < canonicalKantoOpening.path.length) {
+        campaign.traversedMeters += res.speed * dt;
+        const nextIndex = campaign.visitedLocationIds.length;
+        if (campaign.traversedMeters >= nextIndex * 5) {
+          const locationId = canonicalKantoOpening.path[nextIndex]!;
+          campaign.currentLocationId = locationId;
+          campaign.visitedLocationIds.push(locationId);
+          triggerStoryAt(locationId);
+          saveCampaign();
+          const locationName = locationId.split(':').at(-1)!.replaceAll('-', ' ');
+          if (loc) loc.textContent = locationName;
+          showToast(`Arrived: ${locationName}`);
+          if (nextIndex === 1 && !canonicalEncounterTriggered && !busy) {
+            canonicalEncounterTriggered = true;
+            busy = true;
+            const w = pickWild();
+            void enterBattle(w.species, w.level, 'wild').finally(() => { busy = false; });
+          }
+        }
+      }
       playerMesh.position.x = explore.pos.x;
       playerMesh.position.z = explore.pos.z;
       playerBobPhase += res.speed * dt * 8;
@@ -2340,7 +2619,7 @@ async function boot(): Promise<void> {
       }
 
       // Gym / elite interact (E)
-      const wantInteract = explore.keys.has('e');
+      const wantInteract = explore.keys.has('e') || explore.analog.interact;
       if (!wantInteract) interactArmed = true;
       if (res.nearInteract && interactArmed && wantInteract && !busy) {
         interactArmed = false;
@@ -2374,13 +2653,8 @@ async function boot(): Promise<void> {
         });
       }
 
-      const yawBlend = 1 - Math.exp(-4.2 * dt);
-      const posBlend = 1 - Math.exp(-6.5 * dt);
-      const lookBlend = 1 - Math.exp(-8 * dt);
-      let dy = explore.yaw - camFollow.yaw;
-      while (dy > Math.PI) dy -= Math.PI * 2;
-      while (dy < -Math.PI) dy += Math.PI * 2;
-      camFollow.yaw += dy * yawBlend;
+      // Presentation-rate hard follow: no lag spring or 60 Hz stair-step.
+      camFollow.yaw = explore.yaw;
 
       // Collision-aware camera pull-in vs landmarks
       const safeDist = cameraCollisionDist(
@@ -2393,18 +2667,14 @@ async function boot(): Promise<void> {
       const idealX = playerMesh.position.x - Math.sin(camFollow.yaw) * safeDist;
       const idealZ = playerMesh.position.z - Math.cos(camFollow.yaw) * safeDist;
       const idealY = camFollow.height + (camFollow.dist - safeDist) * 0.15;
-      camFollow.pos.x += (idealX - camFollow.pos.x) * posBlend;
-      camFollow.pos.z += (idealZ - camFollow.pos.z) * posBlend;
-      camFollow.pos.y += (idealY - camFollow.pos.y) * posBlend;
+      camFollow.pos.set(idealX, idealY, idealZ);
 
       // Look slightly ahead of player toward facing so route + grass + landmarks read in stills
       const lookLead = 1.35;
       const lx = playerMesh.position.x + Math.sin(camFollow.yaw) * lookLead;
       const ly = 0.85;
       const lz = playerMesh.position.z + Math.cos(camFollow.yaw) * lookLead;
-      camFollow.look.x += (lx - camFollow.look.x) * lookBlend;
-      camFollow.look.y += (ly - camFollow.look.y) * lookBlend;
-      camFollow.look.z += (lz - camFollow.look.z) * lookBlend;
+      camFollow.look.set(lx, ly, lz);
 
       camera.position.copy(camFollow.pos);
       camera.lookAt(camFollow.look);
@@ -2413,6 +2683,12 @@ async function boot(): Promise<void> {
       playerMesh.position.x = explore.pos.x;
       playerMesh.position.z = explore.pos.z;
     } else if (mode === 'battle') {
+      echoRingLift += (echoRingTarget - echoRingLift) * Math.min(1, dt * 8.5);
+      for (let i = 0; i < echoStones.length; i++) {
+        const stone = echoStones[i]!;
+        stone.position.y = -0.16 + echoRingLift * (0.42 + (i % 3) * 0.055);
+        stone.rotation.z += dt * echoRingLift * (i % 2 === 0 ? 0.22 : -0.18);
+      }
       playerContact.visible = true;
       // Staging base Z; clip may write relative Z delta; shell lunge composes after tick
       const PLAYER_BATTLE_Z = 1.0;

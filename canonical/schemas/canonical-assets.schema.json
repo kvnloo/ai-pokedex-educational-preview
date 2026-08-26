@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://twilight-route.local/schemas/canonical-assets.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "documentType", "assets"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "documentType": {"const": "assets"},
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["assetId", "sourceId", "sourceLocator", "sourceRevision", "sourceSha256", "byteSize", "acquiredAt", "scope", "profiles", "gitPolicy", "provenanceClass"],
+        "properties": {
+          "assetId": {"type": "string", "pattern": "^asset:"},
+          "sourceId": {"type": "string", "pattern": "^source:"},
+          "sourceLocator": {"type": "string", "minLength": 1},
+          "sourceRevision": {"type": "string", "minLength": 1},
+          "sourceSha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+          "byteSize": {"type": "integer", "minimum": 1},
+          "acquiredAt": {"type": "string", "format": "date"},
+          "scope": {"enum": ["private-canonical-reference", "distributable"]},
+          "profiles": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["private-local", "distributable"]}},
+          "gitPolicy": {"enum": ["manifest-only", "bytes-allowed"]},
+          "provenanceClass": {"enum": ["lawfully-sourced-official", "project-original", "separately-licensed"]}
+        }
+      }
+    }
+  }
+}

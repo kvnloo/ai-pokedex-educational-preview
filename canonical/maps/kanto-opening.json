@@ -1,0 +1,1824 @@
+{
+  "documentType": "maps",
+  "maps": [
+    {
+      "connections": [
+        {
+          "direction": "north",
+          "id": "edge:red-blue:pallet-town:route-1",
+          "offset": [
+            0,
+            1
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/pallet-town#connection-north",
+            "sourceId": "source:pret-pokered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:route-1"
+        }
+      ],
+      "gameId": "game:red-blue",
+      "id": "map:red-blue:pallet-town",
+      "locationId": "location:kanto:pallet-town",
+      "plane": "game",
+      "provenance": {
+        "confidence": "high",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "research-facts",
+        "locator": "maps/pallet-town",
+        "sourceId": "source:pret-pokered",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "warps": [
+        {
+          "id": "warp:red-blue:pallet-town:route-1",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/pallet-town#entrance-north",
+            "sourceId": "source:pret-pokered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:red-blue:route-1:pallet-town",
+          "toMap": "map:red-blue:route-1"
+        }
+      ]
+    },
+    {
+      "connections": [
+        {
+          "direction": "south",
+          "id": "edge:red-blue:route-1:pallet-town",
+          "offset": [
+            0,
+            -1
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-1#connection-south",
+            "sourceId": "source:pret-pokered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:pallet-town"
+        },
+        {
+          "direction": "north",
+          "id": "edge:red-blue:route-1:viridian-city",
+          "offset": [
+            0,
+            1
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-1#connection-north",
+            "sourceId": "source:pret-pokered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:viridian-city"
+        }
+      ],
+      "gameId": "game:red-blue",
+      "id": "map:red-blue:route-1",
+      "locationId": "location:kanto:route-1",
+      "plane": "game",
+      "provenance": {
+        "confidence": "high",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "research-facts",
+        "locator": "maps/route-1",
+        "sourceId": "source:pret-pokered",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "warps": [
+        {
+          "id": "warp:red-blue:route-1:pallet-town",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-1#entrance-south",
+            "sourceId": "source:pret-pokered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:red-blue:pallet-town:route-1",
+          "toMap": "map:red-blue:pallet-town"
+        },
+        {
+          "id": "warp:red-blue:route-1:viridian-city",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-1#entrance-north",
+            "sourceId": "source:pret-pokered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:red-blue:viridian-city:route-1",
+          "toMap": "map:red-blue:viridian-city"
+        }
+      ]
+    },
+    {
+      "connections": [
+        {
+          "direction": "south",
+          "id": "edge:red-blue:viridian-city:route-1",
+          "offset": [
+            0,
+            -1
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/viridian-city#connection-south",
+            "sourceId": "source:pret-pokered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:route-1"
+        },
+        {
+          "direction": "north",
+          "id": "edge:red-blue:viridian-city:route-2-south",
+          "offset": [
+            0,
+            1
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/viridian-city#connection-north",
+            "sourceId": "source:pret-pokered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:route-2-south"
+        }
+      ],
+      "gameId": "game:red-blue",
+      "id": "map:red-blue:viridian-city",
+      "locationId": "location:kanto:viridian-city",
+      "plane": "game",
+      "provenance": {
+        "confidence": "high",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "research-facts",
+        "locator": "maps/viridian-city",
+        "sourceId": "source:pret-pokered",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "warps": [
+        {
+          "id": "warp:red-blue:viridian-city:route-1",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/viridian-city#entrance-south",
+            "sourceId": "source:pret-pokered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:red-blue:route-1:viridian-city",
+          "toMap": "map:red-blue:route-1"
+        },
+        {
+          "id": "warp:red-blue:viridian-city:route-2-south",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/viridian-city#entrance-north",
+            "sourceId": "source:pret-pokered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:red-blue:route-2-south:viridian-city",
+          "toMap": "map:red-blue:route-2-south"
+        }
+      ]
+    },
+    {
+      "connections": [
+        {
+          "direction": "south",
+          "id": "edge:red-blue:route-2-south:viridian-city",
+          "offset": [
+            0,
+            -1
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-2-south#connection-south",
+            "sourceId": "source:pret-pokered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:viridian-city"
+        },
+        {
+          "direction": "north",
+          "id": "edge:red-blue:route-2-south:viridian-forest",
+          "offset": [
+            0,
+            1
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-2-south#connection-north",
+            "sourceId": "source:pret-pokered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:viridian-forest"
+        }
+      ],
+      "gameId": "game:red-blue",
+      "id": "map:red-blue:route-2-south",
+      "locationId": "location:kanto:route-2-south",
+      "plane": "game",
+      "provenance": {
+        "confidence": "high",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "research-facts",
+        "locator": "maps/route-2-south",
+        "sourceId": "source:pret-pokered",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "warps": [
+        {
+          "id": "warp:red-blue:route-2-south:viridian-city",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-2-south#entrance-south",
+            "sourceId": "source:pret-pokered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:red-blue:viridian-city:route-2-south",
+          "toMap": "map:red-blue:viridian-city"
+        },
+        {
+          "id": "warp:red-blue:route-2-south:viridian-forest",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-2-south#entrance-north",
+            "sourceId": "source:pret-pokered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:red-blue:viridian-forest:route-2-south",
+          "toMap": "map:red-blue:viridian-forest"
+        }
+      ]
+    },
+    {
+      "connections": [
+        {
+          "direction": "south",
+          "id": "edge:red-blue:viridian-forest:route-2-south",
+          "offset": [
+            0,
+            -1
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/viridian-forest#connection-south",
+            "sourceId": "source:pret-pokered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:route-2-south"
+        },
+        {
+          "direction": "north",
+          "id": "edge:red-blue:viridian-forest:route-2-north",
+          "offset": [
+            0,
+            1
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/viridian-forest#connection-north",
+            "sourceId": "source:pret-pokered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:route-2-north"
+        }
+      ],
+      "gameId": "game:red-blue",
+      "id": "map:red-blue:viridian-forest",
+      "locationId": "location:kanto:viridian-forest",
+      "plane": "game",
+      "provenance": {
+        "confidence": "high",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "research-facts",
+        "locator": "maps/viridian-forest",
+        "sourceId": "source:pret-pokered",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "warps": [
+        {
+          "id": "warp:red-blue:viridian-forest:route-2-south",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/viridian-forest#entrance-south",
+            "sourceId": "source:pret-pokered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:red-blue:route-2-south:viridian-forest",
+          "toMap": "map:red-blue:route-2-south"
+        },
+        {
+          "id": "warp:red-blue:viridian-forest:route-2-north",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/viridian-forest#entrance-north",
+            "sourceId": "source:pret-pokered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:red-blue:route-2-north:viridian-forest",
+          "toMap": "map:red-blue:route-2-north"
+        }
+      ]
+    },
+    {
+      "connections": [
+        {
+          "direction": "south",
+          "id": "edge:red-blue:route-2-north:viridian-forest",
+          "offset": [
+            0,
+            -1
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-2-north#connection-south",
+            "sourceId": "source:pret-pokered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:viridian-forest"
+        },
+        {
+          "direction": "north",
+          "id": "edge:red-blue:route-2-north:pewter-city",
+          "offset": [
+            0,
+            1
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-2-north#connection-north",
+            "sourceId": "source:pret-pokered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:pewter-city"
+        }
+      ],
+      "gameId": "game:red-blue",
+      "id": "map:red-blue:route-2-north",
+      "locationId": "location:kanto:route-2-north",
+      "plane": "game",
+      "provenance": {
+        "confidence": "high",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "research-facts",
+        "locator": "maps/route-2-north",
+        "sourceId": "source:pret-pokered",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "warps": [
+        {
+          "id": "warp:red-blue:route-2-north:viridian-forest",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-2-north#entrance-south",
+            "sourceId": "source:pret-pokered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:red-blue:viridian-forest:route-2-north",
+          "toMap": "map:red-blue:viridian-forest"
+        },
+        {
+          "id": "warp:red-blue:route-2-north:pewter-city",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-2-north#entrance-north",
+            "sourceId": "source:pret-pokered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:red-blue:pewter-city:route-2-north",
+          "toMap": "map:red-blue:pewter-city"
+        }
+      ]
+    },
+    {
+      "connections": [
+        {
+          "direction": "south",
+          "id": "edge:red-blue:pewter-city:route-2-north",
+          "offset": [
+            0,
+            -1
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/pewter-city#connection-south",
+            "sourceId": "source:pret-pokered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:route-2-north"
+        },
+        {
+          "direction": "east",
+          "id": "edge:red-blue:pewter-city:route-3",
+          "offset": [
+            1,
+            0
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/pewter-city#connection-east",
+            "sourceId": "source:pret-pokered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:route-3"
+        }
+      ],
+      "gameId": "game:red-blue",
+      "id": "map:red-blue:pewter-city",
+      "locationId": "location:kanto:pewter-city",
+      "plane": "game",
+      "provenance": {
+        "confidence": "high",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "research-facts",
+        "locator": "maps/pewter-city",
+        "sourceId": "source:pret-pokered",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "warps": [
+        {
+          "id": "warp:red-blue:pewter-city:route-2-north",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/pewter-city#entrance-south",
+            "sourceId": "source:pret-pokered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:red-blue:route-2-north:pewter-city",
+          "toMap": "map:red-blue:route-2-north"
+        },
+        {
+          "id": "warp:red-blue:pewter-city:route-3",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/pewter-city#entrance-east",
+            "sourceId": "source:pret-pokered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:red-blue:route-3:pewter-city",
+          "toMap": "map:red-blue:route-3"
+        }
+      ]
+    },
+    {
+      "connections": [
+        {
+          "direction": "west",
+          "id": "edge:red-blue:route-3:pewter-city",
+          "offset": [
+            -1,
+            0
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-3#connection-west",
+            "sourceId": "source:pret-pokered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:pewter-city"
+        }
+      ],
+      "gameId": "game:red-blue",
+      "id": "map:red-blue:route-3",
+      "locationId": "location:kanto:route-3",
+      "plane": "game",
+      "provenance": {
+        "confidence": "high",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "research-facts",
+        "locator": "maps/route-3",
+        "sourceId": "source:pret-pokered",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "warps": [
+        {
+          "id": "warp:red-blue:route-3:pewter-city",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-3#entrance-west",
+            "sourceId": "source:pret-pokered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:red-blue:pewter-city:route-3",
+          "toMap": "map:red-blue:pewter-city"
+        }
+      ]
+    },
+    {
+      "connections": [
+        {
+          "direction": "north",
+          "id": "edge:yellow:pallet-town:route-1",
+          "offset": [
+            0,
+            1
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/pallet-town#connection-north",
+            "sourceId": "source:pret-pokeyellow",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:route-1"
+        }
+      ],
+      "gameId": "game:yellow",
+      "id": "map:yellow:pallet-town",
+      "locationId": "location:kanto:pallet-town",
+      "plane": "game",
+      "provenance": {
+        "confidence": "high",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "research-facts",
+        "locator": "maps/pallet-town",
+        "sourceId": "source:pret-pokeyellow",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "warps": [
+        {
+          "id": "warp:yellow:pallet-town:route-1",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/pallet-town#entrance-north",
+            "sourceId": "source:pret-pokeyellow",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:yellow:route-1:pallet-town",
+          "toMap": "map:yellow:route-1"
+        }
+      ]
+    },
+    {
+      "connections": [
+        {
+          "direction": "south",
+          "id": "edge:yellow:route-1:pallet-town",
+          "offset": [
+            0,
+            -1
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-1#connection-south",
+            "sourceId": "source:pret-pokeyellow",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:pallet-town"
+        },
+        {
+          "direction": "north",
+          "id": "edge:yellow:route-1:viridian-city",
+          "offset": [
+            0,
+            1
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-1#connection-north",
+            "sourceId": "source:pret-pokeyellow",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:viridian-city"
+        }
+      ],
+      "gameId": "game:yellow",
+      "id": "map:yellow:route-1",
+      "locationId": "location:kanto:route-1",
+      "plane": "game",
+      "provenance": {
+        "confidence": "high",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "research-facts",
+        "locator": "maps/route-1",
+        "sourceId": "source:pret-pokeyellow",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "warps": [
+        {
+          "id": "warp:yellow:route-1:pallet-town",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-1#entrance-south",
+            "sourceId": "source:pret-pokeyellow",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:yellow:pallet-town:route-1",
+          "toMap": "map:yellow:pallet-town"
+        },
+        {
+          "id": "warp:yellow:route-1:viridian-city",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-1#entrance-north",
+            "sourceId": "source:pret-pokeyellow",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:yellow:viridian-city:route-1",
+          "toMap": "map:yellow:viridian-city"
+        }
+      ]
+    },
+    {
+      "connections": [
+        {
+          "direction": "south",
+          "id": "edge:yellow:viridian-city:route-1",
+          "offset": [
+            0,
+            -1
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/viridian-city#connection-south",
+            "sourceId": "source:pret-pokeyellow",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:route-1"
+        },
+        {
+          "direction": "north",
+          "id": "edge:yellow:viridian-city:route-2-south",
+          "offset": [
+            0,
+            1
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/viridian-city#connection-north",
+            "sourceId": "source:pret-pokeyellow",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:route-2-south"
+        }
+      ],
+      "gameId": "game:yellow",
+      "id": "map:yellow:viridian-city",
+      "locationId": "location:kanto:viridian-city",
+      "plane": "game",
+      "provenance": {
+        "confidence": "high",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "research-facts",
+        "locator": "maps/viridian-city",
+        "sourceId": "source:pret-pokeyellow",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "warps": [
+        {
+          "id": "warp:yellow:viridian-city:route-1",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/viridian-city#entrance-south",
+            "sourceId": "source:pret-pokeyellow",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:yellow:route-1:viridian-city",
+          "toMap": "map:yellow:route-1"
+        },
+        {
+          "id": "warp:yellow:viridian-city:route-2-south",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/viridian-city#entrance-north",
+            "sourceId": "source:pret-pokeyellow",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:yellow:route-2-south:viridian-city",
+          "toMap": "map:yellow:route-2-south"
+        }
+      ]
+    },
+    {
+      "connections": [
+        {
+          "direction": "south",
+          "id": "edge:yellow:route-2-south:viridian-city",
+          "offset": [
+            0,
+            -1
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-2-south#connection-south",
+            "sourceId": "source:pret-pokeyellow",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:viridian-city"
+        },
+        {
+          "direction": "north",
+          "id": "edge:yellow:route-2-south:viridian-forest",
+          "offset": [
+            0,
+            1
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-2-south#connection-north",
+            "sourceId": "source:pret-pokeyellow",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:viridian-forest"
+        }
+      ],
+      "gameId": "game:yellow",
+      "id": "map:yellow:route-2-south",
+      "locationId": "location:kanto:route-2-south",
+      "plane": "game",
+      "provenance": {
+        "confidence": "high",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "research-facts",
+        "locator": "maps/route-2-south",
+        "sourceId": "source:pret-pokeyellow",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "warps": [
+        {
+          "id": "warp:yellow:route-2-south:viridian-city",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-2-south#entrance-south",
+            "sourceId": "source:pret-pokeyellow",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:yellow:viridian-city:route-2-south",
+          "toMap": "map:yellow:viridian-city"
+        },
+        {
+          "id": "warp:yellow:route-2-south:viridian-forest",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-2-south#entrance-north",
+            "sourceId": "source:pret-pokeyellow",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:yellow:viridian-forest:route-2-south",
+          "toMap": "map:yellow:viridian-forest"
+        }
+      ]
+    },
+    {
+      "connections": [
+        {
+          "direction": "south",
+          "id": "edge:yellow:viridian-forest:route-2-south",
+          "offset": [
+            0,
+            -1
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/viridian-forest#connection-south",
+            "sourceId": "source:pret-pokeyellow",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:route-2-south"
+        },
+        {
+          "direction": "north",
+          "id": "edge:yellow:viridian-forest:route-2-north",
+          "offset": [
+            0,
+            1
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/viridian-forest#connection-north",
+            "sourceId": "source:pret-pokeyellow",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:route-2-north"
+        }
+      ],
+      "gameId": "game:yellow",
+      "id": "map:yellow:viridian-forest",
+      "locationId": "location:kanto:viridian-forest",
+      "plane": "game",
+      "provenance": {
+        "confidence": "high",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "research-facts",
+        "locator": "maps/viridian-forest",
+        "sourceId": "source:pret-pokeyellow",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "warps": [
+        {
+          "id": "warp:yellow:viridian-forest:route-2-south",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/viridian-forest#entrance-south",
+            "sourceId": "source:pret-pokeyellow",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:yellow:route-2-south:viridian-forest",
+          "toMap": "map:yellow:route-2-south"
+        },
+        {
+          "id": "warp:yellow:viridian-forest:route-2-north",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/viridian-forest#entrance-north",
+            "sourceId": "source:pret-pokeyellow",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:yellow:route-2-north:viridian-forest",
+          "toMap": "map:yellow:route-2-north"
+        }
+      ]
+    },
+    {
+      "connections": [
+        {
+          "direction": "south",
+          "id": "edge:yellow:route-2-north:viridian-forest",
+          "offset": [
+            0,
+            -1
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-2-north#connection-south",
+            "sourceId": "source:pret-pokeyellow",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:viridian-forest"
+        },
+        {
+          "direction": "north",
+          "id": "edge:yellow:route-2-north:pewter-city",
+          "offset": [
+            0,
+            1
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-2-north#connection-north",
+            "sourceId": "source:pret-pokeyellow",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:pewter-city"
+        }
+      ],
+      "gameId": "game:yellow",
+      "id": "map:yellow:route-2-north",
+      "locationId": "location:kanto:route-2-north",
+      "plane": "game",
+      "provenance": {
+        "confidence": "high",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "research-facts",
+        "locator": "maps/route-2-north",
+        "sourceId": "source:pret-pokeyellow",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "warps": [
+        {
+          "id": "warp:yellow:route-2-north:viridian-forest",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-2-north#entrance-south",
+            "sourceId": "source:pret-pokeyellow",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:yellow:viridian-forest:route-2-north",
+          "toMap": "map:yellow:viridian-forest"
+        },
+        {
+          "id": "warp:yellow:route-2-north:pewter-city",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-2-north#entrance-north",
+            "sourceId": "source:pret-pokeyellow",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:yellow:pewter-city:route-2-north",
+          "toMap": "map:yellow:pewter-city"
+        }
+      ]
+    },
+    {
+      "connections": [
+        {
+          "direction": "south",
+          "id": "edge:yellow:pewter-city:route-2-north",
+          "offset": [
+            0,
+            -1
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/pewter-city#connection-south",
+            "sourceId": "source:pret-pokeyellow",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:route-2-north"
+        },
+        {
+          "direction": "east",
+          "id": "edge:yellow:pewter-city:route-3",
+          "offset": [
+            1,
+            0
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/pewter-city#connection-east",
+            "sourceId": "source:pret-pokeyellow",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:route-3"
+        }
+      ],
+      "gameId": "game:yellow",
+      "id": "map:yellow:pewter-city",
+      "locationId": "location:kanto:pewter-city",
+      "plane": "game",
+      "provenance": {
+        "confidence": "high",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "research-facts",
+        "locator": "maps/pewter-city",
+        "sourceId": "source:pret-pokeyellow",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "warps": [
+        {
+          "id": "warp:yellow:pewter-city:route-2-north",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/pewter-city#entrance-south",
+            "sourceId": "source:pret-pokeyellow",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:yellow:route-2-north:pewter-city",
+          "toMap": "map:yellow:route-2-north"
+        },
+        {
+          "id": "warp:yellow:pewter-city:route-3",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/pewter-city#entrance-east",
+            "sourceId": "source:pret-pokeyellow",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:yellow:route-3:pewter-city",
+          "toMap": "map:yellow:route-3"
+        }
+      ]
+    },
+    {
+      "connections": [
+        {
+          "direction": "west",
+          "id": "edge:yellow:route-3:pewter-city",
+          "offset": [
+            -1,
+            0
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-3#connection-west",
+            "sourceId": "source:pret-pokeyellow",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:pewter-city"
+        }
+      ],
+      "gameId": "game:yellow",
+      "id": "map:yellow:route-3",
+      "locationId": "location:kanto:route-3",
+      "plane": "game",
+      "provenance": {
+        "confidence": "high",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "research-facts",
+        "locator": "maps/route-3",
+        "sourceId": "source:pret-pokeyellow",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "warps": [
+        {
+          "id": "warp:yellow:route-3:pewter-city",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-3#entrance-west",
+            "sourceId": "source:pret-pokeyellow",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:yellow:pewter-city:route-3",
+          "toMap": "map:yellow:pewter-city"
+        }
+      ]
+    },
+    {
+      "connections": [
+        {
+          "direction": "north",
+          "id": "edge:firered-leafgreen:pallet-town:route-1",
+          "offset": [
+            0,
+            1
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/pallet-town#connection-north",
+            "sourceId": "source:pret-pokefirered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:route-1"
+        }
+      ],
+      "gameId": "game:firered-leafgreen",
+      "id": "map:firered-leafgreen:pallet-town",
+      "locationId": "location:kanto:pallet-town",
+      "plane": "game",
+      "provenance": {
+        "confidence": "high",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "research-facts",
+        "locator": "maps/pallet-town",
+        "sourceId": "source:pret-pokefirered",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "warps": [
+        {
+          "id": "warp:firered-leafgreen:pallet-town:route-1",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/pallet-town#entrance-north",
+            "sourceId": "source:pret-pokefirered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:firered-leafgreen:route-1:pallet-town",
+          "toMap": "map:firered-leafgreen:route-1"
+        }
+      ]
+    },
+    {
+      "connections": [
+        {
+          "direction": "south",
+          "id": "edge:firered-leafgreen:route-1:pallet-town",
+          "offset": [
+            0,
+            -1
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-1#connection-south",
+            "sourceId": "source:pret-pokefirered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:pallet-town"
+        },
+        {
+          "direction": "north",
+          "id": "edge:firered-leafgreen:route-1:viridian-city",
+          "offset": [
+            0,
+            1
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-1#connection-north",
+            "sourceId": "source:pret-pokefirered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:viridian-city"
+        }
+      ],
+      "gameId": "game:firered-leafgreen",
+      "id": "map:firered-leafgreen:route-1",
+      "locationId": "location:kanto:route-1",
+      "plane": "game",
+      "provenance": {
+        "confidence": "high",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "research-facts",
+        "locator": "maps/route-1",
+        "sourceId": "source:pret-pokefirered",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "warps": [
+        {
+          "id": "warp:firered-leafgreen:route-1:pallet-town",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-1#entrance-south",
+            "sourceId": "source:pret-pokefirered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:firered-leafgreen:pallet-town:route-1",
+          "toMap": "map:firered-leafgreen:pallet-town"
+        },
+        {
+          "id": "warp:firered-leafgreen:route-1:viridian-city",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-1#entrance-north",
+            "sourceId": "source:pret-pokefirered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:firered-leafgreen:viridian-city:route-1",
+          "toMap": "map:firered-leafgreen:viridian-city"
+        }
+      ]
+    },
+    {
+      "connections": [
+        {
+          "direction": "south",
+          "id": "edge:firered-leafgreen:viridian-city:route-1",
+          "offset": [
+            0,
+            -1
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/viridian-city#connection-south",
+            "sourceId": "source:pret-pokefirered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:route-1"
+        },
+        {
+          "direction": "north",
+          "id": "edge:firered-leafgreen:viridian-city:route-2-south",
+          "offset": [
+            0,
+            1
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/viridian-city#connection-north",
+            "sourceId": "source:pret-pokefirered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:route-2-south"
+        }
+      ],
+      "gameId": "game:firered-leafgreen",
+      "id": "map:firered-leafgreen:viridian-city",
+      "locationId": "location:kanto:viridian-city",
+      "plane": "game",
+      "provenance": {
+        "confidence": "high",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "research-facts",
+        "locator": "maps/viridian-city",
+        "sourceId": "source:pret-pokefirered",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "warps": [
+        {
+          "id": "warp:firered-leafgreen:viridian-city:route-1",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/viridian-city#entrance-south",
+            "sourceId": "source:pret-pokefirered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:firered-leafgreen:route-1:viridian-city",
+          "toMap": "map:firered-leafgreen:route-1"
+        },
+        {
+          "id": "warp:firered-leafgreen:viridian-city:route-2-south",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/viridian-city#entrance-north",
+            "sourceId": "source:pret-pokefirered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:firered-leafgreen:route-2-south:viridian-city",
+          "toMap": "map:firered-leafgreen:route-2-south"
+        }
+      ]
+    },
+    {
+      "connections": [
+        {
+          "direction": "south",
+          "id": "edge:firered-leafgreen:route-2-south:viridian-city",
+          "offset": [
+            0,
+            -1
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-2-south#connection-south",
+            "sourceId": "source:pret-pokefirered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:viridian-city"
+        },
+        {
+          "direction": "north",
+          "id": "edge:firered-leafgreen:route-2-south:viridian-forest",
+          "offset": [
+            0,
+            1
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-2-south#connection-north",
+            "sourceId": "source:pret-pokefirered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:viridian-forest"
+        }
+      ],
+      "gameId": "game:firered-leafgreen",
+      "id": "map:firered-leafgreen:route-2-south",
+      "locationId": "location:kanto:route-2-south",
+      "plane": "game",
+      "provenance": {
+        "confidence": "high",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "research-facts",
+        "locator": "maps/route-2-south",
+        "sourceId": "source:pret-pokefirered",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "warps": [
+        {
+          "id": "warp:firered-leafgreen:route-2-south:viridian-city",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-2-south#entrance-south",
+            "sourceId": "source:pret-pokefirered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:firered-leafgreen:viridian-city:route-2-south",
+          "toMap": "map:firered-leafgreen:viridian-city"
+        },
+        {
+          "id": "warp:firered-leafgreen:route-2-south:viridian-forest",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-2-south#entrance-north",
+            "sourceId": "source:pret-pokefirered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:firered-leafgreen:viridian-forest:route-2-south",
+          "toMap": "map:firered-leafgreen:viridian-forest"
+        }
+      ]
+    },
+    {
+      "connections": [
+        {
+          "direction": "south",
+          "id": "edge:firered-leafgreen:viridian-forest:route-2-south",
+          "offset": [
+            0,
+            -1
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/viridian-forest#connection-south",
+            "sourceId": "source:pret-pokefirered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:route-2-south"
+        },
+        {
+          "direction": "north",
+          "id": "edge:firered-leafgreen:viridian-forest:route-2-north",
+          "offset": [
+            0,
+            1
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/viridian-forest#connection-north",
+            "sourceId": "source:pret-pokefirered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:route-2-north"
+        }
+      ],
+      "gameId": "game:firered-leafgreen",
+      "id": "map:firered-leafgreen:viridian-forest",
+      "locationId": "location:kanto:viridian-forest",
+      "plane": "game",
+      "provenance": {
+        "confidence": "high",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "research-facts",
+        "locator": "maps/viridian-forest",
+        "sourceId": "source:pret-pokefirered",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "warps": [
+        {
+          "id": "warp:firered-leafgreen:viridian-forest:route-2-south",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/viridian-forest#entrance-south",
+            "sourceId": "source:pret-pokefirered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:firered-leafgreen:route-2-south:viridian-forest",
+          "toMap": "map:firered-leafgreen:route-2-south"
+        },
+        {
+          "id": "warp:firered-leafgreen:viridian-forest:route-2-north",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/viridian-forest#entrance-north",
+            "sourceId": "source:pret-pokefirered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:firered-leafgreen:route-2-north:viridian-forest",
+          "toMap": "map:firered-leafgreen:route-2-north"
+        }
+      ]
+    },
+    {
+      "connections": [
+        {
+          "direction": "south",
+          "id": "edge:firered-leafgreen:route-2-north:viridian-forest",
+          "offset": [
+            0,
+            -1
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-2-north#connection-south",
+            "sourceId": "source:pret-pokefirered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:viridian-forest"
+        },
+        {
+          "direction": "north",
+          "id": "edge:firered-leafgreen:route-2-north:pewter-city",
+          "offset": [
+            0,
+            1
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-2-north#connection-north",
+            "sourceId": "source:pret-pokefirered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:pewter-city"
+        }
+      ],
+      "gameId": "game:firered-leafgreen",
+      "id": "map:firered-leafgreen:route-2-north",
+      "locationId": "location:kanto:route-2-north",
+      "plane": "game",
+      "provenance": {
+        "confidence": "high",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "research-facts",
+        "locator": "maps/route-2-north",
+        "sourceId": "source:pret-pokefirered",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "warps": [
+        {
+          "id": "warp:firered-leafgreen:route-2-north:viridian-forest",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-2-north#entrance-south",
+            "sourceId": "source:pret-pokefirered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:firered-leafgreen:viridian-forest:route-2-north",
+          "toMap": "map:firered-leafgreen:viridian-forest"
+        },
+        {
+          "id": "warp:firered-leafgreen:route-2-north:pewter-city",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-2-north#entrance-north",
+            "sourceId": "source:pret-pokefirered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:firered-leafgreen:pewter-city:route-2-north",
+          "toMap": "map:firered-leafgreen:pewter-city"
+        }
+      ]
+    },
+    {
+      "connections": [
+        {
+          "direction": "south",
+          "id": "edge:firered-leafgreen:pewter-city:route-2-north",
+          "offset": [
+            0,
+            -1
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/pewter-city#connection-south",
+            "sourceId": "source:pret-pokefirered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:route-2-north"
+        },
+        {
+          "direction": "east",
+          "id": "edge:firered-leafgreen:pewter-city:route-3",
+          "offset": [
+            1,
+            0
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/pewter-city#connection-east",
+            "sourceId": "source:pret-pokefirered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:route-3"
+        }
+      ],
+      "gameId": "game:firered-leafgreen",
+      "id": "map:firered-leafgreen:pewter-city",
+      "locationId": "location:kanto:pewter-city",
+      "plane": "game",
+      "provenance": {
+        "confidence": "high",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "research-facts",
+        "locator": "maps/pewter-city",
+        "sourceId": "source:pret-pokefirered",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "warps": [
+        {
+          "id": "warp:firered-leafgreen:pewter-city:route-2-north",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/pewter-city#entrance-south",
+            "sourceId": "source:pret-pokefirered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:firered-leafgreen:route-2-north:pewter-city",
+          "toMap": "map:firered-leafgreen:route-2-north"
+        },
+        {
+          "id": "warp:firered-leafgreen:pewter-city:route-3",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/pewter-city#entrance-east",
+            "sourceId": "source:pret-pokefirered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:firered-leafgreen:route-3:pewter-city",
+          "toMap": "map:firered-leafgreen:route-3"
+        }
+      ]
+    },
+    {
+      "connections": [
+        {
+          "direction": "west",
+          "id": "edge:firered-leafgreen:route-3:pewter-city",
+          "offset": [
+            -1,
+            0
+          ],
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-3#connection-west",
+            "sourceId": "source:pret-pokefirered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "to": "location:kanto:pewter-city"
+        }
+      ],
+      "gameId": "game:firered-leafgreen",
+      "id": "map:firered-leafgreen:route-3",
+      "locationId": "location:kanto:route-3",
+      "plane": "game",
+      "provenance": {
+        "confidence": "high",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "research-facts",
+        "locator": "maps/route-3",
+        "sourceId": "source:pret-pokefirered",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "warps": [
+        {
+          "id": "warp:firered-leafgreen:route-3:pewter-city",
+          "kind": "boundary-entrance",
+          "oneWay": false,
+          "provenance": {
+            "confidence": "high",
+            "extractionMethod": "manual factual transcription",
+            "licenseClass": "research-facts",
+            "locator": "maps/route-3#entrance-west",
+            "sourceId": "source:pret-pokefirered",
+            "sourceRevision": "accessed-2026-08-24"
+          },
+          "reciprocalWarpId": "warp:firered-leafgreen:pewter-city:route-3",
+          "toMap": "map:firered-leafgreen:pewter-city"
+        }
+      ]
+    }
+  ],
+  "schemaVersion": 1
+}

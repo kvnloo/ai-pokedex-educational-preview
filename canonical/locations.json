@@ -1,0 +1,126 @@
+{
+  "documentType": "locations",
+  "locations": [
+    {
+      "id": "location:kanto:pallet-town",
+      "kind": "town",
+      "name": "Pallet Town",
+      "order": 0,
+      "provenance": {
+        "confidence": "medium",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "BSD-3-Clause-metadata",
+        "locator": "api/v2/location/pallet-town",
+        "sourceId": "source:pokeapi",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "regionId": "region:kanto"
+    },
+    {
+      "id": "location:kanto:route-1",
+      "kind": "route",
+      "name": "Route 1",
+      "order": 1,
+      "provenance": {
+        "confidence": "medium",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "BSD-3-Clause-metadata",
+        "locator": "api/v2/location/route-1",
+        "sourceId": "source:pokeapi",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "regionId": "region:kanto"
+    },
+    {
+      "id": "location:kanto:viridian-city",
+      "kind": "city",
+      "name": "Viridian City",
+      "order": 2,
+      "provenance": {
+        "confidence": "medium",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "BSD-3-Clause-metadata",
+        "locator": "api/v2/location/viridian-city",
+        "sourceId": "source:pokeapi",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "regionId": "region:kanto"
+    },
+    {
+      "id": "location:kanto:route-2-south",
+      "kind": "route",
+      "name": "Route 2 (south)",
+      "order": 3,
+      "provenance": {
+        "confidence": "medium",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "BSD-3-Clause-metadata",
+        "locator": "api/v2/location/route-2-south",
+        "sourceId": "source:pokeapi",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "regionId": "region:kanto"
+    },
+    {
+      "id": "location:kanto:viridian-forest",
+      "kind": "forest",
+      "name": "Viridian Forest",
+      "order": 4,
+      "provenance": {
+        "confidence": "medium",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "BSD-3-Clause-metadata",
+        "locator": "api/v2/location/viridian-forest",
+        "sourceId": "source:pokeapi",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "regionId": "region:kanto"
+    },
+    {
+      "id": "location:kanto:route-2-north",
+      "kind": "route",
+      "name": "Route 2 (north)",
+      "order": 5,
+      "provenance": {
+        "confidence": "medium",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "BSD-3-Clause-metadata",
+        "locator": "api/v2/location/route-2-north",
+        "sourceId": "source:pokeapi",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "regionId": "region:kanto"
+    },
+    {
+      "id": "location:kanto:pewter-city",
+      "kind": "city",
+      "name": "Pewter City",
+      "order": 6,
+      "provenance": {
+        "confidence": "medium",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "BSD-3-Clause-metadata",
+        "locator": "api/v2/location/pewter-city",
+        "sourceId": "source:pokeapi",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "regionId": "region:kanto"
+    },
+    {
+      "id": "location:kanto:route-3",
+      "kind": "route",
+      "name": "Route 3",
+      "order": 7,
+      "provenance": {
+        "confidence": "medium",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "BSD-3-Clause-metadata",
+        "locator": "api/v2/location/route-3",
+        "sourceId": "source:pokeapi",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "regionId": "region:kanto"
+    }
+  ],
+  "schemaVersion": 1
+}

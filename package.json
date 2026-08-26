@@ -3,26 +3,61 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "3D creature-collector demo (Twilight Route) \u2014 original region, original creatures, original presentation. Zero binary third-party game assets.",
+  "description": "3D creature-collector demo (Twilight Route) — original region, original creatures, original presentation. Zero binary third-party game assets.",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview --port 4180 --strictPort",
+    "preview:verified": "node tools/run-private-preview.mjs",
     "typecheck": "tsc --noEmit",
+    "test:provenance": "node --experimental-strip-types --test tools/canonical-object-adversarial.test.mjs tools/served-build-verification.test.mjs tools/verified-launcher.test.mjs",
     "test:battle": "node --experimental-strip-types tools/battle-golden.mjs",
+    "test:field": "node --experimental-strip-types --test tools/echoing-stone.test.mjs",
+    "test:canonical-world": "node --experimental-strip-types tools/canonical-world-golden.mjs",
+    "test:canonical-adversarial": "node tools/canonical-world-adversarial.mjs",
+    "test:browser-canonical": "node tools/browser-objective.mjs",
+    "test:browser-evidence-manifest": "node tools/browser-evidence-manifest-golden.mjs --require-private",
+    "test:ship-boundary": "node tools/ship-boundary-golden.mjs",
+    "test:tracked-canonical-boundary": "node tools/check-tracked-canonical-boundary.mjs",
+    "test:assets-iac": "node --test tools/assets-iac.test.mjs",
+    "test:campaign": "node --experimental-strip-types --test tools/campaign.test.mjs",
+    "test:private-canonical": "node --experimental-strip-types tools/private-canonical-golden.mjs",
+    "test:encounter-drought": "node --experimental-strip-types --test tools/explore-encounter.test.mjs",
+    "test:browser-input": "node tools/browser-input.mjs --headed",
+    "test:browser-complete-loop-repeat": "node tools/browser-complete-loop-repeat.mjs",
+    "gauntlet:capture": "node tools/gauntlet-harness.mjs --mode=all",
+    "gauntlet:shotset": "node tools/gauntlet-harness.mjs --mode=shotset",
+    "gauntlet:profile": "node tools/gauntlet-harness.mjs --mode=profile",
+    "gauntlet:resilience": "node tools/gauntlet-harness.mjs --mode=resilience",
+    "gauntlet:judgeset": "node tools/gauntlet-judgeset.mjs",
+    "assets:doctor": "node tools/assets-iac.mjs doctor",
+    "assets:plan": "node tools/assets-iac.mjs plan",
+    "assets:bootstrap": "node tools/assets-iac.mjs bootstrap",
+    "assets:build": "node tools/assets-iac.mjs build",
+    "assets:verify": "node tools/assets-iac.mjs verify",
+    "assets:leak-scan": "node tools/assets-iac.mjs leak-scan",
+    "build:private": "npm run assets:build -- --profile private-local && npm run assets:verify -- --profile private-local && vite build --mode private-local",
+    "build:distributable": "npm run assets:build -- --profile distributable && npm run assets:verify -- --profile distributable && npm run build && npm run check:ship",
+    "recreate:private": "npm run assets:doctor -- --profile private-local && npm run build:private",
+    "generate:canonical-world": "python tools/generate-canonical-world.py",
     "content:sync": "node tools/pokeapi-sync.mjs",
     "content:sync:smoke": "node tools/pokeapi-sync.mjs --max 20",
     "verify": "npm run typecheck && npm run test:battle && npm run test:playtest && npm run build && npm run check:ship && npm run profile",
     "test:playtest": "node tools/playtest.mjs",
     "profile": "node tools/profile.mjs --seconds 180 --label wave6 --gate",
-    "check:ship": "node tools/check-ship-boundary.mjs"
+    "check:ship": "node tools/browser-evidence-manifest-golden.mjs && node tools/check-tracked-canonical-boundary.mjs && node tools/check-ship-boundary.mjs"
   },
   "dependencies": {
     "three": "^0.185.1"
   },
   "devDependencies": {
+    "@types/node": "^26.3.0",
     "@types/three": "^0.185.1",
+    "ajv": "^8.20.0",
     "typescript": "^5.8.2",
     "vite": "^6.2.0"
+  },
+  "allowScripts": {
+    "esbuild@0.25.12": true
   }
 }

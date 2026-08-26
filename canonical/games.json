@@ -1,0 +1,48 @@
+{
+  "documentType": "games",
+  "games": [
+    {
+      "generation": 1,
+      "id": "game:red-blue",
+      "lineage": "original-kanto",
+      "name": "Red/Blue",
+      "provenance": {
+        "confidence": "high",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "research-facts",
+        "locator": "source:pret-pokered#version-identity",
+        "sourceId": "source:pret-pokered",
+        "sourceRevision": "accessed-2026-08-24"
+      }
+    },
+    {
+      "generation": 1,
+      "id": "game:yellow",
+      "lineage": "original-kanto-special",
+      "name": "Yellow",
+      "provenance": {
+        "confidence": "high",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "research-facts",
+        "locator": "source:pret-pokeyellow#version-identity",
+        "sourceId": "source:pret-pokeyellow",
+        "sourceRevision": "accessed-2026-08-24"
+      }
+    },
+    {
+      "generation": 3,
+      "id": "game:firered-leafgreen",
+      "lineage": "kanto-remake",
+      "name": "FireRed/LeafGreen",
+      "provenance": {
+        "confidence": "high",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "research-facts",
+        "locator": "source:pret-pokefirered#version-identity",
+        "sourceId": "source:pret-pokefirered",
+        "sourceRevision": "accessed-2026-08-24"
+      }
+    }
+  ],
+  "schemaVersion": 1
+}

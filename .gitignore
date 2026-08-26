@@ -7,3 +7,6 @@ data/raw/
 content/canonical/*.sqlite
 content/smoke/
 public/ab/*.glb
+shots/canonical-repair-browser/*.png
+shots/objective-*/
+evidence/

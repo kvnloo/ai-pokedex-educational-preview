@@ -76,6 +76,7 @@
       "accuracy": 100,
       "pp": 35,
       "priority": 0,
+      "tags": ["contact"],
       "description": "A gentle bump with surprising force.",
       "id": "nudge"
     },
@@ -168,6 +169,7 @@
       "pp": 20,
       "priority": 0,
       "effect": "lower-atk-1",
+      "tags": ["sound"],
       "description": "Softens the foe's attack stance.",
       "id": "growl-down"
     },

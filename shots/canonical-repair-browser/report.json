@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 2,
+  "policy": "Browser captures are private durable evidence and must never be tracked by Git.",
+  "provenance": {
+    "producer": "tools/browser-objective.mjs",
+    "runtimeUrl": "http://127.0.0.1:5180/?verify=1",
+    "captureMethod": "Playwright Chromium screenshot",
+    "dimensions": [1280, 720],
+    "storage": "private local 4 TB evidence plane; directories 0700, files 0600"
+  },
+  "runs": [
+    {
+      "label": "canonical-repair-browser",
+      "sourceCommit": "4bc9a14b4079d537b2a61c77c4bb7a1b72d0b900",
+      "externalDirectory": "/mnt/zer0models/pokemon-iac/evidence/canonical-repair/6945e7e46e07f20c3cf9dcd3780f16c10a0936a9aeedc94a0f053d4748d933fc",
+      "passed": 15,
+      "failed": 0,
+      "files": [
+        { "name": "explore-after-w.png", "sha256": "1b9bfbde450a610946917f256844c1c5de48497027993dd4d076e9baa33e81fb", "dimensions": [1280, 720] },
+        { "name": "explore-before-w.png", "sha256": "17503cf456afe2e49ff71e240b9e2b2123140df7db1e872e2907e9147fd4cb29", "dimensions": [1280, 720] },
+        { "name": "report.json", "sha256": "6945e7e46e07f20c3cf9dcd3780f16c10a0936a9aeedc94a0f053d4748d933fc" },
+        { "name": "starter.png", "sha256": "146728c4930e1f6f8bd9446b82c1ffd6636a8f4fbd037a1d600a44b06c8ec7b2", "dimensions": [1280, 720] }
+      ]
+    },
+    {
+      "label": "objective-current-preserved",
+      "sourceCommit": "4bc9a14b4079d537b2a61c77c4bb7a1b72d0b900",
+      "externalDirectory": "/mnt/zer0models/pokemon-iac/evidence/canonical-repair/160c3b288b6b0fb27d242f40843c113912eb61a71720ebb4708e8407020c647d",
+      "passed": 15,
+      "failed": 0,
+      "files": [
+        { "name": "explore-after-w.png", "sha256": "e915c6da22a5b369eca1fbbdb2135e85646d4673b67ba9454920f5eb34b17367", "dimensions": [1280, 720] },
+        { "name": "explore-before-w.png", "sha256": "2bdd01e9c8ce6ea72637bab585d3a6a38bbe894d203d56a60bc809c94e0a3529", "dimensions": [1280, 720] },
+        { "name": "report.json", "sha256": "160c3b288b6b0fb27d242f40843c113912eb61a71720ebb4708e8407020c647d" },
+        { "name": "starter.png", "sha256": "ad881bfa7a50412256c47cd3257dfc4caabd581ed39e37b44557b14427c8aeee", "dimensions": [1280, 720] }
+      ]
+    },
+    {
+      "label": "behavioral-canonical-repair",
+      "sourceCommit": "abfff10779553548119999672a870b3cf7b98ca4",
+      "externalDirectory": "/mnt/zer0models/pokemon-iac/evidence/canonical-repair/e8e8d0fa2e2dbef6ba4ccdd6ddbf04b4b9b830f6539f849acdd21c0ccd8b2410",
+      "passed": 21,
+      "failed": 0,
+      "files": [
+        { "name": "explore-after-w.png", "sha256": "02dab27da1d644e7224f5d28e1f55f4ff927a9482c1765c1fa2b0836eed5f1ff", "dimensions": [1280, 720] },
+        { "name": "explore-before-w.png", "sha256": "08dff675a35dda2cf59098051d397b1a8687292ad4a3e61dc5e018b40777a91b", "dimensions": [1280, 720] },
+        { "name": "report.json", "sha256": "3f655e1f7a31c1d9ef68e81ff14fcc08516d252931056acad855b1d8654058ec" },
+        { "name": "starter.png", "sha256": "8597a2408da9b14a0ec69f11bcfda04137b970924841ef41bad9465c1c574362", "dimensions": [1280, 720] }
+      ]
+    }
+  ]
+}

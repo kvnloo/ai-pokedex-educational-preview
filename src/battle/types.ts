@@ -38,6 +38,14 @@ export interface MoveDef {
   description?: string;
   moveId?: number;
   slug?: string;
+  /** Deterministic mechanics tags; M3 currently recognizes sound/contact only. */
+  tags?: Array<"sound" | "contact">;
+}
+
+export interface EchoingStoneFieldState {
+  id: "field:route-3:echoing-stone";
+  rulesetVersion: 1;
+  echo: { chargedBy: BattleSide; expiresAfterTurn: number } | null;
 }
 
 export interface SpeciesDef {
@@ -121,7 +129,8 @@ export interface BattleEvent {
     | "crit"
     | "force-switch"
     | "xp"
-    | "level-up";
+    | "level-up"
+    | "field";
   side?: BattleSide;
   moveId?: string;
   damage?: number;
@@ -138,6 +147,10 @@ export interface BattleEvent {
   xp?: number;
   /** Level after level-up */
   level?: number;
+  fieldId?: "field:route-3:echoing-stone";
+  rulesetVersion?: 1;
+  fieldAction?: "echo-charged" | "echo-consumed" | "echo-settled";
+  turn?: number;
 }
 
 export interface BattleState {
@@ -155,6 +168,8 @@ export interface BattleState {
    * continuing. Battle is not over until party wipe.
    */
   needsForceSwitch?: boolean;
+  locationId?: string;
+  field?: EchoingStoneFieldState;
 }
 
 export interface Wave0Content {

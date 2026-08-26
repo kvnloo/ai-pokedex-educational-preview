@@ -29,6 +29,11 @@ import type {
   StatStages,
   TypeChart,
 } from "./types.ts";
+import {
+  applyEchoingStoneAfterTurn,
+  applyEchoingStoneBeforeMove,
+  createEchoingStoneState,
+} from "./echoingStone.ts";
 
 /** Classic Struggle: used when the chosen move has no PP left. */
 export const STRUGGLE_MOVE: MoveDef = {
@@ -49,6 +54,7 @@ export interface CreateBattleOpts {
   foe: Battler;
   typeChart: TypeChart;
   playerPartyIndex?: number;
+  locationId?: string;
 }
 
 export function createBattle(opts: CreateBattleOpts): BattleState {
@@ -61,6 +67,8 @@ export function createBattle(opts: CreateBattleOpts): BattleState {
     typeChart: opts.typeChart,
     playerPartyIndex: opts.playerPartyIndex,
     needsForceSwitch: false,
+    locationId: opts.locationId,
+    field: createEchoingStoneState(opts.locationId),
   };
   push(state, {
     type: "battle-start",
@@ -76,6 +84,7 @@ export function createBattleFromParty(
   party: PartyMember[],
   foe: Battler,
   typeChart: TypeChart,
+  locationId?: string,
 ): BattleState {
   const idx = leadIndex(party);
   const member = party[idx];
@@ -86,6 +95,7 @@ export function createBattleFromParty(
     foe: cloneBattler(foe),
     typeChart,
     playerPartyIndex: idx,
+    locationId,
   });
 }
 
@@ -574,6 +584,8 @@ export function executeTurn(state: BattleState, choices: TurnChoices): BattleSta
       message: `${actor.name} used ${move.name}!`,
     });
 
+    applyEchoingStoneBeforeMove(state, side, targetSide, move);
+
     // Accuracy: check when move.accuracy != null unless forceAccuracyHit.
     // Live (no random pin): roll rng. Explicit accuracyRolls: use them.
     // Golden (random pinned, no accuracyRolls): always hit.
@@ -723,6 +735,8 @@ export function executeTurn(state: BattleState, choices: TurnChoices): BattleSta
     }
     actionIdx++;
   }
+
+  applyEchoingStoneAfterTurn(state);
 
   return state;
 }

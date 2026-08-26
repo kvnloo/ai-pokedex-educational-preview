@@ -1,6 +1,84 @@
 import { defineConfig, type Plugin } from 'vite';
 import path from 'path';
 import fs from 'fs';
+import crypto from 'crypto';
+import { execFileSync } from 'child_process';
+
+const PRIVATE_ASSET_ROOT = process.env.POKEMON_PRIVATE_ASSET_ROOT
+  ?? '/mnt/zer0models/pokemon_anime/pipeline/pokeapi';
+const PRIVATE_CANONICAL_ASSETS: Record<string, { relativePath: string; sha256: string }> = {
+  bulbasaur: { relativePath: 'kanto-starters/bulbasaur/hunyuan/bulbasaur_shape_8k.glb', sha256: 'cad6e93a2e77d21148f932c27688ff07c5028eb87f3ba9f891a2f3f5ad8e1354' },
+  charmander: { relativePath: 'kanto-starters/charmander/hunyuan/charmander_shape_8k.glb', sha256: '82c90f71d325d3e93803978cb66e8b6eaceeda5d4280706d9eb388a81975acd2' },
+  squirtle: { relativePath: 'kanto-starters/squirtle/hunyuan/squirtle_shape_8k.glb', sha256: 'b41a8ef1fc5caef02ea38eca7fa795ba974645f090e8a0574509d58c381e5805' },
+  pidgey: { relativePath: 'kanto-private/pidgey/hunyuan/pidgey_klein_shape_8k.glb', sha256: '1685b6f5b9215645d274d31480cf9de8c26011aa7e424700f38b9d70cae4e261' },
+  caterpie: { relativePath: 'kanto-private/caterpie/hunyuan/caterpie_klein_shape_8k.glb', sha256: '0a2093b6a4053a075c515591ae9a8f9c88b27fa66c27b72493cdac3648e247f2' },
+  geodude: { relativePath: 'kanto-private/geodude/hunyuan/geodude_klein_shape_8k.glb', sha256: 'f337566e5eece5d263cd7725d65563d31c0418fd138fa45663be679728d8d809' },
+};
+
+function exactBuildProvenance(enabled: boolean, mode: string): Plugin {
+  return {
+    name: 'exact-build-provenance',
+    apply: 'build',
+    closeBundle() {
+      const outDir = path.resolve(__dirname, 'dist');
+      const files: Record<string, { sha256: string; bytes: number }> = {};
+      const walk = (directory: string): void => {
+        for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+          const absolute = path.join(directory, entry.name);
+          if (entry.isDirectory()) walk(absolute);
+          else if (entry.isFile() && entry.name !== 'build-manifest.json') {
+            const relative = path.relative(outDir, absolute).split(path.sep).join('/');
+            const bytes = fs.readFileSync(absolute);
+            files[relative] = {
+              sha256: crypto.createHash('sha256').update(bytes).digest('hex'),
+              bytes: bytes.byteLength,
+            };
+          }
+        }
+      };
+      walk(outDir);
+      const git = (args: string[]): string => execFileSync('git', args, {
+        cwd: __dirname,
+        encoding: 'utf8',
+      }).trim();
+      const manifest = {
+        schemaVersion: 1,
+        git: {
+          sha: git(['rev-parse', 'HEAD']),
+          dirty: git(['status', '--porcelain=v1', '--untracked-files=all']).length > 0,
+        },
+        invocation: ['vite', 'build', '--mode', mode],
+        privateCanonical: enabled,
+        builtAt: new Date().toISOString(),
+        files: Object.fromEntries(Object.entries(files).sort(([a], [b]) => a.localeCompare(b))),
+        canonicalAssets: enabled ? PRIVATE_CANONICAL_ASSETS : {},
+      };
+      fs.writeFileSync(
+        path.join(outDir, 'build-manifest.json'),
+        `${JSON.stringify(manifest, null, 2)}\n`,
+        { mode: 0o600 },
+      );
+    },
+  };
+}
+
+function privateAssetMiddleware(req: { url?: string }, res: import('http').ServerResponse, next: () => void): void {
+  const url = req.url?.split('?')[0] ?? '';
+  if (!url.startsWith('/private-assets/')) return next();
+  const match = /^\/private-assets\/([a-z0-9-]+)\.glb$/.exec(url);
+  const asset = match ? PRIVATE_CANONICAL_ASSETS[match[1]!] : undefined;
+  if (!asset) { res.statusCode = 404; res.end('Canonical private asset is not allowlisted'); return; }
+  const file = path.resolve(PRIVATE_ASSET_ROOT, asset.relativePath);
+  if (!file.startsWith(path.resolve(PRIVATE_ASSET_ROOT) + path.sep) || !fs.existsSync(file)) {
+    res.statusCode = 404; res.end('Canonical private asset is missing'); return;
+  }
+  const bytes = fs.readFileSync(file);
+  const actual = crypto.createHash('sha256').update(bytes).digest('hex');
+  if (actual !== asset.sha256) { res.statusCode = 409; res.end('Canonical private asset hash mismatch'); return; }
+  res.setHeader('Content-Type', 'model/gltf-binary');
+  res.setHeader('Cache-Control', 'private, no-store');
+  res.end(bytes);
+}
 
 /**
  * Ship only content/game under /content (not the full research warehouse).
@@ -8,7 +86,7 @@ import fs from 'fs';
  * — both must never enter dist. publicDir is disabled; this plugin copies the
  * game pack only.
  */
-function shipGameContentOnly(): Plugin {
+function shipGameContentOnly(includePrivatePack: boolean): Plugin {
   const gameSrc = path.resolve(__dirname, 'content/game');
 
   const copyGame = (outDir: string) => {
@@ -17,7 +95,11 @@ function shipGameContentOnly(): Plugin {
     if (!fs.existsSync(gameSrc)) {
       throw new Error(`[ship] content/game missing at ${gameSrc}`);
     }
-    fs.cpSync(gameSrc, dest, { recursive: true });
+    for (const entry of fs.readdirSync(gameSrc, { withFileTypes: true })) {
+      if (includePrivatePack && !['kanto-private.json', 'runtime-assets'].includes(entry.name)) continue;
+      if (!includePrivatePack && entry.name === 'kanto-private.json') continue;
+      fs.cpSync(path.join(gameSrc, entry.name), path.join(dest, entry.name), { recursive: true });
+    }
   };
 
   const stripWarehouse = (outDir: string) => {
@@ -40,6 +122,7 @@ function shipGameContentOnly(): Plugin {
   return {
     name: 'ship-game-content-only',
     configureServer(server) {
+      server.middlewares.use(privateAssetMiddleware);
       // Dev: serve /content/game/* from content/game without exposing warehouse.
       server.middlewares.use((req, res, next) => {
         const url = req.url?.split('?')[0] ?? '';
@@ -84,6 +167,9 @@ function shipGameContentOnly(): Plugin {
         next();
       });
     },
+    configurePreviewServer(server) {
+      server.middlewares.use(privateAssetMiddleware);
+    },
     writeBundle() {
       const outDir = path.resolve(__dirname, 'dist');
       stripWarehouse(outDir);
@@ -98,13 +184,44 @@ function shipGameContentOnly(): Plugin {
   };
 }
 
-export default defineConfig({
-  base: process.env.BASE_PATH ?? '/',
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, 'src'),
+function privateCanonicalSourceBoundary(enabled: boolean): Plugin {
+  const forbidden = ['wave0.json', 'emberpup', 'dustbun', 'dewkin', 'leafit', 'leafkit', 'sparkmoth', 'ironwisp', 'gloomhorn', 'mossprite', 'rivlet'];
+  return {
+    name: 'private-canonical-source-boundary',
+    enforce: 'pre',
+    resolveId(source, importer) {
+      if (enabled && source === './creatures/index.ts' && importer && path.resolve(importer) === path.resolve(__dirname, 'src/main.ts')) {
+        return path.resolve(__dirname, 'src/creatures/privateCanonicalRuntime.ts');
+      }
+      return null;
     },
-  },
+    transform(code, id) {
+      if (!enabled || path.resolve(id) !== path.resolve(__dirname, 'src/main.ts')) return null;
+      let bounded = code;
+      forbidden.forEach((token, index) => {
+        bounded = bounded.replaceAll(new RegExp(token.replace('.', '\\.'), 'gi'), `excludedStandin${index}`);
+      });
+      return { code: bounded, map: null };
+    },
+  };
+}
+
+export default defineConfig(({ command, mode }) => {
+  const privateBuild = command === 'build' && mode === 'private-local';
+  const buildGitSha = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: __dirname, encoding: 'utf8' }).trim();
+  return {
+    base: process.env.BASE_PATH ?? '/',
+    resolve: {
+      alias: {
+        ...(privateBuild
+          ? { [path.resolve(__dirname, 'src/creatures/index.ts')]: path.resolve(__dirname, 'src/creatures/privateCanonicalRuntime.ts') }
+          : {}),
+        ...(command === 'build' && !privateBuild
+          ? { '@/creatures/privateCanonical.ts': path.resolve(__dirname, 'src/creatures/privateCanonical.distributable.ts') }
+          : {}),
+        '@': path.resolve(__dirname, 'src'),
+      },
+    },
   // Do not copy public/ (contains content→warehouse symlink and ab/ research).
   // Game pack is installed by shipGameContentOnly plugin only.
   publicDir: false,
@@ -119,12 +236,23 @@ export default defineConfig({
     strictPort: true,
     host: '0.0.0.0', // Zen/LAN + 127.0.0.1
   },
-  plugins: [shipGameContentOnly()],
+  plugins: [
+    privateCanonicalSourceBoundary(privateBuild),
+    shipGameContentOnly(privateBuild),
+    exactBuildProvenance(privateBuild, mode),
+  ],
+  define: {
+    __PRIVATE_CANONICAL_BUILD__: JSON.stringify(privateBuild),
+    __BUILD_GIT_SHA__: JSON.stringify(buildGitSha),
+  },
   build: {
     target: 'es2022',
     sourcemap: true,
     copyPublicDir: false,
     rollupOptions: {
+      output: {
+        sourcemapExcludeSources: privateBuild,
+      },
       // Ship surface is the main demo only. Research A/B viewer (ab.html) is
       // intentionally excluded from the production multi-page bundle.
       input: {
@@ -132,4 +260,5 @@ export default defineConfig({
       },
     },
   },
+  };
 });

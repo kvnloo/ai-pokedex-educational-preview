@@ -1,0 +1,86 @@
+{
+  "documentType": "events",
+  "events": [
+    {
+      "arcId": "arc:ash:kanto:indigo",
+      "id": "story-event:ash:ep001:depart-pallet",
+      "locationId": "location:kanto:pallet-town",
+      "order": 1,
+      "plane": "anime",
+      "provenance": {
+        "confidence": "medium",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "CC-BY-SA-facts-paraphrase",
+        "locator": "Ash_Ketchum#EP001",
+        "sourceId": "source:bulbapedia-ash-kanto",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "summary": "Ash begins his journey from Pallet Town."
+    },
+    {
+      "arcId": "arc:ash:kanto:indigo",
+      "id": "story-event:ash:ep001:route-1-crisis",
+      "locationId": "location:kanto:route-1",
+      "order": 2,
+      "plane": "anime",
+      "provenance": {
+        "confidence": "medium",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "CC-BY-SA-facts-paraphrase",
+        "locator": "Ash_Ketchum#EP001",
+        "sourceId": "source:bulbapedia-ash-kanto",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "summary": "A flock encounter turns the first trip north into an emergency."
+    },
+    {
+      "arcId": "arc:ash:kanto:indigo",
+      "id": "story-event:ash:ep002:viridian-arrival",
+      "locationId": "location:kanto:viridian-city",
+      "order": 3,
+      "plane": "anime",
+      "provenance": {
+        "confidence": "medium",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "CC-BY-SA-facts-paraphrase",
+        "locator": "Ash_Ketchum#EP002",
+        "sourceId": "source:bulbapedia-ash-kanto",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "summary": "Ash reaches Viridian City seeking help before continuing."
+    },
+    {
+      "arcId": "arc:ash:kanto:indigo",
+      "id": "story-event:ash:ep003:forest-companion",
+      "locationId": "location:kanto:viridian-forest",
+      "order": 4,
+      "plane": "anime",
+      "provenance": {
+        "confidence": "medium",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "CC-BY-SA-facts-paraphrase",
+        "locator": "Ash_Ketchum#EP003",
+        "sourceId": "source:bulbapedia-ash-kanto",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "summary": "The forest journey adds a companion and a first capture milestone."
+    },
+    {
+      "arcId": "arc:ash:kanto:indigo",
+      "id": "story-event:ash:ep005:pewter-gym",
+      "locationId": "location:kanto:pewter-city",
+      "order": 5,
+      "plane": "anime",
+      "provenance": {
+        "confidence": "medium",
+        "extractionMethod": "manual factual transcription",
+        "licenseClass": "CC-BY-SA-facts-paraphrase",
+        "locator": "Ash_Ketchum#EP005",
+        "sourceId": "source:bulbapedia-ash-kanto",
+        "sourceRevision": "accessed-2026-08-24"
+      },
+      "summary": "Ash challenges the Pewter Gym and then continues with Brock."
+    }
+  ],
+  "schemaVersion": 1
+}
