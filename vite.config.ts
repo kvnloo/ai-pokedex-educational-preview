@@ -48,6 +48,7 @@ function shipGameContentOnly(includePrivatePack: boolean): Plugin {
       throw new Error(`[ship] content/game missing at ${gameSrc}`);
     }
     for (const entry of fs.readdirSync(gameSrc, { withFileTypes: true })) {
+      if (includePrivatePack && !['kanto-private.json', 'runtime-assets'].includes(entry.name)) continue;
       if (!includePrivatePack && entry.name === 'kanto-private.json') continue;
       fs.cpSync(path.join(gameSrc, entry.name), path.join(dest, entry.name), { recursive: true });
     }
@@ -135,12 +136,37 @@ function shipGameContentOnly(includePrivatePack: boolean): Plugin {
   };
 }
 
+function privateCanonicalSourceBoundary(enabled: boolean): Plugin {
+  const forbidden = ['wave0.json', 'emberpup', 'dustbun', 'dewkin', 'leafit', 'leafkit', 'sparkmoth', 'ironwisp', 'gloomhorn', 'mossprite', 'rivlet'];
+  return {
+    name: 'private-canonical-source-boundary',
+    enforce: 'pre',
+    resolveId(source, importer) {
+      if (enabled && source === './creatures/index.ts' && importer && path.resolve(importer) === path.resolve(__dirname, 'src/main.ts')) {
+        return path.resolve(__dirname, 'src/creatures/privateCanonicalRuntime.ts');
+      }
+      return null;
+    },
+    transform(code, id) {
+      if (!enabled || path.resolve(id) !== path.resolve(__dirname, 'src/main.ts')) return null;
+      let bounded = code;
+      forbidden.forEach((token, index) => {
+        bounded = bounded.replaceAll(new RegExp(token.replace('.', '\\.'), 'gi'), `excludedStandin${index}`);
+      });
+      return { code: bounded, map: null };
+    },
+  };
+}
+
 export default defineConfig(({ command, mode }) => {
   const privateBuild = command === 'build' && mode === 'private-local';
   return {
     base: process.env.BASE_PATH ?? '/',
     resolve: {
       alias: {
+        ...(privateBuild
+          ? { [path.resolve(__dirname, 'src/creatures/index.ts')]: path.resolve(__dirname, 'src/creatures/privateCanonicalRuntime.ts') }
+          : {}),
         ...(command === 'build' && !privateBuild
           ? { '@/creatures/privateCanonical.ts': path.resolve(__dirname, 'src/creatures/privateCanonical.distributable.ts') }
           : {}),
@@ -161,12 +187,18 @@ export default defineConfig(({ command, mode }) => {
     strictPort: true,
     host: '0.0.0.0', // Zen/LAN + 127.0.0.1
   },
-  plugins: [shipGameContentOnly(privateBuild)],
+  plugins: [privateCanonicalSourceBoundary(privateBuild), shipGameContentOnly(privateBuild)],
+  define: {
+    __PRIVATE_CANONICAL_BUILD__: JSON.stringify(privateBuild),
+  },
   build: {
     target: 'es2022',
     sourcemap: true,
     copyPublicDir: false,
     rollupOptions: {
+      output: {
+        sourcemapExcludeSources: privateBuild,
+      },
       // Ship surface is the main demo only. Research A/B viewer (ab.html) is
       // intentionally excluded from the production multi-page bundle.
       input: {

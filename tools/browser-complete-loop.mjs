@@ -48,7 +48,11 @@ const outputArg = String(
 );
 const OUT = isAbsolute(outputArg) ? outputArg : resolve(ROOT, outputArg);
 const requireProduction = has('require-production');
-const VIEWPORT = { width: 1280, height: 720 };
+const VIEWPORT = {
+  width: Number(flag('width', '1280')),
+  height: Number(flag('height', '720')),
+};
+const mobile = has('mobile');
 const STARTED = performance.now();
 
 const checks = [];
@@ -58,6 +62,7 @@ const transitions = {};
 const controls = [];
 const consoleProblems = [];
 const requestProblems = [];
+const successfulRequests = new Set();
 const infoMessages = [];
 let fatalError = null;
 let runtimeProvenance = null;
@@ -259,7 +264,9 @@ async function testControl(key, axis, direction) {
   const before = await snapshot();
   const started = performance.now();
   await page.keyboard.down(lower);
-  await page.waitForTimeout(240);
+  // Keep the cardinal-input proof inside the route's safe center corridor so
+  // random grass encounters cannot consume a later axis sample.
+  await page.waitForTimeout(120);
   const held = await snapshot();
   await page.keyboard.up(lower);
   await page.waitForTimeout(260);
@@ -431,7 +438,12 @@ try {
       '--autoplay-policy=no-user-gesture-required',
     ],
   });
-  context = await browser.newContext({ viewport: VIEWPORT, deviceScaleFactor: 1 });
+  context = await browser.newContext({
+    viewport: VIEWPORT,
+    deviceScaleFactor: mobile ? 2 : 1,
+    hasTouch: mobile,
+    isMobile: mobile,
+  });
   await context.tracing.start({
     title: 'Twilight Route complete gameplay loop',
     screenshots: true,
@@ -446,12 +458,14 @@ try {
   });
   page.on('pageerror', (error) => consoleProblems.push(`pageerror: ${error.stack || error}`));
   page.on('requestfailed', (request) => {
+    const errorText = request.failure()?.errorText ?? 'unknown';
+    if (errorText === 'net::ERR_ABORTED' && successfulRequests.has(request.url())) return;
     requestProblems.push(
-      `requestfailed: ${request.method()} ${request.url()} — ${request.failure()?.errorText ?? 'unknown'}`,
+      `requestfailed: ${request.method()} ${request.url()} — ${errorText}`,
     );
   });
   page.on('response', (response) => {
-    if (response.status() < 400) return;
+    if (response.status() < 400) { successfulRequests.add(response.url()); return; }
     const type = response.request().resourceType();
     if (['document', 'script', 'stylesheet', 'fetch', 'xhr'].includes(type)) {
       requestProblems.push(`http ${response.status()}: ${response.url()}`);

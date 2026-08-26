@@ -68,8 +68,10 @@ import {
   type ScreenRect,
 } from './render/cinematicEffects.ts';
 import { canonicalKantoOpening } from './world/canonicalWorld.ts';
-import { normalizeInputFrame, resolveRuntimeAssetProfile } from './campaign/campaign.ts';
+import { migrateCanonicalPrivateStorage, normalizeInputFrame, resolveRuntimeAssetProfile } from './campaign/campaign.ts';
 import { ECHOING_STONE_FIELD, ECHO_TRANSITION_TIMING } from './battle/echoingStone.ts';
+
+declare const __PRIVATE_CANONICAL_BUILD__: boolean;
 
 const bootFill = document.getElementById('boot-fill') as HTMLElement | null;
 const bootStatus = document.getElementById('boot-status') as HTMLElement | null;
@@ -269,7 +271,7 @@ function isCritEvent(critical: unknown): boolean {
 }
 
 async function boot(): Promise<void> {
-  const requestedAssetProfile = new URLSearchParams(location.search).get('assetProfile') === 'private-local'
+  const requestedAssetProfile = __PRIVATE_CANONICAL_BUILD__ || new URLSearchParams(location.search).get('assetProfile') === 'private-local'
     ? 'private-local'
     : 'distributable';
   const assetProfile = resolveRuntimeAssetProfile(requestedAssetProfile, {
@@ -304,6 +306,13 @@ async function boot(): Promise<void> {
   const species = raw.species.map((s) => normalizeSpecies(s));
   const speciesById = new Map(species.map((s) => [s.id, s]));
   if (assetProfile.profile === 'private-local') {
+    const allowedSpeciesIds = new Set(species.map((entry) => entry.id));
+    migrateCanonicalPrivateStorage(
+      localStorage,
+      `twilight:${canonicalKantoOpening.sliceId}:save-v1`,
+      `twilight:${canonicalKantoOpening.sliceId}:canonical-migration-v1`,
+      allowedSpeciesIds,
+    );
     const requiredSpecies = new Set<string>([
       ...raw.route.starterChoices,
       ...raw.route.wildEncounters.map((entry) => entry.species),
@@ -361,6 +370,7 @@ async function boot(): Promise<void> {
   const scene = new THREE.Scene();
 
   const camera = new THREE.PerspectiveCamera(44, window.innerWidth / window.innerHeight, 0.1, 120);
+  if (window.innerWidth < window.innerHeight) camera.fov = 76;
   camera.position.set(0, 2.25, 6.4);
   const cameraLook = new THREE.Vector3(0, 0.9, 0.45);
   camera.lookAt(cameraLook);

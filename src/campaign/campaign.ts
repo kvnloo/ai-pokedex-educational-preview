@@ -2,11 +2,6 @@ export const SAVE_VERSION = 2 as const;
 
 type StoryEvent = { id: string; locationId: string; order: number };
 type CampaignContract = { sliceId: string; path: readonly string[]; events: readonly StoryEvent[] };
-const LEGACY_STANDIN_SPECIES = new Set([
-  'emberpup', 'dustbun', 'dewkin', 'leafit', 'leafkit', 'sparkmoth',
-  'ironwisp', 'gloomhorn', 'mossprite', 'rivlet',
-]);
-
 export function assertCanonicalPrivateSave(raw: unknown, allowedSpeciesIds: ReadonlySet<string>): void {
   if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return;
   const candidate = raw as { starterSpeciesId?: unknown; partySpeciesIds?: unknown };
@@ -16,8 +11,27 @@ export function assertCanonicalPrivateSave(raw: unknown, allowedSpeciesIds: Read
       ? candidate.partySpeciesIds.filter((id): id is string => typeof id === 'string')
       : []),
   ];
-  const invalid = ids.find((id) => LEGACY_STANDIN_SPECIES.has(id) || !allowedSpeciesIds.has(id));
+  const invalid = ids.find((id) => !allowedSpeciesIds.has(id));
   if (invalid) throw new Error(`Private canonical save invalidated: species ${invalid} cannot be migrated or relabelled`);
+}
+
+type StorageLike = Pick<Storage, 'getItem' | 'setItem' | 'removeItem'>;
+export function migrateCanonicalPrivateStorage(
+  storage: StorageLike,
+  saveKey: string,
+  receiptKey: string,
+  allowedSpeciesIds: ReadonlySet<string>,
+): { invalidated: boolean } {
+  const encoded = storage.getItem(saveKey);
+  if (encoded === null) return { invalidated: false };
+  try {
+    assertCanonicalPrivateSave(JSON.parse(encoded), allowedSpeciesIds);
+    return { invalidated: false };
+  } catch {
+    storage.removeItem(saveKey);
+    storage.setItem(receiptKey, JSON.stringify({ version: 1, action: 'invalidated', reason: 'non-canonical-species' }));
+    return { invalidated: true };
+  }
 }
 type CampaignEvent = {
   sequence: number;

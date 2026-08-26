@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { assertCanonicalPrivateSave } from '../src/campaign/campaign.ts';
+import { assertCanonicalPrivateSave, migrateCanonicalPrivateStorage } from '../src/campaign/campaign.ts';
 
 const pack = JSON.parse(fs.readFileSync(new URL('../content/game/kanto-private.json', import.meta.url), 'utf8'));
 const forbidden = ['emberpup','dustbun','dewkin','leafit','leafkit','sparkmoth','ironwisp','gloomhorn','mossprite','rivlet'];
@@ -27,6 +27,25 @@ assert.throws(
 );
 assert.doesNotThrow(() => assertCanonicalPrivateSave({ starterSpeciesId: 'bulbasaur', partySpeciesIds: ['bulbasaur', 'pidgey'] }, allowed));
 
+const legacyKey = 'twilight:kanto-opening:save-v1';
+const receiptKey = 'twilight:kanto-opening:canonical-migration-v1';
+const storageData = new Map([[legacyKey, JSON.stringify({ starterSpeciesId: 'emberpup', partySpeciesIds: ['dustbun'] })]]);
+const storage = {
+  get length() { return storageData.size; },
+  key(index) { return [...storageData.keys()][index] ?? null; },
+  getItem(key) { return storageData.get(key) ?? null; },
+  setItem(key, value) { storageData.set(key, String(value)); },
+  removeItem(key) { storageData.delete(key); },
+};
+const migration = migrateCanonicalPrivateStorage(storage, legacyKey, receiptKey, allowed);
+assert.equal(migration.invalidated, true, 'legacy placeholder save is actively invalidated');
+assert.equal(storage.getItem(legacyKey), null, 'invalid legacy save is deleted, never relabelled');
+assert.deepEqual(JSON.parse(storage.getItem(receiptKey)), {
+  version: 1,
+  action: 'invalidated',
+  reason: 'non-canonical-species',
+});
+
 const loader = fs.readFileSync(new URL('../src/creatures/privateCanonical.ts', import.meta.url), 'utf8');
 assert.match(loader, /stand-in fallback forbidden/g);
 assert.doesNotMatch(loader, /buildGeneric|SPECIES_BUILDERS|MESH_ALIAS/);
@@ -34,4 +53,6 @@ const vite = fs.readFileSync(new URL('../vite.config.ts', import.meta.url), 'utf
 for (const species of pack.species) {
   assert.match(vite, new RegExp(`\\b${species.id}: \\{ relativePath: '[^']+\\.glb', sha256: '[a-f0-9]{64}' \\}`), `${species.id} requires a hash-pinned private GLB`);
 }
+assert.match(vite, /privateCanonicalRuntime\.ts/, 'private build aliases the complete creature runtime boundary');
+assert.match(vite, /__PRIVATE_CANONICAL_BUILD__/, 'private pack selection is build-time, not a runtime branch');
 console.log('private canonical identity golden: PASS');
