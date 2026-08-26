@@ -1,7 +1,7 @@
 {
   "schema": "CreatureAnimationAssetManifest",
   "schemaVersion": 1,
-  "manifestRevision": 2,
+  "manifestRevision": 3,
   "identity": {
     "nationalDexId": 1,
     "slug": "bulbasaur",
@@ -14,7 +14,8 @@
     "repoContainsPrivateMedia": false,
     "productIntegration": false,
     "publication": false,
-    "promotionAuthority": false
+    "promotionAuthority": false,
+    "productQualityAuthority": "reopened"
   },
   "lineage": {
     "approvedProductionBlendSha256": "9d7281524257ebdd651c7604e9a2ce7f06a66350b33fef7d5ff8750904fcccd6",
@@ -35,6 +36,28 @@
     "videoCount": 19,
     "anonymousCandidateCount": 19
   },
+  "researchOnlyCorrection": {
+    "privateRoot": "/mnt/zer0models/pokemon_anime/pipeline/pokeapi/kanto-starters/bulbasaur/production/animation-v3/repro-a",
+    "animatedBlendSha256": "914cd5059a2bb94b6f81f1496de2dccd166002dbb358621e500175f147fa53a1",
+    "canonicalDigestFileSha256": "f15ccff6afc8420ed1b9b6366b3385f04805d9ed8ca51745b91e94805b614ae4",
+    "canonicalBuildDigest": "350f6615679377b2b1cbc9646777828d935869396b55e117edb77745c0d51992",
+    "semanticChecks": 201,
+    "evaluatedFrames": 1044,
+    "evaluatedSurfaceFrames": 20880,
+    "transitionMatrixCount": 361,
+    "allOwnerFrameTransitionCount": 5928,
+    "mediaRegenerated": false,
+    "blindPacketFrozen": false,
+    "promotionAuthority": false,
+    "classification": "mechanical-research-only"
+  },
+  "productQualityInvalidation": {
+    "reason": "manual Blender C renders visibly below Hunyuan quality; mechanical E2 evidence cannot grant visual authority",
+    "eligiblePacketHash": null,
+    "geometryAuthority": "reopened",
+    "visualAuthority": "reopened",
+    "nextAction": "reopen geometry and visual-source authority before any further animation or media work"
+  },
   "clipSet": [
     "bind", "idle", "breathe", "blink", "look", "turn", "walk", "trot_run",
     "start", "stop", "turn_90", "turn_180", "send_out", "hit", "faint",
@@ -50,5 +73,5 @@
     "runtimeExecutionDeferred": true
   },
   "manualAnimationHours": 9.5,
-  "status": "builder-complete-review-pending"
+  "status": "product-quality-invalidated-research-only"
 }
