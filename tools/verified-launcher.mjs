@@ -6,6 +6,7 @@ import { dirname, join, relative, resolve, sep } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
 const MANIFEST = 'build-manifest.json';
+const DEFAULT_PRIVATE_ASSET_ROOT = '/mnt/zer0models/pokemon_anime/pipeline/pokeapi';
 const sha256 = (bytes) => createHash('sha256').update(bytes).digest('hex');
 
 function files(root, current = root) {
@@ -20,7 +21,7 @@ function files(root, current = root) {
   return result;
 }
 
-export function verifyAndFreezeBuild({ source, expectedManifestSha256, expectedGitSha, destinationParent }) {
+export function verifyAndFreezeBuild({ source, expectedManifestSha256, expectedGitSha, destinationParent, privateAssetRoot = process.env.POKEMON_PRIVATE_ASSET_ROOT ?? DEFAULT_PRIVATE_ASSET_ROOT }) {
   if (!/^[a-f0-9]{64}$/.test(expectedManifestSha256)) throw new Error('expected external manifest SHA-256 is required');
   if (!/^[a-f0-9]{40}$/.test(expectedGitSha)) throw new Error('expected reviewed Git SHA is required');
   const sourceRoot = resolve(source);
@@ -50,7 +51,19 @@ export function verifyAndFreezeBuild({ source, expectedManifestSha256, expectedG
     closeSync(descriptor);
     chmodSync(target, 0o400);
   }
-  const receipt = { schemaVersion: 1, manifestSha256: expectedManifestSha256, gitSha: expectedGitSha, files: manifest.files };
+  const privateAssets = {};
+  for (const [speciesId, asset] of Object.entries(manifest.canonicalAssets ?? {})) {
+    if (!privateAssetRoot) throw new Error('private asset root required by reviewed manifest');
+    const sourceAsset = resolve(privateAssetRoot, asset.relativePath);
+    if (!sourceAsset.startsWith(`${resolve(privateAssetRoot)}${sep}`) || lstatSync(sourceAsset).isSymbolicLink() || !statSync(sourceAsset).isFile()) throw new Error(`private asset rejected: ${speciesId}`);
+    const bytes = readFileSync(sourceAsset);
+    if (sha256(bytes) !== asset.sha256) throw new Error(`private asset byte mismatch: ${speciesId}`);
+    const target = join(directory, 'private-assets', `${speciesId}.glb`);
+    mkdirSync(dirname(target), { recursive: true, mode: 0o700 });
+    writeFileSync(target, bytes, { flag: 'wx', mode: 0o400 });
+    privateAssets[`private-assets/${speciesId}.glb`] = { sha256: asset.sha256, bytes: bytes.length };
+  }
+  const receipt = { schemaVersion: 1, manifestSha256: expectedManifestSha256, gitSha: expectedGitSha, files: manifest.files, privateAssets };
   writeFileSync(join(directory, 'launcher-receipt.json'), `${JSON.stringify(receipt, null, 2)}\n`, { flag: 'wx', mode: 0o400 });
   for (const path of files(directory).map((path) => dirname(join(directory, path))).sort((a, b) => b.length - a.length)) chmodSync(path, 0o500);
   chmodSync(directory, 0o500);
@@ -75,7 +88,7 @@ export function serveVerifiedBuild(directory, receipt, port) {
     const file = join(directory, requested);
     try {
       const bytes = readFileSync(file);
-      const expectedSha256 = requested === MANIFEST ? receipt.manifestSha256 : receipt.files[requested]?.sha256;
+      const expectedSha256 = requested === MANIFEST ? receipt.manifestSha256 : (receipt.files[requested]?.sha256 ?? receipt.privateAssets?.[requested]?.sha256);
       if (!expectedSha256 || sha256(bytes) !== expectedSha256) throw new Error('response drift');
       response.setHeader('x-verified-sha256', expectedSha256);
       response.setHeader('cache-control', 'no-store');
@@ -86,7 +99,7 @@ export function serveVerifiedBuild(directory, receipt, port) {
 
 if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {
   const args = parseArgs(process.argv.slice(2));
-  const frozen = verifyAndFreezeBuild({ source: args.dist, expectedManifestSha256: args['manifest-sha256'], expectedGitSha: args['git-sha'], destinationParent: args['freeze-parent'] ?? dirname(resolve(args.dist)) });
+  const frozen = verifyAndFreezeBuild({ source: args.dist, expectedManifestSha256: args['manifest-sha256'], expectedGitSha: args['git-sha'], destinationParent: args['freeze-parent'] ?? dirname(resolve(args.dist)), privateAssetRoot: args['private-asset-root'] });
   const port = Number(args.port ?? 5292);
   serveVerifiedBuild(frozen.directory, frozen.receipt, port);
   process.stdout.write(`${JSON.stringify({ url: `http://127.0.0.1:${port}`, directory: frozen.directory, receipt: frozen.receipt })}\n`);

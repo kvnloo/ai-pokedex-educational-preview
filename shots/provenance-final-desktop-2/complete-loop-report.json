@@ -1,0 +1,194 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-26T07:44:12.879Z",
+  "url": "http://127.0.0.1:5292/?verify=1",
+  "outputDir": "/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_f523dc89/shots/provenance-final-desktop-2",
+  "durationMs": 32291.525,
+  "evidenceIntegrity": {
+    "globalRandomOverridden": false,
+    "clockOverridden": false,
+    "gameplayStateMutatorsInvoked": false,
+    "bridgeUse": "window.__twilight.snapshot() read-only",
+    "inputMode": "Playwright trusted mouse and keyboard events"
+  },
+  "revision": {
+    "gitHead": "f6081a2d7aea9fdd2a89071d78cf2057fbdc6d11",
+    "productTreeClean": true,
+    "productDirtyPaths": []
+  },
+  "production": {
+    "required": true,
+    "observed": {
+      "scripts": [
+        "http://127.0.0.1:5292/assets/main-Ct44St9p.js"
+      ],
+      "viteClient": false,
+      "hashedAsset": true,
+      "manifest": {
+        "schemaVersion": 1,
+        "git": {
+          "sha": "f6081a2d7aea9fdd2a89071d78cf2057fbdc6d11",
+          "dirty": false
+        },
+        "invocation": [
+          "vite",
+          "build",
+          "--mode",
+          "private-local"
+        ],
+        "privateCanonical": true,
+        "builtAt": "2026-08-26T07:43:27.609Z",
+        "files": {
+          "assets/main-Ct44St9p.js": {
+            "sha256": "a4e9c38340fda363e61b1c858f9b2ff4fbf26c3894ce8015190b470069e64f2c",
+            "bytes": 813280
+          },
+          "assets/main-Ct44St9p.js.map": {
+            "sha256": "31965b6b04653aca05d413e1aac40020f1b54c9bbbcd93154770c62a8668eadd",
+            "bytes": 895181
+          },
+          "content/game/kanto-private.json": {
+            "sha256": "a04243f3b61c0ad72160671f2f6aa76d90a768bb0f931d57f93cc2e49014044a",
+            "bytes": 5153
+          },
+          "content/game/runtime-assets/distributable.json": {
+            "sha256": "95b6e4d03c4409a7c465ab468a6a308c39998c4446ab245e80f444275b620548",
+            "bytes": 154
+          },
+          "content/game/runtime-assets/private-local.json": {
+            "sha256": "3c8e71fd56a247e7787df5d87668bc8f55849d5194b9e503fe6b527edbdcc3ed",
+            "bytes": 183
+          },
+          "index.html": {
+            "sha256": "fdf6310c6d7713b933dcda6defb13e06184a17cdb654ce2c19eb79ad6bc0d63c",
+            "bytes": 28199
+          }
+        },
+        "canonicalAssets": {
+          "bulbasaur": {
+            "relativePath": "kanto-starters/bulbasaur/hunyuan/bulbasaur_shape_8k.glb",
+            "sha256": "cad6e93a2e77d21148f932c27688ff07c5028eb87f3ba9f891a2f3f5ad8e1354"
+          },
+          "charmander": {
+            "relativePath": "kanto-starters/charmander/hunyuan/charmander_shape_8k.glb",
+            "sha256": "82c90f71d325d3e93803978cb66e8b6eaceeda5d4280706d9eb388a81975acd2"
+          },
+          "squirtle": {
+            "relativePath": "kanto-starters/squirtle/hunyuan/squirtle_shape_8k.glb",
+            "sha256": "b41a8ef1fc5caef02ea38eca7fa795ba974645f090e8a0574509d58c381e5805"
+          },
+          "pidgey": {
+            "relativePath": "kanto-private/pidgey/hunyuan/pidgey_klein_shape_8k.glb",
+            "sha256": "1685b6f5b9215645d274d31480cf9de8c26011aa7e424700f38b9d70cae4e261"
+          },
+          "caterpie": {
+            "relativePath": "kanto-private/caterpie/hunyuan/caterpie_klein_shape_8k.glb",
+            "sha256": "0a2093b6a4053a075c515591ae9a8f9c88b27fa66c27b72493cdac3648e247f2"
+          },
+          "geodude": {
+            "relativePath": "kanto-private/geodude/hunyuan/geodude_klein_shape_8k.glb",
+            "sha256": "f337566e5eece5d263cd7725d65563d31c0418fd138fa45663be679728d8d809"
+          }
+        }
+      },
+      "launcherReceipt": {
+        "schemaVersion": 1,
+        "manifestSha256": "786e7d5c39cc970fd1453c783dbc965e74298a00dcaaa926f8ad03fcc56ba135",
+        "gitSha": "f6081a2d7aea9fdd2a89071d78cf2057fbdc6d11",
+        "files": {
+          "assets/main-Ct44St9p.js": {
+            "sha256": "a4e9c38340fda363e61b1c858f9b2ff4fbf26c3894ce8015190b470069e64f2c",
+            "bytes": 813280
+          },
+          "assets/main-Ct44St9p.js.map": {
+            "sha256": "31965b6b04653aca05d413e1aac40020f1b54c9bbbcd93154770c62a8668eadd",
+            "bytes": 895181
+          },
+          "content/game/kanto-private.json": {
+            "sha256": "a04243f3b61c0ad72160671f2f6aa76d90a768bb0f931d57f93cc2e49014044a",
+            "bytes": 5153
+          },
+          "content/game/runtime-assets/distributable.json": {
+            "sha256": "95b6e4d03c4409a7c465ab468a6a308c39998c4446ab245e80f444275b620548",
+            "bytes": 154
+          },
+          "content/game/runtime-assets/private-local.json": {
+            "sha256": "3c8e71fd56a247e7787df5d87668bc8f55849d5194b9e503fe6b527edbdcc3ed",
+            "bytes": 183
+          },
+          "index.html": {
+            "sha256": "fdf6310c6d7713b933dcda6defb13e06184a17cdb654ce2c19eb79ad6bc0d63c",
+            "bytes": 28199
+          }
+        }
+      },
+      "hashFailures": [],
+      "productionBuild": true
+    }
+  },
+  "passed": false,
+  "summary": {
+    "checksPassed": 5,
+    "checksFailed": 1,
+    "consoleProblems": 1,
+    "requestProblems": 0,
+    "screenshots": 0
+  },
+  "fatalError": "page.waitForSelector: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator('.starter-card') to be visible\n\n    at /mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_f523dc89/tools/browser-complete-loop.mjs:556:14",
+  "checks": [
+    {
+      "name": "evidence is bound to a clean product revision",
+      "ok": true,
+      "detail": "f6081a2d7aea9fdd2a89071d78cf2057fbdc6d11",
+      "elapsedMs": 2056.133
+    },
+    {
+      "name": "external launcher receipt matches reviewed root",
+      "ok": true,
+      "detail": "{\"schemaVersion\":1,\"manifestSha256\":\"786e7d5c39cc970fd1453c783dbc965e74298a00dcaaa926f8ad03fcc56ba135\",\"gitSha\":\"f6081a2d7aea9fdd2a89071d78cf2057fbdc6d11\",\"files\":{\"assets/main-Ct44St9p.js\":{\"sha256\":\"a4e9c38340fda363e61b1c858f9b2ff4fbf26c3894ce8015190b470069e64f2c\",\"bytes\":813280},\"assets/main-Ct44St9p.js.map\":{\"sha256\":\"31965b6b04653aca05d413e1aac40020f1b54c9bbbcd93154770c62a8668eadd\",\"bytes\":895181},\"content/game/kanto-private.json\":{\"sha256\":\"a04243f3b61c0ad72160671f2f6aa76d90a768bb0f931d57f93cc2e49014044a\",\"bytes\":5153},\"content/game/runtime-assets/distributable.json\":{\"sha256\":\"95b6e4d03c4409a7c465ab468a6a308c39998c4446ab245e80f444275b620548\",\"bytes\":154},\"content/game/runtime-assets/private-local.json\":{\"sha256\":\"3c8e71fd56a247e7787df5d87668bc8f55849d5194b9e503fe6b527edbdcc3ed\",\"bytes\":183},\"index.html\":{\"sha256\":\"fdf6310c6d7713b933dcda6defb13e06184a17cdb654ce2c19eb79ad6bc0d63c\",\"bytes\":28199}}}",
+      "elapsedMs": 2056.477
+    },
+    {
+      "name": "runtime is the hashed production dist build",
+      "ok": true,
+      "detail": "{\"scripts\":[\"http://127.0.0.1:5292/assets/main-Ct44St9p.js\"],\"viteClient\":false,\"hashedAsset\":true,\"manifest\":{\"schemaVersion\":1,\"git\":{\"sha\":\"f6081a2d7aea9fdd2a89071d78cf2057fbdc6d11\",\"dirty\":false},\"invocation\":[\"vite\",\"build\",\"--mode\",\"private-local\"],\"privateCanonical\":true,\"builtAt\":\"2026-08-26T07:43:27.609Z\",\"files\":{\"assets/main-Ct44St9p.js\":{\"sha256\":\"a4e9c38340fda363e61b1c858f9b2ff4fbf26c3894ce8015190b470069e64f2c\",\"bytes\":813280},\"assets/main-Ct44St9p.js.map\":{\"sha256\":\"31965b6b04653aca05d413e1aac40020f1b54c9bbbcd93154770c62a8668eadd\",\"bytes\":895181},\"content/game/kanto-private.json\":{\"sha256\":\"a04243f3b61c0ad72160671f2f6aa76d90a768bb0f931d57f93cc2e49014044a\",\"bytes\":5153},\"content/game/runtime-assets/distributable.json\":{\"sha256\":\"95b6e4d03c4409a7c465ab468a6a308c39998c4446ab245e80f444275b620548\",\"bytes\":154},\"content/game/runtime-assets/private-local.json\":{\"sha256\":\"3c8e71fd56a247e7787df5d87668bc8f55849d5194b9e503fe6b527edbdcc3ed\",\"bytes\":183},\"index.html\":{\"sha256\":\"fdf6310c6d7713b933dcda6defb13e06184a17cdb654ce2c19eb79ad6bc0d63c\",\"bytes\":28199}},\"canonicalAssets\":{\"bulbasaur\":{\"relativePath\":\"kanto-starters/bulbasaur/hunyuan/bulbasaur_shape_8k.glb\",\"sha256\":\"cad6e93a2e77d21148f932c27688ff07c5028eb87f3ba9f891a2f3f5ad8e1354\"},\"charmander\":{\"relativePath\":\"kanto-starters/charmander/hunyuan/charmander_shape_8k.glb\",\"sha256\":\"82c90f71d325d3e93803978cb66e8b6eaceeda5d4280706d9eb388a81975acd2\"},\"squirtle\":{\"relativePath\":\"kanto-starters/squirtle/hunyuan/squirtle_shape_8k.glb\",\"sha256\":\"b41a8ef1fc5caef02ea38eca7fa795ba974645f090e8a0574509d58c381e5805\"},\"pidgey\":{\"relativePath\":\"kanto-private/pidgey/hunyuan/pidgey_klein_shape_8k.glb\",\"sha256\":\"1685b6f5b9215645d274d31480cf9de8c26011aa7e424700f38b9d70cae4e261\"},\"caterpie\":{\"relativePath\":\"kanto-private/caterpie/hunyuan/caterpie_klein_shape_8k.glb\",\"sha256\":\"0a2093b6a4053a075c515591ae9a8f9c88b27fa66c27b72493cdac3648e247f2\"},\"geodude\":{\"relativePath\":\"kanto-private/geodude/hunyuan/geodude_klein_shape_8k.glb\",\"sha256\":\"f337566e5eece5d263cd7725d65563d31c0418fd138fa45663be679728d8d809\"}}},\"launcherReceipt\":{\"schemaVersion\":1,\"manifestSha256\":\"786e7d5c39cc970fd1453c783dbc965e74298a00dcaaa926f8ad03fcc56ba135\",\"gitSha\":\"f6081a2d7aea9fdd2a89071d78cf2057fbdc6d11\",\"files\":{\"assets/main-Ct44St9p.js\":{\"sha256\":\"a4e9c38340fda363e61b1c858f9b2ff4fbf26c3894ce8015190b470069e64f2c\",\"bytes\":813280},\"assets/main-Ct44St9p.js.map\":{\"sha256\":\"31965b6b04653aca05d413e1aac40020f1b54c9bbbcd93154770c62a8668eadd\",\"bytes\":895181},\"content/game/kanto-private.json\":{\"sha256\":\"a04243f3b61c0ad72160671f2f6aa76d90a768bb0f931d57f93cc2e49014044a\",\"bytes\":5153},\"content/game/runtime-assets/distributable.json\":{\"sha256\":\"95b6e4d03c4409a7c465ab468a6a308c39998c4446ab245e80f444275b620548\",\"bytes\":154},\"content/game/runtime-assets/private-local.json\":{\"sha256\":\"3c8e71fd56a247e7787df5d87668bc8f55849d5194b9e503fe6b527edbdcc3ed\",\"bytes\":183},\"index.html\":{\"sha256\":\"fdf6310c6d7713b933dcda6defb13e06184a17cdb654ce2c19eb79ad6bc0d63c\",\"bytes\":28199}}},\"hashFailures\":[],\"productionBuild\":true}",
+      "elapsedMs": 2056.557
+    },
+    {
+      "name": "served dist manifest is the reviewed clean exact revision",
+      "ok": true,
+      "detail": "{\"sha\":\"f6081a2d7aea9fdd2a89071d78cf2057fbdc6d11\",\"dirty\":false}",
+      "elapsedMs": 2056.587
+    },
+    {
+      "name": "every served dist byte matches its immutable manifest hash",
+      "ok": true,
+      "detail": "",
+      "elapsedMs": 2056.603
+    },
+    {
+      "name": "complete-loop harness reached final state",
+      "ok": false,
+      "detail": "page.waitForSelector: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator('.starter-card') to be visible\n\n    at /mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_f523dc89/tools/browser-complete-loop.mjs:556:14",
+      "elapsedMs": 32074.299
+    }
+  ],
+  "transitions": {},
+  "controls": [],
+  "timeline": [
+    {
+      "name": "navigate:start",
+      "elapsedMs": 1418.497,
+      "browserMs": 233.1,
+      "detail": {}
+    }
+  ],
+  "screenshots": [],
+  "consoleProblems": [
+    "error: Failed to load module script: Expected a JavaScript-or-Wasm module script but the server responded with a MIME type of \"\". Strict MIME type checking is enforced for module scripts per HTML spec."
+  ],
+  "requestProblems": [],
+  "infoMessages": [],
+  "tracePath": "/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_f523dc89/shots/provenance-final-desktop-2/complete-loop-trace.zip",
+  "reportPath": "/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_f523dc89/shots/provenance-final-desktop-2/complete-loop-report.json"
+}
