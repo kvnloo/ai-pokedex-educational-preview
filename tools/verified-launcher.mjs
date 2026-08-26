@@ -38,7 +38,9 @@ export function verifyAndFreezeBuild({ source, expectedManifestSha256, expectedG
     const expected = manifest.files[path];
     if (bytes.length !== expected.bytes || sha256(bytes) !== expected.sha256) throw new Error(`build byte mismatch: ${path}`);
   }
-  const directory = join(resolve(destinationParent), `.verified-build-${expectedManifestSha256}-${randomUUID()}`);
+  const resolvedDestinationParent = resolve(destinationParent);
+  mkdirSync(resolvedDestinationParent, { recursive: true, mode: 0o700 });
+  const directory = join(resolvedDestinationParent, `.verified-build-${expectedManifestSha256}-${randomUUID()}`);
   mkdirSync(directory, { mode: 0o700 });
   for (const path of [...committed, MANIFEST]) {
     const target = join(directory, path);

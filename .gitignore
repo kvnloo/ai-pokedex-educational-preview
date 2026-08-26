@@ -1,5 +1,6 @@
 node_modules/
 dist/
+.verified-builds/
 data/raw/
 *.log
 .DS_Store
