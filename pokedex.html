@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#8f1626" />
+  <title>Field Pokédex OS</title>
+  <link rel="stylesheet" href="/src/pokedex/pokedex.css" />
+</head>
+<body>
+  <main class="device" aria-label="Field Pokédex">
+    <div class="hardware-bar"><span class="lens"><i></i></span><span class="led red"></span><span class="led amber"></span><span class="led green"></span><b>FIELD UNIT // KANTO</b><button id="audio-toggle" aria-label="Toggle audio">AUDIO OFF</button></div>
+    <section class="screen" id="screen">
+      <div class="scanlines"></div>
+      <header class="statusbar"><span id="clock">09:41</span><strong id="route-label">ROUTE 1 · NORTH FIELD</strong><span>22° ☀︎ · <i class="battery">87</i>%</span></header>
+      <div id="app" tabindex="-1"></div>
+      <nav id="dock" aria-label="Primary apps"></nav>
+      <div id="toast" role="status" aria-live="polite"></div>
+    </section>
+    <aside class="physical-controls" aria-label="Physical controls">
+      <div class="dpad" aria-hidden="true"><i>▲</i><i>◀</i><i>●</i><i>▶</i><i>▼</i></div>
+      <button id="scan-trigger" class="scan-trigger"><span>SCAN</span><small>FIELD TRIGGER</small></button>
+      <div class="face-buttons"><button data-action="back" aria-label="Back">B</button><button data-action="confirm" aria-label="Confirm">A</button></div>
+    </aside>
+  </main>
+  <script type="module" src="/src/pokedex/main.ts"></script>
+</body>
+</html>

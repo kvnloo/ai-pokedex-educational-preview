@@ -224,6 +224,7 @@ export default defineConfig(({ command, mode }) => {
       // intentionally excluded from the production multi-page bundle.
       input: {
         main: path.resolve(__dirname, 'index.html'),
+        ...(privateBuild ? { pokedex: path.resolve(__dirname, 'pokedex.html') } : {}),
       },
     },
   },
