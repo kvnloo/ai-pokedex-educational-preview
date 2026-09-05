@@ -1,0 +1,372 @@
+{
+  "coordinateConvention": "glTF scene transforms applied before glTF-to-Blender world conversion (x,-z,y).",
+  "inputs": {
+    "original": {
+      "path": "/mnt/zer0models/workspace/zer0/experiments/pokemon/assets/experiments/charizard-official-raw/charizard-official-raw-61062-o256.glb",
+      "sha256": "f9f0b2c3f2e189dcdd1c72190e8c79b7b958a2dd4f3bacb2d844ec37b330ed8e"
+    },
+    "r01": {
+      "path": "/mnt/zer0models/workspace/zer0/experiments/pokemon/assets/blender/charizard-tail-r01/charizard-tail-r01.glb",
+      "sha256": "fe35ce3185345cb44af42d7e2637496d30fd8689431016718b392f48c9dce2f8"
+    },
+    "r02a": {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02a/charizard-tail-r02a.glb",
+      "sha256": "d6e4dd5bf9db81f7bd9220b37eb95d24ebe4bd217908de2ca2773c5d545b975a"
+    }
+  },
+  "validator": {
+    "path": "/mnt/zer0models/workspace/zer0/experiments/pokemon/.worktrees/charizard-anatomy/tools/charizard-anatomy/validate_tail_patch.py",
+    "sha256": "f30492d4c842d15c2a223d47ed82aa0857f8cf6bca90f8adc40812507eb275a2"
+  },
+  "patchReceipt": {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02a/patch-receipt.json",
+    "sha256": "19a492076c79388a55e47a9cb1252d557258d9ed7c44993bdb635a6776d63518"
+  },
+  "frozenInputHashesMatch": true,
+  "exportStructure": {
+    "sceneCount": 1,
+    "scene": 0,
+    "scenes": [
+      {
+        "name": "EDIT-charizard-tail-r02a",
+        "nodes": [
+          0,
+          1
+        ]
+      }
+    ],
+    "nodeCount": 2,
+    "nodes": [
+      {
+        "mesh": 0,
+        "name": "GEO-charizard-body-tail-r02a"
+      },
+      {
+        "mesh": 1,
+        "name": "GEO-charizard-flame-reference-r02a",
+        "translation": [
+          0.14757436513900757,
+          0.14880594611167908,
+          -0.16797137260437012
+        ]
+      }
+    ],
+    "meshCount": 2
+  },
+  "exportGeometry": {
+    "GEO-charizard-flame-reference-r02a": {
+      "vertices": 4516,
+      "triangles": 9028,
+      "components": [
+        {
+          "vertices": 4516,
+          "triangles": 9028
+        }
+      ],
+      "boundaryEdges": 0,
+      "edgesIncidentToMoreThanTwoTriangles": 0,
+      "repeatedIndexTriangles": 0,
+      "zeroAreaTriangles": 0,
+      "areaAtMost1eMinus14Triangles": 0,
+      "watertight": true,
+      "windingConsistent": true,
+      "eulerNumber": 2,
+      "bounds": [
+        [
+          0.6976145505905151,
+          -0.4899594783782959,
+          -0.12000000476837158
+        ],
+        [
+          0.9023855924606323,
+          -0.27004048228263855,
+          0.24425885826349258
+        ]
+      ],
+      "exactCoordinateUniqueVertices": 4516
+    },
+    "GEO-charizard-body-tail-r02a": {
+      "vertices": 122377,
+      "triangles": 244754,
+      "components": [
+        {
+          "vertices": 122377,
+          "triangles": 244754
+        }
+      ],
+      "boundaryEdges": 0,
+      "edgesIncidentToMoreThanTwoTriangles": 0,
+      "repeatedIndexTriangles": 0,
+      "zeroAreaTriangles": 0,
+      "areaAtMost1eMinus14Triangles": 0,
+      "watertight": true,
+      "windingConsistent": true,
+      "eulerNumber": 0,
+      "bounds": [
+        [
+          -0.958707332611084,
+          -0.9876829981803894,
+          -0.6132521629333496
+        ],
+        [
+          0.946840226650238,
+          0.8334565758705139,
+          0.6025716662406921
+        ]
+      ],
+      "exactCoordinateUniqueVertices": 122377
+    }
+  },
+  "parentBodyComparison": {
+    "verticesTested": 122377,
+    "maximumNearestDistance": 0.015077271404761873,
+    "exactMatches": 120792,
+    "within1eMinus6": 120792,
+    "indicesEqual": false,
+    "facesSameIndexArrays": false
+  },
+  "parentFlameComparison": {
+    "verticesTested": 4516,
+    "maximumNearestDistance": 0.0,
+    "exactMatches": 4516,
+    "within1eMinus6": 4516,
+    "indicesEqual": true,
+    "facesSameIndexArrays": true
+  },
+  "originalProtectedCoordinatePresence": {
+    "criterion": "Original main-component vertices outside (Y>.15 AND Z<-.20); position presence only.",
+    "testedVertices": 106843,
+    "maximumNearestDistance": 0.0,
+    "exactMatches": 106843,
+    "violationsAt1eMinus6": 0
+  },
+  "r01Join": {
+    "seamVertexCount": 317,
+    "seamEdges": 317,
+    "firstGeneratedRingVertices": 317,
+    "firstGeneratedRingBounds": [
+      [
+        -0.8083577752113342,
+        0.14794091880321503,
+        -0.6007416248321533
+      ],
+      [
+        -0.4874679148197174,
+        0.18600916862487793,
+        -0.31487083435058594
+      ]
+    ],
+    "firstGeneratedRingBehindCutCount": 29,
+    "seamFaceAngleDegrees": {
+      "median": 7.162655099854253,
+      "p90": 84.04391097642535,
+      "max": 164.87806934685042,
+      "above30": 72,
+      "above60": 45,
+      "above90": 31
+    },
+    "y0149LowLeftSectionLoopCount": 2,
+    "y0149LowLeftSectionBounds": [
+      [
+        [
+          -0.8117962940161882,
+          0.149,
+          -0.5982549972568566
+        ],
+        [
+          -0.4814799742951614,
+          0.149,
+          -0.314333978397809
+        ]
+      ],
+      [
+        [
+          -0.8096853745990207,
+          0.149,
+          -0.5155420049238363
+        ],
+        [
+          -0.7881001859632062,
+          0.149,
+          -0.47133886647465917
+        ]
+      ]
+    ]
+  },
+  "r02aJoin": {
+    "seamVertexCount": 317,
+    "seamEdges": 317,
+    "firstGeneratedRingVertices": 317,
+    "firstGeneratedRingBounds": [
+      [
+        -0.8153661489486694,
+        0.17484469711780548,
+        -0.6028386950492859
+      ],
+      [
+        -0.4899686276912689,
+        0.18078996241092682,
+        -0.3111831843852997
+      ]
+    ],
+    "firstGeneratedRingBehindCutCount": 0,
+    "seamFaceAngleDegrees": {
+      "median": 1.485731554902533,
+      "p90": 2.997313343363183,
+      "max": 4.555772992780278,
+      "above30": 0,
+      "above60": 0,
+      "above90": 0
+    },
+    "y0149LowLeftSectionLoopCount": 1,
+    "y0149LowLeftSectionBounds": [
+      [
+        [
+          -0.8117962940161882,
+          0.149,
+          -0.5982549972568566
+        ],
+        [
+          -0.4814799742951614,
+          0.149,
+          -0.314333978397809
+        ]
+      ]
+    ]
+  },
+  "stableVertexAudit": {
+    "artifact": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02a/vertex-audit.npz",
+    "sha256": "6b302613d02652038e7780d196958f549c6574c133e79292a67f4fc1e613dd3c",
+    "criterion": "NPZ row index is stable Blender vertex identity. Each row is linked bijectively to each GLB by exact coordinates.",
+    "vertexCount": 122377,
+    "changedCount": 1585,
+    "changedIndicesMatchReceipt": true,
+    "unchangedVertices": 120792,
+    "maximumDisplacement": 0.03824207070882273,
+    "changedBoundsBefore": [
+      [
+        -0.8083577752113342,
+        0.14794091880321503,
+        -0.6138408184051514
+      ],
+      [
+        -0.4874679148197174,
+        0.29705244302749634,
+        -0.31487083435058594
+      ]
+    ],
+    "changedBoundsAfter": [
+      [
+        -0.8156253099441528,
+        0.17484469711780548,
+        -0.6132521629333496
+      ],
+      [
+        -0.4899686276912689,
+        0.3039497137069702,
+        -0.31112658977508545
+      ]
+    ],
+    "originalSourceRows": 106843,
+    "originalSourceRowsMoved": 0,
+    "originalSourceMaximumDisplacement": 0.0,
+    "seamRows": 317,
+    "seamRowsMoved": 0,
+    "flattenedBlenderFaceVertexIndicesEqual": true,
+    "flattenedBlenderFaceVertexIndexCount": 703514,
+    "exports": {
+      "r01": {
+        "npzToExportMaximumNearestDistance": 0.0,
+        "npzToExportUniqueMappedVertices": 122377,
+        "exportToNpzMaximumNearestDistance": 0.0,
+        "exportToNpzUniqueMappedRows": 122377
+      },
+      "r02a": {
+        "npzToExportMaximumNearestDistance": 0.0,
+        "npzToExportUniqueMappedVertices": 122377,
+        "exportToNpzMaximumNearestDistance": 0.0,
+        "exportToNpzUniqueMappedRows": 122377
+      }
+    },
+    "protectedExportTriangles": {
+      "criterion": "Canonical unordered stable vertex-ID triples for triangles with no changed vertices.",
+      "parentCount": 240950,
+      "candidateCount": 240950,
+      "missingFromCandidate": 0,
+      "addedInCandidate": 0
+    },
+    "sourceSideExportTriangles": {
+      "criterion": "Triangles entirely within original-source rows plus unchanged surgical seam rows.",
+      "parentCount": 214005,
+      "candidateCount": 214005,
+      "missingFromCandidate": 0,
+      "addedInCandidate": 0
+    },
+    "exportTriangulationChanges": {
+      "criterion": "All canonical stable vertex-ID triples.",
+      "parentCount": 244754,
+      "candidateCount": 244754,
+      "missingFromCandidate": 2,
+      "addedInCandidate": 2,
+      "explanation": "Unchanged Blender face indices coexist with a changed GLB diagonal inside the patch; protected triangle triples are checked separately."
+    }
+  },
+  "localSelfIntersection": {
+    "method": "Open3D get_self_intersecting_triangles on all body triangles whose AABBs overlap the union of changed-triangle bounds expanded by .01. Every potential pair involving a changed triangle is within this AABB selection, subject to detector numerical and shared-vertex limitations. The rest of the model is not tested.",
+    "open3dVersion": "0.19.0",
+    "bounds": [
+      [
+        -0.8256253099441528,
+        0.13794091880321502,
+        -0.6238408184051514
+      ],
+      [
+        -0.47188281059265136,
+        0.35466102719306947,
+        -0.30112658977508544
+      ]
+    ],
+    "versions": {
+      "r01": {
+        "trianglesTested": 5760,
+        "verticesTested": 3118,
+        "changedTriangles": 3804,
+        "intersectionPairsCount": 1,
+        "intersectionPairsInvolvingChangedTrianglesCount": 1,
+        "intersectionPairs": [
+          [
+            6157,
+            9207
+          ]
+        ],
+        "seconds": 0.10810168599709868
+      },
+      "r02a": {
+        "trianglesTested": 5760,
+        "verticesTested": 3118,
+        "changedTriangles": 3804,
+        "intersectionPairsCount": 0,
+        "intersectionPairsInvolvingChangedTrianglesCount": 0,
+        "intersectionPairs": [],
+        "seconds": 0.1013606529959361
+      }
+    }
+  },
+  "limits": [
+    "Numerical geometry verification does not establish anatomy or artistic quality.",
+    "No whole-model self-intersection claim. Local Open3D test has numerical and shared-vertex limitations; separate flame-to-body intersections are not tested.",
+    "No UV, rig, animation or production readiness evaluation."
+  ],
+  "acceptanceChecks": {
+    "exportHasOneSceneTwoMeshes": true,
+    "topologyPredicatesPass": true,
+    "changedStableIdsMatchReceipt": true,
+    "protectedRowsUnchanged": true,
+    "protectedTriangleTriplesUnchanged": true,
+    "blenderFaceVertexIndexSequenceUnchanged": true,
+    "flameWorldGeometryUnchanged": true,
+    "firstRingNoFoldback": true,
+    "seamAngleMaximumImproved": true,
+    "localDetectorReportsNoIntersections": true
+  }
+}

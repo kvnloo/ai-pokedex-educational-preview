@@ -1,0 +1,64 @@
+{
+  "checkedAt": "2026-09-05T22:45:00.533Z",
+  "checks": [
+    {
+      "name": "correct parent and candidate",
+      "pass": true
+    },
+    {
+      "name": "both comparison images decode: root-side",
+      "pass": true
+    },
+    {
+      "name": "both comparison images decode: root-rear",
+      "pass": true
+    },
+    {
+      "name": "both comparison images decode: fair-minusY",
+      "pass": true
+    },
+    {
+      "name": "both comparison images decode: fair-plusX",
+      "pass": true
+    },
+    {
+      "name": "both comparison images decode: fair-plusY",
+      "pass": true
+    },
+    {
+      "name": "both comparison images decode: fair-minusX",
+      "pass": true
+    },
+    {
+      "name": "both comparison images decode: fair-threequarter",
+      "pass": true
+    },
+    {
+      "name": "phone opens exact mesh preview",
+      "pass": true
+    },
+    {
+      "name": "phone reveals preview inside viewport",
+      "pass": true
+    },
+    {
+      "name": "phone switches to r01 close-up",
+      "pass": true
+    },
+    {
+      "name": "phone switches to r02a close-up",
+      "pass": true
+    },
+    {
+      "name": "phone has no horizontal page overflow",
+      "pass": true
+    },
+    {
+      "name": "no JavaScript errors",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "phoneUrl": "https://0.taila30dc.ts.net:8445/devtools/pokedex.html?pokemon=charizard&tab=iterations&run=charizard-tail-r02a&view=root-side",
+  "status": "simulated-browser-pass; real-device review pending"
+}

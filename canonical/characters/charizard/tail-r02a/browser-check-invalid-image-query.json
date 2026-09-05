@@ -1,0 +1,39 @@
+{
+  "checkedAt": "2026-09-05T22:42:55.631Z",
+  "checks": [
+    {
+      "name": "correct parent and candidate",
+      "pass": true
+    },
+    {
+      "name": "both comparison images decode: root-side",
+      "pass": true
+    },
+    {
+      "name": "both comparison images decode: root-rear",
+      "pass": true
+    },
+    {
+      "name": "both comparison images decode: fair-minusY",
+      "pass": true
+    },
+    {
+      "name": "both comparison images decode: fair-plusX",
+      "pass": true
+    },
+    {
+      "name": "both comparison images decode: fair-plusY",
+      "pass": true
+    },
+    {
+      "name": "both comparison images decode: fair-minusX",
+      "pass": true
+    },
+    {
+      "name": "both comparison images decode: fair-threequarter",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "phoneUrl": "https://0.taila30dc.ts.net:8445/devtools/pokedex.html?pokemon=charizard&tab=iterations&run=charizard-tail-r02a&view=root-side&image=assets%2Fblender%2Fcharizard-tail-r02a%2Fcharizard-tail-r02a-root-side.png"
+}

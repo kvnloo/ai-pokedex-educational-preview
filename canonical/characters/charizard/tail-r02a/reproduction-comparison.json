@@ -1,0 +1,52 @@
+{
+  "directories": [
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02a",
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-r3"
+  ],
+  "geometry": {
+    "GEO-charizard-flame-reference-r02a": {
+      "coordinatesExact": true,
+      "trianglesExact": true
+    },
+    "GEO-charizard-body-tail-r02a": {
+      "coordinatesExact": true,
+      "trianglesExact": true
+    }
+  },
+  "transforms": {
+    "GEO-charizard-flame-reference-r02a": true,
+    "GEO-charizard-body-tail-r02a": true
+  },
+  "renders": {
+    "minusY": {
+      "pixelsExact": true,
+      "differentChannels": 0,
+      "maximumChannelDifference": 0
+    },
+    "plusX": {
+      "pixelsExact": true,
+      "differentChannels": 0,
+      "maximumChannelDifference": 0
+    },
+    "plusY": {
+      "pixelsExact": true,
+      "differentChannels": 0,
+      "maximumChannelDifference": 0
+    },
+    "minusX": {
+      "pixelsExact": true,
+      "differentChannels": 0,
+      "maximumChannelDifference": 0
+    },
+    "threequarter": {
+      "pixelsExact": true,
+      "differentChannels": 0,
+      "maximumChannelDifference": 0
+    }
+  },
+  "glbHashes": [
+    "d6e4dd5bf9db81f7bd9220b37eb95d24ebe4bd217908de2ca2773c5d545b975a",
+    "dddd65604a9fa930db9e1bbd1c7805ab82ac95947e3cc53b449fd9c1906f73f3"
+  ],
+  "geometryAndPixelsExact": true
+}

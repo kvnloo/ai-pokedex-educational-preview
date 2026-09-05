@@ -1,0 +1,122 @@
+{
+  "id": "charizard-tail-r02a",
+  "species": "charizard",
+  "title": "Manual tail repair 02a \u00b7 remove folded join",
+  "stage": "blender",
+  "status": "completed",
+  "parents": [
+    "charizard-tail-r01"
+  ],
+  "question": "Can the rebuilt tail follow the original surface tangent without a folded attachment ring?",
+  "changedFactors": [
+    {
+      "name": "first five rebuilt rings",
+      "from": "Immediate rotated cross-section with 29 folded-back vertices",
+      "to": "Cubic Hermite surface ribbons; zero foldback"
+    }
+  ],
+  "controls": [
+    "106843 original vertices and all 317 seam vertices fixed",
+    "Unchanged distal tail and static flame",
+    "Same five whole-body clay cameras; new matched root close-ups without cast shadows"
+  ],
+  "inputs": [
+    {
+      "role": "shape reference",
+      "path": "assets/references/objects/b6/b6d5b8ee9fb05dc6f53294b2cae660dec770b92762cdb19d16bcbd679e1ba43a.png",
+      "sha256": "b6d5b8ee9fb05dc6f53294b2cae660dec770b92762cdb19d16bcbd679e1ba43a",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png",
+      "sourceKind": "official_artwork"
+    }
+  ],
+  "recipe": {
+    "model": "Manual Blender repair through Blender MCP",
+    "codePath": "assets/blender/charizard-tail-r02a/tail_patch.py",
+    "runnerSHA256": "d4f1e545bb5131620adbad51f095d249a47b72175a86b7df1d392ff3340d329f",
+    "parameters": {
+      "changedRings": 5,
+      "verticesPerRing": 317,
+      "endpointRing": 6
+    },
+    "preprocess": "No new image generation or image edits"
+  },
+  "outputs": {
+    "rawMesh": "assets/blender/charizard-tail-r02a/charizard-tail-r02a.glb",
+    "blend": "assets/blender/charizard-tail-r02a/charizard-tail-r02a.blend",
+    "previews": [
+      {
+        "view": "fair-minusY",
+        "path": "assets/blender/charizard-tail-r02a/charizard-tail-r02a-minusY.png"
+      },
+      {
+        "view": "fair-plusX",
+        "path": "assets/blender/charizard-tail-r02a/charizard-tail-r02a-plusX.png"
+      },
+      {
+        "view": "fair-plusY",
+        "path": "assets/blender/charizard-tail-r02a/charizard-tail-r02a-plusY.png"
+      },
+      {
+        "view": "fair-minusX",
+        "path": "assets/blender/charizard-tail-r02a/charizard-tail-r02a-minusX.png"
+      },
+      {
+        "view": "fair-threequarter",
+        "path": "assets/blender/charizard-tail-r02a/charizard-tail-r02a-threequarter.png"
+      },
+      {
+        "view": "root-side",
+        "path": "assets/blender/charizard-tail-r02a/charizard-tail-r02a-root-side.png"
+      },
+      {
+        "view": "root-rear",
+        "path": "assets/blender/charizard-tail-r02a/charizard-tail-r02a-root-rear.png"
+      }
+    ]
+  },
+  "evaluation": {
+    "verdict": "needs-work",
+    "reviewer": "assistant",
+    "notes": "Sharp join and local fold removed. Close-ups still show shallow longitudinal ripples; proximal oval root is unchanged. This is a repair checkpoint, not a finished asset.",
+    "unresolved": [
+      "Root surface ripples and tail proportion review",
+      "Malformed head/horns, hands/feet and wing attachment",
+      "No authored UVs/PBR, rig, animation, attacks or runtime promotion"
+    ]
+  },
+  "metrics": {
+    "vertices": 126893,
+    "trianglesAfterGLTFExport": 253782,
+    "changedBodyVertices": 1585,
+    "protectedOriginalVerticesUnchanged": 106843,
+    "bodyWatertight": true,
+    "localIntersectionPairs": 0,
+    "wholeModelSelfIntersectionTested": false,
+    "meshSHA256": "d6e4dd5bf9db81f7bd9220b37eb95d24ebe4bd217908de2ca2773c5d545b975a"
+  },
+  "evidence": [
+    {
+      "label": "Operation receipt",
+      "path": "assets/blender/charizard-tail-r02a/patch-receipt.json"
+    },
+    {
+      "label": "Independent export validation",
+      "path": "assets/blender/charizard-tail-r02a/r02a-validation.json"
+    },
+    {
+      "label": "Close-up cameras",
+      "path": "assets/blender/charizard-tail-r02a/closeup-camera.json"
+    },
+    {
+      "label": "Blender viewport",
+      "path": "assets/blender/charizard-tail-r02a/blender-viewport.png"
+    }
+  ],
+  "comparability": {
+    "cohort": "charizard-manual-tail",
+    "confounds": [
+      "Whole-body views retain Workbench cast shadows. Root close-ups disable shadows in both candidates to inspect the surface."
+    ]
+  },
+  "createdAt": "2026-09-05T22:29:10.837473+00:00"
+}

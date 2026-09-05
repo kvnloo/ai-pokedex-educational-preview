@@ -1,0 +1,50 @@
+{
+  "framingParent": "/mnt/zer0models/workspace/zer0/experiments/pokemon/assets/blender/charizard-fair-review/charizard-official-61062-o256.json",
+  "bounds": [
+    [
+      -0.958707332611084,
+      -0.9876829981803894,
+      -0.6112245321273804
+    ],
+    [
+      0.946840226650238,
+      0.9951756596565247,
+      0.6025716662406921
+    ]
+  ],
+  "orthoScale": 2.4785733222961426,
+  "directions": {
+    "minusY": [
+      0,
+      -1,
+      0
+    ],
+    "plusX": [
+      1,
+      0,
+      0
+    ],
+    "plusY": [
+      0,
+      1,
+      0
+    ],
+    "minusX": [
+      -1,
+      0,
+      0
+    ],
+    "threequarter": [
+      1,
+      -1,
+      0.4
+    ]
+  },
+  "engine": "BLENDER_WORKBENCH",
+  "light": "paint.sl",
+  "cavity": false,
+  "resolution": [
+    800,
+    800
+  ]
+}

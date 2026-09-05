@@ -1,0 +1,46 @@
+{
+  "scene": "REOPEN-charizard-tail-r02a.001",
+  "meshes": [
+    {
+      "name": "GEO-charizard-body-tail-r02a.003",
+      "vertices": 122377,
+      "triangles": 244754,
+      "bounds": [
+        [
+          -0.958707332611084,
+          -0.9876829981803894,
+          -0.6132521629333496
+        ],
+        [
+          0.946840226650238,
+          0.8334565758705139,
+          0.6025716662406921
+        ]
+      ],
+      "uvLayers": 0,
+      "armatureModifiers": 0,
+      "materialSlots": 0
+    },
+    {
+      "name": "GEO-charizard-flame-reference-r02a.003",
+      "vertices": 4516,
+      "triangles": 9028,
+      "bounds": [
+        [
+          0.6976145505905151,
+          -0.4899594783782959,
+          -0.12000000476837158
+        ],
+        [
+          0.9023855924606323,
+          -0.27004048228263855,
+          0.244258850812912
+        ]
+      ],
+      "uvLayers": 0,
+      "armatureModifiers": 0,
+      "materialSlots": 0
+    }
+  ],
+  "animations": []
+}

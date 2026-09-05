@@ -1,0 +1,253 @@
+{
+  "id": "charizard-tail-r02a",
+  "status": "intermediate geometry repair; full tail and S+ gates open",
+  "source": {
+    "parent": "charizard-tail-r01",
+    "officialAncestor": "charizard-official-raw-61062-o256",
+    "input": {
+      "role": "shape reference",
+      "path": "assets/references/objects/b6/b6d5b8ee9fb05dc6f53294b2cae660dec770b92762cdb19d16bcbd679e1ba43a.png",
+      "sha256": "b6d5b8ee9fb05dc6f53294b2cae660dec770b92762cdb19d16bcbd679e1ba43a",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png",
+      "sourceKind": "official_artwork"
+    }
+  },
+  "authoring": "Root through Blender MCP; read-only CPU audit delegated",
+  "files": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02a/blender-viewport.png",
+      "pathRoot": "filesystem",
+      "sha256": "4df341f1975a0f052a0bd6a1eec63ec41000231cb57f627347c19c186e8cb292",
+      "bytes": 564468
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02a/charizard-tail-r01-root-rear.png",
+      "pathRoot": "filesystem",
+      "sha256": "3e17838adf66d560b6a609e5297528ff45dbd912dfd4a9ad37186ab504682d8d",
+      "bytes": 1394609
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02a/charizard-tail-r01-root-side.png",
+      "pathRoot": "filesystem",
+      "sha256": "7e23963c8c3f8691857011737d811e6a9a04aaab0dd48007c0a9441182424a57",
+      "bytes": 1296696
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02a/charizard-tail-r02a-minusX.png",
+      "pathRoot": "filesystem",
+      "sha256": "612492a18b8f27e580bf46603eea680368611cfb75c0fdbf91846b04e9c8e377",
+      "bytes": 761058
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02a/charizard-tail-r02a-minusY.png",
+      "pathRoot": "filesystem",
+      "sha256": "f3242be8bcd446e4c18dfaf35525808b6c5ff86ff4e7d6914494195f0e0a84a3",
+      "bytes": 797194
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02a/charizard-tail-r02a-plusX.png",
+      "pathRoot": "filesystem",
+      "sha256": "22e79b6250bb911a63739d64a89f32cc7fb0f4827e210bc375c2ac573eb4372d",
+      "bytes": 780310
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02a/charizard-tail-r02a-plusY.png",
+      "pathRoot": "filesystem",
+      "sha256": "7172da394d38ea38c7263d0d06204d8721396a3282241c73597f76d77b700ce6",
+      "bytes": 771115
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02a/charizard-tail-r02a-root-rear.png",
+      "pathRoot": "filesystem",
+      "sha256": "1edf64f8e5c61d2ff7ce6403f479f26b278b077da47794d7a7a526dac3574562",
+      "bytes": 1396524
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02a/charizard-tail-r02a-root-side.png",
+      "pathRoot": "filesystem",
+      "sha256": "e7b6b4e568cdede8c0a1731c96d67cdfabdd67400c08f96773984c314a8a0939",
+      "bytes": 1296159
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02a/charizard-tail-r02a-threequarter.png",
+      "pathRoot": "filesystem",
+      "sha256": "0d8c8479bef1408675278c6462daf237cc0c1cea66b7599fbf920fad6c1c6c8e",
+      "bytes": 780530
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02a/charizard-tail-r02a.blend",
+      "pathRoot": "filesystem",
+      "sha256": "6204b529921381fc9da050716c2bb7105a8602b0c5faead07f14e1c97aa7f346",
+      "bytes": 11422905
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02a/charizard-tail-r02a.glb",
+      "pathRoot": "filesystem",
+      "sha256": "d6e4dd5bf9db81f7bd9220b37eb95d24ebe4bd217908de2ca2773c5d545b975a",
+      "bytes": 6038352
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02a/comparison-preview.png",
+      "pathRoot": "filesystem",
+      "sha256": "ce638f68c0c3b8531a93cead9cc647fe5e426b29aa7619bc7959a403a89fc4d2",
+      "bytes": 202011
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02a/phone-preview.png",
+      "pathRoot": "filesystem",
+      "sha256": "39eae8dd0de84dc4caadb23fcb3a4be29282d9584619f08e053ccc8d78b89574",
+      "bytes": 180813
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02a/vertex-audit.npz",
+      "pathRoot": "filesystem",
+      "sha256": "6b302613d02652038e7780d196958f549c6574c133e79292a67f4fc1e613dd3c",
+      "bytes": 3504097
+    }
+  ],
+  "scripts": [
+    {
+      "path": "tools/charizard-anatomy/browser_check.mjs",
+      "pathRoot": "repository",
+      "sha256": "80114c344096e5887f73b30b3bc380125b7ba9aabf76d9a6115866c5592973c7",
+      "bytes": 4314
+    },
+    {
+      "path": "tools/charizard-anatomy/collect_manifest.py",
+      "pathRoot": "repository",
+      "sha256": "025c68beb69f6d3727dbea823a3698e6e9968a19d3c312d696022181dd89c159",
+      "bytes": 3467
+    },
+    {
+      "path": "tools/charizard-anatomy/compare_reproduction.py",
+      "pathRoot": "repository",
+      "sha256": "e58f06049ee0931dcd172e8255e5ae869782fb291fbef1e2cf85e92994571674",
+      "bytes": 2020
+    },
+    {
+      "path": "tools/charizard-anatomy/register_experiment.py",
+      "pathRoot": "repository",
+      "sha256": "3c6a337d253be35a3f810aca13c2ad2cd1af7518deac558786e1b98f8807f6e7",
+      "bytes": 4809
+    },
+    {
+      "path": "tools/charizard-anatomy/render_closeup.py",
+      "pathRoot": "repository",
+      "sha256": "e4d928e27aaea9b45589cfcba79f0b6623551ed6c9b80092553b744a395dee8b",
+      "bytes": 2588
+    },
+    {
+      "path": "tools/charizard-anatomy/render_review.py",
+      "pathRoot": "repository",
+      "sha256": "25512702fc3a89ea21c983177c93b7804fb83e5802c8248bdd247b9b026b84d5",
+      "bytes": 2686
+    },
+    {
+      "path": "tools/charizard-anatomy/reopen_glb.py",
+      "pathRoot": "repository",
+      "sha256": "d0f47786966212b5070504204bf355728dd53c2a9f74869f6c988a004429c641",
+      "bytes": 1401
+    },
+    {
+      "path": "tools/charizard-anatomy/reproduce.py",
+      "pathRoot": "repository",
+      "sha256": "8bda664ce1da8bc036b402e283cea2164c0316c97187e8f128a367bdbf496d3b",
+      "bytes": 2233
+    },
+    {
+      "path": "tools/charizard-anatomy/tail_patch.py",
+      "pathRoot": "repository",
+      "sha256": "d4f1e545bb5131620adbad51f095d249a47b72175a86b7df1d392ff3340d329f",
+      "bytes": 5449
+    },
+    {
+      "path": "tools/charizard-anatomy/validate_tail_patch.py",
+      "pathRoot": "repository",
+      "sha256": "f30492d4c842d15c2a223d47ed82aa0857f8cf6bca90f8adc40812507eb275a2",
+      "bytes": 20903
+    }
+  ],
+  "reports": [
+    {
+      "path": "canonical/characters/charizard/tail-r02a/patch-receipt.json",
+      "pathRoot": "repository",
+      "sha256": "19a492076c79388a55e47a9cb1252d557258d9ed7c44993bdb635a6776d63518",
+      "bytes": 16725
+    },
+    {
+      "path": "canonical/characters/charizard/tail-r02a/camera-receipt.json",
+      "pathRoot": "repository",
+      "sha256": "a9e9ab04cb8cca18d1010067704bc64466d0d5dc4ad36ec5605158de223ca3be",
+      "bytes": 774
+    },
+    {
+      "path": "canonical/characters/charizard/tail-r02a/closeup-camera.json",
+      "pathRoot": "repository",
+      "sha256": "cd099a2a66ee3d9dc22f38ab273dd1d01477d2039e6471073d10ea250d108f3e",
+      "bytes": 392
+    },
+    {
+      "path": "canonical/characters/charizard/tail-r02a/blender-reopen.json",
+      "pathRoot": "repository",
+      "sha256": "f79371e7c301e1ea1992616287b970be521af84c78803770e2ff117755d937b9",
+      "bytes": 969
+    },
+    {
+      "path": "canonical/characters/charizard/tail-r02a/browser-check.json",
+      "pathRoot": "repository",
+      "sha256": "25a768178a7fb8df3b0cd1d9b9e96ea6e592d5ce117e3f78fd52568ed2e75e62",
+      "bytes": 1496
+    },
+    {
+      "path": "canonical/characters/charizard/tail-r02a/browser-check-invalid-image-query.json",
+      "pathRoot": "repository",
+      "sha256": "eb2cdb998d5b2c5b065fbab391f501ac71d18068f72fce71544d74b5d6e42357",
+      "bytes": 1026
+    },
+    {
+      "path": "canonical/characters/charizard/tail-r02a/r02a-tracked-validation.json",
+      "pathRoot": "repository",
+      "sha256": "bad4012adffbe75acf33e0d7571669e90e92c5105da2779c3e59239f782c740c",
+      "bytes": 10880
+    },
+    {
+      "path": "canonical/characters/charizard/tail-r02a/reproduction-comparison.json",
+      "pathRoot": "repository",
+      "sha256": "9d9d09370d5a678658eca0d142615f6959b283ffc157e1b79fe0feeed2080d15",
+      "bytes": 1335
+    },
+    {
+      "path": "canonical/characters/charizard/tail-r02a/reproduction-validation.json",
+      "pathRoot": "repository",
+      "sha256": "4e9374125e076fa119b926a8837be57c585765e55e3b07b713c0a2bab33453e1",
+      "bytes": 10914
+    }
+  ],
+  "runtime": {
+    "meshes": 2,
+    "vertices": 126893,
+    "triangles": 253782,
+    "uvLayers": 0,
+    "textureMaps": [],
+    "animationClips": [],
+    "rigged": false,
+    "approvedForGame": false
+  },
+  "knownCompromises": [
+    "Shallow lengthwise root ridges and moderate oval section",
+    "Head, limbs and wing connections unrefined",
+    "No authored UV/PBR, rig, animation or attacks",
+    "Local self-intersection test only; separate flame-to-body intersections not tested",
+    "Static flame reference remains inherited"
+  ],
+  "review": {
+    "assistant": "seam improved; further anatomy work required",
+    "human": "pending",
+    "browser": "simulated-browser-pass; real-device review pending"
+  },
+  "rejectedVerificationOutput": {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction",
+    "reason": "Loader read unevaluated flame matrix; superseded by reproduction-r3; preserved"
+  },
+  "deployment": "Charizard WIP not promoted to game; live repaired Field OS8469 unchanged"
+}
