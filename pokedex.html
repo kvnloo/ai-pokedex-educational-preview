@@ -4,13 +4,18 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#8f1626" />
+  <meta name="application-name" content="Field Pokédex" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Pokédex" />
   <link rel="icon" href='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"%3E%3Ccircle cx="16" cy="16" r="13" fill="%23101419" stroke="%238befe7" stroke-width="3"/%3E%3C/svg%3E' />
   <title>Field Pokédex OS</title>
   <link rel="stylesheet" href="/src/pokedex/pokedex.css" />
 </head>
 <body>
   <main class="device" aria-label="Field Pokédex">
-    <div class="hardware-bar"><a class="lens" href="./pokedex-device.html" aria-label="Inspect physical Pokédex in 3D"><i></i></a><span class="led red"></span><span class="led amber"></span><span class="led green"></span><b>FIELD UNIT // KANTO</b><button id="audio-toggle" aria-label="Toggle audio">AUDIO OFF</button></div>
+    <div class="hardware-bar"><a class="lens" href="./pokedex-device.html" aria-label="Inspect physical Pokédex in 3D"><i></i></a><span class="led red"></span><span class="led amber"></span><span class="led green"></span><b>FIELD UNIT // KANTO</b><button id="audio-toggle" aria-label="Toggle audio">AUDIO OFF</button><button id="app-mode-tip" aria-label="Install Pokédex or enter fullscreen" aria-haspopup="dialog" hidden>APP ↗</button></div>
     <section class="screen" id="screen">
       <div class="scanlines"></div>
       <header class="statusbar"><span id="clock">09:41</span><strong id="route-label">ROUTE 1 · NORTH FIELD</strong><span>22° ☀︎ · <i class="battery">87</i>%</span></header>
@@ -24,6 +29,17 @@
       <div class="face-buttons"><button data-action="back" aria-label="Back">B</button><button data-action="confirm" aria-label="Confirm">A</button></div>
     </aside>
   </main>
+  <dialog id="display-options" aria-labelledby="display-title" aria-describedby="display-explanation">
+    <div class="display-heading"><p class="eyebrow">FIELD UNIT · <span id="display-mode">Browser tab</span></p><button id="close-display-options" aria-label="Close display options" autofocus>✕</button></div>
+    <h2 id="display-title">Your pocket Pokédex.</h2>
+    <p id="display-explanation">Install to your home screen for the full app experience. A normal browser tab keeps its address bar; the app cannot hide it automatically.</p>
+    <div class="display-actions"><button id="install-pokedex" hidden>Install Pokédex</button><button id="fullscreen-pokedex" hidden>Enter fullscreen</button></div>
+    <p>In Chrome, open the menu and choose <strong>Add to Home screen → Install</strong>. In Samsung Internet, use <strong>Add page to → Home screen</strong> or its install icon. Menu wording can vary.</p>
+    <p>Then launch the Pokédex icon from your home screen. Temporary fullscreen can end when you switch apps or use Back.</p>
+    <p id="offline-status">The private app shell can be saved for offline use after the first connected visit.</p>
+    <p class="display-note">Find these options again in Tools → Settings.</p>
+    <p id="display-feedback" role="status" aria-live="polite"></p>
+  </dialog>
   <script type="module" src="/src/pokedex/main.ts"></script>
 </body>
 </html>

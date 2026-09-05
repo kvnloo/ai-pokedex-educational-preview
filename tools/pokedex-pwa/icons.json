@@ -1,0 +1,30 @@
+{
+  "assetRoot": "/mnt/zer0models/pokemon-iac/devices/pokedex/pwa/icons-v1",
+  "sourceSha256": "4bd1c97927e948d2329a682d868e3d8033aaad43d3c5a6d24800fee8106fbe3e",
+  "icons": [
+    {
+      "file": "pokedex-any-192.png",
+      "size": 192,
+      "purpose": "any",
+      "sha256": "39156f5e02a2de0dbda06f2a9342b9afaf0ab6d16c5a3d22bb3ec347c5397afc"
+    },
+    {
+      "file": "pokedex-any-512.png",
+      "size": 512,
+      "purpose": "any",
+      "sha256": "6448dc88f5550899854295730a3fa8bc873f168a21bcbd07a33c5079276ae09f"
+    },
+    {
+      "file": "pokedex-maskable-192.png",
+      "size": 192,
+      "purpose": "maskable",
+      "sha256": "a31ac4add37177fdd2f49a77f2d4f73903135f06526981684066e572a7f7626e"
+    },
+    {
+      "file": "pokedex-maskable-512.png",
+      "size": 512,
+      "purpose": "maskable",
+      "sha256": "c4c518cd53dbad87931ac5b573af30735a96e0bdd4b4af0b30d8b6ce066f846e"
+    }
+  ]
+}

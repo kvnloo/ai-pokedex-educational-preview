@@ -11,6 +11,8 @@
     "typecheck": "tsc --noEmit",
     "test:battle": "node --experimental-strip-types tools/battle-golden.mjs",
     "test:pokedex": "node --test tools/pokedex.test.mjs",
+    "test:pokedex-pwa": "node --test tools/pokedex-pwa/worker.test.mjs",
+    "test:browser-pokedex-pwa": "node tools/pokedex-pwa/browser-check.mjs",
     "test:field": "node --experimental-strip-types --test tools/echoing-stone.test.mjs",
     "test:canonical-world": "node --experimental-strip-types tools/canonical-world-golden.mjs",
     "test:canonical-adversarial": "node tools/canonical-world-adversarial.mjs",

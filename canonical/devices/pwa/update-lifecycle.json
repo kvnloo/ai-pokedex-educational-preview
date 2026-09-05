@@ -1,0 +1,19 @@
+{
+  "method": "Chrome MCP over live Tailscale HTTPS in an isolated review context",
+  "origin": "https://0.taila30dc.ts.net:8472",
+  "previousVersion": "8d05e0187b9d37d2",
+  "newVersion": "9dd97057ef93e9fd",
+  "whilePreviousClientOpen": {
+    "active": "activated",
+    "waiting": "installed",
+    "previousHtmlStillServed": true,
+    "caches": ["pokedex-private-shell-8a5edab2-8d05e0187b9d37d2", "pokedex-private-shell-8a5edab2-9dd97057ef93e9fd"]
+  },
+  "afterPreviousClientClosedAndReopened": {
+    "active": "activated",
+    "waiting": null,
+    "newHtmlServed": true,
+    "caches": ["pokedex-private-shell-8a5edab2-9dd97057ef93e9fd"]
+  },
+  "realAndroidInstallVerified": false
+}

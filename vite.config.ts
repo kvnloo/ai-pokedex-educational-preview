@@ -3,6 +3,7 @@ import path from 'path';
 import fs from 'fs';
 import crypto from 'crypto';
 import { execFileSync } from 'node:child_process';
+import { pokedexPwa } from './tools/pokedex-pwa/plugin';
 import { pokedexDeviceAssets } from './tools/pokedex-device/asset-plugin';
 import { pokedexGenerationReviewAssets } from './tools/pokedex-generations/review-asset-plugin';
 
@@ -59,6 +60,7 @@ function privateAssetMiddleware(req: { url?: string }, res: import('http').Serve
 function shipGameContentOnly(includePrivatePack: boolean): Plugin {
   const gameSrc = path.resolve(__dirname, 'content/game');
   let bundleWritten = false;
+  let buildOutput = path.resolve(__dirname, 'dist');
 
   const copyGame = (outDir: string) => {
     const dest = path.join(outDir, 'content', 'game');
@@ -92,6 +94,7 @@ function shipGameContentOnly(includePrivatePack: boolean): Plugin {
 
   return {
     name: 'ship-game-content-only',
+    configResolved(config) { buildOutput = path.resolve(config.root, config.build.outDir); },
     configureServer(server) {
       server.middlewares.use(privateAssetMiddleware);
       // Dev: serve /content/game/* from content/game without exposing warehouse.
@@ -143,7 +146,7 @@ function shipGameContentOnly(includePrivatePack: boolean): Plugin {
     },
     writeBundle() {
       bundleWritten = true;
-      const outDir = path.resolve(__dirname, 'dist');
+      const outDir = buildOutput;
       stripWarehouse(outDir);
       copyGame(outDir);
     },
@@ -152,7 +155,7 @@ function shipGameContentOnly(includePrivatePack: boolean): Plugin {
       // mask the validation error when the canonical gate has failed.
       if (!bundleWritten) return;
       // Second pass after any late public copies
-      const outDir = path.resolve(__dirname, 'dist');
+      const outDir = buildOutput;
       stripWarehouse(outDir);
       copyGame(outDir);
     },
@@ -210,8 +213,9 @@ export default defineConfig(({ command, mode }) => {
     port: 4180,
     strictPort: true,
     host: '0.0.0.0', // Zen/LAN + 127.0.0.1
+    allowedHosts: ['0.taila30dc.ts.net'],
   },
-  plugins: [canonicalAcceptanceGate(), privateCanonicalSourceBoundary(privateBuild), shipGameContentOnly(privateBuild), pokedexDeviceAssets(privateBuild), pokedexGenerationReviewAssets()],
+  plugins: [canonicalAcceptanceGate(), privateCanonicalSourceBoundary(privateBuild), shipGameContentOnly(privateBuild), pokedexDeviceAssets(privateBuild), pokedexGenerationReviewAssets(), pokedexPwa(privateBuild)],
   define: {
     __PRIVATE_CANONICAL_BUILD__: JSON.stringify(privateBuild),
   },

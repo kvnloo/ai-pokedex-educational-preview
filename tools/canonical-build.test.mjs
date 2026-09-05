@@ -22,6 +22,12 @@ for (const mode of ['production', 'private-local']) {
         for (const file of ['canonical-world-golden.mjs', 'canonical-world-validation.mjs']) {
           cpSync(join(root, 'tools', file), join(fixture, 'tools', file));
         }
+        // Load the same build plugins before exercising the canonical rejection.
+        for (const file of ['pokedex-device/asset-plugin.ts', 'pokedex-generations/review-asset-plugin.ts', 'pokedex-pwa/plugin.ts', 'pokedex-pwa/icons.json']) {
+          const destination = join(fixture, 'tools', file);
+          mkdirSync(join(destination, '..'), { recursive: true });
+          cpSync(join(root, 'tools', file), destination);
+        }
         mkdirSync(join(fixture, 'src/world'), { recursive: true });
         cpSync(join(root, 'src/world/canonicalWorld.ts'), join(fixture, 'src/world/canonicalWorld.ts'));
         symlinkSync(join(root, 'node_modules'), join(fixture, 'node_modules'), 'dir');
