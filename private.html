@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%2714%27 fill=%27%23eabe62%27/%3E%3C/svg%3E" />
+  <title>Pokémon · A first step</title>
+</head>
+<body>
+  <canvas id="opening" aria-label="Ash Ketchum and Pikachu in Pallet Town" tabindex="0"></canvas>
+  <header><span class="eyebrow">A FIRST STEP</span><h1 id="location">Pallet Town</h1><p id="objective">Meet Pikachu outside the laboratory.</p></header>
+  <aside id="partner"><span>ASH KETCHUM</span><strong>Pikachu <small>#025</small></strong><p id="bond">Your journey begins together.</p></aside>
+  <nav id="chapters" aria-label="Private encounters"><a href="/private.html">01 · Pallet Town</a><a href="/private.html?slice=charizard">02 · Charizard</a><a href="/private.html?slice=dragonite">03 · Dragonite</a><a href="/private.html?slice=mew">04 · Mew</a><a href="/private.html?slice=blaziken">05 · Blaziken</a><a href="/private.html?slice=giratina-altered">06 · Giratina · Altered</a><a href="/private.html?slice=giratina-origin">07 · Giratina · Origin</a></nav>
+  <div id="review-banner" hidden>Private fan-art study · Procedurally authored</div>
+  <section id="message" role="status" aria-live="polite">Loading private characters…</section>
+  <section id="blocked" hidden role="alert"><span class="eyebrow">PRIVATE LOCAL</span><h2>Private asset integrity check</h2><p>The private assets could not be verified.</p><pre id="block-detail"></pre></section>
+  <footer><span>WASD / arrows · Walk &nbsp; Shift · Run &nbsp; E · Greet &nbsp; Space · Thundershock &nbsp; C · Camera</span><button id="camera">Camera</button><button id="greet">Greet Pikachu</button><button id="spark">Thundershock</button><button id="reset">Restart journey</button></footer>
+  <nav id="touch" aria-label="Movement"><button data-dz="-1" aria-label="Walk north">↑</button><div><button data-dx="-1" aria-label="Walk west">←</button><button data-dz="1" aria-label="Walk south">↓</button><button data-dx="1" aria-label="Walk east">→</button></div></nav>
+  <script type="module" src="/src/privateOpening/main.ts"></script>
+</body>
+</html>

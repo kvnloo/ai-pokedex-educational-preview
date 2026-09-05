@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 1,
+  "id": "ash-pikachu-pallet-route1-v1",
+  "profile": "private-local",
+  "assetRoot": "/mnt/zer0models/pokemon-iac/canonical-opening/v1",
+  "sourceLedger": "sources/ledger.json",
+  "blenderVersion": "5.2",
+  "status": "procedural-private-development",
+  "characters": [
+    {
+      "id": "ash-ketchum-kanto",
+      "canonicalId": "trainer:ash-ketchum:kanto-original",
+      "name": "Ash Ketchum",
+      "nationalDexId": null,
+      "form": "kanto-original-outfit",
+      "heightMeters": 1.45,
+      "scaleBasis": "authored staging height, not a canonical height claim",
+      "landmarks": [
+        "red and white cap with green angular emblem",
+        "black spiked hair",
+        "brown eyes and cheek marks",
+        "blue vest with yellow trim over white shirt",
+        "green fingerless gloves",
+        "blue jeans and red-white sneakers",
+        "green backpack"
+      ],
+      "materials": [
+        "skin",
+        "hair",
+        "white",
+        "red",
+        "green",
+        "blue",
+        "yellow",
+        "eyes"
+      ],
+      "sockets": [
+        "hand.R",
+        "hand.L",
+        "shoulder.R",
+        "look",
+        "ground"
+      ],
+      "clips": [
+        "idle",
+        "walk",
+        "run",
+        "greet"
+      ],
+      "candidate": "candidates/ash-ketchum-kanto.glb"
+    },
+    {
+      "id": "pikachu",
+      "canonicalId": "pokemon:025:standard",
+      "name": "Pikachu",
+      "nationalDexId": 25,
+      "form": "standard",
+      "heightMeters": 0.4,
+      "scaleBasis": "species body height; ear and tail silhouette retained",
+      "landmarks": [
+        "yellow mouse body",
+        "two long pointed ears with black tips",
+        "round red cheek patches",
+        "black eyes with white highlights",
+        "small dark nose and W-shaped mouth",
+        "two brown back stripes",
+        "angular lightning-bolt tail with brown root",
+        "short arms and long hind feet"
+      ],
+      "materials": [
+        "yellow",
+        "black",
+        "red",
+        "brown",
+        "white"
+      ],
+      "sockets": [
+        "cheek.L",
+        "cheek.R",
+        "tail.tip",
+        "look",
+        "ground"
+      ],
+      "clips": [
+        "idle",
+        "walk",
+        "run",
+        "thundershock",
+        "greet"
+      ],
+      "candidate": "candidates/pikachu.glb"
+    }
+  ],
+  "sourceRules": {
+    "scope": "private-local",
+    "method": "generated-from-scratch",
+    "requiredRecordFields": [
+      "characterId",
+      "method",
+      "scope",
+      "specificationSha256",
+      "recipeSha256",
+      "generatedAt",
+      "externalInputs"
+    ],
+    "note": "Original procedural fan-art geometry from textual character design specifications and authored mesh/material/rig code. No official images, models, tracing, scraping or external binary inputs."
+  },
+  "recognitionViews": [
+    "front",
+    "front-three-quarter",
+    "side",
+    "rear-three-quarter",
+    "rear",
+    "gameplay-distance"
+  ],
+  "promotionChecks": [
+    "mesh-qa",
+    "dcc-visual",
+    "fixed-view-recognition",
+    "gameplay-recognition",
+    "motion-review",
+    "typecheck",
+    "build",
+    "browser-tests",
+    "private-boundary"
+  ],
+  "world": {
+    "mapIds": [
+      "map:red-blue:pallet-town",
+      "map:red-blue:route-1"
+    ],
+    "topologySource": "canonical/maps/kanto-opening.json",
+    "storySource": "canonical/ash/events/kanto-opening.json",
+    "geometryBasis": "original procedural staging; not a tile-accurate or episode-accurate reconstruction",
+    "objective": "Meet Pikachu outside the laboratory, then walk together through Pallet Town's north exit onto Route 1."
+  }
+}

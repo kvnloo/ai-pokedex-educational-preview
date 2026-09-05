@@ -9,3 +9,5 @@ content/smoke/
 public/ab/*.glb
 shots/canonical-repair-browser/*.png
 shots/objective-*/
+
+__pycache__/

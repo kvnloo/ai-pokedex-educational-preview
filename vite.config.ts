@@ -3,6 +3,7 @@ import path from 'path';
 import fs from 'fs';
 import crypto from 'crypto';
 import { execFileSync } from 'node:child_process';
+import { privateOpeningPlugin } from './tools/private-opening/vite-plugin.mjs';
 
 // Enforce the same executable AJV + graph gate even for direct Vite invocations
 // and private builds, before any bundle is emitted.
@@ -54,6 +55,15 @@ function privateAssetMiddleware(req: { url?: string }, res: import('http').Serve
  * — both must never enter dist. publicDir is disabled; this plugin copies the
  * game pack only.
  */
+function isPrivateOpeningRequest(url = ''): boolean {
+  let decoded: string;
+  try { decoded = decodeURIComponent(url.split('?')[0]!).replaceAll('\\', '/'); }
+  catch { return true; }
+  const normalized = path.posix.normalize(decoded);
+  return /(?:^|\/)(?:private-assets|private-opening|src\/privateOpening|tools\/private-opening|canonical\/opening)(?:\/|$)/.test(normalized)
+    || normalized.endsWith('/private.html');
+}
+
 function shipGameContentOnly(includePrivatePack: boolean): Plugin {
   const gameSrc = path.resolve(__dirname, 'content/game');
   let bundleWritten = false;
@@ -67,6 +77,11 @@ function shipGameContentOnly(includePrivatePack: boolean): Plugin {
     for (const entry of fs.readdirSync(gameSrc, { withFileTypes: true })) {
       if (includePrivatePack && !['kanto-private.json', 'runtime-assets'].includes(entry.name)) continue;
       if (!includePrivatePack && entry.name === 'kanto-private.json') continue;
+      if (!includePrivatePack && entry.name === 'runtime-assets') {
+        fs.mkdirSync(path.join(dest, entry.name), { recursive: true });
+        fs.copyFileSync(path.join(gameSrc, entry.name, 'distributable.json'), path.join(dest, entry.name, 'distributable.json'));
+        continue;
+      }
       fs.cpSync(path.join(gameSrc, entry.name), path.join(dest, entry.name), { recursive: true });
     }
   };
@@ -91,7 +106,13 @@ function shipGameContentOnly(includePrivatePack: boolean): Plugin {
   return {
     name: 'ship-game-content-only',
     configureServer(server) {
-      server.middlewares.use(privateAssetMiddleware);
+      // Distributable dev must never expose the private data plane.
+      server.middlewares.use((req, res, next) => {
+        if (isPrivateOpeningRequest(req.url)) {
+          res.statusCode = 404; res.end('Not found'); return;
+        }
+        next();
+      });
       // Dev: serve /content/game/* from content/game without exposing warehouse.
       server.middlewares.use((req, res, next) => {
         const url = req.url?.split('?')[0] ?? '';
@@ -112,8 +133,11 @@ function shipGameContentOnly(includePrivatePack: boolean): Plugin {
         }
         if (url.startsWith('/content/game/')) {
           const rel = url.slice('/content/game/'.length);
+          if (!['wave0.json', 'runtime-assets/distributable.json'].includes(rel)) {
+            res.statusCode = 404; res.end('Not found'); return;
+          }
           const file = path.resolve(gameSrc, rel);
-          if (!file.startsWith(gameSrc) || !fs.existsSync(file) || fs.statSync(file).isDirectory()) {
+          if (!file.startsWith(gameSrc + path.sep) || !fs.existsSync(file) || fs.statSync(file).isDirectory()) {
             res.statusCode = 404;
             res.end('Not found');
             return;
@@ -137,7 +161,10 @@ function shipGameContentOnly(includePrivatePack: boolean): Plugin {
       });
     },
     configurePreviewServer(server) {
-      server.middlewares.use(privateAssetMiddleware);
+      server.middlewares.use((req, res, next) => {
+        if (isPrivateOpeningRequest(req.url)) { res.statusCode = 404; res.end('Not found'); return; }
+        next();
+      });
     },
     writeBundle() {
       bundleWritten = true;
@@ -180,6 +207,26 @@ function privateCanonicalSourceBoundary(enabled: boolean): Plugin {
 }
 
 export default defineConfig(({ command, mode }) => {
+  if (mode === 'private-local' || mode === 'private-review') {
+    const reviewOnly = mode === 'private-review';
+    return {
+      base: '/',
+      publicDir: false,
+      cacheDir: 'node_modules/.vite-private-opening',
+      server: { port: 5181, strictPort: true, host: '127.0.0.1', fs: { allow: ['.'] } },
+      preview: { port: 4181, strictPort: true, host: '127.0.0.1' },
+      plugins: [canonicalAcceptanceGate(), privateOpeningPlugin(reviewOnly)],
+      build: {
+        // Private code/evidence also stay outside the public distribution tree.
+        outDir: `/mnt/zer0models/pokemon-iac/canonical-opening/v1/browser-${reviewOnly ? 'review' : 'private'}`,
+        emptyOutDir: false,
+        copyPublicDir: false,
+        sourcemap: false,
+        target: 'es2022',
+        rollupOptions: { input: path.resolve(__dirname, 'private.html') },
+      },
+    };
+  }
   const privateBuild = command === 'build' && mode === 'private-local';
   return {
     base: process.env.BASE_PATH ?? '/',

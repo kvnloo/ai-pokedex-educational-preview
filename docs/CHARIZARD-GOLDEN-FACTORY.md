@@ -1,4 +1,12 @@
+> Active private-local route: Kevin authorized original procedural fan art from textual specifications. The Ash/Pikachu opening and subsequent species use `tools/private-opening/`; no source-image matrix is required for that route. The historical image-to-model experiment below remains preserved, with its own unfulfilled input gates; those gates do not block the new Blender route. Private isolation and visual/mesh quality checks still apply.
+
 # Charizard #006 golden creature factory
+
+The current requested dependency order is documented in
+`canonical/opening/roster-order.json`: finish Ash/Pikachu first, then Charizard,
+Dragonite, Mew, Blaziken and both Giratina forms. This supersedes only the old
+future-cohort order below; the historical image-to-model route retains its source and quality
+gates. No roster generalization is authorized before Charizard passes.
 
 This is the single-species HERO/STRESS workflow. It does not authorize a roster batch and does not claim an approved AAA asset. The machine-readable source of truth is `experiments/charizard-006/creature-asset-manifest.v1.json`.
 

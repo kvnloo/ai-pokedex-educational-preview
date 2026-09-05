@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "policy": "Each slice is authored in dependency order. Structural and browser checks do not imply art-quality acceptance. Private procedural fan-art review does not authorize public distribution.",
+  "queue": [
+    {
+      "id": "opening",
+      "requires": [],
+      "contract": "canonical/opening/contract.json",
+      "status": "private-local-playable-mixed-refinement"
+    },
+    {
+      "id": "charizard",
+      "nationalDexId": 6,
+      "name": "Charizard",
+      "forms": [
+        "standard"
+      ],
+      "requires": [
+        "opening"
+      ],
+      "status": "gui-refined-candidate-requires-kevin-review",
+      "historicalImageWorkflowContract": "experiments/charizard-006/creature-asset-manifest.v1.json",
+      "authoringRecipe": "tools/private-opening/species/charizard.py"
+    },
+    {
+      "id": "dragonite",
+      "nationalDexId": 149,
+      "name": "Dragonite",
+      "forms": [
+        "standard"
+      ],
+      "requires": [
+        "charizard"
+      ],
+      "status": "procedural-blockout-requires-gui-refinement-and-kevin-review",
+      "authoringRecipe": "tools/private-opening/species/dragonite.py"
+    },
+    {
+      "id": "mew",
+      "nationalDexId": 151,
+      "name": "Mew",
+      "forms": [
+        "standard"
+      ],
+      "requires": [
+        "dragonite"
+      ],
+      "status": "procedural-blockout-requires-gui-refinement-and-kevin-review",
+      "authoringRecipe": "tools/private-opening/species/mew.py"
+    },
+    {
+      "id": "blaziken",
+      "nationalDexId": 257,
+      "name": "Blaziken",
+      "forms": [
+        "standard"
+      ],
+      "requires": [
+        "mew"
+      ],
+      "status": "procedural-blockout-requires-gui-refinement-and-kevin-review",
+      "authoringRecipe": "tools/private-opening/species/blaziken.py"
+    },
+    {
+      "id": "giratina",
+      "nationalDexId": 487,
+      "name": "Giratina",
+      "forms": [
+        "altered",
+        "origin"
+      ],
+      "requires": [
+        "blaziken"
+      ],
+      "status": "procedural-blockout-requires-gui-refinement-and-kevin-review",
+      "formPolicy": "Distinct geometry, materials, scale, sockets, locomotion and recognition evidence per form. Preserve National Dex 487 across form changes. No recolor or shared placeholder mesh. Form transitions require both assets to pass; mechanics must be bound to an explicit game ruleset before implementation.",
+      "authoringRecipe": "tools/private-opening/species/giratina-{altered,origin}.py"
+    }
+  ],
+  "generalizeAfter": "charizard",
+  "supersedes": "The old future-only Lucario/Wooloo/Gyarados/Ditto cohort is not the requested roster order. Charizard quality gates remain in force."
+}

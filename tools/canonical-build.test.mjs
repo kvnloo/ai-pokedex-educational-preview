@@ -19,6 +19,7 @@ for (const mode of ['production', 'private-local']) {
           cpSync(join(root, file), join(fixture, file), { recursive: true });
         }
         mkdirSync(join(fixture, 'tools'));
+        cpSync(join(root, 'tools/private-opening'), join(fixture, 'tools/private-opening'), { recursive: true });
         for (const file of ['canonical-world-golden.mjs', 'canonical-world-validation.mjs']) {
           cpSync(join(root, 'tools', file), join(fixture, 'tools', file));
         }
