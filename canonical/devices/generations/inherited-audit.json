@@ -1,0 +1,4131 @@
+{
+  "sourcesUnmodified": true,
+  "scenes": [
+    {
+      "source": "/mnt/zer0models/pokemon-iac/devices/pokedex/v002/board01/static.blend",
+      "scene": "AUDIT-inherited-board01-static",
+      "meshes": [
+        {
+          "name": "GEO-base-shell",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 0.00011596690482255248,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-base-gasket",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.1400716672146466e-05,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-control-deck",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.0294725338095791e-05,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-lid-shell",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 6.940278869599759e-05,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-lid-black-rim",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 7.97515037998953e-06,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-lid-interior",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.1071687954461128e-05,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-spine-core-PDX.Base",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.2673808048119768e-05,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-spine-sleeve-PDX.Base0",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.4714819502850687e-06,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-spine-sleeve-PDX.Base1",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 6.185403537760215e-06,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-spine-sleeve-PDX.Base2",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.4714819502850687e-06,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-spine-core-PDX.LidHinge",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 2.2155521192565223e-06,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-spine-sleeve-PDX.LidHinge0",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 2.9530726239159756e-07,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-spine-sleeve-PDX.LidHinge1",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.2425757093825375e-06,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-spine-sleeve-PDX.LidHinge2",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 2.9530726239159756e-07,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-transverse-hinge",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 6.138944619171428e-06,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-hinge-collar",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 7.235732546881558e-07,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-hinge-collar.001",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 7.235732546881558e-07,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-radial-belt",
+          "type": "MESH",
+          "triangles": 140,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 6.575672685830771e-07,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-upper-right-silver-wedge",
+          "type": "MESH",
+          "triangles": 236,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 8.281885840512276e-07,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-equatorial-seam",
+          "type": "CURVE",
+          "triangles": 16,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 16,
+          "volume": 9.60520846854871e-08,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-lock-surround",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.984946219812324e-06,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-lock-inset",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 5.023252306337917e-07,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-closed-cyan-ring",
+          "type": "MESH",
+          "triangles": 1920,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.1545255045949517e-07,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-closed-lock-core",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 128,
+          "nonManifoldEdges": 0,
+          "volume": 1.8538732668212371e-07,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-exterior-engraving-0",
+          "type": "CURVE",
+          "triangles": 96,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 16,
+          "volume": 1.250676032494858e-08,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-exterior-engraving-1",
+          "type": "CURVE",
+          "triangles": 16,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 16,
+          "volume": 1.6859121115647388e-09,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-exterior-engraving-2",
+          "type": "CURVE",
+          "triangles": 16,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 16,
+          "volume": 1.3501750723187152e-09,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-exterior-engraving-3",
+          "type": "CURVE",
+          "triangles": 16,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 16,
+          "volume": 9.034418740841652e-10,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-exterior-wordmark",
+          "type": "FONT",
+          "triangles": 1008,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 1028,
+          "volume": 8.362478163995357e-10,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-edition",
+          "type": "FONT",
+          "triangles": 1848,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 1868,
+          "volume": 1.3199529275800932e-10,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-gold-chevron",
+          "type": "MESH",
+          "triangles": 140,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 2.2197482544587543e-08,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-outer-status",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 104,
+          "nonManifoldEdges": 0,
+          "volume": 6.186341636288673e-09,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-display-gasket",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.092915300994335e-05,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-display-metal-rim",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 2.5692366242110567e-06,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-display-glass",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 2.9488986124713564e-06,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-camera-surround",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 3.5076269140477674e-07,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-camera-lens",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 2.394062747765732e-07,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-camera-optics",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 128,
+          "nonManifoldEdges": 0,
+          "volume": 2.7542599886387013e-08,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-sensor",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.6442727759073343e-08,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-speaker-slot-0",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.044492247176545e-09,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-speaker-slot-1",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.04449222454742e-09,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-speaker-slot-2",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.0444921901783385e-09,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-speaker-slot-3",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.0444920272930743e-09,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-speaker-slot-4",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.0444920282651005e-09,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-top-bezel-notch",
+          "type": "MESH",
+          "triangles": 188,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 7.809783195666787e-08,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-boot-title",
+          "type": "FONT",
+          "triangles": 1008,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 1028,
+          "volume": 1.2041972363561813e-09,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-boot-status",
+          "type": "FONT",
+          "triangles": 1220,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 1276,
+          "volume": 4.398034961477278e-10,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-scan-glyph",
+          "type": "MESH",
+          "triangles": 732,
+          "collapsedTriangles": 39,
+          "nonManifoldEdges": 0,
+          "volume": 8.138337398806776e-08,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-glyph-eye",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 128,
+          "nonManifoldEdges": 0,
+          "volume": 2.453934083748194e-10,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-glyph-eye.001",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 128,
+          "nonManifoldEdges": 0,
+          "volume": 2.453934083748194e-10,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-progress-track",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 9.756810924887739e-09,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-progress-fill",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.026797132871684e-08,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-ready-title",
+          "type": "FONT",
+          "triangles": 1008,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 1028,
+          "volume": 1.2041972363561813e-09,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-ready-region",
+          "type": "FONT",
+          "triangles": 1260,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 1288,
+          "volume": 3.5724426741484484e-10,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-entry-0",
+          "type": "FONT",
+          "triangles": 3220,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 3232,
+          "volume": 5.585527288696033e-10,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-entry-1",
+          "type": "FONT",
+          "triangles": 2452,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 2472,
+          "volume": 6.737708452164542e-10,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-entry-2",
+          "type": "FONT",
+          "triangles": 2558,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 2582,
+          "volume": 4.749045737922981e-10,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-entry-3",
+          "type": "FONT",
+          "triangles": 2104,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 2132,
+          "volume": 4.4155413009161096e-10,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-ready-footer",
+          "type": "FONT",
+          "triangles": 2260,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 2288,
+          "volume": 3.870377631285672e-10,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-control-ring-seat",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 128,
+          "nonManifoldEdges": 0,
+          "volume": 2.5066411343492793e-06,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-control-ring-inset",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 9.375467486852485e-07,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-deck-cyan-ring",
+          "type": "MESH",
+          "triangles": 1920,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 2.164725733283357e-07,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-deck-ring-inner-trim",
+          "type": "MESH",
+          "triangles": 1920,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.837343224448115e-08,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-dpad",
+          "type": "MESH",
+          "triangles": 572,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 6.748854335570084e-07,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-button-A-seat",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 2.628980183484516e-07,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-button-A",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 4.2614009050783795e-07,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-button-A-type",
+          "type": "FONT",
+          "triangles": 44,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 44,
+          "volume": 1.1264064987611943e-10,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-front-red-indicator",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 104,
+          "nonManifoldEdges": 0,
+          "volume": 4.331346871332245e-09,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-deck-fastener-0",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 128,
+          "nonManifoldEdges": 0,
+          "volume": 3.8450005305970345e-09,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-fastener-slot-0",
+          "type": "CURVE",
+          "triangles": 16,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 16,
+          "volume": 5.0987821028631615e-11,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-deck-fastener-1",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 128,
+          "nonManifoldEdges": 0,
+          "volume": 3.8450005305970345e-09,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-fastener-slot-1",
+          "type": "CURVE",
+          "triangles": 16,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 16,
+          "volume": 5.0987761671033046e-11,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "totalTriangles": 69374,
+      "missingUVObjects": [
+        "GEO-base-shell",
+        "GEO-base-gasket",
+        "GEO-control-deck",
+        "GEO-lid-shell",
+        "GEO-lid-black-rim",
+        "GEO-lid-interior",
+        "GEO-radial-belt",
+        "GEO-upper-right-silver-wedge",
+        "GEO-gold-chevron",
+        "GEO-outer-status",
+        "GEO-display-gasket",
+        "GEO-display-metal-rim",
+        "GEO-display-glass",
+        "GEO-speaker-slot-0",
+        "GEO-speaker-slot-1",
+        "GEO-speaker-slot-2",
+        "GEO-speaker-slot-3",
+        "GEO-speaker-slot-4",
+        "GEO-top-bezel-notch",
+        "GEO-scan-glyph",
+        "GEO-progress-track",
+        "GEO-progress-fill",
+        "GEO-dpad",
+        "GEO-front-red-indicator"
+      ],
+      "collapsedTriangles": 1143,
+      "nonManifoldObjects": [
+        "GEO-equatorial-seam",
+        "GEO-exterior-engraving-0",
+        "GEO-exterior-engraving-1",
+        "GEO-exterior-engraving-2",
+        "GEO-exterior-engraving-3",
+        "GEO-exterior-wordmark",
+        "GEO-edition",
+        "GEO-boot-title",
+        "GEO-boot-status",
+        "GEO-ready-title",
+        "GEO-ready-region",
+        "GEO-entry-0",
+        "GEO-entry-1",
+        "GEO-entry-2",
+        "GEO-entry-3",
+        "GEO-ready-footer",
+        "GEO-button-A-type",
+        "GEO-fastener-slot-0",
+        "GEO-fastener-slot-1"
+      ],
+      "materials": 13,
+      "imageTextureNodes": 0,
+      "materialAnimation": [],
+      "poses": [
+        {
+          "frame": 1,
+          "minimum": [
+            -0.05180000141263008,
+            -0.06980626285076141,
+            -0.004999999888241291
+          ],
+          "maximum": [
+            0.042500000447034836,
+            0.1706896722316742,
+            0.10234630852937698
+          ],
+          "dimensions": [
+            0.09430000185966492,
+            0.2404959350824356,
+            0.10734630841761827
+          ],
+          "hingeXDegrees": -138.05905082557462
+        },
+        {
+          "frame": 18,
+          "minimum": [
+            -0.05180000141263008,
+            -0.06980626285076141,
+            -0.004999999888241291
+          ],
+          "maximum": [
+            0.042500000447034836,
+            0.1706896722316742,
+            0.10234630852937698
+          ],
+          "dimensions": [
+            0.09430000185966492,
+            0.2404959350824356,
+            0.10734630841761827
+          ],
+          "hingeXDegrees": -138.05905082557462
+        },
+        {
+          "frame": 51,
+          "minimum": [
+            -0.05180000141263008,
+            -0.06980626285076141,
+            -0.004999999888241291
+          ],
+          "maximum": [
+            0.042500000447034836,
+            0.1706896722316742,
+            0.10234630852937698
+          ],
+          "dimensions": [
+            0.09430000185966492,
+            0.2404959350824356,
+            0.10734630841761827
+          ],
+          "hingeXDegrees": -138.05905082557462
+        },
+        {
+          "frame": 84,
+          "minimum": [
+            -0.05180000141263008,
+            -0.06980626285076141,
+            -0.004999999888241291
+          ],
+          "maximum": [
+            0.042500000447034836,
+            0.1706896722316742,
+            0.10234630852937698
+          ],
+          "dimensions": [
+            0.09430000185966492,
+            0.2404959350824356,
+            0.10734630841761827
+          ],
+          "hingeXDegrees": -138.05905082557462
+        },
+        {
+          "frame": 108,
+          "minimum": [
+            -0.05180000141263008,
+            -0.06980626285076141,
+            -0.004999999888241291
+          ],
+          "maximum": [
+            0.042500000447034836,
+            0.1706896722316742,
+            0.10234630852937698
+          ],
+          "dimensions": [
+            0.09430000185966492,
+            0.2404959350824356,
+            0.10734630841761827
+          ],
+          "hingeXDegrees": -138.05905082557462
+        },
+        {
+          "frame": 132,
+          "minimum": [
+            -0.05180000141263008,
+            -0.06980626285076141,
+            -0.004999999888241291
+          ],
+          "maximum": [
+            0.042500000447034836,
+            0.1706896722316742,
+            0.10234630852937698
+          ],
+          "dimensions": [
+            0.09430000185966492,
+            0.2404959350824356,
+            0.10734630841761827
+          ],
+          "hingeXDegrees": -138.05905082557462
+        },
+        {
+          "frame": 156,
+          "minimum": [
+            -0.05180000141263008,
+            -0.06980626285076141,
+            -0.004999999888241291
+          ],
+          "maximum": [
+            0.042500000447034836,
+            0.1706896722316742,
+            0.10234630852937698
+          ],
+          "dimensions": [
+            0.09430000185966492,
+            0.2404959350824356,
+            0.10734630841761827
+          ],
+          "hingeXDegrees": -138.05905082557462
+        },
+        {
+          "frame": 177,
+          "minimum": [
+            -0.05180000141263008,
+            -0.06980626285076141,
+            -0.004999999888241291
+          ],
+          "maximum": [
+            0.042500000447034836,
+            0.1706896722316742,
+            0.10234630852937698
+          ],
+          "dimensions": [
+            0.09430000185966492,
+            0.2404959350824356,
+            0.10734630841761827
+          ],
+          "hingeXDegrees": -138.05905082557462
+        },
+        {
+          "frame": 198,
+          "minimum": [
+            -0.05180000141263008,
+            -0.06980626285076141,
+            -0.004999999888241291
+          ],
+          "maximum": [
+            0.042500000447034836,
+            0.1706896722316742,
+            0.10234630852937698
+          ],
+          "dimensions": [
+            0.09430000185966492,
+            0.2404959350824356,
+            0.10734630841761827
+          ],
+          "hingeXDegrees": -138.05905082557462
+        },
+        {
+          "frame": 208,
+          "minimum": [
+            -0.05180000141263008,
+            -0.06980626285076141,
+            -0.004999999888241291
+          ],
+          "maximum": [
+            0.042500000447034836,
+            0.1706896722316742,
+            0.10234630852937698
+          ],
+          "dimensions": [
+            0.09430000185966492,
+            0.2404959350824356,
+            0.10734630841761827
+          ],
+          "hingeXDegrees": -138.05905082557462
+        },
+        {
+          "frame": 222,
+          "minimum": [
+            -0.05180000141263008,
+            -0.06980626285076141,
+            -0.004999999888241291
+          ],
+          "maximum": [
+            0.042500000447034836,
+            0.1706896722316742,
+            0.10234630852937698
+          ],
+          "dimensions": [
+            0.09430000185966492,
+            0.2404959350824356,
+            0.10734630841761827
+          ],
+          "hingeXDegrees": -138.05905082557462
+        }
+      ],
+      "nlaStrips": []
+    },
+    {
+      "source": "/mnt/zer0models/pokemon-iac/devices/pokedex/v002/board01/board01.blend",
+      "scene": "AUDIT-inherited-board01-board01",
+      "meshes": [
+        {
+          "name": "GEO-base-shell.001",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 0.00011596690482255248,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-base-gasket.001",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.1400716672146466e-05,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-control-deck.001",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.0294725338095791e-05,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-lid-shell.001",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 6.940278869599759e-05,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-lid-black-rim.001",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 7.97515037998953e-06,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-lid-interior.001",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.1071687954461128e-05,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-spine-core-PDX.Base.001",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.2673808048119768e-05,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-spine-sleeve-PDX.Base0.001",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.4714819502850687e-06,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-spine-sleeve-PDX.Base1.001",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 6.185403537760215e-06,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-spine-sleeve-PDX.Base2.001",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.4714819502850687e-06,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-spine-core-PDX.LidHinge.001",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 2.2155521192565223e-06,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-spine-sleeve-PDX.LidHinge0.001",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 2.9530726239159756e-07,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-spine-sleeve-PDX.LidHinge1.001",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.2425757093825375e-06,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-spine-sleeve-PDX.LidHinge2.001",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 2.9530726239159756e-07,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-transverse-hinge.001",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 6.138944619171428e-06,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-hinge-collar.002",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 7.235732546881558e-07,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-hinge-collar.003",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 7.235732546881558e-07,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-radial-belt.001",
+          "type": "MESH",
+          "triangles": 140,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 6.575672685830771e-07,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-upper-right-silver-wedge.001",
+          "type": "MESH",
+          "triangles": 236,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 8.281885840512276e-07,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-equatorial-seam.001",
+          "type": "MESH",
+          "triangles": 16,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 16,
+          "volume": 9.60520846854871e-08,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-lock-surround.001",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.984946219812324e-06,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-lock-inset.001",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 5.023252306337917e-07,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-closed-cyan-ring.001",
+          "type": "MESH",
+          "triangles": 1920,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.1545255045949517e-07,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-closed-lock-core.001",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 128,
+          "nonManifoldEdges": 0,
+          "volume": 1.8538732668212371e-07,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-exterior-engraving-0.001",
+          "type": "MESH",
+          "triangles": 96,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 16,
+          "volume": 1.250676032494858e-08,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-exterior-engraving-1.001",
+          "type": "MESH",
+          "triangles": 16,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 16,
+          "volume": 1.6859121115647388e-09,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-exterior-engraving-2.001",
+          "type": "MESH",
+          "triangles": 16,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 16,
+          "volume": 1.3501750723187152e-09,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-exterior-engraving-3.001",
+          "type": "MESH",
+          "triangles": 16,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 16,
+          "volume": 9.034418740841652e-10,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-exterior-wordmark.001",
+          "type": "MESH",
+          "triangles": 1008,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 1028,
+          "volume": 8.362478163995357e-10,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-edition.001",
+          "type": "MESH",
+          "triangles": 1848,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 1868,
+          "volume": 1.3199529275800932e-10,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-gold-chevron.001",
+          "type": "MESH",
+          "triangles": 140,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 2.2197482544587543e-08,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-outer-status.001",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 104,
+          "nonManifoldEdges": 0,
+          "volume": 6.186341636288673e-09,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-display-gasket.001",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.092915300994335e-05,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-display-metal-rim.001",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 2.5692366242110567e-06,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-display-glass.001",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 2.9488986124713564e-06,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-camera-surround.001",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 3.5076269140477674e-07,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-camera-lens.001",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 2.394062747765732e-07,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-camera-optics.001",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 128,
+          "nonManifoldEdges": 0,
+          "volume": 2.7542599886387013e-08,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-sensor.001",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.6442727759073343e-08,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-speaker-slot-0.001",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.044492247176545e-09,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-speaker-slot-1.001",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.04449222454742e-09,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-speaker-slot-2.001",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.0444921901783385e-09,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-speaker-slot-3.001",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.0444920272930743e-09,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-speaker-slot-4.001",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.0444920282651005e-09,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-top-bezel-notch.001",
+          "type": "MESH",
+          "triangles": 188,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 7.809783195666787e-08,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-boot-title.001",
+          "type": "MESH",
+          "triangles": 1008,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 1028,
+          "volume": 1.2041972363561813e-09,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-boot-status.001",
+          "type": "MESH",
+          "triangles": 1220,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 1276,
+          "volume": 4.398034961477278e-10,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-scan-glyph.001",
+          "type": "MESH",
+          "triangles": 732,
+          "collapsedTriangles": 39,
+          "nonManifoldEdges": 0,
+          "volume": 8.138337398806776e-08,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-glyph-eye.002",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 128,
+          "nonManifoldEdges": 0,
+          "volume": 2.453934083748194e-10,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-glyph-eye.003",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 128,
+          "nonManifoldEdges": 0,
+          "volume": 2.453934083748194e-10,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-progress-track.001",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 9.756810924887739e-09,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-progress-fill.001",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.026797132871684e-08,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-ready-title.001",
+          "type": "MESH",
+          "triangles": 1008,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 1028,
+          "volume": 1.2041972363561813e-09,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-ready-region.001",
+          "type": "MESH",
+          "triangles": 1260,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 1288,
+          "volume": 3.5724426741484484e-10,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-entry-0.001",
+          "type": "MESH",
+          "triangles": 3220,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 3232,
+          "volume": 5.585527288696033e-10,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-entry-1.001",
+          "type": "MESH",
+          "triangles": 2452,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 2472,
+          "volume": 6.737708452164542e-10,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-entry-2.001",
+          "type": "MESH",
+          "triangles": 2558,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 2582,
+          "volume": 4.749045737922981e-10,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-entry-3.001",
+          "type": "MESH",
+          "triangles": 2104,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 2132,
+          "volume": 4.4155413009161096e-10,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-ready-footer.001",
+          "type": "MESH",
+          "triangles": 2260,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 2288,
+          "volume": 3.870377631285672e-10,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-control-ring-seat.001",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 128,
+          "nonManifoldEdges": 0,
+          "volume": 2.5066411343492793e-06,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-control-ring-inset.001",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 9.375467486852485e-07,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-deck-cyan-ring.001",
+          "type": "MESH",
+          "triangles": 1920,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 2.164725733283357e-07,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-deck-ring-inner-trim.001",
+          "type": "MESH",
+          "triangles": 1920,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.837343224448115e-08,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-dpad.001",
+          "type": "MESH",
+          "triangles": 572,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 6.748854335570084e-07,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-button-A-seat.001",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 2.628980183484516e-07,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-button-A.001",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 4.2614009050783795e-07,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-button-A-type.001",
+          "type": "MESH",
+          "triangles": 44,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 44,
+          "volume": 1.1264064987611943e-10,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-front-red-indicator.001",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 104,
+          "nonManifoldEdges": 0,
+          "volume": 4.331346871332245e-09,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-deck-fastener-0.001",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 128,
+          "nonManifoldEdges": 0,
+          "volume": 3.8450005305970345e-09,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-fastener-slot-0.001",
+          "type": "MESH",
+          "triangles": 16,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 16,
+          "volume": 5.0987821028631615e-11,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-deck-fastener-1.001",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 128,
+          "nonManifoldEdges": 0,
+          "volume": 3.8450005305970345e-09,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-fastener-slot-1.001",
+          "type": "MESH",
+          "triangles": 16,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 16,
+          "volume": 5.0987761671033046e-11,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "totalTriangles": 69374,
+      "missingUVObjects": [
+        "GEO-base-shell.001",
+        "GEO-base-gasket.001",
+        "GEO-control-deck.001",
+        "GEO-lid-shell.001",
+        "GEO-lid-black-rim.001",
+        "GEO-lid-interior.001",
+        "GEO-radial-belt.001",
+        "GEO-upper-right-silver-wedge.001",
+        "GEO-gold-chevron.001",
+        "GEO-outer-status.001",
+        "GEO-display-gasket.001",
+        "GEO-display-metal-rim.001",
+        "GEO-display-glass.001",
+        "GEO-speaker-slot-0.001",
+        "GEO-speaker-slot-1.001",
+        "GEO-speaker-slot-2.001",
+        "GEO-speaker-slot-3.001",
+        "GEO-speaker-slot-4.001",
+        "GEO-top-bezel-notch.001",
+        "GEO-scan-glyph.001",
+        "GEO-progress-track.001",
+        "GEO-progress-fill.001",
+        "GEO-dpad.001",
+        "GEO-front-red-indicator.001"
+      ],
+      "collapsedTriangles": 1143,
+      "nonManifoldObjects": [
+        "GEO-equatorial-seam.001",
+        "GEO-exterior-engraving-0.001",
+        "GEO-exterior-engraving-1.001",
+        "GEO-exterior-engraving-2.001",
+        "GEO-exterior-engraving-3.001",
+        "GEO-exterior-wordmark.001",
+        "GEO-edition.001",
+        "GEO-boot-title.001",
+        "GEO-boot-status.001",
+        "GEO-ready-title.001",
+        "GEO-ready-region.001",
+        "GEO-entry-0.001",
+        "GEO-entry-1.001",
+        "GEO-entry-2.001",
+        "GEO-entry-3.001",
+        "GEO-ready-footer.001",
+        "GEO-button-A-type.001",
+        "GEO-fastener-slot-0.001",
+        "GEO-fastener-slot-1.001"
+      ],
+      "materials": 14,
+      "imageTextureNodes": 0,
+      "materialAnimation": [],
+      "poses": [
+        {
+          "frame": 1,
+          "minimum": [
+            -0.05180000141263008,
+            -0.06980626285076141,
+            -0.004999999888241291
+          ],
+          "maximum": [
+            0.042500000447034836,
+            0.07080626487731934,
+            0.02044999971985817
+          ],
+          "dimensions": [
+            0.09430000185966492,
+            0.14061252772808075,
+            0.02544999960809946
+          ],
+          "hingeXDegrees": 0.0
+        },
+        {
+          "frame": 18,
+          "minimum": [
+            -0.05180000141263008,
+            -0.06980626285076141,
+            -0.004999999888241291
+          ],
+          "maximum": [
+            0.042500000447034836,
+            0.07080626487731934,
+            0.02044999971985817
+          ],
+          "dimensions": [
+            0.09430000185966492,
+            0.14061252772808075,
+            0.02544999960809946
+          ],
+          "hingeXDegrees": 0.0
+        },
+        {
+          "frame": 51,
+          "minimum": [
+            -0.05180000141263008,
+            -0.06980626285076141,
+            -0.004999999888241291
+          ],
+          "maximum": [
+            0.042500000447034836,
+            0.07284040004014969,
+            0.1397775411605835
+          ],
+          "dimensions": [
+            0.09430000185966492,
+            0.1426466628909111,
+            0.1447775410488248
+          ],
+          "hingeXDegrees": -69.02952541278731
+        },
+        {
+          "frame": 84,
+          "minimum": [
+            -0.05180000141263008,
+            -0.06980626285076141,
+            -0.004999999888241291
+          ],
+          "maximum": [
+            0.042500000447034836,
+            0.1706896722316742,
+            0.10234630852937698
+          ],
+          "dimensions": [
+            0.09430000185966492,
+            0.2404959350824356,
+            0.10734630841761827
+          ],
+          "hingeXDegrees": -138.05905082557462
+        },
+        {
+          "frame": 108,
+          "minimum": [
+            -0.05180000141263008,
+            -0.06980626285076141,
+            -0.004999999888241291
+          ],
+          "maximum": [
+            0.042500000447034836,
+            0.1706896722316742,
+            0.10234630852937698
+          ],
+          "dimensions": [
+            0.09430000185966492,
+            0.2404959350824356,
+            0.10734630841761827
+          ],
+          "hingeXDegrees": -138.05905082557462
+        },
+        {
+          "frame": 132,
+          "minimum": [
+            -0.05180000141263008,
+            -0.06980626285076141,
+            -0.004999999888241291
+          ],
+          "maximum": [
+            0.042500000447034836,
+            0.1706896722316742,
+            0.10234630852937698
+          ],
+          "dimensions": [
+            0.09430000185966492,
+            0.2404959350824356,
+            0.10734630841761827
+          ],
+          "hingeXDegrees": -138.05905082557462
+        },
+        {
+          "frame": 156,
+          "minimum": [
+            -0.05180000141263008,
+            -0.06980626285076141,
+            -0.004999999888241291
+          ],
+          "maximum": [
+            0.042500000447034836,
+            0.1706896722316742,
+            0.10234630852937698
+          ],
+          "dimensions": [
+            0.09430000185966492,
+            0.2404959350824356,
+            0.10734630841761827
+          ],
+          "hingeXDegrees": -138.05905082557462
+        },
+        {
+          "frame": 177,
+          "minimum": [
+            -0.05180000141263008,
+            -0.06980626285076141,
+            -0.004999999888241291
+          ],
+          "maximum": [
+            0.042500000447034836,
+            0.1706896722316742,
+            0.10234630852937698
+          ],
+          "dimensions": [
+            0.09430000185966492,
+            0.2404959350824356,
+            0.10734630841761827
+          ],
+          "hingeXDegrees": -138.05905082557462
+        },
+        {
+          "frame": 198,
+          "minimum": [
+            -0.05180000141263008,
+            -0.06980626285076141,
+            -0.004999999888241291
+          ],
+          "maximum": [
+            0.042500000447034836,
+            0.1706896722316742,
+            0.10234630852937698
+          ],
+          "dimensions": [
+            0.09430000185966492,
+            0.2404959350824356,
+            0.10734630841761827
+          ],
+          "hingeXDegrees": -138.05905082557462
+        },
+        {
+          "frame": 208,
+          "minimum": [
+            -0.05180000141263008,
+            -0.06980626285076141,
+            -0.004999999888241291
+          ],
+          "maximum": [
+            0.042500000447034836,
+            0.1706896722316742,
+            0.10234630852937698
+          ],
+          "dimensions": [
+            0.09430000185966492,
+            0.2404959350824356,
+            0.10734630841761827
+          ],
+          "hingeXDegrees": -138.05905082557462
+        },
+        {
+          "frame": 222,
+          "minimum": [
+            -0.05180000141263008,
+            -0.06980626285076141,
+            -0.004999999888241291
+          ],
+          "maximum": [
+            0.042500000447034836,
+            0.1706896722316742,
+            0.10234630852937698
+          ],
+          "dimensions": [
+            0.09430000185966492,
+            0.2404959350824356,
+            0.10734630841761827
+          ],
+          "hingeXDegrees": -138.05905082557462
+        }
+      ],
+      "nlaStrips": [
+        {
+          "object": "PDX.LidHinge.002",
+          "track": "Closed",
+          "strip": "Closed",
+          "start": 1.0,
+          "end": 18.0
+        },
+        {
+          "object": "PDX.LidHinge.002",
+          "track": "Opening",
+          "strip": "Opening",
+          "start": 18.0,
+          "end": 84.0
+        },
+        {
+          "object": "PDX.LidHinge.002",
+          "track": "BootUp",
+          "strip": "BootUp",
+          "start": 84.0,
+          "end": 132.0
+        },
+        {
+          "object": "PDX.LidHinge.002",
+          "track": "Ready",
+          "strip": "Ready",
+          "start": 132.0,
+          "end": 156.0
+        },
+        {
+          "object": "PDX.LidHinge.002",
+          "track": "Idle",
+          "strip": "Idle",
+          "start": 156.0,
+          "end": 198.0
+        },
+        {
+          "object": "PDX.LidHinge.002",
+          "track": "ButtonPress",
+          "strip": "ButtonPress",
+          "start": 198.0,
+          "end": 222.0
+        },
+        {
+          "object": "PDX.DisplayBoot.002",
+          "track": "Closed",
+          "strip": "Closed",
+          "start": 1.0,
+          "end": 18.0
+        },
+        {
+          "object": "PDX.DisplayBoot.002",
+          "track": "Opening",
+          "strip": "Opening",
+          "start": 18.0,
+          "end": 84.0
+        },
+        {
+          "object": "PDX.DisplayBoot.002",
+          "track": "BootUp",
+          "strip": "BootUp",
+          "start": 84.0,
+          "end": 132.0
+        },
+        {
+          "object": "PDX.DisplayBoot.002",
+          "track": "Ready",
+          "strip": "Ready",
+          "start": 132.0,
+          "end": 156.0
+        },
+        {
+          "object": "PDX.DisplayBoot.002",
+          "track": "Idle",
+          "strip": "Idle",
+          "start": 156.0,
+          "end": 198.0
+        },
+        {
+          "object": "PDX.DisplayBoot.002",
+          "track": "ButtonPress",
+          "strip": "ButtonPress",
+          "start": 198.0,
+          "end": 222.0
+        },
+        {
+          "object": "PDX.DisplayReady.002",
+          "track": "Closed",
+          "strip": "Closed",
+          "start": 1.0,
+          "end": 18.0
+        },
+        {
+          "object": "PDX.DisplayReady.002",
+          "track": "Opening",
+          "strip": "Opening",
+          "start": 18.0,
+          "end": 84.0
+        },
+        {
+          "object": "PDX.DisplayReady.002",
+          "track": "BootUp",
+          "strip": "BootUp",
+          "start": 84.0,
+          "end": 132.0
+        },
+        {
+          "object": "PDX.DisplayReady.002",
+          "track": "Ready",
+          "strip": "Ready",
+          "start": 132.0,
+          "end": 156.0
+        },
+        {
+          "object": "PDX.DisplayReady.002",
+          "track": "Idle",
+          "strip": "Idle",
+          "start": 156.0,
+          "end": 198.0
+        },
+        {
+          "object": "PDX.DisplayReady.002",
+          "track": "ButtonPress",
+          "strip": "ButtonPress",
+          "start": 198.0,
+          "end": 222.0
+        },
+        {
+          "object": "PDX.BootProgress.002",
+          "track": "Closed",
+          "strip": "Closed",
+          "start": 1.0,
+          "end": 18.0
+        },
+        {
+          "object": "PDX.BootProgress.002",
+          "track": "Opening",
+          "strip": "Opening",
+          "start": 18.0,
+          "end": 84.0
+        },
+        {
+          "object": "PDX.BootProgress.002",
+          "track": "BootUp",
+          "strip": "BootUp",
+          "start": 84.0,
+          "end": 132.0
+        },
+        {
+          "object": "PDX.BootProgress.002",
+          "track": "Ready",
+          "strip": "Ready",
+          "start": 132.0,
+          "end": 156.0
+        },
+        {
+          "object": "PDX.BootProgress.002",
+          "track": "Idle",
+          "strip": "Idle",
+          "start": 156.0,
+          "end": 198.0
+        },
+        {
+          "object": "PDX.BootProgress.002",
+          "track": "ButtonPress",
+          "strip": "ButtonPress",
+          "start": 198.0,
+          "end": 222.0
+        },
+        {
+          "object": "GEO-deck-cyan-ring.001",
+          "track": "Closed",
+          "strip": "Closed",
+          "start": 1.0,
+          "end": 18.0
+        },
+        {
+          "object": "GEO-deck-cyan-ring.001",
+          "track": "Opening",
+          "strip": "Opening",
+          "start": 18.0,
+          "end": 84.0
+        },
+        {
+          "object": "GEO-deck-cyan-ring.001",
+          "track": "BootUp",
+          "strip": "BootUp",
+          "start": 84.0,
+          "end": 132.0
+        },
+        {
+          "object": "GEO-deck-cyan-ring.001",
+          "track": "Ready",
+          "strip": "Ready",
+          "start": 132.0,
+          "end": 156.0
+        },
+        {
+          "object": "GEO-deck-cyan-ring.001",
+          "track": "Idle",
+          "strip": "Idle",
+          "start": 156.0,
+          "end": 198.0
+        },
+        {
+          "object": "GEO-deck-cyan-ring.001",
+          "track": "ButtonPress",
+          "strip": "ButtonPress",
+          "start": 198.0,
+          "end": 222.0
+        },
+        {
+          "object": "PDX.ButtonPress.001",
+          "track": "Closed",
+          "strip": "Closed",
+          "start": 1.0,
+          "end": 18.0
+        },
+        {
+          "object": "PDX.ButtonPress.001",
+          "track": "Opening",
+          "strip": "Opening",
+          "start": 18.0,
+          "end": 84.0
+        },
+        {
+          "object": "PDX.ButtonPress.001",
+          "track": "BootUp",
+          "strip": "BootUp",
+          "start": 84.0,
+          "end": 132.0
+        },
+        {
+          "object": "PDX.ButtonPress.001",
+          "track": "Ready",
+          "strip": "Ready",
+          "start": 132.0,
+          "end": 156.0
+        },
+        {
+          "object": "PDX.ButtonPress.001",
+          "track": "Idle",
+          "strip": "Idle",
+          "start": 156.0,
+          "end": 198.0
+        },
+        {
+          "object": "PDX.ButtonPress.001",
+          "track": "ButtonPress",
+          "strip": "ButtonPress",
+          "start": 198.0,
+          "end": 222.0
+        }
+      ]
+    },
+    {
+      "source": "/mnt/zer0models/pokemon-iac/devices/pokedex/v002/board02/static.blend",
+      "scene": "AUDIT-inherited-board02-static",
+      "meshes": [
+        {
+          "name": "GEO-base-shell.002",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 0.00011413951065804853,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-base-gasket.002",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.121998020860266e-05,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-control-deck.002",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.0122963942955622e-05,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-lid-shell.002",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 6.830694923498463e-05,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-spine-core-PDX.Base.002",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.4837213736118092e-05,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-spine-sleeve-PDX.Base0.002",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.7091496589192698e-06,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-spine-sleeve-PDX.Base1.002",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 7.18406025246988e-06,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-spine-sleeve-PDX.Base2.002",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.7091496589192698e-06,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-spine-core-PDX.LidHinge.002",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 2.1794038865642008e-06,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-spine-sleeve-PDX.LidHinge0.002",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 2.9068795009914583e-07,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-spine-sleeve-PDX.LidHinge1.002",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.2231746214505154e-06,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-spine-sleeve-PDX.LidHinge2.002",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 2.9068795009914583e-07,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-transverse-hinge.002",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 6.138944619171428e-06,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-hinge-collar.004",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 7.235732546881558e-07,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-hinge-collar.005",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 7.235732546881558e-07,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-equatorial-seam.002",
+          "type": "CURVE",
+          "triangles": 32,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 16,
+          "volume": 8.229068693929585e-07,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-lock-surround.002",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.9452252536364183e-06,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-pokeball-red",
+          "type": "MESH",
+          "triangles": 716,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 3.061100746459768e-07,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-pokeball-silver",
+          "type": "MESH",
+          "triangles": 716,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 3.061100091333467e-07,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-pokeball-divider",
+          "type": "CURVE",
+          "triangles": 16,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 16,
+          "volume": 3.379028184572915e-08,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-lock-center-seat",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.5173319398212156e-07,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-lock-center-cyan",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 128,
+          "nonManifoldEdges": 0,
+          "volume": 5.5394607831384984e-08,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-exterior-engraving-0.002",
+          "type": "CURVE",
+          "triangles": 96,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 16,
+          "volume": 9.775482075947272e-09,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-exterior-engraving-1.002",
+          "type": "CURVE",
+          "triangles": 112,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 16,
+          "volume": 1.96509286568522e-08,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-exterior-wordmark.002",
+          "type": "FONT",
+          "triangles": 1008,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 1028,
+          "volume": 8.362478163995357e-10,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-display-gasket.002",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 9.986472356976566e-06,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-display-metal-rim.002",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 2.3342003524888795e-06,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-display-glass.002",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 2.6678906124704478e-06,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-camera-surround.002",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 3.5076269140477674e-07,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-camera-lens.002",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 2.394062747765732e-07,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-camera-optics.002",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 128,
+          "nonManifoldEdges": 0,
+          "volume": 2.7542599886387013e-08,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-sensor.002",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.6442727759073343e-08,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-speaker-slot-0.002",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.0444985848288394e-09,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-speaker-slot-1.002",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.044498864558484e-09,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-speaker-slot-2.002",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.0444989458615399e-09,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-speaker-slot-3.002",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.0444990730558302e-09,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-speaker-slot-4.002",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.0444989319812707e-09,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-boot-title.002",
+          "type": "FONT",
+          "triangles": 1008,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 1028,
+          "volume": 1.2041972363561813e-09,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-boot-status.002",
+          "type": "FONT",
+          "triangles": 1220,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 1276,
+          "volume": 4.398034961477278e-10,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-scan-glyph.002",
+          "type": "MESH",
+          "triangles": 732,
+          "collapsedTriangles": 39,
+          "nonManifoldEdges": 0,
+          "volume": 8.138337398806776e-08,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-glyph-eye.004",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 128,
+          "nonManifoldEdges": 0,
+          "volume": 2.453934083748194e-10,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-glyph-eye.005",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 128,
+          "nonManifoldEdges": 0,
+          "volume": 2.453934083748194e-10,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-progress-track.002",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 9.313133519713147e-09,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-progress-fill.002",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 9.801347761152951e-09,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-ready-title.002",
+          "type": "FONT",
+          "triangles": 1008,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 1028,
+          "volume": 1.2041972363561813e-09,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-ready-region.002",
+          "type": "FONT",
+          "triangles": 1260,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 1288,
+          "volume": 3.5724426741484484e-10,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-entry-0.002",
+          "type": "FONT",
+          "triangles": 3220,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 3232,
+          "volume": 5.585527288696033e-10,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-entry-1.002",
+          "type": "FONT",
+          "triangles": 2452,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 2472,
+          "volume": 6.737708452164542e-10,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-entry-2.002",
+          "type": "FONT",
+          "triangles": 2558,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 2582,
+          "volume": 4.749045737922981e-10,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-entry-3.002",
+          "type": "FONT",
+          "triangles": 2104,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 2132,
+          "volume": 4.4155413009161096e-10,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-ready-footer.002",
+          "type": "FONT",
+          "triangles": 2260,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 2288,
+          "volume": 3.870377631285672e-10,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-control-ring-seat.002",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 128,
+          "nonManifoldEdges": 0,
+          "volume": 2.525874546054793e-06,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-control-ring-inset.002",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 9.447103476703872e-07,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-deck-cyan-ring.002",
+          "type": "MESH",
+          "triangles": 1920,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 2.0938581491111086e-07,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-deck-ring-inner-trim.002",
+          "type": "MESH",
+          "triangles": 1920,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.7771915931342922e-08,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-dpad.002",
+          "type": "MESH",
+          "triangles": 572,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 6.748855358775533e-07,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-diamond-key-0",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.6831900112292718e-07,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-diamond-inset-0",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 128,
+          "nonManifoldEdges": 0,
+          "volume": 2.1912039981232e-08,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-diamond-key-1",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.6831900112292718e-07,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-diamond-inset-1",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 128,
+          "nonManifoldEdges": 0,
+          "volume": 2.1912039981232e-08,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-diamond-key-2",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.6831900112292718e-07,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-diamond-inset-2",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 128,
+          "nonManifoldEdges": 0,
+          "volume": 2.1912039981232e-08,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-diamond-key-3",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.6831900112292718e-07,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-diamond-inset-3",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 128,
+          "nonManifoldEdges": 0,
+          "volume": 2.1912039981232e-08,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-deck-function",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.6720303835614016e-07,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-deck-sensor",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 0,
+          "volume": 1.8901781713120608e-08,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-green-deck-indicator",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 128,
+          "nonManifoldEdges": 0,
+          "volume": 3.2461988973924003e-09,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-amber-front-indicator",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 104,
+          "nonManifoldEdges": 0,
+          "volume": 1.4962956178563316e-08,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-front-red-indicator.002",
+          "type": "MESH",
+          "triangles": 828,
+          "collapsedTriangles": 104,
+          "nonManifoldEdges": 0,
+          "volume": 4.331346420219672e-09,
+          "uvLayers": 0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-deck-fastener-0.002",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 128,
+          "nonManifoldEdges": 0,
+          "volume": 3.8450005305970345e-09,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-fastener-slot-0.002",
+          "type": "CURVE",
+          "triangles": 16,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 16,
+          "volume": 5.098782102863203e-11,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-deck-fastener-1.002",
+          "type": "MESH",
+          "triangles": 1020,
+          "collapsedTriangles": 128,
+          "nonManifoldEdges": 0,
+          "volume": 3.8450005305970345e-09,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "GEO-fastener-slot-1.002",
+          "type": "CURVE",
+          "triangles": 16,
+          "collapsedTriangles": 0,
+          "nonManifoldEdges": 16,
+          "volume": 5.0987761670998305e-11,
+          "uvLayers": 1,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "totalTriangles": 73910,
+      "missingUVObjects": [
+        "GEO-base-shell.002",
+        "GEO-base-gasket.002",
+        "GEO-control-deck.002",
+        "GEO-lid-shell.002",
+        "GEO-pokeball-red",
+        "GEO-pokeball-silver",
+        "GEO-display-gasket.002",
+        "GEO-display-metal-rim.002",
+        "GEO-display-glass.002",
+        "GEO-speaker-slot-0.002",
+        "GEO-speaker-slot-1.002",
+        "GEO-speaker-slot-2.002",
+        "GEO-speaker-slot-3.002",
+        "GEO-speaker-slot-4.002",
+        "GEO-scan-glyph.002",
+        "GEO-progress-track.002",
+        "GEO-progress-fill.002",
+        "GEO-dpad.002",
+        "GEO-amber-front-indicator",
+        "GEO-front-red-indicator.002"
+      ],
+      "collapsedTriangles": 1783,
+      "nonManifoldObjects": [
+        "GEO-equatorial-seam.002",
+        "GEO-pokeball-divider",
+        "GEO-exterior-engraving-0.002",
+        "GEO-exterior-engraving-1.002",
+        "GEO-exterior-wordmark.002",
+        "GEO-boot-title.002",
+        "GEO-boot-status.002",
+        "GEO-ready-title.002",
+        "GEO-ready-region.002",
+        "GEO-entry-0.002",
+        "GEO-entry-1.002",
+        "GEO-entry-2.002",
+        "GEO-entry-3.002",
+        "GEO-ready-footer.002",
+        "GEO-fastener-slot-0.002",
+        "GEO-fastener-slot-1.002"
+      ],
+      "materials": 13,
+      "imageTextureNodes": 0,
+      "materialAnimation": [],
+      "poses": [
+        {
+          "frame": 1,
+          "minimum": [
+            -0.05429999902844429,
+            -0.06871695816516876,
+            -0.004999999888241291
+          ],
+          "maximum": [
+            0.042500000447034836,
+            0.17459824681282043,
+            0.09171660244464874
+          ],
+          "dimensions": [
+            0.09679999947547913,
+            0.2433152049779892,
+            0.09671660233289003
+          ],
+          "hingeXDegrees": -142.77704497589593
+        },
+        {
+          "frame": 18,
+          "minimum": [
+            -0.05429999902844429,
+            -0.06871695816516876,
+            -0.004999999888241291
+          ],
+          "maximum": [
+            0.042500000447034836,
+            0.17459824681282043,
+            0.09171660244464874
+          ],
+          "dimensions": [
+            0.09679999947547913,
+            0.2433152049779892,
+            0.09671660233289003
+          ],
+          "hingeXDegrees": -142.77704497589593
+        },
+        {
+          "frame": 51,
+          "minimum": [
+            -0.05429999902844429,
+            -0.06871695816516876,
+            -0.004999999888241291
+          ],
+          "maximum": [
+            0.042500000447034836,
+            0.17459824681282043,
+            0.09171660244464874
+          ],
+          "dimensions": [
+            0.09679999947547913,
+            0.2433152049779892,
+            0.09671660233289003
+          ],
+          "hingeXDegrees": -142.77704497589593
+        },
+        {
+          "frame": 84,
+          "minimum": [
+            -0.05429999902844429,
+            -0.06871695816516876,
+            -0.004999999888241291
+          ],
+          "maximum": [
+            0.042500000447034836,
+            0.17459824681282043,
+            0.09171660244464874
+          ],
+          "dimensions": [
+            0.09679999947547913,
+            0.2433152049779892,
+            0.09671660233289003
+          ],
+          "hingeXDegrees": -142.77704497589593
+        },
+        {
+          "frame": 108,
+          "minimum": [
+            -0.05429999902844429,
+            -0.06871695816516876,
+            -0.004999999888241291
+          ],
+          "maximum": [
+            0.042500000447034836,
+            0.17459824681282043,
+            0.09171660244464874
+          ],
+          "dimensions": [
+            0.09679999947547913,
+            0.2433152049779892,
+            0.09671660233289003
+          ],
+          "hingeXDegrees": -142.77704497589593
+        },
+        {
+          "frame": 132,
+          "minimum": [
+            -0.05429999902844429,
+            -0.06871695816516876,
+            -0.004999999888241291
+          ],
+          "maximum": [
+            0.042500000447034836,
+            0.17459824681282043,
+            0.09171660244464874
+          ],
+          "dimensions": [
+            0.09679999947547913,
+            0.2433152049779892,
+            0.09671660233289003
+          ],
+          "hingeXDegrees": -142.77704497589593
+        },
+        {
+          "frame": 156,
+          "minimum": [
+            -0.05429999902844429,
+            -0.06871695816516876,
+            -0.004999999888241291
+          ],
+          "maximum": [
+            0.042500000447034836,
+            0.17459824681282043,
+            0.09171660244464874
+          ],
+          "dimensions": [
+            0.09679999947547913,
+            0.2433152049779892,
+            0.09671660233289003
+          ],
+          "hingeXDegrees": -142.77704497589593
+        },
+        {
+          "frame": 177,
+          "minimum": [
+            -0.05429999902844429,
+            -0.06871695816516876,
+            -0.004999999888241291
+          ],
+          "maximum": [
+            0.042500000447034836,
+            0.17459824681282043,
+            0.09171660244464874
+          ],
+          "dimensions": [
+            0.09679999947547913,
+            0.2433152049779892,
+            0.09671660233289003
+          ],
+          "hingeXDegrees": -142.77704497589593
+        },
+        {
+          "frame": 198,
+          "minimum": [
+            -0.05429999902844429,
+            -0.06871695816516876,
+            -0.004999999888241291
+          ],
+          "maximum": [
+            0.042500000447034836,
+            0.17459824681282043,
+            0.09171660244464874
+          ],
+          "dimensions": [
+            0.09679999947547913,
+            0.2433152049779892,
+            0.09671660233289003
+          ],
+          "hingeXDegrees": -142.77704497589593
+        },
+        {
+          "frame": 208,
+          "minimum": [
+            -0.05429999902844429,
+            -0.06871695816516876,
+            -0.004999999888241291
+          ],
+          "maximum": [
+            0.042500000447034836,
+            0.17459824681282043,
+            0.09171660244464874
+          ],
+          "dimensions": [
+            0.09679999947547913,
+            0.2433152049779892,
+            0.09671660233289003
+          ],
+          "hingeXDegrees": -142.77704497589593
+        },
+        {
+          "frame": 222,
+          "minimum": [
+            -0.05429999902844429,
+            -0.06871695816516876,
+            -0.004999999888241291
+          ],
+          "maximum": [
+            0.042500000447034836,
+            0.17459824681282043,
+            0.09171660244464874
+          ],
+          "dimensions": [
+            0.09679999947547913,
+            0.2433152049779892,
+            0.09671660233289003
+          ],
+          "hingeXDegrees": -142.77704497589593
+        }
+      ],
+      "nlaStrips": []
+    }
+  ],
+  "board01GLB": {
+    "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v002/board01/board01.glb",
+    "bytes": 2938036,
+    "animations": [
+      {
+        "name": "Idle",
+        "channels": 1
+      },
+      {
+        "name": "ButtonPress",
+        "channels": 2
+      },
+      {
+        "name": "Opening",
+        "channels": 2
+      },
+      {
+        "name": "BootUp",
+        "channels": 2
+      },
+      {
+        "name": "Ready",
+        "channels": 2
+      }
+    ],
+    "meshes": 72,
+    "materials": 13,
+    "textures": 0,
+    "primitivesMissingUV": 24
+  },
+  "board02RuntimeExists": false,
+  "animationVideos": []
+}
