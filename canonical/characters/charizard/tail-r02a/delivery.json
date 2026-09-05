@@ -1,0 +1,14 @@
+{
+  "milestoneRevision": "c031e45c05b01953fdffacca814fad4fc21655c0",
+  "receipt": {
+    "success": true,
+    "platform": "telegram",
+    "chat_id": "1083429746",
+    "message_id": "16747",
+    "mirrored": true
+  },
+  "messageFile": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02a/telegram-message.txt",
+  "messageSHA256": "ba15cb4db7e537587152ca9d78b2d009d95893786e02d88970b9da1bae0c3e1e",
+  "phoneUrl": "https://0.taila30dc.ts.net:8445/devtools/pokedex.html?pokemon=charizard&tab=iterations&run=charizard-tail-r02a&view=root-side",
+  "comparisonUrl": "https://0.taila30dc.ts.net:8445/devtools/experiments.html?pokemon=charizard&a=charizard-tail-r01&b=charizard-tail-r02a&view=root-side"
+}
