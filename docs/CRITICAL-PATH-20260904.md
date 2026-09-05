@@ -19,8 +19,9 @@ does not supersede current executable acceptance defects.
 
 The `twilight-route` board reports empty, and task creation failed with an invalid
 SQLite header. Older M1/M2 task IDs are unavailable from the accessible board.
-The database was not repaired or replaced. This file is the local execution
-record while that external coordination store is unavailable.
+The database was not repaired or replaced. Recording on the existing
+`zer0-company` execution board succeeded as `t_96c5b30f`; the creation receipt is
+`kanban-create-result.json` in the evidence root.
 
 ## Dependency decision
 
@@ -54,7 +55,7 @@ Exact commit: `9577814c3ed2597d0ec2573c9c3612b944d4e070`. The independent
 `slice1-independent-review.json` accepts the narrow repair. Its first production
 run passed 68 checks and failed battle-entry latency (443.4 ms / 400 ms budget).
 That run overlapped a build/check process. The fresh repeat without concurrent
-test/build work passed 70/70 (198.9 ms). Both traces and all ten PNGs per run are
+test/build work passed 70/70 (198.9 ms). Both traces and ten/eleven PNGs respectively are
 retained in `slice1-runtime/` and `slice1-runtime-r2/`. This does not establish
 stable performance. The reviewer inspected genuine battle/reload output and
 confirmed that reload returns to starter selection, not a restored party.
@@ -62,8 +63,11 @@ confirmed that reload returns to starter selection, not a restored party.
 `slice1-committed-checks.json` binds successful schema/reference, adversarial,
 build rejection, typecheck, build and ship checks to that commit. Battle (127),
 campaign replay (6), field (10), encounter drought, private-canonical and
-ship-boundary tests also pass. The additional asset-IaC suite failed closed
-under system Node 26.7.0 because its lock requires 26.4.0; no pins were relaxed.
+ship-boundary tests also pass. The additional asset-IaC suite initially failed
+closed under system Node 26.7.0 because its lock requires 26.4.0. Restoring
+26.4.0 into task-local storage from the official archive, checked against the
+published SHA-256 list, yields 22/22 passing tests (`assets-pinned-node.log`).
+No system runtime or repository pins were changed.
 
 Computer-use attempts could not inspect the runtime: isolated-browser setup
 exited before DevTools, and attachment to a dedicated headless process was
@@ -82,7 +86,32 @@ edge displacement to agree with its named direction. Intentional same-version
 one-way travel remains valid; backwards traversal is rejected. Anime event
 ordering remains independent of topology.
 
-Six real build-rejection fixtures now cover schema, chronology and topology in
-both profiles. Canonical facts and generated outputs remain unchanged. Exact
-revision, committed tests, runtime evidence and independent review follow.
-Neither slice certifies full M1, M2 or full-game completion.
+Exact commit: `82caccbb538b4ab56554119f4b469697d2aad3ac`. Six real
+build-rejection fixtures cover schema, chronology and topology in both profiles.
+Canonical facts and generated outputs remain unchanged; all nine generated JSON
+hashes match (`slice2-generated-hashes.json`). `slice2-checks.json` binds the
+committed regression checks and full distributable build to the revision. The
+production playthrough in `slice2-runtime/` passes 70/70, with 202.5 ms initial
+battle entry, eleven non-black captures, and a retained trace. Battle and journey
+frames were visually inspected by the implementer and independent reviewer.
+`slice2-independent-review.json` accepts the narrow repair, with no code blocker.
+
+The full private bootstrap still fails closed with `OWNER_SOURCE_REQUIRED` for
+the manifest's `pokemon.owner-art.example.v1` entry. Its one-byte example source
+was not fabricated. Passing negative private-build fixtures does not imply a
+complete private reconstruction. The successful distributable build uses the
+existing original stand-ins, never private official bytes. The standard Vite
+chunk-size warning remains. No native/DCC gate applies to these code/data repairs.
+
+Compact checksums and both independent verdicts are indexed in
+`canonical/reports/astra-critical-20260904.json`. Browser launch from this branch:
+`npm run build && npm run preview -- --host 127.0.0.1 --port 5199 --strictPort`,
+then open `http://127.0.0.1:5199/?verify=1&preset=medium`.
+
+Neither slice certifies full M1, M2 or full-game completion. Next dependency-ready
+work is a source-verified Pallet interior/entrance slice with map-addressed
+connections; the current one-map-per-location model cannot express the required
+interiors. This must precede geographic expansion and support actual spatial
+browser transitions. Full party/session saves and browser-consumed deterministic
+journals remain separate M2 obligations. No owner decision is needed to continue
+those repairs; private-source restoration is only a gate for private bootstrap.

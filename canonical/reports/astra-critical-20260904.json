@@ -1,0 +1,357 @@
+{
+  "schemaVersion": 1,
+  "baseCommit": "c7571a89c2799213cabf3777b6cd73fc8b7743c6",
+  "branch": "codex/astra-critical-path-20260904",
+  "codeCommits": [
+    "9577814c3ed2597d0ec2573c9c3612b944d4e070",
+    "82caccbb538b4ab56554119f4b469697d2aad3ac"
+  ],
+  "evidenceRoot": "/mnt/zer0models/pokemon-iac/evidence/astra-critical-20260904",
+  "kanbanTask": "t_96c5b30f",
+  "milestonePromotion": false,
+  "scope": "Two narrow M1 repairs; no full-game, M1, M2 or M7 completion claim",
+  "reviewVerdicts": [
+    {
+      "commit": "9577814c3ed2597d0ec2573c9c3612b944d4e070",
+      "verdict": "ACCEPT_SCOPED_REPAIR",
+      "blockers": []
+    },
+    {
+      "commit": "82caccbb538b4ab56554119f4b469697d2aad3ac",
+      "verdict": "ACCEPT_SCOPED_REPAIR",
+      "blockers": []
+    }
+  ],
+  "generatedCanonical": [
+    {
+      "path": "canonical/ash/arcs.json",
+      "sha256": "230bcff37ab6d4fdbef2da7ab3b2ecebc57aa22a2715e56f94d1db214f498d8d",
+      "matches": true
+    },
+    {
+      "path": "canonical/ash/events/kanto-opening.json",
+      "sha256": "c201ace5cdf1aff54cc30e3a6ef488f13af879f6eb9509d2612d495d5a1dd5e1",
+      "matches": true
+    },
+    {
+      "path": "canonical/conflicts.json",
+      "sha256": "fb418629f6926623be069052aeb226e4bef5beae4de8cefb1189529fffb84209",
+      "matches": true
+    },
+    {
+      "path": "canonical/games.json",
+      "sha256": "f06e6bf65f3dfdc9d8d3ced1d3930081d06c30222b2001228239b586910873e5",
+      "matches": true
+    },
+    {
+      "path": "canonical/locations.json",
+      "sha256": "f9243c41e8c85af74f0616a9a4b708bb27591ea375d494d428039778e98da22b",
+      "matches": true
+    },
+    {
+      "path": "canonical/maps/kanto-opening.json",
+      "sha256": "a012d562315ca747081a4b14fd2130cb45a599fcf1dc309447b6f5a7c2c9cc69",
+      "matches": true
+    },
+    {
+      "path": "canonical/regions.json",
+      "sha256": "8c9310e40c261d81a0ce478ad51c952c0e2573004515921d5f1994383403a609",
+      "matches": true
+    },
+    {
+      "path": "canonical/runtime/kanto-opening.json",
+      "sha256": "428f45b5c7c0a50b265fb896a6c8a43c1063471a4158b92990a67603f7e4222c",
+      "matches": true
+    },
+    {
+      "path": "canonical/sources.json",
+      "sha256": "8263f1ba2ce10977d9e75a5749157af3c15da529240411db38456b7ecf300959",
+      "matches": true
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "freeze.json",
+      "bytes": 4824,
+      "sha256": "ff461097cdce46aa1e82bc2f84d851f1d2defed8dc9475db206bec37ada6a3a6"
+    },
+    {
+      "path": "kanban-freeze.json",
+      "bytes": 375942,
+      "sha256": "e7259283b76d2cbd0ef2d5ba3e974c5efdb10f41c11245ec0b8a1a1c4a1258d0"
+    },
+    {
+      "path": "gauntlet-lineage.json",
+      "bytes": 17671,
+      "sha256": "b6477c13eed44fba699c256611f9b77055de5517aa419813d53d3e5e50eece3c"
+    },
+    {
+      "path": "kanban-create-result.json",
+      "bytes": 1809,
+      "sha256": "56e674910c59de8a73df5944d8a19488151914e97277c1523f2be56aa566b186"
+    },
+    {
+      "path": "slice1-red.log",
+      "bytes": 947,
+      "sha256": "376809f994197742def22b6643c88b10216539c7769f3143cce667d892af82af"
+    },
+    {
+      "path": "slice2-red.log",
+      "bytes": 946,
+      "sha256": "f9d5da6a4c263a4cd2bdd4d28c17c6f8c84e0d686d5fd4dc59aed5329d4fb181"
+    },
+    {
+      "path": "slice1-committed-checks.json",
+      "bytes": 1869,
+      "sha256": "dd51e3b851d898a06eefc9dea15ab32b15a75d2e86d16632be81c9cc90966878"
+    },
+    {
+      "path": "slice1-checks.json",
+      "bytes": 1939,
+      "sha256": "e611cafffe834196c411b1fa7c816295aca19689c0cad035d057ea4e241731fc"
+    },
+    {
+      "path": "slice2-checks.json",
+      "bytes": 3585,
+      "sha256": "46ffdb4256b615031061583c04ac19022a90dc27404701cf706bd637cfaa79e9"
+    },
+    {
+      "path": "slice2-generated-hashes.json",
+      "bytes": 1388,
+      "sha256": "035c026e7f6ea487e22f63b23e095e59a853db0ca0cb24cf8a4a5bd060c01699"
+    },
+    {
+      "path": "assets-pinned-node.log",
+      "bytes": 1772,
+      "sha256": "420e1d5855605b999a3fc61eb69fbfbe21ab858e98a345b93ee566587038b957"
+    },
+    {
+      "path": "slice1-independent-review.json",
+      "bytes": 4514,
+      "sha256": "54dbd4c2d5ee741e3ef3cc851f8bd72bc8cf98eda5e7d8003aee6009db5d4782"
+    },
+    {
+      "path": "slice2-independent-review.json",
+      "bytes": 4020,
+      "sha256": "e49119e2ee73edbaf863277e93b06d4a78459c654215134a49073b55967a7f13"
+    },
+    {
+      "path": "pinned-tools/receipt.json",
+      "bytes": 182,
+      "sha256": "626b5a6ed51f5407b25c56ae0ef6abfc7189c78f23d1a9387bb792d767bd9988"
+    },
+    {
+      "path": "slice1-runtime/00-starter-choice.png",
+      "bytes": 683895,
+      "sha256": "f0938b5e13c58264125ed44b9c1c0dcf27aaeae7c296b34cf3c46ff3afe2eb05"
+    },
+    {
+      "path": "slice1-runtime/01-trusted-wasd-exploration.png",
+      "bytes": 308155,
+      "sha256": "4c43ed7a92d658e59a29e9cd69e1c1ea27f375fdf829b44a72362b8390a97966"
+    },
+    {
+      "path": "slice1-runtime/02-first-encounter-battle.png",
+      "bytes": 309988,
+      "sha256": "80837cbecb41c0e1b795169f924007573413f7ba773b80c9e56a54ad66b69b4f"
+    },
+    {
+      "path": "slice1-runtime/03-battle-after-real-move.png",
+      "bytes": 378154,
+      "sha256": "0197f845a5ed377a5c2e039b6c5ef1a6b6571795ed0c144395a5b1c2974195d1"
+    },
+    {
+      "path": "slice1-runtime/04-caught-party-two.png",
+      "bytes": 323831,
+      "sha256": "8bb5b2a1f9cff9b2c259bf8c2fe2c0f0488175e69207336924f327ad841c25a6"
+    },
+    {
+      "path": "slice1-runtime/05-party-healed.png",
+      "bytes": 291883,
+      "sha256": "83069950f5b49673d26d0dc3e33e126795acf33515fd21c75a0a015d570f92c3"
+    },
+    {
+      "path": "slice1-runtime/06-replay-second-encounter.png",
+      "bytes": 676635,
+      "sha256": "6bf95e62ec4765e6f34ffd7855eac135294a512b2f89502fc878d171271b9a24"
+    },
+    {
+      "path": "slice1-runtime/07-complete-loop-returned-to-explore.png",
+      "bytes": 274169,
+      "sha256": "9ace9176c8812726f61031488a29aa355827601b672a9dd0a4d083a40eb33795"
+    },
+    {
+      "path": "slice1-runtime/08-journey-pewter-city.png",
+      "bytes": 300052,
+      "sha256": "6aca48ecbd0b43c0687ef09b6edfcb771e0cae254eeeaa85f74cf6416c524fd3"
+    },
+    {
+      "path": "slice1-runtime/09-journey-pewter-restored.png",
+      "bytes": 701762,
+      "sha256": "32ed8996e28f0f12acb647059fc66b6c178ee35f581bacfd8d86d953eb7a6d72"
+    },
+    {
+      "path": "slice1-runtime/complete-loop-report.json",
+      "bytes": 58037,
+      "sha256": "928fbe4fb0ef26adca87d7c854a2aa18a863ec72e606e04118a2f28119a65dd2"
+    },
+    {
+      "path": "slice1-runtime/complete-loop-trace.zip",
+      "bytes": 30945842,
+      "sha256": "e5c338e0cd7b982fb82d28baac60322398ee0ebf97bcd781005ba85ca2087e02"
+    },
+    {
+      "path": "slice1-runtime/transition-latencies.json",
+      "bytes": 692,
+      "sha256": "920b6afb08cfd3cdc0fd154aac53ad1341c185ad5fa65956624a059f034d6c10"
+    },
+    {
+      "path": "slice1-runtime-r2/00-starter-choice.png",
+      "bytes": 683798,
+      "sha256": "e59d16d2aaf97cdea775f39d7470353abc623390ae33e87ce5b29245070fbc9a"
+    },
+    {
+      "path": "slice1-runtime-r2/01-trusted-wasd-exploration.png",
+      "bytes": 308670,
+      "sha256": "c3e12538a1cc8189087e528472aa96484f5dc6f2c4377ddab198d67a79ad1ff0"
+    },
+    {
+      "path": "slice1-runtime-r2/02-first-encounter-battle.png",
+      "bytes": 445823,
+      "sha256": "c3a4abc4875c5b2933b67ca00119b3b843567d4aa0273c1b41b2c8d97a729a13"
+    },
+    {
+      "path": "slice1-runtime-r2/03-battle-after-real-move.png",
+      "bytes": 344694,
+      "sha256": "8240fa6799267632d4734ef9bd94f986eecf98882ce8cfbdaf14d9b4dc39965b"
+    },
+    {
+      "path": "slice1-runtime-r2/04-caught-party-two.png",
+      "bytes": 457510,
+      "sha256": "e12be4e0b5bcd10aef2bbb639ead12ec4af80c62c0f5606eb5b25e0cc5f819a8"
+    },
+    {
+      "path": "slice1-runtime-r2/05-party-healed.png",
+      "bytes": 289687,
+      "sha256": "b422f24af5ab83ef41b65860f538cc17fa1b7a62499592173d7c5a98b3344d7c"
+    },
+    {
+      "path": "slice1-runtime-r2/06-replay-second-encounter.png",
+      "bytes": 531345,
+      "sha256": "c64abdfaf0ed5c5ad8819530a067e3382b9a4c269ace6a13fc209e7b3cf62069"
+    },
+    {
+      "path": "slice1-runtime-r2/07-complete-loop-returned-to-explore.png",
+      "bytes": 373610,
+      "sha256": "dab0b8940a064e720a0154198b6ce75c13d8570964d868aa5169320c165bfff1"
+    },
+    {
+      "path": "slice1-runtime-r2/08-journey-viridian-forest.png",
+      "bytes": 340734,
+      "sha256": "e524d5777951abbc66af25ccb79979e470b8b901a83541e46574fd5d42d3d512"
+    },
+    {
+      "path": "slice1-runtime-r2/09-journey-pewter-city.png",
+      "bytes": 302310,
+      "sha256": "3009209f220dea0ebfbc96e848223c3960cecd4ae4b2a91f175b336ded3aaac8"
+    },
+    {
+      "path": "slice1-runtime-r2/10-journey-pewter-restored.png",
+      "bytes": 708669,
+      "sha256": "71c22bf3503d2f1baddb143c3372fe0f721a5b2f9803fd598d6dd5c41997f01d"
+    },
+    {
+      "path": "slice1-runtime-r2/complete-loop-report.json",
+      "bytes": 59360,
+      "sha256": "3158a96546dad99626bf54bc91902fd3f8057892b53c6df30ea1280b0f308804"
+    },
+    {
+      "path": "slice1-runtime-r2/complete-loop-trace.zip",
+      "bytes": 34651290,
+      "sha256": "26fb21bc8c78cedbfb09524af78b56006243b265a7274c748db7ab03bced9c33"
+    },
+    {
+      "path": "slice1-runtime-r2/transition-latencies.json",
+      "bytes": 694,
+      "sha256": "5037337f5deca4741c955a8113d6edb251da630734848563397d9b6fe03c0954"
+    },
+    {
+      "path": "slice2-runtime/00-starter-choice.png",
+      "bytes": 684212,
+      "sha256": "892030758efaa15d5e617a36ebde96a0ac415736b87ccd4b3ce2802ed30d913c"
+    },
+    {
+      "path": "slice2-runtime/01-trusted-wasd-exploration.png",
+      "bytes": 327106,
+      "sha256": "4c290dd06656bed2813a975023cc3c8b03abbfa170e21fb34e2f7fc90ae8bf2b"
+    },
+    {
+      "path": "slice2-runtime/02-first-encounter-battle.png",
+      "bytes": 459234,
+      "sha256": "4cbab6c0feebabf127879b4b9caf9dd95c3886af90d73bd5b25ca54e678c2322"
+    },
+    {
+      "path": "slice2-runtime/03-battle-after-real-move.png",
+      "bytes": 376372,
+      "sha256": "489398551857e73cb45e2a46be0067d903e992936b57f1d146bf535155c3572f"
+    },
+    {
+      "path": "slice2-runtime/04-caught-party-two.png",
+      "bytes": 364425,
+      "sha256": "9c1f06f679918d426040a87540c722ed240c0b7c2c617c89f36d185a512b602f"
+    },
+    {
+      "path": "slice2-runtime/05-party-healed.png",
+      "bytes": 297863,
+      "sha256": "bd9e9c9765748b8ac6cd5f22f0bbc0ad24216ace1d6a2fad50e88ec967a1cb59"
+    },
+    {
+      "path": "slice2-runtime/06-replay-second-encounter.png",
+      "bytes": 581457,
+      "sha256": "19f6db60fd9ac598f063f401badc909fea7157d52ecd591b0ca48afbb13b37c2"
+    },
+    {
+      "path": "slice2-runtime/07-complete-loop-returned-to-explore.png",
+      "bytes": 341786,
+      "sha256": "b868946a05e48550aeeed23fa0bf453846f606fcee87c4827cfa7bc564770b4d"
+    },
+    {
+      "path": "slice2-runtime/08-journey-viridian-forest.png",
+      "bytes": 323928,
+      "sha256": "0e987864e753bb946e06c605717e3218e1f2710b98ade1d76d788c1f3308bda5"
+    },
+    {
+      "path": "slice2-runtime/09-journey-pewter-city.png",
+      "bytes": 326668,
+      "sha256": "1c6967a24472c77809a8bfc1436cafc0bd2a8b47de4e23cb4da0f18425628951"
+    },
+    {
+      "path": "slice2-runtime/10-journey-pewter-restored.png",
+      "bytes": 702298,
+      "sha256": "373c37c67b63e22d854b02d78bee44b500af3f4a0d3a3c64ac0d8c941f54e839"
+    },
+    {
+      "path": "slice2-runtime/complete-loop-report.json",
+      "bytes": 59381,
+      "sha256": "4dd562901dd07c2d3c0012648a6b1bbd818ccfc601bbeb4aa185ba6c58ee3546"
+    },
+    {
+      "path": "slice2-runtime/complete-loop-trace.zip",
+      "bytes": 31999679,
+      "sha256": "1d87591df75710777b7627a7f49ee6cd75113a643ba46706422b1da5402b0886"
+    },
+    {
+      "path": "slice2-runtime/transition-latencies.json",
+      "bytes": 691,
+      "sha256": "a12b1d7c4d4d7bf143f42f5d9f1a731bdaca50a4ec9449f4297a57a07314c0cf"
+    }
+  ],
+  "remaining": [
+    "source-verified interior/warp topology and deeper field provenance",
+    "distance-only browser progression",
+    "party/session save and browser journal integration",
+    "private bootstrap OWNER_SOURCE_REQUIRED",
+    "real touch/controller and computer-use acceptance",
+    "presentation quality and stable performance"
+  ]
+}
