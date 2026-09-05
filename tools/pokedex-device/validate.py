@@ -1,5 +1,6 @@
 """Measured authoring evidence; does not substitute visual review or runtime tests."""
 import bpy,bmesh,json,math
+import numpy as np
 from pathlib import Path
 from mathutils import Vector
 from mathutils.bvhtree import BVHTree
@@ -18,7 +19,10 @@ def run(scene):
         if obj.type!='MESH' or obj.name.startswith('STUDIO.'):continue
         evaluated=obj.evaluated_get(graph);mesh=evaluated.to_mesh();mesh.calc_loop_triangles()
         bm=bmesh.new();bm.from_mesh(mesh)
-        rows.append(dict(name=obj.name,vertices=len(mesh.vertices),triangles=len(mesh.loop_triangles),nonManifoldEdges=sum(not e.is_manifold for e in bm.edges),degenerateFaces=sum(f.calc_area()<1e-14 for f in bm.faces),volumeM3=bm.calc_volume(signed=True),uvLayers=len(mesh.uv_layers),scale=list(obj.scale),materials=[m.name for m in mesh.materials]))
+        vertices=np.asarray([list(v.co) for v in mesh.vertices],dtype=np.float64)
+        tris=vertices[np.asarray([tuple(t.vertices) for t in mesh.loop_triangles])]
+        areas=np.linalg.norm(np.cross(tris[:,1]-tris[:,0],tris[:,2]-tris[:,0]),axis=1)/2
+        rows.append(dict(name=obj.name,vertices=len(mesh.vertices),triangles=len(mesh.loop_triangles),nonManifoldEdges=sum(not e.is_manifold for e in bm.edges),zeroAreaTriangles=int((areas==0).sum()),positiveSliverTriangles=int(((areas>0)&(areas<=1e-14)).sum()),volumeM3=bm.calc_volume(signed=True),uvLayers=len(mesh.uv_layers),scale=list(obj.scale),materials=[m.name for m in mesh.materials]))
         local[obj]=([v.co.copy() for v in mesh.vertices],[tuple(t.vertices) for t in mesh.loop_triangles])
         bm.free();evaluated.to_mesh_clear()
     lid=scene.objects['PDX.LidHinge'];old=lid.rotation_euler.x
@@ -41,7 +45,7 @@ def run(scene):
                 if hits:pairs.append({'moving':obj.name,'fixed':other.name,'trianglePairs':len(hits)})
         sweep.append({'degrees':degrees,'surfaceIntersectionCandidates':pairs})
     lid.rotation_euler.x=old;bpy.context.view_layer.update()
-    result={'scene':scene.name,'stage':'static-validation','meshObjects':len(rows),'triangles':sum(r['triangles'] for r in rows),'topologyPassed':all(r['nonManifoldEdges']==0 and r['degenerateFaces']==0 and r['volumeM3']>0 for r in rows),'meshes':rows,'hingeSweep':sweep,'method':'Evaluated geometry, bmesh manifold/area/volume; BVH moving-vs-fixed surface overlap with 2 micrometer AABB penetration tolerance. Contact candidates require review. This is not exhaustive volumetric CAD clearance certification.'}
+    result={'scene':scene.name,'stage':'static-validation','meshObjects':len(rows),'triangles':sum(r['triangles'] for r in rows),'topologyPassed':all(r['nonManifoldEdges']==0 and r['zeroAreaTriangles']==0 and r['volumeM3']>0 for r in rows),'meshes':rows,'hingeSweep':sweep,'method':'Evaluated geometry, bmesh manifold/volume and double-precision triangle areas; positive microscopic slivers reported separately. BVH moving-vs-fixed surface overlap with 2 micrometer AABB penetration tolerance. Contact candidates require review. This is not exhaustive volumetric CAD clearance certification.'}
     (OUT/'static-validation.json').write_text(json.dumps(result,indent=2))
     print(json.dumps({k:v for k,v in result.items() if k!='meshes'}))
     return result

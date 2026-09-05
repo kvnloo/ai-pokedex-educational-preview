@@ -110,7 +110,7 @@ def build(scene):
     scene.frame_set(165);bpy.context.view_layer.update()
     contract={'fps':30,'clips':[{'name':name,'startFrame':start,'terminalFrame':end,'durationSeconds':(end-start)/30} for name,start,end in CLIPS],'hinge':{'node':lid.name,'axis':'X','pivotMeters':list(lid.location),'readyDegrees':-112,'maximumOpeningDegrees':112.65},'signals':{o.name:'local translation.x normalized 0..1' for o in signals.values()},'materialBindings':[{'material':mat.name,'signal':mat['power_signal'],'maximumEmission':mat['max_emission']} for mat in driven.values()],'runtimeOrder':'AnimationMixer.update(dt), then apply power signals to emissiveIntensity. Core scale tracks implement display group/progress transitions.','portableExportFlags':{'export_pointer_animation':False,'export_convert_animation_pointer':False},'buttonTravelMeters':.00055,'notes':['Each clip includes its own held terminal sample. Adjacent timeline boundary poses agree.','Button return diaphragm compresses with the cap travel.','Full-world volumetric collision certification is outside this graphical prop validation.']}
     (OUT/'source/animation-contract.json').write_text(json.dumps(contract,indent=2))
-    bpy.data.libraries.write(str(OUT/'source/pokedex-v001-m2-animation-r02.blend'),{scene},fake_user=True)
+    bpy.data.libraries.write(str(OUT/'source/pokedex-v001-m2-animation-r06.blend'),{scene},fake_user=True)
     print(json.dumps(contract))
 
 if __name__=='__main__':build(bpy.context.scene)

@@ -1,0 +1,506 @@
+{
+  "milestone": "M3 hero geometry and surface evidence",
+  "revision": "r06",
+  "createdAt": "2026-09-05T17:51:22.552481+00:00",
+  "status": "hero-still-gate-passed-runtime-video-gate-pending",
+  "source": {
+    "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/source/pokedex-v001-m3-hero-r06.blend",
+    "bytes": 7853881,
+    "sha256": "9c0f5d553282c2748fd069a2e3448d509b4134e1c28e5a2e5b1f5ed1b278dbd2"
+  },
+  "meshObjects": 125,
+  "meshTriangles": 260848,
+  "fontObjects": 15,
+  "fontTriangles": 8208,
+  "totalEvaluatedTriangles": 269056,
+  "zeroAreaMechanicalTriangles": 0,
+  "positiveMicroscopicSliverTriangles": 114,
+  "materials": 16,
+  "textures": [
+    {
+      "path": "textures/pdx-aluminum-normal.png",
+      "bytes": 134742,
+      "sha256": "55de6de9360aa3780000a3cbb96a13ec48d05cf0fb77c128204ba60c98454969",
+      "size": [
+        512,
+        512
+      ],
+      "colorspace": "Non-Color"
+    },
+    {
+      "path": "textures/pdx-aluminum-roughness.png",
+      "bytes": 166727,
+      "sha256": "61b9accc81bf12b3abb47e62602a64b4ea30e6bebba67323d858808d2ae737dc",
+      "size": [
+        512,
+        512
+      ],
+      "colorspace": "Non-Color"
+    },
+    {
+      "path": "textures/pdx-graphite-normal.png",
+      "bytes": 442842,
+      "sha256": "0382ecb66c7a8efab7e76814c3ccc307ae694b138b578d6457aab5e488a3718e",
+      "size": [
+        512,
+        512
+      ],
+      "colorspace": "Non-Color"
+    },
+    {
+      "path": "textures/pdx-graphite-roughness.png",
+      "bytes": 327487,
+      "sha256": "5a3de509c64c0e053bdeb3d18672745d9d5c2824482fe9f08dc2979cd759b2ed",
+      "size": [
+        512,
+        512
+      ],
+      "colorspace": "Non-Color"
+    },
+    {
+      "path": "textures/pdx-red-normal.png",
+      "bytes": 441921,
+      "sha256": "fc63bfe733bcad31d1123fa7e32e4079165fd62951d707280a4fe8309e41dc84",
+      "size": [
+        512,
+        512
+      ],
+      "colorspace": "Non-Color"
+    },
+    {
+      "path": "textures/pdx-red-roughness.png",
+      "bytes": 343378,
+      "sha256": "6f6871ed76188e8cff30340dd0754fe9934b2a53d3b7a428d4d53c461946c5a2",
+      "size": [
+        512,
+        512
+      ],
+      "colorspace": "Non-Color"
+    },
+    {
+      "path": "textures/pdx-silicone-normal.png",
+      "bytes": 441863,
+      "sha256": "7dd892951cddc5202337b83b494af5e5140d4ae72dc00b76b683a52b4a9c2c55",
+      "size": [
+        512,
+        512
+      ],
+      "colorspace": "Non-Color"
+    },
+    {
+      "path": "textures/pdx-silicone-roughness.png",
+      "bytes": 390188,
+      "sha256": "69c79006bb65ac040d14163376f555efd5c8682a0b4b8fe10e7858229ab34a3e",
+      "size": [
+        512,
+        512
+      ],
+      "colorspace": "Non-Color"
+    },
+    {
+      "path": "textures/pdx-steel-normal.png",
+      "bytes": 134763,
+      "sha256": "7a1e0167c66cb45fa0a109dca656d4c084f3e74f517397bd078639b103387c6f",
+      "size": [
+        512,
+        512
+      ],
+      "colorspace": "Non-Color"
+    },
+    {
+      "path": "textures/pdx-steel-roughness.png",
+      "bytes": 119865,
+      "sha256": "20f4dfbffdbbd0c47f1299e9dce0ff2ffddd9394839d57acedd80ffc07bb5aa0",
+      "size": [
+        512,
+        512
+      ],
+      "colorspace": "Non-Color"
+    }
+  ],
+  "renders": {
+    "source": {
+      "source": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/source/pokedex-v001-m3-hero-r06.blend",
+      "sha256": "9c0f5d553282c2748fd069a2e3448d509b4134e1c28e5a2e5b1f5ed1b278dbd2"
+    },
+    "renders": [
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/renders/pokedex-v001-m3-hero-r06/material-open-three-quarter.png",
+        "frame": 165,
+        "mode": "material",
+        "camera": [
+          0.265,
+          -0.38,
+          0.29
+        ],
+        "target": [
+          0,
+          -0.04,
+          0.074
+        ],
+        "orthographicScale": 0,
+        "undersideFixture": false,
+        "sha256": "126acdf59a79f309e2e28994847362d60f882412d4329a5cbc60dd4e83d77482"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/renders/pokedex-v001-m3-hero-r06/material-closed-front.png",
+        "frame": 1,
+        "mode": "material",
+        "camera": [
+          0,
+          -0.085,
+          0.5
+        ],
+        "target": [
+          0,
+          -0.085,
+          0.017
+        ],
+        "orthographicScale": 0.205,
+        "undersideFixture": false,
+        "sha256": "86f6d8295fa3e6d549fe5937d2fa264db1711544357b27f47f8e0038552606a1"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/renders/pokedex-v001-m3-hero-r06/material-closed-back.png",
+        "frame": 1,
+        "mode": "material",
+        "camera": [
+          0,
+          -0.085,
+          0.5
+        ],
+        "target": [
+          0,
+          -0.085,
+          0.017
+        ],
+        "orthographicScale": 0.205,
+        "undersideFixture": true,
+        "sha256": "3a6b2934c8919b96d7024e83d3bf8f4343a50dee1b775f484121b4b93c64c97e"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/renders/pokedex-v001-m3-hero-r06/material-closed-right.png",
+        "frame": 1,
+        "mode": "material",
+        "camera": [
+          0.5,
+          -0.085,
+          0.017
+        ],
+        "target": [
+          0,
+          -0.085,
+          0.017
+        ],
+        "orthographicScale": 0.205,
+        "undersideFixture": false,
+        "sha256": "20472a82e607622f56e92cec4daae9715038fe34116b5161631e412788a63cba"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/renders/pokedex-v001-m3-hero-r06/material-closed-left.png",
+        "frame": 1,
+        "mode": "material",
+        "camera": [
+          -0.5,
+          -0.085,
+          0.017
+        ],
+        "target": [
+          0,
+          -0.085,
+          0.017
+        ],
+        "orthographicScale": 0.205,
+        "undersideFixture": false,
+        "sha256": "be496166b6517d3f1ad0ecdc6a7ab8f1235d6b5c86f350ce4abf96720360b217"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/renders/pokedex-v001-m3-hero-r06/material-open-front.png",
+        "frame": 165,
+        "mode": "material",
+        "camera": [
+          0,
+          -0.6,
+          0.29
+        ],
+        "target": [
+          0,
+          -0.035,
+          0.083
+        ],
+        "orthographicScale": 0.32,
+        "undersideFixture": false,
+        "sha256": "dc307f20b836ccee665899d09d0836f372f537c19b465c88ab920a398498a7db"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/renders/pokedex-v001-m3-hero-r06/material-closed-three-quarter.png",
+        "frame": 1,
+        "mode": "material",
+        "camera": [
+          0.245,
+          -0.34,
+          0.3
+        ],
+        "target": [
+          0,
+          -0.085,
+          0.017
+        ],
+        "orthographicScale": 0,
+        "undersideFixture": false,
+        "sha256": "01d3172d421f758bced2fb6c842aae85bdfc1b1d9e88b31854af7766b1f31807"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/renders/pokedex-v001-m3-hero-r06/material-hinge-closeup.png",
+        "frame": 165,
+        "mode": "material",
+        "camera": [
+          0.08,
+          -0.135,
+          0.095
+        ],
+        "target": [
+          0,
+          -0.004,
+          0.026
+        ],
+        "orthographicScale": 0.116,
+        "undersideFixture": false,
+        "sha256": "42ed60644dea42a97d6273d98a1b576b48a27d616a37e371aa2af79ff8231e1e"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/renders/pokedex-v001-m3-hero-r06/material-controls-released.png",
+        "frame": 271,
+        "mode": "material",
+        "camera": [
+          0.07,
+          -0.215,
+          0.14
+        ],
+        "target": [
+          0.01,
+          -0.113,
+          0.018
+        ],
+        "orthographicScale": 0.11,
+        "undersideFixture": false,
+        "sha256": "b9e38b6679d8c450e620cbb2d31d8a78c091b82df95ced598f4cab42f6708dfd"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/renders/pokedex-v001-m3-hero-r06/material-button-pressed.png",
+        "frame": 281,
+        "mode": "material",
+        "camera": [
+          0.09,
+          -0.172,
+          0.045
+        ],
+        "target": [
+          0.032,
+          -0.126,
+          0.017
+        ],
+        "orthographicScale": 0.038,
+        "undersideFixture": false,
+        "sha256": "e4440e6fbfa58db4301e2d89dd2aacb134cd9039730e0874a9bbcb15fa445d18"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/renders/pokedex-v001-m3-hero-r06/material-button-released.png",
+        "frame": 271,
+        "mode": "material",
+        "camera": [
+          0.09,
+          -0.172,
+          0.045
+        ],
+        "target": [
+          0.032,
+          -0.126,
+          0.017
+        ],
+        "orthographicScale": 0.038,
+        "undersideFixture": false,
+        "sha256": "36ec22f1afed873f46b6d2a4c09b73045608c78e663ec353fc56b70cccf5eb36"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/renders/pokedex-v001-m3-hero-r06/material-port-closeup.png",
+        "frame": 1,
+        "mode": "material",
+        "camera": [
+          0.042,
+          -0.28,
+          0.039
+        ],
+        "target": [
+          0,
+          -0.161,
+          0.009
+        ],
+        "orthographicScale": 0.055,
+        "undersideFixture": false,
+        "sha256": "91081bc9bf7622be6f2966dd2d7a64ea3f853ab06ba8f29e042c2ec25f7c2348"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/renders/pokedex-v001-m3-hero-r06/material-sensor-closeup.png",
+        "frame": 165,
+        "mode": "material",
+        "camera": [
+          -0.1,
+          -0.16,
+          0.245
+        ],
+        "target": [
+          -0.017,
+          0.056,
+          0.163
+        ],
+        "orthographicScale": 0.083,
+        "undersideFixture": false,
+        "sha256": "7b0c5fc91124972f521e7fed8fb36958ebf0044e66d6320614e8ed15ae29598a"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/renders/pokedex-v001-m3-hero-r06/clay-open-three-quarter.png",
+        "frame": 165,
+        "mode": "clay",
+        "camera": [
+          0.265,
+          -0.38,
+          0.29
+        ],
+        "target": [
+          0,
+          -0.04,
+          0.074
+        ],
+        "orthographicScale": 0,
+        "undersideFixture": false,
+        "sha256": "66b004335f2013df08df7d6a0deffe4cbaf6491734b2a59a87b50e006518ba88"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/renders/pokedex-v001-m3-hero-r06/clay-closed-front.png",
+        "frame": 1,
+        "mode": "clay",
+        "camera": [
+          0,
+          -0.085,
+          0.5
+        ],
+        "target": [
+          0,
+          -0.085,
+          0.017
+        ],
+        "orthographicScale": 0.205,
+        "undersideFixture": false,
+        "sha256": "c2bd3a658343ba4d322acfa14c3a5320df1f905d6cc5f35bbb126b2569cef282"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/renders/pokedex-v001-m3-hero-r06/clay-closed-back.png",
+        "frame": 1,
+        "mode": "clay",
+        "camera": [
+          0,
+          -0.085,
+          0.5
+        ],
+        "target": [
+          0,
+          -0.085,
+          0.017
+        ],
+        "orthographicScale": 0.205,
+        "undersideFixture": true,
+        "sha256": "aab04723455da4264c42b71c84a28d4bc5f2e0363884cddb5d05fd88faaf5fc7"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/renders/pokedex-v001-m3-hero-r06/clay-closed-right.png",
+        "frame": 1,
+        "mode": "clay",
+        "camera": [
+          0.5,
+          -0.085,
+          0.017
+        ],
+        "target": [
+          0,
+          -0.085,
+          0.017
+        ],
+        "orthographicScale": 0.205,
+        "undersideFixture": false,
+        "sha256": "d99a1d025b99699236c001a66d87730b46049ea90c00723c0e30a46d9d343d84"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/renders/pokedex-v001-m3-hero-r06/clay-closed-left.png",
+        "frame": 1,
+        "mode": "clay",
+        "camera": [
+          -0.5,
+          -0.085,
+          0.017
+        ],
+        "target": [
+          0,
+          -0.085,
+          0.017
+        ],
+        "orthographicScale": 0.205,
+        "undersideFixture": false,
+        "sha256": "b3da66faa103cfda891ffdf51526f7042ca70c4d79a9f89b7359e9ed63dfc6c4"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/renders/pokedex-v001-m3-hero-r06/clay-open-front.png",
+        "frame": 165,
+        "mode": "clay",
+        "camera": [
+          0,
+          -0.6,
+          0.29
+        ],
+        "target": [
+          0,
+          -0.035,
+          0.083
+        ],
+        "orthographicScale": 0.32,
+        "undersideFixture": false,
+        "sha256": "0756a9efa1f5723782b7863e25a27a96b6f28afb9ecf2aeb265f115e6e5b4366"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/renders/pokedex-v001-m3-hero-r06/clay-closed-three-quarter.png",
+        "frame": 1,
+        "mode": "clay",
+        "camera": [
+          0.245,
+          -0.34,
+          0.3
+        ],
+        "target": [
+          0,
+          -0.085,
+          0.017
+        ],
+        "orthographicScale": 0,
+        "undersideFixture": false,
+        "sha256": "b5e72452241ff446924ecb8187789c7854e14583647c2aa5fd1a8b9a96c7d4df"
+      }
+    ]
+  },
+  "validation": {
+    "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/source/static-validation.json",
+    "bytes": 50743,
+    "sha256": "566f508fd9240de03cfa5caf7b5a042b1b3a4848abd6068fa74cf40ea1ac118e"
+  },
+  "independentReview": {
+    "path": "discovery/pokedex-device/audit/r06-repair-review.md",
+    "bytes": 2571,
+    "sha256": "a414b544b6f0e9584bf71a7f396cc8f270ff24a7e548b3ca68da4576fac9371f"
+  },
+  "visualReview": "Twenty-view grid and hero, closed, sensor, port and button closeups inspected. Actual Blender desktop checked.",
+  "knownLimits": [
+    "114 positive microscopic bevel slivers remain.",
+    "UV coverage/finite values checked; no exhaustive distortion or unique-atlas guarantee.",
+    "Same-assembly and hinge checks are sampled geometry audits.",
+    "Full revised video and runtime visual acceptance still pending."
+  ]
+}

@@ -112,7 +112,7 @@ def cut(target,cutter):
 def union(target,part):
     part.modifiers.clear()
     bpy.context.view_layer.objects.active=target
-    mod=target.modifiers.new('Integral mechanical solid','BOOLEAN');mod.operation='UNION';mod.solver='EXACT';mod.object=part
+    mod=target.modifiers.new('Integral mechanical solid','BOOLEAN');mod.operation='UNION';mod.solver='MANIFOLD';mod.object=part
     bpy.ops.object.modifier_move_to_index(modifier=mod.name,index=0)
     bpy.ops.object.modifier_apply(modifier=mod.name)
     bpy.data.objects.remove(part,do_unlink=True)
