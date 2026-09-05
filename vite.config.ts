@@ -3,6 +3,7 @@ import path from 'path';
 import fs from 'fs';
 import crypto from 'crypto';
 import { execFileSync } from 'node:child_process';
+import { fieldOsAssets } from './tools/pokedex-field-os/asset-plugin';
 import { pokedexPwa } from './tools/pokedex-pwa/plugin';
 import { pokedexDeviceAssets } from './tools/pokedex-device/asset-plugin';
 import { pokedexGenerationReviewAssets } from './tools/pokedex-generations/review-asset-plugin';
@@ -215,7 +216,7 @@ export default defineConfig(({ command, mode }) => {
     host: '0.0.0.0', // Zen/LAN + 127.0.0.1
     allowedHosts: ['0.taila30dc.ts.net'],
   },
-  plugins: [canonicalAcceptanceGate(), privateCanonicalSourceBoundary(privateBuild), shipGameContentOnly(privateBuild), pokedexDeviceAssets(privateBuild), pokedexGenerationReviewAssets(), pokedexPwa(privateBuild)],
+  plugins: [canonicalAcceptanceGate(), privateCanonicalSourceBoundary(privateBuild), shipGameContentOnly(privateBuild), pokedexDeviceAssets(privateBuild), pokedexGenerationReviewAssets(), fieldOsAssets(privateBuild), pokedexPwa(privateBuild)],
   define: {
     __PRIVATE_CANONICAL_BUILD__: JSON.stringify(privateBuild),
   },
@@ -231,7 +232,7 @@ export default defineConfig(({ command, mode }) => {
       // intentionally excluded from the production multi-page bundle.
       input: {
         main: path.resolve(__dirname, 'index.html'),
-        ...(privateBuild ? { pokedex: path.resolve(__dirname, 'pokedex.html'), pokedexDevice: path.resolve(__dirname, 'pokedex-device.html') } : {}),
+        ...(privateBuild ? { pokedex: path.resolve(__dirname, 'pokedex.html'), pokedexDevice: path.resolve(__dirname, 'pokedex-device.html'), pokedexReview: path.resolve(__dirname, 'pokedex-review.html') } : {}),
       },
     },
   },

@@ -16,14 +16,23 @@ const check = (name, pass, detail) => {
 };
 const context = await chromium.launchPersistentContext(fs.mkdtempSync(path.join(output, 'chromium-profile-')), {
   executablePath: '/usr/bin/chromium', headless: false, args: ['--no-sandbox', '--disable-gpu-sandbox'],
-  viewport: { width: 412, height: 892 }, deviceScaleFactor: 1, isMobile: true, hasTouch: true,
+  // The separate Field OS regression plays the 3D entry. This suite verifies
+  // installed/offline access with the supported direct-entry motion preference.
+  viewport: { width: 412, height: 892 }, deviceScaleFactor: 1, isMobile: true, hasTouch: true, reducedMotion: 'reduce',
 });
 const browser = context.browser();
+async function enterOs(page) {
+  if (await page.locator('#skip-opening').isVisible()) {
+    try { await page.locator('#skip-opening').click({ timeout: 5000 }); }
+    catch (error) { if (!(await page.locator('#field-os').isVisible())) throw error; }
+  }
+  await page.locator('#field-os').waitFor({ state: 'visible' });
+}
 try {
   const page = await context.newPage();
   page.on('pageerror', e => report.errors.push(e.message));
   page.setDefaultTimeout(15000);
-  await page.goto(`${base}/pokedex.html`);
+  await page.goto(`${base}/pokedex.html`); await enterOs(page);
   const manifestResponse = await context.request.get(`${base}/pokedex.webmanifest`);
   check('manifest available with JSON manifest MIME', manifestResponse.ok() && /application\/(manifest\+json|json)/.test(manifestResponse.headers()['content-type']));
   const manifest = await manifestResponse.json();
@@ -36,7 +45,7 @@ try {
     const bytes = await response.body(); shellBytes += bytes.length;
     check('compiled file hash ' + file, response.ok() && createHash('sha256').update(bytes).digest('hex') === hash);
   }
-  check('shell budget excludes models, APIs, research and main game', shellBytes < 150000 && release.files.length === 9 && release.files.every(file => !/private-assets|device-assets|GLTF|main-|\.map|api\/|references/.test(file)), { shellBytes, count: release.files.length });
+  check('offline Field OS includes six official images and excludes models, APIs and the main game', shellBytes < 2000000 && release.files.filter(file => file.startsWith('/field-os-assets/home/')).length === 6 && release.files.every(file => !/private-assets|device-assets|main-|\.glb|\.map|api\/|references/.test(file)), { shellBytes, count: release.files.length });
   for (const icon of manifest.icons) {
     const measurements = await page.evaluate(async src => {
       const image = new Image(); image.src = src; await image.decode();
@@ -58,15 +67,15 @@ try {
   const protocol = await context.newCDPSession(page);
   const installability = await protocol.send('Page.getInstallabilityErrors');
   check('Chromium reports no manifest/installability errors', installability.installabilityErrors.length === 0, installability);
-  await page.reload();
+  await page.reload(); await enterOs(page);
   await page.waitForFunction(() => navigator.serviceWorker.controller !== null);
   check('one-time hint stays dismissed after reload', !(await page.locator('#app-mode-tip').isVisible()));
   const worker = await page.evaluate(async () => ({ controller: navigator.serviceWorker.controller.scriptURL, caches: await caches.keys(), files: await Promise.all((await caches.keys()).filter(k => k.startsWith('pokedex-private-shell-')).map(async k => (await (await caches.open(k)).keys()).map(r => new URL(r.url).pathname))) }));
   check('actual browser service worker controls private app and caches exact release', worker.controller.endsWith('/pokedex-sw-v1.js') && worker.caches.includes(release.cacheName) && JSON.stringify(worker.files.flat().sort()) === JSON.stringify([...release.files].sort()), worker);
   await context.setOffline(true);
-  await page.reload();
+  await page.reload(); await enterOs(page);
   check('actual offline home-screen start URL loads and works', await page.locator('.home-grid').isVisible());
-  await page.goto(`${base}/pokedex.html?launch=homescreen`);
+  await page.goto(`${base}/pokedex.html?launch=homescreen`); await enterOs(page);
   await page.locator('[data-nav="dex"]').last().click();
   check('offline navigation and Pokédex entries work', await page.locator('[data-entry="1"]').isVisible());
   await page.locator('[data-entry="1"]').click();
@@ -120,9 +129,13 @@ try {
       };
     }, { mode });
     const p = await c.newPage(); p.on('pageerror', e => report.errors.push(e.message));
-    await p.goto(`${base}/pokedex.html`);
+    await p.goto(`${base}/pokedex.html`); await enterOs(p);
     await p.evaluate(safe => ['top', 'right', 'bottom', 'left'].forEach((edge, i) => document.documentElement.style.setProperty('--safe-' + edge, safe[i] + 'px')), safe);
     await p.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+    if (mode !== 'browser') await p.waitForFunction(() => {
+      const device = document.querySelector('.device'), r = device.getBoundingClientRect();
+      return r.x === 0 && r.y === 0 && r.width === innerWidth && r.height === innerHeight && getComputedStyle(device).borderTopLeftRadius === '0px';
+    }, undefined, { timeout: 3000 });
     const measure = () => p.evaluate(({ safe }) => {
       const rect = selector => document.querySelector(selector).getBoundingClientRect().toJSON();
       const selectors = ['#dock', '#audio-toggle', '#scan-trigger', '[data-action="back"]', '[data-action="confirm"]', ...Array.from(document.querySelectorAll('#dock button'), (_, i) => `#dock button:nth-child(${i + 1})`)];

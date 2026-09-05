@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1, viewport-fit=cover'>
+  <meta name='theme-color' content='#101419'>
+  <link rel='icon' href='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"%3E%3Ccircle cx="16" cy="16" r="13" fill="%23101419" stroke="%238befe7" stroke-width="3"/%3E%3C/svg%3E'>
+  <title>Pokédex · PD-01</title>
+</head>
+<body>
+  <header class='device-header'>
+    <a href='./pokedex.html' aria-label='Back to Pokédex'>‹ <span>POKÉDEX</span></a>
+    <span class='unit'>FIELD UNIT <b>PD-01</b></span>
+  </header>
+  <main id='device-review' aria-label='Interactive physical Pokédex'>
+    <div id='viewport' aria-label='Drag to rotate the Pokédex; pinch or scroll to zoom'></div>
+    <div class='readout'><span class='signal-dot'></span><span id='device-status' role='status' aria-live='polite'>Loading field unit…</span></div>
+    <button id='reset-view' class='reset-view' aria-label='Reset camera view'>↺</button>
+    <div id='load-error' role='alert' hidden><p id='error-message'></p><button id='retry'>Try again</button></div>
+    <footer class='device-footer'>
+      <p class='gesture-hint'>DRAG TO EXPLORE <span>·</span> PINCH TO GET CLOSER</p>
+      <div class='primary-controls'>
+        <button id='toggle-lid' class='primary' disabled>Open Pokédex <span>↗</span></button>
+        <button id='press-button' class='press-control' disabled aria-label='Press physical A button'>A</button>
+      </div>
+      <details class='inspector'>
+        <summary>Inspect the device <span>＋</span></summary>
+        <div class='inspection-options'>
+          <label id='candidate-control' hidden>Design <select id='candidate-selector'><option value=''>V1 · Historical prototype</option></select></label>
+          <p id='candidate-notice' hidden></p>
+          <label>Detail <select id='lod'><option value='0'>Close-up · LOD0</option><option value='1'>Mid-distance · LOD1</option><option value='2'>Distant · LOD2</option></select></label>
+          <label>Screen <select id='display-mode'><option value='original'>Authored display</option><option value='live'>Live field display</option></select></label>
+          <label>View <select id='camera-view'><option value='hero'>Three-quarter</option><option value='front'>Front</option><option value='side'>Hinge side</option><option value='underside'>Underside</option></select></label>
+          <p id='asset-metrics'></p>
+          <a id='render-video' href='https://0.taila30dc.ts.net:8445/assets/devices/pokedex-v001/video/pokedex-v001-r06-opening-boot.mp4'>Watch the Blender render ↗</a>
+          <a id='reference-comparison' hidden>Compare with the supplied board ↗</a>
+        </div>
+      </details>
+    </footer>
+  </main>
+  <script type='module' src='/src/pokedex/device.ts'></script>
+</body>
+</html>

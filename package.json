@@ -10,6 +10,7 @@
     "preview": "vite preview --port 4180 --strictPort",
     "typecheck": "tsc --noEmit",
     "test:battle": "node --experimental-strip-types tools/battle-golden.mjs",
+    "test:browser-field-os": "node tools/pokedex-field-os/regression.mjs",
     "test:pokedex": "node --test tools/pokedex.test.mjs",
     "test:pokedex-pwa": "node --test tools/pokedex-pwa/worker.test.mjs",
     "test:browser-pokedex-pwa": "node tools/pokedex-pwa/browser-check.mjs",

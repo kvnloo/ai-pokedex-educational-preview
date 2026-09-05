@@ -1,0 +1,60 @@
+{
+  "status": "browser-green/device-HITL-pending",
+  "baseRevision": "50930b314ad15b0d193f7d1d0c335311f7589ee4",
+  "functionalBaseline": "0f386a3",
+  "privateArtifactRoot": "/mnt/zer0models/pokemon-iac/devices/pokedex/field-os/r03",
+  "release": "f85e3ae295feec02",
+  "browserScenarios": 6,
+  "pwaChecks": 146,
+  "unitTests": 13,
+  "typechecks": [
+    "application",
+    "private asset and PWA plugins"
+  ],
+  "builds": [
+    "direct private Vite with canonical gate",
+    "public Vite with canonical gate"
+  ],
+  "publicBoundary": "no private Pok\u00e9dex files",
+  "review": "read-only reviewer found no blocking issues; offline bypass without reduced motion is not independently covered",
+  "realDeviceGate": "Kevin S25 installed app portrait/landscape, all species, scan, navigation, audio and physical controls",
+  "bootstrapLimitation": "Existing absent owner-supplied pokemon-kanto-art.bin fixture; gate unchanged",
+  "evidence": {
+    "functional/regression.json": {
+      "sha256": "b1704bd98351d160869fe04e455a12f4787cf8b3457df5c8d9f3ba143e026933",
+      "bytes": 1194
+    },
+    "pwa-final/browser-report.json": {
+      "sha256": "fdccb29a253bf4235dcaa6235998b4ccb4ed69ca542b69d47e4c89c24eeeaf79",
+      "bytes": 68991
+    },
+    "unit-tests.log": {
+      "sha256": "db57a42c0d093a81ff184dca5ba47e3c01b5e3c788e906db3975fb00f5eff812",
+      "bytes": 1238
+    },
+    "public-boundary.json": {
+      "sha256": "d8cb4c02a443e0516c1b0e89804addc7b6def1e9fbc23a93ad0b00f32cc40c2d",
+      "bytes": 83
+    },
+    "build/pokedex-pwa-release.json": {
+      "sha256": "d89d8807e496c33ea81696b9c63b0e4d5486e460f360e6cc6080854fa27fe0c4",
+      "bytes": 2769
+    },
+    "functional/dex-six-species.png": {
+      "sha256": "77d8b89cc0da439a38f64c4af6a050b85256c2e71a3fe8a652898dc40f6b5b8e",
+      "bytes": 214844
+    },
+    "functional/ready-live-bulbasaur.png": {
+      "sha256": "ee4afc220d7caa8ca672ead9fc4b0ec0544072e9832ad3ca9f7d700f5438a4c6",
+      "bytes": 268146
+    },
+    "pwa-final/landscape-892.png": {
+      "sha256": "9b164333d5fe320839c86f9b9b59a83812aa757da40fe09f4dce48d1a67d9614",
+      "bytes": 219679
+    },
+    "capture/regression.json": {
+      "sha256": "ec276bdebec19b7f6caf27acba2955bc19a48f13b1bc65108b7cedad5a0c49ea",
+      "bytes": 1220
+    }
+  }
+}

@@ -1,0 +1,20 @@
+#opening-stage { position: fixed; inset: 0; width: 100dvw; height: 100dvh; background: #101419; z-index: 30; display: grid; grid-template-rows: minmax(0, 1fr) auto; padding: env(safe-area-inset-top, 0px) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
+#opening-viewport { min-height: 0; cursor: pointer; }
+#opening-viewport canvas { display: block; }
+.opening-controls { width: min(100%, 440px); justify-self: center; display: grid; gap: 10px; text-align: center; }
+#opening-status { font-size: 16px; min-height: 24px; }
+.opening-controls button { min-height: 48px; border: 1px solid #6cbaa1; border-radius: 12px; padding: 12px; font: 700 16px system-ui; cursor: pointer; }
+#open-pokedex { background: var(--lime); color: #071010; }
+#open-pokedex:disabled { opacity: .55; cursor: wait; }
+#skip-opening { background: #152d27; color: var(--mint); }
+.specimen img { width: min(100%, 280px); max-height: 260px; object-fit: contain; }
+.dex-row { grid-template-columns: 56px minmax(0, 1fr) auto; color: var(--mint); text-align: left; cursor: pointer; min-height: 68px; }
+.dex-row img { width: 56px; height: 56px; object-fit: contain; }
+.dex-row strong { display: block; font-size: 17px; }
+.dex-row small { display: block; font-size: 10px; }
+.dex-row .number { font-size: 10px; }
+.target img { width: 100%; height: 100%; object-fit: contain; }
+.target:has(img) { background: none; border-radius: 0; }
+.browse-pokemon { width: 100%; margin-bottom: 12px; font-size: 12px; }
+@media(max-width:760px) { .dex-row { padding: 5px 8px; gap: 8px; } .specimen { min-height: 190px; } .specimen img { max-height: 220px; } }
+@media(orientation: landscape) and (max-height:500px) { #opening-stage { grid-template-columns: minmax(0, 1fr) min(36vw, 320px); grid-template-rows: 1fr; gap: 16px; } .opening-controls { align-self: center; } }

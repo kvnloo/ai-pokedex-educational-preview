@@ -14,8 +14,8 @@
   <link rel="stylesheet" href="/src/pokedex/pokedex.css" />
 </head>
 <body>
-  <main class="device" aria-label="Field Pokédex">
-    <div class="hardware-bar"><a class="lens" href="./pokedex-device.html" aria-label="Inspect physical Pokédex in 3D"><i></i></a><span class="led red"></span><span class="led amber"></span><span class="led green"></span><b>FIELD UNIT // KANTO</b><button id="audio-toggle" aria-label="Toggle audio">AUDIO OFF</button><button id="app-mode-tip" aria-label="Install Pokédex or enter fullscreen" aria-haspopup="dialog" hidden>APP ↗</button></div>
+  <main id="field-os" class="device" aria-label="Field Pokédex">
+    <div class="hardware-bar"><span class="lens" aria-hidden="true"><i></i></span><span class="led red"></span><span class="led amber"></span><span class="led green"></span><b>FIELD UNIT // KANTO</b><button id="audio-toggle" aria-label="Toggle audio">AUDIO OFF</button><button id="app-mode-tip" aria-label="Install Pokédex or enter fullscreen" aria-haspopup="dialog" hidden>APP ↗</button></div>
     <section class="screen" id="screen">
       <div class="scanlines"></div>
       <header class="statusbar"><span id="clock">09:41</span><strong id="route-label">ROUTE 1 · NORTH FIELD</strong><span>22° ☀︎ · <i class="battery">87</i>%</span></header>
@@ -29,6 +29,14 @@
       <div class="face-buttons"><button data-action="back" aria-label="Back">B</button><button data-action="confirm" aria-label="Confirm">A</button></div>
     </aside>
   </main>
+  <section id="opening-stage" aria-label="Open your Pokédex" hidden>
+    <div id="opening-viewport" aria-label="Physical Pokédex opening animation"></div>
+    <div class="opening-controls">
+      <p id="opening-status" role="status" aria-live="polite">Loading your field unit…</p>
+      <button id="open-pokedex" disabled>Open Pokédex</button>
+      <button id="skip-opening">Open Field OS directly</button>
+    </div>
+  </section>
   <dialog id="display-options" aria-labelledby="display-title" aria-describedby="display-explanation">
     <div class="display-heading"><p class="eyebrow">FIELD UNIT · <span id="display-mode">Browser tab</span></p><button id="close-display-options" aria-label="Close display options" autofocus>✕</button></div>
     <h2 id="display-title">Your pocket Pokédex.</h2>
