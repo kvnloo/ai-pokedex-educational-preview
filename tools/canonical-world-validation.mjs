@@ -25,7 +25,12 @@ export function validateCanonicalCorpus(corpus) {
   const locationIds = new Set(corpus.locations.locations.map((x) => x.id));
   const arcIds = new Set(corpus.arcs.arcs.map((x) => x.id));
   const mapsById = new Map(corpus.maps.maps.map((x) => [x.id, x]));
-  const mapsByGameLocation = new Map(corpus.maps.maps.map((x) => [`${x.gameId}\0${x.locationId}`, x]));
+  const mapsByGameLocation = new Map();
+  for (const map of corpus.maps.maps) {
+    const key = `${map.gameId}\0${map.locationId}`;
+    if (mapsByGameLocation.has(key)) fail(`ambiguous map for ${map.gameId} at ${map.locationId}`);
+    mapsByGameLocation.set(key, map);
+  }
   const nestedIds = new Set();
 
   const visitProvenance = (value, path) => {
@@ -66,6 +71,10 @@ export function validateCanonicalCorpus(corpus) {
     }
     for (const edge of map.connections) {
       requireRef(locationIds, edge.to, edge.id);
+      // Offsets are normalized graph displacement, not source-engine tile
+      // offsets. Permit lateral displacement but require forward progress.
+      const forward = { north: edge.offset[1], south: -edge.offset[1], east: edge.offset[0], west: -edge.offset[0] }[edge.direction];
+      if (!(forward > 0)) fail(`${edge.id} offset contradicts ${edge.direction} direction`);
       const target = mapsByGameLocation.get(`${map.gameId}\0${edge.to}`);
       if (!target) fail(`${edge.id} has no target map in ${map.gameId}`);
       const reverses = target.connections.filter((x) => x.to === map.locationId);
@@ -81,6 +90,7 @@ export function validateCanonicalCorpus(corpus) {
     for (const warp of map.warps) {
       const target = mapsById.get(warp.toMap);
       if (!target) fail(`${warp.id} references missing map ${warp.toMap}`);
+      if (target.gameId !== map.gameId) fail(`${warp.id} crosses game versions from ${map.gameId} to ${target.gameId}`);
       if (warp.oneWay) {
         if (warp.reciprocalWarpId !== null) fail(`${warp.id} is one-way but retains reciprocalWarpId`);
       } else {
@@ -98,6 +108,14 @@ export function validateCanonicalCorpus(corpus) {
   for (const id of runtime.path) {
     requireRef(locationIds, id, 'runtime.path');
     if (!mapsByGameLocation.has(`${runtime.activeGameId}\0${id}`)) fail(`runtime.path lacks active-game map ${id}`);
+  }
+  for (let index = 1; index < runtime.path.length; index++) {
+    const source = mapsByGameLocation.get(`${runtime.activeGameId}\0${runtime.path[index - 1]}`);
+    const target = mapsByGameLocation.get(`${runtime.activeGameId}\0${runtime.path[index]}`);
+    if (!source.connections.some((edge) => edge.to === target.locationId)
+      && !source.warps.some((warp) => warp.toMap === target.id)) {
+      fail(`runtime.path transition ${source.locationId} -> ${target.locationId} has no connection or warp in ${runtime.activeGameId}`);
+    }
   }
   for (const id of Object.keys(runtime.coordinates)) requireRef(locationIds, id, 'runtime.coordinates');
   if (Object.keys(runtime.coordinates).length !== runtime.path.length || runtime.path.some((id) => !(id in runtime.coordinates))) fail('runtime coordinates and path differ');

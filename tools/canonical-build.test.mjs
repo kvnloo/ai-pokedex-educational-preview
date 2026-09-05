@@ -9,7 +9,7 @@ import { fileURLToPath } from 'node:url';
 const root = fileURLToPath(new URL('..', import.meta.url));
 
 for (const mode of ['production', 'private-local']) {
-  for (const defect of ['schema', 'chronology']) {
+  for (const defect of ['schema', 'chronology', 'topology']) {
     test(`direct Vite ${mode} build rejects ${defect} drift before bundling`, () => {
       // Only disposable fixtures live in tmp; test logs/evidence are captured
       // by the caller. Never mutate the real canonical corpus to test rejection.
@@ -26,10 +26,11 @@ for (const mode of ['production', 'private-local']) {
         cpSync(join(root, 'src/world/canonicalWorld.ts'), join(fixture, 'src/world/canonicalWorld.ts'));
         symlinkSync(join(root, 'node_modules'), join(fixture, 'node_modules'), 'dir');
         writeFileSync(join(fixture, 'index.html'), '<p>Build gate fixture</p>');
-        const file = join(fixture, 'canonical/ash/events/kanto-opening.json');
+        const file = join(fixture, defect === 'topology' ? 'canonical/runtime/kanto-opening.json' : 'canonical/ash/events/kanto-opening.json');
         const document = JSON.parse(readFileSync(file, 'utf8'));
         if (defect === 'schema') delete document.events[0].provenance.sourceId;
-        else document.events[1].order = document.events[0].order;
+        else if (defect === 'chronology') document.events[1].order = document.events[0].order;
+        else [document.path[1], document.path[4]] = [document.path[4], document.path[1]];
         writeFileSync(file, JSON.stringify(document));
         const result = spawnSync(process.execPath, [join(root, 'node_modules/vite/bin/vite.js'), 'build', '--mode', mode], {
           cwd: fixture, encoding: 'utf8', timeout: 30_000,
@@ -38,7 +39,11 @@ for (const mode of ['production', 'private-local']) {
         assert.notEqual(result.status, 0, 'malformed canonical content must fail the real build');
         const output = result.stdout + result.stderr;
         assert.match(output, /canonical-acceptance-gate/);
-        assert.match(output, defect === 'schema' ? /required property 'sourceId'/ : /duplicate Ash event order/);
+        assert.match(output, {
+          schema: /required property 'sourceId'/,
+          chronology: /duplicate Ash event order/,
+          topology: /runtime.path transition/,
+        }[defect]);
         assert.doesNotMatch(output, /built in/);
       } finally {
         rmSync(fixture, { recursive: true, force: true });

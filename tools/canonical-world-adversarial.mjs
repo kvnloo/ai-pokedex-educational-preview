@@ -22,6 +22,32 @@ const rejects = (name, mutate) => {
 validateCanonicalCorpus(valid);
 rejects('duplicate Ash order within arc', (c) => { c.events.events[1].order = c.events.events[0].order; });
 rejects('duplicate arc order', (c) => { c.arcs.arcs.push({ ...structuredClone(c.arcs.arcs[0]), id: 'arc:ash:test' }); });
+rejects('nonadjacent runtime traversal', (c) => { [c.runtime.path[1], c.runtime.path[4]] = [c.runtime.path[4], c.runtime.path[1]]; });
+rejects('ambiguous map for version/location', (c) => { c.maps.maps.push({ ...structuredClone(c.maps.maps[0]), id: 'map:test:duplicate', connections: [], warps: [] }); });
+rejects('reciprocal warps cross game versions', (c) => {
+  const a = c.maps.maps[0];
+  const b = c.maps.maps.find((map) => map.gameId !== a.gameId);
+  const wa = a.warps[0], wb = b.warps[0];
+  for (const warp of [wa, wb]) {
+    const formerTarget = c.maps.maps.find((map) => map.id === warp.toMap);
+    formerTarget.warps = formerTarget.warps.filter((reverse) => reverse.id !== warp.reciprocalWarpId);
+  }
+  wa.toMap = b.id; wa.reciprocalWarpId = wb.id;
+  wb.toMap = a.id; wb.reciprocalWarpId = wa.id;
+});
+rejects('one-way warp crosses game versions', (c) => {
+  const source = c.maps.maps[0], warp = source.warps[0];
+  const formerTarget = c.maps.maps.find((map) => map.id === warp.toMap);
+  formerTarget.warps = formerTarget.warps.filter((reverse) => reverse.id !== warp.reciprocalWarpId);
+  warp.oneWay = true; warp.reciprocalWarpId = null;
+  warp.toMap = c.maps.maps.find((map) => map.gameId !== source.gameId).id;
+});
+rejects('reciprocal offsets contradict both directions', (c) => {
+  const source = c.maps.maps[0], edge = source.connections[0];
+  const target = c.maps.maps.find((map) => map.gameId === source.gameId && map.locationId === edge.to);
+  edge.offset = [1, 0];
+  target.connections.find((reverse) => reverse.to === source.locationId).offset = [-1, 0];
+});
 rejects('nested provenance -> source', (c) => { c.maps.maps[0].connections[0].provenance.sourceId = 'source:missing'; });
 rejects('event -> arc', (c) => { c.events.events[0].arcId = 'arc:missing'; });
 rejects('arc -> region', (c) => { c.arcs.arcs[0].regionId = 'region:missing'; });
@@ -50,4 +76,19 @@ nextArc.arcs.arcs.push({ ...structuredClone(nextArc.arcs.arcs[0]), id: 'arc:ash:
 nextArc.events.events.push({ ...structuredClone(nextArc.events.events[0]), id: 'story-event:ash:next', arcId: 'arc:ash:next' });
 validateCanonicalCorpus(nextArc);
 
-console.log('canonical-world adversarial: 18 malformed cases rejected; arc-local ordering, shuffled records and anime revisits accepted');
+// Intentional same-version one-way entrances remain valid. Topology is directed:
+// deleting a return must not delete the permitted outward campaign transition.
+const oneWay = structuredClone(valid);
+const source = oneWay.maps.maps.find((map) => map.gameId === oneWay.runtime.activeGameId && map.locationId === oneWay.runtime.path[0]);
+const edge = source.connections[0], warp = source.warps[0];
+const target = oneWay.maps.maps.find((map) => map.id === warp.toMap);
+edge.oneWay = true;
+target.connections = target.connections.filter((reverse) => reverse.to !== source.locationId);
+target.warps = target.warps.filter((reverse) => reverse.id !== warp.reciprocalWarpId);
+warp.oneWay = true; warp.reciprocalWarpId = null;
+validateCanonicalCorpus(oneWay);
+oneWay.runtime.path = oneWay.runtime.path.slice(0, 2).reverse();
+oneWay.runtime.coordinates = Object.fromEntries(oneWay.runtime.path.map((id) => [id, oneWay.runtime.coordinates[id]]));
+assert.throws(() => validateCanonicalCorpus(oneWay), /runtime.path transition/, 'one-way entrance cannot be traversed backwards');
+
+console.log('canonical-world adversarial: 24 malformed cases rejected; arc-local ordering, shuffled records, anime revisits and explicit one-way travel accepted');
