@@ -20,6 +20,8 @@ const rejects = (name, mutate) => {
 };
 
 validateCanonicalCorpus(valid);
+rejects('duplicate Ash order within arc', (c) => { c.events.events[1].order = c.events.events[0].order; });
+rejects('duplicate arc order', (c) => { c.arcs.arcs.push({ ...structuredClone(c.arcs.arcs[0]), id: 'arc:ash:test' }); });
 rejects('nested provenance -> source', (c) => { c.maps.maps[0].connections[0].provenance.sourceId = 'source:missing'; });
 rejects('event -> arc', (c) => { c.events.events[0].arcId = 'arc:missing'; });
 rejects('arc -> region', (c) => { c.arcs.arcs[0].regionId = 'region:missing'; });
@@ -37,4 +39,15 @@ rejects('one-way warp retains reciprocal id', (c) => { c.maps.maps[0].warps[0].o
 rejects('two-way warp lacks reciprocal id', (c) => { c.maps.maps[0].warps[0].reciprocalWarpId = null; });
 rejects('reciprocal warp points wrong map', (c) => { c.maps.maps[1].warps[0].toMap = c.maps.maps[1].id; });
 
-console.log('canonical-world adversarial: 16 malformed provenance, reference, uniqueness, reciprocal, direction and one-way cases rejected');
+// Ordering belongs to the anime plane. Array order and revisits are not errors,
+// and each arc may start its own event sequence at one.
+const reordered = structuredClone(valid);
+reordered.events.events.reverse();
+reordered.events.events[0].locationId = reordered.events.events.at(-1).locationId;
+validateCanonicalCorpus(reordered);
+const nextArc = structuredClone(valid);
+nextArc.arcs.arcs.push({ ...structuredClone(nextArc.arcs.arcs[0]), id: 'arc:ash:next', order: 2 });
+nextArc.events.events.push({ ...structuredClone(nextArc.events.events[0]), id: 'story-event:ash:next', arcId: 'arc:ash:next' });
+validateCanonicalCorpus(nextArc);
+
+console.log('canonical-world adversarial: 18 malformed cases rejected; arc-local ordering, shuffled records and anime revisits accepted');

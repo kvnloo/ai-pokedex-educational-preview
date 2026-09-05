@@ -2,6 +2,22 @@ import { defineConfig, type Plugin } from 'vite';
 import path from 'path';
 import fs from 'fs';
 import crypto from 'crypto';
+import { execFileSync } from 'node:child_process';
+
+// Enforce the same executable AJV + graph gate even for direct Vite invocations
+// and private builds, before any bundle is emitted.
+function canonicalAcceptanceGate(): Plugin {
+  return {
+    name: 'canonical-acceptance-gate',
+    apply: 'build',
+    buildStart() {
+      execFileSync(process.execPath, [
+        '--experimental-strip-types',
+        path.resolve(__dirname, 'tools/canonical-world-golden.mjs'),
+      ], { cwd: __dirname, stdio: 'inherit' });
+    },
+  };
+}
 
 const PRIVATE_ASSET_ROOT = process.env.POKEMON_PRIVATE_ASSET_ROOT
   ?? '/mnt/zer0models/pokemon_anime/pipeline/pokeapi';
@@ -40,6 +56,7 @@ function privateAssetMiddleware(req: { url?: string }, res: import('http').Serve
  */
 function shipGameContentOnly(includePrivatePack: boolean): Plugin {
   const gameSrc = path.resolve(__dirname, 'content/game');
+  let bundleWritten = false;
 
   const copyGame = (outDir: string) => {
     const dest = path.join(outDir, 'content', 'game');
@@ -123,11 +140,15 @@ function shipGameContentOnly(includePrivatePack: boolean): Plugin {
       server.middlewares.use(privateAssetMiddleware);
     },
     writeBundle() {
+      bundleWritten = true;
       const outDir = path.resolve(__dirname, 'dist');
       stripWarehouse(outDir);
       copyGame(outDir);
     },
     closeBundle() {
+      // Rollup also closes after buildStart rejects. Do not modify output or
+      // mask the validation error when the canonical gate has failed.
+      if (!bundleWritten) return;
       // Second pass after any late public copies
       const outDir = path.resolve(__dirname, 'dist');
       stripWarehouse(outDir);
@@ -187,7 +208,7 @@ export default defineConfig(({ command, mode }) => {
     strictPort: true,
     host: '0.0.0.0', // Zen/LAN + 127.0.0.1
   },
-  plugins: [privateCanonicalSourceBoundary(privateBuild), shipGameContentOnly(privateBuild)],
+  plugins: [canonicalAcceptanceGate(), privateCanonicalSourceBoundary(privateBuild), shipGameContentOnly(privateBuild)],
   define: {
     __PRIVATE_CANONICAL_BUILD__: JSON.stringify(privateBuild),
   },

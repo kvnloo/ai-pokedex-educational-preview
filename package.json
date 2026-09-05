@@ -13,6 +13,7 @@
     "test:field": "node --experimental-strip-types --test tools/echoing-stone.test.mjs",
     "test:canonical-world": "node --experimental-strip-types tools/canonical-world-golden.mjs",
     "test:canonical-adversarial": "node tools/canonical-world-adversarial.mjs",
+    "test:canonical-build": "node --test tools/canonical-build.test.mjs",
     "test:browser-canonical": "node tools/browser-objective.mjs",
     "test:browser-evidence-manifest": "node tools/browser-evidence-manifest-golden.mjs --require-private",
     "test:ship-boundary": "node tools/ship-boundary-golden.mjs",

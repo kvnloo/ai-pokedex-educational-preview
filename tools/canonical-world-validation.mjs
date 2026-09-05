@@ -42,10 +42,19 @@ export function validateCanonicalCorpus(corpus) {
 
   for (const region of corpus.regions.regions) for (const id of region.gameIds) requireRef(gameIds, id, region.id);
   for (const location of corpus.locations.locations) requireRef(regionIds, location.regionId, location.id);
-  for (const arc of corpus.arcs.arcs) requireRef(regionIds, arc.regionId, arc.id);
+  const arcOrders = new Set();
+  for (const arc of corpus.arcs.arcs) {
+    requireRef(regionIds, arc.regionId, arc.id);
+    if (arcOrders.has(arc.order)) fail(`duplicate arc order ${arc.order}`);
+    arcOrders.add(arc.order);
+  }
+  const eventOrders = new Set();
   for (const event of corpus.events.events) {
     requireRef(arcIds, event.arcId, event.id);
     requireRef(locationIds, event.locationId, event.id);
+    const key = `${event.arcId}\0${event.order}`;
+    if (eventOrders.has(key)) fail(`duplicate Ash event order ${event.order} in ${event.arcId}`);
+    eventOrders.add(key);
   }
 
   for (const map of corpus.maps.maps) {
