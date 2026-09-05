@@ -1,0 +1,53 @@
+{
+  "stage": "M2-motion-preview-not-final-asset",
+  "createdAt": "2026-09-05T17:13:18.820138+00:00",
+  "artifacts": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/source/pokedex-v001-m2-animation.blend",
+      "sha256": "3ddadfe27d02103ba0e75522c6c9e8e86dcf8bd0541eb7dbfde4c591575d5de1",
+      "bytes": 3133680
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/video/pokedex-m2-opening-boot-preview.mp4",
+      "sha256": "3554768f11e2a2cdedf9b57872e0533833453520861c8e43239b24ce1802bb7e",
+      "bytes": 516151
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/video/m2-storyboard.png",
+      "sha256": "a5f3763c639051ebd31d51b7c7ff367810bd14648e965d8796fdf1b76419f93e",
+      "bytes": 686774
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/video/m2-frames/render-job.json",
+      "sha256": "03ec5ecf99910a850b69fec2395fe468fbea4072348b624bde55c4ed2c181774",
+      "bytes": 310
+    }
+  ],
+  "video": {
+    "codec": "H264",
+    "resolution": [
+      768,
+      768
+    ],
+    "fps": 30,
+    "frames": 294,
+    "duration": 9.8
+  },
+  "visualInspection": {
+    "browserPage": 12,
+    "browserURL": "https://0.taila30dc.ts.net:8445/assets/devices/pokedex-v001/video/pokedex-m2-opening-boot-preview.mp4",
+    "playedToEnd": true,
+    "mediaError": null,
+    "playbackFramesReported": 588,
+    "droppedFramesReported": 3,
+    "inspected": "Actual browser video frames at closed, mid-opening and boot, plus extracted ten-frame storyboard covering closed/opening/boot/ready/idle/button.",
+    "observations": [
+      "Real lid motion and staged screen wake/progress are visible.",
+      "Static camera: opening comes from the hinge geometry.",
+      "Closed side gap is too open; return skirt added in the following mechanical revision.",
+      "Camera lens reflection reads too pale; updated material is in the following surface revision.",
+      "Button travel is subtle at whole-device framing; dedicated control closeup still required."
+    ]
+  },
+  "limitation": "This preview uses the frozen pre-fit-repair M2 source. It is a motion milestone, not final asset acceptance or proof of current mechanical corrections. Export/reopen and final revision video still required."
+}
