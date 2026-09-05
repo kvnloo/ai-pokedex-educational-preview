@@ -38,6 +38,8 @@ Private evidence root: `/mnt/zer0models/pokemon-iac/devices/pokedex/field-os/`.
 
 The PWA suite uses reduced-motion direct entry because the functional suite separately exercises the animated handoff. It waits for installed dimensions to settle, then applies the same strict viewport/zero-radius assertions. Earlier `pwa`, `pwa-b`, and `pwa-c` reports are retained as failed diagnostic attempts, not acceptance evidence. The initial headed video capture has incorrect compositor scaling and is rejected as a preview; screenshots and functional assertions remain separately inspected. The replacement capture is labeled with its browser mode.
 
+Final review capture: `r03/capture/opening-to-live-os.mp4`, 412×892 H.264/yuv420p, 25 fps, 22.16 seconds, 395663 bytes. This records the real application in headless Chromium and was played through in the browser, with extracted frames and the final live Bulbasaur entry inspected. It includes loading and preserves the original timing; it is not a phone GPU benchmark. The six functional scenarios also pass in this capture run. The read-only code reviewer found no blocking issues and independently verified all cache hashes; the non-reduced-motion offline early-return branch is not independently covered.
+
 Run against a compiled private preview with the pinned Node runtime:
 
 ```sh
@@ -53,8 +55,12 @@ The browser tools use installed Chromium and the existing Playwright module at `
 
 Only after the replacement passes, switch the existing Tailscale 8469 handler in one operation to its compiled preview. Preserve the former build and record the old/new mapping, release hashes and post-cutover HTTPS checks. Do not merge or push. The delivery receipt records the exact implementation revision and URL.
 
+Completed cutover: implementation `fa975753269125aebcf471a04515664b90d7fc7c`, release `f85e3ae295feec02`, compiled directory `r03/build`, preview port 5197. The single 8469 handler changed from 4191 to 5197 after local acceptance. All other Tailscale handlers are unchanged. `r03/published/regression.json` confirms all six functional scenarios on the actual HTTPS URL; `r03/published-http.json` confirms 21 published file/hash checks. The old 4191 build was not modified. These results remain browser-green/device-HITL-pending.
+
 On the S25, open `https://0.taila30dc.ts.net:8469/pokedex.html`, tap Open Pokédex and wait for the live Home screen. Tap Browse Pokémon or the persistent Dex dock button. Confirm all six species and open an entry. Press Scan to identify/register Pidgey, then visit Research, Map, Party and Tools; B returns Home. The direct-entry button is available if animation is unwanted.
 
 For an installed experience, Chrome offers Add to Home screen → Install; Samsung Internet provides its home-screen/install action. Launch the installed icon. Normal browser tabs retain browser chrome. Existing open PWA sessions retain their coherent cache until closed; close older Pokédex app windows before retesting a newly installed release. Actual installed layout, touch gestures, orientation, audio output and GPU performance remain Kevin's S25 gate.
 
 This preserves the original demo's scope. Scan is a scripted Pidgey encounter, utility cards mostly report readiness, cries are procedural, and research/party changes are session state rather than a new save system. No complete-game or S+ asset claim is made by this repair.
+
+Telegram delivery succeeded as message `16686`, containing the published URL, six-species image and corrected opening-to-live-OS video. The success receipt is pinned in `canonical/devices/field-os/delivery-r03.json`.

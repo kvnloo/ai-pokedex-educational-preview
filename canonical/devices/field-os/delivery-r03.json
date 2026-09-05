@@ -1,0 +1,186 @@
+{
+  "checkedAt": "2026-09-05T22:11:31.417667+00:00",
+  "url": "https://0.taila30dc.ts.net:8469/pokedex.html",
+  "implementationRevision": "fa975753269125aebcf471a04515664b90d7fc7c",
+  "release": "f85e3ae295feec02",
+  "oldTarget": "http://127.0.0.1:4191",
+  "newTarget": "http://127.0.0.1:5197",
+  "changedHandlers": [
+    "0.taila30dc.ts.net:8469"
+  ],
+  "checks": [
+    {
+      "file": "/assets/deviceRuntime-BTW9bgy7.js",
+      "status": 200,
+      "bytes": 5755,
+      "pass": true
+    },
+    {
+      "file": "/assets/entryScene-2YyavQN4.js",
+      "status": 200,
+      "bytes": 7026,
+      "pass": true
+    },
+    {
+      "file": "/assets/GLTFLoader-Dpw6OIPi.js",
+      "status": 200,
+      "bytes": 662422,
+      "pass": true
+    },
+    {
+      "file": "/assets/modulepreload-polyfill-B5Qt9EMX.js",
+      "status": 200,
+      "bytes": 771,
+      "pass": true
+    },
+    {
+      "file": "/assets/pokedex-BlmFn2Az.js",
+      "status": 200,
+      "bytes": 16266,
+      "pass": true
+    },
+    {
+      "file": "/assets/pokedex-D11POyZQ.css",
+      "status": 200,
+      "bytes": 18177,
+      "pass": true
+    },
+    {
+      "file": "/field-os-assets/home/1.png",
+      "status": 200,
+      "bytes": 143991,
+      "pass": true
+    },
+    {
+      "file": "/field-os-assets/home/10.png",
+      "status": 200,
+      "bytes": 124816,
+      "pass": true
+    },
+    {
+      "file": "/field-os-assets/home/16.png",
+      "status": 200,
+      "bytes": 101705,
+      "pass": true
+    },
+    {
+      "file": "/field-os-assets/home/4.png",
+      "status": 200,
+      "bytes": 107318,
+      "pass": true
+    },
+    {
+      "file": "/field-os-assets/home/7.png",
+      "status": 200,
+      "bytes": 114376,
+      "pass": true
+    },
+    {
+      "file": "/field-os-assets/home/74.png",
+      "status": 200,
+      "bytes": 70203,
+      "pass": true
+    },
+    {
+      "file": "/pokedex-icons/pokedex-any-192.png",
+      "status": 200,
+      "bytes": 4546,
+      "pass": true
+    },
+    {
+      "file": "/pokedex-icons/pokedex-any-512.png",
+      "status": 200,
+      "bytes": 16272,
+      "pass": true
+    },
+    {
+      "file": "/pokedex-icons/pokedex-maskable-192.png",
+      "status": 200,
+      "bytes": 4973,
+      "pass": true
+    },
+    {
+      "file": "/pokedex-icons/pokedex-maskable-512.png",
+      "status": 200,
+      "bytes": 16556,
+      "pass": true
+    },
+    {
+      "file": "/pokedex.html",
+      "status": 200,
+      "bytes": 4288,
+      "pass": true
+    },
+    {
+      "file": "/pokedex.webmanifest",
+      "status": 200,
+      "bytes": 1005,
+      "pass": true
+    },
+    {
+      "file": "/pokedex-sw-v1.js",
+      "status": 200,
+      "bytes": 4061,
+      "sha256": "711017c8f0574b1f3f6ac06c35f9f6a48c20c8134700b3aafd90b095eff61351",
+      "pass": true
+    },
+    {
+      "file": "/pokedex-device.html",
+      "status": 200,
+      "bytes": 417,
+      "sha256": "b5deea85df7873d7664fce65592cf12edb4dd602aacec374bb89768c365c7628",
+      "pass": true
+    },
+    {
+      "file": "/field-os-assets/pokedex-opening-v003-r08.glb",
+      "status": 200,
+      "bytes": 5697808,
+      "sha256": "c6ca8c9335408af0842104f2a5f023955309e72e907ee7ada68fb820085fd733",
+      "pass": true
+    }
+  ],
+  "deviceAcceptance": "pending Kevin S25 retest",
+  "status": "browser-green/device-HITL-pending",
+  "publishedScenarios": 6,
+  "evidence": {
+    "published-http.json": {
+      "privatePath": "/mnt/zer0models/pokemon-iac/devices/pokedex/field-os/r03/published-http.json",
+      "sha256": "bbd1be5943072f304ce965ff1527d83d970b81963162c9dca0e6b620662e2222",
+      "bytes": 3240
+    },
+    "published/regression.json": {
+      "privatePath": "/mnt/zer0models/pokemon-iac/devices/pokedex/field-os/r03/published/regression.json",
+      "sha256": "ea6dbd42d41499048d8779fcb721554eeacfcffb2bb53cbf530f449a9a4968b3",
+      "bytes": 1230
+    },
+    "capture/opening-to-live-os.mp4": {
+      "privatePath": "/mnt/zer0models/pokemon-iac/devices/pokedex/field-os/r03/capture/opening-to-live-os.mp4",
+      "sha256": "78309c1cbf3e038e6b9ff7e810fd3c740c9eb4408ae71d2f69497248f926dd59",
+      "bytes": 395663
+    },
+    "capture/ready-live-bulbasaur.png": {
+      "privatePath": "/mnt/zer0models/pokemon-iac/devices/pokedex/field-os/r03/capture/ready-live-bulbasaur.png",
+      "sha256": "6a6ee1e187ac0bb40855f220eb5de7a5e7368f3a985588483638972bb1b3f040",
+      "bytes": 300805
+    },
+    "functional/dex-six-species.png": {
+      "privatePath": "/mnt/zer0models/pokemon-iac/devices/pokedex/field-os/r03/functional/dex-six-species.png",
+      "sha256": "77d8b89cc0da439a38f64c4af6a050b85256c2e71a3fe8a652898dc40f6b5b8e",
+      "bytes": 214844
+    },
+    "pwa-final/landscape-892.png": {
+      "privatePath": "/mnt/zer0models/pokemon-iac/devices/pokedex/field-os/r03/pwa-final/landscape-892.png",
+      "sha256": "9b164333d5fe320839c86f9b9b59a83812aa757da40fe09f4dce48d1a67d9614",
+      "bytes": 219679
+    }
+  },
+  "telegram": {
+    "success": true,
+    "platform": "telegram",
+    "chat_id": "1083429746",
+    "message_id": "16686",
+    "mirrored": true,
+    "receiptPath": "/mnt/zer0models/pokemon-iac/devices/pokedex/field-os/r03/telegram-delivery.json",
+    "sha256": "ff961aef2cc639baa23314481dd40495f5f8289c0742a02b158448c00bd04fb9"
+  }
+}
