@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "assetId": "device:pokedex:clamshell:v001",
+  "scope": "private-local",
+  "assetRoot": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001",
+  "sourceRevision": "r06",
+  "source": "source/pokedex-v001-m3-hero-r06.blend",
+  "lods": [
+    {
+      "level": 0,
+      "filename": "pokedex-v001-lod0.glb",
+      "sha256": "79a05ebfe553ecf2aa8795e21c37f4d08eb1a26b899608f5fefeb6c5de922a2a",
+      "bytes": 8079808,
+      "triangles": 72307,
+      "meshObjects": 48,
+      "maximumSuggestedScreenHeightPixels": null
+    },
+    {
+      "level": 1,
+      "filename": "pokedex-v001-lod1.glb",
+      "sha256": "9461a3d60ccc4e40b9ad8bcc92fa764fc091f0e44e4bddc69401e8d360f5a202",
+      "bytes": 4731616,
+      "triangles": 28426,
+      "meshObjects": 48,
+      "maximumSuggestedScreenHeightPixels": 300
+    },
+    {
+      "level": 2,
+      "filename": "pokedex-v001-lod2.glb",
+      "sha256": "d9ac45624cb6747e159b689bdec0af9f76cb79d07945977a4a8f4400379b42c2",
+      "bytes": 3600788,
+      "triangles": 12126,
+      "meshObjects": 48,
+      "maximumSuggestedScreenHeightPixels": 120
+    }
+  ],
+  "materials": 16,
+  "embeddedTextures": 10,
+  "textureDimensions": [
+    512,
+    512
+  ],
+  "clips": [
+    {
+      "name": "Closed",
+      "startFrame": 1,
+      "terminalFrame": 16,
+      "durationSeconds": 0.5
+    },
+    {
+      "name": "Opening",
+      "startFrame": 16,
+      "terminalFrame": 76,
+      "durationSeconds": 2.0
+    },
+    {
+      "name": "BootUp",
+      "startFrame": 76,
+      "terminalFrame": 151,
+      "durationSeconds": 2.5
+    },
+    {
+      "name": "Ready",
+      "startFrame": 151,
+      "terminalFrame": 181,
+      "durationSeconds": 1.0
+    },
+    {
+      "name": "Idle",
+      "startFrame": 181,
+      "terminalFrame": 271,
+      "durationSeconds": 3.0
+    },
+    {
+      "name": "ButtonPress",
+      "startFrame": 271,
+      "terminalFrame": 295,
+      "durationSeconds": 0.8
+    }
+  ],
+  "tangentPolicy": "Optional explicit tangents omitted; runtime derives basis from normals and UVs for reusable microfinish maps.",
+  "display": "Replaceable UV0 display surface; original placeholder groups remain separate."
+}

@@ -1,0 +1,242 @@
+{
+  "stage": "M4-asset-pass-runtime-and-video-verified",
+  "createdAt": "2026-09-05T18:07:48.490896+00:00",
+  "assetGatePassed": true,
+  "hero": {
+    "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/source/pokedex-v001-m3-hero-r06.blend",
+    "sha256": "9c0f5d553282c2748fd069a2e3448d509b4134e1c28e5a2e5b1f5ed1b278dbd2",
+    "bytes": 7853881
+  },
+  "runtime": [
+    {
+      "artifact": {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/runtime/pokedex-v001-lod0.glb",
+        "sha256": "79a05ebfe553ecf2aa8795e21c37f4d08eb1a26b899608f5fefeb6c5de922a2a",
+        "bytes": 8079808
+      },
+      "validator": {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/runtime/lod0-validation.json",
+        "sha256": "ff24e5fdb7c0446592c386189c8526efd64cc480a3dac6071f59d18ac5d21f15",
+        "bytes": 20971
+      },
+      "reopened": {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/runtime/lod0-reopened.json",
+        "sha256": "db27db7c3464a9e56eea9e5c874133a62f979c3a0a7042cdf311c95f5e6ff941",
+        "bytes": 15970
+      }
+    },
+    {
+      "artifact": {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/runtime/pokedex-v001-lod1.glb",
+        "sha256": "9461a3d60ccc4e40b9ad8bcc92fa764fc091f0e44e4bddc69401e8d360f5a202",
+        "bytes": 4731616
+      },
+      "validator": {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/runtime/lod1-validation.json",
+        "sha256": "3744629a4f029fc4d2fc5e04ad9a8b02c8d2f61ca32a166a904c47a98bb611ff",
+        "bytes": 20970
+      },
+      "reopened": {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/runtime/lod1-reopened.json",
+        "sha256": "f290a09acf3046dcca82032ec9f3f95a7e8f6ed932f2c272a99a7c26f528562a",
+        "bytes": 15996
+      }
+    },
+    {
+      "artifact": {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/runtime/pokedex-v001-lod2.glb",
+        "sha256": "d9ac45624cb6747e159b689bdec0af9f76cb79d07945977a4a8f4400379b42c2",
+        "bytes": 3600788
+      },
+      "validator": {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/runtime/lod2-validation.json",
+        "sha256": "ceefd8d331f32b394594e3044060fb7c1875538de83647e4728e8fc9c7501a37",
+        "bytes": 20970
+      },
+      "reopened": {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/runtime/lod2-reopened.json",
+        "sha256": "a3524e1b540df4fd3c4eb38d4d27a004587f7c676adccb9a6c1a37b72cb3fa5c",
+        "bytes": 15977
+      }
+    }
+  ],
+  "video": {
+    "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/video/pokedex-v001-r06-opening-boot.mp4",
+    "sha256": "f6773f44826d40a3a833dbe5ced44397df5d8edcbc3da17eee0c90d3c455a8b7",
+    "bytes": 524074
+  },
+  "videoMetadata": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 768,
+        "height": 768,
+        "r_frame_rate": "30/1",
+        "nb_frames": "294"
+      }
+    ],
+    "format": {
+      "duration": "9.800000",
+      "size": "524074"
+    }
+  },
+  "renderIdentity": {
+    "blend": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/source/pokedex-v001-m3-hero-r06.blend",
+    "sha256": "9c0f5d553282c2748fd069a2e3448d509b4134e1c28e5a2e5b1f5ed1b278dbd2",
+    "engine": "CYCLES",
+    "samples": 16,
+    "resolution": [
+      768,
+      768
+    ],
+    "fps": 30,
+    "frames": [
+      1,
+      294
+    ]
+  },
+  "visualReview": {
+    "heroStills": 20,
+    "reopenedRuntimeStills": 4,
+    "videoStoryboardFrames": [
+      0,
+      20,
+      44,
+      75,
+      90,
+      120,
+      150,
+      180,
+      280,
+      293
+    ],
+    "browserPlayback": {
+      "duration": 9.8,
+      "ended": true,
+      "error": null,
+      "decodedFramesAcrossPlays": 588,
+      "droppedFramesAcrossPlays": 0
+    },
+    "nativeBrowserFrameInspectedAtSeconds": 1.5
+  },
+  "browserRuntime": {
+    "passed": true,
+    "results": [
+      {
+        "level": 0,
+        "passed": true,
+        "clips": [
+          {
+            "name": "Closed",
+            "duration": 0.5
+          },
+          {
+            "name": "Opening",
+            "duration": 2
+          },
+          {
+            "name": "BootUp",
+            "duration": 2.5
+          },
+          {
+            "name": "Ready",
+            "duration": 1
+          },
+          {
+            "name": "Idle",
+            "duration": 3
+          },
+          {
+            "name": "ButtonPress",
+            "duration": 0.800000011920929
+          }
+        ],
+        "checks": 28
+      },
+      {
+        "level": 1,
+        "passed": true,
+        "clips": [
+          {
+            "name": "Closed",
+            "duration": 0.5
+          },
+          {
+            "name": "Opening",
+            "duration": 2
+          },
+          {
+            "name": "BootUp",
+            "duration": 2.5
+          },
+          {
+            "name": "Ready",
+            "duration": 1
+          },
+          {
+            "name": "Idle",
+            "duration": 3
+          },
+          {
+            "name": "ButtonPress",
+            "duration": 0.800000011920929
+          }
+        ],
+        "checks": 28
+      },
+      {
+        "level": 2,
+        "passed": true,
+        "clips": [
+          {
+            "name": "Closed",
+            "duration": 0.5
+          },
+          {
+            "name": "Opening",
+            "duration": 2
+          },
+          {
+            "name": "BootUp",
+            "duration": 2.5
+          },
+          {
+            "name": "Ready",
+            "duration": 1
+          },
+          {
+            "name": "Idle",
+            "duration": 3
+          },
+          {
+            "name": "ButtonPress",
+            "duration": 0.800000011920929
+          }
+        ],
+        "checks": 28
+      }
+    ],
+    "page": "http://127.0.0.1:5193/tools/pokedex-device/verification.html"
+  },
+  "tests": {
+    "typecheck": "pass",
+    "existingPokedex": 4,
+    "battleGolden": 127
+  },
+  "lodPolicy": {
+    "0": "Close-up and phone review",
+    "1": "Up to300px object height",
+    "2": "Distant, up to120px object height; visible faceting at close range"
+  },
+  "knownCompromises": [
+    "114 positive microscopic bevel slivers in hero, no zero-area mechanical triangles.",
+    "Right hinge endcap bevel applied for exact topology cleanup; scripted construction preserved.",
+    "Reusable projected microfinish UVs, not a unique paint atlas.",
+    "Optional tangents omitted; generated basis from normal/UV data, verified in Blender reopening and Three binding checks.",
+    "Original replaceable display placeholder; integration hook remains next milestone.",
+    "Sampled mechanical clearances are not exhaustive CAD manufacturing proof."
+  ],
+  "mergeStatus": "Not merged; Kevin HITL approval required."
+}

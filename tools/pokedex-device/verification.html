@@ -1,0 +1,52 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Pokédex GLB verification</title>
+<pre id="result">Checking exported assets…</pre>
+<script type="module">
+import * as THREE from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {PokedexRuntime} from '/src/pokedex/deviceRuntime.ts';
+const result=[];
+let checks=0;
+const check=(value,message)=>{checks++;if(!value)throw Error(message)};
+try {
+ for(const level of [0,1,2]) {
+  const startChecks=checks;
+  const gltf=await new GLTFLoader().loadAsync(`/device-assets/pokedex-v001-lod${level}.glb`);
+  const runtime=new PokedexRuntime(gltf.scene,gltf.animations);
+  const nodes=new Map();gltf.scene.traverse(o=>nodes.set(o.userData.source_name,o));
+  const step=seconds=>{for(let t=0;t<seconds;t+=1/120)runtime.update(1/120)};
+  check(runtime.state==='closed','Initial state');
+  const hinge=nodes.get('PDX.LidHinge'),button=nodes.get('PDX.Button.A');
+  const buttonHome=button.position.clone();
+  check(Math.abs(hinge.rotation.x)<.0001,'Closed hinge');
+  runtime.open();runtime.open();step(1);
+  check(runtime.state==='opening' && Math.abs(hinge.rotation.x)>.4,'Opening real hinge / repeated input');
+  step(1.1);check(runtime.state==='booting','Opening to boot');
+  step(3.6);check(runtime.state==='idle','Boot to ready to idle');
+  check(Math.abs(hinge.rotation.x+112*Math.PI/180)<.0001,'Ready hinge endpoint');
+  const ring=nodes.get('SIG_RingPower');const before=ring.position.x;step(.8);
+  check(Math.abs(ring.position.x-before)>.005,'Idle breathing');
+  runtime.press();runtime.press();step(.33);
+  check(runtime.state==='pressing','Button state');
+  check(Math.abs(button.position.distanceTo(buttonHome)-.00055)<.000015,'Physical .55 mm button travel');
+  step(.6);check(runtime.state==='idle','Button returns to idle');
+  check(button.position.distanceTo(buttonHome)<.000001,'Button return position');
+  const texture=new THREE.DataTexture(new Uint8Array([255,255,255,255]),1,1);texture.needsUpdate=true;
+  runtime.setDisplay(texture);check(nodes.get('PDX.DisplayReady').visible===false,'Replaceable display');
+  runtime.setDisplay(null);check(nodes.get('PDX.DisplayReady').visible===true,'Restore authored display');
+  texture.dispose();
+  runtime.close();step(2.1);check(runtime.state==='closed','Reverse hinge closes');
+  check(Math.abs(hinge.rotation.x)<.0001,'Closed endpoint restored');
+  for(const object of nodes.values()) {
+   if(object instanceof THREE.Mesh)for(const mat of Array.isArray(object.material)?object.material:[object.material]){
+    if(mat.userData.power_signal)check(Number.isFinite(mat.emissiveIntensity),'Finite live emission');
+   }
+  }
+  runtime.dispose();
+  result.push({level,passed:true,clips:gltf.animations.map(c=>({name:c.name,duration:c.duration})),checks:checks-startChecks});
+ }
+ window.__assetResult={passed:true,results:result};
+} catch(error) {window.__assetResult={passed:false,error:String(error),results:result};}
+document.querySelector('#result').textContent=JSON.stringify(window.__assetResult,null,2);
+</script>
