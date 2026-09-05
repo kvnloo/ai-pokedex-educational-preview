@@ -1,0 +1,168 @@
+{
+  "status": "simulated-green/device-HITL-pending",
+  "implementationRevision": "c8bdfe179e45a0ef6a4089cb0e9825d5cb6c5817",
+  "branch": "codex/pokedex-generations",
+  "merged": false,
+  "pushed": false,
+  "preview": "https://0.taila30dc.ts.net:8472/pokedex.html",
+  "build": "/mnt/zer0models/pokemon-iac/devices/pokedex/pwa/build-r02",
+  "release": {
+    "version": "9dd97057ef93e9fd",
+    "cachePrefix": "pokedex-private-shell-8a5edab2-",
+    "cacheName": "pokedex-private-shell-8a5edab2-9dd97057ef93e9fd",
+    "files": [
+      "/assets/modulepreload-polyfill-B5Qt9EMX.js",
+      "/assets/pokedex-C6cgxQvI.js",
+      "/assets/pokedex-DU41o2Gn.css",
+      "/pokedex-icons/pokedex-any-192.png",
+      "/pokedex-icons/pokedex-any-512.png",
+      "/pokedex-icons/pokedex-maskable-192.png",
+      "/pokedex-icons/pokedex-maskable-512.png",
+      "/pokedex.html",
+      "/pokedex.webmanifest"
+    ],
+    "hashes": {
+      "/assets/modulepreload-polyfill-B5Qt9EMX.js": "607112fb81d7899ceedf89cdb1b3540a53eb96ad5e4202fb1e22f873281de839",
+      "/assets/pokedex-C6cgxQvI.js": "f249e9d7bc80d2e3c02fb1cc77b5ba8815022e92454a169b70d877e04ca083e4",
+      "/assets/pokedex-DU41o2Gn.css": "d77783f234b3cfdead57d8115f13f8349edb953b9802f4cec6bf460960c87255",
+      "/pokedex-icons/pokedex-any-192.png": "39156f5e02a2de0dbda06f2a9342b9afaf0ab6d16c5a3d22bb3ec347c5397afc",
+      "/pokedex-icons/pokedex-any-512.png": "6448dc88f5550899854295730a3fa8bc873f168a21bcbd07a33c5079276ae09f",
+      "/pokedex-icons/pokedex-maskable-192.png": "a31ac4add37177fdd2f49a77f2d4f73903135f06526981684066e572a7f7626e",
+      "/pokedex-icons/pokedex-maskable-512.png": "c4c518cd53dbad87931ac5b573af30735a96e0bdd4b4af0b30d8b6ce066f846e",
+      "/pokedex.html": "08a23e75429bf57d6fe0b4a989d24b2a6e3373bb212695b197a39a5cd4ab4b54",
+      "/pokedex.webmanifest": "6a5ed52d7bbc593ce4d5343caa63f3f70f105c2f23b1a4acf71ef08465ecdcad"
+    }
+  },
+  "shellBytes": 77588,
+  "browserChecksPassed": 137,
+  "browserReport": {
+    "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/pwa/evidence-r02b/browser-report.json",
+    "bytes": 66368,
+    "sha256": "66d5b5b9ab47af46399c6ddf1c9394a40f8998a11ae4e6ef7b489113e1f5eee1"
+  },
+  "screenshots": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/pwa/evidence-r02b/browser-install-dialog.png",
+      "bytes": 113279,
+      "sha256": "a3869c183b15cb23d7a0a91db0eec5f7ad2e93a842c4f53dff5b149250787d9e",
+      "visuallyInspected": true
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/pwa/evidence-r02b/portrait-384.png",
+      "bytes": 240150,
+      "sha256": "f022567ad50706e63cb2ea7f9d8bc5c05056df6ac9b12ee6fed0c1fcea2e8edd",
+      "visuallyInspected": true
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/pwa/evidence-r02b/portrait-412.png",
+      "bytes": 269184,
+      "sha256": "2c7efb5396d54117b24e2d922a8b6a44bebbc0901d985d75952d005074572b24",
+      "visuallyInspected": true
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/pwa/evidence-r02b/landscape-832.png",
+      "bytes": 211115,
+      "sha256": "a0d1e6dcdb592fbaec5b3861e6d95ef52d27139e32ea88d6749d52129952ca55",
+      "visuallyInspected": true
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/pwa/evidence-r02b/landscape-892.png",
+      "bytes": 239081,
+      "sha256": "0261a395ecf1806a4d41f098d5dfbfd49285d789fb5cb4d40f78da50c44bd388",
+      "visuallyInspected": false
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/pwa/evidence-r02b/portrait-safe.png",
+      "bytes": 257727,
+      "sha256": "4b268f9e0c3f807f3a3cdd708b24ace921b793acb7e64c4671610456d2e698bc",
+      "visuallyInspected": true
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/pwa/evidence-r02b/landscape-safe.png",
+      "bytes": 231840,
+      "sha256": "78e82022e1a71de9c33b952d78212ff83b85188f38d060ba802921e1fe9029b0",
+      "visuallyInspected": true
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/pwa/evidence-r02b/tab-landscape-short.png",
+      "bytes": 174380,
+      "sha256": "ea5ae2284c2bd9dd21eb46746b0b5a9926af0a5fe8392932b428e7494b9858ce",
+      "visuallyInspected": false
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/pwa/evidence-r02b/desktop-installed.png",
+      "bytes": 630490,
+      "sha256": "ef8888593dda4e89c1f48179f1151bc4a76595dea5e16941f63ef22dd17d3243",
+      "visuallyInspected": false
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/pwa/evidence-r02b/desktop-tab.png",
+      "bytes": 593593,
+      "sha256": "be400d0f20d09de3f4ccf398ba10773d3531ec3c698f011bf119a8dd2a615084",
+      "visuallyInspected": false
+    }
+  ],
+  "tests": {
+    "appTypecheck": "passed",
+    "pwaBuildPluginTypecheck": "passed",
+    "existingPokedex": 4,
+    "workerPolicy": 3,
+    "canonicalRejection": 6,
+    "privateVite": "passed",
+    "publicVite": "passed",
+    "publicPwaAssets": 0,
+    "trackedCanonicalBoundary": "passed"
+  },
+  "buildLogs": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/pwa/build-r02.log",
+      "bytes": 2936,
+      "sha256": "0dac8e28cc7c82c30343100b9093715ca29a7633f77d9c841137426193f41e47"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/pwa/public-build-r02.log",
+      "bytes": 969,
+      "sha256": "6369e5d279a42184a5b9d616c8cbb5d49fac38b808394cfa74fbc427944acb66"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/pwa/unit-tests-r02.log",
+      "bytes": 701,
+      "sha256": "9dae109353189a7d8094d076e4ce768f62dfeaf7a08fef941185f0707818cdc2"
+    }
+  ],
+  "https": {
+    "manifest": {
+      "status": 200,
+      "contentType": "application/manifest+json"
+    },
+    "worker": {
+      "status": 200,
+      "contentType": "text/javascript"
+    },
+    "cacheControl": "no-cache"
+  },
+  "chromeMcp": {
+    "updateLifecycleReceipt": "canonical/devices/pwa/update-lifecycle.json",
+    "physicalScanIdentifiedPidgey": true,
+    "backReturnedHome": true,
+    "audioToggledOffAfterCheck": true
+  },
+  "fullPrivateBootstrap": {
+    "status": "blocked-existing-owner-source-fixture",
+    "missing": "/mnt/zer0models/pokemon-iac/sources/owner-supplied/pokemon-kanto-art.bin",
+    "gateWeakened": false
+  },
+  "realDeviceGate": {
+    "status": "pending",
+    "device": "Kevin Galaxy S25 Ultra",
+    "required": [
+      "Launch installed home-screen icon in Chrome or Samsung Internet",
+      "Verify actual browser chrome and OS gesture/cutout clearance",
+      "Portrait/landscape touch and back behavior",
+      "Close/relaunch and offline shell"
+    ],
+    "simulationsAreNotDeviceApproval": true
+  },
+  "telegramReceipt": "canonical/devices/pwa/telegram-receipt.json",
+  "telegramMessageId": "16674"
+}
