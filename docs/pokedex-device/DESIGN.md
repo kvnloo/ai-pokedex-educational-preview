@@ -13,7 +13,7 @@ Primary design combines board1's graphite inner chassis, restrained silver/red f
 
 ## Dimensions and mechanism
 
-Meters in Blender; documented dimensions in millimeters. Nominal closed envelope 100W × 166L × 34H mm. Lower body lies in XY with front toward -Y; hinge axis is X through (0,0,24mm). Base footprint runs approximately Y=-164..-6mm, X=±50mm. Base top deck around18mm; controls no higher than21mm. Lid closed inner surface at25mm, outer cover34mm, leaving at least4mm nominal clearance above deck and3mm above controls. Target wall thickness2mm and seam widths0.35–0.6mm, not zero-thickness surface cards. Use rounded perimeter frames and actual interior recesses.
+Meters in Blender; documented dimensions in millimeters. Nominal closed envelope 100W × 170L × 34H mm. Lower body lies in XY with front toward -Y; hinge axis is X through (0,0,24mm). Base footprint runs approximately Y=-164..-6mm, X=±50mm. Base top deck around18mm; controls no higher than21mm. Lid closed inner surface at25mm, outer cover34mm, leaving at least4mm nominal clearance above deck and3mm above controls. Target wall thickness2mm and seam widths0.35–0.6mm, not zero-thickness surface cards. Use rounded perimeter frames and actual interior recesses.
 
 Lid root rotates around X from0° closed to-112° ready; negative rotation raises a lid that extends toward -Y. Display normal faces downward when closed, toward the viewer when open. All lid parts, its alternating hinge barrels and status controls inherit this pivot. Lower hinge barrels remain with base. Pin radius2.4mm; barrel bore radius2.55mm gives0.15mm radial clearance. Seven alternating barrels, centers X=-39,-26,-13,0,13,26,39mm, nominal length12.3mm giving0.7mm axial gaps. Barrel outer radius5.4mm. Concealed connecting mounts must attach barrels to chassis. Test lid sweep against base/control envelope; no moving assembly may intersect the fixed assembly.
 
@@ -46,3 +46,5 @@ Milestones:
 5. M4: only after asset gates pass, add a minimal private game/viewer hook using existing Three/Vite dependencies. Preserve existing game flow. Validate controls/state transitions and relevant tests, commit coherent milestone. Do not merge without Kevin.
 
 Mechanical fidelity and visual review outrank premature optimization. Status is work in progress until all delivered artifacts, renders, video playback, export and Git state have been inspected. Keep Charizard's existing work intact and resume its critical path alongside this integrated Pokédex work after the prop milestone.
+
+Mechanical review correction: base frontY=-164mm plus rear barrel radius5.4mm yields169.4mm overall; document170mm nominal. Keep hinge mounts inside their alternating Xintervals. Exterior cyan cover control and interior dial are separate assemblies with different parents.

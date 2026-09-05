@@ -1,0 +1,36 @@
+{
+  "stage": "M1a-static-mechanical-preview",
+  "createdAt": "2026-09-05T16:45:22.776213+00:00",
+  "assetRoot": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001",
+  "artifacts": [
+    {
+      "path": "source/pokedex-v001-m1a-static.blend",
+      "bytes": 2749429,
+      "sha256": "4d2f2c225baeeb5d4e6625a00f65778372c81dc96e922a256a16acb99beed228"
+    },
+    {
+      "path": "source/static-validation.json",
+      "bytes": 48219,
+      "sha256": "5e9f9fab2959f44aefc1576bdb62f909a2394bd2586bf07bf0bdf47d40577ae0"
+    },
+    {
+      "path": "renders/r03-open-three-quarter.png",
+      "bytes": 1768767,
+      "sha256": "3f587dd48c11a218ad33b744f952762ecde14fbe5d82c7afb76bc4c813c07de1"
+    },
+    {
+      "path": "renders/r03-closed-three-quarter.png",
+      "bytes": 1715276,
+      "sha256": "c02ba3878da6f1ae7b41427819547a3379c0510842aae1c42e238ea0ee2364ef"
+    }
+  ],
+  "visualReview": "Both r03 open and closed material renders inspected. More surface detail and full neutral evidence set still due. Camera lens reads too pale under studio reflection; refine.",
+  "remaining": [
+    "full clay/material/closeup set",
+    "static assembly intersection audit",
+    "UVs and authored surface texture maps",
+    "animation clips and actual video playback",
+    "GLB and LOD validation",
+    "post-asset-pass viewer hook"
+  ]
+}

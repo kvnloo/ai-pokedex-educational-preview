@@ -4,7 +4,7 @@
   "scope": "private-local",
   "gitPolicy": "manifest-only",
   "assetRoot": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001",
-  "status": "design-resolved-not-built",
+  "status": "static-mechanical-preview-in-progress",
   "referenceBoards": [
     {
       "path": "/workspace/hermes-home/profiles/chiefstaff/cache/images/img_2a6e0bc69179.jpg",
@@ -22,5 +22,6 @@
   "design": "docs/pokedex-device/DESIGN.md",
   "owner": "Codex root",
   "mergeRequires": "Kevin explicit HITL approval",
-  "createdAt": "2026-09-05T16:16:56.498190+00:00"
+  "createdAt": "2026-09-05T16:16:56.498190+00:00",
+  "evidence": "canonical/devices/pokedex-m1a.json"
 }
