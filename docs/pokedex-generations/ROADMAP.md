@@ -33,4 +33,4 @@ Ordered eras: Kanto, Johto, Hoenn, Sinnoh, Unova, Kalos, Alola, Journeys. Enteri
 
 The first implementation batch is the two strict concept candidates because their references are already supplied. Era designs require anime-specific images; game Pokédex descriptions must not substitute for Ash's props. Acquisition scenes that cannot be sourced remain an explicit story-design choice until verified.
 
-The eight-family reference baseline is committed in `era-families.json`, `era-reference-manifest.json` and `report-source.md`. None of those era families has a finished Blender asset yet. The next pair is Kanto/Johto; unseen Kanto rear details and Johto cover mechanics require explicit evidence/inference decisions before modeling.
+The eight-family reference baseline is committed in `era-families.json`, `era-reference-manifest.json` and `report-source.md`. None of those era families has a finished Blender asset yet. The next pair is Kanto/Johto. `FIRST-PAIR-MECHANICS.md` records the additional full-cover references, the two-cover Johto mechanism and the remaining authored engineering choices before modeling.

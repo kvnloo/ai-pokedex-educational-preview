@@ -170,6 +170,46 @@
       "sha256": "263df79bdded9f21ddfb584311a81a326bd808d378ef10fc42739dc5cc409fdb",
       "provenance": "Anime screenshot hosted by Bulbagarden Archives; private visual reference only",
       "review": "Root visually inspected; primary anime pixels hosted by community archive. Caption claims are secondary."
+    },
+    {
+      "id": "johto-no-data",
+      "url": "https://archives.bulbagarden.net/media/upload/6/65/Ash_Johto_Pok%C3%A9dex_no_data.png",
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/eras/references/johto-no-data.png",
+      "bytes": 392616,
+      "sha256": "9cb86f8498e934e10e342b0e9f63865ab7779c23ff3f6ffd25a11eda2a4b15b4",
+      "sourcePage": "https://archives.bulbagarden.net/wiki/File:Ash_Johto_Pok%C3%A9dex_no_data.png",
+      "provenance": "Anime screenshot; archive attributes it to Pop Goes the Sneasel.",
+      "review": "Root visually inspected. Shows upper lid, stationary LCD body, lower controls, bottom lens and open right control flap together. Source screen content remains a private reference, not an asset texture."
+    },
+    {
+      "id": "johto-handbook-open",
+      "url": "https://archives.bulbagarden.net/media/upload/8/85/Johto_dex_anime_1.png",
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/eras/references/johto-handbook-open.png",
+      "bytes": 295771,
+      "sha256": "1204f8e5b39182f92ff0bda993b8384fe25b9a0fc1588f8bd4a3cc3ba0e7af56",
+      "sourcePage": "https://archives.bulbagarden.net/wiki/File:Johto_dex_anime_1.png",
+      "provenance": "Archive identifies The Official Pok\u00e9mon Handbook 3 artwork; not an episode frame.",
+      "review": "Root visually inspected. Whole upper lid has a circular tongue at its free edge. The control cover swings right and has a semicircular notch along its upper edge. Exact hinge internals remain authored engineering."
+    },
+    {
+      "id": "johto-handbook-closed",
+      "url": "https://archives.bulbagarden.net/media/upload/5/56/Johto_dex_anime_2.png",
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/eras/references/johto-handbook-closed.png",
+      "bytes": 145594,
+      "sha256": "08b302d05d2577bf8985ac81a9ee5aca6fa5893db22135935134ef547b798fa0",
+      "sourcePage": "https://archives.bulbagarden.net/wiki/File:Johto_dex_anime_2.png",
+      "provenance": "Archive identifies The Official Pok\u00e9mon Handbook 3 artwork; not an episode frame.",
+      "review": "Root visually inspected. Closed cover seam crosses the large central circular motif. Bottom blue lens stays exposed. This supports a split screen-lid/control-flap closure, not a single whole-body lid."
+    },
+    {
+      "id": "kanto-game-guide",
+      "url": "https://archives.bulbagarden.net/media/upload/8/86/Gen_I_Pok%C3%A9dex.png",
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/eras/references/kanto-game-guide.png",
+      "bytes": 280389,
+      "sha256": "54aa8fac64042e469bf4bbf1bbe790ce898116c73fa51c2bb0b166c2be5efd8e",
+      "sourcePage": "https://archives.bulbagarden.net/wiki/File:Gen_I_Pok%C3%A9dex.png",
+      "provenance": "Supplemental game-style illustration from archive; attribution not independently verified as original official artwork.",
+      "review": "Root visually inspected. Shows a stepped cover fitting below the sensor header. Its added D-pad and main round button differ from the Ash anime still; do not import those controls into the Ash model or use this illustration as the primary identity contract."
     }
   ]
 }
