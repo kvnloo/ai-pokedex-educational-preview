@@ -26,11 +26,14 @@
       <details class='inspector'>
         <summary>Inspect the device <span>＋</span></summary>
         <div class='inspection-options'>
+          <label id='candidate-control' hidden>Design <select id='candidate-selector'><option value=''>V1 · Historical prototype</option></select></label>
+          <p id='candidate-notice' hidden></p>
           <label>Detail <select id='lod'><option value='0'>Close-up · LOD0</option><option value='1'>Mid-distance · LOD1</option><option value='2'>Distant · LOD2</option></select></label>
           <label>Screen <select id='display-mode'><option value='original'>Authored display</option><option value='live'>Live field display</option></select></label>
           <label>View <select id='camera-view'><option value='hero'>Three-quarter</option><option value='front'>Front</option><option value='side'>Hinge side</option><option value='underside'>Underside</option></select></label>
           <p id='asset-metrics'></p>
-          <a href='https://0.taila30dc.ts.net:8445/assets/devices/pokedex-v001/video/pokedex-v001-r06-opening-boot.mp4'>Watch the Blender render ↗</a>
+          <a id='render-video' href='https://0.taila30dc.ts.net:8445/assets/devices/pokedex-v001/video/pokedex-v001-r06-opening-boot.mp4'>Watch the Blender render ↗</a>
+          <a id='reference-comparison' hidden>Compare with the supplied board ↗</a>
         </div>
       </details>
     </footer>

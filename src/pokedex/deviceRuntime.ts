@@ -21,7 +21,7 @@ export class PokedexRuntime {
   private readonly ready: THREE.Object3D;
   private replacement: THREE.MeshStandardMaterial | null = null;
 
-  constructor(readonly root: THREE.Object3D, clips: THREE.AnimationClip[]) {
+  constructor(readonly root: THREE.Object3D, clips: THREE.AnimationClip[], readyContentSource = 'PDX.DisplayReady') {
     this.mixer = new THREE.AnimationMixer(root);
     for (const name of clipNames) {
       const clip = clips.find(candidate => candidate.name === name);
@@ -48,7 +48,7 @@ export class PokedexRuntime {
     let ready: THREE.Object3D | undefined;
     root.traverse(object => {
       if (object.userData.replaceable_display === true) display = object;
-      if (object.userData.source_name === 'PDX.DisplayReady') ready = object;
+      if (object.userData.source_name === readyContentSource) ready = object;
     });
     if (!(display instanceof THREE.Mesh) || !(display.material instanceof THREE.MeshStandardMaterial) || !ready) {
       throw new Error('Pokédex asset has no replaceable display');

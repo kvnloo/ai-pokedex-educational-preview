@@ -1,0 +1,44 @@
+[
+  {
+    "version": "v002",
+    "description": "Board 01: graphite interior, one main face button, silver exterior insert.",
+    "differences": "The camera/header, seam details, spine silhouette and lighting still differ from the board. The scanner and list are replaceable UI placeholders. The concept boards disagree about the hinge axis; this model uses one actual transverse hinge with a protective side rail. This is a review candidate, not an approved final asset.",
+    "views": {
+      "closed": {
+        "reference": "/assets/devices/pokedex-review-batch/evidence/board01-closed-reference.png",
+        "render": "/assets/devices/pokedex-v002-astra-r08/closed-matched.png",
+        "comparison": "/assets/devices/pokedex-review-batch/evidence/board01-closed-sheet-r08.png",
+        "width": 302,
+        "height": 445
+      },
+      "open": {
+        "reference": "/assets/devices/pokedex-review-batch/evidence/board01-open-reference.png",
+        "render": "/assets/devices/pokedex-v002-astra-r08/open-matched.png",
+        "comparison": "/assets/devices/pokedex-review-batch/evidence/board01-open-sheet-r08.png",
+        "width": 290,
+        "height": 530
+      }
+    }
+  },
+  {
+    "version": "v003",
+    "description": "Board 02: red interior, four-button cluster, split red-and-silver exterior lock.",
+    "differences": "The camera/header, seam details, spine silhouette and lighting still differ from the board. The scanner and list are replaceable UI placeholders. The concept boards disagree about the hinge axis; this model uses one actual transverse hinge with a protective side rail. This is a review candidate, not an approved final asset.",
+    "views": {
+      "closed": {
+        "reference": "/assets/devices/pokedex-review-batch/evidence/board02-closed-reference.png",
+        "render": "/assets/devices/pokedex-v003-astra-r08/closed-matched.png",
+        "comparison": "/assets/devices/pokedex-review-batch/evidence/board02-closed-sheet-r08.png",
+        "width": 300,
+        "height": 415
+      },
+      "open": {
+        "reference": "/assets/devices/pokedex-review-batch/evidence/board02-open-reference.png",
+        "render": "/assets/devices/pokedex-v003-astra-r08/open-matched.png",
+        "comparison": "/assets/devices/pokedex-review-batch/evidence/board02-open-sheet-r08.png",
+        "width": 295,
+        "height": 520
+      }
+    }
+  }
+]

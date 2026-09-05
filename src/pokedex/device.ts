@@ -3,6 +3,7 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { PokedexRuntime, type DeviceState } from './deviceRuntime';
+import reviewCandidates from '../../canonical/devices/generations/review-candidates.json';
 import './device.css';
 
 function required<T extends HTMLElement>(selector: string): T {
@@ -18,6 +19,30 @@ const lod = required<HTMLSelectElement>('#lod');
 const displayMode = required<HTMLSelectElement>('#display-mode');
 const cameraView = required<HTMLSelectElement>('#camera-view');
 const errorPanel = required<HTMLDivElement>('#load-error');
+const requestedCandidate = new URLSearchParams(location.search).get('candidate');
+const candidate = import.meta.env.DEV ? reviewCandidates.find(item => item.id === requestedCandidate) : undefined;
+if (import.meta.env.DEV) {
+  const selector = required<HTMLSelectElement>('#candidate-selector');
+  required('#candidate-control').hidden = false;
+  for (const item of reviewCandidates) selector.add(new Option(item.title, item.id));
+  selector.value = candidate?.id ?? '';
+  selector.onchange = () => {
+    const url = new URL(location.href);
+    if (selector.value) url.searchParams.set('candidate', selector.value);
+    else url.searchParams.delete('candidate');
+    location.assign(url);
+  };
+}
+if (candidate) {
+  document.title = 'Pokédex · ' + candidate.title;
+  required('.unit').textContent = candidate.title + ' · REVIEW';
+  required('#candidate-notice').hidden = false;
+  required('#candidate-notice').textContent = candidate.status;
+  required<HTMLAnchorElement>('#render-video').href = candidate.video;
+  const comparison = required<HTMLAnchorElement>('#reference-comparison');
+  comparison.hidden = false; comparison.href = candidate.comparison;
+  lod.replaceChildren(...candidate.exports.map(item => new Option(`${item.label} · ${item.triangles.toLocaleString()} triangles`, String(item.level))));
+}
 const scene = new THREE.Scene();
 scene.background = new THREE.Color('#101419');
 scene.fog = new THREE.Fog('#101419', .8, 3);
@@ -48,6 +73,14 @@ scene.add(key);
 const rim = new THREE.DirectionalLight(0xffc5a4, 1.0);
 rim.position.set(.3, .25, -.25);
 scene.add(rim);
+if (candidate) {
+  key.position.set(-.3, .5, -.25);
+  key.intensity = .8;
+  rim.intensity = .5;
+  scene.environmentIntensity = .3;
+  Object.assign(key.shadow.camera, { left: -.18, right: .18, top: .18, bottom: -.18, far: 1 });
+  key.shadow.camera.updateProjectionMatrix();
+}
 const floor = new THREE.Mesh(new THREE.PlaneGeometry(20, 20), new THREE.MeshStandardMaterial({ color: '#171d23', roughness: .8 }));
 floor.rotation.x = -Math.PI / 2;
 floor.position.y = -.0013;
@@ -60,8 +93,39 @@ controls.enablePan = false;
 controls.minDistance = .19;
 controls.maxDistance = 1.2;
 controls.maxPolarAngle = Math.PI;
+let candidateBounds: THREE.Box3 | null = null;
+
+function framedDistance(bounds: THREE.Box3, direction: THREE.Vector3, aspect: number): number {
+  const center = bounds.getCenter(new THREE.Vector3());
+  const right = new THREE.Vector3().crossVectors(camera.up, direction).normalize();
+  const up = new THREE.Vector3().crossVectors(direction, right).normalize();
+  const vertical = Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2) * .84;
+  let distance = .1;
+  for (const x of [bounds.min.x, bounds.max.x]) {
+    for (const y of [bounds.min.y, bounds.max.y]) {
+      for (const z of [bounds.min.z, bounds.max.z]) {
+        const point = new THREE.Vector3(x, y, z).sub(center);
+        distance = Math.max(distance, point.dot(direction) + Math.max(Math.abs(point.dot(right)) / (vertical * aspect), Math.abs(point.dot(up)) / vertical));
+      }
+    }
+  }
+  return distance;
+}
 
 function setCamera(view = 'hero'): void {
+  if (candidateBounds) {
+    const sphere = candidateBounds.getBoundingSphere(new THREE.Sphere());
+    const direction = view === 'front' ? new THREE.Vector3(0, .16, .50)
+      : view === 'side' ? new THREE.Vector3(.52, .04, 0)
+      : view === 'underside' ? new THREE.Vector3(.26, -.44, .45)
+      : new THREE.Vector3(.36, .31, .48);
+    direction.normalize();
+    const distance = framedDistance(candidateBounds, direction, camera.aspect);
+    controls.target.copy(sphere.center);
+    camera.position.copy(sphere.center).addScaledVector(direction, distance);
+    controls.minDistance = .09; controls.maxDistance = distance * 2;
+    controls.update(); return;
+  }
   controls.target.set(0, .095, .045);
   if (view === 'front') camera.position.set(0, .20, .54);
   else if (view === 'side') camera.position.set(.52, .14, .065);
@@ -84,7 +148,7 @@ function drawDisplay(): void {
   context.fillStyle = '#071c23'; context.fillRect(0, 0, 640, 864);
   context.strokeStyle = '#28545b'; context.lineWidth = 2; context.strokeRect(28, 28, 584, 808);
   context.fillStyle = '#8df6e8'; context.font = '600 26px system-ui'; context.fillText('POKÉDEX', 62, 90);
-  context.font = '20px system-ui'; context.fillStyle = '#89afb8'; context.fillText('PD-01  /  LOCAL SESSION', 62, 131);
+  context.font = '20px system-ui'; context.fillStyle = '#89afb8'; context.fillText((candidate?.title ?? 'PD-01') + '  /  LOCAL SESSION', 62, 131);
   context.strokeStyle = '#6fe4d7'; context.lineWidth = 5; context.beginPath(); context.arc(320, 294, 76, 0, Math.PI * 2); context.stroke();
   context.fillStyle = '#8df6e8'; context.beginPath(); context.arc(320, 294, 17, 0, Math.PI * 2); context.fill();
   context.textAlign = 'center'; context.font = '600 44px system-ui'; context.fillText('Field unit ready', 320, 445);
@@ -136,16 +200,31 @@ async function loadModel(): Promise<void> {
   loading = true; status.textContent = 'Loading field unit…'; errorPanel.hidden = true; updateControls();
   const level = lod.value === '1' ? 1 : lod.value === '2' ? 2 : 0;
   try {
-    const gltf = await new GLTFLoader().loadAsync(`${import.meta.env.BASE_URL}device-assets/pokedex-v001-lod${level}.glb`);
+    if (import.meta.env.DEV && requestedCandidate && !candidate) throw new Error('Unknown Pokédex review candidate');
+    const url = import.meta.env.DEV && candidate ? `${import.meta.env.BASE_URL}device-review-assets/${candidate.id}/${level}.glb`
+      : `${import.meta.env.BASE_URL}device-assets/pokedex-v001-lod${level}.glb`;
+    const gltf = await new GLTFLoader().loadAsync(url);
     if (revision !== request) { disposeAsset(gltf.scene); return; }
     let next: PokedexRuntime;
-    try { next = new PokedexRuntime(gltf.scene, gltf.animations); }
+    try { next = new PokedexRuntime(gltf.scene, gltf.animations, candidate?.readyContentSource); }
     catch (error) { disposeAsset(gltf.scene); throw error; }
     if (runtime) {
       next.restorePlayback(runtime.capturePlayback());
       scene.remove(runtime.root); runtime.dispose(); disposeAsset(runtime.root);
     }
     runtime = next; scene.add(runtime.root); modelTriangles = 0; modelMeshes = 0;
+    if (candidate && !candidateBounds) {
+      const playback = runtime.capturePlayback();
+      runtime.restorePlayback({ state: 'closed', seconds: 0 });
+      runtime.root.updateMatrixWorld(true);
+      candidateBounds = new THREE.Box3().setFromObject(runtime.root);
+      runtime.restorePlayback({ state: 'idle', seconds: 0 });
+      runtime.root.updateMatrixWorld(true);
+      candidateBounds.union(new THREE.Box3().setFromObject(runtime.root));
+      runtime.restorePlayback(playback);
+      floor.position.y = candidateBounds.min.y - .001;
+      setCamera(cameraView.value);
+    }
     runtime.root.traverse(object => {
       if (!(object instanceof THREE.Mesh)) return;
       object.castShadow = object.receiveShadow = true;
@@ -206,16 +285,25 @@ renderer.domElement.addEventListener('pointerup', event => {
   if (!hit) return;
   if (runtime.canOpen) { runtime.open(); return; }
   let object: THREE.Object3D | null = hit.object;
-  while (object) { if (object.userData.source_name === 'PDX.Button.A') { confirm(); break; } object = object.parent; }
+  while (object) { if (object.userData.source_name === (candidate?.buttonSource ?? 'PDX.Button.A')) { confirm(); break; } object = object.parent; }
 });
 function resize(): void {
-  camera.aspect = viewport.clientWidth / viewport.clientHeight;
+  const aspect = viewport.clientWidth / viewport.clientHeight;
+  if (candidateBounds) {
+    const direction = camera.position.clone().sub(controls.target).normalize();
+    const previousFit = framedDistance(candidateBounds, direction, camera.aspect);
+    const nextFit = framedDistance(candidateBounds, direction, aspect);
+    const distance = camera.position.distanceTo(controls.target) * nextFit / previousFit;
+    camera.position.copy(controls.target).addScaledVector(direction, distance);
+    controls.maxDistance = nextFit * 2;
+  }
+  camera.aspect = aspect;
   camera.updateProjectionMatrix();
   renderer.setSize(viewport.clientWidth, viewport.clientHeight);
 }
 const observer = new ResizeObserver(resize); observer.observe(viewport);
 const footer = required<HTMLElement>('.device-footer');
-const footerObserver = new ResizeObserver(() => { viewport.style.bottom = Math.max(110, footer.clientHeight - 20) + 'px'; });
+const footerObserver = new ResizeObserver(() => { viewport.style.setProperty('--footer-height', Math.max(110, footer.clientHeight - 20) + 'px'); });
 footerObserver.observe(footer);
 let last = performance.now();
 renderer.setAnimationLoop(now => {
@@ -228,7 +316,34 @@ renderer.setAnimationLoop(now => {
 });
 if (import.meta.env.DEV) {
   Object.assign(window, { __pokedexDevice: {
-    snapshot: () => ({ state: runtime?.state, loading, lod: lod.value, triangles: modelTriangles, meshes: modelMeshes, drawCalls: renderer.info.render.calls, confirmations, camera: camera.position.toArray(), display: displayMode.value }),
+    snapshot: () => ({ state: runtime?.state, loading, lod: lod.value, candidate: candidate?.id ?? 'v001', triangles: modelTriangles, meshes: modelMeshes, drawCalls: renderer.info.render.calls, confirmations, camera: camera.position.toArray(), display: displayMode.value }),
+    targets: () => {
+      if (!runtime) return null;
+      runtime.root.updateMatrixWorld(true);
+      const box = renderer.domElement.getBoundingClientRect();
+      const project = (point: THREE.Vector3) => {
+        point.project(camera);
+        return { x: box.x + (point.x + 1) * box.width / 2, y: box.y + (1 - point.y) * box.height / 2 };
+      };
+      let button: THREE.Object3D | undefined;
+      runtime.root.traverse(object => { if (object.userData.source_name === (candidate?.buttonSource ?? 'PDX.Button.A')) button = object; });
+      const bounds = new THREE.Box3().setFromObject(runtime.root);
+      const corners = [];
+      for (const x of [bounds.min.x, bounds.max.x]) {
+        for (const y of [bounds.min.y, bounds.max.y]) {
+          for (const z of [bounds.min.z, bounds.max.z]) corners.push(project(new THREE.Vector3(x, y, z)));
+        }
+      }
+      return {
+        body: project(bounds.getCenter(new THREE.Vector3())),
+        corners,
+        viewport: { x: box.x, y: box.y, width: box.width, height: box.height },
+        direction: camera.position.clone().sub(controls.target).normalize().toArray(),
+        button: button ? project(new THREE.Box3().setFromObject(button).getCenter(new THREE.Vector3())) : null,
+        buttonLocal: button?.position.toArray(),
+        playback: runtime.capturePlayback(),
+      };
+    },
   } });
 }
 if (import.meta.hot) import.meta.hot.dispose(() => {

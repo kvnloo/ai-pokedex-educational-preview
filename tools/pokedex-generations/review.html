@@ -11,7 +11,7 @@
 <nav class="switch pose" aria-label="Device pose"><button data-pose="closed" aria-pressed="false">Closed</button><button data-pose="open" aria-pressed="true">Open</button></nav>
 <div class="stage" id="stage"><img id="reference" alt="Supplied design reference"><div class="render" id="layer"><img id="render" alt="Actual Blender render from the matching camera"></div></div>
 <div class="ruler"><label for="mix"><span>Reference</span><span id="mix-label">Blender render</span></label><input id="mix" type="range" min="0" max="100" value="100" aria-label="Blend reference with Blender render"></div>
-<section class="context"><p id="description"></p><small>Drag the slider to compare the unchanged camera views. Pinch to inspect. Swipe across the image to switch designs.</small><div class="links"><a id="comparison" target="_blank" rel="noopener">Full comparison</a><a id="hero" target="_blank" rel="noopener">Studio view</a></div><details><summary>Asset evidence & remaining differences</summary><p id="differences"></p><dl id="metrics"></dl></details><div id="motion"></div></section>
+<section class="context"><p id="description"></p><small>Drag the slider to compare the unchanged camera views. Pinch to inspect. Swipe across the image to switch designs.</small><div class="links"><a id="interactive">Open interactive device ↗</a><a id="comparison" target="_blank" rel="noopener">Full comparison</a><a id="hero" target="_blank" rel="noopener">Studio view</a></div><details><summary>Asset evidence & remaining differences</summary><p id="differences"></p><dl id="metrics"></dl><div class="links" id="gallery"></div></details><div id="motion"></div></section>
 <footer><a href="/devtools/experiments.html?pokemon=charizard">Back to Pokémon asset experiments</a><p>These concepts are separate from Ash’s eight era-specific devices.<br>Visual selection remains with Kevin. Nothing has been merged.</p></footer>
 </main>
 <script type="module">
@@ -23,9 +23,11 @@ function update(){
  const d=batch.candidates.find(d=>d.version===device);const v=d.views[pose];
  $('title').textContent=d.title;$('description').textContent=d.description;$('differences').textContent=d.differences;
  $('reference').src=v.reference;$('render').src=v.render;$('stage').style.aspectRatio=`${v.width}/${v.height}`;
- $('comparison').href=v.comparison;$('hero').href=d.hero;
+ $('comparison').href=v.comparison;$('hero').href=d.hero;$('interactive').href=d.interactive;
+ $('gallery').replaceChildren();
+ for(const item of d.gallery){const a=document.createElement('a');a.href=item.url;a.textContent=item.label;a.target='_blank';a.rel='noopener';$('gallery').append(a);}
  $('metrics').replaceChildren();
- for(const [label,value] of [['Runtime triangles',d.triangles.toLocaleString()],['Source revision',d.candidate],['Animation clips',d.clips.join(', ')],['Opening sweep',d.sweep],['glTF validator',d.validation],['Textures',d.textures]]){
+ for(const [label,value] of [['Hero runtime triangles',d.triangles.toLocaleString()],['Reduced comparison',d.reducedTriangles.toLocaleString()],['Source revision',d.candidate],['Animation clips',d.clips.join(', ')],['Opening sweep',d.sweep],['glTF validator',d.validation],['Textures',d.textures]]){
   const dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=label;dd.textContent=value;$('metrics').append(dt,dd);
  }
  $('motion').replaceChildren();

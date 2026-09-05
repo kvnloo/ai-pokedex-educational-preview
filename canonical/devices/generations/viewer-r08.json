@@ -1,0 +1,276 @@
+{
+  "status": "review integration inspected; Kevin approval pending",
+  "candidateChecks": 43,
+  "legacyChecks": 17,
+  "httpChecks": 19,
+  "visual": {
+    "status": "inspected-for-review",
+    "reviewer": "Root/Astra",
+    "date": "2026-09-05",
+    "candidates": [
+      "v002-r08",
+      "v003-r08"
+    ],
+    "inspected": [
+      "Native Chrome phone viewer and actual opening/boot/ready state transitions",
+      "V2 and V3 closed, boot, ready, live, inspector, underside, resized portrait, landscape and desktop screenshots; both nine-view contact sheets",
+      "Full-size V2 live screen and underside; V3 inspector and corrected landscape screenshot",
+      "Native phone comparison page with candidate switch, loaded matched images and correct interactive/studio/gallery links",
+      "Native Design select opened with mouse, End and Enter selected V3 from V2; actual navigation loaded the V3 candidate in closed state."
+    ],
+    "observations": [
+      "The live canvas content reads upright on both physical screens; main A confirms and updates the displayed counter.",
+      "Both devices remain visible after resizing without resetting the orbit; landscape controls occupy a side panel.",
+      "The error overlay is above the inspector and retry works with a real pointer click.",
+      "Q2 retains the smoother hero rings and button surfaces. Reduced meshes remain an explicit comparison option."
+    ],
+    "limitations": [
+      "This is a development viewer for unapproved candidates. It grants no story unlock or artistic approval.",
+      "WebGL lighting and thin reflective glass differ from the Cycles source. Small details and display text alias at default phone scale; pinch to inspect.",
+      "Landscape uses a separate render area and scrollable control panel. Actual physical-phone GPU, battery and sensor-parallax performance are not measured.",
+      "The reference deviations, tangent-generation warnings and controls without individual feedback clips remain documented in R08-REVIEW.md.",
+      "The full private asset bootstrap remains blocked by the existing missing owner-supplied pokemon-kanto-art.bin fixture. The direct private Vite compilation is a narrower verified check."
+    ]
+  },
+  "compilation": {
+    "scope": "Direct private Vite compilation; not the full private asset bootstrap",
+    "passed": true,
+    "candidateCatalogOrRouteInExecutableBundle": [],
+    "glbs": [
+      "device-assets/pokedex-v001-lod0.glb",
+      "device-assets/pokedex-v001-lod1.glb",
+      "device-assets/pokedex-v001-lod2.glb"
+    ],
+    "compiledDevicePage": "/mnt/zer0models/pokemon-iac/devices/pokedex/review-batches/build-private-r02/pokedex-device.html",
+    "logSha256": "fa0802f429c9117ff799491fb83be4a9790b91e1f25792c5e0472c566d2d1d91"
+  },
+  "sources": [
+    {
+      "path": "/mnt/zer0models/workspace/zer0/experiments/pokemon/.worktrees/pokedex-generations/src/pokedex/device.ts",
+      "bytes": 19143,
+      "sha256": "473af21a8ff0c41e39d6995ea5c650ad42f59c4d53e873f0c021efc97bb0b685"
+    },
+    {
+      "path": "/mnt/zer0models/workspace/zer0/experiments/pokemon/.worktrees/pokedex-generations/src/pokedex/deviceRuntime.ts",
+      "bytes": 6826,
+      "sha256": "92a0e7fec7477d65179eb42d92b371373d0b49e1238c7a9316f9defac4b0ed4e"
+    },
+    {
+      "path": "/mnt/zer0models/workspace/zer0/experiments/pokemon/.worktrees/pokedex-generations/src/pokedex/device.css",
+      "bytes": 5282,
+      "sha256": "566c7ff0435c32b7a791e02f30179343e09bf92d879696a7a46e17f83fefc4d1"
+    },
+    {
+      "path": "/mnt/zer0models/workspace/zer0/experiments/pokemon/.worktrees/pokedex-generations/pokedex-device.html",
+      "bytes": 2909,
+      "sha256": "1048abe5c52cb7697fd576cd761f15b1185593627b419e9613459143af038a4f"
+    },
+    {
+      "path": "/mnt/zer0models/workspace/zer0/experiments/pokemon/.worktrees/pokedex-generations/vite.config.ts",
+      "bytes": 9937,
+      "sha256": "e26349970534333c5b7e378ec30ab26872fa4b2a252cc1db8a3355a62e6b841b"
+    },
+    {
+      "path": "/mnt/zer0models/workspace/zer0/experiments/pokemon/.worktrees/pokedex-generations/tools/pokedex-generations/browser-check.mjs",
+      "bytes": 8302,
+      "sha256": "6b2e0b2105a9b67a421b9e5df017934bacdb8c31d524c3e0de59b1d21e7b3924"
+    },
+    {
+      "path": "/mnt/zer0models/workspace/zer0/experiments/pokemon/.worktrees/pokedex-generations/tools/pokedex-generations/review-asset-plugin.ts",
+      "bytes": 2077,
+      "sha256": "5c5965212cbc7674d70fbd601f4fb308e6a5ea792083ca46e2a4e1f0b1d9b84b"
+    },
+    {
+      "path": "/mnt/zer0models/workspace/zer0/experiments/pokemon/.worktrees/pokedex-generations/tools/pokedex-generations/review.html",
+      "bytes": 8191,
+      "sha256": "d8290599e261b68b6f016cc2a7c906c36b81d3e6c4f6b4f3168a822090f9e863"
+    },
+    {
+      "path": "/mnt/zer0models/workspace/zer0/experiments/pokemon/.worktrees/pokedex-generations/tools/pokedex-generations/publish_review.py",
+      "bytes": 2233,
+      "sha256": "9ee5cdc75acefe765fb04b36812869c85dc0e3a0886f75dce3aa6d6ef54c9dfa"
+    },
+    {
+      "path": "/mnt/zer0models/workspace/zer0/experiments/pokemon/.worktrees/pokedex-generations/tools/pokedex-generations/verify_review_http.py",
+      "bytes": 2297,
+      "sha256": "a62b083eab510810f5795dcb48609b89450e3aaea528ef82f9108978c90730fa"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/review-batches/runtime-evidence/candidates/browser-check-before-landscape-fix.json",
+      "bytes": 17680,
+      "sha256": "095444f62d695e4be3029f36f60f4c164a3fda741faff82810f5febcf4581181"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/review-batches/runtime-evidence/candidates/browser-check-before-retry-fix.json",
+      "bytes": 4257,
+      "sha256": "0fd8a971f9ece09dc2d386124afd7ccf2cc3926ed047cb6ff66c9bad1c8b069f"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/review-batches/runtime-evidence/candidates/browser-check.json",
+      "bytes": 18992,
+      "sha256": "c021ba2e2b6063735917d9cb9338fc224b26302ee21252d65ba91c58ecbffb30"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/review-batches/runtime-evidence/candidates/v002-r08-boot.png",
+      "bytes": 207890,
+      "sha256": "80a22a8df583734b3081e9de7e2fe5d91f9999e65af3c03bb43aba3d8e50fb02"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/review-batches/runtime-evidence/candidates/v002-r08-closed.png",
+      "bytes": 142186,
+      "sha256": "b78254cb77b4fd4cb986dd8282719c678097e97a736dda81f2aedd5fa263e44b"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/review-batches/runtime-evidence/candidates/v002-r08-contact.jpg",
+      "bytes": 187287,
+      "sha256": "a3001444565325ff8459660c215da873339d5a88172cb459f4c5c3e4fe359118"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/review-batches/runtime-evidence/candidates/v002-r08-inspector.png",
+      "bytes": 246375,
+      "sha256": "0b81524172b5028da5c092bd615b25f6952013ab0a0cb0066e4eabde605ae7ae"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/review-batches/runtime-evidence/candidates/v002-r08-live.png",
+      "bytes": 213834,
+      "sha256": "2bfb54768737c508e93b77b73f09642da7107d3b6f7d9048bdacb96db45011bd"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/review-batches/runtime-evidence/candidates/v002-r08-ready.png",
+      "bytes": 206966,
+      "sha256": "2169f73433afd800beb413282f1540df1ad6a0a200a41e8c94e91979b8c9b0fb"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/review-batches/runtime-evidence/candidates/v002-r08-resized-1440.png",
+      "bytes": 690434,
+      "sha256": "46956857d03b67fa3c30d800e011ed4ea56b46ff449f1f01d72f2b479f274695"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/review-batches/runtime-evidence/candidates/v002-r08-resized-390.png",
+      "bytes": 207968,
+      "sha256": "a3788016013bd6696c98976764bc6584bbeeee34432c4c8acbe629161b461921"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/review-batches/runtime-evidence/candidates/v002-r08-resized-844.png",
+      "bytes": 151563,
+      "sha256": "da7f14d16085fb2a8747eae1169799fb3ef29deb40f5cc6d3646537b9bfcd6f4"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/review-batches/runtime-evidence/candidates/v002-r08-underside.png",
+      "bytes": 110708,
+      "sha256": "f58019bbb9c894b6cc2491e9a7e642ac9a660a8c98d333251c5c7e87658d9e3d"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/review-batches/runtime-evidence/candidates/v003-r08-boot.png",
+      "bytes": 207017,
+      "sha256": "38ff79f1ce0b925a2b2893c8fbe4eeeb54713f351af920f1a372076ee1a47954"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/review-batches/runtime-evidence/candidates/v003-r08-closed.png",
+      "bytes": 137136,
+      "sha256": "c265a790c8bd2166500b567f6091832dd924ba9ee11021d2d6920ce8d3808833"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/review-batches/runtime-evidence/candidates/v003-r08-contact.jpg",
+      "bytes": 197120,
+      "sha256": "7d29c8f04600975b19550806439a5b8b85f5846022ffd67b794216d9cc63843f"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/review-batches/runtime-evidence/candidates/v003-r08-inspector.png",
+      "bytes": 247457,
+      "sha256": "605bd9ca116f4bbe9597291a8a144227a2bb9ac206a72832fe22deab586023e7"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/review-batches/runtime-evidence/candidates/v003-r08-live.png",
+      "bytes": 214598,
+      "sha256": "8c3a461889410b7e6ee9318807d97e20258d2dcf33b38648d8839ca5b97e6198"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/review-batches/runtime-evidence/candidates/v003-r08-ready.png",
+      "bytes": 208232,
+      "sha256": "0a6bc864bfa6be82e5cfa5610a474f3b64d0b7c27fc8ab7a55e1303f915ccdb9"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/review-batches/runtime-evidence/candidates/v003-r08-resized-1440.png",
+      "bytes": 729746,
+      "sha256": "69e4136824f1a24adcf7ba06783e3431aab8da817d1f75d0b8bc3535c6bd424f"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/review-batches/runtime-evidence/candidates/v003-r08-resized-390.png",
+      "bytes": 209740,
+      "sha256": "68d958d3aecd792d032092e403c019da8b8d998154769aea824bbda21c10e421"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/review-batches/runtime-evidence/candidates/v003-r08-resized-844.png",
+      "bytes": 160956,
+      "sha256": "dcd87fcdbd067eba48e4c8c397f0d0286e00f10dd5b062c856e0d306b70f6375"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/review-batches/runtime-evidence/candidates/v003-r08-underside.png",
+      "bytes": 112600,
+      "sha256": "6aa9c0532fb50cf8c75e63a73cdc56c11f548f0fc775290c0a4a4b8db077f3f3"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/review-batches/runtime-evidence/compile-private-before-route-strip.json",
+      "bytes": 643,
+      "sha256": "89973a13a1e911d9f4c6159296dba08d5402eb64e7dc7842dbc462904a34b31d"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/review-batches/runtime-evidence/compile-private.json",
+      "bytes": 508,
+      "sha256": "83175323fc1765e65cad21f174d459fb34ce0de32195ebf5e28fd934609fd630"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/review-batches/runtime-evidence/compile-private.log",
+      "bytes": 2334,
+      "sha256": "fa0802f429c9117ff799491fb83be4a9790b91e1f25792c5e0472c566d2d1d91"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/review-batches/runtime-evidence/legacy/browser-check.json",
+      "bytes": 4091,
+      "sha256": "3e4aa2fdb145c73b0c80cbc537fe70922e0706ef69b5f8afc2a5a0c9f6d2cbaa"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/review-batches/runtime-evidence/legacy/desktop-ready.png",
+      "bytes": 490555,
+      "sha256": "85e0e5c394b26afb7c72d7dd02310f15c20049ebe06594de3605b2e79d279972"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/review-batches/runtime-evidence/legacy/mobile-closed.png",
+      "bytes": 173510,
+      "sha256": "d712ea6c84af85cf11d79086ddf98013ce2c158920ecb2a99947cd31eb2fb08a"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/review-batches/runtime-evidence/legacy/mobile-inspector.png",
+      "bytes": 213361,
+      "sha256": "2c421a61f5b791b3f3f4d5e285a2dc75713bbff5b97abbf82173b173ad396d10"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/review-batches/runtime-evidence/legacy/mobile-live.png",
+      "bytes": 282344,
+      "sha256": "0eda95e3e6586f727a036ae0bc2beb288d014dd087ab23e925924cb8209da957"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/review-batches/runtime-evidence/legacy/mobile-ready.png",
+      "bytes": 282165,
+      "sha256": "2b4dd916963733fc6070e12e6ce431df77c648b723d81f7b8b1c7b9b5a51ab67"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/review-batches/runtime-evidence/legacy/mobile-underside.png",
+      "bytes": 126742,
+      "sha256": "ed05563be5947f970c80dc7fd297d289e52a29b4ba1ef3c9366eb3fd712554f3"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/review-batches/runtime-evidence/routes.json",
+      "bytes": 3585,
+      "sha256": "2d1308918d7a6357cadc11e58154e3fe2ad622f2a3157ed99b8e3bb7e94d00b2"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/review-batches/runtime-evidence/visual-review.json",
+      "bytes": 2019,
+      "sha256": "0b239169f9be296c3cf9b23df852716c23fb334ae4ec358f8220bdc80eef91b0"
+    }
+  ]
+}

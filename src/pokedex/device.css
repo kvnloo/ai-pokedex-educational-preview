@@ -76,7 +76,7 @@ a {
 }
 #viewport {
   position:absolute;
-  inset:0 0 130px;
+  inset:0 0 var(--footer-height,130px);
   touch-action:none
 }
 #viewport canvas {
@@ -230,6 +230,7 @@ a {
 }
 #load-error {
   position:absolute;
+  z-index:4;
   top:40%;
   left:24px;
   right:24px;
@@ -263,7 +264,7 @@ a {
     right:42px
   }
   #viewport {
-    inset:0 0 90px
+    inset:0 0 var(--footer-height,90px)
   }
   .device-footer {
     width:410px;
@@ -280,4 +281,22 @@ a {
 }
 #viewport {
   mask-image:linear-gradient(to bottom,#000 0%,#000 83%,transparent 100%)
+}
+@media(min-width:600px) and (max-height:600px) {
+  #device-review {
+    min-height:0
+  }
+  #viewport {
+    inset:108px 310px 0 0;
+    mask-image:none
+  }
+  .device-footer {
+    left:auto;
+    right:0;
+    bottom:0;
+    width:300px;
+    max-height:calc(100svh - 110px);
+    overflow-y:auto;
+    transform:none
+  }
 }

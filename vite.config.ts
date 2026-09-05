@@ -4,6 +4,7 @@ import fs from 'fs';
 import crypto from 'crypto';
 import { execFileSync } from 'node:child_process';
 import { pokedexDeviceAssets } from './tools/pokedex-device/asset-plugin';
+import { pokedexGenerationReviewAssets } from './tools/pokedex-generations/review-asset-plugin';
 
 // Enforce the same executable AJV + graph gate even for direct Vite invocations
 // and private builds, before any bundle is emitted.
@@ -202,6 +203,7 @@ export default defineConfig(({ command, mode }) => {
     port: 5180,
     strictPort: true,
     host: '0.0.0.0', // Zen/LAN + 127.0.0.1
+    allowedHosts: ['0.taila30dc.ts.net'],
     fs: { allow: ['.'] },
   },
   preview: {
@@ -209,7 +211,7 @@ export default defineConfig(({ command, mode }) => {
     strictPort: true,
     host: '0.0.0.0', // Zen/LAN + 127.0.0.1
   },
-  plugins: [canonicalAcceptanceGate(), privateCanonicalSourceBoundary(privateBuild), shipGameContentOnly(privateBuild), pokedexDeviceAssets(privateBuild)],
+  plugins: [canonicalAcceptanceGate(), privateCanonicalSourceBoundary(privateBuild), shipGameContentOnly(privateBuild), pokedexDeviceAssets(privateBuild), pokedexGenerationReviewAssets()],
   define: {
     __PRIVATE_CANONICAL_BUILD__: JSON.stringify(privateBuild),
   },
