@@ -1,0 +1,25 @@
+{
+  "milestoneRevision": "698a940fb90b4f9b5c8a9522251dc8d0c05fbf71",
+  "receipt": {
+    "success": true,
+    "platform": "telegram",
+    "chat_id": "1083429746",
+    "message_id": "16811",
+    "mirrored": true
+  },
+  "messageFile": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02e/telegram-message.txt",
+  "messageSHA256": "6e0e5a74d5ff116100d6b6687dd48f16e8f0bac66d6d11f546df96c10cbeb84c",
+  "phoneUrl": "https://0.taila30dc.ts.net:8445/devtools/pokedex.html?pokemon=charizard&tab=iterations&run=charizard-tail-r02e&view=root-side",
+  "comparisonUrl": "https://0.taila30dc.ts.net:8445/devtools/experiments.html?pokemon=charizard&a=charizard-tail-r02a&b=charizard-tail-r02e&view=root-side",
+  "attachments": [
+    "comparison-preview.png",
+    "charizard-tail-r02e-threequarter.png"
+  ],
+  "independentFinalManifestAudit": {
+    "records": 214,
+    "allPathsHashesAndSizesExact": true,
+    "reviewer": "gpt-6-astra; same GPT family"
+  },
+  "fieldOSReleaseUnchanged": "f85e3ae295feec02",
+  "nextUnit": "Official-reference head and horn correction in a distinct candidate; root is sole Blender author"
+}
