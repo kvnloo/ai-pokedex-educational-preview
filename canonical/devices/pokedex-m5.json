@@ -1,0 +1,111 @@
+{
+  "stage": "M5-integrated-private-pokedex-viewer",
+  "createdAt": "2026-09-05T18:37:18.533905+00:00",
+  "assetGate": "canonical/devices/pokedex-m4.json",
+  "integrationGatePassed": true,
+  "previewUrl": "https://0.taila30dc.ts.net:8470/pokedex-device.html",
+  "entry": "pokedex-device.html",
+  "integration": "Existing private Pok\u00e9dex lens opens physical viewer; back link returns to app.",
+  "verification": {
+    "glbRuntimeChecks": 108,
+    "headedMobileDesktopChecks": 17,
+    "compiledPrivatePreviewChecks": 4,
+    "typescript": "passed",
+    "existingPokedexTests": 4,
+    "scopedPrivateViteBuild": "passed; canonical acceptance and accepted GLB hashes verified",
+    "fullPrivateAssetRebuild": "blocked by existing missing owner-source fixture pokemon-kanto-art.bin; no gate weakened",
+    "publicPreviewDeviceAssetStatus": 404,
+    "corruptBuiltAssetStatus": 409,
+    "missingBuiltAssetStatus": 404
+  },
+  "runtimeCost": {
+    "lod0Triangles": 72307,
+    "renderMeshes": 51,
+    "observedDrawCallsIncludingFloorAndShadows": 103,
+    "pixelRatioCap": 1.75,
+    "liveDisplayPixels": [
+      640,
+      864
+    ]
+  },
+  "compromises": [
+    "Viewer uses thin reflective cover approximation; frozen GLBs and hero preserve optical transmission.",
+    "Touch and viewport emulation on desktop Chromium, not a physical phone GPU benchmark.",
+    "This is a minimal game asset/viewer hook, not every game subsystem operated through the device.",
+    "Full existing asset-IaC rebuild requires its absent owner-source fixture."
+  ],
+  "evidence": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/viewer/browser-check.json",
+      "bytes": 4000,
+      "sha256": "0f5b2ec0dcad5c2f42e3847c74b7cdcca357fabc77dca7f40c3655128cb94795"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/viewer/desktop-ready.png",
+      "bytes": 490555,
+      "sha256": "a900fee51bc99da4e8d885f47e3f9c4ea41919166da75965982993123e399505"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/viewer/m5-portable-preview.json",
+      "bytes": 395,
+      "sha256": "6ae6a80cfac0d2d8b81c1349eb890b982593bf7720e9691d5e19ec01b666b972"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/viewer/m5-private-build.log",
+      "bytes": 967,
+      "sha256": "86839146e1c39ebc2b65519f233c15aaba7b3b994bfad7510e1789b62a612f3d"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/viewer/m5-private-vite-build.log",
+      "bytes": 1421,
+      "sha256": "c37f2691fb31f3b5d6a02c6e1b75b397a5b319548b320b5c6c12c8fba2444de3"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/viewer/m5-public-boundary.json",
+      "bytes": 551,
+      "sha256": "41135402c82e97fa6261900507c660d86ba9fa0389778dae93ff47316fcf7a7d"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/viewer/m5-runtime-restore.json",
+      "bytes": 1714,
+      "sha256": "f24f8acad64a3c759f6ef280216b0fb091448f667a68d2e7592810b14319678a"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/viewer/mobile-closed.png",
+      "bytes": 173510,
+      "sha256": "d712ea6c84af85cf11d79086ddf98013ce2c158920ecb2a99947cd31eb2fb08a"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/viewer/mobile-inspector.png",
+      "bytes": 230083,
+      "sha256": "6ba3d6e65eab3cedcbff98bfe6cf6408eaaea197c80921924cfacd31aa85f35b"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/viewer/mobile-live.png",
+      "bytes": 281913,
+      "sha256": "b7de66bb399469c5b6b213937b339a74de2055b335086c6edf582086b7ed7801"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/viewer/mobile-production-ready.png",
+      "bytes": 282092,
+      "sha256": "fb53316344687c37317ed113cf87099d446fc567b18b0d8db265cb7180720d06"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/viewer/mobile-ready.png",
+      "bytes": 281916,
+      "sha256": "9bbb5e527581b796cb1785c9aee04ff2634870df815252cb41b24d7107c1a4fe"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/viewer/mobile-underside.png",
+      "bytes": 126742,
+      "sha256": "ed05563be5947f970c80dc7fd297d289e52a29b4ba1ef3c9366eb3fd712554f3"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001/viewer/production-check.json",
+      "bytes": 251,
+      "sha256": "8d8c5eecfb2a7f5f79d057927a50b6558c30da945a3d6d91260af876975eb3cb"
+    }
+  ],
+  "review": "Independent final source review found original three findings addressed and no new blocker.",
+  "gitPolicy": "Commit isolated lane milestones; do not merge main without Kevin HITL approval."
+}

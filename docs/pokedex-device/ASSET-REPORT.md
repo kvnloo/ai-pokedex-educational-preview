@@ -45,4 +45,16 @@ Runtime and video gates passed in M4 (canonical/devices/pokedex-m4.json). LOD0/1
 
 Four reopened-runtime renders were inspected. LOD0 is the close-up asset, LOD1 is intended below roughly300px object height, and visibly faceted LOD2 is intended below120px. The actual r06 video is H.264, 768 × 768, 30fps, 294frames /9.8seconds. Its ten-frame storyboard and native-browser opening frame were inspected; full playback ended without error or dropped frames in the observed runs.
 
-Minimal game/Pokédex integration is the next milestone. Kevin's explicit HITL approval is required before merging this branch to main.
+## Minimal game/Pokédex integration
+
+The existing private Pokédex's lens opens `pokedex-device.html`, with a return link to the same app. The viewer loads the accepted GLBs, plays the authored opening/boot sequence, supports closing and physical A-button confirmation, and offers drag/pinch inspection, view presets and detail switching. A replaceable 640 × 864 live canvas demonstrates session state without baking UI into the asset. It is a minimal asset hook; the physical device does not yet operate every game subsystem.
+
+LOD changes preserve clip state, time and reverse direction. Movement during a gesture permanently cancels tap eligibility; multiple fingers and cancelled touches do not open the lid or confirm. Failed loads retain the previous model and provide a retry. The application has keyboard-accessible controls, safe-area spacing and a reduced-motion camera fallback.
+
+Only private builds include the device page and allowlisted assets. Development reads the accepted external files; production preview reads and verifies its own built copies. Public preview returns 404 even when the source assets exist. Portable-preview checks confirm all three hashes, a 409 response for a corrupt copy, and a 404 for a missing copy without falling back to the external source.
+
+The viewer uses a thin reflective transparent cover instead of Three's blurred screen-space refraction. This instance-local approximation does not change the frozen GLBs or Cycles hero. Observed LOD0 cost is 51 render meshes and 103 draw calls including shadows and the floor, with pixel ratio capped at 1.75. No on-device mobile GPU benchmark is claimed. The desktop browser's touch emulation verifies interaction and layout, not physical phone sensor behavior.
+
+Runtime restoration adds eight checks per LOD, bringing the actual GLB suite to 108 checks. Seventeen end-to-end checks passed in headed Chromium with real drag, two-finger touch, cancellation, asset-failure/retry, LOD switches and Pokédex navigation. Four additional checks exercised the compiled private preview’s loading, opening/boot, physical button and closing. Final screenshots were inspected. TypeScript and the existing Pokédex tests pass. The scoped private Vite build passes canonical acceptance and copies all three exact GLBs. The complete `npm run build:private` command remains blocked earlier in the existing asset-IaC chain: its demonstrative owner-supplied `pokemon-kanto-art.bin` fixture is absent. The required Node 26.4.0 was installed and verified; no identity checks or owner-source gates were weakened, and no fixture bytes were fabricated. `canonical/devices/pokedex-m5.json` records the final viewer evidence.
+
+Kevin's explicit HITL approval is required before merging this branch to main.

@@ -1,0 +1,98 @@
+import { mkdirSync, writeFileSync, existsSync } from 'node:fs';
+import { dirname, join, resolve } from 'node:path';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+
+const root = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
+const out = process.env.POKEDEX_DEVICE_EVIDENCE ?? join(root, 'shots/pokedex-device');
+const url = process.env.POKEDEX_DEVICE_URL ?? 'http://127.0.0.1:5193/pokedex-device.html';
+const packageRoot = [join(root, 'node_modules/playwright'), '/workspace/zer0/products/cod/node_modules/playwright'].find(existsSync);
+if (!packageRoot) throw new Error('Install Playwright or use the existing workspace browser runtime');
+const { chromium } = await import(pathToFileURL(join(packageRoot, 'index.mjs')).href);
+mkdirSync(out, { recursive: true });
+const report = { url, checks: [], errors: [], screenshots: [] };
+const check = (name, ok, detail) => {
+  report.checks.push({ name, ok, detail });
+  console.log((ok ? 'PASS ' : 'FAIL ') + name);
+  if (!ok) throw new Error(name + ': ' + JSON.stringify(detail));
+};
+const browser = await chromium.launch({ executablePath: '/usr/bin/chromium', headless: process.env.POKEDEX_HEADLESS === '1', args: ['--no-sandbox', '--disable-gpu-sandbox'] });
+let expectedNetworkFailure = false;
+try {
+  const page = await browser.newPage({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true });
+  page.on('pageerror', error => report.errors.push(error.message));
+  page.on('console', message => { if (message.type() === 'error' && !expectedNetworkFailure) report.errors.push(message.text() + ' ' + message.location().url); });
+  const snapshot = () => page.evaluate(() => window.__pokedexDevice.snapshot());
+  const waitState = state => page.waitForFunction(value => window.__pokedexDevice?.snapshot().state === value, state, { timeout: 20000 });
+  const shot = async name => { const path = join(out, name + '.png'); await page.screenshot({ path }); report.screenshots.push(path); };
+  await page.goto(url, { waitUntil: 'networkidle' });
+  await page.waitForFunction(() => window.__pokedexDevice && !window.__pokedexDevice.snapshot().loading);
+  check('Accepted LOD0 loads', (await snapshot()).triangles === 72307, await snapshot());
+  await shot('mobile-closed');
+  await page.mouse.move(190, 490); await page.mouse.down();
+  await page.mouse.move(250, 490, { steps: 8 }); await page.mouse.move(190, 490, { steps: 8 }); await page.mouse.up();
+  check('Drag away and return never taps', (await snapshot()).state === 'closed');
+  await page.locator('#reset-view').click();
+  const cdp = await page.context().newCDPSession(page);
+  await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: 150, y: 470, id: 0 }, { x: 230, y: 470, id: 1 }] });
+  await cdp.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ x: 120, y: 470, id: 0 }, { x: 260, y: 470, id: 1 }] });
+  await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+  check('Real two-finger pinch never taps', (await snapshot()).state === 'closed');
+  await page.locator('#reset-view').click();
+  await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: 190, y: 490, id: 0 }] });
+  await cdp.send('Input.dispatchTouchEvent', { type: 'touchCancel', touchPoints: [] });
+  check('Cancelled touch never taps', (await snapshot()).state === 'closed');
+  await page.touchscreen.tap(190, 490);
+  await waitState('opening');
+  check('Touch on shell opens actual hinge', true);
+  await waitState('idle'); await shot('mobile-ready');
+  await page.locator('#press-button').click();
+  await waitState('pressing'); check('Physical A confirms once', (await snapshot()).confirmations === 1);
+  await waitState('idle');
+  await page.locator('.inspector summary').click();
+  await page.selectOption('#display-mode', 'live');
+  await page.selectOption('#lod', '1');
+  await page.waitForFunction(() => !window.__pokedexDevice.snapshot().loading && window.__pokedexDevice.snapshot().triangles === 28426);
+  check('LOD1 preserves open state and live display', (await snapshot()).state === 'idle' && (await snapshot()).display === 'live', await snapshot());
+  await page.selectOption('#lod', '2'); await page.selectOption('#lod', '0');
+  await page.waitForFunction(() => !window.__pokedexDevice.snapshot().loading && window.__pokedexDevice.snapshot().triangles === 72307);
+  check('Superseded LOD loads preserve latest choice', (await snapshot()).state === 'idle', await snapshot());
+  await shot('mobile-inspector');
+  await page.locator('.inspector summary').click(); await shot('mobile-live');
+  await page.locator('.inspector summary').click(); await page.selectOption('#camera-view', 'underside');
+  await page.locator('.inspector summary').click(); await shot('mobile-underside');
+  await page.locator('#reset-view').click();
+  await page.locator('.inspector summary').click();
+  expectedNetworkFailure = true;
+  await page.route('**/device-assets/pokedex-v001-lod2.glb', route => route.abort());
+  await page.selectOption('#lod', '2'); await page.locator('#load-error').waitFor({ state: 'visible' });
+  check('Load error is recoverable and does not confirm', await page.locator('#press-button').isDisabled() && (await snapshot()).confirmations === 1);
+  await page.unroute('**/device-assets/pokedex-v001-lod2.glb'); await page.locator('#retry').click();
+  await page.waitForFunction(() => !window.__pokedexDevice.snapshot().loading && window.__pokedexDevice.snapshot().triangles === 12126);
+  expectedNetworkFailure = false;
+  check('Retry restores the existing open state', (await snapshot()).state === 'idle');
+  await page.selectOption('#lod', '0'); await page.selectOption('#display-mode', 'original');
+  await page.waitForFunction(() => !window.__pokedexDevice.snapshot().loading);
+  await page.locator('.inspector summary').click();
+  await page.locator('#toggle-lid').click(); await waitState('closed');
+  check('Close returns to authored rest', await page.locator('#press-button').isDisabled());
+  for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 }, { width: 1440, height: 1000 }]) {
+    await page.setViewportSize(viewport);
+    const metrics = await page.evaluate(() => ({ width: document.documentElement.scrollWidth, viewport: window.innerWidth, canvas: document.querySelector('canvas').getBoundingClientRect().toJSON() }));
+    check('Layout fits ' + viewport.width, metrics.width <= metrics.viewport && metrics.canvas.width > 0 && metrics.canvas.height > 0, metrics);
+  }
+  await page.locator('#toggle-lid').click(); await waitState('idle'); await shot('desktop-ready');
+  await page.locator('[aria-label="Back to Pokédex"]').click();
+  await page.locator('.primary-panel').waitFor();
+  check('Existing Pokédex remains reachable', true);
+  await page.locator('[aria-label="Inspect physical Pokédex in 3D"]').click();
+  await page.waitForFunction(() => window.__pokedexDevice && !window.__pokedexDevice.snapshot().loading);
+  check('Pokédex lens opens integrated physical viewer', true);
+  check('No unexpected browser errors', report.errors.length === 0, report.errors);
+  report.passed = true;
+} catch (error) {
+  report.passed = false; report.failure = String(error); process.exitCode = 1;
+} finally {
+  writeFileSync(join(out, 'browser-check.json'), JSON.stringify(report, null, 2));
+  console.log(JSON.stringify({ passed: report.passed, checks: report.checks.length, errors: report.errors, failure: report.failure, out }, null, 2));
+  await browser.close();
+}

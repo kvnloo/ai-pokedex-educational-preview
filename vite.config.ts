@@ -3,6 +3,7 @@ import path from 'path';
 import fs from 'fs';
 import crypto from 'crypto';
 import { execFileSync } from 'node:child_process';
+import { pokedexDeviceAssets } from './tools/pokedex-device/asset-plugin';
 
 // Enforce the same executable AJV + graph gate even for direct Vite invocations
 // and private builds, before any bundle is emitted.
@@ -208,7 +209,7 @@ export default defineConfig(({ command, mode }) => {
     strictPort: true,
     host: '0.0.0.0', // Zen/LAN + 127.0.0.1
   },
-  plugins: [canonicalAcceptanceGate(), privateCanonicalSourceBoundary(privateBuild), shipGameContentOnly(privateBuild)],
+  plugins: [canonicalAcceptanceGate(), privateCanonicalSourceBoundary(privateBuild), shipGameContentOnly(privateBuild), pokedexDeviceAssets(privateBuild)],
   define: {
     __PRIVATE_CANONICAL_BUILD__: JSON.stringify(privateBuild),
   },
@@ -224,7 +225,7 @@ export default defineConfig(({ command, mode }) => {
       // intentionally excluded from the production multi-page bundle.
       input: {
         main: path.resolve(__dirname, 'index.html'),
-        ...(privateBuild ? { pokedex: path.resolve(__dirname, 'pokedex.html') } : {}),
+        ...(privateBuild ? { pokedex: path.resolve(__dirname, 'pokedex.html'), pokedexDevice: path.resolve(__dirname, 'pokedex-device.html') } : {}),
       },
     },
   },

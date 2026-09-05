@@ -19,24 +19,38 @@ try {
   check(runtime.state==='closed','Initial state');
   const hinge=nodes.get('PDX.LidHinge'),button=nodes.get('PDX.Button.A');
   const buttonHome=button.position.clone();
+  const verifyRestore=()=>{
+   const playback=runtime.capturePlayback();
+   const pose=[hinge.rotation.x,button.position.x,button.position.y,button.position.z,nodes.get('SIG_RingPower').position.x];
+   const replacement=new PokedexRuntime(gltf.scene,gltf.animations);
+   replacement.restorePlayback(playback);
+   const restored=[hinge.rotation.x,button.position.x,button.position.y,button.position.z,nodes.get('SIG_RingPower').position.x];
+   check(replacement.state===playback.state && restored.every((v,i)=>Math.abs(v-pose[i])<1e-6),'Restore '+playback.state+' state and physical pose');
+   replacement.update(.05);
+   check(replacement.state===playback.state,'Restored phase continues');
+   replacement.dispose();runtime.restorePlayback(playback);
+  };
   check(Math.abs(hinge.rotation.x)<.0001,'Closed hinge');
   runtime.open();runtime.open();step(1);
   check(runtime.state==='opening' && Math.abs(hinge.rotation.x)>.4,'Opening real hinge / repeated input');
+  verifyRestore();
   step(1.1);check(runtime.state==='booting','Opening to boot');
   step(3.6);check(runtime.state==='idle','Boot to ready to idle');
   check(Math.abs(hinge.rotation.x+112*Math.PI/180)<.0001,'Ready hinge endpoint');
   const ring=nodes.get('SIG_RingPower');const before=ring.position.x;step(.8);
   check(Math.abs(ring.position.x-before)>.005,'Idle breathing');
+  verifyRestore();
   runtime.press();runtime.press();step(.33);
   check(runtime.state==='pressing','Button state');
   check(Math.abs(button.position.distanceTo(buttonHome)-.00055)<.000015,'Physical .55 mm button travel');
+  verifyRestore();
   step(.6);check(runtime.state==='idle','Button returns to idle');
   check(button.position.distanceTo(buttonHome)<.000001,'Button return position');
   const texture=new THREE.DataTexture(new Uint8Array([255,255,255,255]),1,1);texture.needsUpdate=true;
   runtime.setDisplay(texture);check(nodes.get('PDX.DisplayReady').visible===false,'Replaceable display');
   runtime.setDisplay(null);check(nodes.get('PDX.DisplayReady').visible===true,'Restore authored display');
   texture.dispose();
-  runtime.close();step(2.1);check(runtime.state==='closed','Reverse hinge closes');
+  runtime.close();step(.7);verifyRestore();step(1.4);check(runtime.state==='closed','Reverse hinge closes');
   check(Math.abs(hinge.rotation.x)<.0001,'Closed endpoint restored');
   for(const object of nodes.values()) {
    if(object instanceof THREE.Mesh)for(const mat of Array.isArray(object.material)?object.material:[object.material]){

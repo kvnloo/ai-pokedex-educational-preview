@@ -1,8 +1,13 @@
 import * as THREE from 'three';
 
 export type DeviceState = 'closed' | 'opening' | 'booting' | 'ready' | 'idle' | 'pressing' | 'closing';
+export interface DevicePlayback { state: DeviceState; seconds: number }
 type ClipName = 'Closed' | 'Opening' | 'BootUp' | 'Ready' | 'Idle' | 'ButtonPress';
 const clipNames: ClipName[] = ['Closed', 'Opening', 'BootUp', 'Ready', 'Idle', 'ButtonPress'];
+const stateClips: Record<DeviceState, ClipName> = {
+  closed: 'Closed', opening: 'Opening', closing: 'Opening', booting: 'BootUp',
+  ready: 'Ready', idle: 'Idle', pressing: 'ButtonPress',
+};
 
 /** Binds the authored GLB contract without replacing its mechanical animation. */
 export class PokedexRuntime {
@@ -61,6 +66,16 @@ export class PokedexRuntime {
   get canOpen(): boolean { return this.phase === 'closed'; }
   get canClose(): boolean { return this.phase === 'ready' || this.phase === 'idle'; }
   get canPress(): boolean { return this.phase === 'idle'; }
+
+  capturePlayback(): DevicePlayback { return { state: this.phase, seconds: this.current.time }; }
+
+  /** Preserve the actual clip phase when replacing a level of detail. */
+  restorePlayback(playback: DevicePlayback): void {
+    this.play(stateClips[playback.state], playback.state, playback.state === 'closed');
+    this.current.time = THREE.MathUtils.clamp(playback.seconds, 0, this.current.getClip().duration);
+    this.current.setEffectiveTimeScale(playback.state === 'closing' ? -1 : 1);
+    this.update(0);
+  }
 
   open(): void {
     if (this.canOpen) this.play('Opening', 'opening');

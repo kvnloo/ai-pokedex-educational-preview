@@ -4,12 +4,7 @@ const server = await createServer({
     port: 5193,
     strictPort: true,
     host: '0.0.0.0',
-    proxy: {
-      '/device-assets': {
-        target: 'http://127.0.0.1:5185',
-        rewrite: path => `/assets/devices/pokedex-v001/runtime${path.slice('/device-assets'.length)}`,
-      },
-    },
+    allowedHosts: ['0.taila30dc.ts.net'],
   },
 });
 await server.listen();

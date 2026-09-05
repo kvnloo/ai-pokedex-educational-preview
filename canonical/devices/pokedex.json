@@ -4,7 +4,7 @@
   "scope": "private-local",
   "gitPolicy": "manifest-only",
   "assetRoot": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001",
-  "status": "asset-pass-runtime-and-video-verified",
+  "status": "asset-verified-and-integrated-private-viewer",
   "referenceBoards": [
     {
       "path": "/workspace/hermes-home/profiles/chiefstaff/cache/images/img_2a6e0bc69179.jpg",
