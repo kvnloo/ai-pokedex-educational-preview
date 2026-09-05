@@ -4,6 +4,9 @@ data/raw/
 *.log
 .DS_Store
 .vite/
+__pycache__/
+*.py[cod]
+.pytest_cache/
 content/canonical/*.sqlite
 content/smoke/
 public/ab/*.glb

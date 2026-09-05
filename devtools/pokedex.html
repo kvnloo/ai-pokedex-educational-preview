@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#c12c37">
+  <title>Pokédex · Field notes</title>
+  <link rel="stylesheet" href="pokedex.css">
+</head>
+<body>
+  <main class="device" id="device">
+    <header class="device-header">
+      <div class="lens" aria-hidden="true"><span></span></div>
+      <div class="device-brand"><div class="indicator-lights" aria-hidden="true"><i></i><i></i><i></i></div><a href="./" aria-label="Open the reference desk">POKÉDEX<span>FIELD COMPANION</span></a></div>
+      <button class="search-button" id="search-open" aria-label="Find a Pokémon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg></button>
+    </header>
+
+    <div class="display-column">
+      <section class="display-frame" aria-label="Pokémon display">
+        <div class="screen">
+          <div class="screen-heading"><span><i aria-hidden="true"></i><span id="region-label">NATIONAL ARCHIVE</span></span><span id="screen-number">NO. 0006</span></div>
+          <div class="art-stage" id="art-stage" aria-label="Swipe horizontally to change Pokémon">
+            <div class="screen-grid" aria-hidden="true"></div><div class="orbit orbit-one" aria-hidden="true"></div><div class="orbit orbit-two" aria-hidden="true"></div>
+            <div class="reticle" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+            <span class="background-number" id="background-number" aria-hidden="true">006</span>
+            <div class="art-shadow" aria-hidden="true"></div>
+            <img id="hero" alt="" draggable="false" hidden>
+            <p class="art-message" id="art-message" role="status">Opening the archive…</p>
+            <span class="art-caption" id="art-caption"></span>
+          </div>
+          <div class="screen-info"><div><p class="entry-category" id="entry-category">POKÉMON RECORD</p><h1 id="pokemon-name">Pokédex</h1></div><div id="types" class="type-list"></div></div>
+          <div class="screen-bottom"><span id="screen-state">LOCAL ARCHIVE</span><span class="signal" aria-hidden="true">▂▄▆</span></div>
+        </div>
+        <div class="frame-bottom" aria-hidden="true"><i></i><span></span></div>
+      </section>
+      <div class="utility-controls">
+        <button id="read-entry" class="utility-button" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m11 5-6 5H2v4h3l6 5zM15 8c3 2 3 6 0 8m3-11c5 4 5 10 0 14"/></svg><span>Read entry</span></button>
+        <span class="hardware-lines" aria-hidden="true"><i></i><i></i><i></i></span>
+        <button id="tilt-toggle" class="utility-button" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="2" transform="rotate(15 12 12)"/><path d="M2 8v5m20-2v5"/></svg><span>Enable tilt</span></button>
+      </div>
+      <p class="utility-status" id="utility-status" role="status"></p>
+    </div>
+
+    <div class="content-column">
+      <nav class="tabs" aria-label="Pokédex panels"><button type="button" data-tab="entry" aria-current="page">Entry</button><button type="button" data-tab="images">Images <span id="image-count"></span></button><button type="button" data-tab="iterations">Iterations <span id="iteration-count"></span></button></nav>
+      <section id="panel-entry" class="content-panel" aria-label="Pokédex entry"><div class="panel-loading">Loading entry…</div></section>
+      <section id="panel-images" class="content-panel" aria-label="Reference images" hidden></section>
+      <section id="panel-iterations" class="content-panel" aria-label="Mesh iterations" hidden></section>
+    </div>
+
+    <footer class="navigation-controls">
+      <button id="previous" class="direction-button" aria-label="Previous Pokémon" disabled><span aria-hidden="true">‹</span><span id="previous-name">Previous</span></button>
+      <div class="nav-center"><span class="nav-slot" aria-hidden="true"></span><span id="nav-position">NATIONAL POKÉDEX</span></div>
+      <button id="next" class="direction-button" aria-label="Next Pokémon" disabled><span id="next-name">Next</span><span aria-hidden="true">›</span></button>
+    </footer>
+  </main>
+
+  <dialog id="search-dialog" class="sheet" aria-labelledby="search-title"><div class="sheet-handle" aria-hidden="true"></div><header class="sheet-header"><h2 id="search-title">Find a Pokémon</h2><button class="close-button" data-close="search-dialog" aria-label="Close search">×</button></header><label class="search-field"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="search-input" type="search" placeholder="Name or Pokédex number" autocomplete="off" aria-label="Name or Pokédex number"></label><p id="search-summary" class="sheet-note"></p><div id="search-results"></div></dialog>
+  <dialog id="image-dialog" class="image-dialog" aria-labelledby="image-title"><header class="sheet-header"><div><p class="eyebrow" id="image-stage"></p><h2 id="image-title">Reference image</h2></div><button class="close-button" data-close="image-dialog" aria-label="Close image">×</button></header><div class="image-inspector"><img id="inspected-image" alt=""></div><div id="image-details"></div><button id="image-choose" class="primary-button">Choose reference</button><p id="choice-status" class="sheet-note" role="status"></p></dialog>
+  <script type="module" src="pokedex.js"></script>
+</body>
+</html>

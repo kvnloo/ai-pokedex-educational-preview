@@ -1,0 +1,127 @@
+{
+  "id": "charizard-official-raw-61062",
+  "species": "charizard",
+  "title": "Charizard Official illustration, unedited RGBA \u00b7 seed 61062",
+  "stage": "shape",
+  "status": "completed",
+  "parents": [],
+  "question": "Does official illustration improve head and tail reconstruction over the matched HOME source?",
+  "changedFactors": [
+    {
+      "name": "input image",
+      "from": "HOME render, unedited RGBA",
+      "to": "Official illustration, unedited RGBA"
+    }
+  ],
+  "controls": [
+    "Hunyuan3D-2.1 checkpoint",
+    "seed",
+    "steps",
+    "guidance",
+    "latent count",
+    "octree resolution",
+    "decoder chunks"
+  ],
+  "inputs": [
+    {
+      "role": "shape reference",
+      "path": "assets/references/objects/b6/b6d5b8ee9fb05dc6f53294b2cae660dec770b92762cdb19d16bcbd679e1ba43a.png",
+      "sha256": "b6d5b8ee9fb05dc6f53294b2cae660dec770b92762cdb19d16bcbd679e1ba43a",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png",
+      "sourceKind": "official_artwork"
+    }
+  ],
+  "recipe": {
+    "model": "Hunyuan3D-2.1",
+    "checkpoint": "/home/kvn/.cache/hy3dgen/tencent/Hunyuan3D-2.1/hunyuan3d-dit-v2-1/model.fp16.ckpt",
+    "codePath": "assets/experiments/charizard-official-raw/runner-executed.py",
+    "parameters": {
+      "num_inference_steps": 50,
+      "octree_resolution": 384,
+      "guidance_scale": 5.0,
+      "num_chunks": 4000,
+      "num_latents": 4096
+    },
+    "preprocess": "No external edits or segmentation. Original alpha; native Hunyuan recenter/resize only.",
+    "seed": 61062,
+    "checkpointSHA256": "6b519fc7242f78e9b5f47ea4d55668fe3d944a2d27332f4ca68d29a6ff603f5e",
+    "checkpointConfigSHA256": "a9e9b66f0163a9b827d730633ac88f47fcc8e3071dcbb9ee12d88ef7537c5c6e",
+    "runnerSHA256": "a9e6a9fbd32d428e5c8b148553885559614a0242c2e904330c8ede2ad73ab0cb",
+    "upstreamCommit": "82920d643c0dc2f7bfd7255f45f62d386edfe60c",
+    "python": "3.10.20",
+    "torch": "2.5.1+cu124",
+    "cuda": "12.4",
+    "gpu": "NVIDIA GeForce RTX 3080 Ti",
+    "latentTensorSHA256": "43bb912b2c6a82a668c75380e72fba8d947909b38075053fa396159ade7680c1"
+  },
+  "outputs": {
+    "previews": [
+      {
+        "view": "fair-minusY",
+        "path": "assets/blender/charizard-fair-review/charizard-official-61062-minusY.png"
+      },
+      {
+        "view": "fair-plusX",
+        "path": "assets/blender/charizard-fair-review/charizard-official-61062-plusX.png"
+      },
+      {
+        "view": "fair-plusY",
+        "path": "assets/blender/charizard-fair-review/charizard-official-61062-plusY.png"
+      },
+      {
+        "view": "fair-minusX",
+        "path": "assets/blender/charizard-fair-review/charizard-official-61062-minusX.png"
+      },
+      {
+        "view": "fair-threequarter",
+        "path": "assets/blender/charizard-fair-review/charizard-official-61062-threequarter.png"
+      }
+    ],
+    "rawMesh": "assets/experiments/charizard-official-raw/charizard-official-raw-61062.glb",
+    "blend": "assets/blender/charizard-fair-review/charizard-official-61062.blend"
+  },
+  "evaluation": {
+    "verdict": "needs-work",
+    "reviewer": "assistant",
+    "notes": "Official artwork does not fix hidden-side reconstruction. Tail is a broad flattened loop, flame is detached, rear head has extraneous protrusions. Lower extraction resolution retains these defects. No production acceptance.",
+    "unresolved": [
+      "Tail must be rebuilt with a rounded taper and continuous attachment.",
+      "Flame needs a separate effect at the corrected tail tip.",
+      "Head, horns, fingers and feet require anatomical correction.",
+      "No UVs, textures, rig or animations."
+    ]
+  },
+  "evidence": [
+    {
+      "label": "Environment and checkpoint identity",
+      "path": "assets/experiments/charizard-official-raw/environment.json"
+    },
+    {
+      "label": "Fixed sampled latent tensor",
+      "path": "assets/experiments/charizard-official-raw/charizard-official-raw-61062-latents.pt"
+    },
+    {
+      "label": "Identical smooth-shaded clay review; geometry unchanged",
+      "path": "assets/blender/charizard-fair-review/charizard-official-61062.json"
+    }
+  ],
+  "researchIds": [
+    "H1"
+  ],
+  "comparability": {
+    "cohort": "charizard-source-50-384",
+    "confounds": [
+      "Source change bundles depiction, lighting and silhouette; it does not isolate one image property."
+    ]
+  },
+  "createdAt": "2026-09-05T15:36:15.561630+00:00",
+  "metrics": {
+    "vertices": 328133,
+    "faces": 656272,
+    "generationSeconds": 98.19560515599733,
+    "elapsedTotalSeconds": 245.65718048000417,
+    "peakAllocatedVRAMBytes": 8189308416,
+    "meshSHA256": "38838168914ff5eda920de5cd21dc69b90c40174040f0592cd3f569df8c14e58"
+  },
+  "completedAt": "2026-09-05T15:40:21.247512+00:00"
+}

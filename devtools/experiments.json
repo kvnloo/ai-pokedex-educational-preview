@@ -1,0 +1,5255 @@
+{
+  "schemaVersion": 1,
+  "runs": [
+    {
+      "id": "charizard-home-raw-61061",
+      "species": "charizard",
+      "title": "Charizard HOME render, unedited RGBA \u00b7 seed 61061",
+      "stage": "shape",
+      "status": "completed",
+      "parents": [],
+      "question": "Does the unedited PokeAPI HOME render improve Charizard likeness and anatomy over the dramatic Telegram cutout with all generation settings held fixed?",
+      "changedFactors": [
+        {
+          "name": "input image",
+          "from": "Telegram realistic cutout",
+          "to": "HOME render, unedited RGBA"
+        }
+      ],
+      "controls": [
+        "Hunyuan3D-2.1 checkpoint",
+        "seed",
+        "steps",
+        "guidance",
+        "latent count",
+        "octree resolution",
+        "decoder chunks"
+      ],
+      "inputs": [
+        {
+          "role": "shape reference",
+          "path": "assets/references/objects/ff/ffe2db1065f91feda24f21c81c461e4ca6b863cf31afb4e4918aba79fb31ee70.png",
+          "sha256": "ffe2db1065f91feda24f21c81c461e4ca6b863cf31afb4e4918aba79fb31ee70",
+          "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/6.png"
+        }
+      ],
+      "recipe": {
+        "model": "Hunyuan3D-2.1",
+        "checkpoint": "/home/kvn/.cache/hy3dgen/tencent/Hunyuan3D-2.1/hunyuan3d-dit-v2-1/model.fp16.ckpt",
+        "codePath": "assets/experiments/charizard-home-raw/runner-executed.py",
+        "parameters": {
+          "num_inference_steps": 50,
+          "octree_resolution": 384,
+          "guidance_scale": 5.0,
+          "num_chunks": 4000,
+          "num_latents": 4096
+        },
+        "preprocess": "No external edits or segmentation. Original alpha; native Hunyuan recenter/resize only.",
+        "seed": 61061,
+        "checkpointSHA256": "6b519fc7242f78e9b5f47ea4d55668fe3d944a2d27332f4ca68d29a6ff603f5e",
+        "checkpointConfigSHA256": "a9e9b66f0163a9b827d730633ac88f47fcc8e3071dcbb9ee12d88ef7537c5c6e",
+        "runnerSHA256": "53f16161d685b46f50bd5865e974ee529e174485334ffe2356f1474bae2f9f17",
+        "upstreamCommit": "82920d643c0dc2f7bfd7255f45f62d386edfe60c",
+        "python": "3.10.20",
+        "torch": "2.5.1+cu124",
+        "cuda": "12.4",
+        "gpu": "NVIDIA GeForce RTX 3080 Ti"
+      },
+      "outputs": {
+        "previews": [
+          {
+            "view": "minusY",
+            "path": "assets/blender/charizard-home-review/home-61061-minusY.png"
+          },
+          {
+            "view": "plusX",
+            "path": "assets/blender/charizard-home-review/home-61061-plusX.png"
+          },
+          {
+            "view": "plusY",
+            "path": "assets/blender/charizard-home-review/home-61061-plusY.png"
+          },
+          {
+            "view": "minusX",
+            "path": "assets/blender/charizard-home-review/home-61061-minusX.png"
+          },
+          {
+            "view": "fair-minusY",
+            "path": "assets/blender/charizard-fair-review/charizard-home-61061-minusY.png"
+          },
+          {
+            "view": "fair-plusX",
+            "path": "assets/blender/charizard-fair-review/charizard-home-61061-plusX.png"
+          },
+          {
+            "view": "fair-plusY",
+            "path": "assets/blender/charizard-fair-review/charizard-home-61061-plusY.png"
+          },
+          {
+            "view": "fair-minusX",
+            "path": "assets/blender/charizard-fair-review/charizard-home-61061-minusX.png"
+          },
+          {
+            "view": "fair-threequarter",
+            "path": "assets/blender/charizard-fair-review/charizard-home-61061-threequarter.png"
+          }
+        ],
+        "rawMesh": "assets/experiments/charizard-home-raw/charizard-home-raw-61061.glb",
+        "blend": "assets/blender/charizard-home-review/home-61061-review.blend"
+      },
+      "evaluation": {
+        "verdict": "needs-work",
+        "reviewer": "assistant visual inspection",
+        "notes": "More faithful HOME-like silhouette, rounded torso and recognizable three-finger hands than the paired dramatic-source generation. Both HOME seeds still fail complete geometry acceptance. Seed61061 retains a continuous tail/flame relationship better than61062. No human approval recorded.",
+        "unresolved": [
+          "Face-like structures hallucinated on rear of head.",
+          "Oversized broad tail loop and shallow reconstructed body depth.",
+          "Fused finger tips, rounded horn/eye details, corrugated wing membranes.",
+          "Flame should become a separate effect; seed61062 has an obvious disconnected flame.",
+          "No UVs, PBR textures, retopology, rig or deformation validation."
+        ]
+      },
+      "evidence": [
+        {
+          "label": "Environment and checkpoint identity",
+          "path": "assets/experiments/charizard-home-raw/environment.json"
+        },
+        {
+          "label": "Matched clay review camera protocol",
+          "path": "assets/blender/charizard-home-review/camera-protocol.json"
+        },
+        {
+          "label": "Blender import and render receipt",
+          "path": "assets/blender/charizard-home-review/home-61061-review.json"
+        },
+        {
+          "label": "Processed conditioning image",
+          "path": "assets/experiments/charizard-home-raw/hunyuan-input.png"
+        },
+        {
+          "label": "Visual comparison findings",
+          "path": "assets/blender/charizard-home-review/review.md"
+        },
+        {
+          "label": "Fair smooth-shaded review, geometry unchanged",
+          "path": "assets/blender/charizard-fair-review/charizard-home-61061.json"
+        }
+      ],
+      "researchIds": [
+        "H1"
+      ],
+      "comparability": {
+        "cohort": "charizard-source-50-384",
+        "confounds": [
+          "Source family changes pose, lighting, silhouette and alpha together; this comparison cannot isolate which image property helped. Original Bulbasaur settings are unknown."
+        ],
+        "pairedRunId": "legacy-charizard-hero-61061"
+      },
+      "createdAt": "2026-09-05T14:59:43.009110+00:00",
+      "metrics": {
+        "vertices": 364846,
+        "faces": 729692,
+        "generationSeconds": 110.92304312799388,
+        "elapsedTotalSeconds": 145.0820135860049,
+        "peakAllocatedVRAMBytes": 8193657344,
+        "meshSHA256": "69287dfd7f7f2e6a5bcf8c2b7281c08fe4a14c1b086f3d6e7eb7e8f0f96d83dd"
+      },
+      "completedAt": "2026-09-05T15:02:08.247276+00:00"
+    },
+    {
+      "id": "charizard-home-raw-61062",
+      "species": "charizard",
+      "title": "Charizard HOME render, unedited RGBA \u00b7 seed 61062",
+      "stage": "shape",
+      "status": "completed",
+      "parents": [],
+      "question": "Does the unedited PokeAPI HOME render improve Charizard likeness and anatomy over the dramatic Telegram cutout with all generation settings held fixed?",
+      "changedFactors": [
+        {
+          "name": "input image",
+          "from": "Telegram realistic cutout",
+          "to": "HOME render, unedited RGBA"
+        }
+      ],
+      "controls": [
+        "Hunyuan3D-2.1 checkpoint",
+        "seed",
+        "steps",
+        "guidance",
+        "latent count",
+        "octree resolution",
+        "decoder chunks"
+      ],
+      "inputs": [
+        {
+          "role": "shape reference",
+          "path": "assets/references/objects/ff/ffe2db1065f91feda24f21c81c461e4ca6b863cf31afb4e4918aba79fb31ee70.png",
+          "sha256": "ffe2db1065f91feda24f21c81c461e4ca6b863cf31afb4e4918aba79fb31ee70",
+          "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/6.png"
+        }
+      ],
+      "recipe": {
+        "model": "Hunyuan3D-2.1",
+        "checkpoint": "/home/kvn/.cache/hy3dgen/tencent/Hunyuan3D-2.1/hunyuan3d-dit-v2-1/model.fp16.ckpt",
+        "codePath": "assets/experiments/charizard-home-raw/runner-executed.py",
+        "parameters": {
+          "num_inference_steps": 50,
+          "octree_resolution": 384,
+          "guidance_scale": 5.0,
+          "num_chunks": 4000,
+          "num_latents": 4096
+        },
+        "preprocess": "No external edits or segmentation. Original alpha; native Hunyuan recenter/resize only.",
+        "seed": 61062,
+        "checkpointSHA256": "6b519fc7242f78e9b5f47ea4d55668fe3d944a2d27332f4ca68d29a6ff603f5e",
+        "checkpointConfigSHA256": "a9e9b66f0163a9b827d730633ac88f47fcc8e3071dcbb9ee12d88ef7537c5c6e",
+        "runnerSHA256": "53f16161d685b46f50bd5865e974ee529e174485334ffe2356f1474bae2f9f17",
+        "upstreamCommit": "82920d643c0dc2f7bfd7255f45f62d386edfe60c",
+        "python": "3.10.20",
+        "torch": "2.5.1+cu124",
+        "cuda": "12.4",
+        "gpu": "NVIDIA GeForce RTX 3080 Ti"
+      },
+      "outputs": {
+        "previews": [
+          {
+            "view": "minusY",
+            "path": "assets/blender/charizard-home-review/home-61062-minusY.png"
+          },
+          {
+            "view": "plusX",
+            "path": "assets/blender/charizard-home-review/home-61062-plusX.png"
+          },
+          {
+            "view": "plusY",
+            "path": "assets/blender/charizard-home-review/home-61062-plusY.png"
+          },
+          {
+            "view": "minusX",
+            "path": "assets/blender/charizard-home-review/home-61062-minusX.png"
+          }
+        ],
+        "rawMesh": "assets/experiments/charizard-home-raw/charizard-home-raw-61062.glb",
+        "blend": "assets/blender/charizard-home-review/home-61062-review.blend"
+      },
+      "evaluation": {
+        "verdict": "needs-work",
+        "reviewer": "assistant visual inspection",
+        "notes": "More faithful HOME-like silhouette, rounded torso and recognizable three-finger hands than the paired dramatic-source generation. Both HOME seeds still fail complete geometry acceptance. Seed61061 retains a continuous tail/flame relationship better than61062. No human approval recorded.",
+        "unresolved": [
+          "Face-like structures hallucinated on rear of head.",
+          "Oversized broad tail loop and shallow reconstructed body depth.",
+          "Fused finger tips, rounded horn/eye details, corrugated wing membranes.",
+          "Flame should become a separate effect; seed61062 has an obvious disconnected flame.",
+          "No UVs, PBR textures, retopology, rig or deformation validation."
+        ]
+      },
+      "evidence": [
+        {
+          "label": "Environment and checkpoint identity",
+          "path": "assets/experiments/charizard-home-raw/environment.json"
+        },
+        {
+          "label": "Matched clay review camera protocol",
+          "path": "assets/blender/charizard-home-review/camera-protocol.json"
+        },
+        {
+          "label": "Blender import and render receipt",
+          "path": "assets/blender/charizard-home-review/home-61062-review.json"
+        },
+        {
+          "label": "Processed conditioning image",
+          "path": "assets/experiments/charizard-home-raw/hunyuan-input.png"
+        },
+        {
+          "label": "Visual comparison findings",
+          "path": "assets/blender/charizard-home-review/review.md"
+        }
+      ],
+      "researchIds": [
+        "H1"
+      ],
+      "comparability": {
+        "cohort": "charizard-source-50-384",
+        "confounds": [
+          "Source family changes pose, lighting, silhouette and alpha together; this comparison cannot isolate which image property helped. Original Bulbasaur settings are unknown."
+        ],
+        "pairedRunId": "legacy-charizard-hero-61062"
+      },
+      "createdAt": "2026-09-05T14:59:43.010265+00:00",
+      "metrics": {
+        "vertices": 369883,
+        "faces": 739814,
+        "generationSeconds": 110.53108399800112,
+        "elapsedTotalSeconds": 255.77943480400427,
+        "peakAllocatedVRAMBytes": 8193657344,
+        "meshSHA256": "51490415517552dbdcf38bcf1aa1f027e2771b57a9f2eeb99d8f8d6fde9ea1c5"
+      },
+      "completedAt": "2026-09-05T15:03:58.815796+00:00"
+    },
+    {
+      "id": "charizard-official-raw-61061-o256",
+      "species": "charizard",
+      "title": "Charizard Official illustration, unedited RGBA \u00b7 seed 61061 \u00b7 same latent, octree 256",
+      "stage": "decode",
+      "status": "completed",
+      "parents": [
+        "charizard-official-raw-61061"
+      ],
+      "question": "Does lower extraction resolution reduce surface noise while preserving the exact sampled shape?",
+      "changedFactors": [
+        {
+          "name": "octree_resolution",
+          "from": 384,
+          "to": 256
+        }
+      ],
+      "controls": [
+        "Exact saved latent tensor",
+        "VAE checkpoint",
+        "bounds",
+        "marching-cubes extractor",
+        "decoder chunks"
+      ],
+      "inputs": [
+        {
+          "role": "shape reference",
+          "path": "assets/references/objects/b6/b6d5b8ee9fb05dc6f53294b2cae660dec770b92762cdb19d16bcbd679e1ba43a.png",
+          "sha256": "b6d5b8ee9fb05dc6f53294b2cae660dec770b92762cdb19d16bcbd679e1ba43a",
+          "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png",
+          "sourceKind": "official_artwork"
+        }
+      ],
+      "recipe": {
+        "model": "Hunyuan3D-2.1",
+        "checkpoint": "/home/kvn/.cache/hy3dgen/tencent/Hunyuan3D-2.1/hunyuan3d-dit-v2-1/model.fp16.ckpt",
+        "codePath": "assets/experiments/charizard-official-raw/runner-executed.py",
+        "parameters": {
+          "num_inference_steps": 50,
+          "octree_resolution": 256,
+          "guidance_scale": 5.0,
+          "num_chunks": 4000,
+          "num_latents": 4096
+        },
+        "preprocess": "No external edits or segmentation. Original alpha; native Hunyuan recenter/resize only.",
+        "seed": 61061,
+        "checkpointSHA256": "6b519fc7242f78e9b5f47ea4d55668fe3d944a2d27332f4ca68d29a6ff603f5e",
+        "checkpointConfigSHA256": "a9e9b66f0163a9b827d730633ac88f47fcc8e3071dcbb9ee12d88ef7537c5c6e",
+        "runnerSHA256": "a9e6a9fbd32d428e5c8b148553885559614a0242c2e904330c8ede2ad73ab0cb",
+        "upstreamCommit": "82920d643c0dc2f7bfd7255f45f62d386edfe60c",
+        "python": "3.10.20",
+        "torch": "2.5.1+cu124",
+        "cuda": "12.4",
+        "gpu": "NVIDIA GeForce RTX 3080 Ti",
+        "latentTensorSHA256": "3cc734923e4353cd5bfb6daca707609045ce037ba179ef05d94a3e5fe817385c"
+      },
+      "outputs": {
+        "previews": [
+          {
+            "view": "fair-minusY",
+            "path": "assets/blender/charizard-fair-review/charizard-official-61061-o256-minusY.png"
+          },
+          {
+            "view": "fair-plusX",
+            "path": "assets/blender/charizard-fair-review/charizard-official-61061-o256-plusX.png"
+          },
+          {
+            "view": "fair-plusY",
+            "path": "assets/blender/charizard-fair-review/charizard-official-61061-o256-plusY.png"
+          },
+          {
+            "view": "fair-minusX",
+            "path": "assets/blender/charizard-fair-review/charizard-official-61061-o256-minusX.png"
+          },
+          {
+            "view": "fair-threequarter",
+            "path": "assets/blender/charizard-fair-review/charizard-official-61061-o256-threequarter.png"
+          }
+        ],
+        "rawMesh": "assets/experiments/charizard-official-raw/charizard-official-raw-61061-o256.glb",
+        "blend": "assets/blender/charizard-fair-review/charizard-official-61061-o256.blend"
+      },
+      "evaluation": {
+        "verdict": "needs-work",
+        "reviewer": "assistant",
+        "notes": "Official artwork does not fix hidden-side reconstruction. Tail is a broad flattened loop, flame is detached, rear head has extraneous protrusions. Lower extraction resolution retains these defects. No production acceptance.",
+        "unresolved": [
+          "Tail must be rebuilt with a rounded taper and continuous attachment.",
+          "Flame needs a separate effect at the corrected tail tip.",
+          "Head, horns, fingers and feet require anatomical correction.",
+          "No UVs, textures, rig or animations."
+        ]
+      },
+      "evidence": [
+        {
+          "label": "Environment and checkpoint identity",
+          "path": "assets/experiments/charizard-official-raw/environment.json"
+        },
+        {
+          "label": "Fixed sampled latent tensor",
+          "path": "assets/experiments/charizard-official-raw/charizard-official-raw-61061-latents.pt"
+        },
+        {
+          "label": "Identical smooth-shaded clay review; geometry unchanged",
+          "path": "assets/blender/charizard-fair-review/charizard-official-61061-o256.json"
+        }
+      ],
+      "researchIds": [
+        "H2"
+      ],
+      "comparability": {
+        "cohort": "charizard-official-raw-61061-extraction",
+        "confounds": []
+      },
+      "createdAt": "2026-09-05T15:36:15.547526+00:00",
+      "metrics": {
+        "vertices": 157720,
+        "faces": 315430,
+        "decodeSeconds": 18.384722304006573,
+        "meshSHA256": "fd8303db81c1c28d0768163b319fbab9a2e14c30b367dd8a3014285662d81982"
+      },
+      "completedAt": "2026-09-05T15:38:43.021094+00:00"
+    },
+    {
+      "id": "charizard-official-raw-61061",
+      "species": "charizard",
+      "title": "Charizard Official illustration, unedited RGBA \u00b7 seed 61061",
+      "stage": "shape",
+      "status": "completed",
+      "parents": [],
+      "question": "Does official illustration improve head and tail reconstruction over the matched HOME source?",
+      "changedFactors": [
+        {
+          "name": "input image",
+          "from": "HOME render, unedited RGBA",
+          "to": "Official illustration, unedited RGBA"
+        }
+      ],
+      "controls": [
+        "Hunyuan3D-2.1 checkpoint",
+        "seed",
+        "steps",
+        "guidance",
+        "latent count",
+        "octree resolution",
+        "decoder chunks"
+      ],
+      "inputs": [
+        {
+          "role": "shape reference",
+          "path": "assets/references/objects/b6/b6d5b8ee9fb05dc6f53294b2cae660dec770b92762cdb19d16bcbd679e1ba43a.png",
+          "sha256": "b6d5b8ee9fb05dc6f53294b2cae660dec770b92762cdb19d16bcbd679e1ba43a",
+          "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png",
+          "sourceKind": "official_artwork"
+        }
+      ],
+      "recipe": {
+        "model": "Hunyuan3D-2.1",
+        "checkpoint": "/home/kvn/.cache/hy3dgen/tencent/Hunyuan3D-2.1/hunyuan3d-dit-v2-1/model.fp16.ckpt",
+        "codePath": "assets/experiments/charizard-official-raw/runner-executed.py",
+        "parameters": {
+          "num_inference_steps": 50,
+          "octree_resolution": 384,
+          "guidance_scale": 5.0,
+          "num_chunks": 4000,
+          "num_latents": 4096
+        },
+        "preprocess": "No external edits or segmentation. Original alpha; native Hunyuan recenter/resize only.",
+        "seed": 61061,
+        "checkpointSHA256": "6b519fc7242f78e9b5f47ea4d55668fe3d944a2d27332f4ca68d29a6ff603f5e",
+        "checkpointConfigSHA256": "a9e9b66f0163a9b827d730633ac88f47fcc8e3071dcbb9ee12d88ef7537c5c6e",
+        "runnerSHA256": "a9e6a9fbd32d428e5c8b148553885559614a0242c2e904330c8ede2ad73ab0cb",
+        "upstreamCommit": "82920d643c0dc2f7bfd7255f45f62d386edfe60c",
+        "python": "3.10.20",
+        "torch": "2.5.1+cu124",
+        "cuda": "12.4",
+        "gpu": "NVIDIA GeForce RTX 3080 Ti",
+        "latentTensorSHA256": "3cc734923e4353cd5bfb6daca707609045ce037ba179ef05d94a3e5fe817385c"
+      },
+      "outputs": {
+        "previews": [
+          {
+            "view": "fair-minusY",
+            "path": "assets/blender/charizard-fair-review/charizard-official-61061-minusY.png"
+          },
+          {
+            "view": "fair-plusX",
+            "path": "assets/blender/charizard-fair-review/charizard-official-61061-plusX.png"
+          },
+          {
+            "view": "fair-plusY",
+            "path": "assets/blender/charizard-fair-review/charizard-official-61061-plusY.png"
+          },
+          {
+            "view": "fair-minusX",
+            "path": "assets/blender/charizard-fair-review/charizard-official-61061-minusX.png"
+          },
+          {
+            "view": "fair-threequarter",
+            "path": "assets/blender/charizard-fair-review/charizard-official-61061-threequarter.png"
+          }
+        ],
+        "rawMesh": "assets/experiments/charizard-official-raw/charizard-official-raw-61061.glb",
+        "blend": "assets/blender/charizard-fair-review/charizard-official-61061.blend"
+      },
+      "evaluation": {
+        "verdict": "needs-work",
+        "reviewer": "assistant",
+        "notes": "Official artwork does not fix hidden-side reconstruction. Tail is a broad flattened loop, flame is detached, rear head has extraneous protrusions. Lower extraction resolution retains these defects. No production acceptance.",
+        "unresolved": [
+          "Tail must be rebuilt with a rounded taper and continuous attachment.",
+          "Flame needs a separate effect at the corrected tail tip.",
+          "Head, horns, fingers and feet require anatomical correction.",
+          "No UVs, textures, rig or animations."
+        ]
+      },
+      "evidence": [
+        {
+          "label": "Environment and checkpoint identity",
+          "path": "assets/experiments/charizard-official-raw/environment.json"
+        },
+        {
+          "label": "Fixed sampled latent tensor",
+          "path": "assets/experiments/charizard-official-raw/charizard-official-raw-61061-latents.pt"
+        },
+        {
+          "label": "Identical smooth-shaded clay review; geometry unchanged",
+          "path": "assets/blender/charizard-fair-review/charizard-official-61061.json"
+        }
+      ],
+      "researchIds": [
+        "H1"
+      ],
+      "comparability": {
+        "cohort": "charizard-source-50-384",
+        "confounds": [
+          "Source change bundles depiction, lighting and silhouette; it does not isolate one image property."
+        ]
+      },
+      "createdAt": "2026-09-05T15:36:15.547526+00:00",
+      "metrics": {
+        "vertices": 355096,
+        "faces": 710190,
+        "generationSeconds": 100.07226717600133,
+        "elapsedTotalSeconds": 128.94051510700228,
+        "peakAllocatedVRAMBytes": 8188784128,
+        "meshSHA256": "190514b171910926d058576abd25cdd9d82c3d256b17047258ce340589c815d6"
+      },
+      "completedAt": "2026-09-05T15:38:24.542859+00:00"
+    },
+    {
+      "id": "charizard-official-raw-61062-o256",
+      "species": "charizard",
+      "title": "Charizard Official illustration, unedited RGBA \u00b7 seed 61062 \u00b7 same latent, octree 256",
+      "stage": "decode",
+      "status": "completed",
+      "parents": [
+        "charizard-official-raw-61062"
+      ],
+      "question": "Does lower extraction resolution reduce surface noise while preserving the exact sampled shape?",
+      "changedFactors": [
+        {
+          "name": "octree_resolution",
+          "from": 384,
+          "to": 256
+        }
+      ],
+      "controls": [
+        "Exact saved latent tensor",
+        "VAE checkpoint",
+        "bounds",
+        "marching-cubes extractor",
+        "decoder chunks"
+      ],
+      "inputs": [
+        {
+          "role": "shape reference",
+          "path": "assets/references/objects/b6/b6d5b8ee9fb05dc6f53294b2cae660dec770b92762cdb19d16bcbd679e1ba43a.png",
+          "sha256": "b6d5b8ee9fb05dc6f53294b2cae660dec770b92762cdb19d16bcbd679e1ba43a",
+          "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png",
+          "sourceKind": "official_artwork"
+        }
+      ],
+      "recipe": {
+        "model": "Hunyuan3D-2.1",
+        "checkpoint": "/home/kvn/.cache/hy3dgen/tencent/Hunyuan3D-2.1/hunyuan3d-dit-v2-1/model.fp16.ckpt",
+        "codePath": "assets/experiments/charizard-official-raw/runner-executed.py",
+        "parameters": {
+          "num_inference_steps": 50,
+          "octree_resolution": 256,
+          "guidance_scale": 5.0,
+          "num_chunks": 4000,
+          "num_latents": 4096
+        },
+        "preprocess": "No external edits or segmentation. Original alpha; native Hunyuan recenter/resize only.",
+        "seed": 61062,
+        "checkpointSHA256": "6b519fc7242f78e9b5f47ea4d55668fe3d944a2d27332f4ca68d29a6ff603f5e",
+        "checkpointConfigSHA256": "a9e9b66f0163a9b827d730633ac88f47fcc8e3071dcbb9ee12d88ef7537c5c6e",
+        "runnerSHA256": "a9e6a9fbd32d428e5c8b148553885559614a0242c2e904330c8ede2ad73ab0cb",
+        "upstreamCommit": "82920d643c0dc2f7bfd7255f45f62d386edfe60c",
+        "python": "3.10.20",
+        "torch": "2.5.1+cu124",
+        "cuda": "12.4",
+        "gpu": "NVIDIA GeForce RTX 3080 Ti",
+        "latentTensorSHA256": "43bb912b2c6a82a668c75380e72fba8d947909b38075053fa396159ade7680c1"
+      },
+      "outputs": {
+        "previews": [
+          {
+            "view": "fair-minusY",
+            "path": "assets/blender/charizard-fair-review/charizard-official-61062-o256-minusY.png"
+          },
+          {
+            "view": "fair-plusX",
+            "path": "assets/blender/charizard-fair-review/charizard-official-61062-o256-plusX.png"
+          },
+          {
+            "view": "fair-plusY",
+            "path": "assets/blender/charizard-fair-review/charizard-official-61062-o256-plusY.png"
+          },
+          {
+            "view": "fair-minusX",
+            "path": "assets/blender/charizard-fair-review/charizard-official-61062-o256-minusX.png"
+          },
+          {
+            "view": "fair-threequarter",
+            "path": "assets/blender/charizard-fair-review/charizard-official-61062-o256-threequarter.png"
+          }
+        ],
+        "rawMesh": "assets/experiments/charizard-official-raw/charizard-official-raw-61062-o256.glb",
+        "blend": "assets/blender/charizard-fair-review/charizard-official-61062-o256.blend"
+      },
+      "evaluation": {
+        "verdict": "needs-work",
+        "reviewer": "assistant",
+        "notes": "Provisional manual-repair baseline: clearer wing membranes and separated toes than HOME61061 in matched views. Official artwork does not fix hidden-side reconstruction. Tail is a broad flattened loop, flame is detached, rear head has extraneous protrusions. Lower extraction resolution retains these defects. No production acceptance.",
+        "unresolved": [
+          "Tail must be rebuilt with a rounded taper and continuous attachment.",
+          "Flame needs a separate effect at the corrected tail tip.",
+          "Head, horns, fingers and feet require anatomical correction.",
+          "No UVs, textures, rig or animations."
+        ]
+      },
+      "evidence": [
+        {
+          "label": "Environment and checkpoint identity",
+          "path": "assets/experiments/charizard-official-raw/environment.json"
+        },
+        {
+          "label": "Fixed sampled latent tensor",
+          "path": "assets/experiments/charizard-official-raw/charizard-official-raw-61062-latents.pt"
+        },
+        {
+          "label": "Identical smooth-shaded clay review; geometry unchanged",
+          "path": "assets/blender/charizard-fair-review/charizard-official-61062-o256.json"
+        }
+      ],
+      "researchIds": [
+        "H2"
+      ],
+      "comparability": {
+        "cohort": "charizard-official-raw-61062-extraction",
+        "confounds": []
+      },
+      "createdAt": "2026-09-05T15:36:15.561630+00:00",
+      "metrics": {
+        "vertices": 145639,
+        "faces": 291280,
+        "decodeSeconds": 17.829337642004248,
+        "meshSHA256": "f9f0b2c3f2e189dcdd1c72190e8c79b7b958a2dd4f3bacb2d844ec37b330ed8e"
+      },
+      "completedAt": "2026-09-05T15:40:39.104763+00:00"
+    },
+    {
+      "id": "charizard-official-raw-61062",
+      "species": "charizard",
+      "title": "Charizard Official illustration, unedited RGBA \u00b7 seed 61062",
+      "stage": "shape",
+      "status": "completed",
+      "parents": [],
+      "question": "Does official illustration improve head and tail reconstruction over the matched HOME source?",
+      "changedFactors": [
+        {
+          "name": "input image",
+          "from": "HOME render, unedited RGBA",
+          "to": "Official illustration, unedited RGBA"
+        }
+      ],
+      "controls": [
+        "Hunyuan3D-2.1 checkpoint",
+        "seed",
+        "steps",
+        "guidance",
+        "latent count",
+        "octree resolution",
+        "decoder chunks"
+      ],
+      "inputs": [
+        {
+          "role": "shape reference",
+          "path": "assets/references/objects/b6/b6d5b8ee9fb05dc6f53294b2cae660dec770b92762cdb19d16bcbd679e1ba43a.png",
+          "sha256": "b6d5b8ee9fb05dc6f53294b2cae660dec770b92762cdb19d16bcbd679e1ba43a",
+          "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png",
+          "sourceKind": "official_artwork"
+        }
+      ],
+      "recipe": {
+        "model": "Hunyuan3D-2.1",
+        "checkpoint": "/home/kvn/.cache/hy3dgen/tencent/Hunyuan3D-2.1/hunyuan3d-dit-v2-1/model.fp16.ckpt",
+        "codePath": "assets/experiments/charizard-official-raw/runner-executed.py",
+        "parameters": {
+          "num_inference_steps": 50,
+          "octree_resolution": 384,
+          "guidance_scale": 5.0,
+          "num_chunks": 4000,
+          "num_latents": 4096
+        },
+        "preprocess": "No external edits or segmentation. Original alpha; native Hunyuan recenter/resize only.",
+        "seed": 61062,
+        "checkpointSHA256": "6b519fc7242f78e9b5f47ea4d55668fe3d944a2d27332f4ca68d29a6ff603f5e",
+        "checkpointConfigSHA256": "a9e9b66f0163a9b827d730633ac88f47fcc8e3071dcbb9ee12d88ef7537c5c6e",
+        "runnerSHA256": "a9e6a9fbd32d428e5c8b148553885559614a0242c2e904330c8ede2ad73ab0cb",
+        "upstreamCommit": "82920d643c0dc2f7bfd7255f45f62d386edfe60c",
+        "python": "3.10.20",
+        "torch": "2.5.1+cu124",
+        "cuda": "12.4",
+        "gpu": "NVIDIA GeForce RTX 3080 Ti",
+        "latentTensorSHA256": "43bb912b2c6a82a668c75380e72fba8d947909b38075053fa396159ade7680c1"
+      },
+      "outputs": {
+        "previews": [
+          {
+            "view": "fair-minusY",
+            "path": "assets/blender/charizard-fair-review/charizard-official-61062-minusY.png"
+          },
+          {
+            "view": "fair-plusX",
+            "path": "assets/blender/charizard-fair-review/charizard-official-61062-plusX.png"
+          },
+          {
+            "view": "fair-plusY",
+            "path": "assets/blender/charizard-fair-review/charizard-official-61062-plusY.png"
+          },
+          {
+            "view": "fair-minusX",
+            "path": "assets/blender/charizard-fair-review/charizard-official-61062-minusX.png"
+          },
+          {
+            "view": "fair-threequarter",
+            "path": "assets/blender/charizard-fair-review/charizard-official-61062-threequarter.png"
+          }
+        ],
+        "rawMesh": "assets/experiments/charizard-official-raw/charizard-official-raw-61062.glb",
+        "blend": "assets/blender/charizard-fair-review/charizard-official-61062.blend"
+      },
+      "evaluation": {
+        "verdict": "needs-work",
+        "reviewer": "assistant",
+        "notes": "Official artwork does not fix hidden-side reconstruction. Tail is a broad flattened loop, flame is detached, rear head has extraneous protrusions. Lower extraction resolution retains these defects. No production acceptance.",
+        "unresolved": [
+          "Tail must be rebuilt with a rounded taper and continuous attachment.",
+          "Flame needs a separate effect at the corrected tail tip.",
+          "Head, horns, fingers and feet require anatomical correction.",
+          "No UVs, textures, rig or animations."
+        ]
+      },
+      "evidence": [
+        {
+          "label": "Environment and checkpoint identity",
+          "path": "assets/experiments/charizard-official-raw/environment.json"
+        },
+        {
+          "label": "Fixed sampled latent tensor",
+          "path": "assets/experiments/charizard-official-raw/charizard-official-raw-61062-latents.pt"
+        },
+        {
+          "label": "Identical smooth-shaded clay review; geometry unchanged",
+          "path": "assets/blender/charizard-fair-review/charizard-official-61062.json"
+        }
+      ],
+      "researchIds": [
+        "H1"
+      ],
+      "comparability": {
+        "cohort": "charizard-source-50-384",
+        "confounds": [
+          "Source change bundles depiction, lighting and silhouette; it does not isolate one image property."
+        ]
+      },
+      "createdAt": "2026-09-05T15:36:15.561630+00:00",
+      "metrics": {
+        "vertices": 328133,
+        "faces": 656272,
+        "generationSeconds": 98.19560515599733,
+        "elapsedTotalSeconds": 245.65718048000417,
+        "peakAllocatedVRAMBytes": 8189308416,
+        "meshSHA256": "38838168914ff5eda920de5cd21dc69b90c40174040f0592cd3f569df8c14e58"
+      },
+      "completedAt": "2026-09-05T15:40:21.247512+00:00"
+    },
+    {
+      "id": "legacy-bulbasaur-original-raw",
+      "species": "bulbasaur",
+      "title": "Original Bulbasaur Hunyuan raw shape",
+      "stage": "shape",
+      "status": "completed",
+      "parents": [],
+      "question": null,
+      "changedFactors": [],
+      "controls": [],
+      "inputs": [
+        {
+          "role": "HOME render; user recollection, not confirmed original generation input",
+          "path": "experiments/assets/legacy-bulbasaur/home-render-unconfirmed-input.png",
+          "sha256": "c7cb8e9545e13ab399506fb5fb1f68112be9fff2b68d0ac3ff3b1f531b9c5c38",
+          "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/1.png"
+        }
+      ],
+      "recipe": {
+        "model": "Hunyuan3D; version unknown",
+        "checkpoint": null,
+        "codePath": null,
+        "parameters": {},
+        "preprocess": null,
+        "seed": null
+      },
+      "outputs": {
+        "previews": [
+          {
+            "view": "front",
+            "path": "assets/blender/bulbasaur-hunyuan/front.png"
+          },
+          {
+            "view": "side",
+            "path": "assets/blender/bulbasaur-hunyuan/side.png"
+          },
+          {
+            "view": "rear",
+            "path": "assets/blender/bulbasaur-hunyuan/rear.png"
+          },
+          {
+            "view": "three-quarter",
+            "path": "assets/blender/bulbasaur-hunyuan/three-quarter.png"
+          },
+          {
+            "view": "fair-minusY",
+            "path": "assets/blender/charizard-fair-review/bulbasaur-original-minusY.png"
+          },
+          {
+            "view": "fair-plusX",
+            "path": "assets/blender/charizard-fair-review/bulbasaur-original-plusX.png"
+          },
+          {
+            "view": "fair-plusY",
+            "path": "assets/blender/charizard-fair-review/bulbasaur-original-plusY.png"
+          },
+          {
+            "view": "fair-minusX",
+            "path": "assets/blender/charizard-fair-review/bulbasaur-original-minusX.png"
+          },
+          {
+            "view": "fair-threequarter",
+            "path": "assets/blender/charizard-fair-review/bulbasaur-original-threequarter.png"
+          }
+        ],
+        "rawMesh": "experiments/assets/legacy-bulbasaur/raw.glb"
+      },
+      "evaluation": {
+        "verdict": "historical",
+        "reviewer": "historical evidence backfill",
+        "notes": "User prefers this original shape. Raw source linkage is confirmed; original image-to-generation settings are not recovered. No texture stage is present in the raw artifact.",
+        "unresolved": [
+          "Original generation recipe not recovered from bounded local searches. User later recalled HOME renders; do not equate this with verified generation linkage.",
+          "Reference directory also contains 512/640/768 plates; existence does not prove which input was used.",
+          "Do not attribute the quality difference solely to source imagery while original settings remain unknown."
+        ]
+      },
+      "evidence": [
+        {
+          "label": "Recovered provenance and explicit unknowns",
+          "path": "discovery/charizard/bulbasaur-provenance.json"
+        },
+        {
+          "label": "Raw source import audit",
+          "path": "discovery/assets/bulbasaur-hunyuan.qa.json"
+        },
+        {
+          "label": "Fair smooth-shaded review, geometry unchanged",
+          "path": "assets/blender/charizard-fair-review/bulbasaur-original.json"
+        }
+      ],
+      "researchIds": [],
+      "comparability": {
+        "cohort": "historical-cross-species",
+        "confounds": [
+          "Species and anatomy differ.",
+          "Original model version, latent count, seed, steps, guidance, octree and actual input are unknown.",
+          "Previews add presentation lighting and smooth shading to raw geometry."
+        ]
+      }
+    },
+    {
+      "id": "legacy-charizard-cleanup-v1",
+      "species": "charizard",
+      "title": "Disconnected debris cleanup and smooth normals",
+      "stage": "blender",
+      "status": "completed",
+      "parents": [
+        "legacy-charizard-hero-61061"
+      ],
+      "question": null,
+      "changedFactors": [
+        {
+          "name": "disconnectedComponents",
+          "from": 5,
+          "to": 1
+        },
+        {
+          "name": "normals",
+          "from": "imported",
+          "to": "smooth automatic split normals"
+        }
+      ],
+      "controls": [
+        "Retained vertex coordinates are exact unchanged."
+      ],
+      "inputs": [
+        {
+          "role": "parent mesh",
+          "path": "assets/charizard-hunyuan/hero-trial/hunyuan-hero-seed-61061.glb",
+          "sha256": "dddff3d6311d38cd8a2a37ea64fcdf7919ecd9c30ac55ca37a4ab2e7e5e28c93",
+          "sourceUrl": null
+        }
+      ],
+      "recipe": {
+        "model": null,
+        "checkpoint": null,
+        "codePath": null,
+        "parameters": {
+          "before": {
+            "vertices": 289753,
+            "faces": 579498
+          },
+          "after": {
+            "vertices": 287887,
+            "faces": 575782
+          },
+          "removedComponents": 4,
+          "mainComponentCoordinatesUnchanged": true,
+          "smoothShading": true,
+          "geometrySmoothing": false
+        },
+        "preprocess": null,
+        "seed": null
+      },
+      "outputs": {
+        "previews": [
+          {
+            "view": "cleanup-61061-front",
+            "path": "assets/blender/charizard-hunyuan-cleanup/cleanup-61061-front.png"
+          },
+          {
+            "view": "cleanup-61061-right",
+            "path": "assets/blender/charizard-hunyuan-cleanup/cleanup-61061-right.png"
+          },
+          {
+            "view": "cleanup-61061-back",
+            "path": "assets/blender/charizard-hunyuan-cleanup/cleanup-61061-back.png"
+          },
+          {
+            "view": "cleanup-61061-left",
+            "path": "assets/blender/charizard-hunyuan-cleanup/cleanup-61061-left.png"
+          }
+        ],
+        "blend": "assets/blender/charizard-hunyuan-cleanup/charizard-61061-cleanup.blend"
+      },
+      "evaluation": {
+        "verdict": "historical",
+        "reviewer": "historical evidence backfill",
+        "notes": "Removed four disconnected components, 1866 vertices and 3716 faces. Exact retained coordinates unchanged. Not a repair of the attached underside.",
+        "unresolved": [
+          "Attached underside lobes and broad tail remain.",
+          "Head, hands, claws and wing anatomy remain coarse."
+        ]
+      },
+      "evidence": [
+        {
+          "label": "Edited GLB; never label as raw model output",
+          "path": "assets/blender/charizard-hunyuan-cleanup/charizard-61061-cleanup.glb"
+        },
+        {
+          "label": "Measured changes",
+          "path": "assets/blender/charizard-hunyuan-cleanup/cleanup-report.json"
+        },
+        {
+          "label": "User rejects final reconstruction",
+          "path": "discovery/charizard/retry-review-status.json"
+        }
+      ],
+      "researchIds": [],
+      "comparability": {
+        "cohort": "legacy-charizard-61061-cleanup",
+        "confounds": [
+          "v1 includes removal and shading changes; v2 changes local geometry.",
+          "Relative cleanup improvement is not overall user approval."
+        ]
+      }
+    },
+    {
+      "id": "legacy-charizard-cleanup-v2",
+      "species": "charizard",
+      "title": "Localized belly and tail smoothing",
+      "stage": "blender",
+      "status": "completed",
+      "parents": [
+        "legacy-charizard-cleanup-v1"
+      ],
+      "question": null,
+      "changedFactors": [
+        {
+          "name": "localSmoothIterations",
+          "from": 0,
+          "to": 100
+        },
+        {
+          "name": "localSmoothFactor",
+          "from": 0,
+          "to": 0.65
+        }
+      ],
+      "controls": [
+        "All vertices outside the weighted mask remain exact unchanged.",
+        "Same vertex and face count; no global smoothing."
+      ],
+      "inputs": [
+        {
+          "role": "parent Blender artifact",
+          "path": "assets/blender/charizard-hunyuan-cleanup/charizard-61061-cleanup.blend",
+          "sha256": "1d0722b1d47a626525e6741d2ad2941848d78d69b48ce8553aac2aebe5262395",
+          "sourceUrl": null
+        }
+      ],
+      "recipe": {
+        "model": null,
+        "checkpoint": null,
+        "codePath": null,
+        "parameters": {
+          "weightedVertices": 42501,
+          "movedVertices": 42501,
+          "outsideMaskMaxDisplacement": 0.0,
+          "maxDisplacement": 0.013396100974252813,
+          "meanDisplacement": 0.00043441120715405573,
+          "smoothFactor": 0.65,
+          "iterations": 100,
+          "bodyWidth": 1.9702345728874207,
+          "faces": 575782
+        },
+        "preprocess": null,
+        "seed": null
+      },
+      "outputs": {
+        "previews": [
+          {
+            "view": "v2-before-front",
+            "path": "assets/blender/charizard-hunyuan-cleanup/v2-before-front.png"
+          },
+          {
+            "view": "v2-before-right",
+            "path": "assets/blender/charizard-hunyuan-cleanup/v2-before-right.png"
+          },
+          {
+            "view": "v2-before-back",
+            "path": "assets/blender/charizard-hunyuan-cleanup/v2-before-back.png"
+          },
+          {
+            "view": "v2-before-left",
+            "path": "assets/blender/charizard-hunyuan-cleanup/v2-before-left.png"
+          },
+          {
+            "view": "v2-after-front",
+            "path": "assets/blender/charizard-hunyuan-cleanup/v2-after-front.png"
+          },
+          {
+            "view": "v2-after-right",
+            "path": "assets/blender/charizard-hunyuan-cleanup/v2-after-right.png"
+          },
+          {
+            "view": "v2-after-back",
+            "path": "assets/blender/charizard-hunyuan-cleanup/v2-after-back.png"
+          },
+          {
+            "view": "v2-after-left",
+            "path": "assets/blender/charizard-hunyuan-cleanup/v2-after-left.png"
+          }
+        ],
+        "blend": "assets/blender/charizard-hunyuan-cleanup/charizard-61061-cleanup-v2.blend"
+      },
+      "evaluation": {
+        "verdict": "historical",
+        "reviewer": "historical evidence backfill",
+        "notes": "42501 weighted vertices moved; max displacement 0.013396 scene units. All vertices outside the mask unchanged. Agent judged a modest improvement; user later rejected the overall reconstruction.",
+        "unresolved": [
+          "Attached underside lobes and broad tail remain.",
+          "Head, hands, claws and wing anatomy remain coarse."
+        ]
+      },
+      "evidence": [
+        {
+          "label": "Edited GLB; never label as raw model output",
+          "path": "assets/blender/charizard-hunyuan-cleanup/charizard-61061-cleanup-v2.glb"
+        },
+        {
+          "label": "Measured changes",
+          "path": "assets/blender/charizard-hunyuan-cleanup/v2-metrics.json"
+        },
+        {
+          "label": "User rejects final reconstruction",
+          "path": "discovery/charizard/retry-review-status.json"
+        }
+      ],
+      "researchIds": [],
+      "comparability": {
+        "cohort": "legacy-charizard-61061-cleanup",
+        "confounds": [
+          "v1 includes removal and shading changes; v2 changes local geometry.",
+          "Relative cleanup improvement is not overall user approval."
+        ]
+      }
+    },
+    {
+      "id": "legacy-charizard-face-detail",
+      "species": "charizard",
+      "title": "Eye and tooth placement experiment, rejected",
+      "stage": "blender",
+      "status": "completed",
+      "parents": [
+        "legacy-charizard-cleanup-v2"
+      ],
+      "question": null,
+      "changedFactors": [],
+      "controls": [],
+      "inputs": [
+        {
+          "role": "cleaned parent mesh",
+          "path": "assets/blender/charizard-hunyuan-cleanup/charizard-61061-cleanup-v2.glb",
+          "sha256": "ff87d4b7ad94b0e832625fdd42f73e6d3636c44f8bfcc137b549f30c7d592cef",
+          "sourceUrl": null
+        }
+      ],
+      "recipe": {
+        "model": null,
+        "checkpoint": null,
+        "codePath": "experiments/assets/legacy-recipes/add_face_details.py",
+        "parameters": {},
+        "preprocess": null,
+        "seed": null
+      },
+      "outputs": {
+        "previews": [
+          {
+            "view": "charizard-face-detail-front",
+            "path": "assets/blender/charizard-hunyuan-face/charizard-face-detail-front.png"
+          },
+          {
+            "view": "charizard-face-detail-side",
+            "path": "assets/blender/charizard-hunyuan-face/charizard-face-detail-side.png"
+          },
+          {
+            "view": "charizard-face-detail-back",
+            "path": "assets/blender/charizard-hunyuan-face/charizard-face-detail-back.png"
+          },
+          {
+            "view": "charizard-face-detail-threequarter",
+            "path": "assets/blender/charizard-hunyuan-face/charizard-face-detail-threequarter.png"
+          },
+          {
+            "view": "face-before-front",
+            "path": "assets/blender/charizard-hunyuan-face/face-before-front.png"
+          },
+          {
+            "view": "face-after-front",
+            "path": "assets/blender/charizard-hunyuan-face/face-after-front.png"
+          },
+          {
+            "view": "face-before-side",
+            "path": "assets/blender/charizard-hunyuan-face/face-before-side.png"
+          },
+          {
+            "view": "face-after-side",
+            "path": "assets/blender/charizard-hunyuan-face/face-after-side.png"
+          }
+        ],
+        "blend": "assets/blender/charizard-hunyuan-face/charizard-61061-face-detail.blend"
+      },
+      "evaluation": {
+        "verdict": "rejected",
+        "reviewer": "historical evidence backfill",
+        "notes": "The user rejected the face experiment and underlying reconstruction. Current GLB includes a later neutral dielectric clay material for honest viewer lighting; it is not textured or AAA approved.",
+        "unresolved": [
+          "Facial structure and eyelids are unresolved.",
+          "Separate eye/tooth additions do not fix the base muzzle anatomy."
+        ]
+      },
+      "evidence": [
+        {
+          "label": "Rejected review",
+          "path": "discovery/charizard/retry-review-status.json"
+        },
+        {
+          "label": "Edited face-detail GLB",
+          "path": "assets/blender/charizard-hunyuan-face/charizard-61061-face-detail.glb"
+        },
+        {
+          "label": "Export inventory",
+          "path": "assets/blender/charizard-hunyuan-face/export-validation.json"
+        },
+        {
+          "label": "Face geometry placement",
+          "path": "assets/blender/charizard-hunyuan-face/face-parts.json"
+        }
+      ],
+      "researchIds": [],
+      "comparability": {
+        "cohort": "legacy-charizard-61061-cleanup",
+        "confounds": [
+          "Geometry additions and neutral material export changes are bundled in the surviving artifact."
+        ]
+      }
+    },
+    {
+      "id": "legacy-charizard-hero-61061",
+      "species": "charizard",
+      "title": "Charizard hero input / Hunyuan seed 61061",
+      "stage": "shape",
+      "status": "completed",
+      "parents": [
+        "legacy-comfy-charizard-362f69f1c023"
+      ],
+      "question": null,
+      "changedFactors": [
+        {
+          "name": "source bundle relative to matched HOME run",
+          "from": "PokeAPI HOME render with original alpha",
+          "to": "Dramatic Telegram reference with reviewed SAM2 alpha"
+        }
+      ],
+      "controls": [
+        "Compare against charizard-home-raw-61061 at seed 61061 only.",
+        "Same named Hunyuan3D-2.1 fp16 checkpoint and 4096-latent config.",
+        "50 steps; octree 384; guidance 5.0; num_chunks 4000.",
+        "Same native ImageProcessorV2 and mmap/empty-init/assign loader sequence, as inspected in the saved recipes."
+      ],
+      "inputs": [
+        {
+          "role": "generation input",
+          "path": "assets/charizard-hunyuan/hero-trial/cutout-reviewed.png",
+          "sha256": "8cb730bb69ce07951d6bf74d2ff278e0ee4034386d92612f09f8c8fc6c581f48",
+          "sourceUrl": null
+        }
+      ],
+      "recipe": {
+        "model": "Hunyuan3D-2.1",
+        "checkpoint": "tencent/Hunyuan3D-2.1:hunyuan3d-dit-v2-1/model.fp16.ckpt",
+        "codePath": "experiments/assets/legacy-recipes/hero-generate.py",
+        "parameters": {
+          "num_inference_steps": 50,
+          "octree_resolution": 384,
+          "guidance_scale": 5.0,
+          "num_chunks": 4000,
+          "num_latents": 4096,
+          "dtype": "float16",
+          "texture": false
+        },
+        "preprocess": "Reviewed RGBA input; checkpoint ImageProcessorV2, size 512 and border_ratio 0.15. Saved hunyuan-input.png shows processed input.",
+        "seed": 61061
+      },
+      "outputs": {
+        "previews": [
+          {
+            "view": "minusY",
+            "path": "assets/blender/charizard-hunyuan-review/hero-61061-minusY.png"
+          },
+          {
+            "view": "plusX",
+            "path": "assets/blender/charizard-hunyuan-review/hero-61061-plusX.png"
+          },
+          {
+            "view": "plusY",
+            "path": "assets/blender/charizard-hunyuan-review/hero-61061-plusY.png"
+          },
+          {
+            "view": "minusX",
+            "path": "assets/blender/charizard-hunyuan-review/hero-61061-minusX.png"
+          }
+        ],
+        "rawMesh": "assets/charizard-hunyuan/hero-trial/hunyuan-hero-seed-61061.glb"
+      },
+      "evaluation": {
+        "verdict": "rejected",
+        "reviewer": "historical evidence backfill",
+        "notes": "Historical raw generation. User rejected the Charizard reconstruction direction; no final asset approval. Broad ragged underside, soft face and hands, blunt tail tip, and thick wing edges. Seed 61061 was preferred only as a relative cleanup baseline.",
+        "unresolved": [
+          "No UVs, final textures, retopology, rig or deformation validation.",
+          "Rendered visual quality is rejected despite successful generation."
+        ]
+      },
+      "evidence": [
+        {
+          "label": "Generation result receipt",
+          "path": "assets/charizard-hunyuan/hero-trial/result-61061.json"
+        },
+        {
+          "label": "Processed conditioning image",
+          "path": "assets/charizard-hunyuan/hero-trial/hunyuan-input.png"
+        },
+        {
+          "label": "Checkpoint config snapshot; latent count 4096",
+          "path": "experiments/assets/legacy-recipes/hunyuan3d-2.1-config.yaml"
+        },
+        {
+          "label": "User rejection and unresolved anatomy",
+          "path": "discovery/charizard/retry-review-status.json"
+        },
+        {
+          "label": "Matched-seed HOME recipe for H1",
+          "path": "experiments/runs/charizard-home-raw-61061.json"
+        }
+      ],
+      "researchIds": [
+        "H1"
+      ],
+      "comparability": {
+        "cohort": "charizard-source-50-384",
+        "confounds": [
+          "Compare only against the HOME run with the same seed; 61061 versus 61062 is not a source-only control.",
+          "Source bundles differ in pose, lighting, occlusion and external alpha-mask preparation; these factors are not independently isolated.",
+          "The legacy receipt names the same checkpoint but did not record a contemporaneous checkpoint hash or environment fingerprint.",
+          "Original Bulbasaur generation recipe is unknown; it is not a controlled member of this cohort."
+        ]
+      }
+    },
+    {
+      "id": "legacy-charizard-hero-61062",
+      "species": "charizard",
+      "title": "Charizard hero input / Hunyuan seed 61062",
+      "stage": "shape",
+      "status": "completed",
+      "parents": [
+        "legacy-comfy-charizard-362f69f1c023"
+      ],
+      "question": null,
+      "changedFactors": [
+        {
+          "name": "source bundle relative to matched HOME run",
+          "from": "PokeAPI HOME render with original alpha",
+          "to": "Dramatic Telegram reference with reviewed SAM2 alpha"
+        }
+      ],
+      "controls": [
+        "Compare against charizard-home-raw-61062 at seed 61062 only.",
+        "Same named Hunyuan3D-2.1 fp16 checkpoint and 4096-latent config.",
+        "50 steps; octree 384; guidance 5.0; num_chunks 4000.",
+        "Same native ImageProcessorV2 and mmap/empty-init/assign loader sequence, as inspected in the saved recipes."
+      ],
+      "inputs": [
+        {
+          "role": "generation input",
+          "path": "assets/charizard-hunyuan/hero-trial/cutout-reviewed.png",
+          "sha256": "8cb730bb69ce07951d6bf74d2ff278e0ee4034386d92612f09f8c8fc6c581f48",
+          "sourceUrl": null
+        }
+      ],
+      "recipe": {
+        "model": "Hunyuan3D-2.1",
+        "checkpoint": "tencent/Hunyuan3D-2.1:hunyuan3d-dit-v2-1/model.fp16.ckpt",
+        "codePath": "experiments/assets/legacy-recipes/hero-generate.py",
+        "parameters": {
+          "num_inference_steps": 50,
+          "octree_resolution": 384,
+          "guidance_scale": 5.0,
+          "num_chunks": 4000,
+          "num_latents": 4096,
+          "dtype": "float16",
+          "texture": false
+        },
+        "preprocess": "Reviewed RGBA input; checkpoint ImageProcessorV2, size 512 and border_ratio 0.15. Saved hunyuan-input.png shows processed input.",
+        "seed": 61062
+      },
+      "outputs": {
+        "previews": [
+          {
+            "view": "minusY",
+            "path": "assets/blender/charizard-hunyuan-review/hero-61062-minusY.png"
+          },
+          {
+            "view": "plusX",
+            "path": "assets/blender/charizard-hunyuan-review/hero-61062-plusX.png"
+          },
+          {
+            "view": "plusY",
+            "path": "assets/blender/charizard-hunyuan-review/hero-61062-plusY.png"
+          },
+          {
+            "view": "minusX",
+            "path": "assets/blender/charizard-hunyuan-review/hero-61062-minusX.png"
+          }
+        ],
+        "rawMesh": "assets/charizard-hunyuan/hero-trial/hunyuan-hero-seed-61062.glb"
+      },
+      "evaluation": {
+        "verdict": "rejected",
+        "reviewer": "historical evidence backfill",
+        "notes": "Historical raw generation. User rejected the Charizard reconstruction direction; no final asset approval. Broad ragged underside, soft face and hands, blunt tail tip, and thick wing edges. Seed 61061 was preferred only as a relative cleanup baseline.",
+        "unresolved": [
+          "No UVs, final textures, retopology, rig or deformation validation.",
+          "Rendered visual quality is rejected despite successful generation."
+        ]
+      },
+      "evidence": [
+        {
+          "label": "Generation result receipt",
+          "path": "assets/charizard-hunyuan/hero-trial/result-61062.json"
+        },
+        {
+          "label": "Processed conditioning image",
+          "path": "assets/charizard-hunyuan/hero-trial/hunyuan-input.png"
+        },
+        {
+          "label": "Checkpoint config snapshot; latent count 4096",
+          "path": "experiments/assets/legacy-recipes/hunyuan3d-2.1-config.yaml"
+        },
+        {
+          "label": "User rejection and unresolved anatomy",
+          "path": "discovery/charizard/retry-review-status.json"
+        },
+        {
+          "label": "Matched-seed HOME recipe for H1",
+          "path": "experiments/runs/charizard-home-raw-61062.json"
+        }
+      ],
+      "researchIds": [
+        "H1"
+      ],
+      "comparability": {
+        "cohort": "charizard-source-50-384",
+        "confounds": [
+          "Compare only against the HOME run with the same seed; 61061 versus 61062 is not a source-only control.",
+          "Source bundles differ in pose, lighting, occlusion and external alpha-mask preparation; these factors are not independently isolated.",
+          "The legacy receipt names the same checkpoint but did not record a contemporaneous checkpoint hash or environment fingerprint.",
+          "Original Bulbasaur generation recipe is unknown; it is not a controlled member of this cohort."
+        ]
+      }
+    },
+    {
+      "id": "legacy-charizard-hero-host-memory-abort",
+      "species": "charizard",
+      "title": "Hero generation failed attempt: host-memory abort",
+      "stage": "shape",
+      "status": "failed",
+      "parents": [
+        "legacy-comfy-charizard-362f69f1c023"
+      ],
+      "question": null,
+      "changedFactors": [],
+      "controls": [],
+      "inputs": [
+        {
+          "role": "generation input",
+          "path": "assets/charizard-hunyuan/hero-trial/cutout-reviewed.png",
+          "sha256": "8cb730bb69ce07951d6bf74d2ff278e0ee4034386d92612f09f8c8fc6c581f48",
+          "sourceUrl": null
+        }
+      ],
+      "recipe": {
+        "model": "Hunyuan3D-2.1",
+        "checkpoint": "tencent/Hunyuan3D-2.1:hunyuan3d-dit-v2-1/model.fp16.ckpt",
+        "codePath": "experiments/assets/legacy-recipes/hero-generate-original.py",
+        "parameters": {
+          "num_inference_steps": 50,
+          "octree_resolution": 384,
+          "guidance_scale": 5.0,
+          "num_chunks": 4000,
+          "num_latents": 4096,
+          "dtype": "float16",
+          "texture": false
+        },
+        "preprocess": "Reviewed RGBA input; checkpoint ImageProcessorV2, size 512 and border_ratio 0.15. Saved hunyuan-input.png shows processed input.",
+        "seed": 61061
+      },
+      "outputs": {
+        "previews": []
+      },
+      "evaluation": {
+        "verdict": "rejected",
+        "reviewer": "historical evidence backfill",
+        "notes": "Session report records host-memory pressure and about 14 GB swap, then intentional termination of this owned retry. The retained log only proves checkpoint loading began; it has no independent memory measurement.",
+        "unresolved": []
+      },
+      "evidence": [
+        {
+          "label": "Retained failed-attempt log",
+          "path": "assets/charizard-hunyuan/hero-trial/generate-retry.log"
+        }
+      ],
+      "researchIds": [],
+      "comparability": {
+        "cohort": "legacy-charizard-hero-execution",
+        "confounds": [
+          "GPU/host-memory contention and loader implementation differ from the completed mmap-loader run.",
+          "Failure is operational evidence, not a comparison of rendered quality."
+        ]
+      }
+    },
+    {
+      "id": "legacy-charizard-hero-oom",
+      "species": "charizard",
+      "title": "Hero generation failed attempt: GPU OOM",
+      "stage": "shape",
+      "status": "failed",
+      "parents": [
+        "legacy-comfy-charizard-362f69f1c023"
+      ],
+      "question": null,
+      "changedFactors": [],
+      "controls": [],
+      "inputs": [
+        {
+          "role": "generation input",
+          "path": "assets/charizard-hunyuan/hero-trial/cutout-reviewed.png",
+          "sha256": "8cb730bb69ce07951d6bf74d2ff278e0ee4034386d92612f09f8c8fc6c581f48",
+          "sourceUrl": null
+        }
+      ],
+      "recipe": {
+        "model": "Hunyuan3D-2.1",
+        "checkpoint": "tencent/Hunyuan3D-2.1:hunyuan3d-dit-v2-1/model.fp16.ckpt",
+        "codePath": "experiments/assets/legacy-recipes/hero-generate-original.py",
+        "parameters": {
+          "num_inference_steps": 50,
+          "octree_resolution": 384,
+          "guidance_scale": 5.0,
+          "num_chunks": 4000,
+          "num_latents": 4096,
+          "dtype": "float16",
+          "texture": false
+        },
+        "preprocess": "Reviewed RGBA input; checkpoint ImageProcessorV2, size 512 and border_ratio 0.15. Saved hunyuan-input.png shows processed input.",
+        "seed": 61061
+      },
+      "outputs": {
+        "previews": []
+      },
+      "evaluation": {
+        "verdict": "rejected",
+        "reviewer": "historical evidence backfill",
+        "notes": "CUDA OutOfMemoryError while requesting 130 MiB. Log records other GPU processes and 131.81 MiB free. No completed mesh from this attempt.",
+        "unresolved": []
+      },
+      "evidence": [
+        {
+          "label": "Retained failed-attempt log",
+          "path": "assets/charizard-hunyuan/hero-trial/generate-oom-attempt.log"
+        }
+      ],
+      "researchIds": [],
+      "comparability": {
+        "cohort": "legacy-charizard-hero-execution",
+        "confounds": [
+          "GPU/host-memory contention and loader implementation differ from the completed mmap-loader run.",
+          "Failure is operational evidence, not a comparison of rendered quality."
+        ]
+      }
+    },
+    {
+      "id": "legacy-charizard-procedural-v1",
+      "species": "charizard",
+      "title": "Procedural Charizard material/sculpt study v1",
+      "stage": "blender",
+      "status": "completed",
+      "parents": [],
+      "question": null,
+      "changedFactors": [],
+      "controls": [],
+      "inputs": [
+        {
+          "role": "Prior authored external Blender source; not copied into this backfill",
+          "path": null,
+          "sha256": "695dff635727bf8f1ab8479488f0a124d4ac73fb8870883f629a4ab8d9575ebf",
+          "sourceUrl": null
+        }
+      ],
+      "recipe": {
+        "model": null,
+        "checkpoint": null,
+        "codePath": "experiments/assets/legacy-recipes/charizard-procedural-refine.py",
+        "parameters": {
+          "bodyVertices": 104546,
+          "bodyTriangles": 209072,
+          "meshObjects": 77,
+          "modifications": [
+            "continuous voxel-unified skin",
+            "anatomical ventral color field",
+            "curved wing membranes and tapered digits",
+            "curved keratin claws",
+            "surface-fitted eyes",
+            "procedural physically based materials",
+            "volumetric fire study"
+          ]
+        },
+        "preprocess": null,
+        "seed": null
+      },
+      "outputs": {
+        "previews": [
+          {
+            "view": "front",
+            "path": "assets/blender/charizard-photoreal/v1/front.png"
+          },
+          {
+            "view": "side",
+            "path": "assets/blender/charizard-photoreal/v1/side.png"
+          },
+          {
+            "view": "three-quarter",
+            "path": "assets/blender/charizard-photoreal/v1/three-quarter.png"
+          },
+          {
+            "view": "face",
+            "path": "assets/blender/charizard-photoreal/v1/face.png"
+          }
+        ],
+        "blend": "assets/blender/charizard-photoreal/v1/charizard-v1.blend"
+      },
+      "evaluation": {
+        "verdict": "rejected",
+        "reviewer": "historical evidence backfill",
+        "notes": "Earlier procedural assembly direction was rejected by the user. This is not a Hunyuan raw mesh or proof of reference-faithful anatomy.",
+        "unresolved": [
+          "static sculpt; inherited object animation not transferred",
+          "procedural shaders require baking for game export",
+          "Original external source is identified in report.json; browser-local copy was not recovered here."
+        ]
+      },
+      "evidence": [
+        {
+          "label": "Procedural construction report",
+          "path": "assets/blender/charizard-photoreal/v1/report.json"
+        }
+      ],
+      "researchIds": [],
+      "comparability": {
+        "cohort": "legacy-charizard-procedural",
+        "confounds": [
+          "Procedural construction differs fundamentally from native Hunyuan reconstruction.",
+          "Presentation materials and lighting also differ."
+        ]
+      }
+    },
+    {
+      "id": "legacy-charizard-procedural-v2",
+      "species": "charizard",
+      "title": "Procedural Charizard material/sculpt study v2",
+      "stage": "blender",
+      "status": "completed",
+      "parents": [
+        "legacy-charizard-procedural-v1"
+      ],
+      "question": null,
+      "changedFactors": [],
+      "controls": [],
+      "inputs": [
+        {
+          "role": "prior procedural Blender scene",
+          "path": "assets/blender/charizard-photoreal/v1/charizard-v1.blend",
+          "sha256": "2f5dc9e2a10ac6fe8917f9fdc999addba4939b7a87889c7f4076f0d23136e9b3",
+          "sourceUrl": null
+        }
+      ],
+      "recipe": {
+        "model": null,
+        "checkpoint": null,
+        "codePath": null,
+        "parameters": {
+          "bodyVertices": 261886
+        },
+        "preprocess": null,
+        "seed": null
+      },
+      "outputs": {
+        "previews": [
+          {
+            "view": "mcp-viewport-0",
+            "path": "discovery/charizard/mcp-viewport-0.png"
+          }
+        ],
+        "blend": "assets/blender/charizard-photoreal/v2/charizard-v2-mcp.blend"
+      },
+      "evaluation": {
+        "verdict": "rejected",
+        "reviewer": "historical evidence backfill",
+        "notes": "Earlier procedural assembly direction was rejected by the user. This is not a Hunyuan raw mesh or proof of reference-faithful anatomy.",
+        "unresolved": [
+          "No matched four-angle v2 render set was recovered.",
+          "Exact v2 edit code is not recovered in this record."
+        ]
+      },
+      "evidence": [
+        {
+          "label": "Blender MCP edit receipt",
+          "path": "discovery/charizard/mcp-edit-result.json"
+        },
+        {
+          "label": "Prior scene identification",
+          "path": "discovery/charizard/mcp-inspect-result.json"
+        }
+      ],
+      "researchIds": [],
+      "comparability": {
+        "cohort": "legacy-charizard-procedural",
+        "confounds": [
+          "Procedural construction differs fundamentally from native Hunyuan reconstruction.",
+          "Presentation materials and lighting also differ."
+        ]
+      }
+    },
+    {
+      "id": "legacy-charizard-video-60061",
+      "species": "charizard",
+      "title": "Charizard video input / Hunyuan seed 60061",
+      "stage": "shape",
+      "status": "completed",
+      "parents": [
+        "legacy-charizard-video-mask-prep"
+      ],
+      "question": null,
+      "changedFactors": [],
+      "controls": [
+        "Within this seed pair the input hash, checkpoint, preprocessing, steps, octree and guidance are held constant."
+      ],
+      "inputs": [
+        {
+          "role": "generation input",
+          "path": "assets/charizard-hunyuan/video-trial/cutout-reviewed.png",
+          "sha256": "1469967396b31d10a8dc7d3ac002a0ea538eb8a726213f55c22e915d22325c39",
+          "sourceUrl": null
+        }
+      ],
+      "recipe": {
+        "model": "Hunyuan3D-2.1",
+        "checkpoint": "tencent/Hunyuan3D-2.1:hunyuan3d-dit-v2-1/model.fp16.ckpt",
+        "codePath": "experiments/assets/legacy-recipes/video-generate.py",
+        "parameters": {
+          "num_inference_steps": 20,
+          "octree_resolution": 256,
+          "guidance_scale": 5.0,
+          "num_chunks": 4000,
+          "num_latents": 4096,
+          "dtype": "float16",
+          "texture": false
+        },
+        "preprocess": "Reviewed RGBA input; checkpoint ImageProcessorV2, size 512 and border_ratio 0.15. Saved hunyuan-input.png shows processed input.",
+        "seed": 60061
+      },
+      "outputs": {
+        "previews": [
+          {
+            "view": "minusY",
+            "path": "assets/blender/charizard-hunyuan-review/video-60061-minusY.png"
+          },
+          {
+            "view": "plusX",
+            "path": "assets/blender/charizard-hunyuan-review/video-60061-plusX.png"
+          },
+          {
+            "view": "plusY",
+            "path": "assets/blender/charizard-hunyuan-review/video-60061-plusY.png"
+          },
+          {
+            "view": "minusX",
+            "path": "assets/blender/charizard-hunyuan-review/video-60061-minusX.png"
+          }
+        ],
+        "rawMesh": "assets/charizard-hunyuan/video-trial/hunyuan-video-seed-60061.glb"
+      },
+      "evaluation": {
+        "verdict": "rejected",
+        "reviewer": "historical evidence backfill",
+        "notes": "Historical raw generation. User rejected the Charizard reconstruction direction; no final asset approval. Severely elongated straight tail and weak anatomy.",
+        "unresolved": [
+          "No UVs, final textures, retopology, rig or deformation validation.",
+          "Rendered visual quality is rejected despite successful generation."
+        ]
+      },
+      "evidence": [
+        {
+          "label": "Generation result receipt",
+          "path": "assets/charizard-hunyuan/video-trial/result-60061.json"
+        },
+        {
+          "label": "Processed conditioning image",
+          "path": "assets/charizard-hunyuan/video-trial/hunyuan-input.png"
+        },
+        {
+          "label": "Checkpoint config snapshot; latent count 4096",
+          "path": "experiments/assets/legacy-recipes/hunyuan3d-2.1-config.yaml"
+        },
+        {
+          "label": "Four-angle raw mesh review",
+          "path": "assets/blender/charizard-hunyuan-review/review.md"
+        }
+      ],
+      "researchIds": [],
+      "comparability": {
+        "cohort": "legacy-charizard-video-seed-pair",
+        "confounds": [
+          "Seed differs within pair.",
+          "Video versus hero comparison changes both source and steps/octree.",
+          "Original Bulbasaur generation recipe is unknown."
+        ]
+      }
+    },
+    {
+      "id": "legacy-charizard-video-60062",
+      "species": "charizard",
+      "title": "Charizard video input / Hunyuan seed 60062",
+      "stage": "shape",
+      "status": "completed",
+      "parents": [
+        "legacy-charizard-video-mask-prep"
+      ],
+      "question": null,
+      "changedFactors": [
+        {
+          "name": "seed",
+          "from": 60061,
+          "to": 60062
+        }
+      ],
+      "controls": [
+        "Within this seed pair the input hash, checkpoint, preprocessing, steps, octree and guidance are held constant."
+      ],
+      "inputs": [
+        {
+          "role": "generation input",
+          "path": "assets/charizard-hunyuan/video-trial/cutout-reviewed.png",
+          "sha256": "1469967396b31d10a8dc7d3ac002a0ea538eb8a726213f55c22e915d22325c39",
+          "sourceUrl": null
+        }
+      ],
+      "recipe": {
+        "model": "Hunyuan3D-2.1",
+        "checkpoint": "tencent/Hunyuan3D-2.1:hunyuan3d-dit-v2-1/model.fp16.ckpt",
+        "codePath": "experiments/assets/legacy-recipes/video-generate.py",
+        "parameters": {
+          "num_inference_steps": 20,
+          "octree_resolution": 256,
+          "guidance_scale": 5.0,
+          "num_chunks": 4000,
+          "num_latents": 4096,
+          "dtype": "float16",
+          "texture": false
+        },
+        "preprocess": "Reviewed RGBA input; checkpoint ImageProcessorV2, size 512 and border_ratio 0.15. Saved hunyuan-input.png shows processed input.",
+        "seed": 60062
+      },
+      "outputs": {
+        "previews": [
+          {
+            "view": "minusY",
+            "path": "assets/blender/charizard-hunyuan-review/video-60062-minusY.png"
+          },
+          {
+            "view": "plusX",
+            "path": "assets/blender/charizard-hunyuan-review/video-60062-plusX.png"
+          },
+          {
+            "view": "plusY",
+            "path": "assets/blender/charizard-hunyuan-review/video-60062-plusY.png"
+          },
+          {
+            "view": "minusX",
+            "path": "assets/blender/charizard-hunyuan-review/video-60062-minusX.png"
+          }
+        ],
+        "rawMesh": "assets/charizard-hunyuan/video-trial/hunyuan-video-seed-60062.glb"
+      },
+      "evaluation": {
+        "verdict": "rejected",
+        "reviewer": "historical evidence backfill",
+        "notes": "Historical raw generation. User rejected the Charizard reconstruction direction; no final asset approval. Severely elongated straight tail and weak anatomy.",
+        "unresolved": [
+          "No UVs, final textures, retopology, rig or deformation validation.",
+          "Rendered visual quality is rejected despite successful generation."
+        ]
+      },
+      "evidence": [
+        {
+          "label": "Generation result receipt",
+          "path": "assets/charizard-hunyuan/video-trial/result-60062.json"
+        },
+        {
+          "label": "Processed conditioning image",
+          "path": "assets/charizard-hunyuan/video-trial/hunyuan-input.png"
+        },
+        {
+          "label": "Checkpoint config snapshot; latent count 4096",
+          "path": "experiments/assets/legacy-recipes/hunyuan3d-2.1-config.yaml"
+        },
+        {
+          "label": "Four-angle raw mesh review",
+          "path": "assets/blender/charizard-hunyuan-review/review.md"
+        }
+      ],
+      "researchIds": [],
+      "comparability": {
+        "cohort": "legacy-charizard-video-seed-pair",
+        "confounds": [
+          "Seed differs within pair.",
+          "Video versus hero comparison changes both source and steps/octree.",
+          "Original Bulbasaur generation recipe is unknown."
+        ]
+      }
+    },
+    {
+      "id": "legacy-charizard-video-mask-prep",
+      "species": "charizard",
+      "title": "Video frame crop and reviewed U2Net mask",
+      "stage": "reference-prep",
+      "status": "completed",
+      "parents": [],
+      "question": null,
+      "changedFactors": [],
+      "controls": [],
+      "inputs": [
+        {
+          "role": "source frame",
+          "path": "assets/charizard-hunyuan/instagram-references/xaviroai-02.png",
+          "sha256": "2cf0240cb71c68f57a2cb1fbd92ab339e9645f175e1d9884c5a09ffb42c34b74",
+          "sourceUrl": "https://www.instagram.com/reel/DWPx9b-CNMt/"
+        }
+      ],
+      "recipe": {
+        "model": "U2Net CPU foreground mask",
+        "checkpoint": null,
+        "codePath": "assets/charizard-hunyuan/video-trial/prepare.py",
+        "parameters": {},
+        "preprocess": "Crop [95,615,1072,1140]; reviewed mask correction in correct-mask.py.",
+        "seed": null
+      },
+      "outputs": {
+        "previews": [
+          {
+            "view": "source-crop",
+            "path": "assets/charizard-hunyuan/video-trial/source-crop.png"
+          },
+          {
+            "view": "cutout-auto",
+            "path": "assets/charizard-hunyuan/video-trial/cutout-auto.png"
+          },
+          {
+            "view": "mask-auto",
+            "path": "assets/charizard-hunyuan/video-trial/mask-auto.png"
+          },
+          {
+            "view": "cutout-reviewed",
+            "path": "assets/charizard-hunyuan/video-trial/cutout-reviewed.png"
+          },
+          {
+            "view": "mask-reviewed",
+            "path": "assets/charizard-hunyuan/video-trial/mask-reviewed.png"
+          }
+        ]
+      },
+      "evaluation": {
+        "verdict": "historical",
+        "reviewer": "historical evidence backfill",
+        "notes": "Original RGB preserved. Source partially occludes feet/base and tail; mask was manually reviewed before the 60061/60062 shape trials.",
+        "unresolved": [
+          "Occluded anatomy is inferred during reconstruction."
+        ]
+      },
+      "evidence": [
+        {
+          "label": "Original crop and mask receipt",
+          "path": "assets/charizard-hunyuan/video-trial/receipt.json"
+        },
+        {
+          "label": "Reviewed mask correction",
+          "path": "assets/charizard-hunyuan/video-trial/correct-mask.py"
+        }
+      ],
+      "researchIds": [],
+      "comparability": {
+        "cohort": null,
+        "confounds": []
+      }
+    },
+    {
+      "id": "legacy-comfy-bulbasaur-44d25415805c",
+      "species": "bulbasaur",
+      "title": "Bulbasaur ComfyUI: material-target-v2",
+      "stage": "reference-prep",
+      "status": "completed",
+      "parents": [],
+      "question": null,
+      "changedFactors": [],
+      "controls": [],
+      "inputs": [
+        {
+          "role": "ComfyUI LoadImage",
+          "path": "assets/comfyui/input/bulbasaur-mesh-baseline.png",
+          "sha256": "a2caf90e291945b63fd2a241fe3e68ce59b1b1d43bd2b3bd930a3e1e7d816027",
+          "sourceUrl": null
+        },
+        {
+          "role": "ComfyUI LoadImage",
+          "path": "assets/comfyui/input/bulbasaur_official_artwork.png",
+          "sha256": "7233d8d8b03b5fa91d835a3069d25769155db93c9ef91b6066e215ed3895e9d8",
+          "sourceUrl": null
+        }
+      ],
+      "recipe": {
+        "model": "FLUX.2 Klein base 4B FP8",
+        "checkpoint": "flux-2-klein-base-4b-fp8.safetensors",
+        "codePath": "experiments/assets/legacy-comfy/bulbasaur-44d25415805c.prompt.json",
+        "parameters": {
+          "embeddedPromptSha256": "44d25415805cfd7b513259b5ade930b6cf62fb1b24fb9ce1c354edac0a265d04",
+          "nodeSettings": {
+            "2": {
+              "class_type": "ImageScaleToTotalPixels",
+              "inputs": {
+                "image": [
+                  "1",
+                  0
+                ],
+                "upscale_method": "lanczos",
+                "megapixels": 1.0,
+                "resolution_steps": 1
+              }
+            },
+            "5": {
+              "class_type": "VAELoader",
+              "inputs": {
+                "vae_name": "flux2-vae.safetensors"
+              }
+            },
+            "8": {
+              "class_type": "CLIPLoader",
+              "inputs": {
+                "clip_name": "qwen_3_4b.safetensors",
+                "type": "flux2",
+                "device": "default"
+              }
+            },
+            "15": {
+              "class_type": "UNETLoader",
+              "inputs": {
+                "unet_name": "flux-2-klein-base-4b-fp8.safetensors",
+                "weight_dtype": "default"
+              }
+            },
+            "16": {
+              "class_type": "CFGGuider",
+              "inputs": {
+                "model": [
+                  "15",
+                  0
+                ],
+                "positive": [
+                  "12",
+                  0
+                ],
+                "negative": [
+                  "14",
+                  0
+                ],
+                "cfg": 5.0
+              }
+            },
+            "18": {
+              "class_type": "Flux2Scheduler",
+              "inputs": {
+                "steps": 20,
+                "width": 1024,
+                "height": 1024
+              }
+            },
+            "19": {
+              "class_type": "KSamplerSelect",
+              "inputs": {
+                "sampler_name": "euler"
+              }
+            },
+            "20": {
+              "class_type": "RandomNoise",
+              "inputs": {
+                "noise_seed": 90601
+              }
+            },
+            "4": {
+              "class_type": "ImageScaleToTotalPixels",
+              "inputs": {
+                "image": [
+                  "3",
+                  0
+                ],
+                "upscale_method": "lanczos",
+                "megapixels": 1.0,
+                "resolution_steps": 1
+              }
+            }
+          },
+          "seeds": [
+            90601
+          ]
+        },
+        "preprocess": "Full graph is preserved in codePath. Output-specific ancestry must be read from graph; a shared prompt may contain multiple branches.",
+        "seed": 90601
+      },
+      "outputs": {
+        "previews": [
+          {
+            "view": "material-target-v2_00001_",
+            "path": "assets/comfyui/output/bulbasaur/material-target-v2_00001_.png"
+          }
+        ]
+      },
+      "evaluation": {
+        "verdict": "unreviewed",
+        "reviewer": "historical evidence backfill",
+        "notes": "Recovered from embedded PNG prompt metadata. No final-quality approval is inferred from image existence.",
+        "unresolved": []
+      },
+      "evidence": [
+        {
+          "label": "Exact embedded prompt graph",
+          "path": "experiments/assets/legacy-comfy/bulbasaur-44d25415805c.prompt.json"
+        }
+      ],
+      "researchIds": [],
+      "comparability": {
+        "cohort": "legacy-comfy-bulbasaur",
+        "confounds": [
+          "A record groups identical full prompt hashes, not necessarily one execution or one seed.",
+          "Prompts, seeds and conditioning branches differ between historical groups.",
+          "Input SHA256 values identify current recovered files; embedded prompt metadata does not prove those bytes were unchanged since execution.",
+          "PNG metadata records graph configuration, not missing execution logs or hardware state."
+        ]
+      }
+    },
+    {
+      "id": "legacy-comfy-bulbasaur-55bce4adbabf",
+      "species": "bulbasaur",
+      "title": "Bulbasaur ComfyUI: material-target-v1",
+      "stage": "reference-prep",
+      "status": "completed",
+      "parents": [],
+      "question": null,
+      "changedFactors": [],
+      "controls": [],
+      "inputs": [
+        {
+          "role": "ComfyUI LoadImage",
+          "path": "assets/comfyui/input/bulbasaur_official_artwork.png",
+          "sha256": "7233d8d8b03b5fa91d835a3069d25769155db93c9ef91b6066e215ed3895e9d8",
+          "sourceUrl": null
+        }
+      ],
+      "recipe": {
+        "model": "FLUX.2 Klein base 4B FP8",
+        "checkpoint": "flux-2-klein-base-4b-fp8.safetensors",
+        "codePath": "experiments/assets/legacy-comfy/bulbasaur-55bce4adbabf.prompt.json",
+        "parameters": {
+          "embeddedPromptSha256": "55bce4adbabfd136c534a16cb790cea9c7023dbe0f274630d5c6de38db0f473f",
+          "nodeSettings": {
+            "2": {
+              "class_type": "ImageScaleToTotalPixels",
+              "inputs": {
+                "image": [
+                  "1",
+                  0
+                ],
+                "upscale_method": "lanczos",
+                "megapixels": 1.0,
+                "resolution_steps": 1
+              }
+            },
+            "5": {
+              "class_type": "VAELoader",
+              "inputs": {
+                "vae_name": "flux2-vae.safetensors"
+              }
+            },
+            "8": {
+              "class_type": "CLIPLoader",
+              "inputs": {
+                "clip_name": "qwen_3_4b.safetensors",
+                "type": "flux2",
+                "device": "default"
+              }
+            },
+            "15": {
+              "class_type": "UNETLoader",
+              "inputs": {
+                "unet_name": "flux-2-klein-base-4b-fp8.safetensors",
+                "weight_dtype": "default"
+              }
+            },
+            "16": {
+              "class_type": "CFGGuider",
+              "inputs": {
+                "model": [
+                  "15",
+                  0
+                ],
+                "positive": [
+                  "11",
+                  0
+                ],
+                "negative": [
+                  "13",
+                  0
+                ],
+                "cfg": 5.0
+              }
+            },
+            "18": {
+              "class_type": "Flux2Scheduler",
+              "inputs": {
+                "steps": 20,
+                "width": 1024,
+                "height": 1024
+              }
+            },
+            "19": {
+              "class_type": "KSamplerSelect",
+              "inputs": {
+                "sampler_name": "euler"
+              }
+            },
+            "20": {
+              "class_type": "RandomNoise",
+              "inputs": {
+                "noise_seed": 90501
+              }
+            }
+          },
+          "seeds": [
+            90501
+          ]
+        },
+        "preprocess": "Full graph is preserved in codePath. Output-specific ancestry must be read from graph; a shared prompt may contain multiple branches.",
+        "seed": 90501
+      },
+      "outputs": {
+        "previews": [
+          {
+            "view": "material-target-v1_00001_",
+            "path": "assets/comfyui/output/bulbasaur/material-target-v1_00001_.png"
+          }
+        ]
+      },
+      "evaluation": {
+        "verdict": "unreviewed",
+        "reviewer": "historical evidence backfill",
+        "notes": "Recovered from embedded PNG prompt metadata. No final-quality approval is inferred from image existence.",
+        "unresolved": []
+      },
+      "evidence": [
+        {
+          "label": "Exact embedded prompt graph",
+          "path": "experiments/assets/legacy-comfy/bulbasaur-55bce4adbabf.prompt.json"
+        }
+      ],
+      "researchIds": [],
+      "comparability": {
+        "cohort": "legacy-comfy-bulbasaur",
+        "confounds": [
+          "A record groups identical full prompt hashes, not necessarily one execution or one seed.",
+          "Prompts, seeds and conditioning branches differ between historical groups.",
+          "Input SHA256 values identify current recovered files; embedded prompt metadata does not prove those bytes were unchanged since execution.",
+          "PNG metadata records graph configuration, not missing execution logs or hardware state."
+        ]
+      }
+    },
+    {
+      "id": "legacy-comfy-charizard-287d2c2abbca",
+      "species": "charizard",
+      "title": "Charizard ComfyUI: sam2-11.0s-cutout_00002_",
+      "stage": "reference-prep",
+      "status": "completed",
+      "parents": [],
+      "question": null,
+      "changedFactors": [],
+      "controls": [],
+      "inputs": [
+        {
+          "role": "ComfyUI LoadImage",
+          "path": "assets/comfyui/input/xaviroai-02.png",
+          "sha256": "2cf0240cb71c68f57a2cb1fbd92ab339e9645f175e1d9884c5a09ffb42c34b74",
+          "sourceUrl": "https://www.instagram.com/reel/DWPx9b-CNMt/"
+        },
+        {
+          "role": "ComfyUI LoadImage",
+          "path": "assets/comfyui/input/xaviroai-frame-10.0s.png",
+          "sha256": "a5ba4bac050afb955dceadd68aa48640d00261aacc123624f9f45e8c09e765d9",
+          "sourceUrl": "https://www.instagram.com/reel/DWPx9b-CNMt/"
+        },
+        {
+          "role": "ComfyUI LoadImage",
+          "path": "assets/comfyui/input/xaviroai-frame-11.0s.png",
+          "sha256": "edda863f6676cda746c90c570e7a7d8232b49e2dc858d45567773623234d7ba4",
+          "sourceUrl": "https://www.instagram.com/reel/DWPx9b-CNMt/"
+        }
+      ],
+      "recipe": {
+        "model": "SAM2.1 segmentation",
+        "checkpoint": "sam2.1_hiera_base_plus.safetensors",
+        "codePath": "experiments/assets/legacy-comfy/charizard-287d2c2abbca.prompt.json",
+        "parameters": {
+          "embeddedPromptSha256": "287d2c2abbca73aa8ac935b34ca7cead47388f67bdd09f5ac2c671cb0336931b",
+          "nodeSettings": {
+            "1": {
+              "class_type": "DownloadAndLoadSAM2Model",
+              "inputs": {
+                "model": "sam2.1_hiera_base_plus.safetensors",
+                "segmentor": "single_image",
+                "device": "cuda",
+                "precision": "fp16"
+              }
+            },
+            "3": {
+              "class_type": "ImageCrop",
+              "inputs": {
+                "width": 977,
+                "height": 525,
+                "x": 95,
+                "y": 615,
+                "image": [
+                  "2",
+                  0
+                ]
+              }
+            },
+            "20": {
+              "class_type": "ImageCrop",
+              "inputs": {
+                "width": 500,
+                "height": 550,
+                "x": 350,
+                "y": 330,
+                "image": [
+                  "19",
+                  0
+                ]
+              }
+            },
+            "33": {
+              "class_type": "ImageCrop",
+              "inputs": {
+                "width": 550,
+                "height": 600,
+                "x": 350,
+                "y": 550,
+                "image": [
+                  "32",
+                  0
+                ]
+              }
+            }
+          },
+          "seeds": []
+        },
+        "preprocess": "Full graph is preserved in codePath. Output-specific ancestry must be read from graph; a shared prompt may contain multiple branches.",
+        "seed": null
+      },
+      "outputs": {
+        "previews": [
+          {
+            "view": "sam2-11.0s-cutout_00002_",
+            "path": "assets/comfyui/output/charizard/sam2-11.0s-cutout_00002_.png"
+          },
+          {
+            "view": "sam2-11.0s-mask_00002_",
+            "path": "assets/comfyui/output/charizard/sam2-11.0s-mask_00002_.png"
+          },
+          {
+            "view": "sam2-11.0s-white_00002_",
+            "path": "assets/comfyui/output/charizard/sam2-11.0s-white_00002_.png"
+          }
+        ]
+      },
+      "evaluation": {
+        "verdict": "unreviewed",
+        "reviewer": "historical evidence backfill",
+        "notes": "Recovered from embedded PNG prompt metadata. No final-quality approval is inferred from image existence.",
+        "unresolved": []
+      },
+      "evidence": [
+        {
+          "label": "Exact embedded prompt graph",
+          "path": "experiments/assets/legacy-comfy/charizard-287d2c2abbca.prompt.json"
+        },
+        {
+          "label": "Subset RGB-preservation checks; does not certify mask anatomy",
+          "path": "discovery/charizard/sam2-validation.json"
+        }
+      ],
+      "researchIds": [],
+      "comparability": {
+        "cohort": "legacy-comfy-charizard",
+        "confounds": [
+          "A record groups identical full prompt hashes, not necessarily one execution or one seed.",
+          "Prompts, seeds and conditioning branches differ between historical groups.",
+          "Input SHA256 values identify current recovered files; embedded prompt metadata does not prove those bytes were unchanged since execution.",
+          "PNG metadata records graph configuration, not missing execution logs or hardware state."
+        ]
+      }
+    },
+    {
+      "id": "legacy-comfy-charizard-319da3e16aa0",
+      "species": "charizard",
+      "title": "Charizard ComfyUI: sam2-10.0s-cutout_00002_",
+      "stage": "reference-prep",
+      "status": "completed",
+      "parents": [],
+      "question": null,
+      "changedFactors": [],
+      "controls": [],
+      "inputs": [
+        {
+          "role": "ComfyUI LoadImage",
+          "path": "assets/comfyui/input/xaviroai-02.png",
+          "sha256": "2cf0240cb71c68f57a2cb1fbd92ab339e9645f175e1d9884c5a09ffb42c34b74",
+          "sourceUrl": "https://www.instagram.com/reel/DWPx9b-CNMt/"
+        },
+        {
+          "role": "ComfyUI LoadImage",
+          "path": "assets/comfyui/input/xaviroai-frame-10.0s.png",
+          "sha256": "a5ba4bac050afb955dceadd68aa48640d00261aacc123624f9f45e8c09e765d9",
+          "sourceUrl": "https://www.instagram.com/reel/DWPx9b-CNMt/"
+        },
+        {
+          "role": "ComfyUI LoadImage",
+          "path": "assets/comfyui/input/xaviroai-frame-11.0s.png",
+          "sha256": "edda863f6676cda746c90c570e7a7d8232b49e2dc858d45567773623234d7ba4",
+          "sourceUrl": "https://www.instagram.com/reel/DWPx9b-CNMt/"
+        }
+      ],
+      "recipe": {
+        "model": "SAM2.1 segmentation",
+        "checkpoint": "sam2.1_hiera_base_plus.safetensors",
+        "codePath": "experiments/assets/legacy-comfy/charizard-319da3e16aa0.prompt.json",
+        "parameters": {
+          "embeddedPromptSha256": "319da3e16aa03c77cbc660aafa37d952325b3c5325987996900785d0461ab2bb",
+          "nodeSettings": {
+            "1": {
+              "class_type": "DownloadAndLoadSAM2Model",
+              "inputs": {
+                "model": "sam2.1_hiera_base_plus.safetensors",
+                "segmentor": "single_image",
+                "device": "cuda",
+                "precision": "bf16"
+              }
+            },
+            "3": {
+              "class_type": "ImageCrop",
+              "inputs": {
+                "width": 977,
+                "height": 525,
+                "x": 95,
+                "y": 615,
+                "image": [
+                  "2",
+                  0
+                ]
+              }
+            },
+            "20": {
+              "class_type": "ImageCrop",
+              "inputs": {
+                "width": 500,
+                "height": 550,
+                "x": 350,
+                "y": 330,
+                "image": [
+                  "19",
+                  0
+                ]
+              }
+            },
+            "33": {
+              "class_type": "ImageCrop",
+              "inputs": {
+                "width": 550,
+                "height": 600,
+                "x": 350,
+                "y": 550,
+                "image": [
+                  "32",
+                  0
+                ]
+              }
+            }
+          },
+          "seeds": []
+        },
+        "preprocess": "Full graph is preserved in codePath. Output-specific ancestry must be read from graph; a shared prompt may contain multiple branches.",
+        "seed": null
+      },
+      "outputs": {
+        "previews": [
+          {
+            "view": "sam2-10.0s-cutout_00002_",
+            "path": "assets/comfyui/output/charizard/sam2-10.0s-cutout_00002_.png"
+          },
+          {
+            "view": "sam2-10.0s-mask_00002_",
+            "path": "assets/comfyui/output/charizard/sam2-10.0s-mask_00002_.png"
+          },
+          {
+            "view": "sam2-10.0s-white_00002_",
+            "path": "assets/comfyui/output/charizard/sam2-10.0s-white_00002_.png"
+          },
+          {
+            "view": "sam2-11.0s-cutout_00003_",
+            "path": "assets/comfyui/output/charizard/sam2-11.0s-cutout_00003_.png"
+          },
+          {
+            "view": "sam2-11.0s-mask_00003_",
+            "path": "assets/comfyui/output/charizard/sam2-11.0s-mask_00003_.png"
+          },
+          {
+            "view": "sam2-11.0s-white_00003_",
+            "path": "assets/comfyui/output/charizard/sam2-11.0s-white_00003_.png"
+          },
+          {
+            "view": "sam2-wings-open-cutout_00002_",
+            "path": "assets/comfyui/output/charizard/sam2-wings-open-cutout_00002_.png"
+          },
+          {
+            "view": "sam2-wings-open-mask_00002_",
+            "path": "assets/comfyui/output/charizard/sam2-wings-open-mask_00002_.png"
+          },
+          {
+            "view": "sam2-wings-open-white_00002_",
+            "path": "assets/comfyui/output/charizard/sam2-wings-open-white_00002_.png"
+          }
+        ]
+      },
+      "evaluation": {
+        "verdict": "unreviewed",
+        "reviewer": "historical evidence backfill",
+        "notes": "Recovered from embedded PNG prompt metadata. No final-quality approval is inferred from image existence.",
+        "unresolved": []
+      },
+      "evidence": [
+        {
+          "label": "Exact embedded prompt graph",
+          "path": "experiments/assets/legacy-comfy/charizard-319da3e16aa0.prompt.json"
+        },
+        {
+          "label": "Subset RGB-preservation checks; does not certify mask anatomy",
+          "path": "discovery/charizard/sam2-validation.json"
+        }
+      ],
+      "researchIds": [],
+      "comparability": {
+        "cohort": "legacy-comfy-charizard",
+        "confounds": [
+          "A record groups identical full prompt hashes, not necessarily one execution or one seed.",
+          "Prompts, seeds and conditioning branches differ between historical groups.",
+          "Input SHA256 values identify current recovered files; embedded prompt metadata does not prove those bytes were unchanged since execution.",
+          "PNG metadata records graph configuration, not missing execution logs or hardware state."
+        ]
+      }
+    },
+    {
+      "id": "legacy-comfy-charizard-362f69f1c023",
+      "species": "charizard",
+      "title": "Charizard ComfyUI: hero-reference-cutout_00002_",
+      "stage": "reference-prep",
+      "status": "completed",
+      "parents": [],
+      "question": null,
+      "changedFactors": [],
+      "controls": [],
+      "inputs": [
+        {
+          "role": "ComfyUI LoadImage",
+          "path": "assets/comfyui/input/charizard-telegram-1.jpg",
+          "sha256": "fb8881f565c8ce53afd70ccc6e3ce502d9000eda14816666b551150f9de89fd6",
+          "sourceUrl": null
+        }
+      ],
+      "recipe": {
+        "model": "SAM2.1 segmentation",
+        "checkpoint": "sam2.1_hiera_base_plus.safetensors",
+        "codePath": "experiments/assets/legacy-comfy/charizard-362f69f1c023.prompt.json",
+        "parameters": {
+          "embeddedPromptSha256": "362f69f1c02382c898ddcde7278246efc2041ccb89b3f26470d9cd6c09ae2e4a",
+          "nodeSettings": {
+            "2": {
+              "class_type": "DownloadAndLoadSAM2Model",
+              "inputs": {
+                "model": "sam2.1_hiera_base_plus.safetensors",
+                "segmentor": "single_image",
+                "device": "cuda",
+                "precision": "bf16"
+              }
+            }
+          },
+          "seeds": []
+        },
+        "preprocess": "Full graph is preserved in codePath. Output-specific ancestry must be read from graph; a shared prompt may contain multiple branches.",
+        "seed": null
+      },
+      "outputs": {
+        "previews": [
+          {
+            "view": "hero-reference-cutout_00002_",
+            "path": "assets/comfyui/output/charizard/hero-reference-cutout_00002_.png"
+          },
+          {
+            "view": "hero-reference-cutout_00003_",
+            "path": "assets/comfyui/output/charizard/hero-reference-cutout_00003_.png"
+          },
+          {
+            "view": "hero-reference-mask_00002_",
+            "path": "assets/comfyui/output/charizard/hero-reference-mask_00002_.png"
+          },
+          {
+            "view": "hero-reference-mask_00003_",
+            "path": "assets/comfyui/output/charizard/hero-reference-mask_00003_.png"
+          },
+          {
+            "view": "hero-reference-white_00002_",
+            "path": "assets/comfyui/output/charizard/hero-reference-white_00002_.png"
+          },
+          {
+            "view": "hero-reference-white_00003_",
+            "path": "assets/comfyui/output/charizard/hero-reference-white_00003_.png"
+          }
+        ]
+      },
+      "evaluation": {
+        "verdict": "unreviewed",
+        "reviewer": "historical evidence backfill",
+        "notes": "Recovered from embedded PNG prompt metadata. No final-quality approval is inferred from image existence.",
+        "unresolved": []
+      },
+      "evidence": [
+        {
+          "label": "Exact embedded prompt graph",
+          "path": "experiments/assets/legacy-comfy/charizard-362f69f1c023.prompt.json"
+        }
+      ],
+      "researchIds": [],
+      "comparability": {
+        "cohort": "legacy-comfy-charizard",
+        "confounds": [
+          "A record groups identical full prompt hashes, not necessarily one execution or one seed.",
+          "Prompts, seeds and conditioning branches differ between historical groups.",
+          "Input SHA256 values identify current recovered files; embedded prompt metadata does not prove those bytes were unchanged since execution.",
+          "PNG metadata records graph configuration, not missing execution logs or hardware state."
+        ]
+      }
+    },
+    {
+      "id": "legacy-comfy-charizard-42e830fe1d6b",
+      "species": "charizard",
+      "title": "Charizard ComfyUI: sam2-11.0s-cutout_00004_",
+      "stage": "reference-prep",
+      "status": "completed",
+      "parents": [],
+      "question": null,
+      "changedFactors": [],
+      "controls": [],
+      "inputs": [
+        {
+          "role": "ComfyUI LoadImage",
+          "path": "assets/comfyui/input/xaviroai-02.png",
+          "sha256": "2cf0240cb71c68f57a2cb1fbd92ab339e9645f175e1d9884c5a09ffb42c34b74",
+          "sourceUrl": "https://www.instagram.com/reel/DWPx9b-CNMt/"
+        },
+        {
+          "role": "ComfyUI LoadImage",
+          "path": "assets/comfyui/input/xaviroai-frame-10.0s.png",
+          "sha256": "a5ba4bac050afb955dceadd68aa48640d00261aacc123624f9f45e8c09e765d9",
+          "sourceUrl": "https://www.instagram.com/reel/DWPx9b-CNMt/"
+        },
+        {
+          "role": "ComfyUI LoadImage",
+          "path": "assets/comfyui/input/xaviroai-frame-11.0s.png",
+          "sha256": "edda863f6676cda746c90c570e7a7d8232b49e2dc858d45567773623234d7ba4",
+          "sourceUrl": "https://www.instagram.com/reel/DWPx9b-CNMt/"
+        }
+      ],
+      "recipe": {
+        "model": "SAM2.1 segmentation",
+        "checkpoint": "sam2.1_hiera_base_plus.safetensors",
+        "codePath": "experiments/assets/legacy-comfy/charizard-42e830fe1d6b.prompt.json",
+        "parameters": {
+          "embeddedPromptSha256": "42e830fe1d6b00b6f8b2e2a111f639b35cd54133a6daf2599aa7d6618430b448",
+          "nodeSettings": {
+            "1": {
+              "class_type": "DownloadAndLoadSAM2Model",
+              "inputs": {
+                "model": "sam2.1_hiera_base_plus.safetensors",
+                "segmentor": "single_image",
+                "device": "cuda",
+                "precision": "bf16"
+              }
+            },
+            "3": {
+              "class_type": "ImageCrop",
+              "inputs": {
+                "width": 977,
+                "height": 525,
+                "x": 95,
+                "y": 615,
+                "image": [
+                  "2",
+                  0
+                ]
+              }
+            },
+            "20": {
+              "class_type": "ImageCrop",
+              "inputs": {
+                "width": 500,
+                "height": 550,
+                "x": 350,
+                "y": 330,
+                "image": [
+                  "19",
+                  0
+                ]
+              }
+            },
+            "33": {
+              "class_type": "ImageCrop",
+              "inputs": {
+                "width": 550,
+                "height": 600,
+                "x": 350,
+                "y": 550,
+                "image": [
+                  "32",
+                  0
+                ]
+              }
+            }
+          },
+          "seeds": []
+        },
+        "preprocess": "Full graph is preserved in codePath. Output-specific ancestry must be read from graph; a shared prompt may contain multiple branches.",
+        "seed": null
+      },
+      "outputs": {
+        "previews": [
+          {
+            "view": "sam2-11.0s-cutout_00004_",
+            "path": "assets/comfyui/output/charizard/sam2-11.0s-cutout_00004_.png"
+          },
+          {
+            "view": "sam2-11.0s-mask_00004_",
+            "path": "assets/comfyui/output/charizard/sam2-11.0s-mask_00004_.png"
+          },
+          {
+            "view": "sam2-11.0s-white_00004_",
+            "path": "assets/comfyui/output/charizard/sam2-11.0s-white_00004_.png"
+          }
+        ]
+      },
+      "evaluation": {
+        "verdict": "unreviewed",
+        "reviewer": "historical evidence backfill",
+        "notes": "Recovered from embedded PNG prompt metadata. No final-quality approval is inferred from image existence.",
+        "unresolved": []
+      },
+      "evidence": [
+        {
+          "label": "Exact embedded prompt graph",
+          "path": "experiments/assets/legacy-comfy/charizard-42e830fe1d6b.prompt.json"
+        },
+        {
+          "label": "Subset RGB-preservation checks; does not certify mask anatomy",
+          "path": "discovery/charizard/sam2-validation.json"
+        }
+      ],
+      "researchIds": [],
+      "comparability": {
+        "cohort": "legacy-comfy-charizard",
+        "confounds": [
+          "A record groups identical full prompt hashes, not necessarily one execution or one seed.",
+          "Prompts, seeds and conditioning branches differ between historical groups.",
+          "Input SHA256 values identify current recovered files; embedded prompt metadata does not prove those bytes were unchanged since execution.",
+          "PNG metadata records graph configuration, not missing execution logs or hardware state."
+        ]
+      }
+    },
+    {
+      "id": "legacy-comfy-charizard-496c68410ba4",
+      "species": "charizard",
+      "title": "Charizard ComfyUI: hero-decoder-control",
+      "stage": "reference-prep",
+      "status": "completed",
+      "parents": [],
+      "question": null,
+      "changedFactors": [],
+      "controls": [],
+      "inputs": [
+        {
+          "role": "ComfyUI LoadImage",
+          "path": "assets/comfyui/input/charizard-telegram-1.jpg",
+          "sha256": "fb8881f565c8ce53afd70ccc6e3ce502d9000eda14816666b551150f9de89fd6",
+          "sourceUrl": null
+        }
+      ],
+      "recipe": {
+        "model": null,
+        "checkpoint": null,
+        "codePath": "experiments/assets/legacy-comfy/charizard-496c68410ba4.prompt.json",
+        "parameters": {
+          "embeddedPromptSha256": "496c68410ba4205eee8e13350b12587fe3028267c406044ad1987320f5308cda",
+          "nodeSettings": {},
+          "seeds": []
+        },
+        "preprocess": "Full graph is preserved in codePath. Output-specific ancestry must be read from graph; a shared prompt may contain multiple branches.",
+        "seed": null
+      },
+      "outputs": {
+        "previews": [
+          {
+            "view": "hero-decoder-control_00001_",
+            "path": "assets/comfyui/output/charizard/hero-decoder-control_00001_.png"
+          }
+        ]
+      },
+      "evaluation": {
+        "verdict": "unreviewed",
+        "reviewer": "historical evidence backfill",
+        "notes": "Recovered from embedded PNG prompt metadata. No final-quality approval is inferred from image existence.",
+        "unresolved": []
+      },
+      "evidence": [
+        {
+          "label": "Exact embedded prompt graph",
+          "path": "experiments/assets/legacy-comfy/charizard-496c68410ba4.prompt.json"
+        }
+      ],
+      "researchIds": [],
+      "comparability": {
+        "cohort": "legacy-comfy-charizard",
+        "confounds": [
+          "A record groups identical full prompt hashes, not necessarily one execution or one seed.",
+          "Prompts, seeds and conditioning branches differ between historical groups.",
+          "Input SHA256 values identify current recovered files; embedded prompt metadata does not prove those bytes were unchanged since execution.",
+          "PNG metadata records graph configuration, not missing execution logs or hardware state."
+        ]
+      }
+    },
+    {
+      "id": "legacy-comfy-charizard-4c80acec299b",
+      "species": "charizard",
+      "title": "Charizard ComfyUI: telegram-reference-1-v4",
+      "stage": "reference-prep",
+      "status": "completed",
+      "parents": [],
+      "question": null,
+      "changedFactors": [],
+      "controls": [],
+      "inputs": [
+        {
+          "role": "ComfyUI LoadImage",
+          "path": "assets/comfyui/input/charizard-telegram-1.jpg",
+          "sha256": "fb8881f565c8ce53afd70ccc6e3ce502d9000eda14816666b551150f9de89fd6",
+          "sourceUrl": null
+        },
+        {
+          "role": "ComfyUI LoadImage",
+          "path": "assets/comfyui/input/charizard-telegram-2.jpg",
+          "sha256": "87235903d7894e722ad189c180cd7e25d5bdf7595686d7634a89da22e82e66be",
+          "sourceUrl": null
+        }
+      ],
+      "recipe": {
+        "model": "FLUX.2 Klein base 4B FP8",
+        "checkpoint": "flux-2-klein-base-4b-fp8.safetensors",
+        "codePath": "experiments/assets/legacy-comfy/charizard-4c80acec299b.prompt.json",
+        "parameters": {
+          "embeddedPromptSha256": "4c80acec299b4c228caa6ea9f7124854d4ffec37dcdbde2ba4e7150a9db43397",
+          "nodeSettings": {
+            "2": {
+              "class_type": "ImageScaleToTotalPixels",
+              "inputs": {
+                "upscale_method": "lanczos",
+                "megapixels": 1.0,
+                "resolution_steps": 1,
+                "image": [
+                  "1",
+                  0
+                ]
+              }
+            },
+            "5": {
+              "class_type": "VAELoader",
+              "inputs": {
+                "vae_name": "flux2-vae.safetensors"
+              }
+            },
+            "8": {
+              "class_type": "CLIPLoader",
+              "inputs": {
+                "clip_name": "qwen_3_4b.safetensors",
+                "type": "flux2",
+                "device": "default"
+              }
+            },
+            "15": {
+              "class_type": "UNETLoader",
+              "inputs": {
+                "unet_name": "flux-2-klein-base-4b-fp8.safetensors",
+                "weight_dtype": "default"
+              }
+            },
+            "16": {
+              "class_type": "CFGGuider",
+              "inputs": {
+                "cfg": 4.0,
+                "model": [
+                  "15",
+                  0
+                ],
+                "positive": [
+                  "11",
+                  0
+                ],
+                "negative": [
+                  "13",
+                  0
+                ]
+              }
+            },
+            "18": {
+              "class_type": "Flux2Scheduler",
+              "inputs": {
+                "steps": 20,
+                "width": 1344,
+                "height": 896
+              }
+            },
+            "19": {
+              "class_type": "KSamplerSelect",
+              "inputs": {
+                "sampler_name": "euler"
+              }
+            },
+            "20": {
+              "class_type": "RandomNoise",
+              "inputs": {
+                "noise_seed": 99062
+              }
+            },
+            "102": {
+              "class_type": "ImageScaleToTotalPixels",
+              "inputs": {
+                "upscale_method": "lanczos",
+                "megapixels": 1.0,
+                "resolution_steps": 1,
+                "image": [
+                  "101",
+                  0
+                ]
+              }
+            },
+            "105": {
+              "class_type": "VAELoader",
+              "inputs": {
+                "vae_name": "flux2-vae.safetensors"
+              }
+            },
+            "108": {
+              "class_type": "CLIPLoader",
+              "inputs": {
+                "clip_name": "qwen_3_4b.safetensors",
+                "type": "flux2",
+                "device": "default"
+              }
+            },
+            "115": {
+              "class_type": "UNETLoader",
+              "inputs": {
+                "unet_name": "flux-2-klein-base-4b-fp8.safetensors",
+                "weight_dtype": "default"
+              }
+            },
+            "116": {
+              "class_type": "CFGGuider",
+              "inputs": {
+                "cfg": 4.0,
+                "model": [
+                  "115",
+                  0
+                ],
+                "positive": [
+                  "111",
+                  0
+                ],
+                "negative": [
+                  "113",
+                  0
+                ]
+              }
+            },
+            "118": {
+              "class_type": "Flux2Scheduler",
+              "inputs": {
+                "steps": 20,
+                "width": 1344,
+                "height": 896
+              }
+            },
+            "119": {
+              "class_type": "KSamplerSelect",
+              "inputs": {
+                "sampler_name": "euler"
+              }
+            },
+            "120": {
+              "class_type": "RandomNoise",
+              "inputs": {
+                "noise_seed": 99063
+              }
+            }
+          },
+          "seeds": [
+            99062,
+            99063
+          ]
+        },
+        "preprocess": "Full graph is preserved in codePath. Output-specific ancestry must be read from graph; a shared prompt may contain multiple branches.",
+        "seed": null
+      },
+      "outputs": {
+        "previews": [
+          {
+            "view": "telegram-reference-1-v4_00001_",
+            "path": "assets/comfyui/output/charizard/telegram-reference-1-v4_00001_.png"
+          },
+          {
+            "view": "telegram-reference-2-v4_00001_",
+            "path": "assets/comfyui/output/charizard/telegram-reference-2-v4_00001_.png"
+          }
+        ]
+      },
+      "evaluation": {
+        "verdict": "rejected",
+        "reviewer": "historical evidence backfill",
+        "notes": "telegram-reference-1-v4_00001_.png: Reject: large rounded eyes, altered horns, incorrect hands and missing tail flame. Does not preserve supplied reference identity.\ntelegram-reference-2-v4_00001_.png: Closer angular expression, but extra floating flames, malformed fingers and thin torso. Not ready for reconstruction.",
+        "unresolved": []
+      },
+      "evidence": [
+        {
+          "label": "Exact embedded prompt graph",
+          "path": "experiments/assets/legacy-comfy/charizard-4c80acec299b.prompt.json"
+        },
+        {
+          "label": "Earlier negative visual reviews",
+          "path": "assets/comfyui/output/charizard/reviews.json"
+        },
+        {
+          "label": "Zero accepted redesign candidates",
+          "path": "discovery/charizard/iteration-status.json"
+        }
+      ],
+      "researchIds": [],
+      "comparability": {
+        "cohort": "legacy-comfy-charizard",
+        "confounds": [
+          "A record groups identical full prompt hashes, not necessarily one execution or one seed.",
+          "Prompts, seeds and conditioning branches differ between historical groups.",
+          "Input SHA256 values identify current recovered files; embedded prompt metadata does not prove those bytes were unchanged since execution.",
+          "PNG metadata records graph configuration, not missing execution logs or hardware state."
+        ]
+      }
+    },
+    {
+      "id": "legacy-comfy-charizard-54945ebf9134",
+      "species": "charizard",
+      "title": "Charizard ComfyUI: video-cutout-comfy",
+      "stage": "reference-prep",
+      "status": "completed",
+      "parents": [],
+      "question": null,
+      "changedFactors": [],
+      "controls": [],
+      "inputs": [
+        {
+          "role": "ComfyUI LoadImage",
+          "path": "assets/comfyui/input/charizard-video-auto-mask.png",
+          "sha256": "f6949fb9db3c48e884bb2184453356935c2db7540a87a2419a7ded52375a577f",
+          "sourceUrl": null
+        },
+        {
+          "role": "ComfyUI LoadImage",
+          "path": "assets/comfyui/input/charizard-video-frame-11s.png",
+          "sha256": "2cf0240cb71c68f57a2cb1fbd92ab339e9645f175e1d9884c5a09ffb42c34b74",
+          "sourceUrl": "https://www.instagram.com/reel/DWPx9b-CNMt/"
+        },
+        {
+          "role": "ComfyUI LoadImage",
+          "path": "assets/comfyui/input/charizard-video-reviewed-mask.png",
+          "sha256": "1214132db83611a56474ebb5a8523c19d6f0a36456490385c0bd2b40f4a5743d",
+          "sourceUrl": null
+        }
+      ],
+      "recipe": {
+        "model": null,
+        "checkpoint": null,
+        "codePath": "experiments/assets/legacy-comfy/charizard-54945ebf9134.prompt.json",
+        "parameters": {
+          "embeddedPromptSha256": "54945ebf9134fcf3b97053f37720771868e32e5d678cd45c488c4397fc1fd0ea",
+          "nodeSettings": {
+            "2": {
+              "class_type": "ImageCrop",
+              "inputs": {
+                "width": 977,
+                "height": 525,
+                "x": 95,
+                "y": 615,
+                "image": [
+                  "1",
+                  0
+                ]
+              }
+            }
+          },
+          "seeds": []
+        },
+        "preprocess": "Full graph is preserved in codePath. Output-specific ancestry must be read from graph; a shared prompt may contain multiple branches.",
+        "seed": null
+      },
+      "outputs": {
+        "previews": [
+          {
+            "view": "video-cutout-comfy_00001_",
+            "path": "assets/comfyui/output/charizard/video-cutout-comfy_00001_.png"
+          },
+          {
+            "view": "video-cutout-white-comfy_00001_",
+            "path": "assets/comfyui/output/charizard/video-cutout-white-comfy_00001_.png"
+          }
+        ]
+      },
+      "evaluation": {
+        "verdict": "unreviewed",
+        "reviewer": "historical evidence backfill",
+        "notes": "Recovered from embedded PNG prompt metadata. No final-quality approval is inferred from image existence.",
+        "unresolved": []
+      },
+      "evidence": [
+        {
+          "label": "Exact embedded prompt graph",
+          "path": "experiments/assets/legacy-comfy/charizard-54945ebf9134.prompt.json"
+        }
+      ],
+      "researchIds": [],
+      "comparability": {
+        "cohort": "legacy-comfy-charizard",
+        "confounds": [
+          "A record groups identical full prompt hashes, not necessarily one execution or one seed.",
+          "Prompts, seeds and conditioning branches differ between historical groups.",
+          "Input SHA256 values identify current recovered files; embedded prompt metadata does not prove those bytes were unchanged since execution.",
+          "PNG metadata records graph configuration, not missing execution logs or hardware state."
+        ]
+      }
+    },
+    {
+      "id": "legacy-comfy-charizard-5c0bdccc1b3d",
+      "species": "charizard",
+      "title": "Charizard ComfyUI: selected-origins-ice-cave-palmer-v3",
+      "stage": "reference-prep",
+      "status": "completed",
+      "parents": [],
+      "question": null,
+      "changedFactors": [],
+      "controls": [],
+      "inputs": [
+        {
+          "role": "ComfyUI LoadImage",
+          "path": "assets/comfyui/input/charizard-origins-ice-cave.png",
+          "sha256": "45f9ef3cf2f237fadf73f58a9f6101db71489b39853efe6619e4d27fe4dbc020",
+          "sourceUrl": "https://static.wikia.nocookie.net/pokemon/images/c/cd/Red_Charizard_PO.png/revision/latest/scale-to-width-down/1200?cb=20151003082204"
+        },
+        {
+          "role": "ComfyUI LoadImage",
+          "path": "assets/comfyui/input/charizard-palmer-material-reference.jpg",
+          "sha256": "98c7b157eb352965f94462e55b8769d4c03806bb57c87977796e0302f6086956",
+          "sourceUrl": null
+        }
+      ],
+      "recipe": {
+        "model": "FLUX.2 Klein base 4B FP8",
+        "checkpoint": "flux-2-klein-base-4b-fp8.safetensors",
+        "codePath": "experiments/assets/legacy-comfy/charizard-5c0bdccc1b3d.prompt.json",
+        "parameters": {
+          "embeddedPromptSha256": "5c0bdccc1b3da3a2b0fa175c5d851986cd7e4eb66fc2b7506092a2bc3bc556b3",
+          "nodeSettings": {
+            "2": {
+              "class_type": "ImageScaleToTotalPixels",
+              "inputs": {
+                "upscale_method": "lanczos",
+                "megapixels": 1.0,
+                "resolution_steps": 1,
+                "image": [
+                  "1",
+                  0
+                ]
+              }
+            },
+            "4": {
+              "class_type": "ImageScaleToTotalPixels",
+              "inputs": {
+                "upscale_method": "lanczos",
+                "megapixels": 1.0,
+                "resolution_steps": 1,
+                "image": [
+                  "3",
+                  0
+                ]
+              }
+            },
+            "5": {
+              "class_type": "VAELoader",
+              "inputs": {
+                "vae_name": "flux2-vae.safetensors"
+              }
+            },
+            "8": {
+              "class_type": "CLIPLoader",
+              "inputs": {
+                "clip_name": "qwen_3_4b.safetensors",
+                "type": "flux2",
+                "device": "default"
+              }
+            },
+            "15": {
+              "class_type": "UNETLoader",
+              "inputs": {
+                "unet_name": "flux-2-klein-base-4b-fp8.safetensors",
+                "weight_dtype": "default"
+              }
+            },
+            "16": {
+              "class_type": "CFGGuider",
+              "inputs": {
+                "cfg": 4.0,
+                "model": [
+                  "15",
+                  0
+                ],
+                "positive": [
+                  "12",
+                  0
+                ],
+                "negative": [
+                  "14",
+                  0
+                ]
+              }
+            },
+            "18": {
+              "class_type": "Flux2Scheduler",
+              "inputs": {
+                "steps": 20,
+                "width": 1344,
+                "height": 896
+              }
+            },
+            "19": {
+              "class_type": "KSamplerSelect",
+              "inputs": {
+                "sampler_name": "euler"
+              }
+            },
+            "20": {
+              "class_type": "RandomNoise",
+              "inputs": {
+                "noise_seed": 98061
+              }
+            }
+          },
+          "seeds": [
+            98061
+          ]
+        },
+        "preprocess": "Full graph is preserved in codePath. Output-specific ancestry must be read from graph; a shared prompt may contain multiple branches.",
+        "seed": 98061
+      },
+      "outputs": {
+        "previews": [
+          {
+            "view": "selected-origins-ice-cave-palmer-v3_00001_",
+            "path": "assets/comfyui/output/charizard/selected-origins-ice-cave-palmer-v3_00001_.png"
+          }
+        ]
+      },
+      "evaluation": {
+        "verdict": "rejected",
+        "reviewer": "historical evidence backfill",
+        "notes": "selected-origins-ice-cave-palmer-v3_00001_.png: Material lighting improved, but hands fused into thighs and too many teeth; reject as reconstruction input.",
+        "unresolved": []
+      },
+      "evidence": [
+        {
+          "label": "Exact embedded prompt graph",
+          "path": "experiments/assets/legacy-comfy/charizard-5c0bdccc1b3d.prompt.json"
+        },
+        {
+          "label": "Earlier negative visual reviews",
+          "path": "assets/comfyui/output/charizard/reviews.json"
+        },
+        {
+          "label": "Zero accepted redesign candidates",
+          "path": "discovery/charizard/iteration-status.json"
+        }
+      ],
+      "researchIds": [],
+      "comparability": {
+        "cohort": "legacy-comfy-charizard",
+        "confounds": [
+          "A record groups identical full prompt hashes, not necessarily one execution or one seed.",
+          "Prompts, seeds and conditioning branches differ between historical groups.",
+          "Input SHA256 values identify current recovered files; embedded prompt metadata does not prove those bytes were unchanged since execution.",
+          "PNG metadata records graph configuration, not missing execution logs or hardware state."
+        ]
+      }
+    },
+    {
+      "id": "legacy-comfy-charizard-5f073a119ceb",
+      "species": "charizard",
+      "title": "Charizard ComfyUI: control-vae-roundtrip",
+      "stage": "reference-prep",
+      "status": "completed",
+      "parents": [],
+      "question": null,
+      "changedFactors": [],
+      "controls": [],
+      "inputs": [
+        {
+          "role": "ComfyUI LoadImage",
+          "path": "assets/comfyui/input/charizard-telegram-1.jpg",
+          "sha256": "fb8881f565c8ce53afd70ccc6e3ce502d9000eda14816666b551150f9de89fd6",
+          "sourceUrl": null
+        }
+      ],
+      "recipe": {
+        "model": "FLUX.2 Klein base 4B FP8",
+        "checkpoint": "flux-2-klein-base-4b-fp8.safetensors",
+        "codePath": "experiments/assets/legacy-comfy/charizard-5f073a119ceb.prompt.json",
+        "parameters": {
+          "embeddedPromptSha256": "5f073a119ceb9672d1792a0d295f5e018e49e2193063a6584def64ea0188579a",
+          "nodeSettings": {
+            "2": {
+              "class_type": "ImageScaleToTotalPixels",
+              "inputs": {
+                "upscale_method": "lanczos",
+                "megapixels": 1.05,
+                "resolution_steps": 1,
+                "image": [
+                  "1",
+                  0
+                ]
+              }
+            },
+            "5": {
+              "class_type": "VAELoader",
+              "inputs": {
+                "vae_name": "flux2-vae.safetensors"
+              }
+            },
+            "8": {
+              "class_type": "CLIPLoader",
+              "inputs": {
+                "clip_name": "qwen_3_4b.safetensors",
+                "type": "flux2",
+                "device": "default"
+              }
+            },
+            "15": {
+              "class_type": "UNETLoader",
+              "inputs": {
+                "unet_name": "flux-2-klein-base-4b-fp8.safetensors",
+                "weight_dtype": "default"
+              }
+            },
+            "16": {
+              "class_type": "CFGGuider",
+              "inputs": {
+                "cfg": 5.0,
+                "model": [
+                  "15",
+                  0
+                ],
+                "positive": [
+                  "11",
+                  0
+                ],
+                "negative": [
+                  "13",
+                  0
+                ]
+              }
+            },
+            "18": {
+              "class_type": "Flux2Scheduler",
+              "inputs": {
+                "steps": 50,
+                "width": 1024,
+                "height": 1024
+              }
+            },
+            "19": {
+              "class_type": "KSamplerSelect",
+              "inputs": {
+                "sampler_name": "euler"
+              }
+            },
+            "20": {
+              "class_type": "RandomNoise",
+              "inputs": {
+                "noise_seed": 100061
+              }
+            },
+            "24": {
+              "class_type": "SplitSigmasDenoise",
+              "inputs": {
+                "denoise": 0.1,
+                "sigmas": [
+                  "18",
+                  0
+                ]
+              }
+            },
+            "102": {
+              "class_type": "ImageScaleToTotalPixels",
+              "inputs": {
+                "upscale_method": "lanczos",
+                "megapixels": 1.05,
+                "resolution_steps": 1,
+                "image": [
+                  "101",
+                  0
+                ]
+              }
+            },
+            "105": {
+              "class_type": "VAELoader",
+              "inputs": {
+                "vae_name": "flux2-vae.safetensors"
+              }
+            },
+            "108": {
+              "class_type": "CLIPLoader",
+              "inputs": {
+                "clip_name": "qwen_3_4b.safetensors",
+                "type": "flux2",
+                "device": "default"
+              }
+            },
+            "115": {
+              "class_type": "UNETLoader",
+              "inputs": {
+                "unet_name": "flux-2-klein-base-4b-fp8.safetensors",
+                "weight_dtype": "default"
+              }
+            },
+            "116": {
+              "class_type": "CFGGuider",
+              "inputs": {
+                "cfg": 5.0,
+                "model": [
+                  "115",
+                  0
+                ],
+                "positive": [
+                  "111",
+                  0
+                ],
+                "negative": [
+                  "113",
+                  0
+                ]
+              }
+            },
+            "118": {
+              "class_type": "Flux2Scheduler",
+              "inputs": {
+                "steps": 50,
+                "width": 1024,
+                "height": 1024
+              }
+            },
+            "119": {
+              "class_type": "KSamplerSelect",
+              "inputs": {
+                "sampler_name": "euler"
+              }
+            },
+            "120": {
+              "class_type": "RandomNoise",
+              "inputs": {
+                "noise_seed": 100061
+              }
+            },
+            "124": {
+              "class_type": "SplitSigmasDenoise",
+              "inputs": {
+                "denoise": 0.2,
+                "sigmas": [
+                  "118",
+                  0
+                ]
+              }
+            }
+          },
+          "seeds": [
+            100061
+          ]
+        },
+        "preprocess": "Full graph is preserved in codePath. Output-specific ancestry must be read from graph; a shared prompt may contain multiple branches.",
+        "seed": 100061
+      },
+      "outputs": {
+        "previews": [
+          {
+            "view": "control-vae-roundtrip_00001_",
+            "path": "assets/comfyui/output/charizard/control-vae-roundtrip_00001_.png"
+          },
+          {
+            "view": "minimal-lighting-denoise-0.1_00001_",
+            "path": "assets/comfyui/output/charizard/minimal-lighting-denoise-0.1_00001_.png"
+          },
+          {
+            "view": "minimal-lighting-denoise-0.2_00001_",
+            "path": "assets/comfyui/output/charizard/minimal-lighting-denoise-0.2_00001_.png"
+          }
+        ]
+      },
+      "evaluation": {
+        "verdict": "unreviewed",
+        "reviewer": "historical evidence backfill",
+        "notes": "Recovered from embedded PNG prompt metadata. No final-quality approval is inferred from image existence.",
+        "unresolved": []
+      },
+      "evidence": [
+        {
+          "label": "Exact embedded prompt graph",
+          "path": "experiments/assets/legacy-comfy/charizard-5f073a119ceb.prompt.json"
+        }
+      ],
+      "researchIds": [],
+      "comparability": {
+        "cohort": "legacy-comfy-charizard",
+        "confounds": [
+          "A record groups identical full prompt hashes, not necessarily one execution or one seed.",
+          "Prompts, seeds and conditioning branches differ between historical groups.",
+          "Input SHA256 values identify current recovered files; embedded prompt metadata does not prove those bytes were unchanged since execution.",
+          "PNG metadata records graph configuration, not missing execution logs or hardware state."
+        ]
+      }
+    },
+    {
+      "id": "legacy-comfy-charizard-6d958c203778",
+      "species": "charizard",
+      "title": "Charizard ComfyUI: selected-anime-flight-v1",
+      "stage": "reference-prep",
+      "status": "completed",
+      "parents": [],
+      "question": null,
+      "changedFactors": [],
+      "controls": [],
+      "inputs": [
+        {
+          "role": "ComfyUI LoadImage",
+          "path": "assets/comfyui/input/charizard-anime-flight.jpg",
+          "sha256": "4c8b3793706315e02a4a1a5478c11c0bd7e390b4302573d18a13dc8f5fd37995",
+          "sourceUrl": "https://staticg.sportskeeda.com/editor/2023/10/0f981-16985203045934-1920.jpg"
+        },
+        {
+          "role": "ComfyUI LoadImage",
+          "path": "assets/comfyui/input/charizard-origins-ice-cave.png",
+          "sha256": "45f9ef3cf2f237fadf73f58a9f6101db71489b39853efe6619e4d27fe4dbc020",
+          "sourceUrl": "https://static.wikia.nocookie.net/pokemon/images/c/cd/Red_Charizard_PO.png/revision/latest/scale-to-width-down/1200?cb=20151003082204"
+        }
+      ],
+      "recipe": {
+        "model": "FLUX.2 Klein base 4B FP8",
+        "checkpoint": "flux-2-klein-base-4b-fp8.safetensors",
+        "codePath": "experiments/assets/legacy-comfy/charizard-6d958c203778.prompt.json",
+        "parameters": {
+          "embeddedPromptSha256": "6d958c20377801c11f81999355af062a2609660023a7556b10fa7f83cd373f19",
+          "nodeSettings": {
+            "2": {
+              "class_type": "ImageScaleToTotalPixels",
+              "inputs": {
+                "upscale_method": "lanczos",
+                "megapixels": 1.0,
+                "resolution_steps": 1,
+                "image": [
+                  "1",
+                  0
+                ]
+              }
+            },
+            "5": {
+              "class_type": "VAELoader",
+              "inputs": {
+                "vae_name": "flux2-vae.safetensors"
+              }
+            },
+            "8": {
+              "class_type": "CLIPLoader",
+              "inputs": {
+                "clip_name": "qwen_3_4b.safetensors",
+                "type": "flux2",
+                "device": "default"
+              }
+            },
+            "15": {
+              "class_type": "UNETLoader",
+              "inputs": {
+                "unet_name": "flux-2-klein-base-4b-fp8.safetensors",
+                "weight_dtype": "default"
+              }
+            },
+            "16": {
+              "class_type": "CFGGuider",
+              "inputs": {
+                "cfg": 5.0,
+                "model": [
+                  "15",
+                  0
+                ],
+                "positive": [
+                  "11",
+                  0
+                ],
+                "negative": [
+                  "13",
+                  0
+                ]
+              }
+            },
+            "18": {
+              "class_type": "Flux2Scheduler",
+              "inputs": {
+                "steps": 20,
+                "width": 1024,
+                "height": 1024
+              }
+            },
+            "19": {
+              "class_type": "KSamplerSelect",
+              "inputs": {
+                "sampler_name": "euler"
+              }
+            },
+            "20": {
+              "class_type": "RandomNoise",
+              "inputs": {
+                "noise_seed": 96061
+              }
+            },
+            "102": {
+              "class_type": "ImageScaleToTotalPixels",
+              "inputs": {
+                "upscale_method": "lanczos",
+                "megapixels": 1.0,
+                "resolution_steps": 1,
+                "image": [
+                  "101",
+                  0
+                ]
+              }
+            },
+            "105": {
+              "class_type": "VAELoader",
+              "inputs": {
+                "vae_name": "flux2-vae.safetensors"
+              }
+            },
+            "108": {
+              "class_type": "CLIPLoader",
+              "inputs": {
+                "clip_name": "qwen_3_4b.safetensors",
+                "type": "flux2",
+                "device": "default"
+              }
+            },
+            "115": {
+              "class_type": "UNETLoader",
+              "inputs": {
+                "unet_name": "flux-2-klein-base-4b-fp8.safetensors",
+                "weight_dtype": "default"
+              }
+            },
+            "116": {
+              "class_type": "CFGGuider",
+              "inputs": {
+                "cfg": 5.0,
+                "model": [
+                  "115",
+                  0
+                ],
+                "positive": [
+                  "111",
+                  0
+                ],
+                "negative": [
+                  "113",
+                  0
+                ]
+              }
+            },
+            "118": {
+              "class_type": "Flux2Scheduler",
+              "inputs": {
+                "steps": 20,
+                "width": 1024,
+                "height": 1024
+              }
+            },
+            "119": {
+              "class_type": "KSamplerSelect",
+              "inputs": {
+                "sampler_name": "euler"
+              }
+            },
+            "120": {
+              "class_type": "RandomNoise",
+              "inputs": {
+                "noise_seed": 96062
+              }
+            }
+          },
+          "seeds": [
+            96061,
+            96062
+          ]
+        },
+        "preprocess": "Full graph is preserved in codePath. Output-specific ancestry must be read from graph; a shared prompt may contain multiple branches.",
+        "seed": null
+      },
+      "outputs": {
+        "previews": [
+          {
+            "view": "selected-anime-flight-v1_00001_",
+            "path": "assets/comfyui/output/charizard/selected-anime-flight-v1_00001_.png"
+          },
+          {
+            "view": "selected-origins-ice-cave-v1_00001_",
+            "path": "assets/comfyui/output/charizard/selected-origins-ice-cave-v1_00001_.png"
+          }
+        ]
+      },
+      "evaluation": {
+        "verdict": "rejected",
+        "reviewer": "historical evidence backfill",
+        "notes": "selected-anime-flight-v1_00001_.png: Full silhouette, but gecko-like face and thin muzzle depart from Charizard. Reject as final reconstruction input.\nselected-origins-ice-cave-v1_00001_.png: Face drifts toward a generic dragon; both wingtips cropped. Reject as final reconstruction input.",
+        "unresolved": []
+      },
+      "evidence": [
+        {
+          "label": "Exact embedded prompt graph",
+          "path": "experiments/assets/legacy-comfy/charizard-6d958c203778.prompt.json"
+        },
+        {
+          "label": "Earlier negative visual reviews",
+          "path": "assets/comfyui/output/charizard/reviews.json"
+        },
+        {
+          "label": "Zero accepted redesign candidates",
+          "path": "discovery/charizard/iteration-status.json"
+        }
+      ],
+      "researchIds": [],
+      "comparability": {
+        "cohort": "legacy-comfy-charizard",
+        "confounds": [
+          "A record groups identical full prompt hashes, not necessarily one execution or one seed.",
+          "Prompts, seeds and conditioning branches differ between historical groups.",
+          "Input SHA256 values identify current recovered files; embedded prompt metadata does not prove those bytes were unchanged since execution.",
+          "PNG metadata records graph configuration, not missing execution logs or hardware state."
+        ]
+      }
+    },
+    {
+      "id": "legacy-comfy-charizard-77a75c40854d",
+      "species": "charizard",
+      "title": "Charizard ComfyUI: hero-reference-cutout",
+      "stage": "reference-prep",
+      "status": "completed",
+      "parents": [],
+      "question": null,
+      "changedFactors": [],
+      "controls": [],
+      "inputs": [
+        {
+          "role": "ComfyUI LoadImage",
+          "path": "assets/comfyui/input/charizard-telegram-1.jpg",
+          "sha256": "fb8881f565c8ce53afd70ccc6e3ce502d9000eda14816666b551150f9de89fd6",
+          "sourceUrl": null
+        }
+      ],
+      "recipe": {
+        "model": "SAM2.1 segmentation",
+        "checkpoint": "sam2.1_hiera_base_plus.safetensors",
+        "codePath": "experiments/assets/legacy-comfy/charizard-77a75c40854d.prompt.json",
+        "parameters": {
+          "embeddedPromptSha256": "77a75c40854d62ea014bfbc57690de27c51a30d67a59453ac38e100cc4bc4807",
+          "nodeSettings": {
+            "2": {
+              "class_type": "DownloadAndLoadSAM2Model",
+              "inputs": {
+                "model": "sam2.1_hiera_base_plus.safetensors",
+                "segmentor": "single_image",
+                "device": "cuda",
+                "precision": "bf16"
+              }
+            }
+          },
+          "seeds": []
+        },
+        "preprocess": "Full graph is preserved in codePath. Output-specific ancestry must be read from graph; a shared prompt may contain multiple branches.",
+        "seed": null
+      },
+      "outputs": {
+        "previews": [
+          {
+            "view": "hero-reference-cutout_00001_",
+            "path": "assets/comfyui/output/charizard/hero-reference-cutout_00001_.png"
+          },
+          {
+            "view": "hero-reference-mask_00001_",
+            "path": "assets/comfyui/output/charizard/hero-reference-mask_00001_.png"
+          },
+          {
+            "view": "hero-reference-white_00001_",
+            "path": "assets/comfyui/output/charizard/hero-reference-white_00001_.png"
+          }
+        ]
+      },
+      "evaluation": {
+        "verdict": "unreviewed",
+        "reviewer": "historical evidence backfill",
+        "notes": "Recovered from embedded PNG prompt metadata. No final-quality approval is inferred from image existence.",
+        "unresolved": []
+      },
+      "evidence": [
+        {
+          "label": "Exact embedded prompt graph",
+          "path": "experiments/assets/legacy-comfy/charizard-77a75c40854d.prompt.json"
+        }
+      ],
+      "researchIds": [],
+      "comparability": {
+        "cohort": "legacy-comfy-charizard",
+        "confounds": [
+          "A record groups identical full prompt hashes, not necessarily one execution or one seed.",
+          "Prompts, seeds and conditioning branches differ between historical groups.",
+          "Input SHA256 values identify current recovered files; embedded prompt metadata does not prove those bytes were unchanged since execution.",
+          "PNG metadata records graph configuration, not missing execution logs or hardware state."
+        ]
+      }
+    },
+    {
+      "id": "legacy-comfy-charizard-87c3fdeb48dd",
+      "species": "charizard",
+      "title": "Charizard ComfyUI: selected-anime-flight-v2",
+      "stage": "reference-prep",
+      "status": "completed",
+      "parents": [],
+      "question": null,
+      "changedFactors": [],
+      "controls": [],
+      "inputs": [
+        {
+          "role": "ComfyUI LoadImage",
+          "path": "assets/comfyui/input/charizard-anime-flight.jpg",
+          "sha256": "4c8b3793706315e02a4a1a5478c11c0bd7e390b4302573d18a13dc8f5fd37995",
+          "sourceUrl": "https://staticg.sportskeeda.com/editor/2023/10/0f981-16985203045934-1920.jpg"
+        },
+        {
+          "role": "ComfyUI LoadImage",
+          "path": "assets/comfyui/input/charizard-origins-ice-cave.png",
+          "sha256": "45f9ef3cf2f237fadf73f58a9f6101db71489b39853efe6619e4d27fe4dbc020",
+          "sourceUrl": "https://static.wikia.nocookie.net/pokemon/images/c/cd/Red_Charizard_PO.png/revision/latest/scale-to-width-down/1200?cb=20151003082204"
+        }
+      ],
+      "recipe": {
+        "model": "FLUX.2 Klein base 4B FP8",
+        "checkpoint": "flux-2-klein-base-4b-fp8.safetensors",
+        "codePath": "experiments/assets/legacy-comfy/charizard-87c3fdeb48dd.prompt.json",
+        "parameters": {
+          "embeddedPromptSha256": "87c3fdeb48dda8b8fbf66441e6943b1fa43456e4a1a39d111de38671cda6698f",
+          "nodeSettings": {
+            "2": {
+              "class_type": "ImageScaleToTotalPixels",
+              "inputs": {
+                "upscale_method": "lanczos",
+                "megapixels": 1.0,
+                "resolution_steps": 1,
+                "image": [
+                  "1",
+                  0
+                ]
+              }
+            },
+            "5": {
+              "class_type": "VAELoader",
+              "inputs": {
+                "vae_name": "flux2-vae.safetensors"
+              }
+            },
+            "8": {
+              "class_type": "CLIPLoader",
+              "inputs": {
+                "clip_name": "qwen_3_4b.safetensors",
+                "type": "flux2",
+                "device": "default"
+              }
+            },
+            "15": {
+              "class_type": "UNETLoader",
+              "inputs": {
+                "unet_name": "flux-2-klein-base-4b-fp8.safetensors",
+                "weight_dtype": "default"
+              }
+            },
+            "16": {
+              "class_type": "CFGGuider",
+              "inputs": {
+                "cfg": 5.0,
+                "model": [
+                  "15",
+                  0
+                ],
+                "positive": [
+                  "11",
+                  0
+                ],
+                "negative": [
+                  "13",
+                  0
+                ]
+              }
+            },
+            "18": {
+              "class_type": "Flux2Scheduler",
+              "inputs": {
+                "steps": 20,
+                "width": 1344,
+                "height": 896
+              }
+            },
+            "19": {
+              "class_type": "KSamplerSelect",
+              "inputs": {
+                "sampler_name": "euler"
+              }
+            },
+            "20": {
+              "class_type": "RandomNoise",
+              "inputs": {
+                "noise_seed": 97061
+              }
+            },
+            "102": {
+              "class_type": "ImageScaleToTotalPixels",
+              "inputs": {
+                "upscale_method": "lanczos",
+                "megapixels": 1.0,
+                "resolution_steps": 1,
+                "image": [
+                  "101",
+                  0
+                ]
+              }
+            },
+            "105": {
+              "class_type": "VAELoader",
+              "inputs": {
+                "vae_name": "flux2-vae.safetensors"
+              }
+            },
+            "108": {
+              "class_type": "CLIPLoader",
+              "inputs": {
+                "clip_name": "qwen_3_4b.safetensors",
+                "type": "flux2",
+                "device": "default"
+              }
+            },
+            "115": {
+              "class_type": "UNETLoader",
+              "inputs": {
+                "unet_name": "flux-2-klein-base-4b-fp8.safetensors",
+                "weight_dtype": "default"
+              }
+            },
+            "116": {
+              "class_type": "CFGGuider",
+              "inputs": {
+                "cfg": 5.0,
+                "model": [
+                  "115",
+                  0
+                ],
+                "positive": [
+                  "111",
+                  0
+                ],
+                "negative": [
+                  "113",
+                  0
+                ]
+              }
+            },
+            "118": {
+              "class_type": "Flux2Scheduler",
+              "inputs": {
+                "steps": 20,
+                "width": 1344,
+                "height": 896
+              }
+            },
+            "119": {
+              "class_type": "KSamplerSelect",
+              "inputs": {
+                "sampler_name": "euler"
+              }
+            },
+            "120": {
+              "class_type": "RandomNoise",
+              "inputs": {
+                "noise_seed": 97161
+              }
+            }
+          },
+          "seeds": [
+            97061,
+            97161
+          ]
+        },
+        "preprocess": "Full graph is preserved in codePath. Output-specific ancestry must be read from graph; a shared prompt may contain multiple branches.",
+        "seed": null
+      },
+      "outputs": {
+        "previews": [
+          {
+            "view": "selected-anime-flight-v2_00001_",
+            "path": "assets/comfyui/output/charizard/selected-anime-flight-v2_00001_.png"
+          },
+          {
+            "view": "selected-origins-ice-cave-v2_00001_",
+            "path": "assets/comfyui/output/charizard/selected-origins-ice-cave-v2_00001_.png"
+          }
+        ]
+      },
+      "evaluation": {
+        "verdict": "rejected",
+        "reviewer": "historical evidence backfill",
+        "notes": "selected-anime-flight-v2_00001_.png: Reject: extra head protrusions, boxy muzzle and blunt claws; full silhouette but toy-like surface.\nselected-origins-ice-cave-v2_00001_.png: Improved angular face, narrow eyes and full wings. Still toy-like: blunt claws, oversmoothed membranes, flat lighting. Study only.",
+        "unresolved": []
+      },
+      "evidence": [
+        {
+          "label": "Exact embedded prompt graph",
+          "path": "experiments/assets/legacy-comfy/charizard-87c3fdeb48dd.prompt.json"
+        },
+        {
+          "label": "Earlier negative visual reviews",
+          "path": "assets/comfyui/output/charizard/reviews.json"
+        },
+        {
+          "label": "Zero accepted redesign candidates",
+          "path": "discovery/charizard/iteration-status.json"
+        }
+      ],
+      "researchIds": [],
+      "comparability": {
+        "cohort": "legacy-comfy-charizard",
+        "confounds": [
+          "A record groups identical full prompt hashes, not necessarily one execution or one seed.",
+          "Prompts, seeds and conditioning branches differ between historical groups.",
+          "Input SHA256 values identify current recovered files; embedded prompt metadata does not prove those bytes were unchanged since execution.",
+          "PNG metadata records graph configuration, not missing execution logs or hardware state."
+        ]
+      }
+    },
+    {
+      "id": "legacy-comfy-charizard-9354d66d6c97",
+      "species": "charizard",
+      "title": "Charizard ComfyUI: control-vae-roundtrip-exact",
+      "stage": "reference-prep",
+      "status": "completed",
+      "parents": [],
+      "question": null,
+      "changedFactors": [],
+      "controls": [],
+      "inputs": [
+        {
+          "role": "ComfyUI LoadImage",
+          "path": "assets/comfyui/input/charizard-telegram-1.jpg",
+          "sha256": "fb8881f565c8ce53afd70ccc6e3ce502d9000eda14816666b551150f9de89fd6",
+          "sourceUrl": null
+        }
+      ],
+      "recipe": {
+        "model": "FLUX.2 Klein base 4B FP8",
+        "checkpoint": "flux-2-klein-base-4b-fp8.safetensors",
+        "codePath": "experiments/assets/legacy-comfy/charizard-9354d66d6c97.prompt.json",
+        "parameters": {
+          "embeddedPromptSha256": "9354d66d6c97e6caa089e1cd0d3deee943d3b358009a07766ada57d611bc384e",
+          "nodeSettings": {
+            "5": {
+              "class_type": "VAELoader",
+              "inputs": {
+                "vae_name": "flux2-vae.safetensors"
+              }
+            },
+            "8": {
+              "class_type": "CLIPLoader",
+              "inputs": {
+                "clip_name": "qwen_3_4b.safetensors",
+                "type": "flux2",
+                "device": "default"
+              }
+            },
+            "15": {
+              "class_type": "UNETLoader",
+              "inputs": {
+                "unet_name": "flux-2-klein-base-4b-fp8.safetensors",
+                "weight_dtype": "default"
+              }
+            },
+            "16": {
+              "class_type": "CFGGuider",
+              "inputs": {
+                "cfg": 5.0,
+                "model": [
+                  "15",
+                  0
+                ],
+                "positive": [
+                  "11",
+                  0
+                ],
+                "negative": [
+                  "13",
+                  0
+                ]
+              }
+            },
+            "18": {
+              "class_type": "Flux2Scheduler",
+              "inputs": {
+                "steps": 50,
+                "width": 1024,
+                "height": 1024
+              }
+            },
+            "19": {
+              "class_type": "KSamplerSelect",
+              "inputs": {
+                "sampler_name": "euler"
+              }
+            },
+            "20": {
+              "class_type": "RandomNoise",
+              "inputs": {
+                "noise_seed": 100061
+              }
+            },
+            "24": {
+              "class_type": "SplitSigmasDenoise",
+              "inputs": {
+                "denoise": 0.1,
+                "sigmas": [
+                  "18",
+                  0
+                ]
+              }
+            },
+            "105": {
+              "class_type": "VAELoader",
+              "inputs": {
+                "vae_name": "flux2-vae.safetensors"
+              }
+            },
+            "108": {
+              "class_type": "CLIPLoader",
+              "inputs": {
+                "clip_name": "qwen_3_4b.safetensors",
+                "type": "flux2",
+                "device": "default"
+              }
+            },
+            "115": {
+              "class_type": "UNETLoader",
+              "inputs": {
+                "unet_name": "flux-2-klein-base-4b-fp8.safetensors",
+                "weight_dtype": "default"
+              }
+            },
+            "116": {
+              "class_type": "CFGGuider",
+              "inputs": {
+                "cfg": 5.0,
+                "model": [
+                  "115",
+                  0
+                ],
+                "positive": [
+                  "111",
+                  0
+                ],
+                "negative": [
+                  "113",
+                  0
+                ]
+              }
+            },
+            "118": {
+              "class_type": "Flux2Scheduler",
+              "inputs": {
+                "steps": 50,
+                "width": 1024,
+                "height": 1024
+              }
+            },
+            "119": {
+              "class_type": "KSamplerSelect",
+              "inputs": {
+                "sampler_name": "euler"
+              }
+            },
+            "120": {
+              "class_type": "RandomNoise",
+              "inputs": {
+                "noise_seed": 100061
+              }
+            },
+            "124": {
+              "class_type": "SplitSigmasDenoise",
+              "inputs": {
+                "denoise": 0.2,
+                "sigmas": [
+                  "118",
+                  0
+                ]
+              }
+            }
+          },
+          "seeds": [
+            100061
+          ]
+        },
+        "preprocess": "Full graph is preserved in codePath. Output-specific ancestry must be read from graph; a shared prompt may contain multiple branches.",
+        "seed": 100061
+      },
+      "outputs": {
+        "previews": [
+          {
+            "view": "control-vae-roundtrip-exact_00001_",
+            "path": "assets/comfyui/output/charizard/control-vae-roundtrip-exact_00001_.png"
+          },
+          {
+            "view": "minimal-lighting-denoise-0.1-exact_00001_",
+            "path": "assets/comfyui/output/charizard/minimal-lighting-denoise-0.1-exact_00001_.png"
+          },
+          {
+            "view": "minimal-lighting-denoise-0.2-exact_00001_",
+            "path": "assets/comfyui/output/charizard/minimal-lighting-denoise-0.2-exact_00001_.png"
+          }
+        ]
+      },
+      "evaluation": {
+        "verdict": "unreviewed",
+        "reviewer": "historical evidence backfill",
+        "notes": "Recovered from embedded PNG prompt metadata. No final-quality approval is inferred from image existence.",
+        "unresolved": []
+      },
+      "evidence": [
+        {
+          "label": "Exact embedded prompt graph",
+          "path": "experiments/assets/legacy-comfy/charizard-9354d66d6c97.prompt.json"
+        },
+        {
+          "label": "Pixel difference measurements",
+          "path": "discovery/charizard/minimal-edit-validation.json"
+        }
+      ],
+      "researchIds": [],
+      "comparability": {
+        "cohort": "legacy-comfy-charizard",
+        "confounds": [
+          "A record groups identical full prompt hashes, not necessarily one execution or one seed.",
+          "Prompts, seeds and conditioning branches differ between historical groups.",
+          "Input SHA256 values identify current recovered files; embedded prompt metadata does not prove those bytes were unchanged since execution.",
+          "PNG metadata records graph configuration, not missing execution logs or hardware state."
+        ]
+      }
+    },
+    {
+      "id": "legacy-comfy-charizard-ae9716c46510",
+      "species": "charizard",
+      "title": "Charizard ComfyUI: sam2-11.0s-cutout_00005_",
+      "stage": "reference-prep",
+      "status": "completed",
+      "parents": [],
+      "question": null,
+      "changedFactors": [],
+      "controls": [],
+      "inputs": [
+        {
+          "role": "ComfyUI LoadImage",
+          "path": "assets/comfyui/input/xaviroai-02.png",
+          "sha256": "2cf0240cb71c68f57a2cb1fbd92ab339e9645f175e1d9884c5a09ffb42c34b74",
+          "sourceUrl": "https://www.instagram.com/reel/DWPx9b-CNMt/"
+        },
+        {
+          "role": "ComfyUI LoadImage",
+          "path": "assets/comfyui/input/xaviroai-frame-10.0s.png",
+          "sha256": "a5ba4bac050afb955dceadd68aa48640d00261aacc123624f9f45e8c09e765d9",
+          "sourceUrl": "https://www.instagram.com/reel/DWPx9b-CNMt/"
+        },
+        {
+          "role": "ComfyUI LoadImage",
+          "path": "assets/comfyui/input/xaviroai-frame-11.0s.png",
+          "sha256": "edda863f6676cda746c90c570e7a7d8232b49e2dc858d45567773623234d7ba4",
+          "sourceUrl": "https://www.instagram.com/reel/DWPx9b-CNMt/"
+        }
+      ],
+      "recipe": {
+        "model": "SAM2.1 segmentation",
+        "checkpoint": "sam2.1_hiera_base_plus.safetensors",
+        "codePath": "experiments/assets/legacy-comfy/charizard-ae9716c46510.prompt.json",
+        "parameters": {
+          "embeddedPromptSha256": "ae9716c465102d46382ea7ae890583ee1cfd9c347d0421614bf2308c46f8d8b4",
+          "nodeSettings": {
+            "1": {
+              "class_type": "DownloadAndLoadSAM2Model",
+              "inputs": {
+                "model": "sam2.1_hiera_base_plus.safetensors",
+                "segmentor": "single_image",
+                "device": "cuda",
+                "precision": "bf16"
+              }
+            },
+            "3": {
+              "class_type": "ImageCrop",
+              "inputs": {
+                "width": 977,
+                "height": 525,
+                "x": 95,
+                "y": 615,
+                "image": [
+                  "2",
+                  0
+                ]
+              }
+            },
+            "20": {
+              "class_type": "ImageCrop",
+              "inputs": {
+                "width": 500,
+                "height": 550,
+                "x": 350,
+                "y": 330,
+                "image": [
+                  "19",
+                  0
+                ]
+              }
+            },
+            "33": {
+              "class_type": "ImageCrop",
+              "inputs": {
+                "width": 550,
+                "height": 600,
+                "x": 350,
+                "y": 550,
+                "image": [
+                  "32",
+                  0
+                ]
+              }
+            }
+          },
+          "seeds": []
+        },
+        "preprocess": "Full graph is preserved in codePath. Output-specific ancestry must be read from graph; a shared prompt may contain multiple branches.",
+        "seed": null
+      },
+      "outputs": {
+        "previews": [
+          {
+            "view": "sam2-11.0s-cutout_00005_",
+            "path": "assets/comfyui/output/charizard/sam2-11.0s-cutout_00005_.png"
+          },
+          {
+            "view": "sam2-11.0s-mask_00005_",
+            "path": "assets/comfyui/output/charizard/sam2-11.0s-mask_00005_.png"
+          },
+          {
+            "view": "sam2-11.0s-white_00005_",
+            "path": "assets/comfyui/output/charizard/sam2-11.0s-white_00005_.png"
+          }
+        ]
+      },
+      "evaluation": {
+        "verdict": "unreviewed",
+        "reviewer": "historical evidence backfill",
+        "notes": "Recovered from embedded PNG prompt metadata. No final-quality approval is inferred from image existence.",
+        "unresolved": []
+      },
+      "evidence": [
+        {
+          "label": "Exact embedded prompt graph",
+          "path": "experiments/assets/legacy-comfy/charizard-ae9716c46510.prompt.json"
+        },
+        {
+          "label": "Subset RGB-preservation checks; does not certify mask anatomy",
+          "path": "discovery/charizard/sam2-validation.json"
+        }
+      ],
+      "researchIds": [],
+      "comparability": {
+        "cohort": "legacy-comfy-charizard",
+        "confounds": [
+          "A record groups identical full prompt hashes, not necessarily one execution or one seed.",
+          "Prompts, seeds and conditioning branches differ between historical groups.",
+          "Input SHA256 values identify current recovered files; embedded prompt metadata does not prove those bytes were unchanged since execution.",
+          "PNG metadata records graph configuration, not missing execution logs or hardware state."
+        ]
+      }
+    },
+    {
+      "id": "legacy-comfy-charizard-bb7842e0124c",
+      "species": "charizard",
+      "title": "Charizard ComfyUI: hero-refined-mask-cutout",
+      "stage": "reference-prep",
+      "status": "completed",
+      "parents": [],
+      "question": null,
+      "changedFactors": [],
+      "controls": [],
+      "inputs": [
+        {
+          "role": "ComfyUI LoadImage",
+          "path": "assets/comfyui/input/charizard-telegram-1.jpg",
+          "sha256": "fb8881f565c8ce53afd70ccc6e3ce502d9000eda14816666b551150f9de89fd6",
+          "sourceUrl": null
+        }
+      ],
+      "recipe": {
+        "model": "SAM2.1 segmentation",
+        "checkpoint": "sam2.1_hiera_base_plus.safetensors",
+        "codePath": "experiments/assets/legacy-comfy/charizard-bb7842e0124c.prompt.json",
+        "parameters": {
+          "embeddedPromptSha256": "bb7842e0124c178ae1b7b85a52f0fc53d17112825f9f8c3cf533469c3f764555",
+          "nodeSettings": {
+            "2": {
+              "class_type": "DownloadAndLoadSAM2Model",
+              "inputs": {
+                "model": "sam2.1_hiera_base_plus.safetensors",
+                "segmentor": "single_image",
+                "device": "cuda",
+                "precision": "bf16"
+              }
+            }
+          },
+          "seeds": []
+        },
+        "preprocess": "Full graph is preserved in codePath. Output-specific ancestry must be read from graph; a shared prompt may contain multiple branches.",
+        "seed": null
+      },
+      "outputs": {
+        "previews": [
+          {
+            "view": "hero-refined-mask-cutout_00001_",
+            "path": "assets/comfyui/output/charizard/hero-refined-mask-cutout_00001_.png"
+          },
+          {
+            "view": "hero-refined-mask-mask_00001_",
+            "path": "assets/comfyui/output/charizard/hero-refined-mask-mask_00001_.png"
+          },
+          {
+            "view": "hero-refined-mask-white_00001_",
+            "path": "assets/comfyui/output/charizard/hero-refined-mask-white_00001_.png"
+          }
+        ]
+      },
+      "evaluation": {
+        "verdict": "rejected",
+        "reviewer": "historical evidence backfill",
+        "notes": "Session visual review rejected added SAM negative points: damaged eye/wing boundaries and included background poles. This is a failed mask experiment, not an improved input.",
+        "unresolved": []
+      },
+      "evidence": [
+        {
+          "label": "Exact embedded prompt graph",
+          "path": "experiments/assets/legacy-comfy/charizard-bb7842e0124c.prompt.json"
+        }
+      ],
+      "researchIds": [],
+      "comparability": {
+        "cohort": "legacy-comfy-charizard",
+        "confounds": [
+          "A record groups identical full prompt hashes, not necessarily one execution or one seed.",
+          "Prompts, seeds and conditioning branches differ between historical groups.",
+          "Input SHA256 values identify current recovered files; embedded prompt metadata does not prove those bytes were unchanged since execution.",
+          "PNG metadata records graph configuration, not missing execution logs or hardware state."
+        ]
+      }
+    },
+    {
+      "id": "legacy-comfy-charizard-c083c95a15da",
+      "species": "charizard",
+      "title": "Charizard ComfyUI: sam2-10.0s-cutout",
+      "stage": "reference-prep",
+      "status": "completed",
+      "parents": [],
+      "question": null,
+      "changedFactors": [],
+      "controls": [],
+      "inputs": [
+        {
+          "role": "ComfyUI LoadImage",
+          "path": "assets/comfyui/input/xaviroai-02.png",
+          "sha256": "2cf0240cb71c68f57a2cb1fbd92ab339e9645f175e1d9884c5a09ffb42c34b74",
+          "sourceUrl": "https://www.instagram.com/reel/DWPx9b-CNMt/"
+        },
+        {
+          "role": "ComfyUI LoadImage",
+          "path": "assets/comfyui/input/xaviroai-frame-10.0s.png",
+          "sha256": "a5ba4bac050afb955dceadd68aa48640d00261aacc123624f9f45e8c09e765d9",
+          "sourceUrl": "https://www.instagram.com/reel/DWPx9b-CNMt/"
+        },
+        {
+          "role": "ComfyUI LoadImage",
+          "path": "assets/comfyui/input/xaviroai-frame-11.0s.png",
+          "sha256": "edda863f6676cda746c90c570e7a7d8232b49e2dc858d45567773623234d7ba4",
+          "sourceUrl": "https://www.instagram.com/reel/DWPx9b-CNMt/"
+        }
+      ],
+      "recipe": {
+        "model": "SAM2.1 segmentation",
+        "checkpoint": "sam2.1_hiera_base_plus.safetensors",
+        "codePath": "experiments/assets/legacy-comfy/charizard-c083c95a15da.prompt.json",
+        "parameters": {
+          "embeddedPromptSha256": "c083c95a15da1ab5f9acd1f0e9406cf0a4958635b8e581008c8364502502452a",
+          "nodeSettings": {
+            "1": {
+              "class_type": "DownloadAndLoadSAM2Model",
+              "inputs": {
+                "model": "sam2.1_hiera_base_plus.safetensors",
+                "segmentor": "single_image",
+                "device": "cuda",
+                "precision": "fp16"
+              }
+            },
+            "3": {
+              "class_type": "ImageCrop",
+              "inputs": {
+                "width": 977,
+                "height": 525,
+                "x": 95,
+                "y": 615,
+                "image": [
+                  "2",
+                  0
+                ]
+              }
+            },
+            "20": {
+              "class_type": "ImageCrop",
+              "inputs": {
+                "width": 500,
+                "height": 550,
+                "x": 350,
+                "y": 330,
+                "image": [
+                  "19",
+                  0
+                ]
+              }
+            },
+            "33": {
+              "class_type": "ImageCrop",
+              "inputs": {
+                "width": 550,
+                "height": 600,
+                "x": 350,
+                "y": 550,
+                "image": [
+                  "32",
+                  0
+                ]
+              }
+            }
+          },
+          "seeds": []
+        },
+        "preprocess": "Full graph is preserved in codePath. Output-specific ancestry must be read from graph; a shared prompt may contain multiple branches.",
+        "seed": null
+      },
+      "outputs": {
+        "previews": [
+          {
+            "view": "sam2-10.0s-cutout_00001_",
+            "path": "assets/comfyui/output/charizard/sam2-10.0s-cutout_00001_.png"
+          },
+          {
+            "view": "sam2-10.0s-mask_00001_",
+            "path": "assets/comfyui/output/charizard/sam2-10.0s-mask_00001_.png"
+          },
+          {
+            "view": "sam2-10.0s-white_00001_",
+            "path": "assets/comfyui/output/charizard/sam2-10.0s-white_00001_.png"
+          },
+          {
+            "view": "sam2-11.0s-cutout_00001_",
+            "path": "assets/comfyui/output/charizard/sam2-11.0s-cutout_00001_.png"
+          },
+          {
+            "view": "sam2-11.0s-mask_00001_",
+            "path": "assets/comfyui/output/charizard/sam2-11.0s-mask_00001_.png"
+          },
+          {
+            "view": "sam2-11.0s-white_00001_",
+            "path": "assets/comfyui/output/charizard/sam2-11.0s-white_00001_.png"
+          },
+          {
+            "view": "sam2-wings-open-cutout_00001_",
+            "path": "assets/comfyui/output/charizard/sam2-wings-open-cutout_00001_.png"
+          },
+          {
+            "view": "sam2-wings-open-mask_00001_",
+            "path": "assets/comfyui/output/charizard/sam2-wings-open-mask_00001_.png"
+          },
+          {
+            "view": "sam2-wings-open-white_00001_",
+            "path": "assets/comfyui/output/charizard/sam2-wings-open-white_00001_.png"
+          }
+        ]
+      },
+      "evaluation": {
+        "verdict": "unreviewed",
+        "reviewer": "historical evidence backfill",
+        "notes": "Recovered from embedded PNG prompt metadata. No final-quality approval is inferred from image existence.",
+        "unresolved": []
+      },
+      "evidence": [
+        {
+          "label": "Exact embedded prompt graph",
+          "path": "experiments/assets/legacy-comfy/charizard-c083c95a15da.prompt.json"
+        },
+        {
+          "label": "Subset RGB-preservation checks; does not certify mask anatomy",
+          "path": "discovery/charizard/sam2-validation.json"
+        }
+      ],
+      "researchIds": [],
+      "comparability": {
+        "cohort": "legacy-comfy-charizard",
+        "confounds": [
+          "A record groups identical full prompt hashes, not necessarily one execution or one seed.",
+          "Prompts, seeds and conditioning branches differ between historical groups.",
+          "Input SHA256 values identify current recovered files; embedded prompt metadata does not prove those bytes were unchanged since execution.",
+          "PNG metadata records graph configuration, not missing execution logs or hardware state."
+        ]
+      }
+    },
+    {
+      "id": "legacy-comfy-pidgey-20153b9a6d6b",
+      "species": "pidgey",
+      "title": "Pidgey ComfyUI: material-target-v2",
+      "stage": "reference-prep",
+      "status": "completed",
+      "parents": [],
+      "question": null,
+      "changedFactors": [],
+      "controls": [],
+      "inputs": [
+        {
+          "role": "ComfyUI LoadImage",
+          "path": "assets/comfyui/input/pidgey-mesh-baseline.png",
+          "sha256": "3aef5bde35177e773ab284e2ef29bf142b6142c9f8f75bdd1532882481f19944",
+          "sourceUrl": null
+        },
+        {
+          "role": "ComfyUI LoadImage",
+          "path": "assets/comfyui/input/pidgey_official_artwork.png",
+          "sha256": "cabe3212d06ce9c59184b84cbf2bcb17396f441d7c857243253502247e637758",
+          "sourceUrl": null
+        }
+      ],
+      "recipe": {
+        "model": "FLUX.2 Klein base 4B FP8",
+        "checkpoint": "flux-2-klein-base-4b-fp8.safetensors",
+        "codePath": "experiments/assets/legacy-comfy/pidgey-20153b9a6d6b.prompt.json",
+        "parameters": {
+          "embeddedPromptSha256": "20153b9a6d6b1204717c645ffac3fb7be12395bf10f6ac96dae2616166b68abe",
+          "nodeSettings": {
+            "2": {
+              "class_type": "ImageScaleToTotalPixels",
+              "inputs": {
+                "image": [
+                  "1",
+                  0
+                ],
+                "upscale_method": "lanczos",
+                "megapixels": 1.0,
+                "resolution_steps": 1
+              }
+            },
+            "5": {
+              "class_type": "VAELoader",
+              "inputs": {
+                "vae_name": "flux2-vae.safetensors"
+              }
+            },
+            "8": {
+              "class_type": "CLIPLoader",
+              "inputs": {
+                "clip_name": "qwen_3_4b.safetensors",
+                "type": "flux2",
+                "device": "default"
+              }
+            },
+            "15": {
+              "class_type": "UNETLoader",
+              "inputs": {
+                "unet_name": "flux-2-klein-base-4b-fp8.safetensors",
+                "weight_dtype": "default"
+              }
+            },
+            "16": {
+              "class_type": "CFGGuider",
+              "inputs": {
+                "model": [
+                  "15",
+                  0
+                ],
+                "positive": [
+                  "12",
+                  0
+                ],
+                "negative": [
+                  "14",
+                  0
+                ],
+                "cfg": 5.0
+              }
+            },
+            "18": {
+              "class_type": "Flux2Scheduler",
+              "inputs": {
+                "steps": 20,
+                "width": 1024,
+                "height": 1024
+              }
+            },
+            "19": {
+              "class_type": "KSamplerSelect",
+              "inputs": {
+                "sampler_name": "euler"
+              }
+            },
+            "20": {
+              "class_type": "RandomNoise",
+              "inputs": {
+                "noise_seed": 90602
+              }
+            },
+            "4": {
+              "class_type": "ImageScaleToTotalPixels",
+              "inputs": {
+                "image": [
+                  "3",
+                  0
+                ],
+                "upscale_method": "lanczos",
+                "megapixels": 1.0,
+                "resolution_steps": 1
+              }
+            }
+          },
+          "seeds": [
+            90602
+          ]
+        },
+        "preprocess": "Full graph is preserved in codePath. Output-specific ancestry must be read from graph; a shared prompt may contain multiple branches.",
+        "seed": 90602
+      },
+      "outputs": {
+        "previews": [
+          {
+            "view": "material-target-v2_00001_",
+            "path": "assets/comfyui/output/pidgey/material-target-v2_00001_.png"
+          }
+        ]
+      },
+      "evaluation": {
+        "verdict": "unreviewed",
+        "reviewer": "historical evidence backfill",
+        "notes": "Recovered from embedded PNG prompt metadata. No final-quality approval is inferred from image existence.",
+        "unresolved": []
+      },
+      "evidence": [
+        {
+          "label": "Exact embedded prompt graph",
+          "path": "experiments/assets/legacy-comfy/pidgey-20153b9a6d6b.prompt.json"
+        }
+      ],
+      "researchIds": [],
+      "comparability": {
+        "cohort": "legacy-comfy-pidgey",
+        "confounds": [
+          "A record groups identical full prompt hashes, not necessarily one execution or one seed.",
+          "Prompts, seeds and conditioning branches differ between historical groups.",
+          "Input SHA256 values identify current recovered files; embedded prompt metadata does not prove those bytes were unchanged since execution.",
+          "PNG metadata records graph configuration, not missing execution logs or hardware state."
+        ]
+      }
+    },
+    {
+      "id": "legacy-comfy-pidgey-6047a1e54455",
+      "species": "pidgey",
+      "title": "Pidgey ComfyUI: material-target-v1",
+      "stage": "reference-prep",
+      "status": "completed",
+      "parents": [],
+      "question": null,
+      "changedFactors": [],
+      "controls": [],
+      "inputs": [
+        {
+          "role": "ComfyUI LoadImage",
+          "path": "assets/comfyui/input/pidgey_official_artwork.png",
+          "sha256": "cabe3212d06ce9c59184b84cbf2bcb17396f441d7c857243253502247e637758",
+          "sourceUrl": null
+        }
+      ],
+      "recipe": {
+        "model": "FLUX.2 Klein base 4B FP8",
+        "checkpoint": "flux-2-klein-base-4b-fp8.safetensors",
+        "codePath": "experiments/assets/legacy-comfy/pidgey-6047a1e54455.prompt.json",
+        "parameters": {
+          "embeddedPromptSha256": "6047a1e54455c7de351910397bec069069319402ac70f467b8b8d92ab05b15cb",
+          "nodeSettings": {
+            "2": {
+              "class_type": "ImageScaleToTotalPixels",
+              "inputs": {
+                "image": [
+                  "1",
+                  0
+                ],
+                "upscale_method": "lanczos",
+                "megapixels": 1.0,
+                "resolution_steps": 1
+              }
+            },
+            "5": {
+              "class_type": "VAELoader",
+              "inputs": {
+                "vae_name": "flux2-vae.safetensors"
+              }
+            },
+            "8": {
+              "class_type": "CLIPLoader",
+              "inputs": {
+                "clip_name": "qwen_3_4b.safetensors",
+                "type": "flux2",
+                "device": "default"
+              }
+            },
+            "15": {
+              "class_type": "UNETLoader",
+              "inputs": {
+                "unet_name": "flux-2-klein-base-4b-fp8.safetensors",
+                "weight_dtype": "default"
+              }
+            },
+            "16": {
+              "class_type": "CFGGuider",
+              "inputs": {
+                "model": [
+                  "15",
+                  0
+                ],
+                "positive": [
+                  "11",
+                  0
+                ],
+                "negative": [
+                  "13",
+                  0
+                ],
+                "cfg": 5.0
+              }
+            },
+            "18": {
+              "class_type": "Flux2Scheduler",
+              "inputs": {
+                "steps": 20,
+                "width": 1024,
+                "height": 1024
+              }
+            },
+            "19": {
+              "class_type": "KSamplerSelect",
+              "inputs": {
+                "sampler_name": "euler"
+              }
+            },
+            "20": {
+              "class_type": "RandomNoise",
+              "inputs": {
+                "noise_seed": 90502
+              }
+            }
+          },
+          "seeds": [
+            90502
+          ]
+        },
+        "preprocess": "Full graph is preserved in codePath. Output-specific ancestry must be read from graph; a shared prompt may contain multiple branches.",
+        "seed": 90502
+      },
+      "outputs": {
+        "previews": [
+          {
+            "view": "material-target-v1_00001_",
+            "path": "assets/comfyui/output/pidgey/material-target-v1_00001_.png"
+          }
+        ]
+      },
+      "evaluation": {
+        "verdict": "unreviewed",
+        "reviewer": "historical evidence backfill",
+        "notes": "Recovered from embedded PNG prompt metadata. No final-quality approval is inferred from image existence.",
+        "unresolved": []
+      },
+      "evidence": [
+        {
+          "label": "Exact embedded prompt graph",
+          "path": "experiments/assets/legacy-comfy/pidgey-6047a1e54455.prompt.json"
+        }
+      ],
+      "researchIds": [],
+      "comparability": {
+        "cohort": "legacy-comfy-pidgey",
+        "confounds": [
+          "A record groups identical full prompt hashes, not necessarily one execution or one seed.",
+          "Prompts, seeds and conditioning branches differ between historical groups.",
+          "Input SHA256 values identify current recovered files; embedded prompt metadata does not prove those bytes were unchanged since execution.",
+          "PNG metadata records graph configuration, not missing execution logs or hardware state."
+        ]
+      }
+    },
+    {
+      "id": "legacy-comfy-wooloo-384ee28235f3",
+      "species": "wooloo",
+      "title": "Wooloo ComfyUI: material-target-v1",
+      "stage": "reference-prep",
+      "status": "completed",
+      "parents": [],
+      "question": null,
+      "changedFactors": [],
+      "controls": [],
+      "inputs": [
+        {
+          "role": "ComfyUI LoadImage",
+          "path": "assets/comfyui/input/wooloo_official_artwork.png",
+          "sha256": "0e19e0cfa526a939b651c40a48dbe011816fd077655e7e1accdc824b99b31f8c",
+          "sourceUrl": null
+        }
+      ],
+      "recipe": {
+        "model": "FLUX.2 Klein base 4B FP8",
+        "checkpoint": "flux-2-klein-base-4b-fp8.safetensors",
+        "codePath": "experiments/assets/legacy-comfy/wooloo-384ee28235f3.prompt.json",
+        "parameters": {
+          "embeddedPromptSha256": "384ee28235f30bcb6a55ef24f690a3f80f24e333c59abb28c25740cef02174d3",
+          "nodeSettings": {
+            "2": {
+              "class_type": "ImageScaleToTotalPixels",
+              "inputs": {
+                "image": [
+                  "1",
+                  0
+                ],
+                "upscale_method": "lanczos",
+                "megapixels": 1.0,
+                "resolution_steps": 1
+              }
+            },
+            "5": {
+              "class_type": "VAELoader",
+              "inputs": {
+                "vae_name": "flux2-vae.safetensors"
+              }
+            },
+            "8": {
+              "class_type": "CLIPLoader",
+              "inputs": {
+                "clip_name": "qwen_3_4b.safetensors",
+                "type": "flux2",
+                "device": "default"
+              }
+            },
+            "15": {
+              "class_type": "UNETLoader",
+              "inputs": {
+                "unet_name": "flux-2-klein-base-4b-fp8.safetensors",
+                "weight_dtype": "default"
+              }
+            },
+            "16": {
+              "class_type": "CFGGuider",
+              "inputs": {
+                "model": [
+                  "15",
+                  0
+                ],
+                "positive": [
+                  "11",
+                  0
+                ],
+                "negative": [
+                  "13",
+                  0
+                ],
+                "cfg": 5.0
+              }
+            },
+            "18": {
+              "class_type": "Flux2Scheduler",
+              "inputs": {
+                "steps": 20,
+                "width": 1024,
+                "height": 1024
+              }
+            },
+            "19": {
+              "class_type": "KSamplerSelect",
+              "inputs": {
+                "sampler_name": "euler"
+              }
+            },
+            "20": {
+              "class_type": "RandomNoise",
+              "inputs": {
+                "noise_seed": 90503
+              }
+            }
+          },
+          "seeds": [
+            90503
+          ]
+        },
+        "preprocess": "Full graph is preserved in codePath. Output-specific ancestry must be read from graph; a shared prompt may contain multiple branches.",
+        "seed": 90503
+      },
+      "outputs": {
+        "previews": [
+          {
+            "view": "material-target-v1_00001_",
+            "path": "assets/comfyui/output/wooloo/material-target-v1_00001_.png"
+          }
+        ]
+      },
+      "evaluation": {
+        "verdict": "unreviewed",
+        "reviewer": "historical evidence backfill",
+        "notes": "Recovered from embedded PNG prompt metadata. No final-quality approval is inferred from image existence.",
+        "unresolved": []
+      },
+      "evidence": [
+        {
+          "label": "Exact embedded prompt graph",
+          "path": "experiments/assets/legacy-comfy/wooloo-384ee28235f3.prompt.json"
+        }
+      ],
+      "researchIds": [],
+      "comparability": {
+        "cohort": "legacy-comfy-wooloo",
+        "confounds": [
+          "A record groups identical full prompt hashes, not necessarily one execution or one seed.",
+          "Prompts, seeds and conditioning branches differ between historical groups.",
+          "Input SHA256 values identify current recovered files; embedded prompt metadata does not prove those bytes were unchanged since execution.",
+          "PNG metadata records graph configuration, not missing execution logs or hardware state."
+        ]
+      }
+    },
+    {
+      "id": "legacy-comfy-wooloo-bbe45cef4e58",
+      "species": "wooloo",
+      "title": "Wooloo ComfyUI: material-target-v2",
+      "stage": "reference-prep",
+      "status": "completed",
+      "parents": [],
+      "question": null,
+      "changedFactors": [],
+      "controls": [],
+      "inputs": [
+        {
+          "role": "ComfyUI LoadImage",
+          "path": "assets/comfyui/input/wooloo-mesh-baseline.png",
+          "sha256": "f49edc0428de8922c860a13e70a509b36ee9e08b73ab751342e56c02bb1d6cd2",
+          "sourceUrl": null
+        },
+        {
+          "role": "ComfyUI LoadImage",
+          "path": "assets/comfyui/input/wooloo_official_artwork.png",
+          "sha256": "0e19e0cfa526a939b651c40a48dbe011816fd077655e7e1accdc824b99b31f8c",
+          "sourceUrl": null
+        }
+      ],
+      "recipe": {
+        "model": "FLUX.2 Klein base 4B FP8",
+        "checkpoint": "flux-2-klein-base-4b-fp8.safetensors",
+        "codePath": "experiments/assets/legacy-comfy/wooloo-bbe45cef4e58.prompt.json",
+        "parameters": {
+          "embeddedPromptSha256": "bbe45cef4e58179b6d8bc1cf755eb4a64f51a62b39848bbb0441e3c75d78bb58",
+          "nodeSettings": {
+            "2": {
+              "class_type": "ImageScaleToTotalPixels",
+              "inputs": {
+                "image": [
+                  "1",
+                  0
+                ],
+                "upscale_method": "lanczos",
+                "megapixels": 1.0,
+                "resolution_steps": 1
+              }
+            },
+            "5": {
+              "class_type": "VAELoader",
+              "inputs": {
+                "vae_name": "flux2-vae.safetensors"
+              }
+            },
+            "8": {
+              "class_type": "CLIPLoader",
+              "inputs": {
+                "clip_name": "qwen_3_4b.safetensors",
+                "type": "flux2",
+                "device": "default"
+              }
+            },
+            "15": {
+              "class_type": "UNETLoader",
+              "inputs": {
+                "unet_name": "flux-2-klein-base-4b-fp8.safetensors",
+                "weight_dtype": "default"
+              }
+            },
+            "16": {
+              "class_type": "CFGGuider",
+              "inputs": {
+                "model": [
+                  "15",
+                  0
+                ],
+                "positive": [
+                  "12",
+                  0
+                ],
+                "negative": [
+                  "14",
+                  0
+                ],
+                "cfg": 5.0
+              }
+            },
+            "18": {
+              "class_type": "Flux2Scheduler",
+              "inputs": {
+                "steps": 20,
+                "width": 1024,
+                "height": 1024
+              }
+            },
+            "19": {
+              "class_type": "KSamplerSelect",
+              "inputs": {
+                "sampler_name": "euler"
+              }
+            },
+            "20": {
+              "class_type": "RandomNoise",
+              "inputs": {
+                "noise_seed": 90603
+              }
+            },
+            "4": {
+              "class_type": "ImageScaleToTotalPixels",
+              "inputs": {
+                "image": [
+                  "3",
+                  0
+                ],
+                "upscale_method": "lanczos",
+                "megapixels": 1.0,
+                "resolution_steps": 1
+              }
+            }
+          },
+          "seeds": [
+            90603
+          ]
+        },
+        "preprocess": "Full graph is preserved in codePath. Output-specific ancestry must be read from graph; a shared prompt may contain multiple branches.",
+        "seed": 90603
+      },
+      "outputs": {
+        "previews": [
+          {
+            "view": "material-target-v2_00001_",
+            "path": "assets/comfyui/output/wooloo/material-target-v2_00001_.png"
+          }
+        ]
+      },
+      "evaluation": {
+        "verdict": "unreviewed",
+        "reviewer": "historical evidence backfill",
+        "notes": "Recovered from embedded PNG prompt metadata. No final-quality approval is inferred from image existence.",
+        "unresolved": []
+      },
+      "evidence": [
+        {
+          "label": "Exact embedded prompt graph",
+          "path": "experiments/assets/legacy-comfy/wooloo-bbe45cef4e58.prompt.json"
+        }
+      ],
+      "researchIds": [],
+      "comparability": {
+        "cohort": "legacy-comfy-wooloo",
+        "confounds": [
+          "A record groups identical full prompt hashes, not necessarily one execution or one seed.",
+          "Prompts, seeds and conditioning branches differ between historical groups.",
+          "Input SHA256 values identify current recovered files; embedded prompt metadata does not prove those bytes were unchanged since execution.",
+          "PNG metadata records graph configuration, not missing execution logs or hardware state."
+        ]
+      }
+    }
+  ]
+}

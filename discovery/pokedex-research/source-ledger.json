@@ -1,0 +1,181 @@
+{
+  "title": "Pokédex research source ledger",
+  "compiledDate": "2026-09-05",
+  "canonicalSource": "discovery/pokedex-research/report-source.md",
+  "canonicalSha256": "6cfc7aa7cc94ac623e2706f99e037a8f4ee69dee7bd46862a786cf864dc46de3",
+  "coverage": "Function-focused, not an exhaustive game or episode catalogue.",
+  "verificationKey": {
+    "primary-full-page-verified": "Parent researcher confirmed reading the official full page.",
+    "primary-extracted-manual-text": "Official PDF text extracted by search; PDF screenshot not inspected.",
+    "primary-supporting-unverified": "Supporting official manual citation retained from canonical text; direct verification of this specific detail not established.",
+    "primary-indexed-only": "Official publisher content available through indexed synopsis; full page/footage not verified.",
+    "secondary": "Specialist encyclopedia; episode anchors or descriptions not independently verified against footage."
+  },
+  "sources": [
+    {
+      "id": "S01",
+      "title": "Pokédex animation history",
+      "publisher": "Bulbapedia",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9dex",
+      "medium": "anime",
+      "era": "Kanto–Kalos",
+      "publicationDate": null,
+      "verification": "secondary",
+      "claims": [
+        "Spoken lookup",
+        "trainer identification",
+        "regional redesigns"
+      ],
+      "limitations": "Episode-indexed secondary account. No footage inspected."
+    },
+    {
+      "id": "S02",
+      "title": "Pokémon Diamond manual",
+      "publisher": "Nintendo",
+      "url": "https://csassets.nintendo.com/noaext/image/private/t_KA_PDF/DS_Pokemon_Diamond?_a=DATAg1AAZAA0",
+      "medium": "game",
+      "era": "Nintendo DS",
+      "publicationDate": null,
+      "verification": "primary-extracted-manual-text",
+      "claims": [
+        "Seen/caught, search, cries, habitat, size comparison, touch dial"
+      ],
+      "limitations": "Official manual text extraction enumerates functions and controls; no PDF screenshot inspection."
+    },
+    {
+      "id": "S03",
+      "title": "Pokédex 3D announcement",
+      "publisher": "Nintendo",
+      "url": "https://www.nintendo.com/en-gb/News/2011/June-7th-Nintendo-3DS-system-update-adds-Internet-Browser-online-store-and-Pokedex-3D-253238.html",
+      "medium": "companion-app",
+      "era": "2011",
+      "publicationDate": null,
+      "verification": "primary-full-page-verified",
+      "claims": [
+        "Search, sorting, filters, sharing, SpotPass, AR markers"
+      ],
+      "limitations": "Companion application; not a universal main-series feature list."
+    },
+    {
+      "id": "S04",
+      "title": "Pokédex 3D Pro release",
+      "publisher": "Nintendo",
+      "url": "https://www.nintendo.com/en-gb/News/2012/In-Nintendo-eShop-now-Pokedex-3D-Pro-664409.html",
+      "medium": "companion-app",
+      "era": "2012",
+      "publicationDate": null,
+      "verification": "primary-full-page-verified",
+      "claims": [
+        "Moves, stats, evolution, 3D views, cries, AR photos, quizzes"
+      ],
+      "limitations": "Historical availability does not establish current purchasability."
+    },
+    {
+      "id": "S05",
+      "title": "Pokémon Alpha Sapphire manual",
+      "publisher": "Nintendo",
+      "url": "https://csassets.nintendo.com/noaext/image/private/t_KA_PDF/manual-3DS-pokemon-alpha-sapphire-version-en?_a=DATC1RAAZAA0",
+      "medium": "game",
+      "era": "Nintendo 3DS",
+      "publicationDate": null,
+      "verification": "primary-supporting-unverified",
+      "claims": [
+        "Movement, cry and location viewing"
+      ],
+      "limitations": "Supporting manual detail retained from canonical synthesis; independent direct verification is not established and this is not central evidence."
+    },
+    {
+      "id": "S06",
+      "title": "Pokémon Sun",
+      "publisher": "Nintendo",
+      "url": "https://www.nintendo.com/en-za/Games/Nintendo-3DS-games/Pokemon-Sun-1092368.html",
+      "medium": "game",
+      "era": "Sun / Nintendo 3DS",
+      "publicationDate": null,
+      "verification": "primary-full-page-verified",
+      "claims": [
+        "Rotom personality, destinations, QR data, habitat, Poké Finder, zoom"
+      ],
+      "limitations": "QR and photography are distinct from general image recognition."
+    },
+    {
+      "id": "S07",
+      "title": "Rotom Pokédex in the anime",
+      "publisher": "Bulbapedia",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Rotom_Pok%C3%A9dex_(anime)",
+      "medium": "anime",
+      "era": "Sun & Moon",
+      "publicationDate": null,
+      "verification": "secondary",
+      "claims": [
+        "Video handling, voice sampling, photographic database updates"
+      ],
+      "limitations": "Episode-indexed secondary descriptions; no footage inspected."
+    },
+    {
+      "id": "S08",
+      "title": "Alolan Open House!",
+      "publisher": "The Pokémon Company International",
+      "url": "https://www.pokemon.com/us/animation/seasons/20/episode-24-alolan-open-house",
+      "medium": "anime",
+      "era": "Season 20 episode 24",
+      "publicationDate": null,
+      "verification": "primary-indexed-only",
+      "claims": [
+        "Use of voice sampling"
+      ],
+      "limitations": "Official synopsis corroboration recorded by canonical report; indexed summary access, not footage."
+    },
+    {
+      "id": "S09",
+      "title": "Pokédex and Rotom Phone",
+      "publisher": "The Pokémon Company International",
+      "url": "https://swordshield.pokemon.com/en-gb/gameplay/about-pokedex-rotom-phone/",
+      "medium": "game",
+      "era": "Sword / Shield",
+      "publicationDate": null,
+      "verification": "primary-full-page-verified",
+      "claims": [
+        "Discovered/caught records",
+        "wider Rotom Phone functions"
+      ],
+      "limitations": "Bicycle assistance belongs to the wider phone, not species lookup."
+    },
+    {
+      "id": "S10",
+      "title": "New details for Pokémon Scarlet and Pokémon Violet",
+      "publisher": "Nintendo",
+      "url": "https://www.nintendo.com/en-ca/whatsnew/new-details-revealed-for-pokemon-scarlet-and-pokemon-violet-including-tera-raid-battles/",
+      "medium": "game",
+      "era": "Scarlet / Violet",
+      "publicationDate": null,
+      "verification": "primary-full-page-verified",
+      "claims": [
+        "Separate Pokédex/map applications",
+        "location and map information"
+      ],
+      "limitations": "Do not merge general phone/map functionality into the Pokédex."
+    },
+    {
+      "id": "S11",
+      "title": "Pokémon Legends: Arceus gameplay",
+      "publisher": "The Pokémon Company International",
+      "url": "https://legends.arceus.pokemon.com/en-us/gameplay/",
+      "medium": "game",
+      "era": "Legends: Arceus",
+      "publicationDate": null,
+      "verification": "primary-full-page-verified",
+      "claims": [
+        "Repeated study and research tasks enrich entries"
+      ],
+      "limitations": "Historical fictional setting is separate from release chronology."
+    }
+  ],
+  "localImplementationEvidence": {
+    "claims": [
+      "Cardtwin tilt and touch behavior",
+      "Existing local Pokédex data"
+    ],
+    "status": "Reported by canonical synthesis; not canon evidence; no source-file audit in this publication pass."
+  }
+}
