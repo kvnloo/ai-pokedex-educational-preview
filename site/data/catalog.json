@@ -1,0 +1,97 @@
+{
+  "species": [
+    {
+      "id": 6,
+      "slug": "charizard",
+      "name": "Charizard",
+      "types": [
+        "fire",
+        "flying"
+      ],
+      "generation": 1,
+      "images": [
+        {
+          "label": "Home",
+          "stage": "Reference",
+          "path": "assets/charizard-home.png",
+          "width": 512,
+          "height": 512,
+          "sha256": "ffe2db1065f91feda24f21c81c461e4ca6b863cf31afb4e4918aba79fb31ee70",
+          "bytes": 130368,
+          "source": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/6.png",
+          "note": "HOME render; camera angle not standardized"
+        }
+      ],
+      "models": [
+        {
+          "label": "charizard-hunyuan-cleanup/charizard-61061-cleanup-v2.blend",
+          "path": "assets/blender/charizard-hunyuan-cleanup/charizard-61061-cleanup-v2.blend",
+          "bytes": 53395820
+        },
+        {
+          "label": "charizard-hunyuan-cleanup/charizard-61061-cleanup-v2.glb",
+          "path": "assets/blender/charizard-hunyuan-cleanup/charizard-61061-cleanup-v2.glb",
+          "bytes": 13819604
+        },
+        {
+          "label": "charizard-hunyuan-cleanup/charizard-61061-cleanup.blend",
+          "path": "assets/blender/charizard-hunyuan-cleanup/charizard-61061-cleanup.blend",
+          "bytes": 39687997
+        },
+        {
+          "label": "charizard-hunyuan-cleanup/charizard-61061-cleanup.glb",
+          "path": "assets/blender/charizard-hunyuan-cleanup/charizard-61061-cleanup.glb",
+          "bytes": 13819608
+        },
+        {
+          "label": "charizard-hunyuan-face/charizard-61061-face-detail.blend",
+          "path": "assets/blender/charizard-hunyuan-face/charizard-61061-face-detail.blend",
+          "bytes": 67201081
+        },
+        {
+          "label": "charizard-hunyuan-face/charizard-61061-face-detail.glb",
+          "path": "assets/blender/charizard-hunyuan-face/charizard-61061-face-detail.glb",
+          "bytes": 14164268
+        },
+        {
+          "label": "charizard-hunyuan-review/before-hero-review.blend",
+          "path": "assets/blender/charizard-hunyuan-review/before-hero-review.blend",
+          "bytes": 97355
+        },
+        {
+          "label": "charizard-hunyuan-review/before-review.blend",
+          "path": "assets/blender/charizard-hunyuan-review/before-review.blend",
+          "bytes": 97346
+        },
+        {
+          "label": "charizard-hunyuan-review/hero-review.blend",
+          "path": "assets/blender/charizard-hunyuan-review/hero-review.blend",
+          "bytes": 26379097
+        },
+        {
+          "label": "charizard-hunyuan-review/video-review.blend",
+          "path": "assets/blender/charizard-hunyuan-review/video-review.blend",
+          "bytes": 4306066
+        },
+        {
+          "label": "charizard-photoreal/v1/charizard-v1.blend",
+          "path": "assets/blender/charizard-photoreal/v1/charizard-v1.blend",
+          "bytes": 4371379
+        },
+        {
+          "label": "charizard-photoreal/v2/charizard-v2-mcp.blend",
+          "path": "assets/blender/charizard-photoreal/v2/charizard-v2-mcp.blend",
+          "bytes": 10433613
+        }
+      ],
+      "videos": [
+        {
+          "path": "assets/charizard-hunyuan/instagram-references/xaviroai-evolution-video.mp4",
+          "source": "https://www.instagram.com/reel/DWPx9b-CNMt/",
+          "creator": "xaviroai",
+          "note": "Original served video stream downloaded; no audio track included. 15s evolution sequence. Remaining extracted frames12\u201314s are occluded by fire/smoke and excluded from image selection."
+        }
+      ]
+    }
+  ]
+}

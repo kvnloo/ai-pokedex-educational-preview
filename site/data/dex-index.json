@@ -1,0 +1,19 @@
+{
+  "entries": [
+    {
+      "nationalId": 6,
+      "slug": "charizard",
+      "name": "Charizard",
+      "types": [
+        "fire",
+        "flying"
+      ],
+      "generation": 1,
+      "color": "red",
+      "isLegendary": false,
+      "isMythical": false,
+      "shape": "upright",
+      "hasMesh": false
+    }
+  ]
+}

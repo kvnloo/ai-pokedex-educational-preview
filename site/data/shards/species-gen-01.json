@@ -1,0 +1,60 @@
+{
+  "species": [
+    {
+      "nationalId": 6,
+      "slug": "charizard",
+      "name": "Charizard",
+      "types": [
+        "fire",
+        "flying"
+      ],
+      "baseStats": {
+        "hp": 78,
+        "atk": 84,
+        "def": 78,
+        "spa": 109,
+        "spd": 85,
+        "spe": 100
+      },
+      "captureRate": 45,
+      "baseHappiness": 70,
+      "growthRate": "medium-slow",
+      "genderRate": 1,
+      "generation": 1,
+      "eggGroups": [
+        "monster",
+        "dragon"
+      ],
+      "abilities": [
+        {
+          "slug": "blaze",
+          "slot": 1,
+          "isHidden": false
+        },
+        {
+          "slug": "solar-power",
+          "slot": 3,
+          "isHidden": true
+        }
+      ],
+      "color": "red",
+      "shape": "upright",
+      "habitat": "mountain",
+      "heightM": 1.7,
+      "weightKg": 90.5,
+      "baseExperience": 240,
+      "isBaby": false,
+      "isLegendary": false,
+      "isMythical": false,
+      "evolvesFromId": 5,
+      "flavor": "Its wings can carry this Pok\u00e9mon close to an altitude of 4,600 feet. It blows out fire at very high temperatures.",
+      "genus": "",
+      "source": {
+        "system": "pokeapi",
+        "syncedAt": "2026-08-02T06:47:55.319Z",
+        "pokemonUrl": "https://pokeapi.co/api/v2/pokemon/6/",
+        "speciesUrl": "https://pokeapi.co/api/v2/pokemon-species/6/"
+      }
+    }
+  ]
+}
