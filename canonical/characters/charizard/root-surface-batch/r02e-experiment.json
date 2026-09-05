@@ -1,0 +1,139 @@
+{
+  "id": "charizard-tail-r02e",
+  "species": "charizard",
+  "title": "Repair inner collar strip \u00b7 r02e",
+  "stage": "blender",
+  "status": "completed",
+  "parents": [
+    "charizard-tail-r02d"
+  ],
+  "question": "Can a bounded root surface edit remove the lengthwise ridges without damaging the protected body or folding the collar?",
+  "changedFactors": [
+    {
+      "name": "root operation",
+      "from": "frozen r02d",
+      "to": "Delete confirmed crossing strip; fill its unchanged boundary and triangulate with Beauty"
+    }
+  ],
+  "controls": [
+    "Same protected region: 112475 source coordinates unchanged",
+    "Unchanged flame",
+    "Matched whole-body and shadow-free root cameras",
+    "Official illustration ancestor; no new generation or image input"
+  ],
+  "inputs": [
+    {
+      "role": "shape reference",
+      "path": "assets/references/objects/b6/b6d5b8ee9fb05dc6f53294b2cae660dec770b92762cdb19d16bcbd679e1ba43a.png",
+      "sha256": "b6d5b8ee9fb05dc6f53294b2cae660dec770b92762cdb19d16bcbd679e1ba43a",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png",
+      "sourceKind": "official_artwork"
+    }
+  ],
+  "recipe": {
+    "model": "Manual Blender through Blender MCP",
+    "codePath": "assets/blender/charizard-tail-r02e/repair_root_strip.py",
+    "runnerSHA256": "59ff0713a1605461441d2caa5d081313aab569edb4b1ef5cd5e384deb74d5cbf",
+    "parameters": {
+      "parent": "charizard-tail-r02d",
+      "candidate": "charizard-tail-r02e",
+      "method": "Delete confirmed crossing strip; fill its unchanged boundary and triangulate with Beauty",
+      "bounds": [
+        [
+          -0.511,
+          0.143,
+          -0.481
+        ],
+        [
+          -0.478,
+          0.258,
+          -0.461
+        ]
+      ],
+      "confirmedCrossingVerticesCovered": 18,
+      "removedVertices": 41,
+      "removedFaces": 61,
+      "newTriangles": 27,
+      "boundaryVertices": 29,
+      "remainingCoordinatesExact": true,
+      "vertices": 122336,
+      "polygons": 229346,
+      "status": "awaiting independent export and visual checks"
+    },
+    "preprocess": "No image edits or new Hunyuan run"
+  },
+  "outputs": {
+    "rawMesh": "assets/blender/charizard-tail-r02e/charizard-tail-r02e.glb",
+    "blend": "assets/blender/charizard-tail-r02e/charizard-tail-r02e.blend",
+    "previews": [
+      {
+        "view": "fair-minusY",
+        "path": "assets/blender/charizard-tail-r02e/charizard-tail-r02e-minusY.png"
+      },
+      {
+        "view": "fair-plusX",
+        "path": "assets/blender/charizard-tail-r02e/charizard-tail-r02e-plusX.png"
+      },
+      {
+        "view": "fair-plusY",
+        "path": "assets/blender/charizard-tail-r02e/charizard-tail-r02e-plusY.png"
+      },
+      {
+        "view": "fair-minusX",
+        "path": "assets/blender/charizard-tail-r02e/charizard-tail-r02e-minusX.png"
+      },
+      {
+        "view": "fair-threequarter",
+        "path": "assets/blender/charizard-tail-r02e/charizard-tail-r02e-threequarter.png"
+      },
+      {
+        "view": "root-side",
+        "path": "assets/blender/charizard-tail-r02e/charizard-tail-r02e-root-side.png"
+      },
+      {
+        "view": "root-rear",
+        "path": "assets/blender/charizard-tail-r02e/charizard-tail-r02e-root-rear.png"
+      },
+      {
+        "view": "root-inner",
+        "path": "assets/blender/charizard-tail-r02e/charizard-tail-r02e-root-inner.png"
+      }
+    ]
+  },
+  "evaluation": {
+    "verdict": "needs-work",
+    "reviewer": "assistant",
+    "notes": "Current assistant choice for this local repair. Smooth root retained; zero detected crossings in the measured root region. Full Charizard quality remains unfinished.",
+    "unresolved": [
+      "Tail proportion and deformation topology remain provisional",
+      "Malformed head/horns, hands/feet and wing connections",
+      "No UVs, colors/PBR, rig, clips, attacks or game promotion"
+    ]
+  },
+  "metrics": {
+    "vertices": 126852,
+    "trianglesAfterGLTFExport": 253700,
+    "protectedVerticesUnchanged": 112475,
+    "localIntersectionPairs": 0,
+    "intersectionScope": "wider root region from audit-root-surface/r02d-validation.json; r02b not measured",
+    "wholeModelSelfIntersectionTested": false,
+    "meshSHA256": "11091f72a5f3369cddc631e7f97034b5ff00eec219503e4362d07f25eaf96ad7"
+  },
+  "evidence": [
+    {
+      "label": "Operation receipt",
+      "path": "assets/blender/charizard-tail-r02e/topology-receipt.json"
+    },
+    {
+      "label": "Matched cameras",
+      "path": "assets/blender/charizard-tail-r02e/camera-receipt.json"
+    }
+  ],
+  "comparability": {
+    "cohort": "charizard-manual-tail",
+    "confounds": [
+      "Whole-body Workbench views have cast shadows; root close-ups disable them. Local checks do not prove whole-model quality."
+    ]
+  },
+  "createdAt": "2026-09-05T23:20:04.592461+00:00"
+}

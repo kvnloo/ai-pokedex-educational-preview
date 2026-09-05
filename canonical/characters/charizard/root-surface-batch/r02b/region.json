@@ -1,0 +1,29 @@
+{
+  "parent": "charizard-tail-r02a",
+  "candidate": "charizard-tail-r02b",
+  "envelope": {
+    "xMaximum": 0,
+    "zMaximum": -0.2,
+    "yRange": [
+      -0.05,
+      0.36
+    ]
+  },
+  "seedVertex": 122199,
+  "connectedVertices": 9902,
+  "weightedVertices": 9902,
+  "protectedVertices": 112475,
+  "bounds": [
+    [
+      -0.8156253099441528,
+      -0.04998994991183281,
+      -0.6132521629333496
+    ],
+    [
+      -0.02750972844660282,
+      0.35995206236839294,
+      -0.24758754670619965
+    ]
+  ],
+  "falloff": "Smoothstep fade at all envelope boundaries; connected component only"
+}

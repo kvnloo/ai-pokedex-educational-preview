@@ -1,0 +1,64 @@
+{
+  "directories": [
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02e",
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-final/r02e"
+  ],
+  "geometry": {
+    "GEO-charizard-flame-reference-r02e": {
+      "verticesExact": true,
+      "trianglesExact": true
+    },
+    "GEO-charizard-body-tail-r02e": {
+      "verticesExact": true,
+      "trianglesExact": true
+    }
+  },
+  "transforms": {
+    "GEO-charizard-flame-reference-r02e": true,
+    "GEO-charizard-body-tail-r02e": true
+  },
+  "arrays": {
+    "before": true,
+    "after": true,
+    "parent_vertex_ids": true,
+    "parent_face_ids": true,
+    "removed_parent_vertices": true,
+    "removed_parent_faces": true
+  },
+  "renders": {
+    "minusY": {
+      "pixelsExact": true,
+      "differentChannels": 0
+    },
+    "plusX": {
+      "pixelsExact": true,
+      "differentChannels": 0
+    },
+    "plusY": {
+      "pixelsExact": true,
+      "differentChannels": 0
+    },
+    "minusX": {
+      "pixelsExact": true,
+      "differentChannels": 0
+    },
+    "threequarter": {
+      "pixelsExact": true,
+      "differentChannels": 0
+    },
+    "root-side": {
+      "pixelsExact": true,
+      "differentChannels": 0
+    },
+    "root-rear": {
+      "pixelsExact": true,
+      "differentChannels": 0
+    },
+    "root-inner": {
+      "pixelsExact": true,
+      "differentChannels": 0
+    }
+  },
+  "nativePatchExact": true,
+  "allExact": true
+}

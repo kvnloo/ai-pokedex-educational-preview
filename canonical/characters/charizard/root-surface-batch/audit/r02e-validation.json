@@ -1,0 +1,1237 @@
+{
+  "inputs": {
+    "r02a": {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02a/charizard-tail-r02a.glb",
+      "sha256": "d6e4dd5bf9db81f7bd9220b37eb95d24ebe4bd217908de2ca2773c5d545b975a"
+    },
+    "r02d": {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02d/charizard-tail-r02d.glb",
+      "sha256": "c6535b34456e0d209483a88f86babe3c4a79433b39b7f63354a646c0a9859c5c"
+    },
+    "r02e": {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02e/charizard-tail-r02e.glb",
+      "sha256": "11091f72a5f3369cddc631e7f97034b5ff00eec219503e4362d07f25eaf96ad7"
+    }
+  },
+  "topologyAudit": {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02e/topology-audit.npz",
+    "sha256": "2164b268f216cc5656d4041ae2f38e8dae2098994e1c5c004e8185d00667f473",
+    "checks": {
+      "beforeMatchesFrozenR02d": true,
+      "allRetainedCoordinatesExact": true,
+      "parentVertexIdsUnique": true,
+      "removedVertexComplementExact": true,
+      "removedVerticesCount41": true,
+      "newPolygonCount27": true,
+      "removedPolygonsCount61": true,
+      "retainedParentPolygonIdsExact": true
+    }
+  },
+  "coordinateConvention": "glTF scene transforms applied, then world coordinates converted to Blender (x,-z,y). NPZ parent_vertex_ids map reduced r02e rows to full r02d/r02a stable identity.",
+  "versions": {
+    "r02a": {
+      "structure": {
+        "scenes": 1,
+        "nodes": 2,
+        "meshes": 2,
+        "sceneNames": [
+          "EDIT-charizard-tail-r02a"
+        ],
+        "nodeNames": [
+          "GEO-charizard-body-tail-r02a",
+          "GEO-charizard-flame-reference-r02a"
+        ]
+      },
+      "stableIdBijection": {
+        "rows": 122377,
+        "uniqueMappedRows": 122377,
+        "maximumExportToNpzDistance": 0.0,
+        "maximumNpzToExportDistance": 0.0
+      },
+      "body": {
+        "vertices": 122377,
+        "triangles": 244754,
+        "components": 1,
+        "boundaryEdges": 0,
+        "edgesAboveTwoFaceIncidence": 0,
+        "repeatedIndexTriangles": 0,
+        "areaAtMost1eMinus14Triangles": 0,
+        "watertight": true,
+        "windingConsistent": true,
+        "signedVolume": 0.29018984578193424,
+        "surfaceArea": 5.703498376445527,
+        "bounds": [
+          [
+            -0.958707332611084,
+            -0.9876829981803894,
+            -0.6132521629333496
+          ],
+          [
+            0.946840226650238,
+            0.8334565758705139,
+            0.6025716662406921
+          ]
+        ]
+      },
+      "flame": {
+        "vertices": 4516,
+        "triangles": 9028,
+        "components": 1,
+        "boundaryEdges": 0,
+        "edgesAboveTwoFaceIncidence": 0,
+        "repeatedIndexTriangles": 0,
+        "areaAtMost1eMinus14Triangles": 0,
+        "watertight": true,
+        "windingConsistent": true,
+        "signedVolume": 0.004518745747211714,
+        "surfaceArea": 0.18854623733438367,
+        "bounds": [
+          [
+            0.6976145505905151,
+            -0.4899594783782959,
+            -0.12000000476837158
+          ],
+          [
+            0.9023855924606323,
+            -0.27004048228263855,
+            0.24425885826349258
+          ]
+        ]
+      },
+      "flameExactAgainstR02d": true,
+      "localIntersections": {
+        "trianglesTested": 21799,
+        "pairCount": 2,
+        "exportFacePairs": [
+          [
+            28968,
+            30504
+          ],
+          [
+            93293,
+            93308
+          ]
+        ],
+        "stableTrianglePairKeys": [
+          [
+            [
+              10727,
+              10728,
+              10744
+            ],
+            [
+              10729,
+              10745,
+              11257
+            ]
+          ],
+          [
+            [
+              46127,
+              46845,
+              46850
+            ],
+            [
+              46135,
+              46851,
+              46852
+            ]
+          ]
+        ],
+        "newAgainstR02a": 0,
+        "retainedFromR02a": 2
+      },
+      "signedVolumeChangeVsR02aPercent": 0.0,
+      "signedVolumeChangeVsR02dPercent": -0.005465945051263965
+    },
+    "r02d": {
+      "structure": {
+        "scenes": 1,
+        "nodes": 2,
+        "meshes": 2,
+        "sceneNames": [
+          "EDIT-charizard-tail-r02d"
+        ],
+        "nodeNames": [
+          "GEO-charizard-body-tail-r02d",
+          "GEO-charizard-flame-reference-r02d"
+        ]
+      },
+      "stableIdBijection": {
+        "rows": 122377,
+        "uniqueMappedRows": 122377,
+        "maximumExportToNpzDistance": 0.0,
+        "maximumNpzToExportDistance": 0.0
+      },
+      "body": {
+        "vertices": 122377,
+        "triangles": 244754,
+        "components": 1,
+        "boundaryEdges": 0,
+        "edgesAboveTwoFaceIncidence": 0,
+        "repeatedIndexTriangles": 0,
+        "areaAtMost1eMinus14Triangles": 0,
+        "watertight": true,
+        "windingConsistent": true,
+        "signedVolume": 0.29020570826648373,
+        "surfaceArea": 5.701847948904753,
+        "bounds": [
+          [
+            -0.958707332611084,
+            -0.9876829981803894,
+            -0.6133004426956177
+          ],
+          [
+            0.946840226650238,
+            0.8334565758705139,
+            0.6025716662406921
+          ]
+        ]
+      },
+      "flame": {
+        "vertices": 4516,
+        "triangles": 9028,
+        "components": 1,
+        "boundaryEdges": 0,
+        "edgesAboveTwoFaceIncidence": 0,
+        "repeatedIndexTriangles": 0,
+        "areaAtMost1eMinus14Triangles": 0,
+        "watertight": true,
+        "windingConsistent": true,
+        "signedVolume": 0.004518745747211714,
+        "surfaceArea": 0.18854623733438367,
+        "bounds": [
+          [
+            0.6976145505905151,
+            -0.4899594783782959,
+            -0.12000000476837158
+          ],
+          [
+            0.9023855924606323,
+            -0.27004048228263855,
+            0.24425885826349258
+          ]
+        ]
+      },
+      "flameExactAgainstR02d": true,
+      "localIntersections": {
+        "trianglesTested": 21799,
+        "pairCount": 12,
+        "exportFacePairs": [
+          [
+            4830,
+            5839
+          ],
+          [
+            4832,
+            4836
+          ],
+          [
+            4832,
+            5839
+          ],
+          [
+            4833,
+            5839
+          ],
+          [
+            5743,
+            5836
+          ],
+          [
+            5836,
+            5838
+          ],
+          [
+            5837,
+            5838
+          ],
+          [
+            6425,
+            7430
+          ],
+          [
+            6425,
+            7431
+          ],
+          [
+            6425,
+            7432
+          ],
+          [
+            6426,
+            6427
+          ],
+          [
+            7428,
+            7432
+          ]
+        ],
+        "stableTrianglePairKeys": [
+          [
+            [
+              2466,
+              2467,
+              2961
+            ],
+            [
+              2468,
+              2962,
+              2963
+            ]
+          ],
+          [
+            [
+              2466,
+              2467,
+              122123
+            ],
+            [
+              2468,
+              2469,
+              2963
+            ]
+          ],
+          [
+            [
+              2466,
+              2467,
+              122123
+            ],
+            [
+              2468,
+              2469,
+              122089
+            ]
+          ],
+          [
+            [
+              2466,
+              2960,
+              2961
+            ],
+            [
+              2467,
+              2468,
+              2962
+            ]
+          ],
+          [
+            [
+              2466,
+              2960,
+              2961
+            ],
+            [
+              2468,
+              2962,
+              2963
+            ]
+          ],
+          [
+            [
+              2467,
+              122088,
+              122089
+            ],
+            [
+              2468,
+              2469,
+              2963
+            ]
+          ],
+          [
+            [
+              2467,
+              122088,
+              122123
+            ],
+            [
+              2468,
+              2469,
+              2963
+            ]
+          ],
+          [
+            [
+              2960,
+              2961,
+              3672
+            ],
+            [
+              2962,
+              3673,
+              3674
+            ]
+          ],
+          [
+            [
+              2960,
+              3671,
+              3672
+            ],
+            [
+              3673,
+              3674,
+              4394
+            ]
+          ],
+          [
+            [
+              2960,
+              3671,
+              3672
+            ],
+            [
+              3673,
+              4392,
+              4393
+            ]
+          ],
+          [
+            [
+              2960,
+              3671,
+              3672
+            ],
+            [
+              3673,
+              4393,
+              4394
+            ]
+          ],
+          [
+            [
+              3671,
+              3672,
+              4392
+            ],
+            [
+              3673,
+              3674,
+              4394
+            ]
+          ]
+        ],
+        "newAgainstR02a": 12,
+        "retainedFromR02a": 0
+      },
+      "signedVolumeChangeVsR02aPercent": 0.005466243833152085,
+      "signedVolumeChangeVsR02dPercent": 0.0
+    },
+    "r02e": {
+      "structure": {
+        "scenes": 1,
+        "nodes": 2,
+        "meshes": 2,
+        "sceneNames": [
+          "EDIT-charizard-tail-r02e"
+        ],
+        "nodeNames": [
+          "GEO-charizard-body-tail-r02e",
+          "GEO-charizard-flame-reference-r02e"
+        ]
+      },
+      "stableIdBijection": {
+        "rows": 122336,
+        "uniqueMappedRows": 122336,
+        "maximumExportToNpzDistance": 0.0,
+        "maximumNpzToExportDistance": 0.0
+      },
+      "body": {
+        "vertices": 122336,
+        "triangles": 244672,
+        "components": 1,
+        "boundaryEdges": 0,
+        "edgesAboveTwoFaceIncidence": 0,
+        "repeatedIndexTriangles": 0,
+        "areaAtMost1eMinus14Triangles": 0,
+        "watertight": true,
+        "windingConsistent": true,
+        "signedVolume": 0.29020446189204246,
+        "surfaceArea": 5.701835179524479,
+        "bounds": [
+          [
+            -0.958707332611084,
+            -0.9876829981803894,
+            -0.6133004426956177
+          ],
+          [
+            0.946840226650238,
+            0.8334565758705139,
+            0.6025716662406921
+          ]
+        ]
+      },
+      "flame": {
+        "vertices": 4516,
+        "triangles": 9028,
+        "components": 1,
+        "boundaryEdges": 0,
+        "edgesAboveTwoFaceIncidence": 0,
+        "repeatedIndexTriangles": 0,
+        "areaAtMost1eMinus14Triangles": 0,
+        "watertight": true,
+        "windingConsistent": true,
+        "signedVolume": 0.004518745747211714,
+        "surfaceArea": 0.18854623733438367,
+        "bounds": [
+          [
+            0.6976145505905151,
+            -0.4899594783782959,
+            -0.12000000476837158
+          ],
+          [
+            0.9023855924606323,
+            -0.27004048228263855,
+            0.24425885826349258
+          ]
+        ]
+      },
+      "flameExactAgainstR02d": true,
+      "localIntersections": {
+        "trianglesTested": 21717,
+        "pairCount": 0,
+        "exportFacePairs": [],
+        "stableTrianglePairKeys": [],
+        "newAgainstR02a": 0,
+        "retainedFromR02a": 0
+      },
+      "signedVolumeChangeVsR02aPercent": 0.005036740713260102,
+      "signedVolumeChangeVsR02dPercent": -0.0004294796434933801
+    }
+  },
+  "protectedAgainstR02a": {
+    "expectedVertices": 112475,
+    "retainedVertices": 112475,
+    "removedProtectedVertices": [],
+    "maximumCoordinateDisplacement": 0.0,
+    "orientedTrianglesBefore": 224371,
+    "orientedTrianglesAfter": 224371,
+    "missing": 0,
+    "added": 0
+  },
+  "canonicalTrianglePatch": {
+    "deletedExportTriangles": 105,
+    "newExportTriangles": 23,
+    "deletedTriangleParentStableIds": [
+      [
+        122319,
+        2463,
+        2464
+      ],
+      [
+        122319,
+        2464,
+        122163
+      ],
+      [
+        122318,
+        2463,
+        122319
+      ],
+      [
+        122161,
+        2465,
+        2466
+      ],
+      [
+        122161,
+        2466,
+        122123
+      ],
+      [
+        122163,
+        2464,
+        2465
+      ],
+      [
+        122163,
+        2465,
+        122161
+      ],
+      [
+        122088,
+        2467,
+        122089
+      ],
+      [
+        2467,
+        2468,
+        122089
+      ],
+      [
+        122123,
+        2466,
+        2467
+      ],
+      [
+        122123,
+        2467,
+        122088
+      ],
+      [
+        122090,
+        2469,
+        2470
+      ],
+      [
+        122090,
+        2470,
+        122315
+      ],
+      [
+        122089,
+        2468,
+        2469
+      ],
+      [
+        122089,
+        2469,
+        122090
+      ],
+      [
+        122315,
+        2470,
+        2471
+      ],
+      [
+        2464,
+        2958,
+        2959
+      ],
+      [
+        2464,
+        2959,
+        2465
+      ],
+      [
+        2463,
+        2957,
+        2958
+      ],
+      [
+        2463,
+        2958,
+        2464
+      ],
+      [
+        2470,
+        2964,
+        2965
+      ],
+      [
+        2470,
+        2965,
+        2471
+      ],
+      [
+        2467,
+        2961,
+        2962
+      ],
+      [
+        2467,
+        2962,
+        2468
+      ],
+      [
+        2465,
+        2959,
+        2960
+      ],
+      [
+        2465,
+        2960,
+        2466
+      ],
+      [
+        2466,
+        2960,
+        2961
+      ],
+      [
+        2466,
+        2961,
+        2467
+      ],
+      [
+        2468,
+        2962,
+        2963
+      ],
+      [
+        2468,
+        2963,
+        2469
+      ],
+      [
+        2469,
+        2963,
+        2964
+      ],
+      [
+        2469,
+        2964,
+        2470
+      ],
+      [
+        2957,
+        3663,
+        3664
+      ],
+      [
+        2957,
+        3664,
+        2958
+      ],
+      [
+        2958,
+        3664,
+        3670
+      ],
+      [
+        2958,
+        3670,
+        2959
+      ],
+      [
+        2959,
+        3670,
+        3671
+      ],
+      [
+        2959,
+        3671,
+        2960
+      ],
+      [
+        2961,
+        3672,
+        3673
+      ],
+      [
+        2961,
+        3673,
+        2962
+      ],
+      [
+        2960,
+        3671,
+        3672
+      ],
+      [
+        2960,
+        3672,
+        2961
+      ],
+      [
+        2962,
+        3673,
+        3674
+      ],
+      [
+        2962,
+        3674,
+        2963
+      ],
+      [
+        2963,
+        3674,
+        3681
+      ],
+      [
+        2963,
+        3681,
+        2964
+      ],
+      [
+        2964,
+        3681,
+        3682
+      ],
+      [
+        2964,
+        3682,
+        2965
+      ],
+      [
+        2965,
+        3682,
+        3683
+      ],
+      [
+        3663,
+        4388,
+        4389
+      ],
+      [
+        3663,
+        4389,
+        3664
+      ],
+      [
+        3664,
+        4389,
+        4390
+      ],
+      [
+        3664,
+        4390,
+        3670
+      ],
+      [
+        3670,
+        4390,
+        4391
+      ],
+      [
+        3670,
+        4391,
+        3671
+      ],
+      [
+        3671,
+        4391,
+        4392
+      ],
+      [
+        3671,
+        4392,
+        3672
+      ],
+      [
+        3672,
+        4392,
+        3673
+      ],
+      [
+        4392,
+        4393,
+        3673
+      ],
+      [
+        3673,
+        4393,
+        4394
+      ],
+      [
+        3673,
+        4394,
+        3674
+      ],
+      [
+        3674,
+        4394,
+        4395
+      ],
+      [
+        3674,
+        4395,
+        3681
+      ],
+      [
+        3681,
+        4395,
+        4396
+      ],
+      [
+        3681,
+        4396,
+        3682
+      ],
+      [
+        3682,
+        4396,
+        4397
+      ],
+      [
+        3682,
+        4397,
+        3683
+      ],
+      [
+        4389,
+        4997,
+        5003
+      ],
+      [
+        4389,
+        5003,
+        4390
+      ],
+      [
+        4390,
+        5003,
+        5004
+      ],
+      [
+        4390,
+        5004,
+        4391
+      ],
+      [
+        4388,
+        4997,
+        4389
+      ],
+      [
+        4391,
+        5004,
+        5005
+      ],
+      [
+        4391,
+        5005,
+        4392
+      ],
+      [
+        4393,
+        5006,
+        5012
+      ],
+      [
+        4393,
+        5012,
+        4394
+      ],
+      [
+        4394,
+        5012,
+        5013
+      ],
+      [
+        4394,
+        5013,
+        4395
+      ],
+      [
+        4395,
+        5013,
+        5014
+      ],
+      [
+        4395,
+        5014,
+        4396
+      ],
+      [
+        4396,
+        5014,
+        5015
+      ],
+      [
+        4396,
+        5015,
+        4397
+      ],
+      [
+        4392,
+        5005,
+        5006
+      ],
+      [
+        4392,
+        5006,
+        4393
+      ],
+      [
+        122088,
+        26921,
+        122123
+      ],
+      [
+        26935,
+        26936,
+        26937
+      ],
+      [
+        122163,
+        27763,
+        122319
+      ],
+      [
+        27765,
+        27751,
+        27763
+      ],
+      [
+        27763,
+        26921,
+        27776
+      ],
+      [
+        122161,
+        26921,
+        27763
+      ],
+      [
+        122161,
+        27763,
+        122163
+      ],
+      [
+        27765,
+        27763,
+        27777
+      ],
+      [
+        27777,
+        27763,
+        27776
+      ],
+      [
+        26921,
+        26935,
+        27776
+      ],
+      [
+        26937,
+        27776,
+        26935
+      ],
+      [
+        26937,
+        27787,
+        27776
+      ],
+      [
+        27787,
+        27777,
+        27776
+      ],
+      [
+        27763,
+        27751,
+        122318
+      ],
+      [
+        27763,
+        122318,
+        122319
+      ],
+      [
+        26921,
+        122161,
+        122123
+      ],
+      [
+        26936,
+        122090,
+        122315
+      ],
+      [
+        26935,
+        122089,
+        122090
+      ],
+      [
+        26935,
+        122090,
+        26936
+      ],
+      [
+        26935,
+        26921,
+        122088
+      ],
+      [
+        26935,
+        122088,
+        122089
+      ]
+    ],
+    "newTriangleParentStableIds": [
+      [
+        5006,
+        5012,
+        4388
+      ],
+      [
+        5005,
+        5006,
+        4388
+      ],
+      [
+        4388,
+        5004,
+        5005
+      ],
+      [
+        4397,
+        4388,
+        5012
+      ],
+      [
+        4388,
+        5003,
+        5004
+      ],
+      [
+        4388,
+        4997,
+        5003
+      ],
+      [
+        2957,
+        3663,
+        2965
+      ],
+      [
+        2463,
+        2957,
+        2965
+      ],
+      [
+        5013,
+        4397,
+        5012
+      ],
+      [
+        5014,
+        4397,
+        5013
+      ],
+      [
+        26936,
+        26937,
+        27777
+      ],
+      [
+        2463,
+        122315,
+        122318
+      ],
+      [
+        2965,
+        2471,
+        2463
+      ],
+      [
+        27777,
+        27765,
+        27751
+      ],
+      [
+        2471,
+        122315,
+        2463
+      ],
+      [
+        4397,
+        3663,
+        4388
+      ],
+      [
+        27777,
+        27751,
+        122318
+      ],
+      [
+        122315,
+        26936,
+        27777
+      ],
+      [
+        4397,
+        3683,
+        3663
+      ],
+      [
+        3683,
+        2965,
+        3663
+      ],
+      [
+        5015,
+        4397,
+        5014
+      ],
+      [
+        26937,
+        27787,
+        27777
+      ],
+      [
+        122315,
+        27777,
+        122318
+      ]
+    ],
+    "oldPatchBoundaryEdges": 25,
+    "oldPatchBoundaryVertices": 25,
+    "newTrianglesUseExactlyOldBoundary": true,
+    "newTrianglesUseOnlyRetainedVertices": true
+  },
+  "nativePatchCorrespondence": {
+    "receipt": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02e/native-patch.json",
+    "sha256": "c5937c4ad8e9f8bfbed0b533abbd866f1882fd8049c8edc36972b6cb4fe5fef1",
+    "newNativeTriangles": 27,
+    "nativeBoundaryVertices": 29,
+    "nativeTriangleKeysPresentInExport": 27,
+    "recreatedOriginalTriangleCount": 4,
+    "recreatedOriginalTriangleParentIds": [
+      [
+        2471,
+        122316,
+        122315
+      ],
+      [
+        3683,
+        2966,
+        2965
+      ],
+      [
+        4388,
+        4996,
+        4997
+      ],
+      [
+        122318,
+        2462,
+        2463
+      ]
+    ],
+    "fullRemovedExportTriangles": 109,
+    "fullRemovedPatchBoundaryVertices": 29,
+    "checks": {
+      "nativeCountMatchesAudit": true,
+      "nativeTrianglesUnique": true,
+      "allNativeTrianglesInExportWithOrientation": true,
+      "fourRecreatedTrianglesAccountForDifference": true,
+      "canonicalNewTrianglesExactlyNativeDifference": true,
+      "nativeUsesExactlyDeclaredBoundary": true,
+      "oldFullBoundaryMatchesDeclaredBoundary": true,
+      "newFullBoundaryMatchesOldFullBoundary": true,
+      "nativePatchEulerOne": true
+    }
+  },
+  "localIntersectionBounds": [
+    [
+      -0.8260674571990967,
+      -0.05998994991183281,
+      -0.6233004426956177
+    ],
+    [
+      -0.017509639039635656,
+      0.36995206236839295,
+      -0.23758750200271606
+    ]
+  ],
+  "intersectionMethod": "Open3D local body triangle test using exactly the saved r02a/r02c/r02d wider-root AABB. Triangle pairs are compared by full-parent stable IDs. Numerical/shared-vertex limitations apply; no whole-body or separate-flame intersection claim.",
+  "checks": {
+    "sourceCanonicalMap": true,
+    "oneSceneTwoMeshNodes": true,
+    "expectedBodyCounts": true,
+    "protectedCoordinatesAndOrientedTriangles": true,
+    "boundaryOnlyPatch": true,
+    "bodyTopology": true,
+    "flameExact": true,
+    "noDetectedLocalIntersections": true
+  },
+  "limits": [
+    "Local intersections only; no whole-model freedom claim.",
+    "No independent anatomical or visual acceptance.",
+    "Signed volume describes oriented mesh change, not physical-volume certification."
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "id": "charizard-tail-r02b",
+  "species": "charizard",
+  "title": "Native smooth \u00b7 r02b",
+  "stage": "blender",
+  "status": "completed",
+  "parents": [
+    "charizard-tail-r02a"
+  ],
+  "question": "Can a bounded root surface edit remove the lengthwise ridges without damaging the protected body or folding the collar?",
+  "changedFactors": [
+    {
+      "name": "root operation",
+      "from": "frozen r02a",
+      "to": "Blender Laplacian Smooth"
+    }
+  ],
+  "controls": [
+    "Same protected region: 112475 source coordinates unchanged",
+    "Unchanged flame",
+    "Matched whole-body and shadow-free root cameras",
+    "Official illustration ancestor; no new generation or image input"
+  ],
+  "inputs": [
+    {
+      "role": "shape reference",
+      "path": "assets/references/objects/b6/b6d5b8ee9fb05dc6f53294b2cae660dec770b92762cdb19d16bcbd679e1ba43a.png",
+      "sha256": "b6d5b8ee9fb05dc6f53294b2cae660dec770b92762cdb19d16bcbd679e1ba43a",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png",
+      "sourceKind": "official_artwork"
+    }
+  ],
+  "recipe": {
+    "model": "Manual Blender through Blender MCP",
+    "codePath": "assets/blender/charizard-tail-r02b/smooth_root.py",
+    "runnerSHA256": "2dfa10c0f1ca6326675c61bc48b11f2bd42e4488815b39e48ae44683a0dbc0a0",
+    "parameters": {
+      "parent": "charizard-tail-r02a",
+      "candidate": "charizard-tail-r02b",
+      "method": "Blender Laplacian Smooth",
+      "iterations": 6,
+      "lambda": 0.35,
+      "normalized": true,
+      "volumePreservation": false,
+      "changedVertices": 3747,
+      "protectedVertices": 112475,
+      "protectedCoordinatesExact": true,
+      "faceVertexSequenceExact": true,
+      "maximumDisplacement": 0.002146338112652302,
+      "medianSelectedDisplacement": 0.0,
+      "status": "awaiting visual and exported geometry checks"
+    },
+    "preprocess": "No image edits or new Hunyuan run"
+  },
+  "outputs": {
+    "rawMesh": "assets/blender/charizard-tail-r02b/charizard-tail-r02b.glb",
+    "blend": "assets/blender/charizard-tail-r02b/charizard-tail-r02b.blend",
+    "previews": [
+      {
+        "view": "fair-minusY",
+        "path": "assets/blender/charizard-tail-r02b/charizard-tail-r02b-minusY.png"
+      },
+      {
+        "view": "fair-plusX",
+        "path": "assets/blender/charizard-tail-r02b/charizard-tail-r02b-plusX.png"
+      },
+      {
+        "view": "fair-plusY",
+        "path": "assets/blender/charizard-tail-r02b/charizard-tail-r02b-plusY.png"
+      },
+      {
+        "view": "fair-minusX",
+        "path": "assets/blender/charizard-tail-r02b/charizard-tail-r02b-minusX.png"
+      },
+      {
+        "view": "fair-threequarter",
+        "path": "assets/blender/charizard-tail-r02b/charizard-tail-r02b-threequarter.png"
+      },
+      {
+        "view": "root-side",
+        "path": "assets/blender/charizard-tail-r02b/charizard-tail-r02b-root-side.png"
+      },
+      {
+        "view": "root-rear",
+        "path": "assets/blender/charizard-tail-r02b/charizard-tail-r02b-root-rear.png"
+      }
+    ]
+  },
+  "evaluation": {
+    "verdict": "rejected",
+    "reviewer": "assistant",
+    "notes": "Native smoothing leaves the visible root ridges. Do not choose this as the improved baseline.",
+    "unresolved": [
+      "Tail proportion and deformation topology remain provisional",
+      "Malformed head/horns, hands/feet and wing connections",
+      "No UVs, colors/PBR, rig, clips, attacks or game promotion"
+    ]
+  },
+  "metrics": {
+    "vertices": 126893,
+    "trianglesAfterGLTFExport": 253782,
+    "protectedVerticesUnchanged": 112475,
+    "localIntersectionPairs": null,
+    "intersectionScope": "wider root region from audit-root-surface/r02d-validation.json; r02b not measured",
+    "wholeModelSelfIntersectionTested": false,
+    "meshSHA256": "65e036098f8fc1b5e60a67b3bae6fa8ebeb3483a05cf9a7d92016d618fe22a22"
+  },
+  "evidence": [
+    {
+      "label": "Operation receipt",
+      "path": "assets/blender/charizard-tail-r02b/smoothing-receipt.json"
+    },
+    {
+      "label": "Matched cameras",
+      "path": "assets/blender/charizard-tail-r02b/camera-receipt.json"
+    }
+  ],
+  "comparability": {
+    "cohort": "charizard-manual-tail",
+    "confounds": [
+      "Whole-body Workbench views have cast shadows; root close-ups disable them. Local checks do not prove whole-model quality."
+    ]
+  },
+  "createdAt": "2026-09-05T23:01:30.653777+00:00"
+}

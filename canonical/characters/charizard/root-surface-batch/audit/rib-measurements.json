@@ -1,0 +1,2236 @@
+{
+  "inputs": {
+    "/mnt/zer0models/workspace/zer0/experiments/pokemon/assets/experiments/charizard-official-raw/charizard-official-raw-61062-o256.glb": "f9f0b2c3f2e189dcdd1c72190e8c79b7b958a2dd4f3bacb2d844ec37b330ed8e",
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02b/region.npz": "c11dcd4d86124fdc51d399014d07a887eb6b7d445fbf6ac24f936a5c0cdd820d",
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02b/vertex-audit.npz": "e105c32430f292778ab83637f2f2e98e8bcb69f12772c153c613f18021667434",
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02a/charizard-tail-r02a.glb": "d6e4dd5bf9db81f7bd9220b37eb95d24ebe4bd217908de2ca2773c5d545b975a",
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02b/charizard-tail-r02b.glb": "65e036098f8fc1b5e60a67b3bae6fa8ebeb3483a05cf9a7d92016d618fe22a22"
+  },
+  "exportStableIdAgreement": {
+    "r02a": {
+      "maximumCoordinateDistance": 0.0,
+      "uniqueStableIds": 122377
+    },
+    "r02b": {
+      "maximumCoordinateDistance": 0.0,
+      "uniqueStableIds": 122377
+    }
+  },
+  "quantileOrder": [
+    0,
+    0.5,
+    0.9,
+    0.99,
+    1
+  ],
+  "groups": {
+    "allSelected": {
+      "vertices": 9902,
+      "changed": 3747,
+      "weightQuantiles": [
+        3.741174836591199e-08,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "displacementQuantiles": [
+        0.0,
+        0.0,
+        0.00012116896856563778,
+        0.0004960741086618023,
+        0.002146338085555558
+      ]
+    },
+    "weightAbove099": {
+      "vertices": 5510,
+      "changed": 2148,
+      "weightQuantiles": [
+        0.9901032447814941,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "displacementQuantiles": [
+        0.0,
+        0.0,
+        0.00016867575811812543,
+        0.0005789637375780481,
+        0.002146338085555558
+      ]
+    },
+    "originalRoot": {
+      "vertices": 7413,
+      "changed": 2042,
+      "weightQuantiles": [
+        3.741174836591199e-08,
+        0.9923315048217773,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "displacementQuantiles": [
+        0.0,
+        0.0,
+        0.00011280518030088813,
+        0.0004746856675060652,
+        0.0010535758653344076
+      ]
+    },
+    "seam": {
+      "vertices": 317,
+      "changed": 4,
+      "weightQuantiles": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "displacementQuantiles": [
+        0.0,
+        0.0,
+        0.0,
+        8.337442311445762e-05,
+        0.000322986812644719
+      ]
+    },
+    "generated": {
+      "vertices": 2172,
+      "changed": 1701,
+      "weightQuantiles": [
+        1.0774075462904875e-06,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "displacementQuantiles": [
+        0.0,
+        2.5963647455874533e-05,
+        0.00015474779709754194,
+        0.0005674528720957242,
+        0.002146338085555558
+      ]
+    }
+  },
+  "yBands": [
+    {
+      "yRange": [
+        -0.05,
+        0
+      ],
+      "vertices": 2239,
+      "changed": 604,
+      "weightMedian": 0.16383519768714905,
+      "displacementQuantiles": [
+        0.0,
+        0.0,
+        3.678864042415623e-05,
+        0.00014362444232370866,
+        0.0005220117517940842
+      ]
+    },
+    {
+      "yRange": [
+        0,
+        0.05
+      ],
+      "vertices": 1998,
+      "changed": 583,
+      "weightMedian": 0.9153784513473511,
+      "displacementQuantiles": [
+        0.0,
+        0.0,
+        0.00012473052711371502,
+        0.0003842041417044955,
+        0.0010535758653344076
+      ]
+    },
+    {
+      "yRange": [
+        0.05,
+        0.1
+      ],
+      "vertices": 1940,
+      "changed": 496,
+      "weightMedian": 1.0,
+      "displacementQuantiles": [
+        0.0,
+        0.0,
+        0.00014262958960845274,
+        0.0004015383937518979,
+        0.0008700174066688542
+      ]
+    },
+    {
+      "yRange": [
+        0.1,
+        0.15
+      ],
+      "vertices": 1236,
+      "changed": 359,
+      "weightMedian": 1.0,
+      "displacementQuantiles": [
+        0.0,
+        0.0,
+        0.00022266416828862004,
+        0.0006572607524722864,
+        0.0008988455814902402
+      ]
+    },
+    {
+      "yRange": [
+        0.15,
+        0.2
+      ],
+      "vertices": 634,
+      "changed": 254,
+      "weightMedian": 1.0,
+      "displacementQuantiles": [
+        0.0,
+        0.0,
+        0.0001462942248564,
+        0.000597283404856032,
+        0.0016820369071057614
+      ]
+    },
+    {
+      "yRange": [
+        0.2,
+        0.25
+      ],
+      "vertices": 634,
+      "changed": 508,
+      "weightMedian": 1.0,
+      "displacementQuantiles": [
+        0.0,
+        4.6307144906877305e-05,
+        0.000254632682863312,
+        0.0007715073264517587,
+        0.002146338085555558
+      ]
+    },
+    {
+      "yRange": [
+        0.25,
+        0.3
+      ],
+      "vertices": 615,
+      "changed": 476,
+      "weightMedian": 1.0,
+      "displacementQuantiles": [
+        0.0,
+        3.065776941390392e-05,
+        0.0001391274041667238,
+        0.0003111571111880099,
+        0.0010340750750649685
+      ]
+    },
+    {
+      "yRange": [
+        0.3,
+        0.36
+      ],
+      "vertices": 606,
+      "changed": 467,
+      "weightMedian": 0.31631773710250854,
+      "displacementQuantiles": [
+        0.0,
+        9.442257674129203e-06,
+        5.008200305464237e-05,
+        9.558010789978349e-05,
+        0.00013737065877832808
+      ]
+    }
+  ],
+  "protectedGeometry": {
+    "vertices": 112475,
+    "movedVertices": 0,
+    "faceVertexIndexSequenceEqual": true
+  },
+  "selectedDisplacementDirection": {
+    "signedNormalMean": -2.6742443832389876e-05,
+    "signedNormalQuantiles": [
+      -0.001053235969770328,
+      0.0,
+      0.0,
+      0.0001473658613638313,
+      0.0021437561137896723
+    ],
+    "tangentialMagnitudeQuantiles": [
+      0.0,
+      0.0,
+      1.4421433792221054e-06,
+      4.9244327750296024e-05,
+      0.0007257580807369367
+    ]
+  },
+  "sectionMethod": "Closed low-left Y-plane sections. Circle center fitted after arc-uniform sampling; 512 angular radius samples, Fourier bands omit broad ovality modes. Y-plane elongation is not perpendicular thickness. High-mode amplitudes are geometric roughness descriptors, not anatomical labels.",
+  "sections": [
+    {
+      "y": 0,
+      "r02a": {
+        "perimeter": 1.4930452175551576,
+        "meanRadius": 0.18545385999092107,
+        "radialRange": [
+          0.09264422136302479,
+          0.3241526304900032
+        ],
+        "highModeRms": {
+          "3to8": 0.021223024025513702,
+          "8to16": 0.0034940367986558613,
+          "16to32": 0.0008108065732249923,
+          "32to64": 0.0004999099327409912,
+          "64to128": 8.583023773766064e-05,
+          "8to128": 0.003622565005643013
+        },
+        "strongestModes8to63": [
+          {
+            "mode": 8,
+            "sinusoidAmplitude": 0.003755014403023613,
+            "perimeterDividedByMode": 0.1866306521943947
+          },
+          {
+            "mode": 10,
+            "sinusoidAmplitude": 0.0023890337826126093,
+            "perimeterDividedByMode": 0.14930452175551576
+          },
+          {
+            "mode": 11,
+            "sinusoidAmplitude": 0.0011443230474467985,
+            "perimeterDividedByMode": 0.13573138341410523
+          },
+          {
+            "mode": 12,
+            "sinusoidAmplitude": 0.0010450857828300493,
+            "perimeterDividedByMode": 0.12442043479626314
+          },
+          {
+            "mode": 9,
+            "sinusoidAmplitude": 0.0009044195297596371,
+            "perimeterDividedByMode": 0.1658939130616842
+          }
+        ]
+      },
+      "r02b": {
+        "perimeter": 1.492274897453415,
+        "meanRadius": 0.18541069171287686,
+        "radialRange": [
+          0.09263176395839855,
+          0.324042834829471
+        ],
+        "highModeRms": {
+          "3to8": 0.021217463429241825,
+          "8to16": 0.0034774652682009115,
+          "16to32": 0.000811498982603567,
+          "32to64": 0.00044827814909614475,
+          "64to128": 7.341639569920064e-05,
+          "8to128": 0.0035996720067840607
+        },
+        "strongestModes8to63": [
+          {
+            "mode": 8,
+            "sinusoidAmplitude": 0.0037323436598564095,
+            "perimeterDividedByMode": 0.18653436218167688
+          },
+          {
+            "mode": 10,
+            "sinusoidAmplitude": 0.0023847649860074998,
+            "perimeterDividedByMode": 0.1492274897453415
+          },
+          {
+            "mode": 11,
+            "sinusoidAmplitude": 0.001146782191359104,
+            "perimeterDividedByMode": 0.13566135431394682
+          },
+          {
+            "mode": 12,
+            "sinusoidAmplitude": 0.001040595849415877,
+            "perimeterDividedByMode": 0.12435624145445125
+          },
+          {
+            "mode": 9,
+            "sinusoidAmplitude": 0.0008901230515402288,
+            "perimeterDividedByMode": 0.16580832193926834
+          }
+        ]
+      }
+    },
+    {
+      "y": 0.05,
+      "r02a": {
+        "perimeter": 1.2936145766549925,
+        "meanRadius": 0.1684837181631332,
+        "radialRange": [
+          0.08738070905884852,
+          0.28092609623096176
+        ],
+        "highModeRms": {
+          "3to8": 0.01667218787565728,
+          "8to16": 0.0036928885881868023,
+          "16to32": 0.0007288671549267201,
+          "32to64": 0.00020377079019125665,
+          "64to128": 3.976675739598091e-05,
+          "8to128": 0.0037698511090254274
+        },
+        "strongestModes8to63": [
+          {
+            "mode": 8,
+            "sinusoidAmplitude": 0.003856659643916039,
+            "perimeterDividedByMode": 0.16170182208187406
+          },
+          {
+            "mode": 10,
+            "sinusoidAmplitude": 0.0027337451626387394,
+            "perimeterDividedByMode": 0.12936145766549925
+          },
+          {
+            "mode": 12,
+            "sinusoidAmplitude": 0.0016126210522474352,
+            "perimeterDividedByMode": 0.10780121472124937
+          },
+          {
+            "mode": 9,
+            "sinusoidAmplitude": 0.0012564087408952753,
+            "perimeterDividedByMode": 0.14373495296166583
+          },
+          {
+            "mode": 14,
+            "sinusoidAmplitude": 0.0006840632426535927,
+            "perimeterDividedByMode": 0.09240104118964232
+          }
+        ]
+      },
+      "r02b": {
+        "perimeter": 1.292946725938629,
+        "meanRadius": 0.16843423983282318,
+        "radialRange": [
+          0.08745150612333061,
+          0.2807048817332156
+        ],
+        "highModeRms": {
+          "3to8": 0.016652948531241548,
+          "8to16": 0.0036925962652094783,
+          "16to32": 0.0007101752135846082,
+          "32to64": 0.00018783340321246617,
+          "64to128": 4.4348045460245055e-05,
+          "8to128": 0.0037652176760882565
+        },
+        "strongestModes8to63": [
+          {
+            "mode": 8,
+            "sinusoidAmplitude": 0.0038689378697585155,
+            "perimeterDividedByMode": 0.16161834074232861
+          },
+          {
+            "mode": 10,
+            "sinusoidAmplitude": 0.0027438453133476677,
+            "perimeterDividedByMode": 0.1292946725938629
+          },
+          {
+            "mode": 12,
+            "sinusoidAmplitude": 0.001573014241796891,
+            "perimeterDividedByMode": 0.10774556049488575
+          },
+          {
+            "mode": 9,
+            "sinusoidAmplitude": 0.0012251135775345826,
+            "perimeterDividedByMode": 0.14366074732651432
+          },
+          {
+            "mode": 14,
+            "sinusoidAmplitude": 0.0007019756176752739,
+            "perimeterDividedByMode": 0.09235333756704492
+          }
+        ]
+      }
+    },
+    {
+      "y": 0.1,
+      "r02a": {
+        "perimeter": 1.0435702915928649,
+        "meanRadius": 0.1526218250535728,
+        "radialRange": [
+          0.12020119648734509,
+          0.20936879735855693
+        ],
+        "highModeRms": {
+          "3to8": 0.011752623485409602,
+          "8to16": 0.0033692492517259556,
+          "16to32": 0.0007476880431755528,
+          "32to64": 0.0002372283703787576,
+          "64to128": 5.4152768849777625e-05,
+          "8to128": 0.0034597814601865034
+        },
+        "strongestModes8to63": [
+          {
+            "mode": 8,
+            "sinusoidAmplitude": 0.0037718668304744254,
+            "perimeterDividedByMode": 0.1304462864491081
+          },
+          {
+            "mode": 10,
+            "sinusoidAmplitude": 0.002041949682576798,
+            "perimeterDividedByMode": 0.10435702915928649
+          },
+          {
+            "mode": 9,
+            "sinusoidAmplitude": 0.001588088002597111,
+            "perimeterDividedByMode": 0.11595225462142943
+          },
+          {
+            "mode": 12,
+            "sinusoidAmplitude": 0.0010640022501275546,
+            "perimeterDividedByMode": 0.08696419096607207
+          },
+          {
+            "mode": 19,
+            "sinusoidAmplitude": 0.0005259392141105995,
+            "perimeterDividedByMode": 0.05492475218909815
+          }
+        ]
+      },
+      "r02b": {
+        "perimeter": 1.0421728580629894,
+        "meanRadius": 0.15254199330802198,
+        "radialRange": [
+          0.12032525726877194,
+          0.20868881928183652
+        ],
+        "highModeRms": {
+          "3to8": 0.011691995881289129,
+          "8to16": 0.0033159901427812204,
+          "16to32": 0.0007288044701052533,
+          "32to64": 0.00021839431449037426,
+          "64to128": 5.631122411653792e-05,
+          "8to128": 0.0034026186405812274
+        },
+        "strongestModes8to63": [
+          {
+            "mode": 8,
+            "sinusoidAmplitude": 0.003697068548345564,
+            "perimeterDividedByMode": 0.13027160725787368
+          },
+          {
+            "mode": 10,
+            "sinusoidAmplitude": 0.002038124939725685,
+            "perimeterDividedByMode": 0.10421728580629894
+          },
+          {
+            "mode": 9,
+            "sinusoidAmplitude": 0.0015806956847626559,
+            "perimeterDividedByMode": 0.11579698422922105
+          },
+          {
+            "mode": 12,
+            "sinusoidAmplitude": 0.0010194240348630373,
+            "perimeterDividedByMode": 0.08684773817191578
+          },
+          {
+            "mode": 19,
+            "sinusoidAmplitude": 0.000506665395660674,
+            "perimeterDividedByMode": 0.05485120305594681
+          }
+        ]
+      }
+    },
+    {
+      "y": 0.125,
+      "r02a": {
+        "perimeter": 0.9540825335914125,
+        "meanRadius": 0.1469086331971193,
+        "radialRange": [
+          0.12633528662619345,
+          0.17558554072806673
+        ],
+        "highModeRms": {
+          "3to8": 0.007997174546796567,
+          "8to16": 0.001457457369318015,
+          "16to32": 0.0004027453793421477,
+          "32to64": 7.923891319215386e-05,
+          "64to128": 4.97786896475356e-05,
+          "8to128": 0.0015149727876327477
+        },
+        "strongestModes8to63": [
+          {
+            "mode": 8,
+            "sinusoidAmplitude": 0.001322738898217511,
+            "perimeterDividedByMode": 0.11926031669892656
+          },
+          {
+            "mode": 10,
+            "sinusoidAmplitude": 0.0009740823114851552,
+            "perimeterDividedByMode": 0.09540825335914124
+          },
+          {
+            "mode": 11,
+            "sinusoidAmplitude": 0.0006872016030537192,
+            "perimeterDividedByMode": 0.0867347757810375
+          },
+          {
+            "mode": 15,
+            "sinusoidAmplitude": 0.0006391306269363321,
+            "perimeterDividedByMode": 0.0636055022394275
+          },
+          {
+            "mode": 14,
+            "sinusoidAmplitude": 0.0004953753473437678,
+            "perimeterDividedByMode": 0.0681487523993866
+          }
+        ]
+      },
+      "r02b": {
+        "perimeter": 0.9537952193911455,
+        "meanRadius": 0.14689013512525906,
+        "radialRange": [
+          0.12621633400027713,
+          0.1756163590226742
+        ],
+        "highModeRms": {
+          "3to8": 0.008001187752075638,
+          "8to16": 0.0014420273458676863,
+          "16to32": 0.0003948312797605277,
+          "32to64": 7.715676967195289e-05,
+          "64to128": 4.55280066000787e-05,
+          "8to128": 0.0014977852223195178
+        },
+        "strongestModes8to63": [
+          {
+            "mode": 8,
+            "sinusoidAmplitude": 0.001322704871649729,
+            "perimeterDividedByMode": 0.11922440242389319
+          },
+          {
+            "mode": 10,
+            "sinusoidAmplitude": 0.0009518201189960035,
+            "perimeterDividedByMode": 0.09537952193911456
+          },
+          {
+            "mode": 11,
+            "sinusoidAmplitude": 0.0006715444614151128,
+            "perimeterDividedByMode": 0.08670865630828596
+          },
+          {
+            "mode": 15,
+            "sinusoidAmplitude": 0.0006135126194377928,
+            "perimeterDividedByMode": 0.0635863479594097
+          },
+          {
+            "mode": 14,
+            "sinusoidAmplitude": 0.00048476012227424323,
+            "perimeterDividedByMode": 0.0681282299565104
+          }
+        ]
+      }
+    },
+    {
+      "y": 0.14,
+      "r02a": {
+        "perimeter": 0.9476539839390984,
+        "meanRadius": 0.14680069187048111,
+        "radialRange": [
+          0.12870185448267366,
+          0.17267511907537206
+        ],
+        "highModeRms": {
+          "3to8": 0.007699608967306591,
+          "8to16": 0.0014224776232211907,
+          "16to32": 0.0004031446354019538,
+          "32to64": 6.932252691990506e-05,
+          "64to128": 3.2973093664291625e-05,
+          "8to128": 0.001480493506660106
+        },
+        "strongestModes8to63": [
+          {
+            "mode": 8,
+            "sinusoidAmplitude": 0.0013718090727515531,
+            "perimeterDividedByMode": 0.1184567479923873
+          },
+          {
+            "mode": 11,
+            "sinusoidAmplitude": 0.0007956958961582421,
+            "perimeterDividedByMode": 0.08615036217628168
+          },
+          {
+            "mode": 10,
+            "sinusoidAmplitude": 0.000755541769603116,
+            "perimeterDividedByMode": 0.09476539839390984
+          },
+          {
+            "mode": 14,
+            "sinusoidAmplitude": 0.0006455962044488573,
+            "perimeterDividedByMode": 0.06768957028136417
+          },
+          {
+            "mode": 15,
+            "sinusoidAmplitude": 0.0004703199517240113,
+            "perimeterDividedByMode": 0.06317693226260655
+          }
+        ]
+      },
+      "r02b": {
+        "perimeter": 0.9470497072420793,
+        "meanRadius": 0.146763141906092,
+        "radialRange": [
+          0.1286312994911639,
+          0.17221914820528547
+        ],
+        "highModeRms": {
+          "3to8": 0.0076694922651802415,
+          "8to16": 0.0013789917804441119,
+          "16to32": 0.00038737738727536683,
+          "32to64": 7.588968870463789e-05,
+          "64to128": 3.627144873348127e-05,
+          "8to128": 0.001434836030196351
+        },
+        "strongestModes8to63": [
+          {
+            "mode": 8,
+            "sinusoidAmplitude": 0.0013339131351037426,
+            "perimeterDividedByMode": 0.11838121340525991
+          },
+          {
+            "mode": 11,
+            "sinusoidAmplitude": 0.000760080922629934,
+            "perimeterDividedByMode": 0.08609542793109812
+          },
+          {
+            "mode": 10,
+            "sinusoidAmplitude": 0.0007265863745471431,
+            "perimeterDividedByMode": 0.09470497072420793
+          },
+          {
+            "mode": 14,
+            "sinusoidAmplitude": 0.0006318955023009148,
+            "perimeterDividedByMode": 0.06764640766014852
+          },
+          {
+            "mode": 9,
+            "sinusoidAmplitude": 0.0004415054448961629,
+            "perimeterDividedByMode": 0.10522774524911992
+          }
+        ]
+      }
+    },
+    {
+      "y": 0.15,
+      "r02a": {
+        "perimeter": 0.9488814516322212,
+        "meanRadius": 0.14729075368802308,
+        "radialRange": [
+          0.13006179905417325,
+          0.17210865169072684
+        ],
+        "highModeRms": {
+          "3to8": 0.007478136628936531,
+          "8to16": 0.0014152813193540905,
+          "16to32": 0.0004364176369373018,
+          "32to64": 0.0001037554189066288,
+          "64to128": 3.2430234907079194e-05,
+          "8to128": 0.00148502473845765
+        },
+        "strongestModes8to63": [
+          {
+            "mode": 8,
+            "sinusoidAmplitude": 0.0014783054183337327,
+            "perimeterDividedByMode": 0.11861018145402764
+          },
+          {
+            "mode": 11,
+            "sinusoidAmplitude": 0.0007595551916877759,
+            "perimeterDividedByMode": 0.08626195014838374
+          },
+          {
+            "mode": 10,
+            "sinusoidAmplitude": 0.0006900237787495936,
+            "perimeterDividedByMode": 0.09488814516322211
+          },
+          {
+            "mode": 14,
+            "sinusoidAmplitude": 0.0006233400055179877,
+            "perimeterDividedByMode": 0.06777724654515865
+          },
+          {
+            "mode": 17,
+            "sinusoidAmplitude": 0.00040833339067056153,
+            "perimeterDividedByMode": 0.05581655597836595
+          }
+        ]
+      },
+      "r02b": {
+        "perimeter": 0.948863668890227,
+        "meanRadius": 0.14728923565940621,
+        "radialRange": [
+          0.13006228203917872,
+          0.17211072835298255
+        ],
+        "highModeRms": {
+          "3to8": 0.007476898310013229,
+          "8to16": 0.0014174184089014953,
+          "16to32": 0.0004348881650548,
+          "32to64": 0.0001031526358516886,
+          "64to128": 3.282054651006199e-05,
+          "8to128": 0.0014865800740471223
+        },
+        "strongestModes8to63": [
+          {
+            "mode": 8,
+            "sinusoidAmplitude": 0.0014800147239912203,
+            "perimeterDividedByMode": 0.11860795861127837
+          },
+          {
+            "mode": 11,
+            "sinusoidAmplitude": 0.0007621484435881247,
+            "perimeterDividedByMode": 0.08626033353547519
+          },
+          {
+            "mode": 10,
+            "sinusoidAmplitude": 0.0006921022550724206,
+            "perimeterDividedByMode": 0.0948863668890227
+          },
+          {
+            "mode": 14,
+            "sinusoidAmplitude": 0.0006219860250935172,
+            "perimeterDividedByMode": 0.06777597634930192
+          },
+          {
+            "mode": 17,
+            "sinusoidAmplitude": 0.0004059766859828138,
+            "perimeterDividedByMode": 0.05581550993471923
+          }
+        ]
+      }
+    },
+    {
+      "y": 0.18,
+      "r02a": {
+        "perimeter": 0.9585239492636283,
+        "meanRadius": 0.1487621632146024,
+        "radialRange": [
+          0.13446739052861764,
+          0.1703394004402885
+        ],
+        "highModeRms": {
+          "3to8": 0.0064619516549416795,
+          "8to16": 0.0014191608510090705,
+          "16to32": 0.0005843210254441344,
+          "32to64": 0.00020753456363512308,
+          "64to128": 7.596369134824676e-05,
+          "8to128": 0.001550577201986198
+        },
+        "strongestModes8to63": [
+          {
+            "mode": 8,
+            "sinusoidAmplitude": 0.0016084507959259091,
+            "perimeterDividedByMode": 0.11981549365795353
+          },
+          {
+            "mode": 11,
+            "sinusoidAmplitude": 0.0006749001353500711,
+            "perimeterDividedByMode": 0.08713854084214802
+          },
+          {
+            "mode": 10,
+            "sinusoidAmplitude": 0.0006262337941838464,
+            "perimeterDividedByMode": 0.09585239492636283
+          },
+          {
+            "mode": 14,
+            "sinusoidAmplitude": 0.0005210519212949676,
+            "perimeterDividedByMode": 0.06846599637597345
+          },
+          {
+            "mode": 17,
+            "sinusoidAmplitude": 0.0004082320780163806,
+            "perimeterDividedByMode": 0.0563837617213899
+          }
+        ]
+      },
+      "r02b": {
+        "perimeter": 0.953325518997182,
+        "meanRadius": 0.14869436433661726,
+        "radialRange": [
+          0.13453189217723197,
+          0.1696605750293244
+        ],
+        "highModeRms": {
+          "3to8": 0.006413811912329776,
+          "8to16": 0.0013605095175932907,
+          "16to32": 0.0004930176700472388,
+          "32to64": 0.00015350264236835411,
+          "64to128": 4.185456582920947e-05,
+          "8to128": 0.0014558047383957627
+        },
+        "strongestModes8to63": [
+          {
+            "mode": 8,
+            "sinusoidAmplitude": 0.0015582170262697828,
+            "perimeterDividedByMode": 0.11916568987464775
+          },
+          {
+            "mode": 11,
+            "sinusoidAmplitude": 0.0006166427766522236,
+            "perimeterDividedByMode": 0.08666595627247109
+          },
+          {
+            "mode": 10,
+            "sinusoidAmplitude": 0.0006150639123217948,
+            "perimeterDividedByMode": 0.0953325518997182
+          },
+          {
+            "mode": 14,
+            "sinusoidAmplitude": 0.000472975081866281,
+            "perimeterDividedByMode": 0.06809467992837014
+          },
+          {
+            "mode": 17,
+            "sinusoidAmplitude": 0.00034806039298605177,
+            "perimeterDividedByMode": 0.05607797170571659
+          }
+        ]
+      }
+    },
+    {
+      "y": 0.2,
+      "r02a": {
+        "perimeter": 0.9589042357545003,
+        "meanRadius": 0.14926102737023447,
+        "radialRange": [
+          0.13772346619175596,
+          0.16748004527925578
+        ],
+        "highModeRms": {
+          "3to8": 0.005441884906177209,
+          "8to16": 0.0012950139612145739,
+          "16to32": 0.0005908130694070271,
+          "32to64": 0.00022883983913790518,
+          "64to128": 8.653817581069055e-05,
+          "8to128": 0.0014442914423938539
+        },
+        "strongestModes8to63": [
+          {
+            "mode": 8,
+            "sinusoidAmplitude": 0.001477765188417106,
+            "perimeterDividedByMode": 0.11986302946931254
+          },
+          {
+            "mode": 11,
+            "sinusoidAmplitude": 0.0006038287312239527,
+            "perimeterDividedByMode": 0.0871731123413182
+          },
+          {
+            "mode": 10,
+            "sinusoidAmplitude": 0.0005519188020474736,
+            "perimeterDividedByMode": 0.09589042357545004
+          },
+          {
+            "mode": 14,
+            "sinusoidAmplitude": 0.00044936198911921623,
+            "perimeterDividedByMode": 0.06849315969675003
+          },
+          {
+            "mode": 20,
+            "sinusoidAmplitude": 0.00038811071027038834,
+            "perimeterDividedByMode": 0.04794521178772502
+          }
+        ]
+      },
+      "r02b": {
+        "perimeter": 0.9526968347752504,
+        "meanRadius": 0.14919282282663948,
+        "radialRange": [
+          0.13777503191553336,
+          0.16691608310788011
+        ],
+        "highModeRms": {
+          "3to8": 0.005398228483230272,
+          "8to16": 0.0012396436613944025,
+          "16to32": 0.000493685303525993,
+          "32to64": 0.0001603093691970252,
+          "64to128": 4.4958149430264995e-05,
+          "8to128": 0.0013446791123555887
+        },
+        "strongestModes8to63": [
+          {
+            "mode": 8,
+            "sinusoidAmplitude": 0.0014342118849978729,
+            "perimeterDividedByMode": 0.1190871043469063
+          },
+          {
+            "mode": 11,
+            "sinusoidAmplitude": 0.0005431165455556065,
+            "perimeterDividedByMode": 0.0866088031613864
+          },
+          {
+            "mode": 10,
+            "sinusoidAmplitude": 0.0005430822666512104,
+            "perimeterDividedByMode": 0.09526968347752504
+          },
+          {
+            "mode": 14,
+            "sinusoidAmplitude": 0.0003986829311633736,
+            "perimeterDividedByMode": 0.06804977391251789
+          },
+          {
+            "mode": 17,
+            "sinusoidAmplitude": 0.00032957745279090834,
+            "perimeterDividedByMode": 0.05604099028089708
+          }
+        ]
+      }
+    },
+    {
+      "y": 0.25,
+      "r02a": {
+        "perimeter": 0.9428064753164626,
+        "meanRadius": 0.14905215086828824,
+        "radialRange": [
+          0.14417015922361298,
+          0.15812999235695605
+        ],
+        "highModeRms": {
+          "3to8": 0.00256430269285884,
+          "8to16": 0.0006489418698278565,
+          "16to32": 0.0003129161602429299,
+          "32to64": 0.00012072626445651595,
+          "64to128": 4.111611644960287e-05,
+          "8to128": 0.0007316470731974369
+        },
+        "strongestModes8to63": [
+          {
+            "mode": 8,
+            "sinusoidAmplitude": 0.0007242456570742765,
+            "perimeterDividedByMode": 0.11785080941455782
+          },
+          {
+            "mode": 11,
+            "sinusoidAmplitude": 0.00033546928010112114,
+            "perimeterDividedByMode": 0.08570967957422387
+          },
+          {
+            "mode": 10,
+            "sinusoidAmplitude": 0.00026090213684112397,
+            "perimeterDividedByMode": 0.09428064753164625
+          },
+          {
+            "mode": 14,
+            "sinusoidAmplitude": 0.0002171073063392641,
+            "perimeterDividedByMode": 0.06734331966546162
+          },
+          {
+            "mode": 20,
+            "sinusoidAmplitude": 0.00020306452969109427,
+            "perimeterDividedByMode": 0.047140323765823125
+          }
+        ]
+      },
+      "r02b": {
+        "perimeter": 0.9405426592291112,
+        "meanRadius": 0.1489834936799117,
+        "radialRange": [
+          0.14414346848267512,
+          0.15773809640532926
+        ],
+        "highModeRms": {
+          "3to8": 0.002540853902886448,
+          "8to16": 0.0006197152095371018,
+          "16to32": 0.00026752079583629485,
+          "32to64": 8.359412457031211e-05,
+          "64to128": 2.9915114290242323e-05,
+          "8to128": 0.0006808062932010643
+        },
+        "strongestModes8to63": [
+          {
+            "mode": 8,
+            "sinusoidAmplitude": 0.0007008468825646564,
+            "perimeterDividedByMode": 0.1175678324036389
+          },
+          {
+            "mode": 11,
+            "sinusoidAmplitude": 0.0003030019167951462,
+            "perimeterDividedByMode": 0.08550387811173737
+          },
+          {
+            "mode": 10,
+            "sinusoidAmplitude": 0.00025863544081387483,
+            "perimeterDividedByMode": 0.09405426592291112
+          },
+          {
+            "mode": 14,
+            "sinusoidAmplitude": 0.00019144974150452754,
+            "perimeterDividedByMode": 0.06718161851636509
+          },
+          {
+            "mode": 15,
+            "sinusoidAmplitude": 0.00018079228863458356,
+            "perimeterDividedByMode": 0.06270284394860741
+          }
+        ]
+      }
+    },
+    {
+      "y": 0.3,
+      "r02a": {
+        "perimeter": 0.9308174462565866,
+        "meanRadius": 0.1480964040680607,
+        "radialRange": [
+          0.14711182499234815,
+          0.1504471881061248
+        ],
+        "highModeRms": {
+          "3to8": 0.0004459756506449555,
+          "8to16": 0.00011757626476763176,
+          "16to32": 5.05380831945654e-05,
+          "32to64": 1.3500567949567069e-05,
+          "64to128": 6.4746329713876625e-06,
+          "8to128": 0.0001288505417014772
+        },
+        "strongestModes8to63": [
+          {
+            "mode": 8,
+            "sinusoidAmplitude": 0.00010520775866567157,
+            "perimeterDividedByMode": 0.11635218078207332
+          },
+          {
+            "mode": 9,
+            "sinusoidAmplitude": 7.086131292317989e-05,
+            "perimeterDividedByMode": 0.10342416069517629
+          },
+          {
+            "mode": 11,
+            "sinusoidAmplitude": 6.402070507633308e-05,
+            "perimeterDividedByMode": 0.08461976784150788
+          },
+          {
+            "mode": 10,
+            "sinusoidAmplitude": 5.0517291426753414e-05,
+            "perimeterDividedByMode": 0.09308174462565866
+          },
+          {
+            "mode": 12,
+            "sinusoidAmplitude": 4.1777548052812534e-05,
+            "perimeterDividedByMode": 0.07756812052138222
+          }
+        ]
+      },
+      "r02b": {
+        "perimeter": 0.9304806201838947,
+        "meanRadius": 0.1480457912057916,
+        "radialRange": [
+          0.14698476654596887,
+          0.1503449599615493
+        ],
+        "highModeRms": {
+          "3to8": 0.00044168415228982015,
+          "8to16": 0.00011273701796091113,
+          "16to32": 4.712377732244211e-05,
+          "32to64": 2.068451432497096e-05,
+          "64to128": 1.0444152983584397e-05,
+          "8to128": 0.00012436725884354914
+        },
+        "strongestModes8to63": [
+          {
+            "mode": 8,
+            "sinusoidAmplitude": 0.00010118497324065258,
+            "perimeterDividedByMode": 0.11631007752298683
+          },
+          {
+            "mode": 9,
+            "sinusoidAmplitude": 6.793958804551911e-05,
+            "perimeterDividedByMode": 0.10338673557598829
+          },
+          {
+            "mode": 11,
+            "sinusoidAmplitude": 6.039730228571887e-05,
+            "perimeterDividedByMode": 0.08458914728944497
+          },
+          {
+            "mode": 10,
+            "sinusoidAmplitude": 4.966554635908791e-05,
+            "perimeterDividedByMode": 0.09304806201838947
+          },
+          {
+            "mode": 12,
+            "sinusoidAmplitude": 3.851543846336339e-05,
+            "perimeterDividedByMode": 0.07754005168199123
+          }
+        ]
+      }
+    },
+    {
+      "y": 0.34,
+      "r02a": {
+        "perimeter": 0.9281123136096227,
+        "meanRadius": 0.14769064034951646,
+        "radialRange": [
+          0.1460771763842137,
+          0.1494062833860533
+        ],
+        "highModeRms": {
+          "3to8": 0.00011650740697683416,
+          "8to16": 1.7260972262799307e-05,
+          "16to32": 6.909116299247234e-06,
+          "32to64": 4.619505560328708e-06,
+          "64to128": 4.435751488443189e-06,
+          "8to128": 1.966450544465293e-05
+        },
+        "strongestModes8to63": [
+          {
+            "mode": 9,
+            "sinusoidAmplitude": 1.5427521518647498e-05,
+            "perimeterDividedByMode": 0.10312359040106918
+          },
+          {
+            "mode": 8,
+            "sinusoidAmplitude": 1.2285667265889754e-05,
+            "perimeterDividedByMode": 0.11601403920120283
+          },
+          {
+            "mode": 10,
+            "sinusoidAmplitude": 9.709177772323265e-06,
+            "perimeterDividedByMode": 0.09281123136096227
+          },
+          {
+            "mode": 11,
+            "sinusoidAmplitude": 5.748532683728221e-06,
+            "perimeterDividedByMode": 0.08437384669178388
+          },
+          {
+            "mode": 12,
+            "sinusoidAmplitude": 4.765102845249152e-06,
+            "perimeterDividedByMode": 0.07734269280080189
+          }
+        ]
+      },
+      "r02b": {
+        "perimeter": 0.9280235984494932,
+        "meanRadius": 0.14767588305121654,
+        "radialRange": [
+          0.1460533148660524,
+          0.1493956878454279
+        ],
+        "highModeRms": {
+          "3to8": 0.00011481512709654246,
+          "8to16": 1.7276131528512967e-05,
+          "16to32": 7.542015516719129e-06,
+          "32to64": 7.5727091932091605e-06,
+          "64to128": 5.9365530009342255e-06,
+          "8to128": 2.1164482150592003e-05
+        },
+        "strongestModes8to63": [
+          {
+            "mode": 9,
+            "sinusoidAmplitude": 1.526196506647653e-05,
+            "perimeterDividedByMode": 0.10311373316105481
+          },
+          {
+            "mode": 8,
+            "sinusoidAmplitude": 1.2480275668813432e-05,
+            "perimeterDividedByMode": 0.11600294980618665
+          },
+          {
+            "mode": 10,
+            "sinusoidAmplitude": 1.0164036523869129e-05,
+            "perimeterDividedByMode": 0.09280235984494932
+          },
+          {
+            "mode": 11,
+            "sinusoidAmplitude": 6.124278318089654e-06,
+            "perimeterDividedByMode": 0.08436578167722665
+          },
+          {
+            "mode": 13,
+            "sinusoidAmplitude": 5.011813241013582e-06,
+            "perimeterDividedByMode": 0.07138643064996102
+          }
+        ]
+      }
+    }
+  ],
+  "rings": [
+    {
+      "ring": 0,
+      "yBoundsBefore": [
+        0.15000000596046448,
+        0.15000000596046448
+      ],
+      "changedVertices": 4,
+      "r02a": {
+        "perimeter": 0.9488814516322209,
+        "meanRadius": 0.1472908785159013,
+        "radialRange": [
+          0.13006432370113763,
+          0.17213650801399058
+        ],
+        "highModeRms": {
+          "3to8": 0.007477895249209669,
+          "8to16": 0.0014150148763707883,
+          "16to32": 0.00043616157048777547,
+          "32to64": 0.00010432992269828194,
+          "64to128": 3.158076413069342e-05,
+          "8to128": 0.0014847175129816138
+        },
+        "strongestModes8to63": [
+          {
+            "mode": 8,
+            "sinusoidAmplitude": 0.001478115993561399,
+            "perimeterDividedByMode": 0.11861018145402762
+          },
+          {
+            "mode": 11,
+            "sinusoidAmplitude": 0.0007593257630368695,
+            "perimeterDividedByMode": 0.08626195014838373
+          },
+          {
+            "mode": 10,
+            "sinusoidAmplitude": 0.0006899883301870638,
+            "perimeterDividedByMode": 0.0948881451632221
+          },
+          {
+            "mode": 14,
+            "sinusoidAmplitude": 0.0006228385462827393,
+            "perimeterDividedByMode": 0.06777724654515864
+          },
+          {
+            "mode": 17,
+            "sinusoidAmplitude": 0.00040823745848630295,
+            "perimeterDividedByMode": 0.055816555978365934
+          }
+        ]
+      },
+      "r02b": {
+        "perimeter": 0.9488677426417431,
+        "meanRadius": 0.14728994920263397,
+        "radialRange": [
+          0.13006449980020018,
+          0.17213907353925084
+        ],
+        "highModeRms": {
+          "3to8": 0.007477196299250206,
+          "8to16": 0.0014165509860245616,
+          "16to32": 0.00043483155992001676,
+          "32to64": 0.00010354833447903571,
+          "64to128": 3.194641712662171e-05,
+          "8to128": 0.0014857449352598325
+        },
+        "strongestModes8to63": [
+          {
+            "mode": 8,
+            "sinusoidAmplitude": 0.0014791139468925188,
+            "perimeterDividedByMode": 0.11860846783021789
+          },
+          {
+            "mode": 11,
+            "sinusoidAmplitude": 0.0007614265527940439,
+            "perimeterDividedByMode": 0.0862607038765221
+          },
+          {
+            "mode": 10,
+            "sinusoidAmplitude": 0.0006922995135466251,
+            "perimeterDividedByMode": 0.09488677426417431
+          },
+          {
+            "mode": 14,
+            "sinusoidAmplitude": 0.0006211333672001448,
+            "perimeterDividedByMode": 0.06777626733155308
+          },
+          {
+            "mode": 17,
+            "sinusoidAmplitude": 0.000406040233303554,
+            "perimeterDividedByMode": 0.05581574956716136
+          }
+        ]
+      }
+    },
+    {
+      "ring": 1,
+      "yBoundsBefore": [
+        0.17484469711780548,
+        0.18078996241092682
+      ],
+      "changedVertices": 250,
+      "r02a": {
+        "perimeter": 0.9598697275113112,
+        "meanRadius": 0.14895742444177107,
+        "radialRange": [
+          0.13434903162149733,
+          0.17076261698924344
+        ],
+        "highModeRms": {
+          "3to8": 0.006536269472991773,
+          "8to16": 0.0014263864411768262,
+          "16to32": 0.0005860810709511171,
+          "32to64": 0.00020561908301159465,
+          "64to128": 7.34494721429525e-05,
+          "8to128": 0.0015574798019739795
+        },
+        "strongestModes8to63": [
+          {
+            "mode": 8,
+            "sinusoidAmplitude": 0.0016185966545692093,
+            "perimeterDividedByMode": 0.1199837159389139
+          },
+          {
+            "mode": 11,
+            "sinusoidAmplitude": 0.0006833906371130189,
+            "perimeterDividedByMode": 0.0872608843192101
+          },
+          {
+            "mode": 10,
+            "sinusoidAmplitude": 0.0006282868665878164,
+            "perimeterDividedByMode": 0.09598697275113112
+          },
+          {
+            "mode": 14,
+            "sinusoidAmplitude": 0.0005291025625824675,
+            "perimeterDividedByMode": 0.06856212339366509
+          },
+          {
+            "mode": 17,
+            "sinusoidAmplitude": 0.00041526464706937707,
+            "perimeterDividedByMode": 0.056462925147724184
+          }
+        ]
+      },
+      "r02b": {
+        "perimeter": 0.9549443851694791,
+        "meanRadius": 0.14889088446935156,
+        "radialRange": [
+          0.13440848893633942,
+          0.1701603769062805
+        ],
+        "highModeRms": {
+          "3to8": 0.00648764503382604,
+          "8to16": 0.0013681041994564574,
+          "16to32": 0.0004950167648796852,
+          "32to64": 0.00015559713474708957,
+          "64to128": 4.160554374459278e-05,
+          "8to128": 0.001463793765423986
+        },
+        "strongestModes8to63": [
+          {
+            "mode": 8,
+            "sinusoidAmplitude": 0.0015683096072772594,
+            "perimeterDividedByMode": 0.11936804814618489
+          },
+          {
+            "mode": 11,
+            "sinusoidAmplitude": 0.0006261427527628545,
+            "perimeterDividedByMode": 0.0868131259244981
+          },
+          {
+            "mode": 10,
+            "sinusoidAmplitude": 0.0006177270718968489,
+            "perimeterDividedByMode": 0.09549443851694792
+          },
+          {
+            "mode": 14,
+            "sinusoidAmplitude": 0.00048065044544252515,
+            "perimeterDividedByMode": 0.06821031322639136
+          },
+          {
+            "mode": 17,
+            "sinusoidAmplitude": 0.0003514674871729603,
+            "perimeterDividedByMode": 0.05617319912761642
+          }
+        ]
+      }
+    },
+    {
+      "ring": 2,
+      "yBoundsBefore": [
+        0.20039953291416168,
+        0.2096312791109085
+      ],
+      "changedVertices": 255,
+      "r02a": {
+        "perimeter": 0.9610418489517442,
+        "meanRadius": 0.14977645511566057,
+        "radialRange": [
+          0.13886043244229931,
+          0.16701675727550216
+        ],
+        "highModeRms": {
+          "3to8": 0.005092599051829612,
+          "8to16": 0.001255285563437395,
+          "16to32": 0.0005915002448434484,
+          "32to64": 0.00022817924950815495,
+          "64to128": 8.40519607006859e-05,
+          "8to128": 0.0014088097413873643
+        },
+        "strongestModes8to63": [
+          {
+            "mode": 8,
+            "sinusoidAmplitude": 0.0014382453924737925,
+            "perimeterDividedByMode": 0.12013023111896802
+          },
+          {
+            "mode": 11,
+            "sinusoidAmplitude": 0.000592176237912966,
+            "perimeterDividedByMode": 0.08736744081379492
+          },
+          {
+            "mode": 10,
+            "sinusoidAmplitude": 0.0005236668792793253,
+            "perimeterDividedByMode": 0.09610418489517442
+          },
+          {
+            "mode": 14,
+            "sinusoidAmplitude": 0.0004354424992752678,
+            "perimeterDividedByMode": 0.06864584635369601
+          },
+          {
+            "mode": 20,
+            "sinusoidAmplitude": 0.00039297801114794025,
+            "perimeterDividedByMode": 0.04805209244758721
+          }
+        ]
+      },
+      "r02b": {
+        "perimeter": 0.9548452412772683,
+        "meanRadius": 0.1497082692172541,
+        "radialRange": [
+          0.1388931591998875,
+          0.16638544495116483
+        ],
+        "highModeRms": {
+          "3to8": 0.005052298525493579,
+          "8to16": 0.00120167542065565,
+          "16to32": 0.0004965085779988312,
+          "32to64": 0.00016397755880395343,
+          "64to128": 4.533802618069599e-05,
+          "8to128": 0.0013112927823501585
+        },
+        "strongestModes8to63": [
+          {
+            "mode": 8,
+            "sinusoidAmplitude": 0.0013961716496610932,
+            "perimeterDividedByMode": 0.11935565515965854
+          },
+          {
+            "mode": 11,
+            "sinusoidAmplitude": 0.0005310113509528573,
+            "perimeterDividedByMode": 0.08680411284338803
+          },
+          {
+            "mode": 10,
+            "sinusoidAmplitude": 0.0005163186408920965,
+            "perimeterDividedByMode": 0.09548452412772683
+          },
+          {
+            "mode": 14,
+            "sinusoidAmplitude": 0.00038606470332376927,
+            "perimeterDividedByMode": 0.06820323151980488
+          },
+          {
+            "mode": 17,
+            "sinusoidAmplitude": 0.0003302605447646757,
+            "perimeterDividedByMode": 0.05616736713395696
+          }
+        ]
+      }
+    },
+    {
+      "ring": 3,
+      "yBoundsBefore": [
+        0.22593657672405243,
+        0.23849037289619446
+      ],
+      "changedVertices": 253,
+      "r02a": {
+        "perimeter": 0.9529493235703184,
+        "meanRadius": 0.14981443541881723,
+        "radialRange": [
+          0.14286186602932627,
+          0.16147811436546658
+        ],
+        "highModeRms": {
+          "3to8": 0.003390009698418566,
+          "8to16": 0.0009119497744461139,
+          "16to32": 0.0004611496052750923,
+          "32to64": 0.00018424118774770985,
+          "64to128": 6.50436833593518e-05,
+          "8to128": 0.001040426280697162
+        },
+        "strongestModes8to63": [
+          {
+            "mode": 8,
+            "sinusoidAmplitude": 0.001046966163568272,
+            "perimeterDividedByMode": 0.1191186654462898
+          },
+          {
+            "mode": 11,
+            "sinusoidAmplitude": 0.00043742157772350517,
+            "perimeterDividedByMode": 0.08663175668821076
+          },
+          {
+            "mode": 10,
+            "sinusoidAmplitude": 0.00035858981307834606,
+            "perimeterDividedByMode": 0.09529493235703183
+          },
+          {
+            "mode": 14,
+            "sinusoidAmplitude": 0.0003029852868486285,
+            "perimeterDividedByMode": 0.06806780882645132
+          },
+          {
+            "mode": 20,
+            "sinusoidAmplitude": 0.0002997394443947616,
+            "perimeterDividedByMode": 0.04764746617851592
+          }
+        ]
+      },
+      "r02b": {
+        "perimeter": 0.9484547624619988,
+        "meanRadius": 0.14974656301170997,
+        "radialRange": [
+          0.1428350453057561,
+          0.16106327640906704
+        ],
+        "highModeRms": {
+          "3to8": 0.0033638661927409387,
+          "8to16": 0.0008717687200947014,
+          "16to32": 0.00038814424468722636,
+          "32to64": 0.0001290824227935377,
+          "64to128": 3.519125554342452e-05,
+          "8to128": 0.0009636064302194875
+        },
+        "strongestModes8to63": [
+          {
+            "mode": 8,
+            "sinusoidAmplitude": 0.0010124025720943074,
+            "perimeterDividedByMode": 0.11855684530774985
+          },
+          {
+            "mode": 11,
+            "sinusoidAmplitude": 0.0003918711741424108,
+            "perimeterDividedByMode": 0.08622316022381807
+          },
+          {
+            "mode": 10,
+            "sinusoidAmplitude": 0.00035613652475965035,
+            "perimeterDividedByMode": 0.09484547624619988
+          },
+          {
+            "mode": 14,
+            "sinusoidAmplitude": 0.00026659968467872833,
+            "perimeterDividedByMode": 0.06774676874728562
+          },
+          {
+            "mode": 20,
+            "sinusoidAmplitude": 0.0002522525108076552,
+            "perimeterDividedByMode": 0.04742273812309994
+          }
+        ]
+      }
+    },
+    {
+      "ring": 4,
+      "yBoundsBefore": [
+        0.2507990896701813,
+        0.26926255226135254
+      ],
+      "changedVertices": 248,
+      "r02a": {
+        "perimeter": 0.9414263027979477,
+        "meanRadius": 0.1492076607009588,
+        "radialRange": [
+          0.14578293580867033,
+          0.15533381667065094
+        ],
+        "highModeRms": {
+          "3to8": 0.0017429558959943716,
+          "8to16": 0.0004999470191837817,
+          "16to32": 0.000262816612343455,
+          "32to64": 0.00010744042069064827,
+          "64to128": 3.6211223961634865e-05,
+          "8to128": 0.0005760853152558409
+        },
+        "strongestModes8to63": [
+          {
+            "mode": 8,
+            "sinusoidAmplitude": 0.000573147346669659,
+            "perimeterDividedByMode": 0.11767828784974346
+          },
+          {
+            "mode": 11,
+            "sinusoidAmplitude": 0.0002450972455654975,
+            "perimeterDividedByMode": 0.08558420934526798
+          },
+          {
+            "mode": 10,
+            "sinusoidAmplitude": 0.00018541460151163205,
+            "perimeterDividedByMode": 0.09414263027979478
+          },
+          {
+            "mode": 20,
+            "sinusoidAmplitude": 0.0001692092763085587,
+            "perimeterDividedByMode": 0.04707131513989739
+          },
+          {
+            "mode": 14,
+            "sinusoidAmplitude": 0.00016072220849952577,
+            "perimeterDividedByMode": 0.06724473591413913
+          }
+        ]
+      },
+      "r02b": {
+        "perimeter": 0.9397007692198982,
+        "meanRadius": 0.14914199645764253,
+        "radialRange": [
+          0.1456922801494952,
+          0.15508429706844237
+        ],
+        "highModeRms": {
+          "3to8": 0.001732367533183984,
+          "8to16": 0.00047868368246558083,
+          "16to32": 0.0002254379636069415,
+          "32to64": 7.413681036872306e-05,
+          "64to128": 2.5473951862339086e-05,
+          "8to128": 0.0005348883361685749
+        },
+        "strongestModes8to63": [
+          {
+            "mode": 8,
+            "sinusoidAmplitude": 0.0005560168877896277,
+            "perimeterDividedByMode": 0.11746259615248728
+          },
+          {
+            "mode": 11,
+            "sinusoidAmplitude": 0.00022005265174645814,
+            "perimeterDividedByMode": 0.08542734265635438
+          },
+          {
+            "mode": 10,
+            "sinusoidAmplitude": 0.00018529702213888544,
+            "perimeterDividedByMode": 0.09397007692198982
+          },
+          {
+            "mode": 20,
+            "sinusoidAmplitude": 0.00014233354752254376,
+            "perimeterDividedByMode": 0.04698503846099491
+          },
+          {
+            "mode": 14,
+            "sinusoidAmplitude": 0.0001403204593728705,
+            "perimeterDividedByMode": 0.06712148351570701
+          }
+        ]
+      }
+    },
+    {
+      "ring": 5,
+      "yBoundsBefore": [
+        0.27422335743904114,
+        0.3039497137069702
+      ],
+      "changedVertices": 245,
+      "r02a": {
+        "perimeter": 0.9312727629337268,
+        "meanRadius": 0.14814989668260178,
+        "radialRange": [
+          0.14721477114371911,
+          0.14988968772746178
+        ],
+        "highModeRms": {
+          "3to8": 0.0004955866632245704,
+          "8to16": 0.00014846860887009637,
+          "16to32": 8.099565651843763e-05,
+          "32to64": 3.3536784190607346e-05,
+          "64to128": 1.2499891606370659e-05,
+          "8to128": 0.0001728704352360252
+        },
+        "strongestModes8to63": [
+          {
+            "mode": 8,
+            "sinusoidAmplitude": 0.00016960291469138482,
+            "perimeterDividedByMode": 0.11640909536671586
+          },
+          {
+            "mode": 11,
+            "sinusoidAmplitude": 7.387687278342695e-05,
+            "perimeterDividedByMode": 0.08466116026670244
+          },
+          {
+            "mode": 10,
+            "sinusoidAmplitude": 5.247745039443966e-05,
+            "perimeterDividedByMode": 0.09312727629337268
+          },
+          {
+            "mode": 20,
+            "sinusoidAmplitude": 5.032807727337276e-05,
+            "perimeterDividedByMode": 0.04656363814668634
+          },
+          {
+            "mode": 17,
+            "sinusoidAmplitude": 4.6379294397962515e-05,
+            "perimeterDividedByMode": 0.05478075076080746
+          }
+        ]
+      },
+      "r02b": {
+        "perimeter": 0.9308223984297614,
+        "meanRadius": 0.1480957364540561,
+        "radialRange": [
+          0.14709498984942587,
+          0.14980649232907622
+        ],
+        "highModeRms": {
+          "3to8": 0.0004972771784470546,
+          "8to16": 0.00014299033858196437,
+          "16to32": 7.037862415923685e-05,
+          "32to64": 2.9571944662208865e-05,
+          "64to128": 1.2164626877413596e-05,
+          "8to128": 0.0001625480412816573
+        },
+        "strongestModes8to63": [
+          {
+            "mode": 8,
+            "sinusoidAmplitude": 0.00016409577907257604,
+            "perimeterDividedByMode": 0.11635279980372018
+          },
+          {
+            "mode": 11,
+            "sinusoidAmplitude": 6.795545771064232e-05,
+            "perimeterDividedByMode": 0.08462021803906922
+          },
+          {
+            "mode": 10,
+            "sinusoidAmplitude": 5.436501838945972e-05,
+            "perimeterDividedByMode": 0.09308223984297614
+          },
+          {
+            "mode": 20,
+            "sinusoidAmplitude": 4.428648226438051e-05,
+            "perimeterDividedByMode": 0.04654111992148807
+          },
+          {
+            "mode": 15,
+            "sinusoidAmplitude": 4.326311234938261e-05,
+            "perimeterDividedByMode": 0.0620548265619841
+          }
+        ]
+      }
+    },
+    {
+      "ring": 6,
+      "yBoundsBefore": [
+        0.29534003138542175,
+        0.34466102719306946
+      ],
+      "changedVertices": 249,
+      "r02a": {
+        "perimeter": 0.923598661053768,
+        "meanRadius": 0.14699057380306646,
+        "radialRange": [
+          0.14691089714400976,
+          0.14700057588269275
+        ],
+        "highModeRms": {
+          "3to8": 2.6817580698960827e-06,
+          "8to16": 2.66105767423772e-06,
+          "16to32": 3.1412255114592558e-06,
+          "32to64": 4.221767264005196e-06,
+          "64to128": 4.161838917063679e-06,
+          "8to128": 7.217530579254488e-06
+        },
+        "strongestModes8to63": [
+          {
+            "mode": 10,
+            "sinusoidAmplitude": 1.7585114026732322e-06,
+            "perimeterDividedByMode": 0.0923598661053768
+          },
+          {
+            "mode": 9,
+            "sinusoidAmplitude": 1.7186573632013914e-06,
+            "perimeterDividedByMode": 0.10262207345041867
+          },
+          {
+            "mode": 36,
+            "sinusoidAmplitude": 1.6635180818230726e-06,
+            "perimeterDividedByMode": 0.025655518362604667
+          },
+          {
+            "mode": 47,
+            "sinusoidAmplitude": 1.6299467535466905e-06,
+            "perimeterDividedByMode": 0.01965103534156953
+          },
+          {
+            "mode": 27,
+            "sinusoidAmplitude": 1.5636217196480404e-06,
+            "perimeterDividedByMode": 0.03420735781680622
+          }
+        ]
+      },
+      "r02b": {
+        "perimeter": 0.9234517902288445,
+        "meanRadius": 0.1469659867850595,
+        "radialRange": [
+          0.1468882577728405,
+          0.14699737562149878
+        ],
+        "highModeRms": {
+          "3to8": 6.3121413637435004e-06,
+          "8to16": 4.210747210817381e-06,
+          "16to32": 7.786674188192408e-06,
+          "32to64": 9.681546504235288e-06,
+          "64to128": 6.2266744839141644e-06,
+          "8to128": 1.4521243226003981e-05
+        },
+        "strongestModes8to63": [
+          {
+            "mode": 27,
+            "sinusoidAmplitude": 6.44460530567174e-06,
+            "perimeterDividedByMode": 0.03420191815662387
+          },
+          {
+            "mode": 36,
+            "sinusoidAmplitude": 4.6400153163808935e-06,
+            "perimeterDividedByMode": 0.025651438617467902
+          },
+          {
+            "mode": 25,
+            "sinusoidAmplitude": 4.585200593504863e-06,
+            "perimeterDividedByMode": 0.03693807160915378
+          },
+          {
+            "mode": 51,
+            "sinusoidAmplitude": 4.026042387916251e-06,
+            "perimeterDividedByMode": 0.0181068978476244
+          },
+          {
+            "mode": 34,
+            "sinusoidAmplitude": 3.8047021389615595e-06,
+            "perimeterDividedByMode": 0.027160346771436604
+          }
+        ]
+      }
+    },
+    {
+      "ring": 7,
+      "yBoundsBefore": [
+        0.3182646334171295,
+        0.38585513830184937
+      ],
+      "changedVertices": 137,
+      "r02a": {
+        "perimeter": 0.9149595905748255,
+        "meanRadius": 0.14561566726469474,
+        "radialRange": [
+          0.14553674253547536,
+          0.1456255460633217
+        ],
+        "highModeRms": {
+          "3to8": 2.658886803183561e-06,
+          "8to16": 2.6320512682760578e-06,
+          "16to32": 3.1112400272286684e-06,
+          "32to64": 4.184475113911047e-06,
+          "64to128": 4.122147845977176e-06,
+          "8to128": 7.149086880777054e-06
+        },
+        "strongestModes8to63": [
+          {
+            "mode": 10,
+            "sinusoidAmplitude": 1.7369278410087934e-06,
+            "perimeterDividedByMode": 0.09149595905748255
+          },
+          {
+            "mode": 9,
+            "sinusoidAmplitude": 1.6989131708208483e-06,
+            "perimeterDividedByMode": 0.10166217673053617
+          },
+          {
+            "mode": 36,
+            "sinusoidAmplitude": 1.6502057758854122e-06,
+            "perimeterDividedByMode": 0.02541554418263404
+          },
+          {
+            "mode": 47,
+            "sinusoidAmplitude": 1.615757943203916e-06,
+            "perimeterDividedByMode": 0.019467225331379266
+          },
+          {
+            "mode": 27,
+            "sinusoidAmplitude": 1.548924337057641e-06,
+            "perimeterDividedByMode": 0.03388739224351205
+          }
+        ]
+      },
+      "r02b": {
+        "perimeter": 0.9149080874976302,
+        "meanRadius": 0.14560698228091662,
+        "radialRange": [
+          0.14553112068113422,
+          0.14563102093828478
+        ],
+        "highModeRms": {
+          "3to8": 3.1261508315520294e-06,
+          "8to16": 2.9163815985225e-06,
+          "16to32": 3.8753999226035895e-06,
+          "32to64": 6.906383124174839e-06,
+          "64to128": 5.004287641287978e-06,
+          "8to128": 9.811474346037458e-06
+        },
+        "strongestModes8to63": [
+          {
+            "mode": 47,
+            "sinusoidAmplitude": 2.6305989634194185e-06,
+            "perimeterDividedByMode": 0.019466129521226175
+          },
+          {
+            "mode": 36,
+            "sinusoidAmplitude": 2.623791132032517e-06,
+            "perimeterDividedByMode": 0.02541411354160084
+          },
+          {
+            "mode": 27,
+            "sinusoidAmplitude": 2.6196889956730567e-06,
+            "perimeterDividedByMode": 0.03388548472213445
+          },
+          {
+            "mode": 37,
+            "sinusoidAmplitude": 2.612372842059589e-06,
+            "perimeterDividedByMode": 0.024727245608044058
+          },
+          {
+            "mode": 57,
+            "sinusoidAmplitude": 2.560206566165585e-06,
+            "perimeterDividedByMode": 0.01605101907890579
+          }
+        ]
+      }
+    },
+    {
+      "ring": 8,
+      "yBoundsBefore": [
+        0.34553074836730957,
+        0.42632123827934265
+      ],
+      "changedVertices": 64,
+      "r02a": {
+        "perimeter": 0.904051672105964,
+        "meanRadius": 0.14387967369197469,
+        "radialRange": [
+          0.14380165643455484,
+          0.14388943032939402
+        ],
+        "highModeRms": {
+          "3to8": 2.6282308061292443e-06,
+          "8to16": 2.6035112531277434e-06,
+          "16to32": 3.076480527876618e-06,
+          "32to64": 4.136955842908357e-06,
+          "64to128": 4.072966201341007e-06,
+          "8to128": 7.067280991088906e-06
+        },
+        "strongestModes8to63": [
+          {
+            "mode": 10,
+            "sinusoidAmplitude": 1.722163550406521e-06,
+            "perimeterDividedByMode": 0.09040516721059641
+          },
+          {
+            "mode": 9,
+            "sinusoidAmplitude": 1.6831936383889586e-06,
+            "perimeterDividedByMode": 0.10045018578955156
+          },
+          {
+            "mode": 36,
+            "sinusoidAmplitude": 1.6343749089449953e-06,
+            "perimeterDividedByMode": 0.02511254644738789
+          },
+          {
+            "mode": 47,
+            "sinusoidAmplitude": 1.5991799313054733e-06,
+            "perimeterDividedByMode": 0.019235141959701364
+          },
+          {
+            "mode": 27,
+            "sinusoidAmplitude": 1.5286714495563513e-06,
+            "perimeterDividedByMode": 0.033483395263183856
+          }
+        ]
+      },
+      "r02b": {
+        "perimeter": 0.9040477003336814,
+        "meanRadius": 0.14387903081563858,
+        "radialRange": [
+          0.14380112575759832,
+          0.14388945549404106
+        ],
+        "highModeRms": {
+          "3to8": 2.9781659721131246e-06,
+          "8to16": 2.61251027275422e-06,
+          "16to32": 3.0867720546915214e-06,
+          "32to64": 4.222148550678588e-06,
+          "64to128": 4.143142907688391e-06,
+          "8to128": 7.165580449649336e-06
+        },
+        "strongestModes8to63": [
+          {
+            "mode": 10,
+            "sinusoidAmplitude": 1.7742881566330222e-06,
+            "perimeterDividedByMode": 0.09040477003336814
+          },
+          {
+            "mode": 47,
+            "sinusoidAmplitude": 1.7561992681574138e-06,
+            "perimeterDividedByMode": 0.019235057453908116
+          },
+          {
+            "mode": 9,
+            "sinusoidAmplitude": 1.680207643793862e-06,
+            "perimeterDividedByMode": 0.10044974448152016
+          },
+          {
+            "mode": 36,
+            "sinusoidAmplitude": 1.6582299234846632e-06,
+            "perimeterDividedByMode": 0.02511243612038004
+          },
+          {
+            "mode": 27,
+            "sinusoidAmplitude": 1.5655497549029563e-06,
+            "perimeterDividedByMode": 0.03348324816050672
+          }
+        ]
+      }
+    }
+  ],
+  "normalFitMethod": "Diagnostic quadratic height fit in each sample tangent plane. Area-weighted Gaussian samples inside the stated physical radius; normal compatibility >.5. Same stable sample IDs before/after. Reports aggregate central normal residuals only; no edited positions or coordinate proposal is written. Euclidean neighborhoods are not geodesic and require branch protection in any authoring use.",
+  "normalFitSampleCount": 664,
+  "normalFitResiduals": {
+    "r02a": {
+      "0.008": {
+        "fitCount": 0,
+        "neighborCountQuantiles": [],
+        "absoluteCentralNormalResidualQuantiles": [],
+        "signedCentralNormalResidualMean": null,
+        "centralNormalResidualRms": null
+      },
+      "0.015": {
+        "fitCount": 615,
+        "neighborCountQuantiles": [
+          12.0,
+          16.0,
+          19.0,
+          23.0,
+          25.0
+        ],
+        "absoluteCentralNormalResidualQuantiles": [
+          1.60564097458759e-08,
+          8.200688868217493e-06,
+          2.811860547526166e-05,
+          7.682775827388486e-05,
+          0.00015934491001466517
+        ],
+        "signedCentralNormalResidualMean": 1.2748360388638484e-06,
+        "centralNormalResidualRms": 2.1380075496821663e-05
+      },
+      "0.025": {
+        "fitCount": 664,
+        "neighborCountQuantiles": [
+          34.0,
+          47.0,
+          53.0,
+          59.0,
+          63.0
+        ],
+        "absoluteCentralNormalResidualQuantiles": [
+          2.6408631517511233e-09,
+          3.394848662907614e-05,
+          0.00010227962357122047,
+          0.00029569696499447156,
+          0.0004601035373950812
+        ],
+        "signedCentralNormalResidualMean": 3.929374874846339e-06,
+        "centralNormalResidualRms": 7.420191895005828e-05
+      },
+      "0.04": {
+        "fitCount": 664,
+        "neighborCountQuantiles": [
+          87.0,
+          119.0,
+          133.0,
+          138.0,
+          145.0
+        ],
+        "absoluteCentralNormalResidualQuantiles": [
+          8.296596698896954e-08,
+          8.777897514422955e-05,
+          0.00028920433564684635,
+          0.000670702654877402,
+          0.0010633322517076794
+        ],
+        "signedCentralNormalResidualMean": 1.717617054668974e-05,
+        "centralNormalResidualRms": 0.00019136775026679188
+      }
+    },
+    "r02b": {
+      "0.008": {
+        "fitCount": 0,
+        "neighborCountQuantiles": [],
+        "absoluteCentralNormalResidualQuantiles": [],
+        "signedCentralNormalResidualMean": null,
+        "centralNormalResidualRms": null
+      },
+      "0.015": {
+        "fitCount": 615,
+        "neighborCountQuantiles": [
+          12.0,
+          16.0,
+          19.0,
+          23.0,
+          25.0
+        ],
+        "absoluteCentralNormalResidualQuantiles": [
+          4.258328494774145e-09,
+          1.256753172270311e-05,
+          4.0648712381012505e-05,
+          0.00010567204801019983,
+          0.00017371088355676027
+        ],
+        "signedCentralNormalResidualMean": 9.79379160120367e-07,
+        "centralNormalResidualRms": 2.8979118328827617e-05
+      },
+      "0.025": {
+        "fitCount": 664,
+        "neighborCountQuantiles": [
+          34.0,
+          47.0,
+          53.0,
+          59.0,
+          63.0
+        ],
+        "absoluteCentralNormalResidualQuantiles": [
+          2.3486064616666346e-08,
+          3.9110452844411224e-05,
+          0.00012394434174268902,
+          0.00028901269101184736,
+          0.0005883065421239832
+        ],
+        "signedCentralNormalResidualMean": 1.3100315058262432e-06,
+        "centralNormalResidualRms": 8.199611820927336e-05
+      },
+      "0.04": {
+        "fitCount": 664,
+        "neighborCountQuantiles": [
+          88.0,
+          119.0,
+          133.0,
+          138.0,
+          145.0
+        ],
+        "absoluteCentralNormalResidualQuantiles": [
+          1.5020959240499665e-07,
+          9.260039737674777e-05,
+          0.00029305360475477364,
+          0.0006081307490870792,
+          0.0012132365089628082
+        ],
+        "signedCentralNormalResidualMean": 1.4699552918495124e-05,
+        "centralNormalResidualRms": 0.00018531784705043614
+      }
+    }
+  }
+}

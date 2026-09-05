@@ -1,0 +1,149 @@
+{
+  "id": "charizard-tail-r02d",
+  "species": "charizard",
+  "title": "Local surface fit with PCA normals \u00b7 r02d",
+  "stage": "blender",
+  "status": "completed",
+  "parents": [
+    "charizard-tail-r02a"
+  ],
+  "question": "Can a bounded root surface edit remove the lengthwise ridges without damaging the protected body or folding the collar?",
+  "changedFactors": [
+    {
+      "name": "root operation",
+      "from": "frozen r02a",
+      "to": "Area-weighted quadratic moving least squares; normal-only displacement"
+    }
+  ],
+  "controls": [
+    "Same protected region: 112475 source coordinates unchanged",
+    "Unchanged flame",
+    "Matched whole-body and shadow-free root cameras",
+    "Official illustration ancestor; no new generation or image input"
+  ],
+  "inputs": [
+    {
+      "role": "shape reference",
+      "path": "assets/references/objects/b6/b6d5b8ee9fb05dc6f53294b2cae660dec770b92762cdb19d16bcbd679e1ba43a.png",
+      "sha256": "b6d5b8ee9fb05dc6f53294b2cae660dec770b92762cdb19d16bcbd679e1ba43a",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png",
+      "sourceKind": "official_artwork"
+    }
+  ],
+  "recipe": {
+    "model": "Manual Blender through Blender MCP",
+    "codePath": "assets/blender/charizard-tail-r02d/mls_root.py",
+    "runnerSHA256": "ceaaadd894105f3ed82b36ec28a849842f8c91de94f0484f7a8bbc169023a59f",
+    "parameters": {
+      "parent": "charizard-tail-r02a",
+      "candidate": "charizard-tail-r02d",
+      "method": "Area-weighted quadratic moving least squares; normal-only displacement",
+      "normalMode": "pca",
+      "radius": 0.05,
+      "sigma": 0.03,
+      "passes": [
+        {
+          "pass": 1,
+          "skippedFits": 0,
+          "clippedFits": 0,
+          "maximumStep": 0.004444916419179333
+        },
+        {
+          "pass": 2,
+          "skippedFits": 0,
+          "clippedFits": 0,
+          "maximumStep": 0.0007497017728712022
+        },
+        {
+          "pass": 3,
+          "skippedFits": 0,
+          "clippedFits": 0,
+          "maximumStep": 0.0004989165166240475
+        }
+      ],
+      "changedVertices": 9883,
+      "protectedVertices": 112475,
+      "protectedCoordinatesExact": true,
+      "faceVertexSequenceExact": true,
+      "maximumDisplacement": 0.004522521514445543,
+      "medianSelectedDisplacement": 0.00018340456881560385,
+      "regionSource": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02b/region.npz",
+      "status": "awaiting visual and exported geometry checks"
+    },
+    "preprocess": "No image edits or new Hunyuan run"
+  },
+  "outputs": {
+    "rawMesh": "assets/blender/charizard-tail-r02d/charizard-tail-r02d.glb",
+    "blend": "assets/blender/charizard-tail-r02d/charizard-tail-r02d.blend",
+    "previews": [
+      {
+        "view": "fair-minusY",
+        "path": "assets/blender/charizard-tail-r02d/charizard-tail-r02d-minusY.png"
+      },
+      {
+        "view": "fair-plusX",
+        "path": "assets/blender/charizard-tail-r02d/charizard-tail-r02d-plusX.png"
+      },
+      {
+        "view": "fair-plusY",
+        "path": "assets/blender/charizard-tail-r02d/charizard-tail-r02d-plusY.png"
+      },
+      {
+        "view": "fair-minusX",
+        "path": "assets/blender/charizard-tail-r02d/charizard-tail-r02d-minusX.png"
+      },
+      {
+        "view": "fair-threequarter",
+        "path": "assets/blender/charizard-tail-r02d/charizard-tail-r02d-threequarter.png"
+      },
+      {
+        "view": "root-side",
+        "path": "assets/blender/charizard-tail-r02d/charizard-tail-r02d-root-side.png"
+      },
+      {
+        "view": "root-rear",
+        "path": "assets/blender/charizard-tail-r02d/charizard-tail-r02d-root-rear.png"
+      },
+      {
+        "view": "root-inner",
+        "path": "assets/blender/charizard-tail-r02d/charizard-tail-r02d-root-inner.png"
+      }
+    ]
+  },
+  "evaluation": {
+    "verdict": "rejected",
+    "reviewer": "assistant",
+    "notes": "Surface improvement retained as the parent for r02e. Zero reversed triangles, but 12 local crossing pairs require a small collar repair.",
+    "unresolved": [
+      "Tail proportion and deformation topology remain provisional",
+      "Malformed head/horns, hands/feet and wing connections",
+      "No UVs, colors/PBR, rig, clips, attacks or game promotion"
+    ]
+  },
+  "metrics": {
+    "vertices": 126893,
+    "trianglesAfterGLTFExport": 253782,
+    "protectedVerticesUnchanged": 112475,
+    "localIntersectionPairs": 12,
+    "intersectionScope": "wider root region from audit-root-surface/r02d-validation.json; r02b not measured",
+    "wholeModelSelfIntersectionTested": false,
+    "meshSHA256": "c6535b34456e0d209483a88f86babe3c4a79433b39b7f63354a646c0a9859c5c"
+  },
+  "evidence": [
+    {
+      "label": "Operation receipt",
+      "path": "assets/blender/charizard-tail-r02d/smoothing-receipt.json"
+    },
+    {
+      "label": "Matched cameras",
+      "path": "assets/blender/charizard-tail-r02d/camera-receipt.json"
+    }
+  ],
+  "comparability": {
+    "cohort": "charizard-manual-tail",
+    "confounds": [
+      "Whole-body Workbench views have cast shadows; root close-ups disable them. Local checks do not prove whole-model quality."
+    ]
+  },
+  "createdAt": "2026-09-05T23:08:02.698906+00:00"
+}

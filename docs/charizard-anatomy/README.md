@@ -1,4 +1,37 @@
-# Charizard tail repair r02a
+# Charizard manual anatomy checkpoints
+
+Current working parent is **charizard-tail-r02e**. It keeps the smoother tail-root surface from r02d and repairs a narrow intersecting collar strip. The root ridges are reduced in matched clay views. Charizard still needs head, limb and wing corrections, deformation topology, UVs/PBR, rig, clips and playable integration. This is not AAA/S+ acceptance.
+
+## Current root surface batch
+
+Source and export are under `/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02e`. The four candidates, failed attempts, correspondence arrays, render cameras and replay hashes are pinned in `canonical/characters/charizard/root-surface-batch/manifest.json`. Candidate operation receipts retain their original pre-validation status; the later audit reports and experiment verdicts record the results.
+
+| Attempt | Change | Decision |
+| --- | --- | --- |
+| r02b | Native weighted smoothing | Reject: ribs remain |
+| r02c | Quadratic surface fit using mesh normals | Reject: 48 reversed triangles, 50 local crossings |
+| r02d | Quadratic fit using neighborhood PCA normals | Preserve as intermediate only: smoother, but 12 crossings |
+| r02e | Replace the measured narrow collar strip | Keep as local checkpoint: zero detected crossings in the same root region |
+
+r02e removes 41 vertices, then triangulates the unchanged 29-vertex boundary into 27 faces. Four recreate old triangles exactly; native-patch.json distinguishes authored faces from a set difference. All retained coordinates match r02d. All 112,475 protected r02a vertices and their 224,371 oriented triangles remain exact. The flame is unchanged. The reopened export contains 253,700 triangles, no UVs, materials, rig or animation tracks.
+
+Fresh `reproduction-root-final` matches the candidate's decoded geometry, transforms, all topology arrays, native patch receipt and all eight render images exactly. Independent CPU validation passes for both copies and for the tracked validator. The crossing check covers only the recorded wider root bounds. It does not prove whole-model or flame/body intersection freedom. Actual Blender viewport, five whole-body renders, two root close-ups, the inner-collar comparison and phone screenshots were inspected.
+
+From this worktree, replay into a **new** private output directory:
+
+```sh
+/usr/bin/blender --background --factory-startup --python tools/charizard-anatomy/reproduce_root.py -- --out /mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/my-root-verification --through r02e
+/mnt/zer0models/venvs/workspace-venv/hunyuan3d/venv/bin/python tools/charizard-anatomy/compare_root_reproduction.py --candidate r02e --reproduction /mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/my-root-verification
+/mnt/zer0models/venvs/workspace-venv/hunyuan3d/venv/bin/python tools/charizard-anatomy/root_audit/validate_strip_cleanup.py --candidate-dir /mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/my-root-verification/r02e --output-prefix /mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/my-root-verification/validation
+```
+
+The source recipe verifies the parent manifest and every pinned input hash before loading the frozen r02a .blend. It recreates the same region and surface fit, repairs the strip, exports and renders. `--through r02d` retains the intermediate-only replay. `root_audit` is CPU-only and reads the private candidate root; it never authors geometry. Rejected b/c recipes remain alongside their receipts for diagnosis.
+
+The [phone preview](https://0.taila30dc.ts.net:8445/devtools/pokedex.html?pokemon=charizard&tab=iterations&run=charizard-tail-r02e&view=root-side) and [matched comparison](https://0.taila30dc.ts.net:8445/devtools/experiments.html?pokemon=charizard&a=charizard-tail-r02a&b=charizard-tail-r02e&view=root-side) use the existing experiment desk. All attempts remain selectable. The 18-check browser receipt covers images, switching and preview visibility at 412×892; no human verdict is written.
+
+The functional Field OS on8469 remains release f85e3ae295feec02. This batch changes no game application code or deployment. Kevin's real S25 acceptance is pending. Root is the sole Blender author; CPU review was delegated read-only. No merge/push.
+
+## Historical r02a checkpoint
 
 This checkpoint removes a folded join in the manually rebuilt tail. It is not an accepted S+ asset. Source input remains the official illustration from PokeAPI, seed 61062, octree 256; no new image or mesh generation was run.
 

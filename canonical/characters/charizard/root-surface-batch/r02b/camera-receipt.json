@@ -1,0 +1,77 @@
+{
+  "engine": "BLENDER_WORKBENCH",
+  "light": "paint.sl",
+  "cavity": false,
+  "wholeBody": {
+    "bounds": [
+      [
+        -0.958707332611084,
+        -0.9876829981803894,
+        -0.6112245321273804
+      ],
+      [
+        0.946840226650238,
+        0.9951756596565247,
+        0.6025716662406921
+      ]
+    ],
+    "directions": {
+      "minusY": [
+        0,
+        -1,
+        0
+      ],
+      "plusX": [
+        1,
+        0,
+        0
+      ],
+      "plusY": [
+        0,
+        1,
+        0
+      ],
+      "minusX": [
+        -1,
+        0,
+        0
+      ],
+      "threequarter": [
+        1,
+        -1,
+        0.4
+      ]
+    },
+    "orthoScale": 2.4785733222961426,
+    "resolution": [
+      800,
+      800
+    ],
+    "shadows": true
+  },
+  "closeup": {
+    "target": [
+      -0.65,
+      0.23,
+      -0.46
+    ],
+    "directions": {
+      "root-side": [
+        -1,
+        0,
+        0.12
+      ],
+      "root-rear": [
+        -1,
+        0.75,
+        0.28
+      ]
+    },
+    "orthoScale": 0.7,
+    "resolution": [
+      1000,
+      1000
+    ],
+    "shadows": false
+  }
+}

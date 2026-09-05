@@ -1,0 +1,1033 @@
+{
+  "method": "Double-precision edge/triangle linear solves on reported actual r02d triangles. Strict hits have triangle barycentric coordinates and edge parameter farther than 1e-7 from each endpoint/boundary. This is an independent local confirmation, not a full mesh intersection detector.",
+  "pairCount": 12,
+  "pairsWithStrictInteriorEdgeHits": 12,
+  "newPairsWithStrictInteriorEdgeHits": 12,
+  "pairs": [
+    {
+      "stableTrianglePair": [
+        [
+          2466,
+          2467,
+          2961
+        ],
+        [
+          2468,
+          2962,
+          2963
+        ]
+      ],
+      "newComparedWithParent": true,
+      "beforeBounds": [
+        [
+          -0.49627959728240967,
+          0.17494069039821625,
+          -0.47280171513557434
+        ],
+        [
+          -0.4899686276912689,
+          0.20046453177928925,
+          -0.46738892793655396
+        ]
+      ],
+      "afterBounds": [
+        [
+          -0.49651801586151123,
+          0.17459909617900848,
+          -0.4729039967060089
+        ],
+        [
+          -0.4911709427833557,
+          0.20040367543697357,
+          -0.4674065113067627
+        ]
+      ],
+      "firstTriangleEdgesIntoSecond": [
+        {
+          "edge": 2,
+          "triangleBarycentric": [
+            0.004389437370517085,
+            0.9468399757821213,
+            0.0487705868473616
+          ],
+          "edgeParameter": 0.005457766074418655,
+          "strictInterior": true
+        }
+      ],
+      "secondTriangleEdgesIntoFirst": [
+        {
+          "edge": 0,
+          "triangleBarycentric": [
+            0.011541557122730722,
+            0.846112287053242,
+            0.14234615582402724
+          ],
+          "edgeParameter": 0.1432041243210925,
+          "strictInterior": true
+        }
+      ],
+      "strictInteriorEdgeHits": 2,
+      "intersectionSegmentCenter": [
+        -0.4943016826280165,
+        0.18926765888936958,
+        -0.46968549381683095
+      ],
+      "intersectionSegmentLength": 0.02237233955151626,
+      "minimumSurfaceGapBefore": 6.317548748894977e-05,
+      "minimumSurfaceGapAfter": 0.0,
+      "minimumCrossTriangleVertexGapBefore": 6.991572747764182e-05,
+      "shortestOriginalEdge": {
+        "stableVertexIds": [
+          2962,
+          2963
+        ],
+        "length": 0.0029417716024404943,
+        "relativeDisplacementMagnitude": 0.0002846505681580794,
+        "radius005NeighborhoodCounts": [
+          95,
+          96
+        ],
+        "radius005NeighborhoodSymmetricDifference": 7
+      }
+    },
+    {
+      "stableTrianglePair": [
+        [
+          2466,
+          2467,
+          122123
+        ],
+        [
+          2468,
+          2469,
+          2963
+        ]
+      ],
+      "newComparedWithParent": true,
+      "beforeBounds": [
+        [
+          -0.49627959728240967,
+          0.15000000596046448,
+          -0.47280171513557434
+        ],
+        [
+          -0.48361465334892273,
+          0.20044974982738495,
+          -0.46593034267425537
+        ]
+      ],
+      "afterBounds": [
+        [
+          -0.49651801586151123,
+          0.14933006465435028,
+          -0.4729039967060089
+        ],
+        [
+          -0.4849362373352051,
+          0.20040367543697357,
+          -0.4661043584346771
+        ]
+      ],
+      "firstTriangleEdgesIntoSecond": [
+        {
+          "edge": 1,
+          "triangleBarycentric": [
+            0.9917640828561256,
+            0.007817508414435508,
+            0.00041840872943885876
+          ],
+          "edgeParameter": 0.0003694281239038538,
+          "strictInterior": true
+        }
+      ],
+      "secondTriangleEdgesIntoFirst": [
+        {
+          "edge": 0,
+          "triangleBarycentric": [
+            0.0046676105559952195,
+            0.9945176409663721,
+            0.0008147484776327069
+          ],
+          "edgeParameter": 0.0012913091086407624,
+          "strictInterior": true
+        }
+      ],
+      "strictInteriorEdgeHits": 2,
+      "intersectionSegmentCenter": [
+        -0.4915241596411326,
+        0.17460475901547357,
+        -0.4689912656440145
+      ],
+      "intersectionSegmentLength": 2.3025786268177533e-05,
+      "minimumSurfaceGapBefore": 6.0531999206833716e-05,
+      "minimumSurfaceGapAfter": 0.0,
+      "minimumCrossTriangleVertexGapBefore": 6.991572747764182e-05,
+      "shortestOriginalEdge": {
+        "stableVertexIds": [
+          2468,
+          2469
+        ],
+        "length": 0.0029797225451104544,
+        "relativeDisplacementMagnitude": 0.0002385053835182201,
+        "radius005NeighborhoodCounts": [
+          135,
+          134
+        ],
+        "radius005NeighborhoodSymmetricDifference": 15
+      }
+    },
+    {
+      "stableTrianglePair": [
+        [
+          2466,
+          2467,
+          122123
+        ],
+        [
+          2468,
+          2469,
+          122089
+        ]
+      ],
+      "newComparedWithParent": true,
+      "beforeBounds": [
+        [
+          -0.4908037781715393,
+          0.15000000596046448,
+          -0.47280171513557434
+        ],
+        [
+          -0.48361465334892273,
+          0.17496232688426971,
+          -0.46593034267425537
+        ]
+      ],
+      "afterBounds": [
+        [
+          -0.49190688133239746,
+          0.14925552904605865,
+          -0.4729039967060089
+        ],
+        [
+          -0.4849362373352051,
+          0.17465715110301971,
+          -0.4661043584346771
+        ]
+      ],
+      "firstTriangleEdgesIntoSecond": [],
+      "secondTriangleEdgesIntoFirst": [
+        {
+          "edge": 0,
+          "triangleBarycentric": [
+            0.0046676105559952195,
+            0.9945176409663721,
+            0.0008147484776327069
+          ],
+          "edgeParameter": 0.0012913091086407624,
+          "strictInterior": true
+        },
+        {
+          "edge": 2,
+          "triangleBarycentric": [
+            0.005343593192305004,
+            0.9935891103522695,
+            0.0010672964554255065
+          ],
+          "edgeParameter": 0.9997514404218901,
+          "strictInterior": true
+        }
+      ],
+      "strictInteriorEdgeHits": 2,
+      "intersectionSegmentCenter": [
+        -0.49152090285161143,
+        0.17459598396925738,
+        -0.46900275466440566
+      ],
+      "intersectionSegmentLength": 7.462956051845005e-06,
+      "minimumSurfaceGapBefore": 6.0531999206833716e-05,
+      "minimumSurfaceGapAfter": 0.0,
+      "minimumCrossTriangleVertexGapBefore": 6.991572747764182e-05,
+      "shortestOriginalEdge": {
+        "stableVertexIds": [
+          2468,
+          2469
+        ],
+        "length": 0.0029797225451104544,
+        "relativeDisplacementMagnitude": 0.0002385053835182201,
+        "radius005NeighborhoodCounts": [
+          135,
+          134
+        ],
+        "radius005NeighborhoodSymmetricDifference": 15
+      }
+    },
+    {
+      "stableTrianglePair": [
+        [
+          2466,
+          2960,
+          2961
+        ],
+        [
+          2467,
+          2468,
+          2962
+        ]
+      ],
+      "newComparedWithParent": true,
+      "beforeBounds": [
+        [
+          -0.49603113532066345,
+          0.17494069039821625,
+          -0.47407078742980957
+        ],
+        [
+          -0.4899686276912689,
+          0.20048487186431885,
+          -0.4688291847705841
+        ]
+      ],
+      "afterBounds": [
+        [
+          -0.49641209840774536,
+          0.17459909617900848,
+          -0.47407472133636475
+        ],
+        [
+          -0.4911709427833557,
+          0.2003980427980423,
+          -0.4689804017543793
+        ]
+      ],
+      "firstTriangleEdgesIntoSecond": [],
+      "secondTriangleEdgesIntoFirst": [
+        {
+          "edge": 1,
+          "triangleBarycentric": [
+            0.01749141500589102,
+            0.023921495692926325,
+            0.9585870893011826
+          ],
+          "edgeParameter": 0.9836766741619154,
+          "strictInterior": true
+        },
+        {
+          "edge": 2,
+          "triangleBarycentric": [
+            0.017322315632065433,
+            0.02399183509878988,
+            0.9586858492691447
+          ],
+          "edgeParameter": 0.016167185512999022,
+          "strictInterior": true
+        }
+      ],
+      "strictInteriorEdgeHits": 2,
+      "intersectionSegmentCenter": [
+        -0.4963199253127739,
+        0.19993995901773962,
+        -0.4703035836589209
+      ],
+      "intersectionSegmentLength": 4.44769213300361e-06,
+      "minimumSurfaceGapBefore": 0.00012771343502668644,
+      "minimumSurfaceGapAfter": 0.0,
+      "minimumCrossTriangleVertexGapBefore": 0.00021715587312564683,
+      "shortestOriginalEdge": {
+        "stableVertexIds": [
+          2467,
+          2468
+        ],
+        "length": 6.991572747764182e-05,
+        "relativeDisplacementMagnitude": 6.337022901974407e-05,
+        "radius005NeighborhoodCounts": [
+          134,
+          135
+        ],
+        "radius005NeighborhoodSymmetricDifference": 1
+      }
+    },
+    {
+      "stableTrianglePair": [
+        [
+          2466,
+          2960,
+          2961
+        ],
+        [
+          2468,
+          2962,
+          2963
+        ]
+      ],
+      "newComparedWithParent": true,
+      "beforeBounds": [
+        [
+          -0.49627959728240967,
+          0.17494069039821625,
+          -0.47407078742980957
+        ],
+        [
+          -0.4899686276912689,
+          0.20048487186431885,
+          -0.46738892793655396
+        ]
+      ],
+      "afterBounds": [
+        [
+          -0.49651801586151123,
+          0.17459909617900848,
+          -0.47407472133636475
+        ],
+        [
+          -0.4911709427833557,
+          0.20040367543697357,
+          -0.4674065113067627
+        ]
+      ],
+      "firstTriangleEdgesIntoSecond": [
+        {
+          "edge": 2,
+          "triangleBarycentric": [
+            0.004389437370517085,
+            0.9468399757821213,
+            0.0487705868473616
+          ],
+          "edgeParameter": 0.005457766074418655,
+          "strictInterior": true
+        }
+      ],
+      "secondTriangleEdgesIntoFirst": [
+        {
+          "edge": 0,
+          "triangleBarycentric": [
+            0.01749141500589102,
+            0.023921495692926325,
+            0.9585870893011826
+          ],
+          "edgeParameter": 0.9836766741619154,
+          "strictInterior": true
+        }
+      ],
+      "strictInteriorEdgeHits": 2,
+      "intersectionSegmentCenter": [
+        -0.4963514884812708,
+        0.20009259255080242,
+        -0.4702403829115599
+      ],
+      "intersectionSegmentLength": 0.0003405702342120517,
+      "minimumSurfaceGapBefore": 0.0001227719697699189,
+      "minimumSurfaceGapAfter": 0.0,
+      "minimumCrossTriangleVertexGapBefore": 0.00021715587312564683,
+      "shortestOriginalEdge": {
+        "stableVertexIds": [
+          2962,
+          2963
+        ],
+        "length": 0.0029417716024404943,
+        "relativeDisplacementMagnitude": 0.0002846505681580794,
+        "radius005NeighborhoodCounts": [
+          95,
+          96
+        ],
+        "radius005NeighborhoodSymmetricDifference": 7
+      }
+    },
+    {
+      "stableTrianglePair": [
+        [
+          2467,
+          122088,
+          122089
+        ],
+        [
+          2468,
+          2469,
+          2963
+        ]
+      ],
+      "newComparedWithParent": true,
+      "beforeBounds": [
+        [
+          -0.49627959728240967,
+          0.15000000596046448,
+          -0.4688463509082794
+        ],
+        [
+          -0.48422324657440186,
+          0.20044974982738495,
+          -0.46593034267425537
+        ]
+      ],
+      "afterBounds": [
+        [
+          -0.49651801586151123,
+          0.1492500752210617,
+          -0.4690048098564148
+        ],
+        [
+          -0.48572564125061035,
+          0.20040367543697357,
+          -0.4661043584346771
+        ]
+      ],
+      "firstTriangleEdgesIntoSecond": [
+        {
+          "edge": 0,
+          "triangleBarycentric": [
+            0.9912825619117391,
+            0.00839223213605599,
+            0.00032520595220488483
+          ],
+          "edgeParameter": 0.0004617489030237961,
+          "strictInterior": true
+        },
+        {
+          "edge": 2,
+          "triangleBarycentric": [
+            0.9912073975833201,
+            0.008493378197610655,
+            0.00029922421906925195
+          ],
+          "edgeParameter": 0.999511950444851,
+          "strictInterior": true
+        }
+      ],
+      "secondTriangleEdgesIntoFirst": [],
+      "strictInteriorEdgeHits": 2,
+      "intersectionSegmentCenter": [
+        -0.4915261734160452,
+        0.17460764290434375,
+        -0.4689798228972466
+      ],
+      "intersectionSegmentLength": 7.164741566634798e-07,
+      "minimumSurfaceGapBefore": 6.038828460641205e-05,
+      "minimumSurfaceGapAfter": 0.0,
+      "minimumCrossTriangleVertexGapBefore": 6.991572747764182e-05,
+      "shortestOriginalEdge": {
+        "stableVertexIds": [
+          122088,
+          122089
+        ],
+        "length": 0.0004831794280251415,
+        "relativeDisplacementMagnitude": 8.605907604960364e-06,
+        "radius005NeighborhoodCounts": [
+          167,
+          166
+        ],
+        "radius005NeighborhoodSymmetricDifference": 1
+      }
+    },
+    {
+      "stableTrianglePair": [
+        [
+          2467,
+          122088,
+          122123
+        ],
+        [
+          2468,
+          2469,
+          2963
+        ]
+      ],
+      "newComparedWithParent": true,
+      "beforeBounds": [
+        [
+          -0.49627959728240967,
+          0.15000000596046448,
+          -0.47162729501724243
+        ],
+        [
+          -0.48361465334892273,
+          0.20044974982738495,
+          -0.46593034267425537
+        ]
+      ],
+      "afterBounds": [
+        [
+          -0.49651801586151123,
+          0.1492500752210617,
+          -0.47186338901519775
+        ],
+        [
+          -0.4849362373352051,
+          0.20040367543697357,
+          -0.4661043584346771
+        ]
+      ],
+      "firstTriangleEdgesIntoSecond": [
+        {
+          "edge": 0,
+          "triangleBarycentric": [
+            0.9912825619117391,
+            0.00839223213605599,
+            0.00032520595220488483
+          ],
+          "edgeParameter": 0.0004617489030237961,
+          "strictInterior": true
+        },
+        {
+          "edge": 2,
+          "triangleBarycentric": [
+            0.9917640828561264,
+            0.007817508414435298,
+            0.0004184087294382836
+          ],
+          "edgeParameter": 0.9996305718760956,
+          "strictInterior": true
+        }
+      ],
+      "secondTriangleEdgesIntoFirst": [],
+      "strictInteriorEdgeHits": 2,
+      "intersectionSegmentCenter": [
+        -0.4915263408965064,
+        0.17460916103863136,
+        -0.46898070781476836
+      ],
+      "intersectionSegmentLength": 2.8264516855390407e-06,
+      "minimumSurfaceGapBefore": 6.038828460641205e-05,
+      "minimumSurfaceGapAfter": 0.0,
+      "minimumCrossTriangleVertexGapBefore": 6.991572747764182e-05,
+      "shortestOriginalEdge": {
+        "stableVertexIds": [
+          2468,
+          2469
+        ],
+        "length": 0.0029797225451104544,
+        "relativeDisplacementMagnitude": 0.0002385053835182201,
+        "radius005NeighborhoodCounts": [
+          135,
+          134
+        ],
+        "radius005NeighborhoodSymmetricDifference": 15
+      }
+    },
+    {
+      "stableTrianglePair": [
+        [
+          2960,
+          2961,
+          3672
+        ],
+        [
+          2962,
+          3673,
+          3674
+        ]
+      ],
+      "newComparedWithParent": true,
+      "beforeBounds": [
+        [
+          -0.5010247826576233,
+          0.20046232640743256,
+          -0.47407078742980957
+        ],
+        [
+          -0.4958820343017578,
+          0.22598622739315033,
+          -0.4685884714126587
+        ]
+      ],
+      "afterBounds": [
+        [
+          -0.5013589859008789,
+          0.20035825669765472,
+          -0.47407472133636475
+        ],
+        [
+          -0.4963728189468384,
+          0.22593054175376892,
+          -0.46859362721443176
+        ]
+      ],
+      "firstTriangleEdgesIntoSecond": [
+        {
+          "edge": 1,
+          "triangleBarycentric": [
+            0.2790713460482515,
+            0.6865432845856918,
+            0.034385369366056684
+          ],
+          "edgeParameter": 0.7199824697584717,
+          "strictInterior": true
+        }
+      ],
+      "secondTriangleEdgesIntoFirst": [
+        {
+          "edge": 0,
+          "triangleBarycentric": [
+            0.028700413312725215,
+            0.4106772746295634,
+            0.5606223120577114
+          ],
+          "edgeParameter": 0.5616473378789955,
+          "strictInterior": true
+        }
+      ],
+      "strictInteriorEdgeHits": 2,
+      "intersectionSegmentCenter": [
+        -0.49957903862877073,
+        0.21674307388483516,
+        -0.4709833255510678
+      ],
+      "intersectionSegmentLength": 0.004146775403465832,
+      "minimumSurfaceGapBefore": 0.00013441673191810246,
+      "minimumSurfaceGapAfter": 0.0,
+      "minimumCrossTriangleVertexGapBefore": 0.00016388970180180646,
+      "shortestOriginalEdge": {
+        "stableVertexIds": [
+          3673,
+          3674
+        ],
+        "length": 0.0028471909532010024,
+        "relativeDisplacementMagnitude": 0.0002204775991521025,
+        "radius005NeighborhoodCounts": [
+          105,
+          106
+        ],
+        "radius005NeighborhoodSymmetricDifference": 5
+      }
+    },
+    {
+      "stableTrianglePair": [
+        [
+          2960,
+          3671,
+          3672
+        ],
+        [
+          3673,
+          3674,
+          4394
+        ]
+      ],
+      "newComparedWithParent": true,
+      "beforeBounds": [
+        [
+          -0.5044440031051636,
+          0.20048487186431885,
+          -0.4751986265182495
+        ],
+        [
+          -0.49596595764160156,
+          0.2508994936943054,
+          -0.4685884714126587
+        ]
+      ],
+      "afterBounds": [
+        [
+          -0.5046778917312622,
+          0.2003980427980423,
+          -0.4751817584037781
+        ],
+        [
+          -0.4963728189468384,
+          0.2508847713470459,
+          -0.46859362721443176
+        ]
+      ],
+      "firstTriangleEdgesIntoSecond": [
+        {
+          "edge": 1,
+          "triangleBarycentric": [
+            0.9960408380298197,
+            0.00303703923282127,
+            0.0009221227373590805
+          ],
+          "edgeParameter": 0.9843330139105503,
+          "strictInterior": true
+        }
+      ],
+      "secondTriangleEdgesIntoFirst": [
+        {
+          "edge": 2,
+          "triangleBarycentric": [
+            0.00016056435862399354,
+            0.01789079774229502,
+            0.9819486378990809
+          ],
+          "edgeParameter": 0.9992388288491021,
+          "strictInterior": true
+        }
+      ],
+      "strictInteriorEdgeHits": 2,
+      "intersectionSegmentCenter": [
+        -0.5013608678284838,
+        0.22592865946584145,
+        -0.4714213522488585
+      ],
+      "intersectionSegmentLength": 9.840373062074102e-06,
+      "minimumSurfaceGapBefore": 0.00013925007581096452,
+      "minimumSurfaceGapAfter": 0.0,
+      "minimumCrossTriangleVertexGapBefore": 0.00016388970180180646,
+      "shortestOriginalEdge": {
+        "stableVertexIds": [
+          3673,
+          3674
+        ],
+        "length": 0.0028471909532010024,
+        "relativeDisplacementMagnitude": 0.0002204775991521025,
+        "radius005NeighborhoodCounts": [
+          105,
+          106
+        ],
+        "radius005NeighborhoodSymmetricDifference": 5
+      }
+    },
+    {
+      "stableTrianglePair": [
+        [
+          2960,
+          3671,
+          3672
+        ],
+        [
+          3673,
+          4392,
+          4393
+        ]
+      ],
+      "newComparedWithParent": true,
+      "beforeBounds": [
+        [
+          -0.5044899582862854,
+          0.20048487186431885,
+          -0.4751986265182495
+        ],
+        [
+          -0.49596595764160156,
+          0.2509290874004364,
+          -0.47135716676712036
+        ]
+      ],
+      "afterBounds": [
+        [
+          -0.5047740340232849,
+          0.2003980427980423,
+          -0.4751817584037781
+        ],
+        [
+          -0.4963728189468384,
+          0.25091037154197693,
+          -0.47135695815086365
+        ]
+      ],
+      "firstTriangleEdgesIntoSecond": [],
+      "secondTriangleEdgesIntoFirst": [
+        {
+          "edge": 0,
+          "triangleBarycentric": [
+            0.00016424677726245562,
+            0.018455462186170436,
+            0.9813802910365671
+          ],
+          "edgeParameter": 0.0007568568278437658,
+          "strictInterior": true
+        },
+        {
+          "edge": 2,
+          "triangleBarycentric": [
+            0.0001681719076940258,
+            0.01842609874609118,
+            0.9814057293462148
+          ],
+          "edgeParameter": 0.9992468615586259,
+          "strictInterior": true
+        }
+      ],
+      "strictInteriorEdgeHits": 2,
+      "intersectionSegmentCenter": [
+        -0.5013606654277258,
+        0.225926482122564,
+        -0.4714279421702865
+      ],
+      "intersectionSegmentLength": 1.4487557950458408e-07,
+      "minimumSurfaceGapBefore": 0.00014579942195004105,
+      "minimumSurfaceGapAfter": 0.0,
+      "minimumCrossTriangleVertexGapBefore": 0.00016388970180180646,
+      "shortestOriginalEdge": {
+        "stableVertexIds": [
+          4392,
+          4393
+        ],
+        "length": 0.00016442958949125134,
+        "relativeDisplacementMagnitude": 8.619617877082075e-05,
+        "radius005NeighborhoodCounts": [
+          113,
+          112
+        ],
+        "radius005NeighborhoodSymmetricDifference": 1
+      }
+    },
+    {
+      "stableTrianglePair": [
+        [
+          2960,
+          3671,
+          3672
+        ],
+        [
+          3673,
+          4393,
+          4394
+        ]
+      ],
+      "newComparedWithParent": true,
+      "beforeBounds": [
+        [
+          -0.5044440031051636,
+          0.20048487186431885,
+          -0.4751986265182495
+        ],
+        [
+          -0.49596595764160156,
+          0.25092464685440063,
+          -0.46934473514556885
+        ]
+      ],
+      "afterBounds": [
+        [
+          -0.5047596096992493,
+          0.2003980427980423,
+          -0.4751817584037781
+        ],
+        [
+          -0.4963728189468384,
+          0.25090035796165466,
+          -0.4693416953086853
+        ]
+      ],
+      "firstTriangleEdgesIntoSecond": [],
+      "secondTriangleEdgesIntoFirst": [
+        {
+          "edge": 0,
+          "triangleBarycentric": [
+            0.00016817190769424784,
+            0.01842609874609104,
+            0.9814057293462147
+          ],
+          "edgeParameter": 0.0007531384413739259,
+          "strictInterior": true
+        },
+        {
+          "edge": 2,
+          "triangleBarycentric": [
+            0.00016056435862399354,
+            0.01789079774229502,
+            0.9819486378990809
+          ],
+          "edgeParameter": 0.9992388288491021,
+          "strictInterior": true
+        }
+      ],
+      "strictInteriorEdgeHits": 2,
+      "intersectionSegmentCenter": [
+        -0.5013606362060954,
+        0.22592652631449678,
+        -0.47142685730196177
+      ],
+      "intersectionSegmentLength": 2.0769965320416705e-06,
+      "minimumSurfaceGapBefore": 0.00014579942195004105,
+      "minimumSurfaceGapAfter": 0.0,
+      "minimumCrossTriangleVertexGapBefore": 0.00016388970180180646,
+      "shortestOriginalEdge": {
+        "stableVertexIds": [
+          4393,
+          4394
+        ],
+        "length": 0.002730939464961606,
+        "relativeDisplacementMagnitude": 0.00013668951717543286,
+        "radius005NeighborhoodCounts": [
+          112,
+          113
+        ],
+        "radius005NeighborhoodSymmetricDifference": 3
+      }
+    },
+    {
+      "stableTrianglePair": [
+        [
+          3671,
+          3672,
+          4392
+        ],
+        [
+          3673,
+          3674,
+          4394
+        ]
+      ],
+      "newComparedWithParent": true,
+      "beforeBounds": [
+        [
+          -0.5044899582862854,
+          0.22597147524356842,
+          -0.4751986265182495
+        ],
+        [
+          -0.5008185505867004,
+          0.2509290874004364,
+          -0.4685884714126587
+        ]
+      ],
+      "afterBounds": [
+        [
+          -0.5047740340232849,
+          0.2259076088666916,
+          -0.4751817584037781
+        ],
+        [
+          -0.5013461709022522,
+          0.25091037154197693,
+          -0.46859362721443176
+        ]
+      ],
+      "firstTriangleEdgesIntoSecond": [
+        {
+          "edge": 0,
+          "triangleBarycentric": [
+            0.9960408380298197,
+            0.00303703923282127,
+            0.0009221227373590805
+          ],
+          "edgeParameter": 0.9843330139105503,
+          "strictInterior": true
+        },
+        {
+          "edge": 1,
+          "triangleBarycentric": [
+            0.9756244386284036,
+            0.0008920216641548152,
+            0.0234835397074415
+          ],
+          "edgeParameter": 0.0225636496509737,
+          "strictInterior": true
+        }
+      ],
+      "secondTriangleEdgesIntoFirst": [],
+      "strictInteriorEdgeHits": 2,
+      "intersectionSegmentCenter": [
+        -0.5013985793700519,
+        0.22621243802546548,
+        -0.47139639215215073
+      ],
+      "intersectionSegmentLength": 0.0005699143329537619,
+      "minimumSurfaceGapBefore": 0.00014045906104346906,
+      "minimumSurfaceGapAfter": 0.0,
+      "minimumCrossTriangleVertexGapBefore": 0.00016388970180180646,
+      "shortestOriginalEdge": {
+        "stableVertexIds": [
+          3673,
+          3674
+        ],
+        "length": 0.0028471909532010024,
+        "relativeDisplacementMagnitude": 0.0002204775991521025,
+        "radius005NeighborhoodCounts": [
+          105,
+          106
+        ],
+        "radius005NeighborhoodSymmetricDifference": 5
+      }
+    }
+  ]
+}

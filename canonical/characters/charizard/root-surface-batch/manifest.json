@@ -1,0 +1,1377 @@
+{
+  "id": "charizard-root-surface-batch",
+  "status": "r02e retained as a local geometry checkpoint; full Charizard and S+ gates open",
+  "source": {
+    "parent": "charizard-tail-r02a",
+    "parentManifest": {
+      "path": "canonical/characters/charizard/tail-r02a/manifest.json",
+      "pathRoot": "repository",
+      "bytes": 9908,
+      "sha256": "822f8f0c12fa094eda191c6d3ff7e51bcb895a6140439d5380db9f67d4ac112f"
+    },
+    "officialAncestor": "charizard-official-raw-61062-o256",
+    "inputs": [
+      {
+        "role": "shape reference",
+        "path": "assets/references/objects/b6/b6d5b8ee9fb05dc6f53294b2cae660dec770b92762cdb19d16bcbd679e1ba43a.png",
+        "sha256": "b6d5b8ee9fb05dc6f53294b2cae660dec770b92762cdb19d16bcbd679e1ba43a",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png",
+        "sourceKind": "official_artwork"
+      }
+    ],
+    "newImageInputs": []
+  },
+  "authoring": "Root through Blender MCP; independent CPU diagnosis and validation delegated read-only",
+  "candidates": [
+    {
+      "id": "charizard-tail-r02b",
+      "parent": "charizard-tail-r02a",
+      "decision": "rejected: visible ribs remain after native smoothing"
+    },
+    {
+      "id": "charizard-tail-r02c",
+      "parent": "charizard-tail-r02a",
+      "decision": "rejected: 48 reversed triangles and 50 local intersections"
+    },
+    {
+      "id": "charizard-tail-r02d",
+      "parent": "charizard-tail-r02a",
+      "decision": "rejected standalone: useful PCA-normal surface fit, but 12 local intersections"
+    },
+    {
+      "id": "charizard-tail-r02e",
+      "parent": "charizard-tail-r02d",
+      "decision": "assistant provisional choice: collar patch preserves retained coordinates; zero detected local intersections"
+    }
+  ],
+  "files": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02b/camera-receipt.json",
+      "pathRoot": "filesystem",
+      "bytes": 1094,
+      "sha256": "84d74a30da82beec628e0981a5df459d0b5b8774eac6b975cf998a55d7948fb4"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02b/charizard-tail-r02b-minusX.png",
+      "pathRoot": "filesystem",
+      "bytes": 761082,
+      "sha256": "b4ecc0cd68db060860b365e66631c18c40dc8b6e7ab433ef4880ca4b3c2afdf2"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02b/charizard-tail-r02b-minusY.png",
+      "pathRoot": "filesystem",
+      "bytes": 797195,
+      "sha256": "b04a16b6d81f23fd14fbd3af945781ef1cbd26e222c4c65da9b931376e91a9e1"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02b/charizard-tail-r02b-plusX.png",
+      "pathRoot": "filesystem",
+      "bytes": 780279,
+      "sha256": "381e67298d17624658bfed86b69c3e2b13c683e6fa88341c9a4f845e8a70bf9d"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02b/charizard-tail-r02b-plusY.png",
+      "pathRoot": "filesystem",
+      "bytes": 770970,
+      "sha256": "220c2f3dfc6eb834d38c1411f6d7e7b3ebf8e0ec86a9ac538ee37a892aa75385"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02b/charizard-tail-r02b-root-rear.png",
+      "pathRoot": "filesystem",
+      "bytes": 1395562,
+      "sha256": "6d72831f05009d3e23fe30bb1563964e418bc17107a106e0b29fef06331fef2c"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02b/charizard-tail-r02b-root-side.png",
+      "pathRoot": "filesystem",
+      "bytes": 1299150,
+      "sha256": "86f118c4a4e03e875b0acdf3edebd085fee35ecebb54bf8c6ff7c280b894a1ca"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02b/charizard-tail-r02b-threequarter.png",
+      "pathRoot": "filesystem",
+      "bytes": 780530,
+      "sha256": "49632af5c1f4da2b4932ad3ffe5243bbeb02c38c5d785e8c3a131339a9eb3751"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02b/charizard-tail-r02b.blend",
+      "pathRoot": "filesystem",
+      "bytes": 13776650,
+      "sha256": "1953903e7140230c57240779ddcf1fbf544e3b9a817dd16773c9b6d9272c21dd"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02b/charizard-tail-r02b.glb",
+      "pathRoot": "filesystem",
+      "bytes": 6038352,
+      "sha256": "65e036098f8fc1b5e60a67b3bae6fa8ebeb3483a05cf9a7d92016d618fe22a22"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02b/region-rear.png",
+      "pathRoot": "filesystem",
+      "bytes": 594636,
+      "sha256": "a56511255e89374f55164ee2168801ca8d0bb4868e177d052a24e0d0dd7453e9"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02b/region-side.png",
+      "pathRoot": "filesystem",
+      "bytes": 530182,
+      "sha256": "764726cfed349a4643c208747538db670accd6c976de23f44910b6d9383a3240"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02b/region.json",
+      "pathRoot": "filesystem",
+      "bytes": 588,
+      "sha256": "94532900c472b5a42512b0221210ecd147068134dae17cc1884e5865a14311e8"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02b/region.npz",
+      "pathRoot": "filesystem",
+      "bytes": 1768718,
+      "sha256": "c11dcd4d86124fdc51d399014d07a887eb6b7d445fbf6ac24f936a5c0cdd820d"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02b/smooth_root.py",
+      "pathRoot": "filesystem",
+      "bytes": 2632,
+      "sha256": "2dfa10c0f1ca6326675c61bc48b11f2bd42e4488815b39e48ae44683a0dbc0a0"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02b/smoothing-receipt.json",
+      "pathRoot": "filesystem",
+      "bytes": 480,
+      "sha256": "e33a69acbf719fe3f8d8cfde27024105d593f99a9a24b1d5469db3dad8e03e3e"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02b/vertex-audit.npz",
+      "pathRoot": "filesystem",
+      "bytes": 3533269,
+      "sha256": "e105c32430f292778ab83637f2f2e98e8bcb69f12772c153c613f18021667434"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02c/camera-receipt.json",
+      "pathRoot": "filesystem",
+      "bytes": 1094,
+      "sha256": "84d74a30da82beec628e0981a5df459d0b5b8774eac6b975cf998a55d7948fb4"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02c/charizard-tail-r02c-minusX.png",
+      "pathRoot": "filesystem",
+      "bytes": 761060,
+      "sha256": "4a3fa44bbaded74b4e4972e0d84bdc6f6b2c277708adc6a9ba81b2774b4cff01"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02c/charizard-tail-r02c-minusY.png",
+      "pathRoot": "filesystem",
+      "bytes": 796972,
+      "sha256": "9f2da32882c883c49178588ce7f063df52476e0f4b4e06775a2567185e4b70db"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02c/charizard-tail-r02c-plusX.png",
+      "pathRoot": "filesystem",
+      "bytes": 780358,
+      "sha256": "abe7dedbb99ec4c5f36c41f1e5650cdff86075cae874655ce795109385702c8f"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02c/charizard-tail-r02c-plusY.png",
+      "pathRoot": "filesystem",
+      "bytes": 771269,
+      "sha256": "a6eac2a61d7c41cb4f4af6b1ae49891cbe736bb0fb1c723657958f9e0a395b8c"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02c/charizard-tail-r02c-root-rear.png",
+      "pathRoot": "filesystem",
+      "bytes": 1393684,
+      "sha256": "d049082ec2c9ee701ebf329ff46e22c24970895beb7975b9095752447e79926c"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02c/charizard-tail-r02c-root-side.png",
+      "pathRoot": "filesystem",
+      "bytes": 1295708,
+      "sha256": "63f82231b3f2a505ce3c6eeebe4c3733e5d057df3309a2e85c7e797788067105"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02c/charizard-tail-r02c-threequarter.png",
+      "pathRoot": "filesystem",
+      "bytes": 780530,
+      "sha256": "62559fe8c22f3273ca9ef87799112b77943cd063fbdc0133d482d04695125de4"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02c/charizard-tail-r02c.blend",
+      "pathRoot": "filesystem",
+      "bytes": 11422242,
+      "sha256": "ec4b9931111a9e1494cb317cca2836b8882487591b1e3a606d334566542396bb"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02c/charizard-tail-r02c.glb",
+      "pathRoot": "filesystem",
+      "bytes": 6038352,
+      "sha256": "2bdee54f0473e18d7b06302e9416c1f9c53785b22540ba4e2f3ebdecb94f6575"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02c/mls_root.py",
+      "pathRoot": "filesystem",
+      "bytes": 5271,
+      "sha256": "ceaaadd894105f3ed82b36ec28a849842f8c91de94f0484f7a8bbc169023a59f"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02c/smoothing-receipt.json",
+      "pathRoot": "filesystem",
+      "bytes": 969,
+      "sha256": "0e63d4c7f362e6ec72778593102e292cfd3111d8aaa30470c779f7cac30f8a21"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02c/vertex-audit.npz",
+      "pathRoot": "filesystem",
+      "bytes": 3562777,
+      "sha256": "da432054cd2105ce905f12ec301baa50b18a5f176afbc4bc67e395d034a29ea5"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02d/blender-viewport.png",
+      "pathRoot": "filesystem",
+      "bytes": 564296,
+      "sha256": "856ee7fff8361e1110ae1deae5c721fcbc88e4b755a7b17a0b96e774c4de6902"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02d/camera-receipt.json",
+      "pathRoot": "filesystem",
+      "bytes": 1094,
+      "sha256": "84d74a30da82beec628e0981a5df459d0b5b8774eac6b975cf998a55d7948fb4"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02d/charizard-tail-r02d-minusX.png",
+      "pathRoot": "filesystem",
+      "bytes": 760911,
+      "sha256": "8eaa8da7d6aabf2590cf0cc92f65c4579538f067201ae14aa08af98ba7a1f418"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02d/charizard-tail-r02d-minusY.png",
+      "pathRoot": "filesystem",
+      "bytes": 797149,
+      "sha256": "9fe706aa82f3b44638598770369f38133492e079327e29b099dccb2b764e6521"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02d/charizard-tail-r02d-plusX.png",
+      "pathRoot": "filesystem",
+      "bytes": 780303,
+      "sha256": "57ff9d2b1a2757d10a1c661c13ea961d214209717f78df153e17f708cebed6ff"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02d/charizard-tail-r02d-plusY.png",
+      "pathRoot": "filesystem",
+      "bytes": 771207,
+      "sha256": "dfd3422f89c577a6272acb3df16b99f9bafc6c7ba9fb1ae703ff15b024688554"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02d/charizard-tail-r02d-root-inner.png",
+      "pathRoot": "filesystem",
+      "bytes": 1516313,
+      "sha256": "21a5e29179a701334e189e72135d7f5d18a0f19f6247dd217c6750f2790786bd"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02d/charizard-tail-r02d-root-rear.png",
+      "pathRoot": "filesystem",
+      "bytes": 1391020,
+      "sha256": "d8179ed63ddba73bd351d7977518f0d50bf3fa458a5fd52b49c2d680b309b2ff"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02d/charizard-tail-r02d-root-side.png",
+      "pathRoot": "filesystem",
+      "bytes": 1294387,
+      "sha256": "e278ba6f7ede375a6790cc8374e32ed8d30970c14dcef2edb49a40ee271a0d0b"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02d/charizard-tail-r02d-threequarter.png",
+      "pathRoot": "filesystem",
+      "bytes": 780530,
+      "sha256": "8c6ba7548927044df759f25c8cdae7ff94677c32bcfe7af02180c9c99db5643e"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02d/charizard-tail-r02d.blend",
+      "pathRoot": "filesystem",
+      "bytes": 11422242,
+      "sha256": "760c983ce45bb94825ba1e029c8b8c74e02b0f34517f1e38f50d8e383228c6a4"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02d/charizard-tail-r02d.glb",
+      "pathRoot": "filesystem",
+      "bytes": 6038352,
+      "sha256": "c6535b34456e0d209483a88f86babe3c4a79433b39b7f63354a646c0a9859c5c"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02d/inner-camera.json",
+      "pathRoot": "filesystem",
+      "bytes": 370,
+      "sha256": "a6f8a523ee81c86144a6e8f6a3900f085c80f897270f4e8e549bae2a62592e03"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02d/mls_root.py",
+      "pathRoot": "filesystem",
+      "bytes": 5271,
+      "sha256": "ceaaadd894105f3ed82b36ec28a849842f8c91de94f0484f7a8bbc169023a59f"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02d/smoothing-receipt.json",
+      "pathRoot": "filesystem",
+      "bytes": 991,
+      "sha256": "f175581f322b617c42bb469463cb1e49f155168e3cc618a5bbbeb2ba0745bcd0"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02d/vertex-audit.npz",
+      "pathRoot": "filesystem",
+      "bytes": 3562787,
+      "sha256": "24f65e7e127f5449d927e8560b2b2e4dfb3c2f81a04d6fe3ed513f59215b3f62"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02e/blender-reopen.json",
+      "pathRoot": "filesystem",
+      "bytes": 988,
+      "sha256": "5167d7e8abe0ae80a7a203b64dc1956e61e55edd581df35b12468c00a568ba78"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02e/blender-viewport-confirmed.png",
+      "pathRoot": "filesystem",
+      "bytes": 531263,
+      "sha256": "9735cea73658d33134a43a11b58b33d6ee3ae510ee14ca837db851ea97184bc0"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02e/blender-viewport.png",
+      "pathRoot": "filesystem",
+      "bytes": 340997,
+      "sha256": "5837cf3db247daea49a42230d5e659c6c119faae184ff0c408b96ae454b1368c"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02e/browser-check.json",
+      "pathRoot": "filesystem",
+      "bytes": 1828,
+      "sha256": "e3714683139a1ddabe248f6f028b5094c0ee3dedcc2cb5fdd0e33581ccc31ae6"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02e/camera-receipt.json",
+      "pathRoot": "filesystem",
+      "bytes": 1094,
+      "sha256": "84d74a30da82beec628e0981a5df459d0b5b8774eac6b975cf998a55d7948fb4"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02e/charizard-tail-r02e-minusX.png",
+      "pathRoot": "filesystem",
+      "bytes": 760911,
+      "sha256": "85193999fae022eebbdc7beae5b319def9439e2656888a886d7dbfbf5bd7d1ac"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02e/charizard-tail-r02e-minusY.png",
+      "pathRoot": "filesystem",
+      "bytes": 797149,
+      "sha256": "313668e82286e0934fde78da9388295fd1f69377c386efe337352d7cc4c8e37f"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02e/charizard-tail-r02e-plusX.png",
+      "pathRoot": "filesystem",
+      "bytes": 780360,
+      "sha256": "db0b516b77d91b1c93db8908b1045154e2339769603c34d331628ef1068bbba5"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02e/charizard-tail-r02e-plusY.png",
+      "pathRoot": "filesystem",
+      "bytes": 771207,
+      "sha256": "d8e42b82bfa5bee510c44a17dd5bcace29889cd3de514d7c1dda0688b0198734"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02e/charizard-tail-r02e-root-inner.png",
+      "pathRoot": "filesystem",
+      "bytes": 1511716,
+      "sha256": "a5cfafc3de759e853c48a4091b0520800de3778dcb955a8e53b58b801a3ede6b"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02e/charizard-tail-r02e-root-rear.png",
+      "pathRoot": "filesystem",
+      "bytes": 1391020,
+      "sha256": "65dab77127f5e41e804c91c0b13807062e3d56a6ede6f24766b4bbee8ef75f20"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02e/charizard-tail-r02e-root-side.png",
+      "pathRoot": "filesystem",
+      "bytes": 1294387,
+      "sha256": "9c09dc9a6beae4d9cde35ac3c28c150a844b767e807b5ff1e08eb3053807afee"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02e/charizard-tail-r02e-threequarter.png",
+      "pathRoot": "filesystem",
+      "bytes": 780530,
+      "sha256": "936c7470cff171e2d4af4abd9d8a39e0998520641394a212515861b6288bc3b4"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02e/charizard-tail-r02e.blend",
+      "pathRoot": "filesystem",
+      "bytes": 13056383,
+      "sha256": "998ed1a4bea9dfc565217ac1ab545953646e216c3ee0640363ae43cdc8c2bb8e"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02e/charizard-tail-r02e.glb",
+      "pathRoot": "filesystem",
+      "bytes": 6036384,
+      "sha256": "11091f72a5f3369cddc631e7f97034b5ff00eec219503e4362d07f25eaf96ad7"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02e/comparison-preview.png",
+      "pathRoot": "filesystem",
+      "bytes": 212209,
+      "sha256": "6f933096515a26b8530bf7b69bb2b3ec47c8ade8e6babfb37c22c0544c61c4d6"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02e/inner-camera.json",
+      "pathRoot": "filesystem",
+      "bytes": 370,
+      "sha256": "a6f8a523ee81c86144a6e8f6a3900f085c80f897270f4e8e549bae2a62592e03"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02e/inner-comparison-preview.png",
+      "pathRoot": "filesystem",
+      "bytes": 215195,
+      "sha256": "c96e3087020d45d7f87b87201b32d6b76b0fb2de49a90a85ad4e8025816012f2"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02e/native-patch.json",
+      "pathRoot": "filesystem",
+      "bytes": 1708,
+      "sha256": "c5937c4ad8e9f8bfbed0b533abbd866f1882fd8049c8edc36972b6cb4fe5fef1"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02e/phone-preview.png",
+      "pathRoot": "filesystem",
+      "bytes": 178740,
+      "sha256": "500029e180f76ba01c236f49ae5ffece0869620d6a74e9e35f10ff76555aeb20"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02e/repair_root_strip.py",
+      "pathRoot": "filesystem",
+      "bytes": 4194,
+      "sha256": "59ff0713a1605461441d2caa5d081313aab569edb4b1ef5cd5e384deb74d5cbf"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02e/topology-audit.npz",
+      "pathRoot": "filesystem",
+      "bytes": 2506150,
+      "sha256": "2164b268f216cc5656d4041ae2f38e8dae2098994e1c5c004e8185d00667f473"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02e/topology-receipt.json",
+      "pathRoot": "filesystem",
+      "bytes": 583,
+      "sha256": "175f4dd386ac76f12d92e8623f22d9ebc19722e4be2f0bc488152029eac014b1"
+    }
+  ],
+  "replayFiles": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-final/comparison-r02e.json",
+      "pathRoot": "filesystem",
+      "bytes": 1441,
+      "sha256": "bec3675276540dd18b5e34b4e6e49d5ed55db97fb5500a4b602a9ff578d50aca"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-final/r02d/camera-receipt.json",
+      "pathRoot": "filesystem",
+      "bytes": 1094,
+      "sha256": "84d74a30da82beec628e0981a5df459d0b5b8774eac6b975cf998a55d7948fb4"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-final/r02d/charizard-tail-r02d-minusX.png",
+      "pathRoot": "filesystem",
+      "bytes": 760810,
+      "sha256": "45791661681d14f41b0484262ab21851ec5943aed71d163368cfdf29768f9288"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-final/r02d/charizard-tail-r02d-minusY.png",
+      "pathRoot": "filesystem",
+      "bytes": 797048,
+      "sha256": "83d490c11c229b70e32ad241c84a08c8be39a89d19d93328e03467d2b66413f6"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-final/r02d/charizard-tail-r02d-plusX.png",
+      "pathRoot": "filesystem",
+      "bytes": 780202,
+      "sha256": "89e742653d9c7a4a3d6851027c18fa1a00071b1e39882505291962f7af61229b"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-final/r02d/charizard-tail-r02d-plusY.png",
+      "pathRoot": "filesystem",
+      "bytes": 771106,
+      "sha256": "ec9cf3ec089626893f52a38d1ef658dfd28da02903826a7608948322424c2f1e"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-final/r02d/charizard-tail-r02d-root-inner.png",
+      "pathRoot": "filesystem",
+      "bytes": 1516212,
+      "sha256": "7c02a61d80b43f7b76e62362ca5eb08c0433bbb314b7d45eb6c2e4d7036dbe25"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-final/r02d/charizard-tail-r02d-root-rear.png",
+      "pathRoot": "filesystem",
+      "bytes": 1390919,
+      "sha256": "572b705bfe1c8b9e2aa124db29692953e926519e83eba26a766bf7d7f9480a64"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-final/r02d/charizard-tail-r02d-root-side.png",
+      "pathRoot": "filesystem",
+      "bytes": 1294286,
+      "sha256": "69c2bae2a4085edb9f0a32753f1fb8c5903b871342a35322e10d24bd6886a8d3"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-final/r02d/charizard-tail-r02d-threequarter.png",
+      "pathRoot": "filesystem",
+      "bytes": 780429,
+      "sha256": "efcb869d54b7232fd11449f809861582717f30a8a21d2c801625eec28037ac64"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-final/r02d/charizard-tail-r02d.blend",
+      "pathRoot": "filesystem",
+      "bytes": 11422242,
+      "sha256": "153b0980c128d7f6f61ec66baeee8db9ebabf8e07872f244b1aafd5d137b397c"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-final/r02d/charizard-tail-r02d.glb",
+      "pathRoot": "filesystem",
+      "bytes": 6038352,
+      "sha256": "cab1a39d8f5367bc06f66ef98562ce96eaad7d6bb9759347d211706fc4629fa0"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-final/r02d/inner-camera.json",
+      "pathRoot": "filesystem",
+      "bytes": 370,
+      "sha256": "a6f8a523ee81c86144a6e8f6a3900f085c80f897270f4e8e549bae2a62592e03"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-final/r02d/smoothing-receipt.json",
+      "pathRoot": "filesystem",
+      "bytes": 1017,
+      "sha256": "bdb6c64768f1e94845b18012f1941a8714dddd162030f8b14be5ce0227720aaa"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-final/r02d/vertex-audit.npz",
+      "pathRoot": "filesystem",
+      "bytes": 3562787,
+      "sha256": "24f65e7e127f5449d927e8560b2b2e4dfb3c2f81a04d6fe3ed513f59215b3f62"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-final/r02e/camera-receipt.json",
+      "pathRoot": "filesystem",
+      "bytes": 1094,
+      "sha256": "84d74a30da82beec628e0981a5df459d0b5b8774eac6b975cf998a55d7948fb4"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-final/r02e/charizard-tail-r02e-minusX.png",
+      "pathRoot": "filesystem",
+      "bytes": 760810,
+      "sha256": "e254d6b598d892d8350879bc577606c2b7e44fca022465a8ef5f73c5f38ca6a3"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-final/r02e/charizard-tail-r02e-minusY.png",
+      "pathRoot": "filesystem",
+      "bytes": 797048,
+      "sha256": "4919c245ed8076d8c4cfe918e3a2b00a8761e6d335adb30a43711ad15e06c65e"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-final/r02e/charizard-tail-r02e-plusX.png",
+      "pathRoot": "filesystem",
+      "bytes": 780259,
+      "sha256": "b09c7dd04237b0bb92807cada370943d4e49597838d4a5f3959ee494d817a328"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-final/r02e/charizard-tail-r02e-plusY.png",
+      "pathRoot": "filesystem",
+      "bytes": 771106,
+      "sha256": "bde5558eb3bb03905e6bc14ad0bf530410ecd64ec395b49a42635741373ffbdd"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-final/r02e/charizard-tail-r02e-root-inner.png",
+      "pathRoot": "filesystem",
+      "bytes": 1511615,
+      "sha256": "eaecb231f3dd7e4e3fec3c42ab7c6385b7159a4ca04b4b48c0b24fafbb947bbc"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-final/r02e/charizard-tail-r02e-root-rear.png",
+      "pathRoot": "filesystem",
+      "bytes": 1390919,
+      "sha256": "7f0a7256399528e2d8d37a60c25b10ccda16e7fb111e5a78636f19d899dfddeb"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-final/r02e/charizard-tail-r02e-root-side.png",
+      "pathRoot": "filesystem",
+      "bytes": 1294286,
+      "sha256": "fe2662feb187b8e6900ca3b2c2bd50552b18c589d0d7593e2140d74bb2f5bf95"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-final/r02e/charizard-tail-r02e-threequarter.png",
+      "pathRoot": "filesystem",
+      "bytes": 780429,
+      "sha256": "843577270bfd87c9233c10d468b41b8ab8be81b60b73d720a8673c393c1c5003"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-final/r02e/charizard-tail-r02e.blend",
+      "pathRoot": "filesystem",
+      "bytes": 12826874,
+      "sha256": "2a794441956bc7ac6d9412089c44c03ef0a465dfe77e538d64b787472cc5ab19"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-final/r02e/charizard-tail-r02e.glb",
+      "pathRoot": "filesystem",
+      "bytes": 6036384,
+      "sha256": "15939281f082dee27f2ad399186601b8d294cb74afed210f20859382b1e68eb3"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-final/r02e/inner-camera.json",
+      "pathRoot": "filesystem",
+      "bytes": 370,
+      "sha256": "a6f8a523ee81c86144a6e8f6a3900f085c80f897270f4e8e549bae2a62592e03"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-final/r02e/native-patch.json",
+      "pathRoot": "filesystem",
+      "bytes": 1708,
+      "sha256": "c5937c4ad8e9f8bfbed0b533abbd866f1882fd8049c8edc36972b6cb4fe5fef1"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-final/r02e/topology-audit.npz",
+      "pathRoot": "filesystem",
+      "bytes": 2506150,
+      "sha256": "2164b268f216cc5656d4041ae2f38e8dae2098994e1c5c004e8185d00667f473"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-final/r02e/topology-receipt.json",
+      "pathRoot": "filesystem",
+      "bytes": 583,
+      "sha256": "175f4dd386ac76f12d92e8623f22d9ebc19722e4be2f0bc488152029eac014b1"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-final/region/region.json",
+      "pathRoot": "filesystem",
+      "bytes": 588,
+      "sha256": "94532900c472b5a42512b0221210ecd147068134dae17cc1884e5865a14311e8"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-final/region/region.npz",
+      "pathRoot": "filesystem",
+      "bytes": 1768718,
+      "sha256": "c11dcd4d86124fdc51d399014d07a887eb6b7d445fbf6ac24f936a5c0cdd820d"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pca/comparison.json",
+      "pathRoot": "filesystem",
+      "bytes": 1298,
+      "sha256": "2c28b98cb2926c33c36590a57f2dee5ace57ebb9de83be3436e53829d02c6fb9"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pca/r02d/camera-receipt.json",
+      "pathRoot": "filesystem",
+      "bytes": 1094,
+      "sha256": "84d74a30da82beec628e0981a5df459d0b5b8774eac6b975cf998a55d7948fb4"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pca/r02d/charizard-tail-r02d-minusX.png",
+      "pathRoot": "filesystem",
+      "bytes": 760810,
+      "sha256": "97278d0579be7040b4b5c7b284d741390ceeccfd9be90e96edac05fe4a0043fb"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pca/r02d/charizard-tail-r02d-minusY.png",
+      "pathRoot": "filesystem",
+      "bytes": 797048,
+      "sha256": "a8dc24de3e6956783169d9365ff408b8f42aec7bfd45bff6663c4e3534e86e21"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pca/r02d/charizard-tail-r02d-plusX.png",
+      "pathRoot": "filesystem",
+      "bytes": 780202,
+      "sha256": "36bf3f3330150eb87d799ebbedd6c43c5e08e1a67c079dd327daaf0682f13539"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pca/r02d/charizard-tail-r02d-plusY.png",
+      "pathRoot": "filesystem",
+      "bytes": 771106,
+      "sha256": "d7ab22253b5bddc5344ea8ef6dbad5c2eacaf2eb92110389d761b9f8a575a4c2"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pca/r02d/charizard-tail-r02d-root-rear.png",
+      "pathRoot": "filesystem",
+      "bytes": 1390919,
+      "sha256": "6cc3556941f48a77f98767a204d5bd9cac24670cc9262e5f7b7963b973e42608"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pca/r02d/charizard-tail-r02d-root-side.png",
+      "pathRoot": "filesystem",
+      "bytes": 1294286,
+      "sha256": "7f042d4d4ddd48e577c19d67c60fddcea9c7a2cce9bbbc142c4867bddc11d4c8"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pca/r02d/charizard-tail-r02d-threequarter.png",
+      "pathRoot": "filesystem",
+      "bytes": 780429,
+      "sha256": "d4595e26ffd61b8460e59684d9590c2684fc449f7e7fcd4d394e9ff818b86895"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pca/r02d/charizard-tail-r02d.blend",
+      "pathRoot": "filesystem",
+      "bytes": 11422242,
+      "sha256": "19eca4ca31899d8ed74283bc68991ca88a6799799592ce7dcd9ee00c0ee8bf64"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pca/r02d/charizard-tail-r02d.glb",
+      "pathRoot": "filesystem",
+      "bytes": 6038352,
+      "sha256": "cab1a39d8f5367bc06f66ef98562ce96eaad7d6bb9759347d211706fc4629fa0"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pca/r02d/smoothing-receipt.json",
+      "pathRoot": "filesystem",
+      "bytes": 1015,
+      "sha256": "323a9870659b003998e6013a491d8b44938f7c2dbe3daa875bf653707fe6baf5"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pca/r02d/vertex-audit.npz",
+      "pathRoot": "filesystem",
+      "bytes": 3562787,
+      "sha256": "24f65e7e127f5449d927e8560b2b2e4dfb3c2f81a04d6fe3ed513f59215b3f62"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pca/region/region.json",
+      "pathRoot": "filesystem",
+      "bytes": 588,
+      "sha256": "94532900c472b5a42512b0221210ecd147068134dae17cc1884e5865a14311e8"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pca/region/region.npz",
+      "pathRoot": "filesystem",
+      "bytes": 1768718,
+      "sha256": "c11dcd4d86124fdc51d399014d07a887eb6b7d445fbf6ac24f936a5c0cdd820d"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pinned/comparison-r02e.json",
+      "pathRoot": "filesystem",
+      "bytes": 1442,
+      "sha256": "06f3e5839afc70869f166a4d6892ba06afe3ed32f5aefb6d908f1a7733cbe598"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pinned/r02d/camera-receipt.json",
+      "pathRoot": "filesystem",
+      "bytes": 1094,
+      "sha256": "84d74a30da82beec628e0981a5df459d0b5b8774eac6b975cf998a55d7948fb4"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pinned/r02d/charizard-tail-r02d-minusX.png",
+      "pathRoot": "filesystem",
+      "bytes": 760810,
+      "sha256": "605ce99c3e757eec284c6ee70c322067a07d9e4f298db4e7d9847be2aecac778"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pinned/r02d/charizard-tail-r02d-minusY.png",
+      "pathRoot": "filesystem",
+      "bytes": 797048,
+      "sha256": "e5dac6bd2fed05dd94d0a5fa1cac50d189d95a17de945e50cc8d23745c2b9d59"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pinned/r02d/charizard-tail-r02d-plusX.png",
+      "pathRoot": "filesystem",
+      "bytes": 780202,
+      "sha256": "0f1c378f31dc2dec11d41792bc3e082eba22c1c63b25388b38c26fdc4fa2b89c"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pinned/r02d/charizard-tail-r02d-plusY.png",
+      "pathRoot": "filesystem",
+      "bytes": 771106,
+      "sha256": "9c957c72cd5d0b7077f2395c15b22e456c28c27a0b76d10ef9c1e27a427b91e3"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pinned/r02d/charizard-tail-r02d-root-inner.png",
+      "pathRoot": "filesystem",
+      "bytes": 1516212,
+      "sha256": "8f1dfb0d8a5a3c2bb3b03b205773bb5eeee27fcf9fc16f9356a119d4a3e55439"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pinned/r02d/charizard-tail-r02d-root-rear.png",
+      "pathRoot": "filesystem",
+      "bytes": 1390919,
+      "sha256": "26a8ff97f5880bf77b497011b5b75d5158323d3a48a3885f94393f589e48ae16"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pinned/r02d/charizard-tail-r02d-root-side.png",
+      "pathRoot": "filesystem",
+      "bytes": 1294286,
+      "sha256": "3b8c560f322fa2f7312f33aec262680a5a889d42027e4e522a3b1a1a566b6499"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pinned/r02d/charizard-tail-r02d-threequarter.png",
+      "pathRoot": "filesystem",
+      "bytes": 780429,
+      "sha256": "0550dba09f65ea2f6b3cdd82163d5cadc08559a44aff229b2eb804d3b9c1d253"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pinned/r02d/charizard-tail-r02d.blend",
+      "pathRoot": "filesystem",
+      "bytes": 11422242,
+      "sha256": "c5a224f5c354abcd0d6fdfaf648484502f00fe6332a09467344ca9936ce819f4"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pinned/r02d/charizard-tail-r02d.glb",
+      "pathRoot": "filesystem",
+      "bytes": 6038352,
+      "sha256": "cab1a39d8f5367bc06f66ef98562ce96eaad7d6bb9759347d211706fc4629fa0"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pinned/r02d/inner-camera.json",
+      "pathRoot": "filesystem",
+      "bytes": 370,
+      "sha256": "a6f8a523ee81c86144a6e8f6a3900f085c80f897270f4e8e549bae2a62592e03"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pinned/r02d/smoothing-receipt.json",
+      "pathRoot": "filesystem",
+      "bytes": 1018,
+      "sha256": "088be990424814f2a1d7b1d04127f7a761f7117a46459f8455a8613867075599"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pinned/r02d/vertex-audit.npz",
+      "pathRoot": "filesystem",
+      "bytes": 3562787,
+      "sha256": "24f65e7e127f5449d927e8560b2b2e4dfb3c2f81a04d6fe3ed513f59215b3f62"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pinned/r02e/camera-receipt.json",
+      "pathRoot": "filesystem",
+      "bytes": 1094,
+      "sha256": "84d74a30da82beec628e0981a5df459d0b5b8774eac6b975cf998a55d7948fb4"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pinned/r02e/charizard-tail-r02e-minusX.png",
+      "pathRoot": "filesystem",
+      "bytes": 760810,
+      "sha256": "71b0bad15760a2aa24dac6a29c3d933610c61b92c86e4b4729e2fe6603d99a2f"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pinned/r02e/charizard-tail-r02e-minusY.png",
+      "pathRoot": "filesystem",
+      "bytes": 797048,
+      "sha256": "990577f9615812ccabdfeb11aad920a456a1836fe3b1807c6f7e596a0304137a"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pinned/r02e/charizard-tail-r02e-plusX.png",
+      "pathRoot": "filesystem",
+      "bytes": 780259,
+      "sha256": "a524a83a6ae9e2d4bcb47568fb0b960433e97934fc66381b6e3692bf929e7052"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pinned/r02e/charizard-tail-r02e-plusY.png",
+      "pathRoot": "filesystem",
+      "bytes": 771106,
+      "sha256": "9ff2eeac5878d5f3be431a702cc308a4237f4e513c4f71fbada6ac76af563f8c"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pinned/r02e/charizard-tail-r02e-root-inner.png",
+      "pathRoot": "filesystem",
+      "bytes": 1511615,
+      "sha256": "5e7569e88ffab5cb6cf879e622f88a20ac0594b7f9e5770e67c0f13b109a90e5"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pinned/r02e/charizard-tail-r02e-root-rear.png",
+      "pathRoot": "filesystem",
+      "bytes": 1390919,
+      "sha256": "a4f7b4d6b5847d4f5e38655ed6dcefbed49a5cea71c845a5d73a9cdb1c39f6ad"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pinned/r02e/charizard-tail-r02e-root-side.png",
+      "pathRoot": "filesystem",
+      "bytes": 1294286,
+      "sha256": "ec1602070923c7d86e75c742a2edb8f4bfb5d8c6d9058342495723c90462c582"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pinned/r02e/charizard-tail-r02e-threequarter.png",
+      "pathRoot": "filesystem",
+      "bytes": 780429,
+      "sha256": "bdd182bc25296c6e00330dfa25954d07b99245d194501ae3d015f82707390c4c"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pinned/r02e/charizard-tail-r02e.blend",
+      "pathRoot": "filesystem",
+      "bytes": 12826874,
+      "sha256": "c62501594e9a6683631987ef22e71dbc2a410d731affd47bc1615379c2597241"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pinned/r02e/charizard-tail-r02e.glb",
+      "pathRoot": "filesystem",
+      "bytes": 6036384,
+      "sha256": "15939281f082dee27f2ad399186601b8d294cb74afed210f20859382b1e68eb3"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pinned/r02e/inner-camera.json",
+      "pathRoot": "filesystem",
+      "bytes": 370,
+      "sha256": "a6f8a523ee81c86144a6e8f6a3900f085c80f897270f4e8e549bae2a62592e03"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pinned/r02e/native-patch.json",
+      "pathRoot": "filesystem",
+      "bytes": 1708,
+      "sha256": "c5937c4ad8e9f8bfbed0b533abbd866f1882fd8049c8edc36972b6cb4fe5fef1"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pinned/r02e/topology-audit.npz",
+      "pathRoot": "filesystem",
+      "bytes": 2506150,
+      "sha256": "2164b268f216cc5656d4041ae2f38e8dae2098994e1c5c004e8185d00667f473"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pinned/r02e/topology-receipt.json",
+      "pathRoot": "filesystem",
+      "bytes": 583,
+      "sha256": "175f4dd386ac76f12d92e8623f22d9ebc19722e4be2f0bc488152029eac014b1"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pinned/region/region.json",
+      "pathRoot": "filesystem",
+      "bytes": 588,
+      "sha256": "94532900c472b5a42512b0221210ecd147068134dae17cc1884e5865a14311e8"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pinned/region/region.npz",
+      "pathRoot": "filesystem",
+      "bytes": 1768718,
+      "sha256": "c11dcd4d86124fdc51d399014d07a887eb6b7d445fbf6ac24f936a5c0cdd820d"
+    }
+  ],
+  "dependencies": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02a/charizard-tail-r02a.blend",
+      "pathRoot": "filesystem",
+      "bytes": 11422905,
+      "sha256": "6204b529921381fc9da050716c2bb7105a8602b0c5faead07f14e1c97aa7f346"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02a/charizard-tail-r02a.glb",
+      "pathRoot": "filesystem",
+      "bytes": 6038352,
+      "sha256": "d6e4dd5bf9db81f7bd9220b37eb95d24ebe4bd217908de2ca2773c5d545b975a"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02a/vertex-audit.npz",
+      "pathRoot": "filesystem",
+      "bytes": 3504097,
+      "sha256": "6b302613d02652038e7780d196958f549c6574c133e79292a67f4fc1e613dd3c"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/audit-root-surface/r02d-intersection-details.json",
+      "pathRoot": "filesystem",
+      "bytes": 25795,
+      "sha256": "e453da98f60cd6bfd0111f8ea540e715956ce575cd7600a09fd6215459b07550"
+    },
+    {
+      "path": "/mnt/zer0models/workspace/zer0/experiments/pokemon/assets/blender/charizard-fair-review/charizard-official-61062-o256.json",
+      "pathRoot": "filesystem",
+      "bytes": 1443,
+      "sha256": "0391e2f0bf9566987c6c40430b93e80f0a2301e76b4896582fefead3e2d4faf5"
+    },
+    {
+      "path": "/mnt/zer0models/workspace/zer0/experiments/pokemon/assets/experiments/charizard-official-raw/charizard-official-raw-61062-o256.glb",
+      "pathRoot": "filesystem",
+      "bytes": 5243844,
+      "sha256": "f9f0b2c3f2e189dcdd1c72190e8c79b7b958a2dd4f3bacb2d844ec37b330ed8e"
+    }
+  ],
+  "scripts": [
+    {
+      "path": "tools/charizard-anatomy/browser_root_batch.mjs",
+      "pathRoot": "repository",
+      "bytes": 5056,
+      "sha256": "e677ca5ccb88414010c01216c372ea25c658de6ff0465bcaaa7298fa0733a81f"
+    },
+    {
+      "path": "tools/charizard-anatomy/collect_root_batch.py",
+      "pathRoot": "repository",
+      "bytes": 6432,
+      "sha256": "5f41c29eaeb237776d16fc9c29466d2c083f3cecda32f79fb6b342f5b3dbe13d"
+    },
+    {
+      "path": "tools/charizard-anatomy/compare_root_reproduction.py",
+      "pathRoot": "repository",
+      "bytes": 2467,
+      "sha256": "c356d416bb68ded3f5e4b1578cb9695533c10b1b0abbc3cfbe5c79194bef5cdb"
+    },
+    {
+      "path": "tools/charizard-anatomy/mls_root.py",
+      "pathRoot": "repository",
+      "bytes": 5271,
+      "sha256": "ceaaadd894105f3ed82b36ec28a849842f8c91de94f0484f7a8bbc169023a59f"
+    },
+    {
+      "path": "tools/charizard-anatomy/register_root_batch.py",
+      "pathRoot": "repository",
+      "bytes": 5534,
+      "sha256": "eead880239df7b21f2dd25183d1e470ece9e4504e816b13dd8cb8513f0e4f8ec"
+    },
+    {
+      "path": "tools/charizard-anatomy/render_candidate.py",
+      "pathRoot": "repository",
+      "bytes": 3772,
+      "sha256": "23f180197fec5340f426b638b501e4b2501ef97c68238ec045bba9b0f6cae213"
+    },
+    {
+      "path": "tools/charizard-anatomy/render_closeup.py",
+      "pathRoot": "repository",
+      "bytes": 2588,
+      "sha256": "e4d928e27aaea9b45589cfcba79f0b6623551ed6c9b80092553b744a395dee8b"
+    },
+    {
+      "path": "tools/charizard-anatomy/render_review.py",
+      "pathRoot": "repository",
+      "bytes": 2686,
+      "sha256": "25512702fc3a89ea21c983177c93b7804fb83e5802c8248bdd247b9b026b84d5"
+    },
+    {
+      "path": "tools/charizard-anatomy/render_root_region.py",
+      "pathRoot": "repository",
+      "bytes": 1800,
+      "sha256": "7417c9e5b47146be3b3ec4b2248a666249de3ce331045d48b0e2868c4aa6bc1c"
+    },
+    {
+      "path": "tools/charizard-anatomy/render_strip_detail.py",
+      "pathRoot": "repository",
+      "bytes": 1294,
+      "sha256": "b170fc6d6231ae9ebaed76d5dbb9421217814eae77f78696ba97ba5632b40b86"
+    },
+    {
+      "path": "tools/charizard-anatomy/reopen_root_export.py",
+      "pathRoot": "repository",
+      "bytes": 1579,
+      "sha256": "f9214dc38202e5d977709ad95dde5726f9cd7fd02e75597675f3f944013909de"
+    },
+    {
+      "path": "tools/charizard-anatomy/repair_root_strip.py",
+      "pathRoot": "repository",
+      "bytes": 4194,
+      "sha256": "59ff0713a1605461441d2caa5d081313aab569edb4b1ef5cd5e384deb74d5cbf"
+    },
+    {
+      "path": "tools/charizard-anatomy/reproduce.py",
+      "pathRoot": "repository",
+      "bytes": 2233,
+      "sha256": "8bda664ce1da8bc036b402e283cea2164c0316c97187e8f128a367bdbf496d3b"
+    },
+    {
+      "path": "tools/charizard-anatomy/reproduce_root.py",
+      "pathRoot": "repository",
+      "bytes": 2843,
+      "sha256": "4657acc8fecd392370d4aebc4005740eb768893dd02f6edf657e2fc0931a4b55"
+    },
+    {
+      "path": "tools/charizard-anatomy/root_audit/diagnose_mls_folds.py",
+      "pathRoot": "repository",
+      "bytes": 5881,
+      "sha256": "ce8a396fcd1af822d939f569037f8bd5b5b7ec8068039e16303fc23c0e9815bd"
+    },
+    {
+      "path": "tools/charizard-anatomy/root_audit/diagnose_ribs.py",
+      "pathRoot": "repository",
+      "bytes": 11166,
+      "sha256": "49a168c1727a345b8e9d2eb012a8482c1b7d76dbb30b1128b7b956e2cfa17980"
+    },
+    {
+      "path": "tools/charizard-anatomy/root_audit/inspect_intersection_pairs.py",
+      "pathRoot": "repository",
+      "bytes": 5813,
+      "sha256": "e0bed6e481af1d348c7312ca09f21576cf1a4e6bf14fd61bf1db0c84c9909ac2"
+    },
+    {
+      "path": "tools/charizard-anatomy/root_audit/validate_strip_cleanup.py",
+      "pathRoot": "repository",
+      "bytes": 16589,
+      "sha256": "b0ee5004d9d00dc4933f328c2b17d8b1603e1a606cc71683d0c809551cc76f43"
+    },
+    {
+      "path": "tools/charizard-anatomy/root_audit/validate_surface_candidates.py",
+      "pathRoot": "repository",
+      "bytes": 13490,
+      "sha256": "248c36f5c234674b13248e444ee1eba5dd40aeff789f4a6b356bbd84da682f6e"
+    },
+    {
+      "path": "tools/charizard-anatomy/root_region.py",
+      "pathRoot": "repository",
+      "bytes": 3070,
+      "sha256": "c488448a0dbacf16679fbf2b25be574666938f5db77ee75e2fe2433b3d2036ff"
+    },
+    {
+      "path": "tools/charizard-anatomy/save_native_patch.py",
+      "pathRoot": "repository",
+      "bytes": 1179,
+      "sha256": "3cef75aa11e176ca5469f9b689c9ad8ddac3ef8f674ae8d44f296db8430fb8ff"
+    },
+    {
+      "path": "tools/charizard-anatomy/smooth_root.py",
+      "pathRoot": "repository",
+      "bytes": 2632,
+      "sha256": "2dfa10c0f1ca6326675c61bc48b11f2bd42e4488815b39e48ae44683a0dbc0a0"
+    }
+  ],
+  "reports": [
+    {
+      "path": "canonical/characters/charizard/root-surface-batch/audit/r02c-fold-measurements.json",
+      "pathRoot": "repository",
+      "bytes": 47738,
+      "sha256": "e4d7f000a92ee5b5c5cb04af0ba0112ba6649f617e5b14063f59ea7eb515cf10"
+    },
+    {
+      "path": "canonical/characters/charizard/root-surface-batch/audit/r02d-intersection-details.json",
+      "pathRoot": "repository",
+      "bytes": 25795,
+      "sha256": "e453da98f60cd6bfd0111f8ea540e715956ce575cd7600a09fd6215459b07550"
+    },
+    {
+      "path": "canonical/characters/charizard/root-surface-batch/audit/r02d-validation.json",
+      "pathRoot": "repository",
+      "bytes": 36474,
+      "sha256": "9c5820a573ef68f3eac7002f7d533af4bacf8204e865081aa0f722ba483e95ae"
+    },
+    {
+      "path": "canonical/characters/charizard/root-surface-batch/audit/r02d-validation.md",
+      "pathRoot": "repository",
+      "bytes": 2600,
+      "sha256": "f57a144a22353cea9c3746556402ff7a0397bb011c4a89218522e8446e6c0323"
+    },
+    {
+      "path": "canonical/characters/charizard/root-surface-batch/audit/r02e-reproduction-validation.json",
+      "pathRoot": "repository",
+      "bytes": 22293,
+      "sha256": "a37e14f967fc20dfe590610ebdd73b8f9d32c386e09f73ea22e311f53146293e"
+    },
+    {
+      "path": "canonical/characters/charizard/root-surface-batch/audit/r02e-reproduction-validation.md",
+      "pathRoot": "repository",
+      "bytes": 2464,
+      "sha256": "6e244abe460d3be1f426bd7ba15eeb9efdef5ed43705ab3a8efbf35ff599b90c"
+    },
+    {
+      "path": "canonical/characters/charizard/root-surface-batch/audit/r02e-tracked-validation.json",
+      "pathRoot": "repository",
+      "bytes": 22221,
+      "sha256": "f63ce0cef234ddc4985c2653ad6f35cf0fae641e13d573ebf126576b1ebdd3ac"
+    },
+    {
+      "path": "canonical/characters/charizard/root-surface-batch/audit/r02e-tracked-validation.md",
+      "pathRoot": "repository",
+      "bytes": 2464,
+      "sha256": "6e244abe460d3be1f426bd7ba15eeb9efdef5ed43705ab3a8efbf35ff599b90c"
+    },
+    {
+      "path": "canonical/characters/charizard/root-surface-batch/audit/r02e-validation.json",
+      "pathRoot": "repository",
+      "bytes": 22221,
+      "sha256": "f63ce0cef234ddc4985c2653ad6f35cf0fae641e13d573ebf126576b1ebdd3ac"
+    },
+    {
+      "path": "canonical/characters/charizard/root-surface-batch/audit/r02e-validation.md",
+      "pathRoot": "repository",
+      "bytes": 2464,
+      "sha256": "6e244abe460d3be1f426bd7ba15eeb9efdef5ed43705ab3a8efbf35ff599b90c"
+    },
+    {
+      "path": "canonical/characters/charizard/root-surface-batch/audit/rib-measurements.json",
+      "pathRoot": "repository",
+      "bytes": 66191,
+      "sha256": "cdf42172cfc59275129d85c77ad13a01df8c11dbfbe1e2b42551becf8e17a72f"
+    },
+    {
+      "path": "canonical/characters/charizard/root-surface-batch/audit/root-batch-trail-review.md",
+      "pathRoot": "repository",
+      "bytes": 5200,
+      "sha256": "0cc6f4a2e44f6e96fc52cf4edd0ad81c6a7d1c2608126ae9164644449c9af16f"
+    },
+    {
+      "path": "canonical/characters/charizard/root-surface-batch/audit/surface-diagnosis.md",
+      "pathRoot": "repository",
+      "bytes": 5629,
+      "sha256": "22a92342281a6e93598de73586fa88d595f0b1328195df0a6cd7a6fb4f74c666"
+    },
+    {
+      "path": "canonical/characters/charizard/root-surface-batch/decisions-snapshot.tsv",
+      "pathRoot": "repository",
+      "bytes": 4134,
+      "sha256": "ddd9b85502df58a7a5dbba3ade89f6dfdd6ee67174639ceafff3f6c964fe0c98"
+    },
+    {
+      "path": "canonical/characters/charizard/root-surface-batch/r02b/camera-receipt.json",
+      "pathRoot": "repository",
+      "bytes": 1094,
+      "sha256": "84d74a30da82beec628e0981a5df459d0b5b8774eac6b975cf998a55d7948fb4"
+    },
+    {
+      "path": "canonical/characters/charizard/root-surface-batch/r02b/region.json",
+      "pathRoot": "repository",
+      "bytes": 588,
+      "sha256": "94532900c472b5a42512b0221210ecd147068134dae17cc1884e5865a14311e8"
+    },
+    {
+      "path": "canonical/characters/charizard/root-surface-batch/r02b/smoothing-receipt.json",
+      "pathRoot": "repository",
+      "bytes": 480,
+      "sha256": "e33a69acbf719fe3f8d8cfde27024105d593f99a9a24b1d5469db3dad8e03e3e"
+    },
+    {
+      "path": "canonical/characters/charizard/root-surface-batch/r02b-experiment.json",
+      "pathRoot": "repository",
+      "bytes": 4451,
+      "sha256": "84cfa1a1db2ca5a07be2d9dae9d9f5a4b8c993d0465c632537347fa367a606a0"
+    },
+    {
+      "path": "canonical/characters/charizard/root-surface-batch/r02c/camera-receipt.json",
+      "pathRoot": "repository",
+      "bytes": 1094,
+      "sha256": "84d74a30da82beec628e0981a5df459d0b5b8774eac6b975cf998a55d7948fb4"
+    },
+    {
+      "path": "canonical/characters/charizard/root-surface-batch/r02c/smoothing-receipt.json",
+      "pathRoot": "repository",
+      "bytes": 969,
+      "sha256": "0e63d4c7f362e6ec72778593102e292cfd3111d8aaa30470c779f7cac30f8a21"
+    },
+    {
+      "path": "canonical/characters/charizard/root-surface-batch/r02c-experiment.json",
+      "pathRoot": "repository",
+      "bytes": 5128,
+      "sha256": "5bf33e667487070b853c7537041edb67cf5b17eca54bd678438a31af66f6b061"
+    },
+    {
+      "path": "canonical/characters/charizard/root-surface-batch/r02d/camera-receipt.json",
+      "pathRoot": "repository",
+      "bytes": 1094,
+      "sha256": "84d74a30da82beec628e0981a5df459d0b5b8774eac6b975cf998a55d7948fb4"
+    },
+    {
+      "path": "canonical/characters/charizard/root-surface-batch/r02d/inner-camera.json",
+      "pathRoot": "repository",
+      "bytes": 370,
+      "sha256": "a6f8a523ee81c86144a6e8f6a3900f085c80f897270f4e8e549bae2a62592e03"
+    },
+    {
+      "path": "canonical/characters/charizard/root-surface-batch/r02d/smoothing-receipt.json",
+      "pathRoot": "repository",
+      "bytes": 991,
+      "sha256": "f175581f322b617c42bb469463cb1e49f155168e3cc618a5bbbeb2ba0745bcd0"
+    },
+    {
+      "path": "canonical/characters/charizard/root-surface-batch/r02d-experiment.json",
+      "pathRoot": "repository",
+      "bytes": 5282,
+      "sha256": "14c23b931c9c7f013235fd697674af692b01db58ec48b05416048b7f65a5ecb1"
+    },
+    {
+      "path": "canonical/characters/charizard/root-surface-batch/r02e/blender-reopen.json",
+      "pathRoot": "repository",
+      "bytes": 988,
+      "sha256": "5167d7e8abe0ae80a7a203b64dc1956e61e55edd581df35b12468c00a568ba78"
+    },
+    {
+      "path": "canonical/characters/charizard/root-surface-batch/r02e/browser-check.json",
+      "pathRoot": "repository",
+      "bytes": 1828,
+      "sha256": "e3714683139a1ddabe248f6f028b5094c0ee3dedcc2cb5fdd0e33581ccc31ae6"
+    },
+    {
+      "path": "canonical/characters/charizard/root-surface-batch/r02e/camera-receipt.json",
+      "pathRoot": "repository",
+      "bytes": 1094,
+      "sha256": "84d74a30da82beec628e0981a5df459d0b5b8774eac6b975cf998a55d7948fb4"
+    },
+    {
+      "path": "canonical/characters/charizard/root-surface-batch/r02e/inner-camera.json",
+      "pathRoot": "repository",
+      "bytes": 370,
+      "sha256": "a6f8a523ee81c86144a6e8f6a3900f085c80f897270f4e8e549bae2a62592e03"
+    },
+    {
+      "path": "canonical/characters/charizard/root-surface-batch/r02e/native-patch.json",
+      "pathRoot": "repository",
+      "bytes": 1708,
+      "sha256": "c5937c4ad8e9f8bfbed0b533abbd866f1882fd8049c8edc36972b6cb4fe5fef1"
+    },
+    {
+      "path": "canonical/characters/charizard/root-surface-batch/r02e/topology-receipt.json",
+      "pathRoot": "repository",
+      "bytes": 583,
+      "sha256": "175f4dd386ac76f12d92e8623f22d9ebc19722e4be2f0bc488152029eac014b1"
+    },
+    {
+      "path": "canonical/characters/charizard/root-surface-batch/r02e-experiment.json",
+      "pathRoot": "repository",
+      "bytes": 4881,
+      "sha256": "f0cc7433c2fdba462f00b0827350ca547ab373ec70368e81638557d0693cefb4"
+    },
+    {
+      "path": "canonical/characters/charizard/root-surface-batch/reproduction-root-final-comparison-r02e.json",
+      "pathRoot": "repository",
+      "bytes": 1441,
+      "sha256": "bec3675276540dd18b5e34b4e6e49d5ed55db97fb5500a4b602a9ff578d50aca"
+    },
+    {
+      "path": "canonical/characters/charizard/root-surface-batch/reproduction-root-pca-comparison.json",
+      "pathRoot": "repository",
+      "bytes": 1298,
+      "sha256": "2c28b98cb2926c33c36590a57f2dee5ace57ebb9de83be3436e53829d02c6fb9"
+    },
+    {
+      "path": "canonical/characters/charizard/root-surface-batch/reproduction-root-pinned-comparison-r02e.json",
+      "pathRoot": "repository",
+      "bytes": 1442,
+      "sha256": "06f3e5839afc70869f166a4d6892ba06afe3ed32f5aefb6d908f1a7733cbe598"
+    },
+    {
+      "path": "canonical/characters/charizard/root-surface-batch/review-resolutions.md",
+      "pathRoot": "repository",
+      "bytes": 1837,
+      "sha256": "ee69ca3454d7b032b41d4e81279f064d1fb6afa09b07e0a3b998d45c00f21387"
+    },
+    {
+      "path": "canonical/characters/charizard/root-surface-batch/visual-review.md",
+      "pathRoot": "repository",
+      "bytes": 2352,
+      "sha256": "147fa35df9403be7e94ad8900e683d3d7d8640a3f9594b1fc6649b79f01592b4"
+    }
+  ],
+  "validation": {
+    "protectedVerticesExact": 112475,
+    "protectedOrientedTrianglesExact": 224371,
+    "localIntersectionPairs": {
+      "r02a": 2,
+      "r02d": 12,
+      "r02e": 0
+    },
+    "scope": "same wider root bounds in audit/r02d-validation.json; shared-vertex and numerical limitations apply",
+    "wholeModelIntersectionFreedom": false,
+    "reproduction": "exact exported geometry, transforms, audit arrays, native patch and all eight rendered views",
+    "blenderReopened": true
+  },
+  "runtime": {
+    "meshes": 2,
+    "vertices": 126852,
+    "triangles": 253700,
+    "uvLayers": 0,
+    "materialSlots": 0,
+    "textureMaps": [],
+    "animationClips": [],
+    "rigged": false,
+    "approvedForGame": false
+  },
+  "review": {
+    "assistant": "local collar surface is smoother; head/limbs/wings still visibly malformed",
+    "human": "pending",
+    "browser": "simulated-browser-pass; real-device review pending"
+  },
+  "knownCompromises": [
+    "Tail proportions and broad proximal ovality remain provisional",
+    "This local triangulated repair is not final deformation topology",
+    "Head, horns, hands, feet and wing attachments need manual correction",
+    "No UVs/PBR, rig, clips, attacks or game promotion",
+    "No whole-model or separate flame/body intersection claim"
+  ],
+  "deployment": {
+    "fieldOS": "https://0.taila30dc.ts.net:8469/pokedex.html",
+    "unchangedRelease": "f85e3ae295feec02",
+    "realS25Acceptance": "pending",
+    "meshPromotedToGame": false
+  }
+}

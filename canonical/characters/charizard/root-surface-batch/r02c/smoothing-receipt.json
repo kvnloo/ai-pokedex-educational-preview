@@ -1,0 +1,35 @@
+{
+  "parent": "charizard-tail-r02a",
+  "candidate": "charizard-tail-r02c",
+  "method": "Area-weighted quadratic moving least squares; normal-only displacement",
+  "radius": 0.05,
+  "sigma": 0.03,
+  "passes": [
+    {
+      "pass": 1,
+      "skippedFits": 0,
+      "clippedFits": 0,
+      "maximumStep": 0.00459287857574267
+    },
+    {
+      "pass": 2,
+      "skippedFits": 14,
+      "clippedFits": 0,
+      "maximumStep": 0.0014246127206655234
+    },
+    {
+      "pass": 3,
+      "skippedFits": 23,
+      "clippedFits": 0,
+      "maximumStep": 0.0017934294340388249
+    }
+  ],
+  "changedVertices": 9883,
+  "protectedVertices": 112475,
+  "protectedCoordinatesExact": true,
+  "faceVertexSequenceExact": true,
+  "maximumDisplacement": 0.004638049751520157,
+  "medianSelectedDisplacement": 0.00018078647553920746,
+  "regionSource": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02b/region.npz",
+  "status": "awaiting visual and exported geometry checks"
+}

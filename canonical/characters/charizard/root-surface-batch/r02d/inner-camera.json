@@ -1,0 +1,22 @@
+{
+  "target": [
+    -0.4950000047683716,
+    0.20000000298023224,
+    -0.47200000286102295
+  ],
+  "direction": [
+    0.9820453524589539,
+    0.14730681478977203,
+    0.11784543842077255
+  ],
+  "orthoScale": 0.16,
+  "distance": 0.7,
+  "resolution": [
+    1000,
+    1000
+  ],
+  "shadows": false,
+  "cavity": false,
+  "engine": "BLENDER_WORKBENCH",
+  "light": "paint.sl"
+}

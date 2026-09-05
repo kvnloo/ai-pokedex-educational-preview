@@ -1,0 +1,1883 @@
+{
+  "method": "Compare signed face orientation using fixed r02a exported triangle stable vertex IDs evaluated before and after r02c deformation. This isolates deformation from any exporter diagonal changes.",
+  "stableExportAgreement": {
+    "r02a": {
+      "maximumCoordinateError": 0.0,
+      "uniqueStableRows": 122377
+    },
+    "r02c": {
+      "maximumCoordinateError": 0.0,
+      "uniqueStableRows": 122377
+    }
+  },
+  "protectedVertices": 112475,
+  "protectedMovedVertices": 0,
+  "affectedTriangles": 20383,
+  "flippedTriangles": 48,
+  "flippedStableVertexCount": 78,
+  "flipCentroidBounds": [
+    [
+      -0.8059978683789571,
+      -0.030129702140887577,
+      -0.5558887720108032
+    ],
+    [
+      -0.41204436620076496,
+      0.24851210912068686,
+      -0.3330589334170024
+    ]
+  ],
+  "minimumAltitudeBefore": {
+    "affectedQuantiles": [
+      2.335715091763811e-06,
+      0.0037747849315869562,
+      0.0061628606660843206,
+      0.007515057542797327,
+      0.010220288483348171
+    ],
+    "flippedQuantiles": [
+      5.900961725067148e-06,
+      0.0001431461686011634,
+      0.0005882933907296172,
+      0.0016378774960877675,
+      0.001640858597956452
+    ]
+  },
+  "normalSpreadBeforeDegrees": {
+    "affectedQuantiles": [
+      0.09008668670989042,
+      2.906005698065854,
+      7.869623543497515,
+      19.68402524093474,
+      70.32011506618981
+    ],
+    "flippedQuantiles": [
+      1.0197457673111596,
+      14.382968555271457,
+      26.09679024408339,
+      50.08771237112314,
+      50.08771237112314
+    ]
+  },
+  "flippedFaces": [
+    {
+      "r02aExportFace": 5033,
+      "stableVertexIds": [
+        122343,
+        2569,
+        122341
+      ],
+      "beforeCentroid": [
+        -0.7046704292297363,
+        0.15949766834576926,
+        -0.3330589334170024
+      ],
+      "normalRotationDegrees": 178.76085532949284,
+      "beforeArea": 3.227101387455287e-07,
+      "afterArea": 1.1848788339778947e-06,
+      "beforeMinimumAltitude": 2.2347701528447825e-05,
+      "beforeEdgeLengths": [
+        0.028880834866595134,
+        0.028879394698946053,
+        2.2394616015191523e-05
+      ],
+      "afterEdgeLengths": [
+        0.028837670803032973,
+        0.028841159206519473,
+        8.224489220248482e-05
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.0012970775827045198,
+        0.0011004566262365508,
+        0.0013032444767402621
+      ],
+      "beforeVertexNormalSpreadDegrees": 13.954049870040315
+    },
+    {
+      "r02aExportFace": 5193,
+      "stableVertexIds": [
+        122131,
+        2790,
+        122130
+      ],
+      "beforeCentroid": [
+        -0.7906472285588583,
+        0.16025360425313315,
+        -0.5153336922327677
+      ],
+      "normalRotationDegrees": 175.06930465982592,
+      "beforeArea": 3.2298484984209757e-06,
+      "afterArea": 1.693287411627535e-05,
+      "beforeMinimumAltitude": 0.0002094011388391705,
+      "beforeEdgeLengths": [
+        0.03084635144871825,
+        0.03084843297725945,
+        0.00020941975522874705
+      ],
+      "afterEdgeLengths": [
+        0.030823030253546334,
+        0.03085995628912087,
+        0.001098852883325628
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.001149888176066973,
+        0.001570663438747019,
+        0.0018378725260558722
+      ],
+      "beforeVertexNormalSpreadDegrees": 19.948296731187455
+    },
+    {
+      "r02aExportFace": 5194,
+      "stableVertexIds": [
+        122130,
+        2790,
+        2791
+      ],
+      "beforeCentroid": [
+        -0.7910890579223633,
+        0.17050708830356598,
+        -0.5159178574879965
+      ],
+      "normalRotationDegrees": 144.45559087912753,
+      "beforeArea": 2.208837509880713e-06,
+      "afterArea": 6.025337395669217e-06,
+      "beforeMinimumAltitude": 0.00014320581609503487,
+      "beforeEdgeLengths": [
+        0.03084843297725945,
+        0.0001434638861855068,
+        0.030840164252389994
+      ],
+      "afterEdgeLengths": [
+        0.03085995628912087,
+        0.0003922639875298271,
+        0.030825223857863484
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.0018378725260558722,
+        0.001570663438747019,
+        0.001716939927616308
+      ],
+      "beforeVertexNormalSpreadDegrees": 19.087155948305146
+    },
+    {
+      "r02aExportFace": 5414,
+      "stableVertexIds": [
+        122313,
+        2935,
+        2936
+      ],
+      "beforeCentroid": [
+        -0.501521110534668,
+        0.16709102193514505,
+        -0.5455975333849589
+      ],
+      "normalRotationDegrees": 108.9625101231946,
+      "beforeArea": 7.536108488352453e-06,
+      "afterArea": 4.3933523834659513e-07,
+      "beforeMinimumAltitude": 0.0005727654664434674,
+      "beforeEdgeLengths": [
+        0.02626743684485503,
+        0.0005752701129394546,
+        0.02631481445676954
+      ],
+      "afterEdgeLengths": [
+        0.026230145416066504,
+        4.6509216816410886e-05,
+        0.026262430658999598
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.0009370600861110688,
+        0.0029264567391183056,
+        0.002707828598410275
+      ],
+      "beforeVertexNormalSpreadDegrees": 26.095917490395458
+    },
+    {
+      "r02aExportFace": 5742,
+      "stableVertexIds": [
+        2467,
+        2961,
+        2962
+      ],
+      "beforeCentroid": [
+        -0.4940573076407115,
+        0.19195657471815744,
+        -0.46975956360499066
+      ],
+      "normalRotationDegrees": 141.15914154751653,
+      "beforeArea": 2.822496769900598e-06,
+      "afterArea": 1.200860678843622e-06,
+      "beforeMinimumAltitude": 0.00021546257863613714,
+      "beforeEdgeLengths": [
+        0.02619941511669268,
+        0.00021715587312564683,
+        0.02617323632516597
+      ],
+      "afterEdgeLengths": [
+        0.026238900211286997,
+        9.326121581075912e-05,
+        0.0262211884464874
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.0013642629438129683,
+        0.0005101074027512529,
+        0.0007894041619483448
+      ],
+      "beforeVertexNormalSpreadDegrees": 17.39672218347415
+    },
+    {
+      "r02aExportFace": 5904,
+      "stableVertexIds": [
+        2842,
+        2825,
+        2826
+      ],
+      "beforeCentroid": [
+        -0.8059978683789571,
+        0.13279087841510773,
+        -0.49885714054107666
+      ],
+      "normalRotationDegrees": 101.82865513983698,
+      "beforeArea": 2.538176032022011e-06,
+      "afterArea": 1.154027597264586e-06,
+      "beforeMinimumAltitude": 0.0006371806515156244,
+      "beforeEdgeLengths": [
+        0.007966896125877644,
+        0.006501603868210333,
+        0.0016265861761901343
+      ],
+      "afterEdgeLengths": [
+        0.0078349860199443,
+        0.0064903417747702126,
+        0.0013830690533714835
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.0029151999165202775,
+        0.0027508454184077074,
+        0.003349405387830401
+      ],
+      "beforeVertexNormalSpreadDegrees": 11.678117238876906
+    },
+    {
+      "r02aExportFace": 6152,
+      "stableVertexIds": [
+        2790,
+        3340,
+        3341
+      ],
+      "beforeCentroid": [
+        -0.7929144700368246,
+        0.19992674887180328,
+        -0.5173055728276571
+      ],
+      "normalRotationDegrees": 118.03993777105168,
+      "beforeArea": 2.007870405282647e-06,
+      "afterArea": 6.433661476205162e-06,
+      "beforeMinimumAltitude": 0.00013923759610188284,
+      "beforeEdgeLengths": [
+        0.028840923162928626,
+        0.00013969300100755266,
+        0.028829988799272562
+      ],
+      "afterEdgeLengths": [
+        0.028880414621457587,
+        0.0004460729465211302,
+        0.028862014717319855
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.001570663438747019,
+        0.0018519937438757012,
+        0.0019253510743062658
+      ],
+      "beforeVertexNormalSpreadDegrees": 7.240922786443691
+    },
+    {
+      "r02aExportFace": 6153,
+      "stableVertexIds": [
+        2790,
+        3341,
+        2791
+      ],
+      "beforeCentroid": [
+        -0.7922287782033285,
+        0.19034352898597717,
+        -0.5168782869974772
+      ],
+      "normalRotationDegrees": 144.38364717357874,
+      "beforeArea": 2.0633099577539608e-06,
+      "afterArea": 5.660681363948706e-06,
+      "beforeMinimumAltitude": 0.00014308652110729193,
+      "beforeEdgeLengths": [
+        0.028829988799272562,
+        0.02884003247527151,
+        0.0001434638861855068
+      ],
+      "afterEdgeLengths": [
+        0.028862014717319855,
+        0.02886680576166945,
+        0.0003922639875298271
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.001570663438747019,
+        0.0019253510743062658,
+        0.001716939927616308
+      ],
+      "beforeVertexNormalSpreadDegrees": 5.845881501695439
+    },
+    {
+      "r02aExportFace": 6369,
+      "stableVertexIds": [
+        2934,
+        3617,
+        3623
+      ],
+      "beforeCentroid": [
+        -0.5086877147356669,
+        0.19281534353892008,
+        -0.5450359185536703
+      ],
+      "normalRotationDegrees": 149.79256558214146,
+      "beforeArea": 2.187091850291349e-05,
+      "afterArea": 8.61513783580081e-06,
+      "beforeMinimumAltitude": 0.001640858597956452,
+      "beforeEdgeLengths": [
+        0.026657895482464895,
+        0.0016733506200388242,
+        0.0263808202770122
+      ],
+      "afterEdgeLengths": [
+        0.026723332756576883,
+        0.0007451469225342354,
+        0.02635769401043351
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.0026585454036833385,
+        0.0028554499317287757,
+        0.0030806314827092063
+      ],
+      "beforeVertexNormalSpreadDegrees": 50.08771237112314
+    },
+    {
+      "r02aExportFace": 6373,
+      "stableVertexIds": [
+        2935,
+        3623,
+        3624
+      ],
+      "beforeCentroid": [
+        -0.5078685283660889,
+        0.1927890181541443,
+        -0.5441556374231974
+      ],
+      "normalRotationDegrees": 114.15071412664818,
+      "beforeArea": 6.8662523492151545e-06,
+      "afterArea": 8.329307967900313e-06,
+      "beforeMinimumAltitude": 0.0005143787063163568,
+      "beforeEdgeLengths": [
+        0.026631808938899434,
+        0.0005191772438521253,
+        0.026697265127426265
+      ],
+      "afterEdgeLengths": [
+        0.02660883620258223,
+        0.0006289249754838468,
+        0.026676190026812006
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.0029264567391183056,
+        0.0030806314827092063,
+        0.0031447042989598407
+      ],
+      "beforeVertexNormalSpreadDegrees": 26.09679024408339
+    },
+    {
+      "r02aExportFace": 6374,
+      "stableVertexIds": [
+        2935,
+        3624,
+        2936
+      ],
+      "beforeCentroid": [
+        -0.5056242744127909,
+        0.18420882523059845,
+        -0.5443612138430277
+      ],
+      "normalRotationDegrees": 104.42336014813213,
+      "beforeArea": 7.66507160322264e-06,
+      "afterArea": 4.40677557861773e-07,
+      "beforeMinimumAltitude": 0.000574221484233474,
+      "beforeEdgeLengths": [
+        0.026697265127426265,
+        0.02666872908405614,
+        0.0005752701129394546
+      ],
+      "afterEdgeLengths": [
+        0.026676190026812006,
+        0.02664347627037155,
+        4.6509216816410886e-05
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.0029264567391183056,
+        0.0031447042989598407,
+        0.002707828598410275
+      ],
+      "beforeVertexNormalSpreadDegrees": 26.09679024408339
+    },
+    {
+      "r02aExportFace": 6423,
+      "stableVertexIds": [
+        2961,
+        3672,
+        3673
+      ],
+      "beforeCentroid": [
+        -0.4992719789346059,
+        0.21747825046380362,
+        -0.4709770480791728
+      ],
+      "normalRotationDegrees": 117.33149859683057,
+      "beforeArea": 2.1035074338407463e-06,
+      "afterArea": 9.818448559233771e-07,
+      "beforeMinimumAltitude": 0.00016166726496838913,
+      "beforeEdgeLengths": [
+        0.026022676071770574,
+        0.00016388970180180646,
+        0.025996280260644426
+      ],
+      "afterEdgeLengths": [
+        0.026042096790372324,
+        7.678782349326656e-05,
+        0.02602769600882955
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.0005101074027512529,
+        0.0007012889361806518,
+        0.0009068239872515317
+      ],
+      "beforeVertexNormalSpreadDegrees": 10.666921900225748
+    },
+    {
+      "r02aExportFace": 6424,
+      "stableVertexIds": [
+        2961,
+        3673,
+        2962
+      ],
+      "beforeCentroid": [
+        -0.4975772400697072,
+        0.20897028346856436,
+        -0.4706258873144786
+      ],
+      "normalRotationDegrees": 141.0638069353265,
+      "beforeArea": 2.808316122887838e-06,
+      "afterArea": 1.194208608220191e-06,
+      "beforeMinimumAltitude": 0.00021586645788306696,
+      "beforeEdgeLengths": [
+        0.025996280260644426,
+        0.026019013332854883,
+        0.00021715587312564683
+      ],
+      "afterEdgeLengths": [
+        0.02602769600882955,
+        0.026044499184969587,
+        9.326121581075912e-05
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.0005101074027512529,
+        0.0009068239872515317,
+        0.0007894041619483448
+      ],
+      "beforeVertexNormalSpreadDegrees": 10.666921900225748
+    },
+    {
+      "r02aExportFace": 6995,
+      "stableVertexIds": [
+        3209,
+        3211,
+        3210
+      ],
+      "beforeCentroid": [
+        -0.7978197932243347,
+        0.09027410795291264,
+        -0.49136706193288165
+      ],
+      "normalRotationDegrees": 121.07102868579273,
+      "beforeArea": 6.918776060959947e-08,
+      "afterArea": 1.605892553351034e-08,
+      "beforeMinimumAltitude": 0.00027522744265166306,
+      "beforeEdgeLengths": [
+        0.0005027678922059076,
+        0.00036302268972657675,
+        0.0003827960085068736
+      ],
+      "afterEdgeLengths": [
+        0.0006264626934742876,
+        0.00041634294207983715,
+        0.00021936366630473432
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.0016703856881242843,
+        0.001589198150525593,
+        0.0016570690346657756
+      ],
+      "beforeVertexNormalSpreadDegrees": 5.458866617362373
+    },
+    {
+      "r02aExportFace": 7110,
+      "stableVertexIds": [
+        3340,
+        4064,
+        4065
+      ],
+      "beforeCentroid": [
+        -0.7944133083025614,
+        0.2286759316921234,
+        -0.5182173053423563
+      ],
+      "normalRotationDegrees": 121.5461027238915,
+      "beforeArea": 1.585883114736269e-06,
+      "afterArea": 3.7301724881792606e-06,
+      "beforeMinimumAltitude": 0.00011018136477909791,
+      "beforeEdgeLengths": [
+        0.028786775656950675,
+        0.00011036506183273948,
+        0.028780621522789214
+      ],
+      "afterEdgeLengths": [
+        0.02886693130197023,
+        0.0002588179050188563,
+        0.028854091660136395
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.0018519937438757012,
+        0.0015430355103068449,
+        0.0015998657504970601
+      ],
+      "beforeVertexNormalSpreadDegrees": 14.811887240502598
+    },
+    {
+      "r02aExportFace": 7111,
+      "stableVertexIds": [
+        3340,
+        4065,
+        3341
+      ],
+      "beforeCentroid": [
+        -0.7939419945081075,
+        0.2190925528605779,
+        -0.5179658532142639
+      ],
+      "normalRotationDegrees": 117.840994431408,
+      "beforeArea": 2.007607883382127e-06,
+      "afterArea": 6.431618933104143e-06,
+      "beforeMinimumAltitude": 0.00013947491035269993,
+      "beforeEdgeLengths": [
+        0.028780621522789214,
+        0.02878808637776284,
+        0.00013969300100755266
+      ],
+      "afterEdgeLengths": [
+        0.028854091660136395,
+        0.02887305263730956,
+        0.0004460729465211302
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.0018519937438757012,
+        0.0015998657504970601,
+        0.0019253510743062658
+      ],
+      "beforeVertexNormalSpreadDegrees": 14.811887240502598
+    },
+    {
+      "r02aExportFace": 7375,
+      "stableVertexIds": [
+        3617,
+        4213,
+        4214
+      ],
+      "beforeCentroid": [
+        -0.5155214866002401,
+        0.21855027476946512,
+        -0.544127881526947
+      ],
+      "normalRotationDegrees": 92.64901402469675,
+      "beforeArea": 2.1536200660527123e-05,
+      "afterArea": 3.7518638583910713e-06,
+      "beforeMinimumAltitude": 0.0016173530834737633,
+      "beforeEdgeLengths": [
+        0.026631415094929684,
+        0.0016536318500058168,
+        0.026336642239902185
+      ],
+      "afterEdgeLengths": [
+        0.026710629987727445,
+        0.00043158709143134864,
+        0.026384486109987178
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.0028554499317287757,
+        0.001915303804840048,
+        0.002495949629877996
+      ],
+      "beforeVertexNormalSpreadDegrees": 45.84001985003051
+    },
+    {
+      "r02aExportFace": 7376,
+      "stableVertexIds": [
+        3617,
+        4214,
+        3623
+      ],
+      "beforeCentroid": [
+        -0.5128008524576823,
+        0.20995886127154031,
+        -0.5440095464388529
+      ],
+      "normalRotationDegrees": 148.95537001513964,
+      "beforeArea": 2.177525350996242e-05,
+      "afterArea": 8.83442296773236e-06,
+      "beforeMinimumAltitude": 0.0016345158280230809,
+      "beforeEdgeLengths": [
+        0.026336642239902185,
+        0.026644285893883596,
+        0.0016733506200388242
+      ],
+      "afterEdgeLengths": [
+        0.026384486109987178,
+        0.02671966470661206,
+        0.0007451469225342354
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.0028554499317287757,
+        0.002495949629877996,
+        0.0030806314827092063
+      ],
+      "beforeVertexNormalSpreadDegrees": 50.08771237112314
+    },
+    {
+      "r02aExportFace": 7381,
+      "stableVertexIds": [
+        3623,
+        4214,
+        4215
+      ],
+      "beforeCentroid": [
+        -0.5146885315577189,
+        0.2185154656569163,
+        -0.5432778398195902
+      ],
+      "normalRotationDegrees": 156.85031153910367,
+      "beforeArea": 6.962502639119002e-06,
+      "afterArea": 3.871127290036635e-06,
+      "beforeMinimumAltitude": 0.0005220595090352619,
+      "beforeEdgeLengths": [
+        0.026644285893883596,
+        0.0005231683297469786,
+        0.02667321452293948
+      ],
+      "afterEdgeLengths": [
+        0.02671966470661206,
+        0.00028978855802209465,
+        0.026725397270798583
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.0030806314827092063,
+        0.002495949629877996,
+        0.00206037800155632
+      ],
+      "beforeVertexNormalSpreadDegrees": 16.19005443790635
+    },
+    {
+      "r02aExportFace": 7382,
+      "stableVertexIds": [
+        3623,
+        4215,
+        3624
+      ],
+      "beforeCentroid": [
+        -0.5124652981758118,
+        0.20993361373742422,
+        -0.5433555245399475
+      ],
+      "normalRotationDegrees": 113.96280890776946,
+      "beforeArea": 6.8733215323802505e-06,
+      "afterArea": 8.367669672101231e-06,
+      "beforeMinimumAltitude": 0.0005153725679721926,
+      "beforeEdgeLengths": [
+        0.02667321452293948,
+        0.026615466179287704,
+        0.0005191772438521253
+      ],
+      "afterEdgeLengths": [
+        0.026725397270798583,
+        0.026674224310283764,
+        0.0006289249754838468
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.0030806314827092063,
+        0.00206037800155632,
+        0.0031447042989598407
+      ],
+      "beforeVertexNormalSpreadDegrees": 19.03816058313333
+    },
+    {
+      "r02aExportFace": 7430,
+      "stableVertexIds": [
+        3672,
+        4393,
+        3673
+      ],
+      "beforeCentroid": [
+        -0.5020581086476644,
+        0.23429828882217407,
+        -0.471620112657547
+      ],
+      "normalRotationDegrees": 116.37454549260623,
+      "beforeArea": 2.047736145858903e-06,
+      "afterArea": 9.485054188825773e-07,
+      "beforeMinimumAltitude": 0.0001624974361798787,
+      "beforeEdgeLengths": [
+        0.025182511265568593,
+        0.025203304052036045,
+        0.00016388970180180646
+      ],
+      "afterEdgeLengths": [
+        0.025204558000690682,
+        0.02521988906811767,
+        7.678782349326656e-05
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.0007012889361806518,
+        0.00040325253163602334,
+        0.0009068239872515317
+      ],
+      "beforeVertexNormalSpreadDegrees": 39.310255698234926
+    },
+    {
+      "r02aExportFace": 8037,
+      "stableVertexIds": [
+        122130,
+        3575,
+        122131
+      ],
+      "beforeCentroid": [
+        -0.7900601029396057,
+        0.14846952259540558,
+        -0.514689564704895
+      ],
+      "normalRotationDegrees": 174.5190034598876,
+      "beforeArea": 4.818267372273579e-07,
+      "afterArea": 2.5550555128841536e-06,
+      "beforeMinimumAltitude": 0.0002093153136437401,
+      "beforeEdgeLengths": [
+        0.004601986030137968,
+        0.004603836468911578,
+        0.00020941975522874705
+      ],
+      "afterEdgeLengths": [
+        0.0048235285801783425,
+        0.004653958660241012,
+        0.001098852883325628
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.0018378725260558722,
+        0.0009516693718519775,
+        0.001149888176066973
+      ],
+      "beforeVertexNormalSpreadDegrees": 1.0197457673111596
+    },
+    {
+      "r02aExportFace": 8068,
+      "stableVertexIds": [
+        4064,
+        4661,
+        4065
+      ],
+      "beforeCentroid": [
+        -0.7947246432304382,
+        0.24851210912068686,
+        -0.518469512462616
+      ],
+      "normalRotationDegrees": 121.24170872570411,
+      "beforeArea": 1.6974771955217e-06,
+      "afterArea": 3.983077447097694e-06,
+      "beforeMinimumAltitude": 0.0001103642350086685,
+      "beforeEdgeLengths": [
+        0.030761134644161886,
+        0.030761363867350188,
+        0.00011036506183273948
+      ],
+      "afterEdgeLengths": [
+        0.03084541838410981,
+        0.030863475201273697,
+        0.0002588179050188563
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.0015430355103068449,
+        0.0010650806698826612,
+        0.0015998657504970601
+      ],
+      "beforeVertexNormalSpreadDegrees": 24.209848709078376
+    },
+    {
+      "r02aExportFace": 8410,
+      "stableVertexIds": [
+        4214,
+        4954,
+        4215
+      ],
+      "beforeCentroid": [
+        -0.518835206826528,
+        0.23562745253245035,
+        -0.5426421364148458
+      ],
+      "normalRotationDegrees": 157.0003121805417,
+      "beforeArea": 6.851698157159933e-06,
+      "afterArea": 3.8119781200653566e-06,
+      "beforeMinimumAltitude": 0.0005224360392771659,
+      "beforeEdgeLengths": [
+        0.026229806682708308,
+        0.026207343474225313,
+        0.0005231683297469786
+      ],
+      "afterEdgeLengths": [
+        0.026355820455538328,
+        0.026340085551614507,
+        0.00028978855802209465
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.002495949629877996,
+        0.0010640988249027922,
+        0.00206037800155632
+      ],
+      "beforeVertexNormalSpreadDegrees": 16.19005443790635
+    },
+    {
+      "r02aExportFace": 13393,
+      "stableVertexIds": [
+        5418,
+        5409,
+        5410
+      ],
+      "beforeCentroid": [
+        -0.7596814632415771,
+        0.014415234327316284,
+        -0.506960372130076
+      ],
+      "normalRotationDegrees": 170.10382426607146,
+      "beforeArea": 6.634186847590171e-08,
+      "afterArea": 6.52503848377745e-07,
+      "beforeMinimumAltitude": 1.5350105110981595e-05,
+      "beforeEdgeLengths": [
+        0.008643832468409636,
+        0.008629156370115769,
+        2.124651775886323e-05
+      ],
+      "afterEdgeLengths": [
+        0.008673296097470851,
+        0.008693287293600584,
+        0.00015161895646479033
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.0009913387144508284,
+        0.0022520811418665107,
+        0.0009842612847277001
+      ],
+      "beforeVertexNormalSpreadDegrees": 9.749290108228541
+    },
+    {
+      "r02aExportFace": 14799,
+      "stableVertexIds": [
+        5410,
+        5902,
+        5903
+      ],
+      "beforeCentroid": [
+        -0.7558598121007284,
+        0.01179526032259067,
+        -0.509317417939504
+      ],
+      "normalRotationDegrees": 171.8424629873858,
+      "beforeArea": 8.98904827688299e-08,
+      "afterArea": 3.5861871218515226e-08,
+      "beforeMinimumAltitude": 1.701929449929519e-05,
+      "beforeEdgeLengths": [
+        0.010563361809451324,
+        0.010557274892282356,
+        1.8079660916824162e-05
+      ],
+      "afterEdgeLengths": [
+        0.010169438378906177,
+        0.010174520909167208,
+        8.691965732696103e-06
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.0009842612847277001,
+        0.002269928060598995,
+        0.0009829154317816486
+      ],
+      "beforeVertexNormalSpreadDegrees": 18.333401748097018
+    },
+    {
+      "r02aExportFace": 14827,
+      "stableVertexIds": [
+        5420,
+        5418,
+        5903
+      ],
+      "beforeCentroid": [
+        -0.7584797938664755,
+        0.00943170286094149,
+        -0.5043404002984365
+      ],
+      "normalRotationDegrees": 167.03998998666432,
+      "beforeArea": 6.521642568532546e-08,
+      "afterArea": 4.47031770525714e-07,
+      "beforeMinimumAltitude": 1.2334249160330738e-05,
+      "beforeEdgeLengths": [
+        0.010564574170543066,
+        1.6059331993740113e-05,
+        0.010574851348888546
+      ],
+      "afterEdgeLengths": [
+        0.010541748351279185,
+        0.00015262681395510747,
+        0.010415200326520348
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.0009291565095821332,
+        0.0009913387144508284,
+        0.0009829154317816486
+      ],
+      "beforeVertexNormalSpreadDegrees": 16.136899723287485
+    },
+    {
+      "r02aExportFace": 19217,
+      "stableVertexIds": [
+        7404,
+        7405,
+        7412
+      ],
+      "beforeCentroid": [
+        -0.7286972602208456,
+        -0.02488267794251442,
+        -0.5148223439852396
+      ],
+      "normalRotationDegrees": 129.80192960611524,
+      "beforeArea": 6.377754591923263e-08,
+      "afterArea": 3.4816210290011795e-07,
+      "beforeMinimumAltitude": 1.3721649694088706e-05,
+      "beforeEdgeLengths": [
+        0.009277955004657059,
+        2.2598515617206568e-05,
+        0.009295900615610093
+      ],
+      "afterEdgeLengths": [
+        0.009289759916339785,
+        7.808176120267374e-05,
+        0.009311932675942592
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.0012438226095072696,
+        0.0003079432173832688,
+        0.00025125620489262093
+      ],
+      "beforeVertexNormalSpreadDegrees": 9.163603777169893
+    },
+    {
+      "r02aExportFace": 20724,
+      "stableVertexIds": [
+        7405,
+        7919,
+        7412
+      ],
+      "beforeCentroid": [
+        -0.7270379861195883,
+        -0.027502652257680893,
+        -0.5148223439852396
+      ],
+      "normalRotationDegrees": 128.98136041829073,
+      "beforeArea": 1.8256018008194073e-10,
+      "afterArea": 4.971595271292218e-10,
+      "beforeMinimumAltitude": 1.4226166181740272e-05,
+      "beforeEdgeLengths": [
+        2.566540805860435e-05,
+        1.6373820111904278e-05,
+        2.2598515617206568e-05
+      ],
+      "afterEdgeLengths": [
+        2.322041337591059e-05,
+        6.0030857157431153e-05,
+        7.808176120267374e-05
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.0003079432173832688,
+        0.0002923306399262305,
+        0.00025125620489262093
+      ],
+      "beforeVertexNormalSpreadDegrees": 9.163603777169893
+    },
+    {
+      "r02aExportFace": 20725,
+      "stableVertexIds": [
+        7413,
+        7412,
+        7919
+      ],
+      "beforeCentroid": [
+        -0.7270379861195883,
+        -0.030129702140887577,
+        -0.5134409070014954
+      ],
+      "normalRotationDegrees": 123.56871691679335,
+      "beforeArea": 7.092789559032266e-08,
+      "afterArea": 2.26072393827002e-07,
+      "beforeMinimumAltitude": 1.596468410894202e-05,
+      "beforeEdgeLengths": [
+        0.008881976552700678,
+        1.6373820111904278e-05,
+        0.008885599628068439
+      ],
+      "afterEdgeLengths": [
+        0.008871488489510401,
+        6.0030857157431153e-05,
+        0.008839915310104345
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.0002616764750969406,
+        0.00025125620489262093,
+        0.0002923306399262305
+      ],
+      "beforeVertexNormalSpreadDegrees": 16.730312568857745
+    },
+    {
+      "r02aExportFace": 57972,
+      "stableVertexIds": [
+        23496,
+        23498,
+        23499
+      ],
+      "beforeCentroid": [
+        -0.5154547890027364,
+        0.13230868677298227,
+        -0.40480955441792804
+      ],
+      "normalRotationDegrees": 122.35057564454586,
+      "beforeArea": 3.4067276014795225e-07,
+      "afterArea": 6.936964240033022e-07,
+      "beforeMinimumAltitude": 8.439583146336538e-05,
+      "beforeEdgeLengths": [
+        0.008062196423161246,
+        8.517011537472083e-05,
+        0.008073212959477312
+      ],
+      "afterEdgeLengths": [
+        0.00811136169653402,
+        0.00020378605826682397,
+        0.008002406273579827
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.0008861670022670905,
+        0.0014621706617751337,
+        0.0012901939226325125
+      ],
+      "beforeVertexNormalSpreadDegrees": 8.409189467655558
+    },
+    {
+      "r02aExportFace": 57974,
+      "stableVertexIds": [
+        23499,
+        23498,
+        23500
+      ],
+      "beforeCentroid": [
+        -0.5148407618204752,
+        0.12964565555254617,
+        -0.40480955441792804
+      ],
+      "normalRotationDegrees": 116.28699002246302,
+      "beforeArea": 5.751000760825974e-09,
+      "afterArea": 3.316807445779354e-08,
+      "beforeMinimumAltitude": 7.811599273548666e-05,
+      "beforeEdgeLengths": [
+        8.517011537472083e-05,
+        0.00013762218130674282,
+        0.00014724259551561456
+      ],
+      "afterEdgeLengths": [
+        0.00020378605826682397,
+        0.00032670385920617286,
+        0.00037004327336675455
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.0012901939226325125,
+        0.0014621706617751337,
+        0.0012762550580024624
+      ],
+      "beforeVertexNormalSpreadDegrees": 4.810387258487477
+    },
+    {
+      "r02aExportFace": 58903,
+      "stableVertexIds": [
+        24359,
+        24361,
+        24362
+      ],
+      "beforeCentroid": [
+        -0.5095542470614115,
+        0.09300907701253891,
+        -0.38122424483299255
+      ],
+      "normalRotationDegrees": 145.48969291433184,
+      "beforeArea": 5.196508439844398e-07,
+      "afterArea": 4.374133126301443e-06,
+      "beforeMinimumAltitude": 9.47013514104323e-05,
+      "beforeEdgeLengths": [
+        0.010898665330661741,
+        0.00012159179894960647,
+        0.010974518024189358
+      ],
+      "afterEdgeLengths": [
+        0.011010888092389115,
+        0.000804668427631602,
+        0.011166642078555082
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.0014352016714639173,
+        0.0014738192069628912,
+        0.0012528102292544453
+      ],
+      "beforeVertexNormalSpreadDegrees": 9.471378725864632
+    },
+    {
+      "r02aExportFace": 58915,
+      "stableVertexIds": [
+        24361,
+        24374,
+        24363
+      ],
+      "beforeCentroid": [
+        -0.5070012807846069,
+        0.08773157000541687,
+        -0.3801085154215495
+      ],
+      "normalRotationDegrees": 107.49161680530722,
+      "beforeArea": 4.944789022951011e-07,
+      "afterArea": 3.0840795695546246e-06,
+      "beforeMinimumAltitude": 0.00011603942891778132,
+      "beforeEdgeLengths": [
+        0.008522601445159811,
+        0.008418095787463125,
+        0.0001566984078427353
+      ],
+      "afterEdgeLengths": [
+        0.008563907284620738,
+        0.00885149851390861,
+        0.0007651459143896372
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.0014738192069628912,
+        0.0005032609320421864,
+        0.0022301964433227668
+      ],
+      "beforeVertexNormalSpreadDegrees": 4.951538793716683
+    },
+    {
+      "r02aExportFace": 59812,
+      "stableVertexIds": [
+        25207,
+        24362,
+        24363
+      ],
+      "beforeCentroid": [
+        -0.5043450097242991,
+        0.09035154432058334,
+        -0.38286007444063824
+      ],
+      "normalRotationDegrees": 121.9223731460386,
+      "beforeArea": 5.621665296987126e-07,
+      "afterArea": 6.539206290336672e-06,
+      "beforeMinimumAltitude": 0.00012132857248984088,
+      "beforeEdgeLengths": [
+        0.009237626314519128,
+        0.00012498617746743026,
+        0.009266844868644344
+      ],
+      "afterEdgeLengths": [
+        0.009718858248052761,
+        0.001407761091479615,
+        0.009402190124696482
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.0011606779285575281,
+        0.0012528102292544453,
+        0.0022301964433227668
+      ],
+      "beforeVertexNormalSpreadDegrees": 13.413116672613056
+    },
+    {
+      "r02aExportFace": 63459,
+      "stableVertexIds": [
+        28451,
+        27614,
+        28450
+      ],
+      "beforeCentroid": [
+        -0.47031208872795105,
+        0.10608048488696416,
+        -0.5558887720108032
+      ],
+      "normalRotationDegrees": 166.55587866004643,
+      "beforeArea": 4.543897108800696e-07,
+      "afterArea": 4.589287111314975e-07,
+      "beforeMinimumAltitude": 9.590124189677848e-05,
+      "beforeEdgeLengths": [
+        0.009476200764305921,
+        0.009409376043124735,
+        0.00011716718352611435
+      ],
+      "afterEdgeLengths": [
+        0.009108187296813388,
+        0.008974436171475225,
+        0.0001679172151974881
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.0019888591296917868,
+        0.003298562175989412,
+        0.0020231010200127877
+      ],
+      "beforeVertexNormalSpreadDegrees": 19.038322250508106
+    },
+    {
+      "r02aExportFace": 63484,
+      "stableVertexIds": [
+        27613,
+        28473,
+        28450
+      ],
+      "beforeCentroid": [
+        -0.47031208872795105,
+        0.10807904601097107,
+        -0.5540860295295715
+      ],
+      "normalRotationDegrees": 131.0864140189545,
+      "beforeArea": 6.120736083163939e-07,
+      "afterArea": 1.3777215132247072e-06,
+      "beforeMinimumAltitude": 0.00012447106035505423,
+      "beforeEdgeLengths": [
+        0.009834793831922881,
+        0.00014064119798104152,
+        0.009770112308169841
+      ],
+      "afterEdgeLengths": [
+        0.009870166246282657,
+        0.00030279728600643977,
+        0.009756896491480021
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.0023821052804733813,
+        0.0021876962855059807,
+        0.0020231010200127877
+      ],
+      "beforeVertexNormalSpreadDegrees": 9.305701542710766
+    },
+    {
+      "r02aExportFace": 63485,
+      "stableVertexIds": [
+        28451,
+        28450,
+        28473
+      ],
+      "beforeCentroid": [
+        -0.46769211689631146,
+        0.10608048488696416,
+        -0.5540860295295715
+      ],
+      "normalRotationDegrees": 143.15379914020315,
+      "beforeArea": 7.584744782207958e-09,
+      "afterArea": 1.588891956612919e-08,
+      "beforeMinimumAltitude": 0.00010560096800371178,
+      "beforeEdgeLengths": [
+        0.00011716718352611435,
+        0.00014064119798104152,
+        0.00014364915257105145
+      ],
+      "afterEdgeLengths": [
+        0.0001679172151974881,
+        0.00030279728600643977,
+        0.00044639025649258305
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.0019888591296917868,
+        0.0020231010200127877,
+        0.0021876962855059807
+      ],
+      "beforeVertexNormalSpreadDegrees": 14.820498895354362
+    },
+    {
+      "r02aExportFace": 64344,
+      "stableVertexIds": [
+        28452,
+        29213,
+        29214
+      ],
+      "beforeCentroid": [
+        -0.462425430615743,
+        0.09840749700864156,
+        -0.5555710991223654
+      ],
+      "normalRotationDegrees": 146.88240420653432,
+      "beforeArea": 2.421399811042303e-06,
+      "afterArea": 5.596928089064981e-06,
+      "beforeMinimumAltitude": 0.0005478239166472678,
+      "beforeEdgeLengths": [
+        0.008840066077660465,
+        0.0005741550902452278,
+        0.008685479049278104
+      ],
+      "afterEdgeLengths": [
+        0.008699157094798021,
+        0.0012874854412239858,
+        0.008836124536837277
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.0024790504572922705,
+        0.002213838814268296,
+        0.0027546267947319843
+      ],
+      "beforeVertexNormalSpreadDegrees": 21.41620821677788
+    },
+    {
+      "r02aExportFace": 64372,
+      "stableVertexIds": [
+        28473,
+        29237,
+        28451
+      ],
+      "beforeCentroid": [
+        -0.4650454024473826,
+        0.10562074184417725,
+        -0.5514660477638245
+      ],
+      "normalRotationDegrees": 145.6515717185524,
+      "beforeArea": 6.978943009781895e-07,
+      "afterArea": 2.1551258017318295e-06,
+      "beforeMinimumAltitude": 0.00012472791824333997,
+      "beforeEdgeLengths": [
+        0.011120106283972968,
+        0.01119066702639294,
+        0.00014364915257105145
+      ],
+      "afterEdgeLengths": [
+        0.011352309722608254,
+        0.011124042531611459,
+        0.00044639025649258305
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.0021876962855059807,
+        0.0012365693715608462,
+        0.0019888591296917868
+      ],
+      "beforeVertexNormalSpreadDegrees": 15.744420978272366
+    },
+    {
+      "r02aExportFace": 65260,
+      "stableVertexIds": [
+        29214,
+        29213,
+        29993
+      ],
+      "beforeCentroid": [
+        -0.4596237341562907,
+        0.09840749700864156,
+        -0.5542318423589071
+      ],
+      "normalRotationDegrees": 139.59967950649033,
+      "beforeArea": 1.742136170371015e-07,
+      "afterArea": 1.2036827700101826e-06,
+      "beforeMinimumAltitude": 0.00048168650272822813,
+      "beforeEdgeLengths": [
+        0.0005741550902452278,
+        0.0007233485516009751,
+        0.0006331272122703759
+      ],
+      "afterEdgeLengths": [
+        0.0012874854412239858,
+        0.0025159148122169983,
+        0.0019112610522154301
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.0027546267947319843,
+        0.002213838814268296,
+        0.0028567277585236864
+      ],
+      "beforeVertexNormalSpreadDegrees": 13.854742483119642
+    },
+    {
+      "r02aExportFace": 65295,
+      "stableVertexIds": [
+        29993,
+        29213,
+        30018
+      ],
+      "beforeCentroid": [
+        -0.45700375239054364,
+        0.09867976605892181,
+        -0.5515045523643494
+      ],
+      "normalRotationDegrees": 166.57503593203364,
+      "beforeArea": 3.4537448837118384e-06,
+      "afterArea": 4.409209831912931e-06,
+      "beforeMinimumAltitude": 0.0006211278392206173,
+      "beforeEdgeLengths": [
+        0.0007233485516009751,
+        0.01112088258045413,
+        0.010768091513052804
+      ],
+      "afterEdgeLengths": [
+        0.0025159148122169983,
+        0.011058627666670132,
+        0.00870901367976385
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.0028567277585236864,
+        0.002213838814268296,
+        0.0014150766245054102
+      ],
+      "beforeVertexNormalSpreadDegrees": 17.462013815567243
+    },
+    {
+      "r02aExportFace": 68200,
+      "stableVertexIds": [
+        31559,
+        32436,
+        32409
+      ],
+      "beforeCentroid": [
+        -0.4310484031836192,
+        0.08451524873574574,
+        -0.5462295413017273
+      ],
+      "normalRotationDegrees": 143.03923028091756,
+      "beforeArea": 7.579179772118548e-07,
+      "afterArea": 7.4182496293080395e-06,
+      "beforeMinimumAltitude": 0.0001536806157221236,
+      "beforeEdgeLengths": [
+        0.009863546858535212,
+        0.00021539812359788887,
+        0.009713836733493464
+      ],
+      "afterEdgeLengths": [
+        0.010042688190152877,
+        0.0017399954269070677,
+        0.009242265408284281
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.0016809381461883263,
+        0.0014201275527686507,
+        0.0018726747128662788
+      ],
+      "beforeVertexNormalSpreadDegrees": 7.271414677777277
+    },
+    {
+      "r02aExportFace": 68201,
+      "stableVertexIds": [
+        32410,
+        32409,
+        32436
+      ],
+      "beforeCentroid": [
+        -0.42842843135197956,
+        0.08246929446856181,
+        -0.5462295413017273
+      ],
+      "normalRotationDegrees": 136.37757459754891,
+      "beforeArea": 2.1726693541483693e-08,
+      "afterArea": 3.2581229543076844e-07,
+      "beforeMinimumAltitude": 0.0001671066460012012,
+      "beforeEdgeLengths": [
+        0.00026003386533564343,
+        0.00021539812359788887,
+        0.00020816145022275792
+      ],
+      "afterEdgeLengths": [
+        0.0013681675193905314,
+        0.0017399954269070677,
+        0.0005657670998241434
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.0013162323299986047,
+        0.0018726747128662788,
+        0.0014201275527686507
+      ],
+      "beforeVertexNormalSpreadDegrees": 9.014363123133098
+    },
+    {
+      "r02aExportFace": 69348,
+      "stableVertexIds": [
+        33301,
+        32410,
+        32436
+      ],
+      "beforeCentroid": [
+        -0.42574578523635864,
+        0.08014769355456035,
+        -0.5462295413017273
+      ],
+      "normalRotationDegrees": 133.19347239822687,
+      "beforeArea": 8.924540848767988e-07,
+      "afterArea": 2.751836619117974e-06,
+      "beforeMinimumAltitude": 0.0001699540516727097,
+      "beforeEdgeLengths": [
+        0.010383494518831407,
+        0.00020816145022275792,
+        0.010502298428229872
+      ],
+      "afterEdgeLengths": [
+        0.01022594196073542,
+        0.0005657670998241434,
+        0.010414287990499382
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.0009918265120949208,
+        0.0013162323299986047,
+        0.0014201275527686507
+      ],
+      "beforeVertexNormalSpreadDegrees": 9.014363123133098
+    },
+    {
+      "r02aExportFace": 71015,
+      "stableVertexIds": [
+        34594,
+        34593,
+        33665
+      ],
+      "beforeCentroid": [
+        -0.41526587804158527,
+        0.05889676511287689,
+        -0.3654877245426178
+      ],
+      "normalRotationDegrees": 132.82121031509996,
+      "beforeArea": 2.319496285078856e-08,
+      "afterArea": 1.5485542407152597e-07,
+      "beforeMinimumAltitude": 5.900961725067148e-06,
+      "beforeEdgeLengths": [
+        5.90159473221464e-06,
+        0.007861417826947393,
+        0.007861333606130366
+      ],
+      "afterEdgeLengths": [
+        3.9458979833538125e-05,
+        0.007856627852358446,
+        0.007858472811102916
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.00031822233426053825,
+        0.00028086659373318,
+        0.00028086653374870133
+      ],
+      "beforeVertexNormalSpreadDegrees": 3.5510394402760186
+    },
+    {
+      "r02aExportFace": 72365,
+      "stableVertexIds": [
+        34593,
+        34594,
+        35552
+      ],
+      "beforeCentroid": [
+        -0.41204436620076496,
+        0.05894797543684641,
+        -0.3654877245426178
+      ],
+      "normalRotationDegrees": 132.63539327625452,
+      "beforeArea": 5.325075107457716e-09,
+      "afterArea": 3.5626515543841646e-08,
+      "beforeMinimumAltitude": 5.901585691533503e-06,
+      "beforeEdgeLengths": [
+        5.90159473221464e-06,
+        0.0018046251925468583,
+        0.0018046245124284997
+      ],
+      "afterEdgeLengths": [
+        3.9458979833538125e-05,
+        0.0018072956113510676,
+        0.0018093570454085438
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.00028086659373318,
+        0.00031822233426053825,
+        0.0002963917131566917
+      ],
+      "beforeVertexNormalSpreadDegrees": 1.9719341644861246
+    },
+    {
+      "r02aExportFace": 244304,
+      "stableVertexIds": [
+        9160,
+        122343,
+        122341
+      ],
+      "beforeCentroid": [
+        -0.7034564018249512,
+        0.14846952259540558,
+        -0.3343865176041921
+      ],
+      "normalRotationDegrees": 178.65601643978036,
+      "beforeArea": 5.235858840997012e-08,
+      "afterArea": 1.9103770034308788e-07,
+      "beforeMinimumAltitude": 2.227515655548631e-05,
+      "beforeEdgeLengths": [
+        0.004701074785225188,
+        2.2394616015191523e-05,
+        0.004698817556721445
+      ],
+      "afterEdgeLengths": [
+        0.004675993608827626,
+        8.224489220248482e-05,
+        0.004686070843180003
+      ],
+      "vertexDisplacementMagnitudes": [
+        0.0012473652153285348,
+        0.0012970775827045198,
+        0.0013032444767402621
+      ],
+      "beforeVertexNormalSpreadDegrees": 5.272191525064032
+    }
+  ],
+  "localIntersections": {
+    "r02a": {
+      "trianglesTested": 21799,
+      "intersectionPairs": [
+        [
+          28968,
+          30504
+        ],
+        [
+          93293,
+          93308
+        ]
+      ],
+      "intersectionPairCount": 2
+    },
+    "r02c": {
+      "trianglesTested": 21799,
+      "intersectionPairs": [
+        [
+          4832,
+          4836
+        ],
+        [
+          4833,
+          4836
+        ],
+        [
+          5034,
+          5037
+        ],
+        [
+          5189,
+          5194
+        ],
+        [
+          5189,
+          5195
+        ],
+        [
+          5189,
+          5196
+        ],
+        [
+          5192,
+          5195
+        ],
+        [
+          5192,
+          5196
+        ],
+        [
+          5193,
+          5196
+        ],
+        [
+          5193,
+          6155
+        ],
+        [
+          6150,
+          6154
+        ],
+        [
+          6150,
+          7129
+        ],
+        [
+          6151,
+          6154
+        ],
+        [
+          6151,
+          6155
+        ],
+        [
+          6367,
+          6373
+        ],
+        [
+          6367,
+          6374
+        ],
+        [
+          6367,
+          6377
+        ],
+        [
+          6367,
+          7380
+        ],
+        [
+          6368,
+          6374
+        ],
+        [
+          6368,
+          6377
+        ],
+        [
+          6370,
+          6377
+        ],
+        [
+          6370,
+          7380
+        ],
+        [
+          7114,
+          7128
+        ],
+        [
+          7114,
+          8072
+        ],
+        [
+          7115,
+          7128
+        ],
+        [
+          7115,
+          7129
+        ],
+        [
+          7373,
+          8409
+        ],
+        [
+          7373,
+          8410
+        ],
+        [
+          7373,
+          8413
+        ],
+        [
+          7374,
+          7380
+        ],
+        [
+          7374,
+          8413
+        ],
+        [
+          7374,
+          8414
+        ],
+        [
+          7375,
+          7380
+        ],
+        [
+          7375,
+          8414
+        ],
+        [
+          7376,
+          7379
+        ],
+        [
+          7376,
+          8414
+        ],
+        [
+          8062,
+          8071
+        ],
+        [
+          8062,
+          8072
+        ],
+        [
+          8406,
+          8409
+        ],
+        [
+          13364,
+          14827
+        ],
+        [
+          13393,
+          14803
+        ],
+        [
+          13393,
+          14804
+        ],
+        [
+          13394,
+          14800
+        ],
+        [
+          13396,
+          14799
+        ],
+        [
+          13396,
+          14800
+        ],
+        [
+          13396,
+          14804
+        ],
+        [
+          14800,
+          14827
+        ],
+        [
+          58916,
+          59812
+        ],
+        [
+          63460,
+          63484
+        ],
+        [
+          65262,
+          65296
+        ]
+      ],
+      "intersectionPairCount": 50
+    }
+  },
+  "intersectionBounds": [
+    [
+      -0.8259667253494263,
+      -0.05998994991183281,
+      -0.6233002042770386
+    ],
+    [
+      -0.017509639039635656,
+      0.36995206236839295,
+      -0.23758750200271606
+    ]
+  ],
+  "intersectionMethod": "Open3D local self-intersection test on actual exported triangles whose AABBs overlap the selected-region union expanded .01. Shared-vertex/numerical detector limitations apply; no whole-model or separate-flame intersection claim."
+}

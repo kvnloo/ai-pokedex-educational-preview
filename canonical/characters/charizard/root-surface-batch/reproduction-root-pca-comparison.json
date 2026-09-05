@@ -1,0 +1,58 @@
+{
+  "directories": [
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02d",
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/reproduction-root-pca/r02d"
+  ],
+  "geometry": {
+    "GEO-charizard-flame-reference-r02d": {
+      "verticesExact": true,
+      "trianglesExact": true
+    },
+    "GEO-charizard-body-tail-r02d": {
+      "verticesExact": true,
+      "trianglesExact": true
+    }
+  },
+  "transforms": {
+    "GEO-charizard-flame-reference-r02d": true,
+    "GEO-charizard-body-tail-r02d": true
+  },
+  "arrays": {
+    "before": true,
+    "after": true,
+    "weights": true,
+    "source_face_vertex_indices": true,
+    "target_face_vertex_indices": true
+  },
+  "renders": {
+    "minusY": {
+      "pixelsExact": true,
+      "differentChannels": 0
+    },
+    "plusX": {
+      "pixelsExact": true,
+      "differentChannels": 0
+    },
+    "plusY": {
+      "pixelsExact": true,
+      "differentChannels": 0
+    },
+    "minusX": {
+      "pixelsExact": true,
+      "differentChannels": 0
+    },
+    "threequarter": {
+      "pixelsExact": true,
+      "differentChannels": 0
+    },
+    "root-side": {
+      "pixelsExact": true,
+      "differentChannels": 0
+    },
+    "root-rear": {
+      "pixelsExact": true,
+      "differentChannels": 0
+    }
+  },
+  "allExact": true
+}

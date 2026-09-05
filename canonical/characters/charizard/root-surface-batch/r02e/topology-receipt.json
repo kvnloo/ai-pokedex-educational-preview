@@ -1,0 +1,26 @@
+{
+  "parent": "charizard-tail-r02d",
+  "candidate": "charizard-tail-r02e",
+  "method": "Delete confirmed crossing strip; fill its unchanged boundary and triangulate with Beauty",
+  "bounds": [
+    [
+      -0.511,
+      0.143,
+      -0.481
+    ],
+    [
+      -0.478,
+      0.258,
+      -0.461
+    ]
+  ],
+  "confirmedCrossingVerticesCovered": 18,
+  "removedVertices": 41,
+  "removedFaces": 61,
+  "newTriangles": 27,
+  "boundaryVertices": 29,
+  "remainingCoordinatesExact": true,
+  "vertices": 122336,
+  "polygons": 229346,
+  "status": "awaiting independent export and visual checks"
+}

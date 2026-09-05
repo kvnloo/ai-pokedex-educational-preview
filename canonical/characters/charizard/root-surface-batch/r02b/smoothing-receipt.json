@@ -1,0 +1,16 @@
+{
+  "parent": "charizard-tail-r02a",
+  "candidate": "charizard-tail-r02b",
+  "method": "Blender Laplacian Smooth",
+  "iterations": 6,
+  "lambda": 0.35,
+  "normalized": true,
+  "volumePreservation": false,
+  "changedVertices": 3747,
+  "protectedVertices": 112475,
+  "protectedCoordinatesExact": true,
+  "faceVertexSequenceExact": true,
+  "maximumDisplacement": 0.002146338112652302,
+  "medianSelectedDisplacement": 0.0,
+  "status": "awaiting visual and exported geometry checks"
+}
