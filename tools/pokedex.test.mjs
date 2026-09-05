@@ -8,10 +8,12 @@ const html=readFileSync(resolve(root,'pokedex.html'),'utf8');
 const source=readFileSync(resolve(root,'src/pokedex/main.ts'),'utf8');
 const css=readFileSync(resolve(root,'src/pokedex/pokedex.css'),'utf8');
 
-test('private Pokédex exposes a physical scan trigger and accessible audio control',()=>{
-  assert.match(html,/id="scan-trigger"/);
+test('private Pokédex uses the reviewed mesh for hardware and keeps controls in its display',()=>{
+  assert.match(html,/id="pokedex-shell"/);
+  assert.match(html,/id="display-aperture"/);
+  assert.doesNotMatch(html,/hardware-bar|physical-controls|class="lens"|class="dpad"|scan-trigger|face-buttons/);
   assert.match(html,/id="audio-toggle"/);
-  assert.match(html,/aria-label="Field Pokédex"/);
+  assert.match(html,/aria-label="V3 Scarlet Field Pokédex"/);
 });
 
 test('field OS connects the core scan, identify, register and research loop',()=>{

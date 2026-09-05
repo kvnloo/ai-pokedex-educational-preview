@@ -11,6 +11,7 @@ function element<T extends Element>(selector: string, type: { new(): T }): T {
 }
 
 const dialog = element('#display-options', HTMLDialogElement);
+element('#display-aperture', HTMLElement).append(dialog);
 const tip = element('#app-mode-tip', HTMLButtonElement);
 const installButton = element('#install-pokedex', HTMLButtonElement);
 const fullscreenButton = element('#fullscreen-pokedex', HTMLButtonElement);
@@ -38,7 +39,7 @@ export function showDisplayOptions(): void {
   try { localStorage.setItem(tipKey, 'seen'); } catch { /* The dialog still works without storage. */ }
   feedback.textContent = privateRelease ? '' : 'Installation is available from the private release link.';
   syncDisplay();
-  if (!dialog.open) dialog.showModal();
+  if (!dialog.open) dialog.show();
 }
 
 export function setupPokedexApp(): void {
@@ -46,6 +47,12 @@ export function setupPokedexApp(): void {
   document.addEventListener('fullscreenchange', syncDisplay);
   tip.addEventListener('click', showDisplayOptions);
   element('#close-display-options', HTMLButtonElement).addEventListener('click', () => dialog.close());
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && dialog.open) {
+      event.preventDefault();
+      dialog.close();
+    }
+  });
   dialog.addEventListener('close', () => {
     // The one-time hint is now hidden; restore focus to a reachable control.
     if (document.activeElement === document.body || document.activeElement === tip) {
@@ -96,7 +103,7 @@ export function setupPokedexApp(): void {
       element('#offline-status', HTMLElement).textContent = 'Offline setup unavailable. You can still use Pokédex while connected.';
     });
     void navigator.serviceWorker.ready.then(() => {
-      element('#offline-status', HTMLElement).textContent = 'This device has saved the Pokédex app shell for offline use. 3D assets need a connection.';
+      element('#offline-status', HTMLElement).textContent = 'The reviewed device shell and Field OS are available offline. The opening animation needs a connection.';
     });
   }
 }

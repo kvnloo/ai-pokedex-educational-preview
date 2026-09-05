@@ -3,9 +3,27 @@ import path from 'path';
 import fs from 'fs';
 import crypto from 'crypto';
 import { execFileSync } from 'node:child_process';
+import { fieldOsAssets } from './tools/pokedex-field-os/asset-plugin';
 import { pokedexPwa } from './tools/pokedex-pwa/plugin';
 import { pokedexDeviceAssets } from './tools/pokedex-device/asset-plugin';
 import { pokedexGenerationReviewAssets } from './tools/pokedex-generations/review-asset-plugin';
+import fieldOsManifest from './canonical/devices/field-os/assets.json';
+import reviewCandidates from './canonical/devices/generations/review-candidates.json';
+import activePhoneMesh from './canonical/devices/generations/active-phone-mesh.json';
+
+const activePhoneCandidate = reviewCandidates.find(candidate => candidate.id === activePhoneMesh.candidate);
+if (!activePhoneCandidate) throw new Error(`Active Pokédex candidate ${activePhoneMesh.candidate} is not in the reviewed manifest`);
+const pokedexPhoneMesh = {
+  id: activePhoneCandidate.id,
+  camera: activePhoneMesh.camera,
+  displayInset: activePhoneMesh.displayInset,
+  readyContentSource: activePhoneCandidate.readyContentSource,
+  buttonSource: activePhoneCandidate.buttonSource,
+};
+const pokedexOpeningAsset = {
+  filename: fieldOsManifest.opening.filename,
+  readyContentSource: fieldOsManifest.opening.readyContentSource,
+};
 
 // Enforce the same executable AJV + graph gate even for direct Vite invocations
 // and private builds, before any bundle is emitted.
@@ -215,9 +233,11 @@ export default defineConfig(({ command, mode }) => {
     host: '0.0.0.0', // Zen/LAN + 127.0.0.1
     allowedHosts: ['0.taila30dc.ts.net'],
   },
-  plugins: [canonicalAcceptanceGate(), privateCanonicalSourceBoundary(privateBuild), shipGameContentOnly(privateBuild), pokedexDeviceAssets(privateBuild), pokedexGenerationReviewAssets(), pokedexPwa(privateBuild)],
+  plugins: [canonicalAcceptanceGate(), privateCanonicalSourceBoundary(privateBuild), shipGameContentOnly(privateBuild), pokedexDeviceAssets(privateBuild), pokedexGenerationReviewAssets(), fieldOsAssets(privateBuild), pokedexPwa(privateBuild)],
   define: {
     __PRIVATE_CANONICAL_BUILD__: JSON.stringify(privateBuild),
+    __POKEDEX_PHONE_MESH__: JSON.stringify(pokedexPhoneMesh),
+    __POKEDEX_OPENING_ASSET__: JSON.stringify(pokedexOpeningAsset),
   },
   build: {
     target: 'es2022',

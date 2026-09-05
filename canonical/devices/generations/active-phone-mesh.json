@@ -1,0 +1,13 @@
+{
+  "candidate": "v003-r08",
+  "camera": {
+    "position": [-0.005825001746416092, 0.14901202917099, 0.3620593547821045],
+    "target": [-0.005825001746416092, 0.04401201754808426, -0.052940644323825836],
+    "lensMm": 58,
+    "sensorMm": 36,
+    "frameMargin": 1.015
+  },
+  "displayInset": 0.035,
+  "reference": "/mnt/zer0models/pokemon-iac/devices/pokedex/v003/astra-r08/inspection-r01/front-material.png",
+  "referenceSha256": "397f0daff26cab1758475d6a36df108c6abc17308d43190b49864853fb37dead"
+}

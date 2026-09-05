@@ -23,7 +23,7 @@ for (const mode of ['production', 'private-local']) {
           cpSync(join(root, 'tools', file), join(fixture, 'tools', file));
         }
         // Load the same build plugins before exercising the canonical rejection.
-        for (const file of ['pokedex-device/asset-plugin.ts', 'pokedex-generations/review-asset-plugin.ts', 'pokedex-pwa/plugin.ts', 'pokedex-pwa/icons.json']) {
+        for (const file of ['pokedex-device/asset-plugin.ts', 'pokedex-generations/review-asset-plugin.ts', 'pokedex-pwa/plugin.ts', 'pokedex-pwa/icons.json', 'pokedex-field-os/asset-plugin.ts']) {
           const destination = join(fixture, 'tools', file);
           mkdirSync(join(destination, '..'), { recursive: true });
           cpSync(join(root, 'tools', file), destination);

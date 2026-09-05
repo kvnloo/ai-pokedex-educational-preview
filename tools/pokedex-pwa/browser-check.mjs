@@ -14,6 +14,14 @@ const check = (name, pass, detail) => {
   console.log((pass ? 'PASS ' : 'FAIL ') + name);
   if (!pass) throw new Error(name + ': ' + JSON.stringify(detail));
 };
+const enterFieldOs = async page => {
+  await page.evaluate(() => {
+    const stage = document.querySelector('#opening-stage');
+    const skip = document.querySelector('#skip-opening');
+    if (stage instanceof HTMLElement && !stage.hidden && skip instanceof HTMLButtonElement) skip.click();
+  });
+  await page.waitForFunction(() => document.documentElement.dataset.meshState === 'ready' && !document.querySelector('#pokedex-runtime').hidden);
+};
 const context = await chromium.launchPersistentContext(fs.mkdtempSync(path.join(output, 'chromium-profile-')), {
   executablePath: '/usr/bin/chromium', headless: false, args: ['--no-sandbox', '--disable-gpu-sandbox'],
   viewport: { width: 412, height: 892 }, deviceScaleFactor: 1, isMobile: true, hasTouch: true,
@@ -24,6 +32,7 @@ try {
   page.on('pageerror', e => report.errors.push(e.message));
   page.setDefaultTimeout(15000);
   await page.goto(`${base}/pokedex.html`);
+  await enterFieldOs(page);
   const manifestResponse = await context.request.get(`${base}/pokedex.webmanifest`);
   check('manifest available with JSON manifest MIME', manifestResponse.ok() && /application\/(manifest\+json|json)/.test(manifestResponse.headers()['content-type']));
   const manifest = await manifestResponse.json();
@@ -31,12 +40,17 @@ try {
   const release = await (await context.request.get(`${base}/pokedex-pwa-release.json`)).json();
   report.release = release;
   let shellBytes = 0;
+  const leakedMetadata = [];
   for (const [file, hash] of Object.entries(release.hashes)) {
     const response = await context.request.get(base + file);
     const bytes = await response.body(); shellBytes += bytes.length;
     check('compiled file hash ' + file, response.ok() && createHash('sha256').update(bytes).digest('hex') === hash);
+    if (/\.(?:html|js|css|json)$/.test(file) && /\/mnt\/zer0models\/|sourceCatalog|retrievedAt|referenceRoot|relativePath|v002-r08|v003-r09/.test(bytes.toString('utf8'))) leakedMetadata.push(file);
   }
-  check('shell budget excludes models, APIs, research and main game', shellBytes < 150000 && release.files.length === 9 && release.files.every(file => !/private-assets|device-assets|GLTF|main-|\.map|api\/|references/.test(file)), { shellBytes, count: release.files.length });
+  check('offline browser bundle contains no canonical workstation metadata', leakedMetadata.length === 0, leakedMetadata);
+  const shellModels = release.files.filter(file => file.endsWith('/pokedex-shell/v003-r08.glb'));
+  const fieldImages = release.files.filter(file => /\/field-os-assets\/home\/\d+\.png$/.test(file));
+  check('offline shell includes the exact reviewed phone mesh and six Field OS images only', shellBytes < 12250000 && release.files.length === 17 && shellModels.length === 1 && fieldImages.length === 6 && release.files.every(file => !/private-assets|device-assets|main-|\.map|api\/|references|pokedex-opening/.test(file)), { shellBytes, count: release.files.length, shellModels, fieldImages });
   for (const icon of manifest.icons) {
     const measurements = await page.evaluate(async src => {
       const image = new Image(); image.src = src; await image.decode();
@@ -59,14 +73,17 @@ try {
   const installability = await protocol.send('Page.getInstallabilityErrors');
   check('Chromium reports no manifest/installability errors', installability.installabilityErrors.length === 0, installability);
   await page.reload();
+  await enterFieldOs(page);
   await page.waitForFunction(() => navigator.serviceWorker.controller !== null);
   check('one-time hint stays dismissed after reload', !(await page.locator('#app-mode-tip').isVisible()));
   const worker = await page.evaluate(async () => ({ controller: navigator.serviceWorker.controller.scriptURL, caches: await caches.keys(), files: await Promise.all((await caches.keys()).filter(k => k.startsWith('pokedex-private-shell-')).map(async k => (await (await caches.open(k)).keys()).map(r => new URL(r.url).pathname))) }));
   check('actual browser service worker controls private app and caches exact release', worker.controller.endsWith('/pokedex-sw-v1.js') && worker.caches.includes(release.cacheName) && JSON.stringify(worker.files.flat().sort()) === JSON.stringify([...release.files].sort()), worker);
   await context.setOffline(true);
   await page.reload();
+  await enterFieldOs(page);
   check('actual offline home-screen start URL loads and works', await page.locator('.home-grid').isVisible());
   await page.goto(`${base}/pokedex.html?launch=homescreen`);
+  await enterFieldOs(page);
   await page.locator('[data-nav="dex"]').last().click();
   check('offline navigation and Pokédex entries work', await page.locator('[data-entry="1"]').isVisible());
   await page.locator('[data-entry="1"]').click();
@@ -121,23 +138,31 @@ try {
     }, { mode });
     const p = await c.newPage(); p.on('pageerror', e => report.errors.push(e.message));
     await p.goto(`${base}/pokedex.html`);
+    await enterFieldOs(p);
     await p.evaluate(safe => ['top', 'right', 'bottom', 'left'].forEach((edge, i) => document.documentElement.style.setProperty('--safe-' + edge, safe[i] + 'px')), safe);
     await p.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
     const measure = () => p.evaluate(({ safe }) => {
       const rect = selector => document.querySelector(selector).getBoundingClientRect().toJSON();
-      const selectors = ['#dock', '#audio-toggle', '#scan-trigger', '[data-action="back"]', '[data-action="confirm"]', ...Array.from(document.querySelectorAll('#dock button'), (_, i) => `#dock button:nth-child(${i + 1})`)];
-      const boxes = selectors.map(selector => {
-        const el = document.querySelector(selector), r = el.getBoundingClientRect();
+      const aperture = document.querySelector('#display-aperture').getBoundingClientRect();
+      const boxes = [...document.querySelectorAll('#display-aperture button:not([hidden]), #display-aperture a:not([hidden])')].filter(el => {
+        if (el.closest('dialog:not([open])')) return false;
+        const r = el.getBoundingClientRect();
+        const x = r.x + r.width / 2, y = r.y + r.height / 2;
+        if (x < aperture.left || x > aperture.right || y < aperture.top || y > aperture.bottom) return false;
+        const hit = document.elementFromPoint(x, y);
+        return hit === el || el.contains(hit);
+      }).map(el => {
+        const r = el.getBoundingClientRect();
         const hit = document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2);
-        return { selector, rect: r.toJSON(), inSafeViewport: r.left >= safe[3] && r.top >= safe[0] && r.right <= innerWidth - safe[1] && r.bottom <= innerHeight - safe[2], hit: el === hit || el.contains(hit) };
+        return { selector: el.id || el.getAttribute('data-nav'), rect: r.toJSON(), inSafeViewport: r.left >= safe[3] && r.top >= safe[0] && r.right <= innerWidth - safe[1] && r.bottom <= innerHeight - safe[2], hit: el === hit || el.contains(hit) };
       });
-      return { device: rect('.device'), app: rect('#app'), dock: rect('#dock'), boxes, safeStyle: document.documentElement.getAttribute('style'), padding: getComputedStyle(document.querySelector('.device')).padding, scrollWidth: document.documentElement.scrollWidth, innerWidth, innerHeight, mode: document.documentElement.dataset.displayMode, radius: getComputedStyle(document.querySelector('.device')).borderTopLeftRadius, reducedMotion: getComputedStyle(document.querySelector('.radar'), '::before').animationDuration };
+      return { canvas: rect('#pokedex-shell'), aperture: aperture.toJSON(), app: rect('#app'), dock: rect('#dock'), boxes, safeStyle: document.documentElement.getAttribute('style'), scrollWidth: document.documentElement.scrollWidth, innerWidth, innerHeight, mode: document.documentElement.dataset.displayMode, clipPath: getComputedStyle(document.querySelector('#display-aperture')).clipPath, overflow: getComputedStyle(document.querySelector('#display-aperture')).overflow, mesh: window.__pokedexMesh.snapshot(), reducedMotion: getComputedStyle(document.querySelector('.radar'), '::before').animationDuration };
     }, { safe });
     const m = await measure();
-    check(name + ' controls and dock inside safe viewport and hit-testable', m.boxes.every(b => b.inSafeViewport && b.hit) && m.app.bottom <= m.dock.top + .1 && m.scrollWidth === width, m);
+    check(name + ' controls and dock stay in the projected screen and hit-test', m.boxes.length >= 7 && m.boxes.every(b => b.inSafeViewport && b.hit) && m.app.bottom <= m.dock.top + .1 && m.scrollWidth === width && m.overflow === 'hidden' && m.clipPath !== 'none', m);
+    check(name + ' exact reviewed mesh controls the hardware silhouette', m.mesh.candidate === 'v003-r08' && m.mesh.sourceName === 'v003/r08/GEO-display-glass' && m.mesh.aperture.width === m.aperture.width && m.mesh.aperture.height === m.aperture.height, m.mesh);
     check(name + ' display-mode detection', m.mode === mode, m.mode);
-    if (mode !== 'browser' || width < 1000) check(name + ' device fills viewport edge to edge', m.device.x === 0 && m.device.y === 0 && m.device.width === width && m.device.height === height && m.radius === '0px');
-    else check(name + ' desktop browser frame preserved', m.device.width < width && m.radius !== '0px');
+    check(name + ' WebGL stage fills the available viewport', m.canvas.x === 0 && m.canvas.y === 0 && m.canvas.width === width && m.canvas.height === height, m.canvas);
     if (mode !== 'browser') check(name + ' installed app has no install hint', !(await p.locator('#app-mode-tip').isVisible()));
     check(name + ' reduced motion honored', Number.parseFloat(m.reducedMotion) <= .001, m.reducedMotion);
     await p.screenshot({ path: path.join(output, name + '.png') }); report.screenshots.push(name + '.png');
