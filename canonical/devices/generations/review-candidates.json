@@ -1,0 +1,62 @@
+[
+  {
+    "id": "v002-r08",
+    "title": "V2 \u00b7 Graphite",
+    "status": "Unapproved concept review",
+    "evidenceStatus": "complete-for-review",
+    "readyContentSource": "v002/r08/PDX.DisplayReady",
+    "buttonSource": "v002/r08/PDX.ButtonPress",
+    "exports": [
+      {
+        "level": 0,
+        "label": "Hero surfaces",
+        "relativePath": "v002/astra-r08/quality-q2/runtime/v002-r08-lod0.glb",
+        "sha256": "8da6d6bbd647269e206ceadf4585ec0cfee5c9d71489a2dc9caa2842c2e349b9",
+        "bytes": 9613388,
+        "triangles": 129986,
+        "warnings": 31
+      },
+      {
+        "level": 1,
+        "label": "Reduced comparison",
+        "relativePath": "v002/astra-r08/runtime/v002-r08-lod0.glb",
+        "sha256": "deab11c8fb132652ff364bfc6a9ac672c953e2e8e9dc50a92c39deb91de1476a",
+        "bytes": 5333952,
+        "triangles": 37511,
+        "warnings": 31
+      }
+    ],
+    "video": "https://0.taila30dc.ts.net:8445/assets/devices/pokedex-v002-astra-r08/video/v002-r08-animation.mp4",
+    "comparison": "https://0.taila30dc.ts.net:8445/devtools/pokedex-generations.html?device=v002"
+  },
+  {
+    "id": "v003-r08",
+    "title": "V3 \u00b7 Scarlet",
+    "status": "Unapproved concept review",
+    "evidenceStatus": "complete-for-review",
+    "readyContentSource": "v003/r08/PDX.DisplayReady",
+    "buttonSource": "v003/r08/PDX.ButtonPress",
+    "exports": [
+      {
+        "level": 0,
+        "label": "Hero surfaces",
+        "relativePath": "v003/astra-r08/quality-q2/runtime/v003-r08-lod0.glb",
+        "sha256": "087f4ca775b0db8384d8bbe75f384e4b0925f3b3a8b9657c0358ecf3aec42c97",
+        "bytes": 10727392,
+        "triangles": 147844,
+        "warnings": 38
+      },
+      {
+        "level": 1,
+        "label": "Reduced comparison",
+        "relativePath": "v003/astra-r08/runtime/v003-r08-lod0.glb",
+        "sha256": "c6ca8c9335408af0842104f2a5f023955309e72e907ee7ada68fb820085fd733",
+        "bytes": 5697808,
+        "triangles": 41934,
+        "warnings": 38
+      }
+    ],
+    "video": "https://0.taila30dc.ts.net:8445/assets/devices/pokedex-v003-astra-r08/video/v003-r08-animation.mp4",
+    "comparison": "https://0.taila30dc.ts.net:8445/devtools/pokedex-generations.html?device=v003"
+  }
+]

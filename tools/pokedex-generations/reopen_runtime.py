@@ -14,17 +14,17 @@ def activate(scene,clip,seconds):
         obj.animation_data.action=None
         for track in obj.animation_data.nla_tracks:track.mute=track.name!=clip
     scene.frame_set(1+round(seconds*30));bpy.context.view_layer.update()
-    signals={runtime_name(o['source_name']):o for o in scene.objects if o.get('source_name')}
+    signals={o.get('runtime_node_name',runtime_name(o['source_name'])):o for o in scene.objects if o.get('source_name')}
     for mat in {m for o in scene.objects if o.type=='MESH' for m in o.data.materials if m}:
         if 'power_signal' not in mat:continue
         signal=signals[mat['power_signal']]
         shader=next(n for n in mat.node_tree.nodes if n.type=='BSDF_PRINCIPLED')
         shader.inputs['Emission Strength'].default_value=mat['max_emission']*max(0,min(1,signal.location.x))
 
-def inspect(version,revision):
-    candidate=version+'-'+revision;out=Path('/mnt/zer0models/pokemon-iac/devices/pokedex')/version/('astra-'+revision)
+def inspect(version,revision,output=None):
+    candidate=version+'-'+revision;out=Path(output) if output else Path('/mnt/zer0models/pokemon-iac/devices/pokedex')/version/('astra-'+revision)
     path=out/'runtime'/(candidate+'-lod0.glb');contract=json.loads((out/'animation-contract.json').read_text())
-    scene=bpy.data.scenes.new('REOPEN-'+candidate);bpy.context.window.scene=scene;scene.render.fps=30
+    scene=bpy.data.scenes.new('REOPEN-'+candidate+('-q2' if output else ''));bpy.context.window.scene=scene;scene.render.fps=30
     bpy.ops.import_scene.gltf(filepath=str(path))
     scene['candidateId']=candidate;scene['stage']='actual GLB reopen'
     objects={o.get('source_name'):o for o in scene.objects if o.get('source_name')}

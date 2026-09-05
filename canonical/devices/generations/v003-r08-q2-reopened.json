@@ -1,0 +1,865 @@
+{
+  "candidate": "v003-r08",
+  "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v003/astra-r08/quality-q2/runtime/v003-r08-lod0.glb",
+  "sha256": "087f4ca775b0db8384d8bbe75f384e4b0925f3b3a8b9657c0358ecf3aec42c97",
+  "samples": [
+    {
+      "clip": "Closed",
+      "seconds": 0,
+      "hingeDegrees": 0.0,
+      "buttonZ": 0.007400000002235174,
+      "ringPower": 0.11999999731779099,
+      "screenPower": 0.0,
+      "boundsMeters": [
+        [
+          -0.054420001804828644,
+          -0.06871695816516876,
+          -0.005900000222027302
+        ],
+        [
+          0.04277000203728676,
+          0.0695137307047844,
+          0.023000000044703484
+        ]
+      ],
+      "extentMeters": [
+        0.0971900038421154,
+        0.13823068886995316,
+        0.028900000266730785
+      ],
+      "finiteTransforms": true
+    },
+    {
+      "clip": "Closed",
+      "seconds": 0.25,
+      "hingeDegrees": 0.0,
+      "buttonZ": 0.007400000002235174,
+      "ringPower": 0.11999999731779099,
+      "screenPower": 0.0,
+      "boundsMeters": [
+        [
+          -0.054420001804828644,
+          -0.06871695816516876,
+          -0.005900000222027302
+        ],
+        [
+          0.04277000203728676,
+          0.0695137307047844,
+          0.023000000044703484
+        ]
+      ],
+      "extentMeters": [
+        0.0971900038421154,
+        0.13823068886995316,
+        0.028900000266730785
+      ],
+      "finiteTransforms": true
+    },
+    {
+      "clip": "Closed",
+      "seconds": 0.5,
+      "hingeDegrees": 0.0,
+      "buttonZ": 0.007400000002235174,
+      "ringPower": 0.11999999731779099,
+      "screenPower": 0.0,
+      "boundsMeters": [
+        [
+          -0.054420001804828644,
+          -0.06871695816516876,
+          -0.005900000222027302
+        ],
+        [
+          0.04277000203728676,
+          0.0695137307047844,
+          0.023000000044703484
+        ]
+      ],
+      "extentMeters": [
+        0.0971900038421154,
+        0.13823068886995316,
+        0.028900000266730785
+      ],
+      "finiteTransforms": true
+    },
+    {
+      "clip": "Opening",
+      "seconds": 0,
+      "hingeDegrees": 0.0,
+      "buttonZ": 0.007400000002235174,
+      "ringPower": 0.25,
+      "screenPower": 0.0,
+      "boundsMeters": [
+        [
+          -0.054420001804828644,
+          -0.06871695816516876,
+          -0.005900000222027302
+        ],
+        [
+          0.04277000203728676,
+          0.0695137307047844,
+          0.023000000044703484
+        ]
+      ],
+      "extentMeters": [
+        0.0971900038421154,
+        0.13823068886995316,
+        0.028900000266730785
+      ],
+      "finiteTransforms": true
+    },
+    {
+      "clip": "Opening",
+      "seconds": 1.0,
+      "hingeDegrees": -86.54637199217458,
+      "buttonZ": 0.007400000002235174,
+      "ringPower": 0.25,
+      "screenPower": 0.0,
+      "boundsMeters": [
+        [
+          -0.054420001804828644,
+          -0.06871695816516876,
+          -0.005900000222027302
+        ],
+        [
+          0.04277000203728676,
+          0.07151107490062714,
+          0.14654313027858734
+        ]
+      ],
+      "extentMeters": [
+        0.0971900038421154,
+        0.1402280330657959,
+        0.15244313050061464
+      ],
+      "finiteTransforms": true
+    },
+    {
+      "clip": "Opening",
+      "seconds": 2.0,
+      "hingeDegrees": -142.77704497589593,
+      "buttonZ": 0.007400000002235174,
+      "ringPower": 0.25,
+      "screenPower": 0.0,
+      "boundsMeters": [
+        [
+          -0.054420001804828644,
+          -0.06871695816516876,
+          -0.005900000222027302
+        ],
+        [
+          0.04277000203728676,
+          0.1745307296514511,
+          0.09392299503087997
+        ]
+      ],
+      "extentMeters": [
+        0.0971900038421154,
+        0.24324768781661987,
+        0.09982299525290728
+      ],
+      "finiteTransforms": true
+    },
+    {
+      "clip": "BootUp",
+      "seconds": 0,
+      "hingeDegrees": -142.77704497589593,
+      "buttonZ": 0.007400000002235174,
+      "ringPower": 0.25,
+      "screenPower": 0.0,
+      "boundsMeters": [
+        [
+          -0.054420001804828644,
+          -0.06871695816516876,
+          -0.005900000222027302
+        ],
+        [
+          0.04277000203728676,
+          0.1745307296514511,
+          0.09392299503087997
+        ]
+      ],
+      "extentMeters": [
+        0.0971900038421154,
+        0.24324768781661987,
+        0.09982299525290728
+      ],
+      "finiteTransforms": true
+    },
+    {
+      "clip": "BootUp",
+      "seconds": 1.25,
+      "hingeDegrees": -142.77704497589593,
+      "buttonZ": 0.007400000002235174,
+      "ringPower": 1.0,
+      "screenPower": 1.0,
+      "boundsMeters": [
+        [
+          -0.054420001804828644,
+          -0.06871695816516876,
+          -0.005900000222027302
+        ],
+        [
+          0.04277000203728676,
+          0.1745307296514511,
+          0.09392299503087997
+        ]
+      ],
+      "extentMeters": [
+        0.0971900038421154,
+        0.24324768781661987,
+        0.09982299525290728
+      ],
+      "finiteTransforms": true
+    },
+    {
+      "clip": "BootUp",
+      "seconds": 2.5,
+      "hingeDegrees": -142.77704497589593,
+      "buttonZ": 0.007400000002235174,
+      "ringPower": 0.8999999761581421,
+      "screenPower": 1.0,
+      "boundsMeters": [
+        [
+          -0.054420001804828644,
+          -0.06871695816516876,
+          -0.005900000222027302
+        ],
+        [
+          0.04277000203728676,
+          0.1745307296514511,
+          0.09392299503087997
+        ]
+      ],
+      "extentMeters": [
+        0.0971900038421154,
+        0.24324768781661987,
+        0.09982299525290728
+      ],
+      "finiteTransforms": true
+    },
+    {
+      "clip": "Ready",
+      "seconds": 0,
+      "hingeDegrees": -142.77704497589593,
+      "buttonZ": 0.007400000002235174,
+      "ringPower": 0.8999999761581421,
+      "screenPower": 1.0,
+      "boundsMeters": [
+        [
+          -0.054420001804828644,
+          -0.06871695816516876,
+          -0.005900000222027302
+        ],
+        [
+          0.04277000203728676,
+          0.1745307296514511,
+          0.09392299503087997
+        ]
+      ],
+      "extentMeters": [
+        0.0971900038421154,
+        0.24324768781661987,
+        0.09982299525290728
+      ],
+      "finiteTransforms": true
+    },
+    {
+      "clip": "Ready",
+      "seconds": 0.5,
+      "hingeDegrees": -142.77704497589593,
+      "buttonZ": 0.007400000002235174,
+      "ringPower": 0.8999999761581421,
+      "screenPower": 1.0,
+      "boundsMeters": [
+        [
+          -0.054420001804828644,
+          -0.06871695816516876,
+          -0.005900000222027302
+        ],
+        [
+          0.04277000203728676,
+          0.1745307296514511,
+          0.09392299503087997
+        ]
+      ],
+      "extentMeters": [
+        0.0971900038421154,
+        0.24324768781661987,
+        0.09982299525290728
+      ],
+      "finiteTransforms": true
+    },
+    {
+      "clip": "Ready",
+      "seconds": 1.0,
+      "hingeDegrees": -142.77704497589593,
+      "buttonZ": 0.007400000002235174,
+      "ringPower": 0.8999999761581421,
+      "screenPower": 1.0,
+      "boundsMeters": [
+        [
+          -0.054420001804828644,
+          -0.06871695816516876,
+          -0.005900000222027302
+        ],
+        [
+          0.04277000203728676,
+          0.1745307296514511,
+          0.09392299503087997
+        ]
+      ],
+      "extentMeters": [
+        0.0971900038421154,
+        0.24324768781661987,
+        0.09982299525290728
+      ],
+      "finiteTransforms": true
+    },
+    {
+      "clip": "Idle",
+      "seconds": 0,
+      "hingeDegrees": -142.77704497589593,
+      "buttonZ": 0.007400000002235174,
+      "ringPower": 0.8999999761581421,
+      "screenPower": 1.0,
+      "boundsMeters": [
+        [
+          -0.054420001804828644,
+          -0.06871695816516876,
+          -0.005900000222027302
+        ],
+        [
+          0.04277000203728676,
+          0.1745307296514511,
+          0.09392299503087997
+        ]
+      ],
+      "extentMeters": [
+        0.0971900038421154,
+        0.24324768781661987,
+        0.09982299525290728
+      ],
+      "finiteTransforms": true
+    },
+    {
+      "clip": "Idle",
+      "seconds": 1.5,
+      "hingeDegrees": -142.77704497589593,
+      "buttonZ": 0.007400000002235174,
+      "ringPower": 0.7599999904632568,
+      "screenPower": 1.0,
+      "boundsMeters": [
+        [
+          -0.054420001804828644,
+          -0.06871695816516876,
+          -0.005900000222027302
+        ],
+        [
+          0.04277000203728676,
+          0.1745307296514511,
+          0.09392299503087997
+        ]
+      ],
+      "extentMeters": [
+        0.0971900038421154,
+        0.24324768781661987,
+        0.09982299525290728
+      ],
+      "finiteTransforms": true
+    },
+    {
+      "clip": "Idle",
+      "seconds": 3.0,
+      "hingeDegrees": -142.77704497589593,
+      "buttonZ": 0.007400000002235174,
+      "ringPower": 0.8999999761581421,
+      "screenPower": 1.0,
+      "boundsMeters": [
+        [
+          -0.054420001804828644,
+          -0.06871695816516876,
+          -0.005900000222027302
+        ],
+        [
+          0.04277000203728676,
+          0.1745307296514511,
+          0.09392299503087997
+        ]
+      ],
+      "extentMeters": [
+        0.0971900038421154,
+        0.24324768781661987,
+        0.09982299525290728
+      ],
+      "finiteTransforms": true
+    },
+    {
+      "clip": "ButtonPress",
+      "seconds": 0,
+      "hingeDegrees": -142.77704497589593,
+      "buttonZ": 0.007400000002235174,
+      "ringPower": 0.8999999761581421,
+      "screenPower": 1.0,
+      "boundsMeters": [
+        [
+          -0.054420001804828644,
+          -0.06871695816516876,
+          -0.005900000222027302
+        ],
+        [
+          0.04277000203728676,
+          0.1745307296514511,
+          0.09392299503087997
+        ]
+      ],
+      "extentMeters": [
+        0.0971900038421154,
+        0.24324768781661987,
+        0.09982299525290728
+      ],
+      "finiteTransforms": true
+    },
+    {
+      "clip": "ButtonPress",
+      "seconds": 0.3333333333333333,
+      "hingeDegrees": -142.77704497589593,
+      "buttonZ": 0.006850000005215406,
+      "ringPower": 1.0,
+      "screenPower": 1.0,
+      "boundsMeters": [
+        [
+          -0.054420001804828644,
+          -0.06871695816516876,
+          -0.005900000222027302
+        ],
+        [
+          0.04277000203728676,
+          0.1745307296514511,
+          0.09392299503087997
+        ]
+      ],
+      "extentMeters": [
+        0.0971900038421154,
+        0.24324768781661987,
+        0.09982299525290728
+      ],
+      "finiteTransforms": true
+    },
+    {
+      "clip": "ButtonPress",
+      "seconds": 0.4,
+      "hingeDegrees": -142.77704497589593,
+      "buttonZ": 0.006850000005215406,
+      "ringPower": 0.9801749587059021,
+      "screenPower": 1.0,
+      "boundsMeters": [
+        [
+          -0.054420001804828644,
+          -0.06871695816516876,
+          -0.005900000222027302
+        ],
+        [
+          0.04277000203728676,
+          0.1745307296514511,
+          0.09392299503087997
+        ]
+      ],
+      "extentMeters": [
+        0.0971900038421154,
+        0.24324768781661987,
+        0.09982299525290728
+      ],
+      "finiteTransforms": true
+    },
+    {
+      "clip": "ButtonPress",
+      "seconds": 0.8,
+      "hingeDegrees": -142.77704497589593,
+      "buttonZ": 0.007400000002235174,
+      "ringPower": 0.8999999761581421,
+      "screenPower": 1.0,
+      "boundsMeters": [
+        [
+          -0.054420001804828644,
+          -0.06871695816516876,
+          -0.005900000222027302
+        ],
+        [
+          0.04277000203728676,
+          0.1745307296514511,
+          0.09392299503087997
+        ]
+      ],
+      "extentMeters": [
+        0.0971900038421154,
+        0.24324768781661987,
+        0.09982299525290728
+      ],
+      "finiteTransforms": true
+    }
+  ],
+  "meshes": [
+    {
+      "name": "L0Q2_MERGED_RT_v003_r08_PDX_Base_L0Q2_v003/r08/MAT-button-return.001",
+      "triangles": 6880,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_MERGED_RT_v003_r08_PDX_Base_L0Q2_v003/r08/MAT-graphite.001",
+      "triangles": 4080,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_MERGED_RT_v003_r08_PDX_Base_L0Q2_v003/r08/MAT-hinge-steel.001",
+      "triangles": 7140,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_MERGED_RT_v003_r08_PDX_Base_L0Q2_v003/r08/MAT-inner-support.001",
+      "triangles": 14008,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_MERGED_RT_v003_r08_PDX_Base_L0Q2_v003/r08/MAT-obsidian.001",
+      "triangles": 9968,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_MERGED_RT_v003_r08_PDX_Base_L0Q2_v003/r08/MAT-satin-aluminum.001",
+      "triangles": 3324,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_MERGED_RT_v003_r08_PDX_Base_L0Q2_v003/r08/MAT-scarlet-board02.001",
+      "triangles": 4780,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_RT_v003_r08_GEO_amber_front_indicator.001",
+      "triangles": 700,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_RT_v003_r08_GEO_base_gasket.001",
+      "triangles": 1408,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_RT_v003_r08_GEO_base_shell.001",
+      "triangles": 1412,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_RT_v003_r08_GEO_button_A_return.001",
+      "triangles": 1020,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_RT_v003_r08_GEO_control_deck.001",
+      "triangles": 6320,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_RT_v003_r08_GEO_deck_cyan_ring.001",
+      "triangles": 2304,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_RT_v003_r08_GEO_front_red_indicator.001",
+      "triangles": 700,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_RT_v003_r08_GEO_green_deck_indicator.001",
+      "triangles": 1020,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_RT_v003_r08_GEO_hinge_fixed_1.001",
+      "triangles": 7760,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_RT_v003_r08_GEO_hinge_fixed__1.001",
+      "triangles": 7760,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_RT_v003_r08_GEO_button_A_stem.001",
+      "triangles": 1020,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_RT_v003_r08_GEO_diamond_inset_0.001",
+      "triangles": 1020,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_RT_v003_r08_GEO_diamond_key_0.001",
+      "triangles": 1020,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_RT_v003_r08_GEO_dpad.001",
+      "triangles": 572,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_RT_v003_r08_GEO_dpad_stem.001",
+      "triangles": 1020,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_RT_v003_r08_GEO_diamond_inset_1.001",
+      "triangles": 1020,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_RT_v003_r08_GEO_diamond_key_1.001",
+      "triangles": 1020,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_RT_v003_r08_GEO_key_stem_1.001",
+      "triangles": 1020,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_RT_v003_r08_GEO_diamond_inset_2.001",
+      "triangles": 1020,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_RT_v003_r08_GEO_diamond_key_2.001",
+      "triangles": 1020,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_RT_v003_r08_GEO_key_stem_2.001",
+      "triangles": 1020,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_RT_v003_r08_GEO_diamond_inset_3.001",
+      "triangles": 1020,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_RT_v003_r08_GEO_diamond_key_3.001",
+      "triangles": 1020,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_RT_v003_r08_GEO_key_stem_3.001",
+      "triangles": 1020,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_MERGED_RT_v003_r08_PDX_LidHinge_L0Q2_v003/r08/MAT-hinge-steel.001",
+      "triangles": 4096,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_MERGED_RT_v003_r08_PDX_LidHinge_L0Q2_v003/r08/MAT-inner-support.001",
+      "triangles": 1720,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_MERGED_RT_v003_r08_PDX_LidHinge_L0Q2_v003/r08/MAT-obsidian.001",
+      "triangles": 7228,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_MERGED_RT_v003_r08_PDX_LidHinge_L0Q2_v003/r08/MAT-panel-cut.001",
+      "triangles": 232,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_MERGED_RT_v003_r08_PDX_LidHinge_L0Q2_v003/r08/MAT-satin-aluminum.001",
+      "triangles": 1212,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_MERGED_RT_v003_r08_PDX_LidHinge_L0Q2_v003/r08/MAT-scarlet-board02.001",
+      "triangles": 2756,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_RT_v003_r08_GEO_camera_optics.001",
+      "triangles": 1020,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_RT_v003_r08_GEO_display_gasket.001",
+      "triangles": 1440,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_RT_v003_r08_GEO_display_glass.001",
+      "triangles": 700,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_RT_v003_r08_GEO_display_metal_rim.001",
+      "triangles": 1440,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_RT_v003_r08_GEO_hinge_moving.001",
+      "triangles": 9048,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_RT_v003_r08_GEO_lid_interior.001",
+      "triangles": 5968,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_RT_v003_r08_GEO_lid_shell.001",
+      "triangles": 1198,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_RT_v003_r08_GEO_lock_center_cyan.001",
+      "triangles": 1020,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_RT_v003_r08_GEO_sensor.001",
+      "triangles": 892,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_MERGED_RT_v003_r08_PDX_DisplayBoot_L0Q2_v003/r08/MAT-display-type.001",
+      "triangles": 5740,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_RT_v003_r08_GEO_progress_track.001",
+      "triangles": 700,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_RT_v003_r08_GEO_progress_fill.001",
+      "triangles": 700,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0Q2_MERGED_RT_v003_r08_PDX_DisplayReady_L0Q2_v003/r08/MAT-display-type.001",
+      "triangles": 6318,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    }
+  ],
+  "checks": {
+    "meshData": true,
+    "finiteTransforms": true,
+    "physicalBounds": true,
+    "closedThickness": true,
+    "closedHinge": true,
+    "openedHinge": true,
+    "buttonTravel": true,
+    "screenWakes": true,
+    "idleBreathes": true
+  },
+  "passed": true
+}

@@ -1,0 +1,175 @@
+{
+  "date": "2026-09-05",
+  "references": [
+    {
+      "id": "kanto-open",
+      "url": "https://archives.bulbagarden.net/media/upload/d/d5/Ash_Original_Pok%C3%A9dex.png",
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/eras/references/kanto-open.png",
+      "bytes": 415375,
+      "sha256": "5cc568de2fd6c8101f9165d9e443deb9b283593cd5fce0a981e870d48e428969",
+      "provenance": "Anime screenshot hosted by Bulbagarden Archives; visual reference only",
+      "sourcePage": "https://archives.bulbagarden.net/wiki/File:Ash_Original_Pok%C3%A9dex.png",
+      "review": "Root visually inspected; primary anime pixels hosted by community archive. Caption claims are secondary."
+    },
+    {
+      "id": "kanto-scan",
+      "url": "https://archives.bulbagarden.net/media/upload/1/1a/Ash_Original_Pok%C3%A9dex_scan.png",
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/eras/references/kanto-scan.png",
+      "bytes": 306489,
+      "sha256": "d45ca510d5bc2a03ba447f496b7e4cecd9810fa156618ac49a5bdcd28db3f2e8",
+      "provenance": "Anime screenshot hosted by Bulbagarden Archives; visual reference only",
+      "sourcePage": "https://archives.bulbagarden.net/wiki/File:Ash_Original_Pok%C3%A9dex_scan.png",
+      "review": "Root visually inspected; primary anime pixels hosted by community archive. Caption claims are secondary."
+    },
+    {
+      "id": "johto-closed",
+      "url": "https://archives.bulbagarden.net/media/upload/5/51/Ash_Johto_Pok%C3%A9dex_closed.png",
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/eras/references/johto-closed.png",
+      "bytes": 217716,
+      "sha256": "14e65be4db75a71ac41100195acb5da415fdf5843c1e2fcda01718714214a02b",
+      "provenance": "Anime screenshot hosted by Bulbagarden Archives; visual reference only",
+      "sourcePage": "https://archives.bulbagarden.net/wiki/File:Ash_Johto_Pok%C3%A9dex_closed.png",
+      "review": "Root visually inspected; primary anime pixels hosted by community archive. Caption claims are secondary."
+    },
+    {
+      "id": "johto-open",
+      "url": "https://archives.bulbagarden.net/media/upload/f/f8/Ash_Johto_Pok%C3%A9dex.png",
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/eras/references/johto-open.png",
+      "bytes": 289957,
+      "sha256": "2aff576bac3e405391a84fcf1b3b1e8e7474e4fe1197dba22e7ca574c85cf3c1",
+      "provenance": "Anime screenshot hosted by Bulbagarden Archives; visual reference only",
+      "sourcePage": "https://archives.bulbagarden.net/wiki/File:Ash_Johto_Pok%C3%A9dex.png",
+      "review": "Root visually inspected; primary anime pixels hosted by community archive. Caption claims are secondary."
+    },
+    {
+      "id": "hoenn-scan",
+      "url": "https://archives.bulbagarden.net/media/upload/b/b4/Ash_Hoenn_Pok%C3%A9dex.png",
+      "sourcePage": "https://archives.bulbagarden.net/wiki/File:Ash_Hoenn_Pok%C3%A9dex.png",
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/eras/references/hoenn-scan.png",
+      "bytes": 192404,
+      "sha256": "2b6ca55df6c9726daf4ee61f50afdd07b24ee505699012fca31443d9fe244eb0",
+      "provenance": "Anime screenshot hosted by Bulbagarden Archives; private visual reference only",
+      "review": "Root visually inspected; primary anime pixels hosted by community archive. Caption claims are secondary."
+    },
+    {
+      "id": "sinnoh-closed",
+      "url": "https://archives.bulbagarden.net/media/upload/4/4f/Ash_Sinnoh_Pok%C3%A9dex_closed.png",
+      "sourcePage": "https://archives.bulbagarden.net/wiki/File:Ash_Sinnoh_Pok%C3%A9dex_closed.png",
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/eras/references/sinnoh-closed.png",
+      "bytes": 229165,
+      "sha256": "12df48e76f7aad18ab8348e2f2b5d126e6cc8b35950559261b8c056b4ffb040a",
+      "provenance": "Anime screenshot hosted by Bulbagarden Archives; private visual reference only",
+      "review": "Root visually inspected; primary anime pixels hosted by community archive. Caption claims are secondary."
+    },
+    {
+      "id": "sinnoh-scan",
+      "url": "https://archives.bulbagarden.net/media/upload/f/fa/Ash_Sinnoh_Pok%C3%A9dex.png",
+      "sourcePage": "https://archives.bulbagarden.net/wiki/File:Ash_Sinnoh_Pok%C3%A9dex.png",
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/eras/references/sinnoh-scan.png",
+      "bytes": 984503,
+      "sha256": "d4f5ab48025e409371e172a2af8dad85aa1efd9101a27dc8ba143b5463092060",
+      "provenance": "Anime screenshot hosted by Bulbagarden Archives; private visual reference only",
+      "review": "Root visually inspected; primary anime pixels hosted by community archive. Caption claims are secondary."
+    },
+    {
+      "id": "unova-device",
+      "url": "https://archives.bulbagarden.net/media/upload/c/c7/Ash_Unova_Pok%C3%A9dex.png",
+      "sourcePage": "https://archives.bulbagarden.net/wiki/File:Ash_Unova_Pok%C3%A9dex.png",
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/eras/references/unova-device.png",
+      "bytes": 655876,
+      "sha256": "97484c958920277dfe9cabb51ff6e7f4e9ab8e1f2fe59313743f7694a2cc9af9",
+      "provenance": "Anime screenshot hosted by Bulbagarden Archives; private visual reference only",
+      "review": "Root visually inspected; primary anime pixels hosted by community archive. Caption claims are secondary."
+    },
+    {
+      "id": "unova-no-data",
+      "url": "https://archives.bulbagarden.net/media/upload/3/3b/Ash_Unova_Pok%C3%A9dex_no_data.png",
+      "sourcePage": "https://archives.bulbagarden.net/wiki/File:Ash_Unova_Pok%C3%A9dex_no_data.png",
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/eras/references/unova-no-data.png",
+      "bytes": 690014,
+      "sha256": "fb38bd30f39dbf0d61a17b6486c420536e3b133bc6e2185eccd7f64c6eb828c7",
+      "provenance": "Anime screenshot hosted by Bulbagarden Archives; private visual reference only",
+      "review": "Root visually inspected; primary anime pixels hosted by community archive. Caption claims are secondary."
+    },
+    {
+      "id": "kalos-original",
+      "url": "https://archives.bulbagarden.net/media/upload/1/1d/Ash_Kalos_Pok%C3%A9dex.png",
+      "sourcePage": "https://archives.bulbagarden.net/wiki/File:Ash_Kalos_Pok%C3%A9dex.png",
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/eras/references/kalos-original.png",
+      "bytes": 808898,
+      "sha256": "ca03a455deb2edcd05e145470e64ce37ca650d7c82415598f63642a30f07b952",
+      "provenance": "Anime screenshot hosted by Bulbagarden Archives; private visual reference only",
+      "review": "Root visually inspected; primary anime pixels hosted by community archive. Caption claims are secondary."
+    },
+    {
+      "id": "kalos-upgrade",
+      "url": "https://archives.bulbagarden.net/media/upload/f/f2/Ash_Kalos_Pok%C3%A9dex_2.png",
+      "sourcePage": "https://archives.bulbagarden.net/wiki/File:Ash_Kalos_Pok%C3%A9dex_2.png",
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/eras/references/kalos-upgrade.png",
+      "bytes": 878874,
+      "sha256": "af829ef3e23ec9d3763815f0430df25f173359ee0e3754cbf77376836c5d0fe2",
+      "provenance": "Anime screenshot hosted by Bulbagarden Archives; private visual reference only",
+      "review": "Root visually inspected; primary anime pixels hosted by community archive. Caption claims are secondary."
+    },
+    {
+      "id": "kalos-scan",
+      "url": "https://archives.bulbagarden.net/media/upload/6/69/Ash_Kalos_Pok%C3%A9dex_scan.png",
+      "sourcePage": "https://archives.bulbagarden.net/wiki/File:Ash_Kalos_Pok%C3%A9dex_scan.png",
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/eras/references/kalos-scan.png",
+      "bytes": 1041071,
+      "sha256": "7b0552f1dcc60493c41461eed80782fca4e1272d28d048ef5c681361d228c112",
+      "provenance": "Anime screenshot hosted by Bulbagarden Archives; private visual reference only",
+      "review": "Root visually inspected; primary anime pixels hosted by community archive. Caption claims are secondary."
+    },
+    {
+      "id": "alola-empty",
+      "url": "https://archives.bulbagarden.net/media/upload/c/cb/Ash_Alola_Pok%C3%A9dex.png",
+      "sourcePage": "https://archives.bulbagarden.net/wiki/File:Ash_Alola_Pok%C3%A9dex.png",
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/eras/references/alola-empty.png",
+      "bytes": 473541,
+      "sha256": "d0284b45145b8a9b463cae11c21b71fa89c5af5a64ec8db9f0da5f91e22abd3c",
+      "provenance": "Anime screenshot hosted by Bulbagarden Archives; private visual reference only",
+      "review": "Root visually inspected; primary anime pixels hosted by community archive. Caption claims are secondary."
+    },
+    {
+      "id": "alola-rotom",
+      "url": "https://archives.bulbagarden.net/media/upload/5/57/Rotom_Pok%C3%A9dex_anime.png",
+      "sourcePage": "https://archives.bulbagarden.net/wiki/File:Rotom_Pok%C3%A9dex_anime.png",
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/eras/references/alola-rotom.png",
+      "bytes": 1270231,
+      "sha256": "ac774ac36877311b5d78b6381ced5183f7cc7001551d438b40366ccb194348d7",
+      "provenance": "Anime screenshot hosted by Bulbagarden Archives; private visual reference only",
+      "review": "Root visually inspected; primary anime pixels hosted by community archive. Caption claims are secondary."
+    },
+    {
+      "id": "alola-scale",
+      "url": "https://archives.bulbagarden.net/media/upload/a/a7/Ash_and_Rotom_Pok%C3%A9dex.png",
+      "sourcePage": "https://archives.bulbagarden.net/wiki/File:Ash_and_Rotom_Pok%C3%A9dex.png",
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/eras/references/alola-scale.png",
+      "bytes": 3342145,
+      "sha256": "904d5c3a77a69ec292ae182532a97d0e51f2f31b960e0e7dac82ba963dfc5a5a",
+      "provenance": "Anime screenshot hosted by Bulbagarden Archives; private visual reference only",
+      "review": "Root visually inspected; primary anime pixels hosted by community archive. Caption claims are secondary."
+    },
+    {
+      "id": "journeys-back",
+      "url": "https://archives.bulbagarden.net/media/upload/e/e4/Ash_Rotom_Phone.png",
+      "sourcePage": "https://archives.bulbagarden.net/wiki/File:Ash_Rotom_Phone.png",
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/eras/references/journeys-back.png",
+      "bytes": 689764,
+      "sha256": "1de31f5f1fc6b565ebf2e659b53bce31d0b438bdcfa2af09b449dd986711deb1",
+      "provenance": "Anime screenshot hosted by Bulbagarden Archives; private visual reference only",
+      "review": "Root visually inspected; primary anime pixels hosted by community archive. Caption claims are secondary."
+    },
+    {
+      "id": "journeys-scan",
+      "url": "https://archives.bulbagarden.net/media/upload/0/01/Ash_Rotom_Phone_scan.png",
+      "sourcePage": "https://archives.bulbagarden.net/wiki/File:Ash_Rotom_Phone_scan.png",
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/eras/references/journeys-scan.png",
+      "bytes": 766035,
+      "sha256": "263df79bdded9f21ddfb584311a81a326bd808d378ef10fc42739dc5cc409fdb",
+      "provenance": "Anime screenshot hosted by Bulbagarden Archives; private visual reference only",
+      "review": "Root visually inspected; primary anime pixels hosted by community archive. Caption claims are secondary."
+    }
+  ]
+}

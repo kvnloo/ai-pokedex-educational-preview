@@ -6,7 +6,9 @@ const require = createRequire('/tmp/pokedex-gltf-validation/package.json');
 const validator = require('gltf-validator');
 const candidate = process.argv[2];
 if (!/^v00[23]-r08$/.test(candidate)) throw new Error('Pass a candidate id');
-const root = `/mnt/zer0models/pokemon-iac/devices/pokedex/${candidate.slice(0,4)}/astra-r08/runtime`;
+const quality = process.argv[3] === '--quality-q2';
+if (process.argv[3] && !quality) throw new Error('Unknown export profile');
+const root = `/mnt/zer0models/pokemon-iac/devices/pokedex/${candidate.slice(0,4)}/astra-r08/${quality ? 'quality-q2/' : ''}runtime`;
 const expected = { Closed: .5, Opening: 2, BootUp: 2.5, Ready: 1, Idle: 3, ButtonPress: .8 };
 const results = [];
 for (const level of [0]) {
@@ -29,7 +31,7 @@ for (const level of [0]) {
     sixNamedClips: clips.length === 6 && clips.every(c => Object.hasOwn(expected, c.name)),
     clipDurations: clips.every(c => c.start === 0 && Math.abs(c.duration - expected[c.name]) < .0001),
     uniqueChannels: clips.every(c => c.channels === c.uniqueChannels),
-    budget: triangles <= [80000, 35000, 15000][level],
+    budget: triangles <= (quality ? 150000 : [80000, 35000, 15000][level]),
     signalsResolve: bindings.length > 0 && bindings.every(b => b.resolved && Number.isFinite(b.maximum)),
     replaceableScreen: gltf.nodes.some(n => n.extras?.replaceable_display === true),
     noPointerExtension: !gltf.extensionsUsed?.includes('KHR_animation_pointer'),

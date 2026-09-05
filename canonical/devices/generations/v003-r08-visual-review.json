@@ -1,0 +1,38 @@
+{
+  "candidate": "v003-r08",
+  "status": "inspected-for-review",
+  "reviewer": "Root/Astra",
+  "kevinApproval": "pending",
+  "productionReadiness": "not claimed",
+  "playback": {
+    "method": "Full native HTML video playback through the Tailscale browser, plus visual inspection of decoded sequence contact sheets and browser frames.",
+    "durationSeconds": 9.8,
+    "decodedFrames": 294,
+    "presentedCallbacks": 290,
+    "droppedBrowserFrames": 2,
+    "ended": true,
+    "fileDecoding": "ffprobe counted 294 H.264 frames at 30 fps; FFmpeg decoded the selected contact frames."
+  },
+  "inspected": [
+    "matched closed/open reference sheets and overlays",
+    "front/back/side/three-quarter material and clay photographs",
+    "closed and underside photographs",
+    "hinge/control/port closeups",
+    "actual reopened GLB appearance",
+    "reduced versus Q2 retained-hero control surfaces",
+    "actual opening/boot/ready/idle/button video"
+  ],
+  "findings": [
+    "Original side photography clipped the lid and the underside was underlit. Independent inspection-r01 cameras use evaluated mesh bounds and a camera fill; all complete-object views now retain an 8 percent margin.",
+    "The reduced export visibly faceted rings and control caps. Q2 preserves evaluated hero geometry, UVs and normals, with an explicit 150k-triangle closeup budget. Reduced exports remain for comparison.",
+    "The full opening has a slow initial lift and a restrained settle. Boot glyph/progress gives way to ready content. The subtle button travel is easier to inspect in the runtime closeup than the fixed whole-device video."
+  ],
+  "remaining": [
+    "The board camera/header, panel seams, control shapes and side-rail proportions are still approximate.",
+    "The concept boards disagree about hinge axes. This candidate uses one transverse hinge and a protective side rail.",
+    "The screen is a replaceable placeholder. No concept UI image is baked onto geometry.",
+    "Tangent-generation warnings remain (31 for v2; 38 for v3). Runtime renderers supply the microfinish tangent basis.",
+    "The 15-angle lid/base surface test is not a complete manufacturing certification or exhaustive check of all static solid pairs.",
+    "Only the main button has a dedicated feedback clip; other controls remain separate reusable geometry/pivots where authored."
+  ]
+}

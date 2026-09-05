@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 1,
+  "basis": "Ash anime devices; two supplied concepts are independent review assets",
+  "progression": {
+    "grant": "enter-era-once",
+    "retainPrevious": true,
+    "retainCandidateChoices": true,
+    "reviewIsUnlock": false
+  },
+  "families": [
+    {
+      "id": "kanto",
+      "title": "Kanto",
+      "eraOrder": 0,
+      "variants": [
+        "original"
+      ],
+      "referenceIds": [
+        "kanto-open",
+        "kanto-scan"
+      ],
+      "stage": "reference-study",
+      "candidates": [],
+      "unresolved": "Book hinge visible; rear and closed fit need more frames."
+    },
+    {
+      "id": "johto",
+      "title": "Johto",
+      "eraOrder": 1,
+      "variants": [
+        "original"
+      ],
+      "referenceIds": [
+        "johto-closed",
+        "johto-open"
+      ],
+      "stage": "reference-study",
+      "candidates": [],
+      "unresolved": "Open reference is cropped; obtain complete cover sequence."
+    },
+    {
+      "id": "hoenn",
+      "title": "Hoenn",
+      "eraOrder": 2,
+      "variants": [
+        "original"
+      ],
+      "referenceIds": [
+        "hoenn-scan"
+      ],
+      "stage": "reference-study",
+      "candidates": [],
+      "unresolved": "Verify closed/open mechanism and exact handoff."
+    },
+    {
+      "id": "sinnoh",
+      "title": "Sinnoh",
+      "eraOrder": 3,
+      "variants": [
+        "original"
+      ],
+      "referenceIds": [
+        "sinnoh-closed",
+        "sinnoh-scan"
+      ],
+      "stage": "reference-study",
+      "candidates": [],
+      "unresolved": "One visible main display; reverse and underside not yet sourced."
+    },
+    {
+      "id": "unova",
+      "title": "Unova",
+      "eraOrder": 4,
+      "variants": [
+        "original"
+      ],
+      "referenceIds": [
+        "unova-device",
+        "unova-no-data"
+      ],
+      "stage": "reference-study",
+      "candidates": [],
+      "unresolved": "Verify Ash-specific handoff; preserve no-data state."
+    },
+    {
+      "id": "kalos",
+      "title": "Kalos",
+      "eraOrder": 5,
+      "variants": [
+        "original",
+        "upgrade"
+      ],
+      "referenceIds": [
+        "kalos-original",
+        "kalos-scan",
+        "kalos-upgrade"
+      ],
+      "stage": "reference-study",
+      "candidates": [],
+      "unresolved": "Keep transparent original and orange upgrade separate."
+    },
+    {
+      "id": "alola",
+      "title": "Alola Rotom Dex",
+      "eraOrder": 6,
+      "variants": [
+        "empty",
+        "rotom"
+      ],
+      "referenceIds": [
+        "alola-empty",
+        "alola-rotom",
+        "alola-scale"
+      ],
+      "stage": "reference-study",
+      "candidates": [],
+      "unresolved": "Expression and hover rig; hidden structure remains interpretive."
+    },
+    {
+      "id": "journeys",
+      "title": "Journeys Rotom Phone",
+      "eraOrder": 7,
+      "variants": [
+        "original"
+      ],
+      "referenceIds": [
+        "journeys-back",
+        "journeys-scan"
+      ],
+      "stage": "reference-study",
+      "candidates": [],
+      "unresolved": "Wake/scan/touch; no unsupported hinge or Horizons tablet form."
+    }
+  ]
+}

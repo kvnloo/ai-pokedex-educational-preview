@@ -1,0 +1,385 @@
+{
+  "source": "/mnt/zer0models/pokemon-iac/devices/pokedex/v003/astra-r08/v003-r08-hero.blend",
+  "sourceSha256": "3a42fdfd61d3d23086f4f0e611931334d997af457474129d807bc0df7fa980d2",
+  "scriptSha256": "6a545876d8902921bbe5400c7a2c2098863ffaac93e71ab5db8c0ad44ba3ee76",
+  "shots": [
+    {
+      "view": "front",
+      "finish": "material",
+      "frame": 165,
+      "camera": [
+        -0.005825001746416092,
+        -0.3620593547821045,
+        0.14901202917099
+      ],
+      "target": [
+        -0.005825001746416092,
+        0.052940644323825836,
+        0.04401201754808426
+      ],
+      "lens": 58,
+      "wholeObjectRequired": true,
+      "projectedBounds": [
+        [
+          0.2572185695171356,
+          0.7410078644752502
+        ],
+        [
+          0.15183119475841522,
+          0.710910975933075
+        ]
+      ],
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v003/astra-r08/inspection-r01/front-material.png",
+      "sha256": "397f0daff26cab1758475d6a36df108c6abc17308d43190b49864853fb37dead"
+    },
+    {
+      "view": "front",
+      "finish": "clay",
+      "frame": 165,
+      "camera": [
+        -0.005825001746416092,
+        -0.3620593547821045,
+        0.14901202917099
+      ],
+      "target": [
+        -0.005825001746416092,
+        0.052940644323825836,
+        0.04401201754808426
+      ],
+      "lens": 58,
+      "wholeObjectRequired": true,
+      "projectedBounds": [
+        [
+          0.2572185695171356,
+          0.7410078644752502
+        ],
+        [
+          0.15183119475841522,
+          0.710910975933075
+        ]
+      ],
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v003/astra-r08/inspection-r01/front-clay.png",
+      "sha256": "a9d5132bb9357dbe1a4265689b636740d18c3880879db611aebfb43aeb12a731"
+    },
+    {
+      "view": "back",
+      "finish": "material",
+      "frame": 165,
+      "camera": [
+        -0.005825001746416092,
+        0.41294065117836,
+        0.14901202917099
+      ],
+      "target": [
+        -0.005825001746416092,
+        0.052940644323825836,
+        0.04401201754808426
+      ],
+      "lens": 58,
+      "wholeObjectRequired": true,
+      "projectedBounds": [
+        [
+          0.186310276389122,
+          0.7482445240020752
+        ],
+        [
+          0.3002292215824127,
+          0.5896631479263306
+        ]
+      ],
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v003/astra-r08/inspection-r01/back-material.png",
+      "sha256": "63e92dafdbb99f4c7fe529b0cfa61678c796a4a1c371f5e652b2bcdda2aa2080"
+    },
+    {
+      "view": "back",
+      "finish": "clay",
+      "frame": 165,
+      "camera": [
+        -0.005825001746416092,
+        0.41294065117836,
+        0.14901202917099
+      ],
+      "target": [
+        -0.005825001746416092,
+        0.052940644323825836,
+        0.04401201754808426
+      ],
+      "lens": 58,
+      "wholeObjectRequired": true,
+      "projectedBounds": [
+        [
+          0.186310276389122,
+          0.7482445240020752
+        ],
+        [
+          0.3002292215824127,
+          0.5896631479263306
+        ]
+      ],
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v003/astra-r08/inspection-r01/back-clay.png",
+      "sha256": "8d8eaf851204acfe4d6f752a372db70b79abab4cc5c9fead2c0f9cf07ba01bdb"
+    },
+    {
+      "view": "side",
+      "finish": "material",
+      "frame": 165,
+      "camera": [
+        0.5148019790649414,
+        0.052940644323825836,
+        0.08622501790523529
+      ],
+      "target": [
+        -0.005825001746416092,
+        0.052940644323825836,
+        0.04401201754808426
+      ],
+      "lens": 58,
+      "wholeObjectRequired": true,
+      "projectedBounds": [
+        [
+          0.0897952988743782,
+          0.9161124229431152
+        ],
+        [
+          0.3402949869632721,
+          0.6413154006004333
+        ]
+      ],
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v003/astra-r08/inspection-r01/side-material.png",
+      "sha256": "0b500356d16ee9e24fce948fa97d9861364a25cc2bcc1a891a4b88027ea0acab"
+    },
+    {
+      "view": "side",
+      "finish": "clay",
+      "frame": 165,
+      "camera": [
+        0.5148019790649414,
+        0.052940644323825836,
+        0.08622501790523529
+      ],
+      "target": [
+        -0.005825001746416092,
+        0.052940644323825836,
+        0.04401201754808426
+      ],
+      "lens": 58,
+      "wholeObjectRequired": true,
+      "projectedBounds": [
+        [
+          0.0897952988743782,
+          0.9161124229431152
+        ],
+        [
+          0.3402949869632721,
+          0.6413154006004333
+        ]
+      ],
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v003/astra-r08/inspection-r01/side-clay.png",
+      "sha256": "504e8165e7a00f13142dcd9af827b45ab287eb2d538308f73fd4c8aa19a5401e"
+    },
+    {
+      "view": "three-quarter",
+      "finish": "material",
+      "frame": 165,
+      "camera": [
+        0.2091750055551529,
+        -0.28705936670303345,
+        0.2660120129585266
+      ],
+      "target": [
+        -0.005825001746416092,
+        0.052940644323825836,
+        0.04401201754808426
+      ],
+      "lens": 58,
+      "wholeObjectRequired": true,
+      "projectedBounds": [
+        [
+          0.09092394262552261,
+          0.836125910282135
+        ],
+        [
+          0.0895608440041542,
+          0.7715030908584595
+        ]
+      ],
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v003/astra-r08/inspection-r01/three-quarter-material.png",
+      "sha256": "e9ef7666123cc260bed34790dfd23261c78d15c4c3dd85384cf52fb2f849b153"
+    },
+    {
+      "view": "three-quarter",
+      "finish": "clay",
+      "frame": 165,
+      "camera": [
+        0.2091750055551529,
+        -0.28705936670303345,
+        0.2660120129585266
+      ],
+      "target": [
+        -0.005825001746416092,
+        0.052940644323825836,
+        0.04401201754808426
+      ],
+      "lens": 58,
+      "wholeObjectRequired": true,
+      "projectedBounds": [
+        [
+          0.09092394262552261,
+          0.836125910282135
+        ],
+        [
+          0.0895608440041542,
+          0.7715030908584595
+        ]
+      ],
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v003/astra-r08/inspection-r01/three-quarter-clay.png",
+      "sha256": "35e1a951a55bb5469c7d0aeae61dbe7d703dce6fad2dea2f2520a23c12b813c6"
+    },
+    {
+      "view": "closed",
+      "finish": "material",
+      "frame": 1,
+      "camera": [
+        0.12417499721050262,
+        -0.22960162162780762,
+        0.30855000019073486
+      ],
+      "target": [
+        -0.005825001746416092,
+        0.00039838626980781555,
+        0.008549999445676804
+      ],
+      "lens": 68,
+      "wholeObjectRequired": true,
+      "projectedBounds": [
+        [
+          0.12582972645759583,
+          0.8419634103775024
+        ],
+        [
+          0.15592052042484283,
+          0.7490620613098145
+        ]
+      ],
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v003/astra-r08/inspection-r01/closed-material.png",
+      "sha256": "e960b509f9453d8a4f32ca8f6ea60b03a1ae1c5f92d68cc6e29855f57beef171"
+    },
+    {
+      "view": "underside",
+      "finish": "material",
+      "frame": 1,
+      "camera": [
+        0.10993747413158417,
+        -0.20797409117221832,
+        -0.30400872230529785
+      ],
+      "target": [
+        -0.005825001746416092,
+        0.00039838626980781555,
+        0.008549999445676804
+      ],
+      "lens": 70,
+      "wholeObjectRequired": true,
+      "projectedBounds": [
+        [
+          0.09877954423427582,
+          0.860510528087616
+        ],
+        [
+          0.20640775561332703,
+          0.8635361194610596
+        ]
+      ],
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v003/astra-r08/inspection-r01/underside-material.png",
+      "sha256": "7a0fd4d2f65abde4fc8f5efac291d86d4aeff63031b31b4f8e87d62db0f4ba26"
+    },
+    {
+      "view": "hinge-closeup",
+      "finish": "material",
+      "frame": 165,
+      "camera": [
+        0.10999999940395355,
+        -0.10000000149011612,
+        0.12999999523162842
+      ],
+      "target": [
+        0,
+        0.065,
+        0.013
+      ],
+      "lens": 95,
+      "wholeObjectRequired": false,
+      "projectedBounds": [
+        [
+          -1.3847211599349976,
+          1.5100494623184204
+        ],
+        [
+          -1.1129673719406128,
+          1.5504740476608276
+        ]
+      ],
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v003/astra-r08/inspection-r01/hinge-closeup-material.png",
+      "sha256": "27b94af5de5b8a621400ca74d3e5ba9f64a6bad0379bc6676e5af4da762735fd"
+    },
+    {
+      "view": "controls-closeup",
+      "finish": "material",
+      "frame": 281,
+      "camera": [
+        0.10000000149011612,
+        -0.1599999964237213,
+        0.15000000596046448
+      ],
+      "target": [
+        0,
+        -0.018,
+        0.005
+      ],
+      "lens": 92,
+      "wholeObjectRequired": false,
+      "projectedBounds": [
+        [
+          -0.34286293387413025,
+          1.8577200174331665
+        ],
+        [
+          -0.12779736518859863,
+          1.8701236248016357
+        ]
+      ],
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v003/astra-r08/inspection-r01/controls-closeup-material.png",
+      "sha256": "2a9787c428a527c0517cd222973632cec2b9c2e38c080bb703a16e83bc7ca681"
+    },
+    {
+      "view": "port-closeup",
+      "finish": "material",
+      "frame": 1,
+      "camera": [
+        0.05000000074505806,
+        -0.1599999964237213,
+        0.03999999910593033
+      ],
+      "target": [
+        0,
+        -0.067,
+        0
+      ],
+      "lens": 110,
+      "wholeObjectRequired": false,
+      "projectedBounds": [
+        [
+          -0.5710813403129578,
+          2.05479097366333
+        ],
+        [
+          0.14395108819007874,
+          1.280726671218872
+        ]
+      ],
+      "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v003/astra-r08/inspection-r01/port-closeup-material.png",
+      "sha256": "00d26a29de4b47a0f289bc0e18a31207a7a45da5bdc5a7c12f040132d66e3474"
+    }
+  ],
+  "reason": "Original side photo clipped the lid and rear/underside were underlit. These independent inspection photos preserve the frozen source and animation."
+}

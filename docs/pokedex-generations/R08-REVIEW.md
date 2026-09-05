@@ -22,16 +22,25 @@ The boards disagree about a long side hinge versus a transverse opening axis. Bo
 
 Hero mechanical meshes have no collapsed triangles or non-manifold evaluated edges. A 15-angle BVH surface sweep found no lid/base intersections, including 0.5° beyond the nominal opening angle. This does not certify every same-assembly fit, volumetric containment, or manufacturing tolerance. UV0 is projected for solids; the replaceable display has an explicit rectangular UV mapping. PBR maps are reusable microfinish textures, not unique painted atlases.
 
-Actual GLBs pass the glTF Validator's error checks. Warnings concern runtime-generated tangent bases: 31 for v2, 37 for v3. Tangents remain omitted because the established exporter path can emit invalid vectors on tiny bevel faces; this portability compromise is retained explicitly, not counted as a warning-free pass. Reopened geometry has finite vertices/transforms, UVs, no zero-area triangles and plausible sampled bounds.
+Actual GLBs pass the glTF Validator's error checks. Warnings concern runtime-generated tangent bases: 31 for v2, 38 for v3. Tangents remain omitted because the established exporter path can emit invalid vectors on tiny bevel faces; this portability compromise is retained explicitly, not counted as a warning-free pass. Reopened geometry has finite vertices/transforms, UVs, no zero-area triangles and plausible sampled bounds.
 
 Both actual exports contain Closed, Opening, BootUp, Ready, Idle and ButtonPress with the intended durations. Blender reopening samples all clip starts, midpoints and endpoints, plus the pressed interval. Lid angles, screen wake, idle emission variation and 0.55 mm button travel pass. Light breathing uses normalized TRS signal nodes bound to emission; solid rings do not expand. The runtime must apply those signals after its animation mixer.
 
 Unwarped reference comparisons use the stopped worker's native-crop perspective cameras. V2 silhouette IoU is 0.959 closed / 0.947 open; v3 is 0.930 / 0.911. These are diagnostics against a hand trace, not artistic acceptance scores. The camera/header, seam treatment, control shape, spine widths and lighting still differ. The placeholder scanner and list are intentionally replaceable and differ from the reference UI. Individual matched renders and overlays were visually inspected; the source was also orbited in the actual Blender desktop viewport.
 
-## Pending before the complete batch
+## Completed motion and inspection evidence
 
-Full rendered videos are still running. Inspect actual playback, not merely completion logs. Finish neutral front/back/side/three-quarter clay and material stills, underside and hinge/control/port closeups; inspect reopened-GLB appearance. Then add the minimal runtime viewer hook and verify gestures/playback before marking the batch complete. No production-readiness, perfect asset, canonical-era completion or complete-game claim is made here.
+Both 294-frame Cycles sequences were rendered from the frozen hero sources, encoded to H.264 at 576×768 and 30 fps, and played to completion through the Tailscale browser. The videos run 9.8 seconds. Decoded contact sheets and browser frames were inspected. Browser playback dropped 10 frames on v2 and 2 on v3 during the recorded foreground runs; those are playback observations, not missing encoded frames. Encoding receipts include every input-frame hash.
 
-Phone reference comparison: `https://0.taila30dc.ts.net:8445/devtools/pokedex-generations.html`. It currently exposes only rendered comparisons and evidence; the full-video indicator remains pending until playback review. The existing 5185 research server was restored after finding its old endpoint returning 502. Existing selection/review APIs and 5193 game preview were preserved.
+The initial side photograph clipped the lid, and the underside was underlit. Those original photos are retained. The complete `inspection-r01` set uses evaluated mesh extents, measured 8% framing margins and a camera fill. Each candidate has front/back/side/three-quarter clay and material photographs plus closed, underside, hinge, control and port views. All were visually inspected. A framing-helper failure first exposed invalid text-object bounds; fitting now measures the actual evaluated mesh. Background Blender invocations now use `--python-exit-code 1` so script exceptions fail the launcher.
 
-Source/scripts/manifests live on `codex/pokedex-generations`; binaries remain under `/mnt/zer0models/pokemon-iac/devices/pokedex/{v002,v003}/astra-r08`. No push or merge.
+Reopened closeups exposed faceting in the reduced rings and button rims. Q2 retains the evaluated hero surfaces, UVs and normals rather than running geometric collapse. The original reduced exports remain available. The closeup budget was deliberately set to 150,000 triangles before this export, prioritizing the requested fidelity over reduction.
+
+| Candidate | Q2 triangles | Q2 GLB bytes | Reduced comparison triangles |
+| --- | ---: | ---: | ---: |
+| v002-r08 | 129,986 | 9,613,388 | 37,511 |
+| v003-r08 | 147,844 | 10,727,392 | 41,934 |
+
+Q2 renders from reopened GLBs show smoother rings and control caps. All six clips, expected bounds, 0.55 mm button travel, screen wake and idle signals pass again. Validator errors remain zero; the 31/38 tangent-generation warnings remain. This is a technical and visual inspection pass for a review candidate, not Kevin's artistic approval or manufacturing certification. Other controls do not yet have individual feedback clips, and the listed reference differences remain.
+
+Phone reference comparison: `https://0.taila30dc.ts.net:8445/devtools/pokedex-generations.html`. Telegram motion preview 16641 was delivered. Minimal integration into the existing interactive game viewer is the next milestone. Sources/scripts/manifests remain on `codex/pokedex-generations`; binaries remain private. No push or merge.

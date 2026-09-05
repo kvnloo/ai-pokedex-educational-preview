@@ -36,20 +36,36 @@
     "sha256": "d8445cf895e7628b83660bacc72cbe07ad12b494b1e55e7c2770d250a36808e0"
   },
   {
+    "path": "tools/pokedex-generations/encode_proof.py",
+    "sha256": "7b32389891ff6f3e0097c5fc13abd16f13a6fd530055ff7fa7aac869edce23e5"
+  },
+  {
     "path": "tools/pokedex-generations/export_runtime.py",
-    "sha256": "f3399d4704d9f848635975aa395995a38c5a4f318e1234f01390877887eb9044"
+    "sha256": "6cdb513c4231bc06e97e63070d9192a5508404c6a1feb3af738df7bf7d62d731"
   },
   {
     "path": "tools/pokedex-generations/generation_geometry.py",
     "sha256": "a99aa6fa80ebea182e998dda7f523eb24dd27edc2e027e7eb48e0f74ba430b4c"
   },
   {
+    "path": "tools/pokedex-generations/manifest_batch.py",
+    "sha256": "30a97a479663f20205a535b010bf26d4380e1b2d2bf64cd34edc0023495d3fdf"
+  },
+  {
     "path": "tools/pokedex-generations/motion_curves.py",
     "sha256": "17c793f6fb569b0dd6ca37bf7fbdfd0edebab99f7eab107ec1f4f3934d0c819c"
   },
   {
+    "path": "tools/pokedex-generations/proof_sheets.py",
+    "sha256": "e003d6abf590e40fbaf2528ba6c8de3985325632f06ba4b5cf9f7a592b1a63d7"
+  },
+  {
     "path": "tools/pokedex-generations/refine_concepts.py",
     "sha256": "e2c91e33f6c2c525db538931e096d502841a45d23116463e31864d078e4feae1"
+  },
+  {
+    "path": "tools/pokedex-generations/render_inspection.py",
+    "sha256": "6a545876d8902921bbe5400c7a2c2098863ffaac93e71ab5db8c0ad44ba3ee76"
   },
   {
     "path": "tools/pokedex-generations/render_matched.py",
@@ -60,8 +76,12 @@
     "sha256": "bc5efa2c8bb3fafa2bd2302a4b2a48b3cacd4c0ec35b9fa6fb3a98b0e88f4b03"
   },
   {
+    "path": "tools/pokedex-generations/render_reopened_proof.py",
+    "sha256": "0b2b634e50674e7169d59ce909d4fb47bda833df6a80941c0e869c577b69d01d"
+  },
+  {
     "path": "tools/pokedex-generations/reopen_runtime.py",
-    "sha256": "cbd8f2adaaf753dbfa7f83e7f50bea2616ec15c2416453900ca983828dadc184"
+    "sha256": "0375b492d4de7b43f0120044c831116e00a565b274c1034e40f4ffc59f5d59fb"
   },
   {
     "path": "tools/pokedex-generations/review.html",
@@ -73,6 +93,6 @@
   },
   {
     "path": "tools/pokedex-generations/validate_glb.mjs",
-    "sha256": "42c2743a7c6a2537be4d90754cf88ecfe58eeb9d25a58900422f05802c19119f"
+    "sha256": "6cd55d35710615ab5a69a777a4628b6cd184cd62333da503399fd83645e5278c"
   }
 ]
