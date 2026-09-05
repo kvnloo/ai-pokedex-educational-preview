@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "assetId": "device:pokedex:clamshell:v001",
+  "scope": "private-local",
+  "gitPolicy": "manifest-only",
+  "assetRoot": "/mnt/zer0models/pokemon-iac/devices/pokedex/v001",
+  "status": "design-resolved-not-built",
+  "referenceBoards": [
+    {
+      "path": "/workspace/hermes-home/profiles/chiefstaff/cache/images/img_2a6e0bc69179.jpg",
+      "sha256": "c9db16bf1dc40d7f8a0769963e1a5922f2ca30d1e39659d401226ca9454820b0",
+      "bytes": 286653,
+      "visuallyInspectedBeforeModeling": true
+    },
+    {
+      "path": "/workspace/hermes-home/profiles/chiefstaff/cache/images/img_42f7a30853f3.jpg",
+      "sha256": "4302837deda655f65b38d95660a07de8baeb72bcd9d550be06b4a2d5e6a4003b",
+      "bytes": 264085,
+      "visuallyInspectedBeforeModeling": true
+    }
+  ],
+  "design": "docs/pokedex-device/DESIGN.md",
+  "owner": "Codex root",
+  "mergeRequires": "Kevin explicit HITL approval",
+  "createdAt": "2026-09-05T16:16:56.498190+00:00"
+}

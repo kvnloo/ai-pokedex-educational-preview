@@ -9,3 +9,6 @@ content/smoke/
 public/ab/*.glb
 shots/canonical-repair-browser/*.png
 shots/objective-*/
+
+# This isolated lane reuses the installed dependencies through a symlink.
+/node_modules
