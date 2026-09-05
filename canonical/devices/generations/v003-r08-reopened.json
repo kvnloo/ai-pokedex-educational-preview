@@ -1,0 +1,865 @@
+{
+  "candidate": "v003-r08",
+  "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v003/astra-r08/runtime/v003-r08-lod0.glb",
+  "sha256": "c6ca8c9335408af0842104f2a5f023955309e72e907ee7ada68fb820085fd733",
+  "samples": [
+    {
+      "clip": "Closed",
+      "seconds": 0,
+      "hingeDegrees": 0.0,
+      "buttonZ": 0.007400000002235174,
+      "ringPower": 0.11999999731779099,
+      "screenPower": 0.0,
+      "boundsMeters": [
+        [
+          -0.05441266670823097,
+          -0.06871695816516876,
+          -0.005900252610445023
+        ],
+        [
+          0.04276781156659126,
+          0.06951510161161423,
+          0.022995533421635628
+        ]
+      ],
+      "extentMeters": [
+        0.09718047827482224,
+        0.138232059776783,
+        0.02889578603208065
+      ],
+      "finiteTransforms": true
+    },
+    {
+      "clip": "Closed",
+      "seconds": 0.25,
+      "hingeDegrees": 0.0,
+      "buttonZ": 0.007400000002235174,
+      "ringPower": 0.11999999731779099,
+      "screenPower": 0.0,
+      "boundsMeters": [
+        [
+          -0.05441266670823097,
+          -0.06871695816516876,
+          -0.005900252610445023
+        ],
+        [
+          0.04276781156659126,
+          0.06951510161161423,
+          0.022995533421635628
+        ]
+      ],
+      "extentMeters": [
+        0.09718047827482224,
+        0.138232059776783,
+        0.02889578603208065
+      ],
+      "finiteTransforms": true
+    },
+    {
+      "clip": "Closed",
+      "seconds": 0.5,
+      "hingeDegrees": 0.0,
+      "buttonZ": 0.007400000002235174,
+      "ringPower": 0.11999999731779099,
+      "screenPower": 0.0,
+      "boundsMeters": [
+        [
+          -0.05441266670823097,
+          -0.06871695816516876,
+          -0.005900252610445023
+        ],
+        [
+          0.04276781156659126,
+          0.06951510161161423,
+          0.022995533421635628
+        ]
+      ],
+      "extentMeters": [
+        0.09718047827482224,
+        0.138232059776783,
+        0.02889578603208065
+      ],
+      "finiteTransforms": true
+    },
+    {
+      "clip": "Opening",
+      "seconds": 0,
+      "hingeDegrees": 0.0,
+      "buttonZ": 0.007400000002235174,
+      "ringPower": 0.25,
+      "screenPower": 0.0,
+      "boundsMeters": [
+        [
+          -0.05441266670823097,
+          -0.06871695816516876,
+          -0.005900252610445023
+        ],
+        [
+          0.04276781156659126,
+          0.06951510161161423,
+          0.022995533421635628
+        ]
+      ],
+      "extentMeters": [
+        0.09718047827482224,
+        0.138232059776783,
+        0.02889578603208065
+      ],
+      "finiteTransforms": true
+    },
+    {
+      "clip": "Opening",
+      "seconds": 1.0,
+      "hingeDegrees": -86.54637199217458,
+      "buttonZ": 0.007400000002235174,
+      "ringPower": 0.25,
+      "screenPower": 0.0,
+      "boundsMeters": [
+        [
+          -0.05441266670823097,
+          -0.06871695816516876,
+          -0.005900252610445023
+        ],
+        [
+          0.04276781156659126,
+          0.07150999456644058,
+          0.14652033150196075
+        ]
+      ],
+      "extentMeters": [
+        0.09718047827482224,
+        0.14022695273160934,
+        0.15242058411240578
+      ],
+      "finiteTransforms": true
+    },
+    {
+      "clip": "Opening",
+      "seconds": 2.0,
+      "hingeDegrees": -142.77704497589593,
+      "buttonZ": 0.007400000002235174,
+      "ringPower": 0.25,
+      "screenPower": 0.0,
+      "boundsMeters": [
+        [
+          -0.05441266670823097,
+          -0.06871695816516876,
+          -0.005900252610445023
+        ],
+        [
+          0.04276781156659126,
+          0.17455123364925385,
+          0.09392350167036057
+        ]
+      ],
+      "extentMeters": [
+        0.09718047827482224,
+        0.2432681918144226,
+        0.09982375428080559
+      ],
+      "finiteTransforms": true
+    },
+    {
+      "clip": "BootUp",
+      "seconds": 0,
+      "hingeDegrees": -142.77704497589593,
+      "buttonZ": 0.007400000002235174,
+      "ringPower": 0.25,
+      "screenPower": 0.0,
+      "boundsMeters": [
+        [
+          -0.05441266670823097,
+          -0.06871695816516876,
+          -0.005900252610445023
+        ],
+        [
+          0.04276781156659126,
+          0.17455123364925385,
+          0.09392350167036057
+        ]
+      ],
+      "extentMeters": [
+        0.09718047827482224,
+        0.2432681918144226,
+        0.09982375428080559
+      ],
+      "finiteTransforms": true
+    },
+    {
+      "clip": "BootUp",
+      "seconds": 1.25,
+      "hingeDegrees": -142.77704497589593,
+      "buttonZ": 0.007400000002235174,
+      "ringPower": 1.0,
+      "screenPower": 1.0,
+      "boundsMeters": [
+        [
+          -0.05441266670823097,
+          -0.06871695816516876,
+          -0.005900252610445023
+        ],
+        [
+          0.04276781156659126,
+          0.17455123364925385,
+          0.09392350167036057
+        ]
+      ],
+      "extentMeters": [
+        0.09718047827482224,
+        0.2432681918144226,
+        0.09982375428080559
+      ],
+      "finiteTransforms": true
+    },
+    {
+      "clip": "BootUp",
+      "seconds": 2.5,
+      "hingeDegrees": -142.77704497589593,
+      "buttonZ": 0.007400000002235174,
+      "ringPower": 0.8999999761581421,
+      "screenPower": 1.0,
+      "boundsMeters": [
+        [
+          -0.05441266670823097,
+          -0.06871695816516876,
+          -0.005900252610445023
+        ],
+        [
+          0.04276781156659126,
+          0.17455123364925385,
+          0.09392350167036057
+        ]
+      ],
+      "extentMeters": [
+        0.09718047827482224,
+        0.2432681918144226,
+        0.09982375428080559
+      ],
+      "finiteTransforms": true
+    },
+    {
+      "clip": "Ready",
+      "seconds": 0,
+      "hingeDegrees": -142.77704497589593,
+      "buttonZ": 0.007400000002235174,
+      "ringPower": 0.8999999761581421,
+      "screenPower": 1.0,
+      "boundsMeters": [
+        [
+          -0.05441266670823097,
+          -0.06871695816516876,
+          -0.005900252610445023
+        ],
+        [
+          0.04276781156659126,
+          0.17455123364925385,
+          0.09392350167036057
+        ]
+      ],
+      "extentMeters": [
+        0.09718047827482224,
+        0.2432681918144226,
+        0.09982375428080559
+      ],
+      "finiteTransforms": true
+    },
+    {
+      "clip": "Ready",
+      "seconds": 0.5,
+      "hingeDegrees": -142.77704497589593,
+      "buttonZ": 0.007400000002235174,
+      "ringPower": 0.8999999761581421,
+      "screenPower": 1.0,
+      "boundsMeters": [
+        [
+          -0.05441266670823097,
+          -0.06871695816516876,
+          -0.005900252610445023
+        ],
+        [
+          0.04276781156659126,
+          0.17455123364925385,
+          0.09392350167036057
+        ]
+      ],
+      "extentMeters": [
+        0.09718047827482224,
+        0.2432681918144226,
+        0.09982375428080559
+      ],
+      "finiteTransforms": true
+    },
+    {
+      "clip": "Ready",
+      "seconds": 1.0,
+      "hingeDegrees": -142.77704497589593,
+      "buttonZ": 0.007400000002235174,
+      "ringPower": 0.8999999761581421,
+      "screenPower": 1.0,
+      "boundsMeters": [
+        [
+          -0.05441266670823097,
+          -0.06871695816516876,
+          -0.005900252610445023
+        ],
+        [
+          0.04276781156659126,
+          0.17455123364925385,
+          0.09392350167036057
+        ]
+      ],
+      "extentMeters": [
+        0.09718047827482224,
+        0.2432681918144226,
+        0.09982375428080559
+      ],
+      "finiteTransforms": true
+    },
+    {
+      "clip": "Idle",
+      "seconds": 0,
+      "hingeDegrees": -142.77704497589593,
+      "buttonZ": 0.007400000002235174,
+      "ringPower": 0.8999999761581421,
+      "screenPower": 1.0,
+      "boundsMeters": [
+        [
+          -0.05441266670823097,
+          -0.06871695816516876,
+          -0.005900252610445023
+        ],
+        [
+          0.04276781156659126,
+          0.17455123364925385,
+          0.09392350167036057
+        ]
+      ],
+      "extentMeters": [
+        0.09718047827482224,
+        0.2432681918144226,
+        0.09982375428080559
+      ],
+      "finiteTransforms": true
+    },
+    {
+      "clip": "Idle",
+      "seconds": 1.5,
+      "hingeDegrees": -142.77704497589593,
+      "buttonZ": 0.007400000002235174,
+      "ringPower": 0.7599999904632568,
+      "screenPower": 1.0,
+      "boundsMeters": [
+        [
+          -0.05441266670823097,
+          -0.06871695816516876,
+          -0.005900252610445023
+        ],
+        [
+          0.04276781156659126,
+          0.17455123364925385,
+          0.09392350167036057
+        ]
+      ],
+      "extentMeters": [
+        0.09718047827482224,
+        0.2432681918144226,
+        0.09982375428080559
+      ],
+      "finiteTransforms": true
+    },
+    {
+      "clip": "Idle",
+      "seconds": 3.0,
+      "hingeDegrees": -142.77704497589593,
+      "buttonZ": 0.007400000002235174,
+      "ringPower": 0.8999999761581421,
+      "screenPower": 1.0,
+      "boundsMeters": [
+        [
+          -0.05441266670823097,
+          -0.06871695816516876,
+          -0.005900252610445023
+        ],
+        [
+          0.04276781156659126,
+          0.17455123364925385,
+          0.09392350167036057
+        ]
+      ],
+      "extentMeters": [
+        0.09718047827482224,
+        0.2432681918144226,
+        0.09982375428080559
+      ],
+      "finiteTransforms": true
+    },
+    {
+      "clip": "ButtonPress",
+      "seconds": 0,
+      "hingeDegrees": -142.77704497589593,
+      "buttonZ": 0.007400000002235174,
+      "ringPower": 0.8999999761581421,
+      "screenPower": 1.0,
+      "boundsMeters": [
+        [
+          -0.05441266670823097,
+          -0.06871695816516876,
+          -0.005900252610445023
+        ],
+        [
+          0.04276781156659126,
+          0.17455123364925385,
+          0.09392350167036057
+        ]
+      ],
+      "extentMeters": [
+        0.09718047827482224,
+        0.2432681918144226,
+        0.09982375428080559
+      ],
+      "finiteTransforms": true
+    },
+    {
+      "clip": "ButtonPress",
+      "seconds": 0.3333333333333333,
+      "hingeDegrees": -142.77704497589593,
+      "buttonZ": 0.006850000005215406,
+      "ringPower": 1.0,
+      "screenPower": 1.0,
+      "boundsMeters": [
+        [
+          -0.05441266670823097,
+          -0.06871695816516876,
+          -0.005900252610445023
+        ],
+        [
+          0.04276781156659126,
+          0.17455123364925385,
+          0.09392350167036057
+        ]
+      ],
+      "extentMeters": [
+        0.09718047827482224,
+        0.2432681918144226,
+        0.09982375428080559
+      ],
+      "finiteTransforms": true
+    },
+    {
+      "clip": "ButtonPress",
+      "seconds": 0.4,
+      "hingeDegrees": -142.77704497589593,
+      "buttonZ": 0.006850000005215406,
+      "ringPower": 0.9801749587059021,
+      "screenPower": 1.0,
+      "boundsMeters": [
+        [
+          -0.05441266670823097,
+          -0.06871695816516876,
+          -0.005900252610445023
+        ],
+        [
+          0.04276781156659126,
+          0.17455123364925385,
+          0.09392350167036057
+        ]
+      ],
+      "extentMeters": [
+        0.09718047827482224,
+        0.2432681918144226,
+        0.09982375428080559
+      ],
+      "finiteTransforms": true
+    },
+    {
+      "clip": "ButtonPress",
+      "seconds": 0.8,
+      "hingeDegrees": -142.77704497589593,
+      "buttonZ": 0.007400000002235174,
+      "ringPower": 0.8999999761581421,
+      "screenPower": 1.0,
+      "boundsMeters": [
+        [
+          -0.05441266670823097,
+          -0.06871695816516876,
+          -0.005900252610445023
+        ],
+        [
+          0.04276781156659126,
+          0.17455123364925385,
+          0.09392350167036057
+        ]
+      ],
+      "extentMeters": [
+        0.09718047827482224,
+        0.2432681918144226,
+        0.09982375428080559
+      ],
+      "finiteTransforms": true
+    }
+  ],
+  "meshes": [
+    {
+      "name": "L0_MERGED_RT_v003_r08_PDX_Base_L0_v003/r08/MAT-button-return.001",
+      "triangles": 1784,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_MERGED_RT_v003_r08_PDX_Base_L0_v003/r08/MAT-graphite.001",
+      "triangles": 1056,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_MERGED_RT_v003_r08_PDX_Base_L0_v003/r08/MAT-hinge-steel.001",
+      "triangles": 1848,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_MERGED_RT_v003_r08_PDX_Base_L0_v003/r08/MAT-inner-support.001",
+      "triangles": 3638,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_MERGED_RT_v003_r08_PDX_Base_L0_v003/r08/MAT-obsidian.001",
+      "triangles": 2630,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_MERGED_RT_v003_r08_PDX_Base_L0_v003/r08/MAT-satin-aluminum.001",
+      "triangles": 862,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_MERGED_RT_v003_r08_PDX_Base_L0_v003/r08/MAT-scarlet-board02.001",
+      "triangles": 1238,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_RT_v003_r08_GEO_amber_front_indicator.001",
+      "triangles": 182,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_RT_v003_r08_GEO_base_gasket.001",
+      "triangles": 366,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_RT_v003_r08_GEO_base_shell.001",
+      "triangles": 624,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_RT_v003_r08_GEO_button_A_return.001",
+      "triangles": 264,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_RT_v003_r08_GEO_control_deck.001",
+      "triangles": 1642,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_RT_v003_r08_GEO_deck_cyan_ring.001",
+      "triangles": 598,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_RT_v003_r08_GEO_front_red_indicator.001",
+      "triangles": 182,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_RT_v003_r08_GEO_green_deck_indicator.001",
+      "triangles": 264,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_RT_v003_r08_GEO_hinge_fixed_1.001",
+      "triangles": 2016,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_RT_v003_r08_GEO_hinge_fixed__1.001",
+      "triangles": 2016,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_RT_v003_r08_GEO_button_A_stem.001",
+      "triangles": 264,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_RT_v003_r08_GEO_diamond_inset_0.001",
+      "triangles": 264,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_RT_v003_r08_GEO_diamond_key_0.001",
+      "triangles": 264,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_RT_v003_r08_GEO_dpad.001",
+      "triangles": 148,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_RT_v003_r08_GEO_dpad_stem.001",
+      "triangles": 264,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_RT_v003_r08_GEO_diamond_inset_1.001",
+      "triangles": 264,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_RT_v003_r08_GEO_diamond_key_1.001",
+      "triangles": 264,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_RT_v003_r08_GEO_key_stem_1.001",
+      "triangles": 264,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_RT_v003_r08_GEO_diamond_inset_2.001",
+      "triangles": 264,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_RT_v003_r08_GEO_diamond_key_2.001",
+      "triangles": 264,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_RT_v003_r08_GEO_key_stem_2.001",
+      "triangles": 264,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_RT_v003_r08_GEO_diamond_inset_3.001",
+      "triangles": 264,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_RT_v003_r08_GEO_diamond_key_3.001",
+      "triangles": 264,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_RT_v003_r08_GEO_key_stem_3.001",
+      "triangles": 264,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_MERGED_RT_v003_r08_PDX_LidHinge_L0_v003/r08/MAT-hinge-steel.001",
+      "triangles": 1064,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_MERGED_RT_v003_r08_PDX_LidHinge_L0_v003/r08/MAT-inner-support.001",
+      "triangles": 446,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_MERGED_RT_v003_r08_PDX_LidHinge_L0_v003/r08/MAT-obsidian.001",
+      "triangles": 1894,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_MERGED_RT_v003_r08_PDX_LidHinge_L0_v003/r08/MAT-panel-cut.001",
+      "triangles": 78,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_MERGED_RT_v003_r08_PDX_LidHinge_L0_v003/r08/MAT-satin-aluminum.001",
+      "triangles": 558,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_MERGED_RT_v003_r08_PDX_LidHinge_L0_v003/r08/MAT-scarlet-board02.001",
+      "triangles": 714,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_RT_v003_r08_GEO_camera_optics.001",
+      "triangles": 264,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_RT_v003_r08_GEO_display_gasket.001",
+      "triangles": 374,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_RT_v003_r08_GEO_display_glass.001",
+      "triangles": 182,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_RT_v003_r08_GEO_display_metal_rim.001",
+      "triangles": 374,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_RT_v003_r08_GEO_hinge_moving.001",
+      "triangles": 2352,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_RT_v003_r08_GEO_lid_interior.001",
+      "triangles": 1550,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_RT_v003_r08_GEO_lid_shell.001",
+      "triangles": 528,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_RT_v003_r08_GEO_lock_center_cyan.001",
+      "triangles": 264,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_RT_v003_r08_GEO_sensor.001",
+      "triangles": 230,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_MERGED_RT_v003_r08_PDX_DisplayBoot_L0_v003/r08/MAT-display-type.001",
+      "triangles": 1880,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_RT_v003_r08_GEO_progress_track.001",
+      "triangles": 182,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_RT_v003_r08_GEO_progress_fill.001",
+      "triangles": 182,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    },
+    {
+      "name": "L0_MERGED_RT_v003_r08_PDX_DisplayReady_L0_v003/r08/MAT-display-type.001",
+      "triangles": 4028,
+      "zeroAreaTriangles": 0,
+      "uvLayers": 1,
+      "finiteVertices": true
+    }
+  ],
+  "checks": {
+    "meshData": true,
+    "finiteTransforms": true,
+    "physicalBounds": true,
+    "closedThickness": true,
+    "closedHinge": true,
+    "openedHinge": true,
+    "buttonTravel": true,
+    "screenWakes": true,
+    "idleBreathes": true
+  },
+  "passed": true
+}

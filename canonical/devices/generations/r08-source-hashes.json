@@ -1,0 +1,78 @@
+[
+  {
+    "path": "tools/pokedex-generations/.gitignore",
+    "sha256": "32dae3052f331ee34d628ef535709b301259a45df7c7522c4d35dcf49873f00b"
+  },
+  {
+    "path": "tools/pokedex-generations/audit_inherited.py",
+    "sha256": "0034f9a4ae4fa7f4388ef10e515afd46d207b7ae6052d3711f5ef3c91bd130fb"
+  },
+  {
+    "path": "tools/pokedex-generations/author_motion.py",
+    "sha256": "742924bef04b610e17faeed66206fd20a1ad469210243fea201d16738f37d88c"
+  },
+  {
+    "path": "tools/pokedex-generations/author_surfaces.py",
+    "sha256": "f029330108c4e855917d4cd22783c887f94caba449a6df953ceab522e34ee65e"
+  },
+  {
+    "path": "tools/pokedex-generations/build_concepts.py",
+    "sha256": "892d2142b7b864d6b56e8249f309d60081e558bcf9ed9c92b99201bcb8c96e84"
+  },
+  {
+    "path": "tools/pokedex-generations/check_mechanics.py",
+    "sha256": "7ff87504db4dd583399f9e7b17c2fe9590d491aabd0fb7deb9cf2e8c1758eaeb"
+  },
+  {
+    "path": "tools/pokedex-generations/compare_references.py",
+    "sha256": "7e5457a8b5c91328be69dbf0b6bc58bd92d113ce12dac465b5cf7ac9d5acc9f7"
+  },
+  {
+    "path": "tools/pokedex-generations/concept_layout.py",
+    "sha256": "3efb1b1af88c8769f6b30e5f3e19f27e0c3e668c50a6450b4887fbdf92736012"
+  },
+  {
+    "path": "tools/pokedex-generations/detail_concepts.py",
+    "sha256": "d8445cf895e7628b83660bacc72cbe07ad12b494b1e55e7c2770d250a36808e0"
+  },
+  {
+    "path": "tools/pokedex-generations/export_runtime.py",
+    "sha256": "f3399d4704d9f848635975aa395995a38c5a4f318e1234f01390877887eb9044"
+  },
+  {
+    "path": "tools/pokedex-generations/generation_geometry.py",
+    "sha256": "a99aa6fa80ebea182e998dda7f523eb24dd27edc2e027e7eb48e0f74ba430b4c"
+  },
+  {
+    "path": "tools/pokedex-generations/motion_curves.py",
+    "sha256": "17c793f6fb569b0dd6ca37bf7fbdfd0edebab99f7eab107ec1f4f3934d0c819c"
+  },
+  {
+    "path": "tools/pokedex-generations/refine_concepts.py",
+    "sha256": "e2c91e33f6c2c525db538931e096d502841a45d23116463e31864d078e4feae1"
+  },
+  {
+    "path": "tools/pokedex-generations/render_matched.py",
+    "sha256": "633b348828229b4d2381136bd56c0822cb4d1784ca5ebe7d37bae44e4f13305a"
+  },
+  {
+    "path": "tools/pokedex-generations/render_proof.py",
+    "sha256": "bc5efa2c8bb3fafa2bd2302a4b2a48b3cacd4c0ec35b9fa6fb3a98b0e88f4b03"
+  },
+  {
+    "path": "tools/pokedex-generations/reopen_runtime.py",
+    "sha256": "cbd8f2adaaf753dbfa7f83e7f50bea2616ec15c2416453900ca983828dadc184"
+  },
+  {
+    "path": "tools/pokedex-generations/review.html",
+    "sha256": "b28972c56a58b784d13b7cc84e865d1519124cd044a7b2cabf6dc7873a9d02cb"
+  },
+  {
+    "path": "tools/pokedex-generations/surface_maps.py",
+    "sha256": "97972e1c648bd5c18fba17488c4bbad4eff0a53207acf0278de4d887485bb6b8"
+  },
+  {
+    "path": "tools/pokedex-generations/validate_glb.mjs",
+    "sha256": "42c2743a7c6a2537be4d90754cf88ecfe58eeb9d25a58900422f05802c19119f"
+  }
+]

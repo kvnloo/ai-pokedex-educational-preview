@@ -1,0 +1,603 @@
+{
+  "level": 0,
+  "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v002/astra-r08/runtime/v002-r08-lod0.glb",
+  "bytes": 5333952,
+  "sha256": "deab11c8fb132652ff364bfc6a9ac672c953e2e8e9dc50a92c39deb91de1476a",
+  "triangles": 37511,
+  "meshObjects": 42,
+  "materials": 16,
+  "reductions": [
+    {
+      "source": "v002/r08/GEO-base-shell",
+      "triangles": 624,
+      "ratio": 0.442,
+      "maxSampledDeviationMm": 0.07175032078521326
+    },
+    {
+      "source": "v002/r08/GEO-base-gasket",
+      "triangles": 366,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.06236411718418822
+    },
+    {
+      "source": "v002/r08/GEO-control-deck",
+      "triangles": 872,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.09229550050804392
+    },
+    {
+      "source": "v002/r08/GEO-lid-shell",
+      "triangles": 522,
+      "ratio": 0.442,
+      "maxSampledDeviationMm": 0.020309744286350906
+    },
+    {
+      "source": "v002/r08/GEO-lid-black-rim",
+      "triangles": 1536,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.018642012946656905
+    },
+    {
+      "source": "v002/r08/GEO-lid-interior",
+      "triangles": 1590,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.007336897397181019
+    },
+    {
+      "source": "v002/r08/GEO-spine-core-v002/r08/PDX.Base",
+      "triangles": 264,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.04523822644841857
+    },
+    {
+      "source": "v002/r08/GEO-spine-sleeve-v002/r08/PDX.Base0",
+      "triangles": 264,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.038197453250177205
+    },
+    {
+      "source": "v002/r08/GEO-spine-sleeve-v002/r08/PDX.Base1",
+      "triangles": 264,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.04400969919515774
+    },
+    {
+      "source": "v002/r08/GEO-spine-sleeve-v002/r08/PDX.Base2",
+      "triangles": 264,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.038197453250177205
+    },
+    {
+      "source": "v002/r08/GEO-spine-core-v002/r08/PDX.LidHinge",
+      "triangles": 264,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.026033496396848932
+    },
+    {
+      "source": "v002/r08/GEO-spine-sleeve-v002/r08/PDX.LidHinge0",
+      "triangles": 264,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.031637478969059885
+    },
+    {
+      "source": "v002/r08/GEO-spine-sleeve-v002/r08/PDX.LidHinge1",
+      "triangles": 264,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.028486709197750315
+    },
+    {
+      "source": "v002/r08/GEO-spine-sleeve-v002/r08/PDX.LidHinge2",
+      "triangles": 264,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.02931210838141851
+    },
+    {
+      "source": "v002/r08/GEO-radial-belt",
+      "triangles": 36,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.024320557713508606
+    },
+    {
+      "source": "v002/r08/GEO-upper-right-silver-wedge",
+      "triangles": 60,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.04778248694492504
+    },
+    {
+      "source": "v002/r08/GEO-equatorial-seam",
+      "triangles": 28,
+      "ratio": 1,
+      "maxSampledDeviationMm": 0
+    },
+    {
+      "source": "v002/r08/GEO-lock-surround",
+      "triangles": 264,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.08137770782923326
+    },
+    {
+      "source": "v002/r08/GEO-lock-inset",
+      "triangles": 264,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.050143607950303704
+    },
+    {
+      "source": "v002/r08/GEO-closed-cyan-ring",
+      "triangles": 598,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.07937681948533282
+    },
+    {
+      "source": "v002/r08/GEO-closed-lock-core",
+      "triangles": 264,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.039719336200505495
+    },
+    {
+      "source": "v002/r08/GEO-exterior-wordmark",
+      "triangles": 372,
+      "ratio": 0.7514,
+      "maxSampledDeviationMm": 2.9118037842001954e-08
+    },
+    {
+      "source": "v002/r08/GEO-edition",
+      "triangles": 293,
+      "ratio": 0.442,
+      "maxSampledDeviationMm": 0.020549172404571436
+    },
+    {
+      "source": "v002/r08/GEO-gold-chevron",
+      "triangles": 36,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.025807414203882217
+    },
+    {
+      "source": "v002/r08/GEO-outer-status",
+      "triangles": 182,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.01829446409828961
+    },
+    {
+      "source": "v002/r08/GEO-display-gasket",
+      "triangles": 374,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.0673552494845353
+    },
+    {
+      "source": "v002/r08/GEO-display-metal-rim",
+      "triangles": 374,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.03363468204042874
+    },
+    {
+      "source": "v002/r08/GEO-display-glass",
+      "triangles": 182,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.03919637674698606
+    },
+    {
+      "source": "v002/r08/GEO-sensor",
+      "triangles": 230,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.022465632355306298
+    },
+    {
+      "source": "v002/r08/GEO-boot-title",
+      "triangles": 372,
+      "ratio": 0.7514,
+      "maxSampledDeviationMm": 5.821476634082501e-08
+    },
+    {
+      "source": "v002/r08/GEO-boot-status",
+      "triangles": 256,
+      "ratio": 0.442,
+      "maxSampledDeviationMm": 0.020933066480210982
+    },
+    {
+      "source": "v002/r08/GEO-progress-track",
+      "triangles": 182,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.0060128500081191305
+    },
+    {
+      "source": "v002/r08/GEO-progress-fill",
+      "triangles": 182,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.0060462866713351104
+    },
+    {
+      "source": "v002/r08/GEO-ready-title",
+      "triangles": 372,
+      "ratio": 0.7514,
+      "maxSampledDeviationMm": 5.821476634082501e-08
+    },
+    {
+      "source": "v002/r08/GEO-ready-region",
+      "triangles": 417,
+      "ratio": 0.7514,
+      "maxSampledDeviationMm": 0.005744424925069325
+    },
+    {
+      "source": "v002/r08/GEO-entry-0",
+      "triangles": 560,
+      "ratio": 0.442,
+      "maxSampledDeviationMm": 0.024254530217149295
+    },
+    {
+      "source": "v002/r08/GEO-entry-1",
+      "triangles": 832,
+      "ratio": 0.7514,
+      "maxSampledDeviationMm": 0.00732130820324528
+    },
+    {
+      "source": "v002/r08/GEO-entry-2",
+      "triangles": 743,
+      "ratio": 0.7514,
+      "maxSampledDeviationMm": 0.0059428052736620884
+    },
+    {
+      "source": "v002/r08/GEO-entry-3",
+      "triangles": 643,
+      "ratio": 0.7514,
+      "maxSampledDeviationMm": 0.008339454325323459
+    },
+    {
+      "source": "v002/r08/GEO-ready-footer",
+      "triangles": 461,
+      "ratio": 0.442,
+      "maxSampledDeviationMm": 0.023832077204133384
+    },
+    {
+      "source": "v002/r08/GEO-control-ring-seat",
+      "triangles": 264,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.08012986654648557
+    },
+    {
+      "source": "v002/r08/GEO-control-ring-inset",
+      "triangles": 264,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.050886352255474776
+    },
+    {
+      "source": "v002/r08/GEO-deck-cyan-ring",
+      "triangles": 598,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.11553444346645847
+    },
+    {
+      "source": "v002/r08/GEO-deck-ring-inner-trim",
+      "triangles": 598,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.04882386201643385
+    },
+    {
+      "source": "v002/r08/GEO-dpad",
+      "triangles": 148,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.11505802103783935
+    },
+    {
+      "source": "v002/r08/GEO-button-A",
+      "triangles": 264,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.06672646850347519
+    },
+    {
+      "source": "v002/r08/GEO-button-A-type",
+      "triangles": 44,
+      "ratio": 1,
+      "maxSampledDeviationMm": 0
+    },
+    {
+      "source": "v002/r08/GEO-front-red-indicator",
+      "triangles": 182,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.015486533811781555
+    },
+    {
+      "source": "v002/r08/GEO-deck-fastener-0",
+      "triangles": 264,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.011801196706073824
+    },
+    {
+      "source": "v002/r08/GEO-fastener-slot-0",
+      "triangles": 28,
+      "ratio": 1,
+      "maxSampledDeviationMm": 0
+    },
+    {
+      "source": "v002/r08/GEO-deck-fastener-1",
+      "triangles": 264,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.011801196706073824
+    },
+    {
+      "source": "v002/r08/GEO-fastener-slot-1",
+      "triangles": 28,
+      "ratio": 1,
+      "maxSampledDeviationMm": 0
+    },
+    {
+      "source": "v002/r08/GEO-display-module-backing",
+      "triangles": 182,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.028360640499158762
+    },
+    {
+      "source": "v002/r08/GEO-speaker-baffle",
+      "triangles": 182,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.012295013220864348
+    },
+    {
+      "source": "v002/r08/GEO-camera-bezel",
+      "triangles": 532,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.03142108835163526
+    },
+    {
+      "source": "v002/r08/GEO-camera-inner",
+      "triangles": 264,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.0266798469965579
+    },
+    {
+      "source": "v002/r08/GEO-camera-retainer",
+      "triangles": 532,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.00945222836890025
+    },
+    {
+      "source": "v002/r08/GEO-camera-optics",
+      "triangles": 264,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.015260346117429435
+    },
+    {
+      "source": "v002/r08/GEO-camera-carrier",
+      "triangles": 264,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.028623584512388334
+    },
+    {
+      "source": "v002/r08/GEO-top-bezel-notch",
+      "triangles": 48,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.015425619494635612
+    },
+    {
+      "source": "v002/r08/GEO-hinge-fixed--1",
+      "triangles": 2016,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.008169485226972029
+    },
+    {
+      "source": "v002/r08/GEO-hinge-fixed-1",
+      "triangles": 2010,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.00843893394630868
+    },
+    {
+      "source": "v002/r08/GEO-hinge-moving",
+      "triangles": 2352,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.004180798896413762
+    },
+    {
+      "source": "v002/r08/GEO-hinge-pin",
+      "triangles": 264,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.015754148989799432
+    },
+    {
+      "source": "v002/r08/GEO-hinge-pin-retainer--1",
+      "triangles": 264,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.013024854524701368
+    },
+    {
+      "source": "v002/r08/GEO-hinge-pin-retainer-1",
+      "triangles": 264,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.013024854524701368
+    },
+    {
+      "source": "v002/r08/GEO-spine-attachment",
+      "triangles": 182,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.01828788845159579
+    },
+    {
+      "source": "v002/r08/GEO-spine-attachment.001",
+      "triangles": 182,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.014439726328419056
+    },
+    {
+      "source": "v002/r08/GEO-button-A-guide",
+      "triangles": 532,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.029796941817039624
+    },
+    {
+      "source": "v002/r08/GEO-button-A-stem",
+      "triangles": 264,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.028752328944392502
+    },
+    {
+      "source": "v002/r08/GEO-button-A-return",
+      "triangles": 264,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.026205694666714408
+    },
+    {
+      "source": "v002/r08/GEO-dpad-stem",
+      "triangles": 264,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.017990976630244404
+    },
+    {
+      "source": "v002/r08/GEO-dpad-guide",
+      "triangles": 532,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.021336092686397023
+    },
+    {
+      "source": "v002/r08/GEO-dpad-return",
+      "triangles": 264,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.016159672668436542
+    },
+    {
+      "source": "v002/r08/GEO-dial-guide",
+      "triangles": 532,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.023793425498297438
+    },
+    {
+      "source": "v002/r08/GEO-dial-module-stem",
+      "triangles": 264,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.03248205757699907
+    },
+    {
+      "source": "v002/r08/GEO-service-panel",
+      "triangles": 182,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.031579049391439185
+    },
+    {
+      "source": "v002/r08/GEO-service-screw",
+      "triangles": 264,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.006476964244939154
+    },
+    {
+      "source": "v002/r08/GEO-service-screw.001",
+      "triangles": 264,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.006476964244939154
+    },
+    {
+      "source": "v002/r08/GEO-service-screw.002",
+      "triangles": 264,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.006476964244939154
+    },
+    {
+      "source": "v002/r08/GEO-service-screw.003",
+      "triangles": 264,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.006476964244939154
+    },
+    {
+      "source": "v002/r08/GEO-port-cartridge",
+      "triangles": 182,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.010503700650588144
+    },
+    {
+      "source": "v002/r08/GEO-underside-foot",
+      "triangles": 182,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.026001616788562387
+    },
+    {
+      "source": "v002/r08/GEO-underside-foot.001",
+      "triangles": 182,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.02743940058280714
+    },
+    {
+      "source": "v002/r08/GEO-underside-foot.002",
+      "triangles": 182,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.026002579033956863
+    },
+    {
+      "source": "v002/r08/GEO-underside-foot.003",
+      "triangles": 182,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.026003539460361935
+    },
+    {
+      "source": "v002/r08/GEO-exterior-engraving-0",
+      "triangles": 36,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.027686723115039058
+    },
+    {
+      "source": "v002/r08/GEO-exterior-engraving-1",
+      "triangles": 28,
+      "ratio": 1,
+      "maxSampledDeviationMm": 0
+    },
+    {
+      "source": "v002/r08/GEO-exterior-engraving-2",
+      "triangles": 28,
+      "ratio": 1,
+      "maxSampledDeviationMm": 0
+    },
+    {
+      "source": "v002/r08/GEO-exterior-engraving-3",
+      "triangles": 28,
+      "ratio": 1,
+      "maxSampledDeviationMm": 0
+    },
+    {
+      "source": "v002/r08/GEO-spine-band-0",
+      "triangles": 532,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.02626113018777687
+    },
+    {
+      "source": "v002/r08/GEO-spine-band-1",
+      "triangles": 532,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.02626113018777687
+    },
+    {
+      "source": "v002/r08/GEO-spine-band-2",
+      "triangles": 532,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.02626113018777687
+    },
+    {
+      "source": "v002/r08/GEO-spine-band-3",
+      "triangles": 532,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.02626113018777687
+    },
+    {
+      "source": "v002/r08/GEO-boot-scan-ring-0",
+      "triangles": 598,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.04264183371560648
+    },
+    {
+      "source": "v002/r08/GEO-boot-scan-ring-1",
+      "triangles": 598,
+      "ratio": 0.26,
+      "maxSampledDeviationMm": 0.020155770471319556
+    },
+    {
+      "source": "v002/r08/GEO-boot-scan-bar--1",
+      "triangles": 28,
+      "ratio": 1,
+      "maxSampledDeviationMm": 0
+    },
+    {
+      "source": "v002/r08/GEO-boot-scan-bar-1",
+      "triangles": 28,
+      "ratio": 1,
+      "maxSampledDeviationMm": 0
+    }
+  ],
+  "deviationMethod": "Maximum original-vertex distance to reduced surface in local coordinates. Not an exhaustive Hausdorff bound; visual inspection also required.",
+  "namingPrefix": "L0_RT_",
+  "sourceScene": "ASTRA-v002-r08",
+  "candidate": "v002-r08"
+}

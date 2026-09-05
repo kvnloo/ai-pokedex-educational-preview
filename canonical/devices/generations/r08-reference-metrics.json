@@ -1,0 +1,54 @@
+{
+  "board01": {
+    "closed": {
+      "silhouette_iou": 0.9587759577821945,
+      "render_area_px": 86103,
+      "trace_area_px": 85380,
+      "landmark_errors_px": {
+        "lock": 2.4104851907156006
+      },
+      "median_landmark_error_px": 2.4104851907156006,
+      "method": "Native crop raster; alpha > 127; manual silhouette polygon; no image warp or silhouette morph.",
+      "acceptance": "unreviewed; metrics are diagnostic only"
+    },
+    "open": {
+      "silhouette_iou": 0.9467977014831069,
+      "render_area_px": 115356,
+      "trace_area_px": 112651,
+      "landmark_errors_px": {
+        "camera": 5.980385992270754,
+        "ring": 1.9889597161623505,
+        "button": 0.00014740922778854756
+      },
+      "median_landmark_error_px": 1.9889597161623505,
+      "method": "Native crop raster; alpha > 127; manual silhouette polygon; no image warp or silhouette morph.",
+      "acceptance": "unreviewed; metrics are diagnostic only"
+    }
+  },
+  "board02": {
+    "closed": {
+      "silhouette_iou": 0.9298775458409999,
+      "render_area_px": 74966,
+      "trace_area_px": 77118,
+      "landmark_errors_px": {
+        "lock": 2.1618891035561885
+      },
+      "median_landmark_error_px": 2.1618891035561885,
+      "method": "Native crop raster; alpha > 127; manual silhouette polygon; no image warp or silhouette morph.",
+      "acceptance": "unreviewed; metrics are diagnostic only"
+    },
+    "open": {
+      "silhouette_iou": 0.9114908068239103,
+      "render_area_px": 108771,
+      "trace_area_px": 107367,
+      "landmark_errors_px": {
+        "camera": 5.689607030690895,
+        "ring": 1.8512160930204966,
+        "button": 4.484630657667322e-06
+      },
+      "median_landmark_error_px": 1.8512160930204966,
+      "method": "Native crop raster; alpha > 127; manual silhouette polygon; no image warp or silhouette morph.",
+      "acceptance": "unreviewed; metrics are diagnostic only"
+    }
+  }
+}

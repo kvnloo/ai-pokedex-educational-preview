@@ -1,0 +1,112 @@
+{
+  "candidate": "v003-r08",
+  "fps": 30,
+  "clips": [
+    {
+      "name": "Closed",
+      "startFrame": 1,
+      "terminalFrame": 16,
+      "durationSeconds": 0.5
+    },
+    {
+      "name": "Opening",
+      "startFrame": 16,
+      "terminalFrame": 76,
+      "durationSeconds": 2.0
+    },
+    {
+      "name": "BootUp",
+      "startFrame": 76,
+      "terminalFrame": 151,
+      "durationSeconds": 2.5
+    },
+    {
+      "name": "Ready",
+      "startFrame": 151,
+      "terminalFrame": 181,
+      "durationSeconds": 1.0
+    },
+    {
+      "name": "Idle",
+      "startFrame": 181,
+      "terminalFrame": 271,
+      "durationSeconds": 3.0
+    },
+    {
+      "name": "ButtonPress",
+      "startFrame": 271,
+      "terminalFrame": 295,
+      "durationSeconds": 0.8
+    }
+  ],
+  "hinge": {
+    "node": "v003/r08/PDX.LidHinge",
+    "axis": "X",
+    "pivotMeters": [
+      0.0,
+      0.06471695750951767,
+      0.013000000268220901
+    ],
+    "readyDegrees": -142.77704644316648,
+    "maximumOpeningDegrees": 143.1770464431665
+  },
+  "button": {
+    "node": "v003/r08/PDX.ButtonPress",
+    "travelMeters": 0.00055,
+    "returnNode": "v003/r08/GEO-button-A-return"
+  },
+  "signals": {
+    "v003-r08/SIG_ScreenPower": "local translation.x normalized 0..1",
+    "v003-r08/SIG_RingPower": "local translation.x normalized 0..1",
+    "v003-r08/SIG_GreenPower": "local translation.x normalized 0..1",
+    "v003-r08/SIG_AmberPower": "local translation.x normalized 0..1",
+    "v003-r08/SIG_RedPower": "local translation.x normalized 0..1",
+    "v003-r08/SIG_BootProgress": "local translation.x normalized 0..1",
+    "v003-r08/SIG_ReadyContent": "local translation.x normalized 0..1"
+  },
+  "materialBindings": [
+    {
+      "material": "v003/r08/MAT-display-type",
+      "signal": "v003-r08/SIG_ScreenPower",
+      "maximumEmission": 0.6000000238418579
+    },
+    {
+      "material": "v003/r08/MAT-red-status",
+      "signal": "v003-r08/SIG_RedPower",
+      "maximumEmission": 6.0
+    },
+    {
+      "material": "v003/r08/MAT-cyan-lightpipe",
+      "signal": "v003-r08/SIG_RingPower",
+      "maximumEmission": 6.0
+    },
+    {
+      "material": "v003/r08/MAT-display",
+      "signal": "v003-r08/SIG_ScreenPower",
+      "maximumEmission": 0.20000000298023224
+    },
+    {
+      "material": "v003/r08/MAT-green-status",
+      "signal": "v003-r08/SIG_GreenPower",
+      "maximumEmission": 3.0
+    },
+    {
+      "material": "v003/r08/MAT-amber",
+      "signal": "v003-r08/SIG_AmberPower",
+      "maximumEmission": 2
+    }
+  ],
+  "display": {
+    "surfaceNode": "v003/r08/GEO-display-glass",
+    "placeholderGroups": [
+      "v003/r08/PDX.DisplayBoot",
+      "v003/r08/PDX.DisplayReady"
+    ]
+  },
+  "runtimeOrder": "AnimationMixer.update(dt), then set material emissiveIntensity from each power signal. No physical ring scaling.",
+  "states": [
+    "Closed -> Opening -> BootUp -> Ready -> Idle",
+    "Ready/Idle -> ButtonPress -> Idle"
+  ],
+  "clipPolicy": "Each clip includes held values for mechanical state and power. Export NLA tracks with held-object retention; validate Closed explicitly."
+}

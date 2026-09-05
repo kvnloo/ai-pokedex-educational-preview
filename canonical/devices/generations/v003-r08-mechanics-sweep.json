@@ -1,0 +1,66 @@
+{
+  "scene": "ASTRA-v003-r08",
+  "method": "Evaluated triangle BVH intersections, moving lid vs fixed base; 2um AABB tolerance. Surface intersections require inspection; containment and same-assembly fits are separate checks.",
+  "sweep": [
+    {
+      "degrees": 0,
+      "candidates": []
+    },
+    {
+      "degrees": 1,
+      "candidates": []
+    },
+    {
+      "degrees": 3,
+      "candidates": []
+    },
+    {
+      "degrees": 5,
+      "candidates": []
+    },
+    {
+      "degrees": 10,
+      "candidates": []
+    },
+    {
+      "degrees": 20,
+      "candidates": []
+    },
+    {
+      "degrees": 30,
+      "candidates": []
+    },
+    {
+      "degrees": 45,
+      "candidates": []
+    },
+    {
+      "degrees": 60,
+      "candidates": []
+    },
+    {
+      "degrees": 75,
+      "candidates": []
+    },
+    {
+      "degrees": 90,
+      "candidates": []
+    },
+    {
+      "degrees": 110,
+      "candidates": []
+    },
+    {
+      "degrees": 130,
+      "candidates": []
+    },
+    {
+      "degrees": 142.77704644316648,
+      "candidates": []
+    },
+    {
+      "degrees": 143.27704644316648,
+      "candidates": []
+    }
+  ]
+}

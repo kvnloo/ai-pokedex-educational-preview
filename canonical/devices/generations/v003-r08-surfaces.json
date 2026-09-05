@@ -1,0 +1,97 @@
+{
+  "uvMeshCount": 93,
+  "textures": [
+    {
+      "path": "textures/pdx-v003-r08-graphite-normal.png",
+      "bytes": 442842,
+      "sha256": "0382ecb66c7a8efab7e76814c3ccc307ae694b138b578d6457aab5e488a3718e",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "textures/pdx-v003-r08-graphite-roughness.png",
+      "bytes": 327487,
+      "sha256": "5a3de509c64c0e053bdeb3d18672745d9d5c2824482fe9f08dc2979cd759b2ed",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "textures/pdx-v003-r08-red-normal.png",
+      "bytes": 441921,
+      "sha256": "fc63bfe733bcad31d1123fa7e32e4079165fd62951d707280a4fe8309e41dc84",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "textures/pdx-v003-r08-red-roughness.png",
+      "bytes": 343034,
+      "sha256": "22a1701c707dc2a2212e9e4576477df11d2814da6cf963974d15c04a1d062154",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "textures/pdx-v003-r08-rubber-normal.png",
+      "bytes": 441863,
+      "sha256": "7dd892951cddc5202337b83b494af5e5140d4ae72dc00b76b683a52b4a9c2c55",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "textures/pdx-v003-r08-rubber-roughness.png",
+      "bytes": 390585,
+      "sha256": "850d44065555ffe713379043cdbc719a4d41c21c586e351e239929cef6bc3cac",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "textures/pdx-v003-r08-silver-normal.png",
+      "bytes": 134742,
+      "sha256": "55de6de9360aa3780000a3cbb96a13ec48d05cf0fb77c128204ba60c98454969",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "textures/pdx-v003-r08-silver-roughness.png",
+      "bytes": 166717,
+      "sha256": "e70c22d950c6c705858305717d0a00707da57ecae057c004c0f7bfbd6cb9eaab",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "textures/pdx-v003-r08-steel-normal.png",
+      "bytes": 134763,
+      "sha256": "7a1e0167c66cb45fa0a109dca656d4c084f3e74f517397bd078639b103387c6f",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "textures/pdx-v003-r08-steel-roughness.png",
+      "bytes": 119266,
+      "sha256": "bc7f22bdda451eb3fe153f61c01cbd0384476312531ff07965a4eb00cf7baf20",
+      "size": [
+        512,
+        512
+      ]
+    }
+  ],
+  "mapping": "UV0 projected islands for mechanical solids; explicit full-screen UV rectangle. Reusable microfinish maps, not unique baked paint atlases.",
+  "display": "Editable, replaceable vector scanner placeholder. No reference-board image or copyrighted card image baked onto the mesh."
+}

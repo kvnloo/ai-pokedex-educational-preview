@@ -1,0 +1,1298 @@
+{
+  "objects": [
+    {
+      "name": "GEO-base-shell",
+      "type": "MESH",
+      "triangles": 1412,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-base-gasket",
+      "type": "MESH",
+      "triangles": 1408,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-control-deck",
+      "type": "MESH",
+      "triangles": 3360,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-lid-shell",
+      "type": "MESH",
+      "triangles": 1184,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-lid-black-rim",
+      "type": "MESH",
+      "triangles": 5912,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-lid-interior",
+      "type": "MESH",
+      "triangles": 6116,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-spine-core-v002/r08/PDX.Base",
+      "type": "MESH",
+      "triangles": 1020,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-spine-sleeve-v002/r08/PDX.Base0",
+      "type": "MESH",
+      "triangles": 1020,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-spine-sleeve-v002/r08/PDX.Base1",
+      "type": "MESH",
+      "triangles": 1020,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-spine-sleeve-v002/r08/PDX.Base2",
+      "type": "MESH",
+      "triangles": 1020,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-spine-core-v002/r08/PDX.LidHinge",
+      "type": "MESH",
+      "triangles": 1020,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-spine-sleeve-v002/r08/PDX.LidHinge0",
+      "type": "MESH",
+      "triangles": 1020,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-spine-sleeve-v002/r08/PDX.LidHinge1",
+      "type": "MESH",
+      "triangles": 1020,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-spine-sleeve-v002/r08/PDX.LidHinge2",
+      "type": "MESH",
+      "triangles": 1020,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-radial-belt",
+      "type": "MESH",
+      "triangles": 140,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-upper-right-silver-wedge",
+      "type": "MESH",
+      "triangles": 236,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-equatorial-seam",
+      "type": "CURVE",
+      "triangles": 28,
+      "collapsed": 0,
+      "nonManifoldEdges": 32,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-lock-surround",
+      "type": "MESH",
+      "triangles": 1020,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-lock-inset",
+      "type": "MESH",
+      "triangles": 1020,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-closed-cyan-ring",
+      "type": "MESH",
+      "triangles": 2304,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-closed-lock-core",
+      "type": "MESH",
+      "triangles": 1020,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-exterior-wordmark",
+      "type": "FONT",
+      "triangles": 496,
+      "collapsed": 0,
+      "nonManifoldEdges": 516,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-edition",
+      "type": "FONT",
+      "triangles": 664,
+      "collapsed": 0,
+      "nonManifoldEdges": 684,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-gold-chevron",
+      "type": "MESH",
+      "triangles": 140,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-outer-status",
+      "type": "MESH",
+      "triangles": 700,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-display-gasket",
+      "type": "MESH",
+      "triangles": 1440,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-display-metal-rim",
+      "type": "MESH",
+      "triangles": 1440,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-display-glass",
+      "type": "MESH",
+      "triangles": 700,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-sensor",
+      "type": "MESH",
+      "triangles": 892,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-boot-title",
+      "type": "FONT",
+      "triangles": 496,
+      "collapsed": 0,
+      "nonManifoldEdges": 516,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-boot-status",
+      "type": "FONT",
+      "triangles": 580,
+      "collapsed": 0,
+      "nonManifoldEdges": 636,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-progress-track",
+      "type": "MESH",
+      "triangles": 700,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-progress-fill",
+      "type": "MESH",
+      "triangles": 700,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-ready-title",
+      "type": "FONT",
+      "triangles": 496,
+      "collapsed": 0,
+      "nonManifoldEdges": 516,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-ready-region",
+      "type": "FONT",
+      "triangles": 556,
+      "collapsed": 0,
+      "nonManifoldEdges": 584,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-entry-0",
+      "type": "FONT",
+      "triangles": 1268,
+      "collapsed": 0,
+      "nonManifoldEdges": 1280,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-entry-1",
+      "type": "FONT",
+      "triangles": 1108,
+      "collapsed": 0,
+      "nonManifoldEdges": 1128,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-entry-2",
+      "type": "FONT",
+      "triangles": 990,
+      "collapsed": 0,
+      "nonManifoldEdges": 1014,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-entry-3",
+      "type": "FONT",
+      "triangles": 856,
+      "collapsed": 0,
+      "nonManifoldEdges": 884,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-ready-footer",
+      "type": "FONT",
+      "triangles": 1044,
+      "collapsed": 0,
+      "nonManifoldEdges": 1072,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-control-ring-seat",
+      "type": "MESH",
+      "triangles": 1020,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-control-ring-inset",
+      "type": "MESH",
+      "triangles": 1020,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-deck-cyan-ring",
+      "type": "MESH",
+      "triangles": 2304,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-deck-ring-inner-trim",
+      "type": "MESH",
+      "triangles": 2304,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-dpad",
+      "type": "MESH",
+      "triangles": 572,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-button-A",
+      "type": "MESH",
+      "triangles": 1020,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-button-A-type",
+      "type": "FONT",
+      "triangles": 44,
+      "collapsed": 0,
+      "nonManifoldEdges": 44,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-front-red-indicator",
+      "type": "MESH",
+      "triangles": 700,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-deck-fastener-0",
+      "type": "MESH",
+      "triangles": 1020,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-fastener-slot-0",
+      "type": "CURVE",
+      "triangles": 28,
+      "collapsed": 0,
+      "nonManifoldEdges": 32,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-deck-fastener-1",
+      "type": "MESH",
+      "triangles": 1020,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-fastener-slot-1",
+      "type": "CURVE",
+      "triangles": 28,
+      "collapsed": 0,
+      "nonManifoldEdges": 32,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-display-module-backing",
+      "type": "MESH",
+      "triangles": 700,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-speaker-baffle",
+      "type": "MESH",
+      "triangles": 700,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-camera-bezel",
+      "type": "MESH",
+      "triangles": 2048,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-camera-inner",
+      "type": "MESH",
+      "triangles": 1020,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-camera-retainer",
+      "type": "MESH",
+      "triangles": 2048,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-camera-optics",
+      "type": "MESH",
+      "triangles": 1020,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-camera-carrier",
+      "type": "MESH",
+      "triangles": 1020,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-top-bezel-notch",
+      "type": "MESH",
+      "triangles": 188,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-hinge-fixed--1",
+      "type": "MESH",
+      "triangles": 7760,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-hinge-fixed-1",
+      "type": "MESH",
+      "triangles": 7736,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-hinge-moving",
+      "type": "MESH",
+      "triangles": 9048,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-hinge-pin",
+      "type": "MESH",
+      "triangles": 1020,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-hinge-pin-retainer--1",
+      "type": "MESH",
+      "triangles": 1020,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-hinge-pin-retainer-1",
+      "type": "MESH",
+      "triangles": 1020,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-spine-attachment",
+      "type": "MESH",
+      "triangles": 700,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-spine-attachment",
+      "type": "MESH",
+      "triangles": 700,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-button-A-guide",
+      "type": "MESH",
+      "triangles": 2048,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-button-A-stem",
+      "type": "MESH",
+      "triangles": 1020,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-button-A-return",
+      "type": "MESH",
+      "triangles": 1020,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-dpad-stem",
+      "type": "MESH",
+      "triangles": 1020,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-dpad-guide",
+      "type": "MESH",
+      "triangles": 2048,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-dpad-return",
+      "type": "MESH",
+      "triangles": 1020,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-dial-guide",
+      "type": "MESH",
+      "triangles": 2048,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-dial-module-stem",
+      "type": "MESH",
+      "triangles": 1020,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-service-panel",
+      "type": "MESH",
+      "triangles": 700,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-service-screw",
+      "type": "MESH",
+      "triangles": 1020,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-service-screw",
+      "type": "MESH",
+      "triangles": 1020,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-service-screw",
+      "type": "MESH",
+      "triangles": 1020,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-service-screw",
+      "type": "MESH",
+      "triangles": 1020,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-port-cartridge",
+      "type": "MESH",
+      "triangles": 700,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-underside-foot",
+      "type": "MESH",
+      "triangles": 700,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-underside-foot",
+      "type": "MESH",
+      "triangles": 700,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-underside-foot",
+      "type": "MESH",
+      "triangles": 700,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-underside-foot",
+      "type": "MESH",
+      "triangles": 700,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-exterior-engraving-0",
+      "type": "CURVE",
+      "triangles": 108,
+      "collapsed": 0,
+      "nonManifoldEdges": 32,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-exterior-engraving-1",
+      "type": "CURVE",
+      "triangles": 28,
+      "collapsed": 0,
+      "nonManifoldEdges": 32,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-exterior-engraving-2",
+      "type": "CURVE",
+      "triangles": 28,
+      "collapsed": 0,
+      "nonManifoldEdges": 32,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-exterior-engraving-3",
+      "type": "CURVE",
+      "triangles": 28,
+      "collapsed": 0,
+      "nonManifoldEdges": 32,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-spine-band-0",
+      "type": "MESH",
+      "triangles": 2048,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-spine-band-1",
+      "type": "MESH",
+      "triangles": 2048,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-spine-band-2",
+      "type": "MESH",
+      "triangles": 2048,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-spine-band-3",
+      "type": "MESH",
+      "triangles": 2048,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-boot-scan-ring-0",
+      "type": "MESH",
+      "triangles": 2304,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-boot-scan-ring-1",
+      "type": "MESH",
+      "triangles": 2304,
+      "collapsed": 0,
+      "nonManifoldEdges": 0,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-boot-scan-bar--1",
+      "type": "CURVE",
+      "triangles": 28,
+      "collapsed": 0,
+      "nonManifoldEdges": 32,
+      "uvLayers": 1
+    },
+    {
+      "name": "GEO-boot-scan-bar-1",
+      "type": "CURVE",
+      "triangles": 28,
+      "collapsed": 0,
+      "nonManifoldEdges": 32,
+      "uvLayers": 1
+    }
+  ],
+  "triangles": 129986,
+  "collapsedTriangles": 0,
+  "mechanicalNonManifold": [],
+  "reference": {
+    "source": "board-01.jpg",
+    "width": 0.084,
+    "closed": {
+      "crop": [
+        0,
+        120,
+        302,
+        565
+      ],
+      "corners": [
+        [
+          36,
+          54
+        ],
+        [
+          248,
+          37
+        ],
+        [
+          300,
+          374
+        ],
+        [
+          80,
+          403
+        ]
+      ],
+      "outline": [
+        [
+          37,
+          57
+        ],
+        [
+          78,
+          49
+        ],
+        [
+          203,
+          40
+        ],
+        [
+          219,
+          41
+        ],
+        [
+          235,
+          46
+        ],
+        [
+          246,
+          58
+        ],
+        [
+          250,
+          76
+        ],
+        [
+          266,
+          176
+        ],
+        [
+          287,
+          290
+        ],
+        [
+          297,
+          322
+        ],
+        [
+          298,
+          347
+        ],
+        [
+          293,
+          362
+        ],
+        [
+          283,
+          375
+        ],
+        [
+          263,
+          382
+        ],
+        [
+          102,
+          406
+        ],
+        [
+          80,
+          409
+        ],
+        [
+          64,
+          402
+        ],
+        [
+          54,
+          394
+        ],
+        [
+          50,
+          375
+        ],
+        [
+          36,
+          287
+        ],
+        [
+          21,
+          176
+        ],
+        [
+          11,
+          106
+        ],
+        [
+          9,
+          82
+        ],
+        [
+          14,
+          70
+        ],
+        [
+          27,
+          65
+        ],
+        [
+          35,
+          65
+        ]
+      ],
+      "landmarks": {
+        "lock": [
+          176,
+          194
+        ],
+        "seam_left": [
+          51,
+          160
+        ],
+        "seam_right": [
+          267,
+          195
+        ],
+        "silver_top_left": [
+          216,
+          96
+        ],
+        "silver_top_right": [
+          253,
+          95
+        ],
+        "silver_bottom_left": [
+          226,
+          189
+        ]
+      },
+      "panel_lines": [
+        [
+          [
+            39,
+            60
+          ],
+          [
+            52,
+            153
+          ],
+          [
+            117,
+            187
+          ],
+          [
+            138,
+            160
+          ],
+          [
+            183,
+            142
+          ],
+          [
+            215,
+            97
+          ],
+          [
+            205,
+            43
+          ]
+        ],
+        [
+          [
+            65,
+            263
+          ],
+          [
+            120,
+            219
+          ]
+        ],
+        [
+          [
+            214,
+            197
+          ],
+          [
+            270,
+            193
+          ]
+        ],
+        [
+          [
+            216,
+            96
+          ],
+          [
+            253,
+            95
+          ]
+        ],
+        [
+          [
+            46,
+            324
+          ],
+          [
+            53,
+            352
+          ],
+          [
+            72,
+            344
+          ]
+        ]
+      ]
+    },
+    "open": {
+      "crop": [
+        615,
+        40,
+        905,
+        570
+      ],
+      "corners": [
+        [
+          19,
+          26
+        ],
+        [
+          228,
+          20
+        ],
+        [
+          249,
+          329
+        ],
+        [
+          28,
+          336
+        ],
+        [
+          29,
+          356
+        ],
+        [
+          248,
+          348
+        ],
+        [
+          280,
+          487
+        ],
+        [
+          45,
+          499
+        ]
+      ],
+      "outline": [
+        [
+          22,
+          40
+        ],
+        [
+          30,
+          29
+        ],
+        [
+          48,
+          25
+        ],
+        [
+          189,
+          23
+        ],
+        [
+          208,
+          24
+        ],
+        [
+          221,
+          30
+        ],
+        [
+          228,
+          43
+        ],
+        [
+          234,
+          121
+        ],
+        [
+          243,
+          240
+        ],
+        [
+          249,
+          318
+        ],
+        [
+          248,
+          329
+        ],
+        [
+          251,
+          341
+        ],
+        [
+          249,
+          357
+        ],
+        [
+          263,
+          410
+        ],
+        [
+          279,
+          457
+        ],
+        [
+          282,
+          477
+        ],
+        [
+          276,
+          492
+        ],
+        [
+          264,
+          501
+        ],
+        [
+          223,
+          510
+        ],
+        [
+          82,
+          519
+        ],
+        [
+          56,
+          519
+        ],
+        [
+          44,
+          513
+        ],
+        [
+          36,
+          501
+        ],
+        [
+          33,
+          485
+        ],
+        [
+          27,
+          457
+        ],
+        [
+          19,
+          408
+        ],
+        [
+          11,
+          377
+        ],
+        [
+          12,
+          367
+        ],
+        [
+          20,
+          356
+        ],
+        [
+          19,
+          342
+        ],
+        [
+          22,
+          332
+        ],
+        [
+          18,
+          276
+        ],
+        [
+          15,
+          206
+        ],
+        [
+          12,
+          136
+        ],
+        [
+          10,
+          81
+        ],
+        [
+          15,
+          69
+        ],
+        [
+          15,
+          51
+        ]
+      ],
+      "landmarks": {
+        "camera": [
+          56,
+          55
+        ],
+        "screen_tl": [
+          46,
+          101
+        ],
+        "screen_tr": [
+          210,
+          97
+        ],
+        "screen_br": [
+          227,
+          305
+        ],
+        "screen_bl": [
+          57,
+          311
+        ],
+        "ring": [
+          153,
+          402
+        ],
+        "dpad": [
+          90,
+          452
+        ],
+        "button": [
+          239,
+          443
+        ],
+        "hinge_left": [
+          25,
+          351
+        ],
+        "hinge_right": [
+          247,
+          345
+        ]
+      },
+      "panel_lines": [
+        [
+          [
+            31,
+            86
+          ],
+          [
+            219,
+            82
+          ]
+        ],
+        [
+          [
+            38,
+            363
+          ],
+          [
+            53,
+            468
+          ],
+          [
+            65,
+            485
+          ],
+          [
+            251,
+            477
+          ],
+          [
+            265,
+            465
+          ]
+        ]
+      ]
+    }
+  },
+  "scene": "ASTRA-v002-r08"
+}

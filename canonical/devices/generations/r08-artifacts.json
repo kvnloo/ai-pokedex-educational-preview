@@ -1,0 +1,274 @@
+[
+  {
+    "candidate": "v002-r08",
+    "status": "review candidate; motion video and full photography pending",
+    "files": [
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v002/astra-r08/v002-r08-hero.blend",
+        "bytes": 2967647,
+        "sha256": "1486aef3b6f7f9b11736fa72a31209fc6cf0aa2675bf3448ca6237144340f1bc"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v002/astra-r08/v002-r08-lod0.blend",
+        "bytes": 7287601,
+        "sha256": "7228cb38474e4837a97d89c42f0086393232e708053db743689215a022dfacba"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v002/astra-r08/v002-r08-reopened.blend",
+        "bytes": 4038738,
+        "sha256": "4dd439f6a44f702ecaf9858330f7f160cb166566af844cff5207c099af529dac"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v002/astra-r08/v002-r08-static.blend",
+        "bytes": 384559,
+        "sha256": "738addee87adb685ecbd7858053071c58350938599c237ee50a5badf7225d42d"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v002/astra-r08/animation-contract.json",
+        "bytes": 3078,
+        "sha256": "931cf122ecb94a934e9a566b74ed2461167c98013dfb33a56183e50c84bc782c"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v002/astra-r08/closed-landmarks.json",
+        "bytes": 260,
+        "sha256": "9883be06a16db06532f76dc8ff3677da8d78619a4a0063534a2e43875e5013d9"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v002/astra-r08/geometry.json",
+        "bytes": 23231,
+        "sha256": "ee6a75145a5e20195020148a4fe20806f3c8013ac5269481e46f0bd06f1ed15a"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v002/astra-r08/mechanics-sweep.json",
+        "bytes": 1129,
+        "sha256": "4190bc7470e59407d53256a92f36394ca6f06858d3d37444ef4cb2f96dceae9b"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v002/astra-r08/open-landmarks.json",
+        "bytes": 260,
+        "sha256": "de3403112413697b6ed1cd82b4273294c46b0666f3fc17a27cd39ca599221dfc"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v002/astra-r08/surfaces.json",
+        "bytes": 2608,
+        "sha256": "68068c74f8b8ac4565b8a03a5df01771b5aa3aab6e45fa4e8727b5c5083b26e2"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v002/astra-r08/runtime/v002-r08-lod0.glb",
+        "bytes": 5333952,
+        "sha256": "deab11c8fb132652ff364bfc6a9ac672c953e2e8e9dc50a92c39deb91de1476a"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v002/astra-r08/runtime/lod0-report.json",
+        "bytes": 15857,
+        "sha256": "99e4d9b74894867f561292838da98f277bb7de9607effd70864ddf6f05d39a23"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v002/astra-r08/runtime/lod0-validation.json",
+        "bytes": 19723,
+        "sha256": "a3ce0aa3c671f2f71ecaeca45999f233b1fb46771e4abdcbe462efb1b9ada973"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v002/astra-r08/runtime/reopened.json",
+        "bytes": 19758,
+        "sha256": "6869650525a6437252aee9401a9920602ede195c6279a79901f2959f0a2b405b"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v002/astra-r08/textures/pdx-v002-r08-graphite-normal.png",
+        "bytes": 442842,
+        "sha256": "0382ecb66c7a8efab7e76814c3ccc307ae694b138b578d6457aab5e488a3718e"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v002/astra-r08/textures/pdx-v002-r08-graphite-roughness.png",
+        "bytes": 327487,
+        "sha256": "5a3de509c64c0e053bdeb3d18672745d9d5c2824482fe9f08dc2979cd759b2ed"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v002/astra-r08/textures/pdx-v002-r08-red-normal.png",
+        "bytes": 441921,
+        "sha256": "fc63bfe733bcad31d1123fa7e32e4079165fd62951d707280a4fe8309e41dc84"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v002/astra-r08/textures/pdx-v002-r08-red-roughness.png",
+        "bytes": 343378,
+        "sha256": "6f6871ed76188e8cff30340dd0754fe9934b2a53d3b7a428d4d53c461946c5a2"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v002/astra-r08/textures/pdx-v002-r08-rubber-normal.png",
+        "bytes": 441863,
+        "sha256": "7dd892951cddc5202337b83b494af5e5140d4ae72dc00b76b683a52b4a9c2c55"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v002/astra-r08/textures/pdx-v002-r08-rubber-roughness.png",
+        "bytes": 390585,
+        "sha256": "850d44065555ffe713379043cdbc719a4d41c21c586e351e239929cef6bc3cac"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v002/astra-r08/textures/pdx-v002-r08-silver-normal.png",
+        "bytes": 134742,
+        "sha256": "55de6de9360aa3780000a3cbb96a13ec48d05cf0fb77c128204ba60c98454969"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v002/astra-r08/textures/pdx-v002-r08-silver-roughness.png",
+        "bytes": 166717,
+        "sha256": "e70c22d950c6c705858305717d0a00707da57ecae057c004c0f7bfbd6cb9eaab"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v002/astra-r08/textures/pdx-v002-r08-steel-normal.png",
+        "bytes": 134763,
+        "sha256": "7a1e0167c66cb45fa0a109dca656d4c084f3e74f517397bd078639b103387c6f"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v002/astra-r08/textures/pdx-v002-r08-steel-roughness.png",
+        "bytes": 119266,
+        "sha256": "bc7f22bdda451eb3fe153f61c01cbd0384476312531ff07965a4eb00cf7baf20"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v002/astra-r08/closed-matched.png",
+        "bytes": 743838,
+        "sha256": "0f0a47de955c7e611f94eeb5b54f9fa74d76ce32bdb43f36594a5360232a9b31"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v002/astra-r08/open-matched.png",
+        "bytes": 933272,
+        "sha256": "2c24a7efdcc8de3e83a60b9fdd30d11b5bc1bd7cf5f409e9cfa332940c5eec3a"
+      }
+    ]
+  },
+  {
+    "candidate": "v003-r08",
+    "status": "review candidate; motion video and full photography pending",
+    "files": [
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v003/astra-r08/v003-r08-hero.blend",
+        "bytes": 2970732,
+        "sha256": "3a42fdfd61d3d23086f4f0e611931334d997af457474129d807bc0df7fa980d2"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v003/astra-r08/v003-r08-lod0.blend",
+        "bytes": 7714566,
+        "sha256": "a24c17e08a22d35c69c35adec3f3e8bd4b3b922b56d335661f0c573478537e43"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v003/astra-r08/v003-r08-reopened.blend",
+        "bytes": 4125129,
+        "sha256": "10f776faf6960b1858443fcf3f4051f92c047eb2b769062e74e6a53927294c90"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v003/astra-r08/v003-r08-static.blend",
+        "bytes": 388262,
+        "sha256": "ac18dbb262bbbbd45eb89b21b232c6a8a11b7443dcb306685fed581a8c1fdc03"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v003/astra-r08/animation-contract.json",
+        "bytes": 3079,
+        "sha256": "bdec88da6725a181980893263607e5a9f3ca0a2e4006860b1808674bd3da270d"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v003/astra-r08/closed-landmarks.json",
+        "bytes": 262,
+        "sha256": "74c7799dd3a32ed79121e9bbabd155b9b6cea30e97d5454ac12662f0e04c9db2"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v003/astra-r08/geometry.json",
+        "bytes": 25196,
+        "sha256": "3d9f38517c009a9faba81a68fb950d2762a1af8ea126bdafc4c9a728847294b0"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v003/astra-r08/mechanics-sweep.json",
+        "bytes": 1131,
+        "sha256": "f6c879a315cce8c6c15e23559ea877af38ce0da3a581e932578409f45f7eb3c1"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v003/astra-r08/open-landmarks.json",
+        "bytes": 259,
+        "sha256": "541a6323a02c2463a2c0eb78f7f1ce170a6133507a6a3da9ea3fab1f076d8977"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v003/astra-r08/surfaces.json",
+        "bytes": 2608,
+        "sha256": "1dccbf32cc60469267b30605a0b1e6c21293c7abed11ba326494c327e4ac1b07"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v003/astra-r08/runtime/v003-r08-lod0.glb",
+        "bytes": 5697808,
+        "sha256": "c6ca8c9335408af0842104f2a5f023955309e72e907ee7ada68fb820085fd733"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v003/astra-r08/runtime/lod0-report.json",
+        "bytes": 17820,
+        "sha256": "1f7c4d25e6fd256c688cdadc61ca45129ad74b5a47ef1e7d714519ac4c64e1fa"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v003/astra-r08/runtime/lod0-validation.json",
+        "bytes": 22304,
+        "sha256": "7b42bbd33cae15a4e72a78b32a42867f1232ca478068f6fff67515231d998478"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v003/astra-r08/runtime/reopened.json",
+        "bytes": 21117,
+        "sha256": "fac3425a4fda037c7f63ed0e8e6c5f90719af3adccc3c3ca258d4617c791e76a"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v003/astra-r08/textures/pdx-v003-r08-graphite-normal.png",
+        "bytes": 442842,
+        "sha256": "0382ecb66c7a8efab7e76814c3ccc307ae694b138b578d6457aab5e488a3718e"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v003/astra-r08/textures/pdx-v003-r08-graphite-roughness.png",
+        "bytes": 327487,
+        "sha256": "5a3de509c64c0e053bdeb3d18672745d9d5c2824482fe9f08dc2979cd759b2ed"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v003/astra-r08/textures/pdx-v003-r08-red-normal.png",
+        "bytes": 441921,
+        "sha256": "fc63bfe733bcad31d1123fa7e32e4079165fd62951d707280a4fe8309e41dc84"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v003/astra-r08/textures/pdx-v003-r08-red-roughness.png",
+        "bytes": 343034,
+        "sha256": "22a1701c707dc2a2212e9e4576477df11d2814da6cf963974d15c04a1d062154"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v003/astra-r08/textures/pdx-v003-r08-rubber-normal.png",
+        "bytes": 441863,
+        "sha256": "7dd892951cddc5202337b83b494af5e5140d4ae72dc00b76b683a52b4a9c2c55"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v003/astra-r08/textures/pdx-v003-r08-rubber-roughness.png",
+        "bytes": 390585,
+        "sha256": "850d44065555ffe713379043cdbc719a4d41c21c586e351e239929cef6bc3cac"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v003/astra-r08/textures/pdx-v003-r08-silver-normal.png",
+        "bytes": 134742,
+        "sha256": "55de6de9360aa3780000a3cbb96a13ec48d05cf0fb77c128204ba60c98454969"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v003/astra-r08/textures/pdx-v003-r08-silver-roughness.png",
+        "bytes": 166717,
+        "sha256": "e70c22d950c6c705858305717d0a00707da57ecae057c004c0f7bfbd6cb9eaab"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v003/astra-r08/textures/pdx-v003-r08-steel-normal.png",
+        "bytes": 134763,
+        "sha256": "7a1e0167c66cb45fa0a109dca656d4c084f3e74f517397bd078639b103387c6f"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v003/astra-r08/textures/pdx-v003-r08-steel-roughness.png",
+        "bytes": 119266,
+        "sha256": "bc7f22bdda451eb3fe153f61c01cbd0384476312531ff07965a4eb00cf7baf20"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v003/astra-r08/closed-matched.png",
+        "bytes": 669127,
+        "sha256": "4719b8f90e2f9e8ab7cafecb7224c8f509101c3a92122baeef6b427f2907c137"
+      },
+      {
+        "path": "/mnt/zer0models/pokemon-iac/devices/pokedex/v003/astra-r08/open-matched.png",
+        "bytes": 971404,
+        "sha256": "25c8ba9f41ca399014a47a909496774a180dbcb267864aae0ab5a5497aaaa6ba"
+      }
+    ]
+  }
+]

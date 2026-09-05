@@ -3,8 +3,8 @@
 - [x] Read pstack principles; separate shared state and model the actual domain.
 - [x] Consume Kevin's addendum; establish root-only Blender ownership.
 - [x] Preserve and inspect stopped v2/v3 work, original boards and rejected v001.
-- [ ] Rebuild v2 and v3 independently from their respective board layouts; replace invalid geometry and mechanical shortcuts.
-- [ ] Render matched closed/open comparisons and transparent overlays, then inspect identity and proportions before polish.
+- [x] Rebuild v2 and v3 independently from their respective board layouts; replace invalid geometry and mechanical shortcuts. Root r08 is a review candidate, not final approval.
+- [x] Render matched closed/open comparisons and transparent overlays, then inspect identity and proportions before polish. See R08-REVIEW.md for remaining differences.
 - [ ] Author appropriate clips, export/reopen actual GLBs, inspect animation video, commit evidence and send the first two-candidate review batch.
 - [ ] Research and produce Kanto + Johto anime devices.
 - [ ] Research and produce Hoenn + Sinnoh anime devices.
