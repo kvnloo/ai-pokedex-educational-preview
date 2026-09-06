@@ -1,0 +1,38 @@
+[
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r18/charizard-hybrid-r18a-haunch.blend",
+    "sha256": "a9efbffc748de2481d6a486761551fd2e228eeb51d6b461571cc56242766fd12"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r18/r18a-front.png",
+    "sha256": "36d2128234924493d960e7d9a6a29a854f2735ad9f1e17bc631dab5e6546ec63"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r18/r18a-legs-front.png",
+    "sha256": "2503dab679cfa1ad7eeb2f8524f6674f677aebb8c06ce571aa84d2cdc0d16cf0"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r18/r18a-legs-rear.png",
+    "sha256": "2ab2e88999c563f6d6fc13177bbc412907eb5f4463db2e1c9450d316951a7b3f"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r18/r18a-legs-side.png",
+    "sha256": "23a160c8f9eb63de64f97d1aad961b73ae970f8c64e606336e51fede4895cba9"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r18/r18a-legs-threequarter.png",
+    "sha256": "01e640628831ddb5dfcf47888613db4888c88b8950d777769f11f59ded38c50d"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r18/r18a-rear.png",
+    "sha256": "9ecbf93d53225651dc150e349341b0bb99cec5a470c580bfcccc4f559f03f18f"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r18/r18a-side.png",
+    "sha256": "f6c912aef75ec682bb0bb0f4688213265f4d239693665247b4d3227068982fde"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r18/r18a-threequarter.png",
+    "sha256": "3ceb31a3d34b7af1706ab782d3b5794cd53c79290d17a59f405a7ec2234d55c2"
+  }
+]
