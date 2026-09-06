@@ -1,0 +1,93 @@
+{
+  "id": "charizard-illustration-head-baseline-r07",
+  "species": "charizard",
+  "stage": "blender",
+  "status": "unfinished",
+  "title": "Illustration61062 o256 \u00b7 imported head baseline",
+  "parents": [
+    "charizard-official-raw-61062-o256"
+  ],
+  "question": "Which existing HOME/illustration-input baseline gives the strongest head anatomy before further sculpting?",
+  "inputs": [
+    {
+      "role": "shape reference",
+      "path": "assets/references/objects/b6/b6d5b8ee9fb05dc6f53294b2cae660dec770b92762cdb19d16bcbd679e1ba43a.png",
+      "sha256": "b6d5b8ee9fb05dc6f53294b2cae660dec770b92762cdb19d16bcbd679e1ba43a",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png",
+      "sourceKind": "official_artwork"
+    }
+  ],
+  "controls": [
+    "No post-import geometry edits; native importer omits8 HOME/6 illustration256/10 illustration384 triangles; smooth shading",
+    "Shared camera directions, .7 orthographic scale, paint.sl lighting",
+    "Head center adjusted per source; no new Hunyuan generation"
+  ],
+  "changedFactors": [
+    {
+      "name": "review framing",
+      "from": "whole-body raw source",
+      "to": "five dedicated head views"
+    }
+  ],
+  "recipe": {
+    "model": "Blender source-head inspection",
+    "parameters": {
+      "newGeneration": false,
+      "geometryEdited": false,
+      "sourceRun": "charizard-official-raw-61062-o256",
+      "headPoseNormalized": false,
+      "orthoScale": 0.7
+    }
+  },
+  "outputs": {
+    "rawMesh": "assets/experiments/charizard-official-raw/charizard-official-raw-61062-o256.glb",
+    "blend": "assets/blender/charizard-head-baselines-r07/charizard-head-baseline-comparison-r07-all.blend",
+    "previews": [
+      {
+        "view": "head-front",
+        "path": "assets/blender/charizard-head-baselines-r07/baseline-illustration/front.png"
+      },
+      {
+        "view": "head-near",
+        "path": "assets/blender/charizard-head-baselines-r07/baseline-illustration/near.png"
+      },
+      {
+        "view": "head-far",
+        "path": "assets/blender/charizard-head-baselines-r07/baseline-illustration/far.png"
+      },
+      {
+        "view": "head-threequarter",
+        "path": "assets/blender/charizard-head-baselines-r07/baseline-illustration/threequarter.png"
+      },
+      {
+        "view": "head-top",
+        "path": "assets/blender/charizard-head-baselines-r07/baseline-illustration/top.png"
+      }
+    ]
+  },
+  "evaluation": {
+    "verdict": "needs-work",
+    "reviewer": "assistant",
+    "notes": "Both illustration resolutions retain extra rear protrusions, long muzzle, weak socket and nearly straight mouth seam. Higher density does not repair these source-shape defects.",
+    "unresolved": [
+      "All source heads remain soft and unfinished",
+      "No finished eyes, mouth interior, textures or rig"
+    ]
+  },
+  "metrics": {
+    "blenderImportedTriangles": 291274,
+    "rawFileEdited": false,
+    "importerDroppedTriangles": 6
+  },
+  "comparability": {
+    "cohort": "charizard-raw-heads-r07",
+    "confounds": [
+      "Different input images, seeds and source poses",
+      "HOME and illustration384 have comparable sampling; illustration256 is lower density",
+      "Head centers differ; shared directions are not anatomical alignment",
+      "Side cameras clip foreground wings",
+      "Shared blend contains all three sources; rawMesh links to the original whole-body source"
+    ]
+  },
+  "createdAt": "2026-09-06T08:22:20.086779+00:00"
+}

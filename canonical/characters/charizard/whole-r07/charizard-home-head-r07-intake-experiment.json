@@ -1,0 +1,81 @@
+{
+  "id": "charizard-home-head-r07-intake",
+  "species": "charizard",
+  "stage": "blender",
+  "status": "unfinished",
+  "title": "r07 HOME \u00b7 matched starting head",
+  "parents": [
+    "charizard-home-raw-61061"
+  ],
+  "question": "Does refining the HOME-derived head improve its jaw and eye read?",
+  "inputs": [
+    {
+      "role": "shape reference",
+      "path": "assets/references/objects/ff/ffe2db1065f91feda24f21c81c461e4ca6b863cf31afb4e4918aba79fb31ee70.png",
+      "sha256": "ffe2db1065f91feda24f21c81c461e4ca6b863cf31afb4e4918aba79fb31ee70",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/6.png"
+    }
+  ],
+  "controls": [
+    "Existing PokeAPI-hosted HOME sprite baseline chosen by Kevin; no new generation",
+    "Same isolated head frame, four cameras, gray material and Workbench lighting",
+    "Frozen raw source and failed intermediate trials preserved"
+  ],
+  "changedFactors": [],
+  "recipe": {
+    "model": "Blender MCP geometry fitting/Boolean; native GUI sculpt; reopened static GLB",
+    "parameters": {
+      "newGeneration": false,
+      "headBaseline": "charizard-home-raw-61061",
+      "baselineCaptureOnly": true,
+      "authoritativeSource": "assets/blender/charizard-head-baselines-r07/home-head-r07-matched-intake.blend"
+    }
+  },
+  "outputs": {
+    "blend": "assets/blender/charizard-head-baselines-r07/home-head-r07-matched-intake.blend",
+    "previews": [
+      {
+        "view": "head-front",
+        "path": "assets/blender/charizard-head-baselines-r07/matched-intake/front.png"
+      },
+      {
+        "view": "head-near",
+        "path": "assets/blender/charizard-head-baselines-r07/matched-intake/near.png"
+      },
+      {
+        "view": "head-far",
+        "path": "assets/blender/charizard-head-baselines-r07/matched-intake/far.png"
+      },
+      {
+        "view": "head-threequarter",
+        "path": "assets/blender/charizard-head-baselines-r07/matched-intake/threequarter.png"
+      }
+    ]
+  },
+  "evaluation": {
+    "verdict": "needs-work",
+    "reviewer": "assistant",
+    "notes": "Original isolated Basis after import, cut/cap and rigid reframe; all anatomy keys disabled.",
+    "unresolved": [
+      "Isolated cut/capped HOME-derived head; no body attachment",
+      "Inflated jaw, bulbous muzzle, buried eye sockets and asymmetric tubular horns",
+      "Anatomy keys disabled; fitted eye and lid meshes hidden",
+      "No UVs, texture images, final PBR, eye rig, animation clips or game integration",
+      "No self-intersection, deformation, LOD or complete-Pokemon acceptance"
+    ]
+  },
+  "metrics": {
+    "baselineCaptureOnly": true
+  },
+  "comparability": {
+    "cohort": "charizard-home-r07-matched",
+    "confounds": [
+      "Several sequential changes; not a one-factor experiment",
+      "Head cut/cap retained; no body attachment",
+      "Approximate bilateral frame, not exact symmetry",
+      "EyeA and eyeB used different intermediate head keys; do not treat that side trial as a controlled A/B",
+      "Gray material and placeholder eye colors; no final PBR or optical gaze rig"
+    ]
+  },
+  "createdAt": "2026-09-06T09:30:36.763208+00:00"
+}

@@ -1,0 +1,122 @@
+{
+  "status": "Adjudicated unfinished study; no complete asset promotion",
+  "rawCountsCorrection": {
+    "rows": [
+      {
+        "run": "charizard-home-raw-61061",
+        "source": "/mnt/zer0models/workspace/zer0/experiments/pokemon/assets/experiments/charizard-home-raw/charizard-home-raw-61061.glb",
+        "sha256": "69287dfd7f7f2e6a5bcf8c2b7281c08fe4a14c1b086f3d6e7eb7e8f0f96d83dd",
+        "rawTriangles": 729692,
+        "blenderImportedTriangles": 729684,
+        "importerDroppedTriangles": 8
+      },
+      {
+        "run": "charizard-official-raw-61062-o256",
+        "source": "/mnt/zer0models/workspace/zer0/experiments/pokemon/assets/experiments/charizard-official-raw/charizard-official-raw-61062-o256.glb",
+        "sha256": "f9f0b2c3f2e189dcdd1c72190e8c79b7b958a2dd4f3bacb2d844ec37b330ed8e",
+        "rawTriangles": 291280,
+        "blenderImportedTriangles": 291274,
+        "importerDroppedTriangles": 6
+      },
+      {
+        "run": "charizard-official-raw-61062",
+        "source": "/mnt/zer0models/workspace/zer0/experiments/pokemon/assets/experiments/charizard-official-raw/charizard-official-raw-61062.glb",
+        "sha256": "38838168914ff5eda920de5cd21dc69b90c40174040f0592cd3f569df8c14e58",
+        "rawTriangles": 656272,
+        "blenderImportedTriangles": 656262,
+        "importerDroppedTriangles": 10
+      }
+    ],
+    "method": "Raw index accessor count divided by3; imported counts cross-checked by reopened three-source blend. Raw file unchanged."
+  },
+  "frameMeasurement": "Only Basis world-position reprojection error was measured. All keys were passed to data.transform(shape_keys=True); all-key preservation was not independently measured. Review frame is deliberately different from fitted source frame.",
+  "densityClaim": "Post-hoc comparable sampling only. Input images, seeds and poses differ. Original density-probe executed body was not preserved; numerical stdout exists in head-alignment-audit.json. Do not call this density-controlled.",
+  "sourceProvenance": "PokeAPI-hosted HOME sprite chosen by Kevin and PokeAPI-hosted official-artwork-labelled illustration. Input hashes inherited from source experiments. No new generation or new input image.",
+  "scriptReplayLimit": "Early o384 import/capture, MANIFOLD union, material-only irisC and GUI mask setup were executed inline. Source blends/receipts are authoritative checkpoints; checked-in scripts are not an end-to-end replay of every early action. Executed original recipe versions are preserved separately from subsequently guarded helpers.",
+  "eyeComparability": {
+    "A": "Shape_MuzzlePlanes_r07 active; larger anterior aperture",
+    "B": "Smooth_AlignedJaw_r07 active; posterior aperture; A collection hidden",
+    "C": "SameBeyegeometry; material indices only move iris t from.32 to.16; not optical gaze or eye rig"
+  },
+  "rejectedTrials": [
+    {
+      "name": "Muzzle Flatten",
+      "reason": "No readable plane or silhouette gain",
+      "evidence": "muzzle-planes-verdict.json"
+    },
+    {
+      "name": "Exact lid UNION",
+      "reason": "Catastrophic head loss: only1749vertices/3498triangles/two components remain. Original receipt pending label is superseded by this rejection.",
+      "evidence": {
+        "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r07/home-lid-union-rejected.blend",
+        "bytes": 1810046,
+        "sha256": "1145894813c370262e71f82a18f305b416dc3b1e56537fb0466ea062de5a7c0d"
+      }
+    },
+    {
+      "name": "First static GLB",
+      "reason": "58opposite duplicate triangle pairs from MANIFOLD n-gon tessellation; import removes one member each and opens174edges",
+      "evidence": {
+        "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r07/charizard-home-head-r07-study.glb",
+        "bytes": 891880,
+        "sha256": "0f8ead55cda08a818a98f3f405b629df87a5878f1304ff6656a8fa4c14a0129a"
+      }
+    },
+    {
+      "name": "Weld/dissolve cleanup",
+      "reason": "Did not repair174nonmanifoldedges; hidden and rejected",
+      "evidence": "lid-sliver-cleanup.json"
+    }
+  ],
+  "retainedConstruction": {
+    "solver": "MANIFOLD",
+    "operation": "UNION",
+    "operands": [
+      "GEO-home-lid--1-r07",
+      "GEO-home-lid-1-r07"
+    ],
+    "checkpointBeforeSmooth": {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r07/home-lids-manifold-before-smooth.blend",
+      "bytes": 2808880,
+      "sha256": "f366b4e2ad8a2fb2045ec770ef0f11f0420f2846f63cae4675b8d980c0619a5d"
+    },
+    "nativeSmoothing": {
+      "changedVertices": 2859,
+      "maxDisplacement": 0.004226293555824094,
+      "protectedMax": 0.0,
+      "key": "Smooth_LidJoins_r07"
+    },
+    "smoothingBeforeCoordinates": {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r07/lid-smooth-before.json",
+      "bytes": 1440075,
+      "sha256": "d922c4d9d72d7887e36c4af827d869a603a6779abc4bfc4bc53fc6e4ecf383fd"
+    },
+    "mask": "Distance to1024lid-band vertices: unmasked d<=.003; protected d>=.018; smoothstep transition; nativeSmooth strength.3 radius120, localXsymmetry, frontface",
+    "guiJournal": {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r07/gui-modeling.jsonl",
+      "bytes": 865,
+      "sha256": "20a484505782c0d11b012817be8cd0ba8032cae15e9e7982ee295ada1985ed7b"
+    },
+    "repair": {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r07/lid-tessellation-repair.json",
+      "bytes": 9281,
+      "sha256": "aa63b12b168836a635548fa20b45501d0401ae03e5a325d4a9ff9ad1685d764d"
+    }
+  },
+  "visualReview": {
+    "reviewer": "root/Astra",
+    "views": [
+      "front",
+      "near",
+      "far",
+      "threequarter"
+    ],
+    "inspectedSets": [
+      "home-lids-repaired-a",
+      "reopened-repaired",
+      "matched-intake"
+    ],
+    "nativeGui": "repaired-gui.png",
+    "judgment": "Shallower jaw and visible eyes are local gains. Current frontal muzzle remains bulbous, horns tubular/asymmetric, iris bands crude and eyelid edges uneven. No AAA, game-ready, final-anatomy, PBR, rig or animation acceptance."
+  }
+}

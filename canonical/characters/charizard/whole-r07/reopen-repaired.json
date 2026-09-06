@@ -1,0 +1,195 @@
+{
+  "status": "passed; visual inspection still required",
+  "checks": [
+    {
+      "object": "GEO-home-eye-1-r07-b",
+      "countsMatch": true,
+      "boundsMaxDelta": 0.0
+    },
+    {
+      "object": "GEO-home-eye--1-r07-b",
+      "countsMatch": true,
+      "boundsMaxDelta": 7.450580596923828e-09
+    },
+    {
+      "object": "GEO-home-head-lids-runtime-clean-r07",
+      "countsMatch": true,
+      "boundsMaxDelta": 1.4901161193847656e-08
+    }
+  ],
+  "scope": "Saved artifact structure and rendered appearance; no self-intersection, deformation or S+ acceptance",
+  "source": {
+    "GEO-home-head-lids-runtime-clean-r07": {
+      "vertices": 21482,
+      "triangles": 42960,
+      "nonManifoldEdges": 0,
+      "zeroAreaTriangles": 0,
+      "volume": 0.01280642153743992,
+      "bounds": [
+        [
+          -0.242027148604393,
+          0.09056111425161362
+        ],
+        [
+          -0.986633837223053,
+          -0.509895384311676
+        ],
+        [
+          0.29063600301742554,
+          0.6189665198326111
+        ]
+      ],
+      "finite": true,
+      "uvLayers": 0,
+      "materials": 1,
+      "animation": false
+    },
+    "GEO-home-eye--1-r07-b": {
+      "vertices": 1453,
+      "triangles": 2902,
+      "nonManifoldEdges": 0,
+      "zeroAreaTriangles": 0,
+      "volume": 2.8891336084809754e-05,
+      "bounds": [
+        [
+          -0.0703098252415657,
+          0.006715336348861456
+        ],
+        [
+          -0.8580197095870972,
+          -0.7740136384963989
+        ],
+        [
+          0.5376715064048767,
+          0.5737163424491882
+        ]
+      ],
+      "finite": true,
+      "uvLayers": 0,
+      "materials": 3,
+      "animation": false
+    },
+    "GEO-home-eye-1-r07-b": {
+      "vertices": 1453,
+      "triangles": 2902,
+      "nonManifoldEdges": 0,
+      "zeroAreaTriangles": 0,
+      "volume": 3.067375452141897e-05,
+      "bounds": [
+        [
+          -0.19682030379772186,
+          -0.14992034435272217
+        ],
+        [
+          -0.7872190475463867,
+          -0.6859244108200073
+        ],
+        [
+          0.5376715064048767,
+          0.5737163424491882
+        ]
+      ],
+      "finite": true,
+      "uvLayers": 0,
+      "materials": 3,
+      "animation": false
+    }
+  },
+  "imported": {
+    "GEO-home-eye-1-r07-b": {
+      "vertices": 1453,
+      "triangles": 2902,
+      "nonManifoldEdges": 0,
+      "zeroAreaTriangles": 0,
+      "volume": 3.067448201265768e-05,
+      "bounds": [
+        [
+          -0.19682030379772186,
+          -0.14992034435272217
+        ],
+        [
+          -0.7872190475463867,
+          -0.6859244108200073
+        ],
+        [
+          0.5376715064048767,
+          0.5737163424491882
+        ]
+      ],
+      "finite": true,
+      "uvLayers": 0,
+      "materials": 3,
+      "animation": false
+    },
+    "GEO-home-eye--1-r07-b": {
+      "vertices": 1453,
+      "triangles": 2902,
+      "nonManifoldEdges": 0,
+      "zeroAreaTriangles": 0,
+      "volume": 2.8885751851124645e-05,
+      "bounds": [
+        [
+          -0.0703098326921463,
+          0.006715336348861456
+        ],
+        [
+          -0.8580197095870972,
+          -0.7740136384963989
+        ],
+        [
+          0.5376715064048767,
+          0.5737163424491882
+        ]
+      ],
+      "finite": true,
+      "uvLayers": 0,
+      "materials": 3,
+      "animation": false
+    },
+    "GEO-home-head-lids-runtime-clean-r07": {
+      "vertices": 21482,
+      "triangles": 42960,
+      "nonManifoldEdges": 0,
+      "zeroAreaTriangles": 0,
+      "volume": 0.01280642153743992,
+      "bounds": [
+        [
+          -0.2420271635055542,
+          0.09056112170219421
+        ],
+        [
+          -0.986633837223053,
+          -0.509895384311676
+        ],
+        [
+          0.29063600301742554,
+          0.6189665198326111
+        ]
+      ],
+      "finite": true,
+      "uvLayers": 0,
+      "materials": 1,
+      "animation": false
+    }
+  },
+  "baselineSource": {
+    "home": {
+      "vertices": 364846,
+      "triangles": 729684
+    },
+    "illustration": {
+      "vertices": 145639,
+      "triangles": 291274
+    },
+    "illustration384": {
+      "vertices": 328133,
+      "triangles": 656262
+    }
+  },
+  "hashes": {
+    "charizard-home-head-r07-study-repaired.blend": "aab30e87d4772882aec7aed60301b61a696d030a621cd6905bae8bc3ba406a99",
+    "charizard-home-head-r07-study-repaired.glb": "e204b809ec46220ae98b4aa9fe6715f8db32172651569c998bf0618803fc6bb7",
+    "charizard-head-baseline-comparison-r07-all.blend": "701e42db0a79f5d45cc190f242bbf5ff391c5825c8b2d776f722ce052d5a437d"
+  },
+  "workingSceneRestored": true
+}

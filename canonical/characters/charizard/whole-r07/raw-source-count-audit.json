@@ -1,0 +1,29 @@
+{
+  "rows": [
+    {
+      "run": "charizard-home-raw-61061",
+      "source": "/mnt/zer0models/workspace/zer0/experiments/pokemon/assets/experiments/charizard-home-raw/charizard-home-raw-61061.glb",
+      "sha256": "69287dfd7f7f2e6a5bcf8c2b7281c08fe4a14c1b086f3d6e7eb7e8f0f96d83dd",
+      "rawTriangles": 729692,
+      "blenderImportedTriangles": 729684,
+      "importerDroppedTriangles": 8
+    },
+    {
+      "run": "charizard-official-raw-61062-o256",
+      "source": "/mnt/zer0models/workspace/zer0/experiments/pokemon/assets/experiments/charizard-official-raw/charizard-official-raw-61062-o256.glb",
+      "sha256": "f9f0b2c3f2e189dcdd1c72190e8c79b7b958a2dd4f3bacb2d844ec37b330ed8e",
+      "rawTriangles": 291280,
+      "blenderImportedTriangles": 291274,
+      "importerDroppedTriangles": 6
+    },
+    {
+      "run": "charizard-official-raw-61062",
+      "source": "/mnt/zer0models/workspace/zer0/experiments/pokemon/assets/experiments/charizard-official-raw/charizard-official-raw-61062.glb",
+      "sha256": "38838168914ff5eda920de5cd21dc69b90c40174040f0592cd3f569df8c14e58",
+      "rawTriangles": 656272,
+      "blenderImportedTriangles": 656262,
+      "importerDroppedTriangles": 10
+    }
+  ],
+  "method": "Raw index accessor count divided by3; imported counts cross-checked by reopened three-source blend. Raw file unchanged."
+}

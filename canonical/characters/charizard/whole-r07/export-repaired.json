@@ -1,0 +1,107 @@
+{
+  "status": "study-only; not promoted",
+  "artifacts": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r07/charizard-home-head-r07-study-repaired.blend",
+      "bytes": 5044589,
+      "sha256": "aab30e87d4772882aec7aed60301b61a696d030a621cd6905bae8bc3ba406a99"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r07/charizard-home-head-r07-study-repaired.glb",
+      "bytes": 889824,
+      "sha256": "e204b809ec46220ae98b4aa9fe6715f8db32172651569c998bf0618803fc6bb7"
+    }
+  ],
+  "meshes": [
+    {
+      "object": "EXPORT-home-head-lids-runtime-clean-r07",
+      "vertices": 21482,
+      "polygons": 42960,
+      "triangles": 42960,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "zeroAreaTriangles": 0,
+      "finite": true,
+      "bounds": [
+        [
+          -0.242027148604393,
+          0.09056111425161362
+        ],
+        [
+          -0.986633837223053,
+          -0.509895384311676
+        ],
+        [
+          0.29063600301742554,
+          0.6189665198326111
+        ]
+      ],
+      "colorAttributes": []
+    },
+    {
+      "object": "EXPORT-home-eye--1-r07-b.001",
+      "vertices": 1453,
+      "polygons": 1409,
+      "triangles": 2902,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "zeroAreaTriangles": 0,
+      "finite": true,
+      "bounds": [
+        [
+          -0.0703098252415657,
+          0.006715336348861456
+        ],
+        [
+          -0.8580197095870972,
+          -0.7740136384963989
+        ],
+        [
+          0.5376715064048767,
+          0.5737163424491882
+        ]
+      ],
+      "colorAttributes": []
+    },
+    {
+      "object": "EXPORT-home-eye-1-r07-b.001",
+      "vertices": 1453,
+      "polygons": 1409,
+      "triangles": 2902,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "zeroAreaTriangles": 0,
+      "finite": true,
+      "bounds": [
+        [
+          -0.19682030379772186,
+          -0.14992034435272217
+        ],
+        [
+          -0.7872190475463867,
+          -0.6859244108200073
+        ],
+        [
+          0.5376715064048767,
+          0.5737163424491882
+        ]
+      ],
+      "colorAttributes": []
+    }
+  ],
+  "vertices": 24388,
+  "triangles": 48764,
+  "exportScene": "EXPORT-charizard-home-head-repaired-r07",
+  "animationClips": [],
+  "textureImages": [],
+  "morphs": "Baked into static runtime geometry. Editable keys remain in source blend.",
+  "knownLimitations": [
+    "Isolated HOME-derived head; no body attachment",
+    "Eyes are fitted closed patches with provisional material bands; no eye globe or gaze rig",
+    "Lids joined and locally smoothed; zero-thickness triangulation flaps removed from a baked editable mesh; original shape-key source preserved hidden; no blink or deformation validation",
+    "Bulbous nose, mouth seam, jaw and asymmetric tubular horns still need anatomical work",
+    "No UVs, texture images, final PBR, rig, clips, attacks or game integration",
+    "Self-intersections and deformation quality not certified",
+    "No LOD pass or complete-pokemon acceptance"
+  ]
+}

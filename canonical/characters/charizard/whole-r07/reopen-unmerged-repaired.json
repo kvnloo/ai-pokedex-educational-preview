@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "mergeVertices": false,
+  "meshes": [
+    {
+      "object": "EXPORT-home-eye-1-r07-b.002",
+      "vertices": 1573,
+      "triangles": 2902,
+      "nonmanifoldEdges": 236
+    },
+    {
+      "object": "EXPORT-home-eye--1-r07-b.002",
+      "vertices": 1573,
+      "triangles": 2902,
+      "nonmanifoldEdges": 236
+    },
+    {
+      "object": "EXPORT-home-head-lids-runtime-clean-r07.001",
+      "vertices": 21482,
+      "triangles": 42960,
+      "nonmanifoldEdges": 0
+    }
+  ],
+  "scope": "Unmerged import preserves head topology. Eye primitive material seams duplicate vertices as expected; use merged import for closed eye topology.",
+  "glbSha256": "e204b809ec46220ae98b4aa9fe6715f8db32172651569c998bf0618803fc6bb7"
+}

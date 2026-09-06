@@ -1,0 +1,106 @@
+{
+  "id": "charizard-home-head-r07-study",
+  "species": "charizard",
+  "stage": "blender",
+  "status": "unfinished",
+  "title": "r07 HOME \u00b7 jaw and eye study, unfinished",
+  "parents": [
+    "charizard-home-head-r07-intake"
+  ],
+  "question": "Does refining the HOME-derived head improve its jaw and eye read?",
+  "inputs": [
+    {
+      "role": "shape reference",
+      "path": "assets/references/objects/ff/ffe2db1065f91feda24f21c81c461e4ca6b863cf31afb4e4918aba79fb31ee70.png",
+      "sha256": "ffe2db1065f91feda24f21c81c461e4ca6b863cf31afb4e4918aba79fb31ee70",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/6.png"
+    }
+  ],
+  "controls": [
+    "Existing PokeAPI-hosted HOME sprite baseline chosen by Kevin; no new generation",
+    "Same isolated head frame, four cameras, gray material and Workbench lighting",
+    "Frozen raw source and failed intermediate trials preserved"
+  ],
+  "changedFactors": [
+    {
+      "name": "jaw",
+      "from": "Inflated inherited lower jaw",
+      "to": "Aligned35% depth reduction plus native Smooth"
+    },
+    {
+      "name": "eyes",
+      "from": "Buried inherited socket",
+      "to": "Two closed fitted patches with provisional white/teal/black material bands"
+    },
+    {
+      "name": "lids",
+      "from": "Inherited socket surface",
+      "to": "Fitted bands, MANIFOLD union, native Smooth, paired tessellation-flap removal"
+    }
+  ],
+  "recipe": {
+    "model": "Blender MCP geometry fitting/Boolean; native GUI sculpt; reopened static GLB",
+    "parameters": {
+      "newGeneration": false,
+      "headBaseline": "charizard-home-raw-61061",
+      "baselineCaptureOnly": false,
+      "authoritativeSource": "assets/blender/charizard-head-baselines-r07/charizard-home-head-r07-study-repaired.blend"
+    }
+  },
+  "outputs": {
+    "blend": "assets/blender/charizard-head-baselines-r07/charizard-home-head-r07-study-repaired.blend",
+    "previews": [
+      {
+        "view": "head-front",
+        "path": "assets/blender/charizard-head-baselines-r07/reopened-repaired/front.png"
+      },
+      {
+        "view": "head-near",
+        "path": "assets/blender/charizard-head-baselines-r07/reopened-repaired/near.png"
+      },
+      {
+        "view": "head-far",
+        "path": "assets/blender/charizard-head-baselines-r07/reopened-repaired/far.png"
+      },
+      {
+        "view": "head-threequarter",
+        "path": "assets/blender/charizard-head-baselines-r07/reopened-repaired/threequarter.png"
+      }
+    ],
+    "rawMesh": "assets/blender/charizard-head-baselines-r07/charizard-home-head-r07-study-repaired.glb"
+  },
+  "evaluation": {
+    "verdict": "needs-work",
+    "reviewer": "assistant",
+    "notes": "Shallower jaw and visible eyes improve local readability. Muzzle remains bulbous, horns tubular/asymmetric, iris bands too crude, and eyelid edges uneven. Technical round-trip passes; likeness and complete-asset quality do not.",
+    "unresolved": [
+      "Isolated HOME-derived head; no body attachment",
+      "Eyes are fitted closed patches with provisional material bands; no eye globe or gaze rig",
+      "Lids joined and locally smoothed; zero-thickness triangulation flaps removed from a baked editable mesh; original shape-key source preserved hidden; no blink or deformation validation",
+      "Bulbous nose, mouth seam, jaw and asymmetric tubular horns still need anatomical work",
+      "No UVs, texture images, final PBR, rig, clips, attacks or game integration",
+      "Self-intersections and deformation quality not certified",
+      "No LOD pass or complete-pokemon acceptance"
+    ]
+  },
+  "metrics": {
+    "vertices": 24388,
+    "trianglesAfterGLTFExport": 48764,
+    "meshSHA256": "e204b809ec46220ae98b4aa9fe6715f8db32172651569c998bf0618803fc6bb7",
+    "glbReopenPassed": true,
+    "animationCount": 0,
+    "textureCount": 0,
+    "wholeModelSelfIntersectionTested": false
+  },
+  "comparability": {
+    "cohort": "charizard-home-r07-matched",
+    "confounds": [
+      "Several sequential changes; not a one-factor experiment",
+      "Head cut/cap retained; no body attachment",
+      "Approximate bilateral frame, not exact symmetry",
+      "EyeA and eyeB used different intermediate head keys; do not treat that side trial as a controlled A/B",
+      "Gray material and placeholder eye colors; no final PBR or optical gaze rig"
+    ]
+  },
+  "createdAt": "2026-09-06T09:28:24.490640+00:00"
+}

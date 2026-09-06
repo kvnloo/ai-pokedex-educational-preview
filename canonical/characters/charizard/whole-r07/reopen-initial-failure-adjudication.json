@@ -1,0 +1,16 @@
+{
+  "status": "failed",
+  "scope": "Adjudication of original interrupted check; original receipt preserved",
+  "originalReceiptSha256": "bca3e9d9f6028d38da3a2c82e4ec02ceef4e078c6a8e3c32cd0740d4a2ebd19c",
+  "source": "charizard-home-head-r07-study.blend",
+  "glb": "charizard-home-head-r07-study.glb",
+  "expectedHeadTriangles": 43076,
+  "importedHeadTriangles": 43018,
+  "nonManifoldEdges": 174,
+  "diagnosis": "Native n-gon tessellation created58exactoppositewindingtrianglepairs; importer removedonefaceperpair; deleting both repairs the zero-thickness folds",
+  "related": [
+    "duplicate-tessellation.json",
+    "lid-tessellation-repair.json"
+  ],
+  "approved": false
+}

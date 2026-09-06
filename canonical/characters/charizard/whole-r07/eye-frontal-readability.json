@@ -1,0 +1,106 @@
+{
+  "metric": "Teal iris colored pixel footprint only, not anatomy or gaze correctness",
+  "threshold": "G-R>25 and B-R>25 and G>35,8bitRGB",
+  "results": [
+    {
+      "capture": "home-eye-fit-a",
+      "view": "front",
+      "tealPixels": 818,
+      "halves": [
+        {
+          "pixels": 396,
+          "bounds": [
+            278,
+            314,
+            308,
+            346
+          ]
+        },
+        {
+          "pixels": 422,
+          "bounds": [
+            464,
+            314,
+            493,
+            346
+          ]
+        }
+      ]
+    },
+    {
+      "capture": "home-eye-fit-b",
+      "view": "front",
+      "tealPixels": 322,
+      "halves": [
+        {
+          "pixels": 91,
+          "bounds": [
+            278,
+            311,
+            288,
+            348
+          ]
+        },
+        {
+          "pixels": 231,
+          "bounds": [
+            486,
+            311,
+            506,
+            349
+          ]
+        }
+      ]
+    },
+    {
+      "capture": "home-lids-smoothed-a",
+      "view": "front",
+      "tealPixels": 284,
+      "halves": [
+        {
+          "pixels": 73,
+          "bounds": [
+            278,
+            317,
+            285,
+            346
+          ]
+        },
+        {
+          "pixels": 211,
+          "bounds": [
+            487,
+            313,
+            505,
+            348
+          ]
+        }
+      ]
+    },
+    {
+      "capture": "home-eye-gaze-c",
+      "view": "front",
+      "tealPixels": 267,
+      "halves": [
+        {
+          "pixels": 113,
+          "bounds": [
+            279,
+            321,
+            293,
+            344
+          ]
+        },
+        {
+          "pixels": 154,
+          "bounds": [
+            476,
+            320,
+            492,
+            344
+          ]
+        }
+      ]
+    }
+  ]
+}

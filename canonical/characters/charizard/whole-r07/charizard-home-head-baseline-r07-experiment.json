@@ -1,0 +1,92 @@
+{
+  "id": "charizard-home-head-baseline-r07",
+  "species": "charizard",
+  "stage": "blender",
+  "status": "unfinished",
+  "title": "HOME61061 \u00b7 imported head baseline",
+  "parents": [
+    "charizard-home-raw-61061"
+  ],
+  "question": "Which existing HOME/illustration-input baseline gives the strongest head anatomy before further sculpting?",
+  "inputs": [
+    {
+      "role": "shape reference",
+      "path": "assets/references/objects/ff/ffe2db1065f91feda24f21c81c461e4ca6b863cf31afb4e4918aba79fb31ee70.png",
+      "sha256": "ffe2db1065f91feda24f21c81c461e4ca6b863cf31afb4e4918aba79fb31ee70",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/6.png"
+    }
+  ],
+  "controls": [
+    "No post-import geometry edits; native importer omits8 HOME/6 illustration256/10 illustration384 triangles; smooth shading",
+    "Shared camera directions, .7 orthographic scale, paint.sl lighting",
+    "Head center adjusted per source; no new Hunyuan generation"
+  ],
+  "changedFactors": [
+    {
+      "name": "review framing",
+      "from": "whole-body raw source",
+      "to": "five dedicated head views"
+    }
+  ],
+  "recipe": {
+    "model": "Blender source-head inspection",
+    "parameters": {
+      "newGeneration": false,
+      "geometryEdited": false,
+      "sourceRun": "charizard-home-raw-61061",
+      "headPoseNormalized": false,
+      "orthoScale": 0.7
+    }
+  },
+  "outputs": {
+    "rawMesh": "assets/experiments/charizard-home-raw/charizard-home-raw-61061.glb",
+    "blend": "assets/blender/charizard-head-baselines-r07/charizard-head-baseline-comparison-r07-all.blend",
+    "previews": [
+      {
+        "view": "head-front",
+        "path": "assets/blender/charizard-head-baselines-r07/baseline-home/front.png"
+      },
+      {
+        "view": "head-near",
+        "path": "assets/blender/charizard-head-baselines-r07/baseline-home/near.png"
+      },
+      {
+        "view": "head-far",
+        "path": "assets/blender/charizard-head-baselines-r07/baseline-home/far.png"
+      },
+      {
+        "view": "head-threequarter",
+        "path": "assets/blender/charizard-head-baselines-r07/baseline-home/threequarter.png"
+      },
+      {
+        "view": "head-top",
+        "path": "assets/blender/charizard-head-baselines-r07/baseline-home/top.png"
+      }
+    ]
+  },
+  "evaluation": {
+    "verdict": "needs-work",
+    "reviewer": "assistant",
+    "notes": "Stronger local upper-head starting point: paired horns, compact muzzle and higher brow/socket. Lower jaw is inflated and must be refined. No whole-asset promotion.",
+    "unresolved": [
+      "All source heads remain soft and unfinished",
+      "No finished eyes, mouth interior, textures or rig"
+    ]
+  },
+  "metrics": {
+    "blenderImportedTriangles": 729684,
+    "rawFileEdited": false,
+    "importerDroppedTriangles": 8
+  },
+  "comparability": {
+    "cohort": "charizard-raw-heads-r07",
+    "confounds": [
+      "Different input images, seeds and source poses",
+      "HOME and illustration384 have comparable sampling; illustration256 is lower density",
+      "Head centers differ; shared directions are not anatomical alignment",
+      "Side cameras clip foreground wings",
+      "Shared blend contains all three sources; rawMesh links to the original whole-body source"
+    ]
+  },
+  "createdAt": "2026-09-06T08:22:20.086779+00:00"
+}

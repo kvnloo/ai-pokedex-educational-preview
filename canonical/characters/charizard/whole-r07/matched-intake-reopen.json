@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "sourceSha256": "0ae4db5b2bfe658696973e034295f12dfd144993a3600328c0389b3217df2bee",
+  "vertices": 19610,
+  "triangles": 39216,
+  "shapeKeys": {
+    "Refine_Jaw_r07": 0.0,
+    "Reduce_JawDepth_r07": 0.0,
+    "Smooth_JawSurface_r07": 0.0,
+    "Reduce_JawDepthAligned_r07": 0.0,
+    "Smooth_AlignedJaw_r07": 0.0,
+    "Shape_MuzzlePlanes_r07": 0.0
+  },
+  "visibleMeshes": [
+    "GEO-charizard-home-head-r07.001"
+  ],
+  "scope": "Saved intake reopened; all anatomy keys disabled, only original isolated head renderable."
+}

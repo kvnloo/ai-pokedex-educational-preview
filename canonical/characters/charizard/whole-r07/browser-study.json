@@ -1,0 +1,189 @@
+{
+  "startedAt": "2026-09-06T09:34:18.867Z",
+  "status": "passed",
+  "comparison": "https://0.taila30dc.ts.net:8445/devtools/experiments.html?pokemon=charizard&a=charizard-home-head-r07-intake&b=charizard-home-head-r07-study&view=head-threequarter",
+  "phoneUrl": "https://0.taila30dc.ts.net:8445/devtools/pokedex.html?pokemon=charizard&tab=iterations&run=charizard-home-head-r07-study&view=head-threequarter",
+  "script": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r07/browser-study/verify-study.mjs",
+  "scriptSHA256": "b2104afc8364ac7005ab17b485e0b3440318cc413ef35b1195cc44fa7602717a",
+  "scope": "Read-only selection, exact image paths, 800-pixel image decoding and page errors. No model quality, visual, device or layout acceptance.",
+  "deviceAcceptance": false,
+  "layoutAcceptance": false,
+  "visualAcceptance": false,
+  "checks": [
+    {
+      "kind": "comparison",
+      "a": "charizard-home-head-r07-intake",
+      "b": "charizard-home-head-r07-study",
+      "view": "head-front",
+      "selectorIDsCorrect": true,
+      "images": [
+        {
+          "src": "https://0.taila30dc.ts.net:8445/assets/blender/charizard-head-baselines-r07/matched-intake/front.png",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "src": "https://0.taila30dc.ts.net:8445/assets/blender/charizard-head-baselines-r07/reopened-repaired/front.png",
+          "width": 800,
+          "height": 800
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "comparison",
+      "a": "charizard-home-head-r07-intake",
+      "b": "charizard-home-head-r07-study",
+      "view": "head-near",
+      "selectorIDsCorrect": true,
+      "images": [
+        {
+          "src": "https://0.taila30dc.ts.net:8445/assets/blender/charizard-head-baselines-r07/matched-intake/near.png",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "src": "https://0.taila30dc.ts.net:8445/assets/blender/charizard-head-baselines-r07/reopened-repaired/near.png",
+          "width": 800,
+          "height": 800
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "comparison",
+      "a": "charizard-home-head-r07-intake",
+      "b": "charizard-home-head-r07-study",
+      "view": "head-far",
+      "selectorIDsCorrect": true,
+      "images": [
+        {
+          "src": "https://0.taila30dc.ts.net:8445/assets/blender/charizard-head-baselines-r07/matched-intake/far.png",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "src": "https://0.taila30dc.ts.net:8445/assets/blender/charizard-head-baselines-r07/reopened-repaired/far.png",
+          "width": 800,
+          "height": 800
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "comparison",
+      "a": "charizard-home-head-r07-intake",
+      "b": "charizard-home-head-r07-study",
+      "view": "head-threequarter",
+      "selectorIDsCorrect": true,
+      "images": [
+        {
+          "src": "https://0.taila30dc.ts.net:8445/assets/blender/charizard-head-baselines-r07/matched-intake/threequarter.png",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "src": "https://0.taila30dc.ts.net:8445/assets/blender/charizard-head-baselines-r07/reopened-repaired/threequarter.png",
+          "width": 800,
+          "height": 800
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "phone",
+      "run": "charizard-home-head-r07-study",
+      "view": "head-front",
+      "selectorIDCorrect": true,
+      "images": [
+        {
+          "src": "https://0.taila30dc.ts.net:8445/assets/blender/charizard-head-baselines-r07/reopened-repaired/front.png",
+          "width": 800,
+          "height": 800
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "phone",
+      "run": "charizard-home-head-r07-study",
+      "view": "head-near",
+      "selectorIDCorrect": true,
+      "images": [
+        {
+          "src": "https://0.taila30dc.ts.net:8445/assets/blender/charizard-head-baselines-r07/reopened-repaired/near.png",
+          "width": 800,
+          "height": 800
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "phone",
+      "run": "charizard-home-head-r07-study",
+      "view": "head-far",
+      "selectorIDCorrect": true,
+      "images": [
+        {
+          "src": "https://0.taila30dc.ts.net:8445/assets/blender/charizard-head-baselines-r07/reopened-repaired/far.png",
+          "width": 800,
+          "height": 800
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "phone",
+      "run": "charizard-home-head-r07-study",
+      "view": "head-threequarter",
+      "selectorIDCorrect": true,
+      "images": [
+        {
+          "src": "https://0.taila30dc.ts.net:8445/assets/blender/charizard-head-baselines-r07/reopened-repaired/threequarter.png",
+          "width": 800,
+          "height": 800
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "pageerrors": [],
+  "blockedWriteRequests": [],
+  "cleanup": {
+    "browserClosed": true
+  },
+  "browser": {
+    "version": "151.0.7922.173",
+    "headless": true
+  },
+  "screenshot": {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r07/browser-study/comparison-threequarter.png",
+    "sha256": "56a9b12321fcfec0e34757d3599bfcea370f300aac5d3cb20f287e25f6e1ebbd",
+    "a": "charizard-home-head-r07-intake",
+    "b": "charizard-home-head-r07-study",
+    "view": "head-threequarter",
+    "viewport": [
+      1440,
+      1100
+    ],
+    "visualAcceptance": false
+  },
+  "phone": {
+    "viewport": [
+      412,
+      892
+    ],
+    "emulated": true,
+    "deviceAcceptance": false,
+    "layoutAcceptance": false,
+    "initialUrl": "https://0.taila30dc.ts.net:8445/devtools/pokedex.html?pokemon=charizard&tab=iterations&run=charizard-home-head-r07-study&view=head-threequarter",
+    "initialImages": [
+      {
+        "src": "https://0.taila30dc.ts.net:8445/assets/blender/charizard-head-baselines-r07/reopened-repaired/threequarter.png",
+        "width": 800,
+        "height": 800
+      }
+    ]
+  },
+  "finishedAt": "2026-09-06T09:35:12.355Z"
+}
