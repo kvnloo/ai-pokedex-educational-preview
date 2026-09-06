@@ -1,0 +1,20 @@
+{
+  "parent": "whole-r02",
+  "operation": "Exact rollback of all r02 face coordinate edits to the original r01 face, retaining tail and triangulation changes.",
+  "faceVerticesRestored": 16799,
+  "restoredBounds": [
+    [
+      -0.25126975774765015,
+      -0.9847948551177979,
+      0.37570714950561523
+    ],
+    [
+      0.021174032241106033,
+      -0.6755697131156921,
+      0.5849010348320007
+    ]
+  ],
+  "why": "Matched front and side review rejected pinched nose, radial wrinkles and uneven jaw thickness.",
+  "source": "whole-r02/charizard-whole-r02-start.blend",
+  "officialInputsOnly": true
+}

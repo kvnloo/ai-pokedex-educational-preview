@@ -1,0 +1,562 @@
+{
+  "inputReport": {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r02/audit/export-tail-check.json",
+    "sha256": "eea44c47efcc2e9bfed6a2b61a41ae1f89c85e4fc96bab4174cc6ae67323f800"
+  },
+  "validator": {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r02/audit/inspect_tail_contact_candidates.py",
+    "sha256": "3add11f3d1754e7f71aa56454b9d884fce020c02b1ec8e30d38ede02841fce0c"
+  },
+  "versions": {
+    "r01": {
+      "pairs": [
+        {
+          "exportTriangleIds": [
+            20726,
+            20757
+          ],
+          "vertexIds": [
+            [
+              12752,
+              13432,
+              12753
+            ],
+            [
+              12751,
+              13430,
+              13431
+            ]
+          ],
+          "strictInteriorHits": 0,
+          "computedMinimumSurfaceGap": 9.036244413505733e-05,
+          "triangleAreas": [
+            2.8279411843964254e-06,
+            4.107869069702678e-06
+          ],
+          "minimumTriangleAltitudes": [
+            9.205222832732727e-05,
+            0.0001337104939781167
+          ],
+          "center": [
+            -0.4616362601518631,
+            0.7556386093298594,
+            -0.44030294318993884
+          ]
+        },
+        {
+          "exportTriangleIds": [
+            33589,
+            33598
+          ],
+          "vertexIds": [
+            [
+              22153,
+              22898,
+              22154
+            ],
+            [
+              22155,
+              22899,
+              22900
+            ]
+          ],
+          "strictInteriorHits": 0,
+          "computedMinimumSurfaceGap": 5.7473096875029174e-05,
+          "triangleAreas": [
+            2.6640793714760163e-06,
+            5.0015203597710876e-05
+          ],
+          "minimumTriangleAltitudes": [
+            8.875354656085323e-05,
+            0.0016638250308663436
+          ],
+          "center": [
+            0.3485191961129506,
+            0.663286030292511,
+            -0.2644319037596385
+          ]
+        },
+        {
+          "exportTriangleIds": [
+            36357,
+            36358
+          ],
+          "vertexIds": [
+            [
+              24249,
+              24987,
+              24250
+            ],
+            [
+              24251,
+              24988,
+              24989
+            ]
+          ],
+          "strictInteriorHits": 0,
+          "computedMinimumSurfaceGap": 2.9343110195099536e-05,
+          "triangleAreas": [
+            9.743602833483947e-06,
+            5.282000432093233e-06
+          ],
+          "minimumTriangleAltitudes": [
+            0.00032805760504811494,
+            0.00017787147084851457
+          ],
+          "center": [
+            0.47735702991485596,
+            0.5773625870545706,
+            -0.1763824298977852
+          ]
+        },
+        {
+          "exportTriangleIds": [
+            37461,
+            37466
+          ],
+          "vertexIds": [
+            [
+              24986,
+              25739,
+              24987
+            ],
+            [
+              24988,
+              25740,
+              25741
+            ]
+          ],
+          "strictInteriorHits": 0,
+          "computedMinimumSurfaceGap": 2.8314688975679355e-05,
+          "triangleAreas": [
+            1.0094331576427261e-05,
+            5.4223719372808585e-06
+          ],
+          "minimumTriangleAltitudes": [
+            0.0003192913078293611,
+            0.00017149745616219415
+          ],
+          "center": [
+            0.5263843834400177,
+            0.5416231751441956,
+            -0.1692216396331787
+          ]
+        },
+        {
+          "exportTriangleIds": [
+            37612,
+            37621
+          ],
+          "vertexIds": [
+            [
+              25093,
+              25861,
+              25094
+            ],
+            [
+              25095,
+              25862,
+              25863
+            ]
+          ],
+          "strictInteriorHits": 0,
+          "computedMinimumSurfaceGap": 0.00013966221205127474,
+          "triangleAreas": [
+            5.564349747842615e-06,
+            2.7316765173969315e-05
+          ],
+          "minimumTriangleAltitudes": [
+            0.00017285772240999261,
+            0.0008487042391260126
+          ],
+          "center": [
+            0.5598231057325999,
+            0.557551364103953,
+            -0.2413297047217687
+          ]
+        },
+        {
+          "exportTriangleIds": [
+            38544,
+            38547
+          ],
+          "vertexIds": [
+            [
+              25860,
+              26602,
+              26603
+            ],
+            [
+              25861,
+              26604,
+              25862
+            ]
+          ],
+          "strictInteriorHits": 0,
+          "computedMinimumSurfaceGap": 0.00013198625421991024,
+          "triangleAreas": [
+            5.279132984671039e-06,
+            4.759568110490131e-06
+          ],
+          "minimumTriangleAltitudes": [
+            0.0001548874280116651,
+            0.00013965502603282396
+          ],
+          "center": [
+            0.6052343050638834,
+            0.5111407736937205,
+            -0.22884060194094977
+          ]
+        },
+        {
+          "exportTriangleIds": [
+            39128,
+            39131
+          ],
+          "vertexIds": [
+            [
+              26034,
+              26820,
+              26821
+            ],
+            [
+              26035,
+              26822,
+              26036
+            ]
+          ],
+          "strictInteriorHits": 0,
+          "computedMinimumSurfaceGap": 8.84789225564912e-05,
+          "triangleAreas": [
+            6.389584135840751e-06,
+            2.7480155359634084e-06
+          ],
+          "minimumTriangleAltitudes": [
+            0.00021876506547861092,
+            9.408501639173846e-05
+          ],
+          "center": [
+            0.5555630326271057,
+            0.3864729901154836,
+            -0.2100554828842481
+          ]
+        },
+        {
+          "exportTriangleIds": [
+            40066,
+            40151
+          ],
+          "vertexIds": [
+            [
+              26820,
+              27543,
+              27544
+            ],
+            [
+              26821,
+              27545,
+              26822
+            ]
+          ],
+          "strictInteriorHits": 0,
+          "computedMinimumSurfaceGap": 8.268788468324738e-05,
+          "triangleAreas": [
+            6.009532410620498e-06,
+            2.600660212298738e-06
+          ],
+          "minimumTriangleAltitudes": [
+            0.00020445782729193042,
+            8.847923157867974e-05
+          ],
+          "center": [
+            0.5930246114730835,
+            0.3425330917040507,
+            -0.20031315088272095
+          ]
+        },
+        {
+          "exportTriangleIds": [
+            42300,
+            42303
+          ],
+          "vertexIds": [
+            [
+              28338,
+              29098,
+              29099
+            ],
+            [
+              28339,
+              29100,
+              28340
+            ]
+          ],
+          "strictInteriorHits": 0,
+          "computedMinimumSurfaceGap": 7.073984125601375e-05,
+          "triangleAreas": [
+            5.406848896616819e-06,
+            2.373772439091134e-06
+          ],
+          "minimumTriangleAltitudes": [
+            0.0001748586886609464,
+            7.67680664618818e-05
+          ],
+          "center": [
+            0.6600218514601389,
+            0.24382627258698145,
+            -0.18223067124684653
+          ]
+        },
+        {
+          "exportTriangleIds": [
+            42985,
+            42988
+          ],
+          "vertexIds": [
+            [
+              28753,
+              29506,
+              29507
+            ],
+            [
+              28754,
+              29508,
+              28755
+            ]
+          ],
+          "strictInteriorHits": 0,
+          "computedMinimumSurfaceGap": 0.00012018772810324819,
+          "triangleAreas": [
+            3.5393278203796015e-06,
+            5.041030325872781e-06
+          ],
+          "minimumTriangleAltitudes": [
+            0.00011078320062998862,
+            0.00015781649547567795
+          ],
+          "center": [
+            0.6952677667140961,
+            0.2554605280359586,
+            -0.22273100167512894
+          ]
+        },
+        {
+          "exportTriangleIds": [
+            47730,
+            47755
+          ],
+          "vertexIds": [
+            [
+              32524,
+              33466,
+              32525
+            ],
+            [
+              32526,
+              33467,
+              33468
+            ]
+          ],
+          "strictInteriorHits": 0,
+          "computedMinimumSurfaceGap": 1.1355072298042541e-05,
+          "triangleAreas": [
+            5.887634653243226e-06,
+            2.8648460143780777e-06
+          ],
+          "minimumTriangleAltitudes": [
+            0.00014214831704357936,
+            6.916566104519535e-05
+          ],
+          "center": [
+            0.8044998248418173,
+            -0.05984454664091269,
+            -0.1144794151186943
+          ]
+        },
+        {
+          "exportTriangleIds": [
+            48376,
+            48379
+          ],
+          "vertexIds": [
+            [
+              33187,
+              34125,
+              34126
+            ],
+            [
+              33188,
+              34133,
+              33189
+            ]
+          ],
+          "strictInteriorHits": 0,
+          "computedMinimumSurfaceGap": 3.3457379113718224e-05,
+          "triangleAreas": [
+            3.4331966919716344e-06,
+            1.6597891588960872e-06
+          ],
+          "minimumTriangleAltitudes": [
+            8.277236912378362e-05,
+            4.0016549948863715e-05
+          ],
+          "center": [
+            0.7755445241928101,
+            -0.1461448942621549,
+            -0.13838780671358109
+          ]
+        }
+      ],
+      "strictPairs": 0,
+      "positiveComputedGapPairs": 12,
+      "computedGapRange": [
+        1.1355072298042541e-05,
+        0.00013966221205127474
+      ]
+    },
+    "r02": {
+      "pairs": [
+        {
+          "exportTriangleIds": [
+            17596,
+            17601
+          ],
+          "vertexIds": [
+            [
+              10569,
+              11256,
+              11259
+            ],
+            [
+              10570,
+              11260,
+              10574
+            ]
+          ],
+          "strictInteriorHits": 0,
+          "computedMinimumSurfaceGap": 3.0014052097632988e-05,
+          "triangleAreas": [
+            5.351816079344178e-06,
+            5.343884240613768e-07
+          ],
+          "minimumTriangleAltitudes": [
+            0.0003099446045455682,
+            3.096625396633068e-05
+          ],
+          "center": [
+            -0.6290864447752634,
+            0.5010640919208527,
+            -0.40816577275594074
+          ]
+        },
+        {
+          "exportTriangleIds": [
+            51997,
+            52000
+          ],
+          "vertexIds": [
+            [
+              36950,
+              38033,
+              36951
+            ],
+            [
+              36949,
+              38031,
+              38032
+            ]
+          ],
+          "strictInteriorHits": 0,
+          "computedMinimumSurfaceGap": 1.5181556754525733e-05,
+          "triangleAreas": [
+            5.586971425244926e-07,
+            2.7083072836534494e-07
+          ],
+          "minimumTriangleAltitudes": [
+            3.9258040980000944e-05,
+            1.9030059980059614e-05
+          ],
+          "center": [
+            0.3387596408526103,
+            0.7389385004838308,
+            -0.1065662403901418
+          ]
+        },
+        {
+          "exportTriangleIds": [
+            52001,
+            52070
+          ],
+          "vertexIds": [
+            [
+              36949,
+              38032,
+              36950
+            ],
+            [
+              36948,
+              38030,
+              38031
+            ]
+          ],
+          "strictInteriorHits": 0,
+          "computedMinimumSurfaceGap": 1.903005998004194e-05,
+          "triangleAreas": [
+            6.28028711833732e-07,
+            1.6865041510760983e-06
+          ],
+          "minimumTriangleAltitudes": [
+            4.4128759419327324e-05,
+            0.00011849172981766624
+          ],
+          "center": [
+            0.3387058575948079,
+            0.7389679650465647,
+            -0.10656885802745819
+          ]
+        },
+        {
+          "exportTriangleIds": [
+            52022,
+            52027
+          ],
+          "vertexIds": [
+            [
+              36961,
+              38079,
+              38080
+            ],
+            [
+              36962,
+              38096,
+              36963
+            ]
+          ],
+          "strictInteriorHits": 0,
+          "computedMinimumSurfaceGap": 1.7462520844602802e-05,
+          "triangleAreas": [
+            3.506553730385146e-07,
+            4.909447593317267e-07
+          ],
+          "minimumTriangleAltitudes": [
+            2.4655764362346038e-05,
+            3.452425001325577e-05
+          ],
+          "center": [
+            0.3397635022799174,
+            0.7382744153340658,
+            -0.10637299716472626
+          ]
+        }
+      ],
+      "strictPairs": 0,
+      "positiveComputedGapPairs": 4,
+      "computedGapRange": [
+        1.5181556754525733e-05,
+        3.0014052097632988e-05
+      ]
+    }
+  },
+  "method": "Double-precision strict edge/triangle solves and distances over triangle vertices/edges. Distances describe only recorded detector candidates. A positive computed gap supports near-contact; it is not an exact-predicate proof for nearly coplanar triangles.",
+  "r02ComparedWithR01": "Triangle identities differ among all four r02 detector candidates and the twelve r01 candidates; strict confirmation is zero in both versions."
+}

@@ -1,0 +1,101 @@
+{
+  "url": "https://0.taila30dc.ts.net:8445/devtools/experiments.html?pokemon=charizard&a=charizard-whole-r03-match-r01&b=charizard-whole-r03&view=fair-threequarter",
+  "checks": [
+    {
+      "revision": "r02",
+      "view": "fair-minusY",
+      "bothImagesDecoded": true
+    },
+    {
+      "revision": "r02",
+      "view": "fair-plusX",
+      "bothImagesDecoded": true
+    },
+    {
+      "revision": "r02",
+      "view": "fair-plusY",
+      "bothImagesDecoded": true
+    },
+    {
+      "revision": "r02",
+      "view": "fair-minusX",
+      "bothImagesDecoded": true
+    },
+    {
+      "revision": "r02",
+      "view": "fair-threequarter",
+      "bothImagesDecoded": true
+    },
+    {
+      "revision": "r02",
+      "view": "face-negative-side",
+      "bothImagesDecoded": true
+    },
+    {
+      "revision": "r02",
+      "view": "face-positive-side",
+      "bothImagesDecoded": true
+    },
+    {
+      "revision": "r02",
+      "view": "face-front",
+      "bothImagesDecoded": true
+    },
+    {
+      "revision": "r03",
+      "view": "fair-minusY",
+      "bothImagesDecoded": true
+    },
+    {
+      "revision": "r03",
+      "view": "fair-plusX",
+      "bothImagesDecoded": true
+    },
+    {
+      "revision": "r03",
+      "view": "fair-plusY",
+      "bothImagesDecoded": true
+    },
+    {
+      "revision": "r03",
+      "view": "fair-minusX",
+      "bothImagesDecoded": true
+    },
+    {
+      "revision": "r03",
+      "view": "fair-threequarter",
+      "bothImagesDecoded": true
+    },
+    {
+      "revision": "r03",
+      "view": "face-negative-side",
+      "bothImagesDecoded": true
+    },
+    {
+      "revision": "r03",
+      "view": "face-positive-side",
+      "bothImagesDecoded": true
+    },
+    {
+      "revision": "r03",
+      "view": "face-front",
+      "bothImagesDecoded": true
+    }
+  ],
+  "errors": [],
+  "deviceAcceptance": false,
+  "scope": "Inspector selection and image/video availability. No mobile layout approval or Field OS deployment change.",
+  "phone": {
+    "viewport": [
+      412,
+      915
+    ],
+    "imagesDecoded": true,
+    "layoutAcceptance": false
+  },
+  "video": {
+    "status": 200,
+    "sha256": "db0f107488f15412975b8e7de148b29af7fb34654d1c2e9ab74b2fe353dbef03",
+    "exactPublishedBytes": true
+  }
+}

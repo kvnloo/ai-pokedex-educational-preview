@@ -1,0 +1,17 @@
+{
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r01/charizard-whole-r01.glb",
+  "sourceSHA256": "e7381c6d3be1f66a6996d67c5b1cc1c5231d0a6729926fef98c1daa724a875db",
+  "count": 22935,
+  "collarExportRowsInclusive": [
+    120523,
+    120832
+  ],
+  "tipExportRow": 38382,
+  "tipBlenderWorld": [
+    0.8001627922058105,
+    -0.3939708471298218,
+    -0.11911199241876602
+  ],
+  "selectionOnly": true,
+  "method": "Distal flood stopped by repaired collar plus proximal low-left envelope"
+}

@@ -1,0 +1,47 @@
+{
+  "parent": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r01/charizard-whole-r01.blend",
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r02/charizard-whole-r02.blend",
+  "authoring": "Blender GUI sculpt strokes and native mesh transforms; MCP setup, selection, rollback and capture",
+  "status": "working sculpt, awaiting visual and geometry review; not game-ready",
+  "meshes": [
+    {
+      "name": "GEO-charizard-body-whole-r02",
+      "vertices": 159251,
+      "polygons": 299476,
+      "triangles": 318502,
+      "uvLayers": 0,
+      "materials": 0
+    },
+    {
+      "name": "GEO-charizard-flame-whole-r02",
+      "vertices": 4516,
+      "polygons": 9028,
+      "triangles": 9028,
+      "uvLayers": 0,
+      "materials": 0
+    },
+    {
+      "name": "GEO-charizard-eye-1-whole-r02",
+      "vertices": 3074,
+      "polygons": 3168,
+      "triangles": 6144,
+      "uvLayers": 0,
+      "materials": 0
+    },
+    {
+      "name": "GEO-charizard-eye--1-whole-r02",
+      "vertices": 3074,
+      "polygons": 3168,
+      "triangles": 6144,
+      "uvLayers": 0,
+      "materials": 0
+    }
+  ],
+  "animations": [],
+  "textures": [],
+  "limitations": [
+    "sculpted closed lip groove, no oral cavity or fangs",
+    "provisional eye colors",
+    "no deformation retopology, UVs, PBR, rig or clips"
+  ]
+}

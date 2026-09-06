@@ -1,0 +1,604 @@
+{
+  "candidate": {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r03/charizard-whole-r03.glb",
+    "sha256": "7c3d68b158134c15f6ddbf0010d5cd0e774edc6977a48e43083735135ed8a663",
+    "scenes": 1,
+    "nodes": 4,
+    "meshes": 4,
+    "meshNodes": 4,
+    "transforms": {
+      "flame": {
+        "node": "GEO-charizard-flame-whole-r03",
+        "glTFWorldTransform": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -0.3105054497718811
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.18508920073509216
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -1.3080376386642456
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      },
+      "eye--1": {
+        "node": "GEO-charizard-eye--1-whole-r03",
+        "glTFWorldTransform": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      },
+      "eye-1": {
+        "node": "GEO-charizard-eye-1-whole-r03",
+        "glTFWorldTransform": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      },
+      "body": {
+        "node": "GEO-charizard-body-whole-r03",
+        "glTFWorldTransform": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      }
+    }
+  },
+  "captureReceipt": {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r03/capture-receipt.json",
+    "sha256": "c60b1d2404dc0c50e49fbfdca152eb067f05949496f850dbc219ca86d45f2faa"
+  },
+  "parent": {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r02/charizard-whole-r02.glb",
+    "sha256": "0c584e776f3735b47cf89786226148db66059e4f92c30258d7e75e475f298dbb"
+  },
+  "sourceTailReport": {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r02/audit/export-tail-check.json",
+    "sha256": "eea44c47efcc2e9bfed6a2b61a41ae1f89c85e4fc96bab4174cc6ae67323f800"
+  },
+  "sourceContactDetails": {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r02/audit/tail-contact-details.json",
+    "sha256": "03c0120e686d807ad28e7b2d108d4dadbf72a727313d98d53d00d35465b41059"
+  },
+  "validator": {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r02/audit/check_whole_r03_transfer.py",
+    "sha256": "8738bec868d505d3ea4862fb8e861e3b9010cd782cbdc67130ae480c2abb9820"
+  },
+  "meshes": {
+    "flame": {
+      "finiteCoordinates": true,
+      "validIndices": true,
+      "countsMatchCapture": true,
+      "topology": {
+        "vertices": 4516,
+        "triangles": 9028,
+        "components": 1,
+        "componentVertexCounts": [
+          4516
+        ],
+        "boundaryEdges": 0,
+        "edgesAboveTwoFaceIncidence": 0,
+        "watertight": true,
+        "windingConsistent": true,
+        "unreferencedVertices": 0,
+        "repeatedIndexTriangles": 0,
+        "duplicateUnorientedTriangles": 0,
+        "exactZeroAreaTriangles": 0,
+        "areaAtMost1eMinus14Triangles": 0,
+        "minimumTriangleArea": 1.236858298028624e-11,
+        "signedVolume": 0.004518745747211715,
+        "bounds": [
+          [
+            0.23953473567962646,
+            0.6501067876815796,
+            -0.0837167501449585
+          ],
+          [
+            0.44430577754974365,
+            0.8700257837772369,
+            0.28054211288690567
+          ]
+        ]
+      },
+      "coordinatesExactlyR02": true,
+      "orderedTrianglesExactlyR02": true
+    },
+    "eye--1": {
+      "finiteCoordinates": true,
+      "validIndices": true,
+      "countsMatchCapture": true,
+      "topology": {
+        "vertices": 3074,
+        "triangles": 6144,
+        "components": 1,
+        "componentVertexCounts": [
+          3074
+        ],
+        "boundaryEdges": 0,
+        "edgesAboveTwoFaceIncidence": 0,
+        "watertight": true,
+        "windingConsistent": true,
+        "unreferencedVertices": 0,
+        "repeatedIndexTriangles": 0,
+        "duplicateUnorientedTriangles": 0,
+        "exactZeroAreaTriangles": 0,
+        "areaAtMost1eMinus14Triangles": 0,
+        "minimumTriangleArea": 9.863315762735882e-09,
+        "signedVolume": 1.653517586207851e-05,
+        "bounds": [
+          [
+            -0.06993785500526428,
+            -0.8719107508659363,
+            0.5238165855407715
+          ],
+          [
+            0.001785006490536034,
+            -0.7788476943969727,
+            0.5593766570091248
+          ]
+        ]
+      },
+      "coordinatesExactlyR02": true,
+      "orderedTrianglesExactlyR02": true
+    },
+    "eye-1": {
+      "finiteCoordinates": true,
+      "validIndices": true,
+      "countsMatchCapture": true,
+      "topology": {
+        "vertices": 3074,
+        "triangles": 6144,
+        "components": 1,
+        "componentVertexCounts": [
+          3074
+        ],
+        "boundaryEdges": 0,
+        "edgesAboveTwoFaceIncidence": 0,
+        "watertight": true,
+        "windingConsistent": true,
+        "unreferencedVertices": 0,
+        "repeatedIndexTriangles": 0,
+        "duplicateUnorientedTriangles": 0,
+        "exactZeroAreaTriangles": 0,
+        "areaAtMost1eMinus14Triangles": 0,
+        "minimumTriangleArea": 1.106618511331295e-08,
+        "signedVolume": 1.7305204176904345e-05,
+        "bounds": [
+          [
+            -0.18628796935081482,
+            -0.8069288730621338,
+            0.5238165855407715
+          ],
+          [
+            -0.14272677898406982,
+            -0.6951935291290283,
+            0.5593766570091248
+          ]
+        ]
+      },
+      "coordinatesExactlyR02": true,
+      "orderedTrianglesExactlyR02": true
+    },
+    "body": {
+      "finiteCoordinates": true,
+      "validIndices": true,
+      "countsMatchCapture": true,
+      "topology": {
+        "vertices": 159251,
+        "triangles": 318502,
+        "components": 1,
+        "componentVertexCounts": [
+          159251
+        ],
+        "boundaryEdges": 0,
+        "edgesAboveTwoFaceIncidence": 0,
+        "watertight": true,
+        "windingConsistent": true,
+        "unreferencedVertices": 0,
+        "repeatedIndexTriangles": 0,
+        "duplicateUnorientedTriangles": 0,
+        "exactZeroAreaTriangles": 0,
+        "areaAtMost1eMinus14Triangles": 0,
+        "minimumTriangleArea": 6.572520305780927e-14,
+        "signedVolume": 0.22146934169355795,
+        "bounds": [
+          [
+            -0.958707332611084,
+            -0.9847948551177979,
+            -0.6039645075798035
+          ],
+          [
+            0.946840226650238,
+            0.7462244629859924,
+            0.5849010348320007
+          ]
+        ]
+      },
+      "coordinatesExactlyR02": false,
+      "orderedTrianglesExactlyR02": true
+    }
+  },
+  "blockers": [],
+  "scope": "Quick integrity check and exact transfer of r02 tail-contact evidence. No new intersection detection or eye audit.",
+  "oneSceneFourMeshes": true,
+  "faceRollback": {
+    "archive": {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r03/face-rollback.npz",
+      "sha256": "4543eb2273d81409f6296d06ebf5b4a94c6b12ebf0493c195951e408c3b17ec0"
+    },
+    "changedVertices": 16798,
+    "changedIdsExactlyReceiptSelection": false,
+    "restoredCoordinatesExactlyArchive": true
+  },
+  "tailEvidenceTransfer": {
+    "selectedTailVertices": 22935,
+    "tailCoordinatesExactlyR02": true,
+    "tailIncidentOrientedTrianglesExactlyR02": true,
+    "commonContactBounds": [
+      [
+        -0.8240864372253418,
+        -0.4039708471298218,
+        -0.5814336633682251
+      ],
+      [
+        0.8335228061676025,
+        0.8321479654312134,
+        -0.07282873034477234
+      ]
+    ],
+    "r02BodyTrianglesInTest": 85611,
+    "r03BodyTrianglesInTest": 85611,
+    "entireTestedVertexIdSetExactlyR02": true,
+    "entireTestedCoordinatesExactlyR02": true,
+    "entireTestedOrientedTrianglesExactlyR02": true,
+    "allRequiredEqualityChecksPass": true,
+    "intersectionPassRerun": false,
+    "transferredResult": {
+      "bodyTrianglesTested": 85611,
+      "tailIncidentTriangles": 46126,
+      "allTailIncidentTrianglesIncluded": true,
+      "allLocalDetectorPairsBeforeTailFilter": 5,
+      "tailInvolvingDetectorPairs": 4,
+      "strictInteriorConfirmedPairs": 0,
+      "categories": {
+        "tail-tail": {
+          "detected": 4,
+          "strictConfirmed": 0
+        },
+        "tail-rest-of-body": {
+          "detected": 0,
+          "strictConfirmed": 0
+        }
+      },
+      "samplePairs": [
+        {
+          "exportTriangleIds": [
+            17596,
+            17601
+          ],
+          "vertexIds": [
+            [
+              10569,
+              11256,
+              11259
+            ],
+            [
+              10570,
+              11260,
+              10574
+            ]
+          ],
+          "strictConfirmed": false,
+          "category": "tail-tail",
+          "center": [
+            -0.6290864447752634,
+            0.5010640919208527,
+            -0.40816577275594074
+          ]
+        },
+        {
+          "exportTriangleIds": [
+            51997,
+            52000
+          ],
+          "vertexIds": [
+            [
+              36950,
+              38033,
+              36951
+            ],
+            [
+              36949,
+              38031,
+              38032
+            ]
+          ],
+          "strictConfirmed": false,
+          "category": "tail-tail",
+          "center": [
+            0.3387596408526103,
+            0.7389385004838308,
+            -0.1065662403901418
+          ]
+        },
+        {
+          "exportTriangleIds": [
+            52001,
+            52070
+          ],
+          "vertexIds": [
+            [
+              36949,
+              38032,
+              36950
+            ],
+            [
+              36948,
+              38030,
+              38031
+            ]
+          ],
+          "strictConfirmed": false,
+          "category": "tail-tail",
+          "center": [
+            0.3387058575948079,
+            0.7389679650465647,
+            -0.10656885802745819
+          ]
+        },
+        {
+          "exportTriangleIds": [
+            52022,
+            52027
+          ],
+          "vertexIds": [
+            [
+              36961,
+              38079,
+              38080
+            ],
+            [
+              36962,
+              38096,
+              36963
+            ]
+          ],
+          "strictConfirmed": false,
+          "category": "tail-tail",
+          "center": [
+            0.3397635022799174,
+            0.7382744153340658,
+            -0.10637299716472626
+          ]
+        }
+      ]
+    },
+    "transferredCandidateClassification": {
+      "pairs": [
+        {
+          "exportTriangleIds": [
+            17596,
+            17601
+          ],
+          "vertexIds": [
+            [
+              10569,
+              11256,
+              11259
+            ],
+            [
+              10570,
+              11260,
+              10574
+            ]
+          ],
+          "strictInteriorHits": 0,
+          "computedMinimumSurfaceGap": 3.0014052097632988e-05,
+          "triangleAreas": [
+            5.351816079344178e-06,
+            5.343884240613768e-07
+          ],
+          "minimumTriangleAltitudes": [
+            0.0003099446045455682,
+            3.096625396633068e-05
+          ],
+          "center": [
+            -0.6290864447752634,
+            0.5010640919208527,
+            -0.40816577275594074
+          ]
+        },
+        {
+          "exportTriangleIds": [
+            51997,
+            52000
+          ],
+          "vertexIds": [
+            [
+              36950,
+              38033,
+              36951
+            ],
+            [
+              36949,
+              38031,
+              38032
+            ]
+          ],
+          "strictInteriorHits": 0,
+          "computedMinimumSurfaceGap": 1.5181556754525733e-05,
+          "triangleAreas": [
+            5.586971425244926e-07,
+            2.7083072836534494e-07
+          ],
+          "minimumTriangleAltitudes": [
+            3.9258040980000944e-05,
+            1.9030059980059614e-05
+          ],
+          "center": [
+            0.3387596408526103,
+            0.7389385004838308,
+            -0.1065662403901418
+          ]
+        },
+        {
+          "exportTriangleIds": [
+            52001,
+            52070
+          ],
+          "vertexIds": [
+            [
+              36949,
+              38032,
+              36950
+            ],
+            [
+              36948,
+              38030,
+              38031
+            ]
+          ],
+          "strictInteriorHits": 0,
+          "computedMinimumSurfaceGap": 1.903005998004194e-05,
+          "triangleAreas": [
+            6.28028711833732e-07,
+            1.6865041510760983e-06
+          ],
+          "minimumTriangleAltitudes": [
+            4.4128759419327324e-05,
+            0.00011849172981766624
+          ],
+          "center": [
+            0.3387058575948079,
+            0.7389679650465647,
+            -0.10656885802745819
+          ]
+        },
+        {
+          "exportTriangleIds": [
+            52022,
+            52027
+          ],
+          "vertexIds": [
+            [
+              36961,
+              38079,
+              38080
+            ],
+            [
+              36962,
+              38096,
+              36963
+            ]
+          ],
+          "strictInteriorHits": 0,
+          "computedMinimumSurfaceGap": 1.7462520844602802e-05,
+          "triangleAreas": [
+            3.506553730385146e-07,
+            4.909447593317267e-07
+          ],
+          "minimumTriangleAltitudes": [
+            2.4655764362346038e-05,
+            3.452425001325577e-05
+          ],
+          "center": [
+            0.3397635022799174,
+            0.7382744153340658,
+            -0.10637299716472626
+          ]
+        }
+      ],
+      "strictPairs": 0,
+      "positiveComputedGapPairs": 4,
+      "computedGapRange": [
+        1.5181556754525733e-05,
+        3.0014052097632988e-05
+      ]
+    }
+  },
+  "risks": [
+    "The four inherited detector candidates have positive computed gaps of 1.518e-5 to 3.001e-5, with zero confirmed strict crossings; detector count alone does not justify mesh repair.",
+    "Transferred coverage excludes shared-vertex overlaps/adjacent-face foldovers, separate eye/flame contacts and body regions outside the recorded tail test. No minimum-clearance or anatomical/runtime certificate is implied."
+  ]
+}

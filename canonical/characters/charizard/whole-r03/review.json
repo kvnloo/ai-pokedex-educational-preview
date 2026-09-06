@@ -1,0 +1,38 @@
+{
+  "revision": "whole-r03",
+  "verdict": "working-tail-checkpoint-needs-work",
+  "visual": {
+    "summary": "Retains shorter reposed tail and triangulation cleanup; restores the prior r01 face exactly after r02 facial regression. Working sculpt, not S+ or game-ready.",
+    "retained": [
+      "Tail no longer loops forward across the body; reduced rear/lateral sweep and terminal stem.",
+      "Native triangulation removes subdivision-boundary degenerate triangles without shifting the surface."
+    ],
+    "rejected": [
+      "Downward segmented Pose produced a hook and folds; preserved and rolled back.",
+      "r02 face narrowing and lip edits produced pinching and uneven jaw thickness; restored to r01 in r03."
+    ],
+    "remaining": [
+      "Head still lacks the broad wedge muzzle, clean mouth seam and deliberate jaw of the official references.",
+      "Tail terminal bend remains too abrupt and transitions to a very thin stem; flame is provisional solid geometry.",
+      "Wing membranes, hands, feet and limb anatomy remain unfinished.",
+      "Dense inherited topology is not deformation retopology; no UVs, authored PBR materials, rig, clips, attack effects or game integration."
+    ],
+    "reviewMethod": "Root inspected matched clay and face renders, actual Blender GUI screenshots, the reimported GLB three-quarter render, and 12 frames decoded from each actual comparison MP4. This is sampled video inspection, not real-time continuous playback."
+  },
+  "authoring": "Root-owned Blender GUI sculpt and native mesh transforms; MCP setup, selection, coordinate rollback, capture and export. No new image or mesh generation.",
+  "promotion": "No game deployment, merge or push. Official input ancestry retained.",
+  "geometry": {
+    "vertices": 169915,
+    "triangles": 339818,
+    "meshes": 4,
+    "zeroAreaTriangles": 0,
+    "closedSingleComponentMeshes": 4,
+    "uvLayers": 0,
+    "authoredPBRMaterials": 0,
+    "textureImages": 0,
+    "rigBones": 0,
+    "animationClips": [],
+    "tailTest": "0 confirmed crossings; four positive-gap detector candidates (0.000015\u20130.000030). Shared-vertex foldovers and other body areas are outside this bounded test.",
+    "blenderReopen": "Source/GLB counts, world bounds and finite coordinates match for all four meshes."
+  }
+}

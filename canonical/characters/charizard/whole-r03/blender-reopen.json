@@ -1,0 +1,197 @@
+{
+  "sourceSHA256": "8d7640b1195732b77fc1ab813fa0a183806bbcf632575326d709d1eb8bd8d150",
+  "glbSHA256": "7c3d68b158134c15f6ddbf0010d5cd0e774edc6977a48e43083735135ed8a663",
+  "method": "Blender library source reload and glTF importer in isolated temporary scenes",
+  "source": {
+    "GEO-charizard-body-whole-r03": {
+      "vertices": 159251,
+      "triangles": 318502,
+      "finite": true,
+      "bounds": [
+        [
+          -0.958707332611084,
+          -0.9847948551177979,
+          -0.6039645075798035
+        ],
+        [
+          0.946840226650238,
+          0.7462244629859924,
+          0.5849010348320007
+        ]
+      ],
+      "uvLayers": 0,
+      "materials": 0,
+      "animation": true
+    },
+    "GEO-charizard-flame-whole-r03": {
+      "vertices": 4516,
+      "triangles": 9028,
+      "finite": true,
+      "bounds": [
+        [
+          0.23953473567962646,
+          0.6501067876815796,
+          -0.0837167501449585
+        ],
+        [
+          0.44430577754974365,
+          0.8700257539749146,
+          0.2805421054363251
+        ]
+      ],
+      "uvLayers": 0,
+      "materials": 0,
+      "animation": false
+    },
+    "GEO-charizard-eye-1-whole-r03": {
+      "vertices": 3074,
+      "triangles": 6144,
+      "finite": true,
+      "bounds": [
+        [
+          -0.18628796935081482,
+          -0.8069288730621338,
+          0.5238165855407715
+        ],
+        [
+          -0.14272677898406982,
+          -0.6951935291290283,
+          0.5593766570091248
+        ]
+      ],
+      "uvLayers": 0,
+      "materials": 0,
+      "animation": false
+    },
+    "GEO-charizard-eye--1-whole-r03": {
+      "vertices": 3074,
+      "triangles": 6144,
+      "finite": true,
+      "bounds": [
+        [
+          -0.06993785500526428,
+          -0.8719107508659363,
+          0.5238165855407715
+        ],
+        [
+          0.001785006490536034,
+          -0.7788476943969727,
+          0.5593766570091248
+        ]
+      ],
+      "uvLayers": 0,
+      "materials": 0,
+      "animation": false
+    }
+  },
+  "imported": {
+    "GEO-charizard-body-whole-r03": {
+      "vertices": 159251,
+      "triangles": 318502,
+      "finite": true,
+      "bounds": [
+        [
+          -0.958707332611084,
+          -0.9847948551177979,
+          -0.6039645075798035
+        ],
+        [
+          0.946840226650238,
+          0.7462244629859924,
+          0.5849010348320007
+        ]
+      ],
+      "uvLayers": 0,
+      "materials": 1,
+      "animation": false
+    },
+    "GEO-charizard-eye-1-whole-r03": {
+      "vertices": 3074,
+      "triangles": 6144,
+      "finite": true,
+      "bounds": [
+        [
+          -0.18628796935081482,
+          -0.8069288730621338,
+          0.5238165855407715
+        ],
+        [
+          -0.14272677898406982,
+          -0.6951935291290283,
+          0.5593766570091248
+        ]
+      ],
+      "uvLayers": 0,
+      "materials": 1,
+      "animation": false
+    },
+    "GEO-charizard-eye--1-whole-r03": {
+      "vertices": 3074,
+      "triangles": 6144,
+      "finite": true,
+      "bounds": [
+        [
+          -0.06993785500526428,
+          -0.8719107508659363,
+          0.5238165855407715
+        ],
+        [
+          0.001785006490536034,
+          -0.7788476943969727,
+          0.5593766570091248
+        ]
+      ],
+      "uvLayers": 0,
+      "materials": 1,
+      "animation": false
+    },
+    "GEO-charizard-flame-whole-r03": {
+      "vertices": 4516,
+      "triangles": 9028,
+      "finite": true,
+      "bounds": [
+        [
+          0.23953473567962646,
+          0.6501067876815796,
+          -0.0837167501449585
+        ],
+        [
+          0.44430577754974365,
+          0.8700257539749146,
+          0.2805421054363251
+        ]
+      ],
+      "uvLayers": 0,
+      "materials": 1,
+      "animation": false
+    }
+  },
+  "checks": {
+    "GEO-charizard-body-whole-r03": {
+      "sourceCountsMatch": true,
+      "importCountsMatch": true,
+      "boundsMatch": true,
+      "finite": true
+    },
+    "GEO-charizard-flame-whole-r03": {
+      "sourceCountsMatch": true,
+      "importCountsMatch": true,
+      "boundsMatch": true,
+      "finite": true
+    },
+    "GEO-charizard-eye-1-whole-r03": {
+      "sourceCountsMatch": true,
+      "importCountsMatch": true,
+      "boundsMatch": true,
+      "finite": true
+    },
+    "GEO-charizard-eye--1-whole-r03": {
+      "sourceCountsMatch": true,
+      "importCountsMatch": true,
+      "boundsMatch": true,
+      "finite": true
+    }
+  },
+  "animationNames": [],
+  "limitations": "Working sculpt has no UVs, authored PBR, armature or animation clips."
+}

@@ -1,16 +1,21 @@
 """Encode the two matched Blender frame sequences without altering their framing."""
 from pathlib import Path
+import argparse
 import subprocess
 
-root = Path('/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r01')
-video = root / 'turntable-r18-vs-whole-r01.mp4'
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--revision', choices=['r01', 'r02', 'r03'], default='r01')
+args = parser.parse_args()
+previous = 'r18' if args.revision == 'r01' else 'whole-r01'
+root = Path('/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05') / ('whole-' + args.revision)
+video = root / ('turntable-' + previous + '-vs-whole-' + args.revision + '.mp4')
 subprocess.run([
     'ffmpeg', '-hide_banner', '-loglevel', 'error', '-n',
-    '-framerate', '12', '-i', str(root / 'before-r18/turntable/%03d.png'),
-    '-framerate', '12', '-i', str(root / 'after-whole-r01/turntable/%03d.png'),
+    '-framerate', '12', '-i', str(root / ('before-' + previous) / 'turntable/%03d.png'),
+    '-framerate', '12', '-i', str(root / ('after-whole-' + args.revision) / 'turntable/%03d.png'),
     '-filter_complex',
-    "[0:v]drawtext=text='Before - r18':x=20:y=20:fontsize=25:fontcolor=white[top];"
-    "[1:v]drawtext=text='Working sculpt - whole r01':x=20:y=20:fontsize=25:fontcolor=white[bottom];"
+    f"[0:v]drawtext=text='Before - {previous}':x=20:y=20:fontsize=25:fontcolor=white[top];"
+    f"[1:v]drawtext=text='Working sculpt - whole {args.revision}':x=20:y=20:fontsize=25:fontcolor=white[bottom];"
     '[top][bottom]vstack=inputs=2:shortest=1[v]',
     '-map', '[v]', '-c:v', 'libx264', '-crf', '19', '-pix_fmt', 'yuv420p',
     '-movflags', '+faststart', '-an', str(video),

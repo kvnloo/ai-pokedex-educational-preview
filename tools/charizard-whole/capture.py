@@ -1,13 +1,27 @@
-"""Capture the owned GUI sculpt against the frozen r18 source. Run in Blender."""
+"""Capture an owned GUI sculpt against its frozen parent. Run in Blender."""
 import bpy
 import json
 import math
 from pathlib import Path
 from mathutils import Vector
 
-root = Path('/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r01')
-parent = Path('/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r04/head-r18/charizard-head-r18.blend')
-scene = bpy.data.scenes['EDIT-charizard-whole-r01']
+revision = globals().get('capture_revision', 'r01')
+assert revision in {'r01', 'r02', 'r03'}, revision
+private = Path('/mnt/zer0models/pokemon-iac/characters/charizard')
+root = private / ('anatomy-r05/whole-' + revision)
+if revision == 'r01':
+    parent = private / 'anatomy-r04/head-r18/charizard-head-r18.blend'
+    parent_scene = 'EDIT-charizard-head-r18'
+    before_label = 'before-r18'
+else:
+    parent = private / 'anatomy-r05/whole-r01/charizard-whole-r01.blend'
+    parent_scene = 'EDIT-charizard-whole-r01'
+    before_label = 'before-whole-r01'
+after_label = 'after-whole-' + revision
+comparison_parent = parent
+if revision == 'r03':
+    parent = private / 'anatomy-r05/whole-r02/charizard-whole-r02.blend'
+scene = bpy.data.scenes['EDIT-charizard-whole-' + revision]
 mode = globals().get('capture_mode', 'prepare')
 
 def configure(target):
@@ -54,8 +68,9 @@ if mode == 'prepare':
     bpy.context.window.scene = scene
     if bpy.context.mode != 'OBJECT':
         bpy.ops.object.mode_set(mode='OBJECT')
-    body = bpy.data.objects['GEO-charizard-body-whole-r01']
+    body = bpy.data.objects['GEO-charizard-body-whole-' + revision]
     for obj in scene.objects:
+        obj.hide_set(False)
         obj.select_set(obj == body)
     bpy.context.view_layer.objects.active = body
     bpy.ops.object.mode_set(mode='EDIT')
@@ -71,34 +86,35 @@ if mode == 'prepare':
         records.append({'name': obj.name, 'vertices': len(obj.data.vertices),
                         'polygons': len(obj.data.polygons), 'triangles': len(obj.data.loop_triangles),
                         'uvLayers': len(obj.data.uv_layers), 'materials': len(obj.data.materials)})
-    destination = root/'charizard-whole-r01.blend'
+    destination = root/('charizard-whole-' + revision + '.blend')
     if destination.exists():
         raise RuntimeError('Frozen checkpoint already exists; choose a new revision')
-    bpy.ops.export_scene.gltf(filepath=str(root/'charizard-whole-r01.glb'), export_format='GLB',
+    bpy.ops.export_scene.gltf(filepath=str(root/('charizard-whole-' + revision + '.glb')), export_format='GLB',
                               use_selection=True, use_active_scene=True, export_animations=False)
     bpy.data.libraries.write(str(destination), {scene}, fake_user=True, compress=True)
-    (root/'capture-receipt.json').write_text(json.dumps({'parent': str(parent), 'source': str(destination),
-        'authoring': 'Blender GUI sculpt strokes and native local subdivision; MCP setup and capture',
+    (root/'capture-receipt.json').write_text(json.dumps({'parent': str(parent), 'comparisonParent': str(comparison_parent), 'source': str(destination),
+        'authoring': 'Blender GUI sculpt strokes and native mesh transforms; MCP setup, selection, rollback and capture',
         'status': 'working sculpt, awaiting visual and geometry review; not game-ready',
         'meshes': records, 'animations': [], 'textures': [],
         'limitations': ['sculpted closed lip groove, no oral cavity or fangs', 'provisional eye colors',
                         'no deformation retopology, UVs, PBR, rig or clips']}, indent=2)+'\n')
     print(json.dumps(records))
 else:
-    baseline = bpy.data.scenes.get('REVIEW-charizard-r18-whole-r01')
+    baseline_name = 'REVIEW-' + before_label + '-whole-' + revision
+    baseline = bpy.data.scenes.get(baseline_name)
     if baseline is None:
-        with bpy.data.libraries.load(str(parent), link=False) as (available, loaded):
-            loaded.scenes = ['EDIT-charizard-head-r18']
+        with bpy.data.libraries.load(str(comparison_parent), link=False) as (available, loaded):
+            loaded.scenes = [parent_scene]
         baseline = loaded.scenes[0]
-        baseline.name = 'REVIEW-charizard-r18-whole-r01'
+        baseline.name = baseline_name
     bounds = json.loads(Path('/mnt/zer0models/workspace/zer0/experiments/pokemon/assets/blender/charizard-fair-review/charizard-official-61062-o256.json').read_text())['bounds']
     lo, hi = map(Vector, bounds)
     center, extent = (lo+hi)/2, max(hi-lo)
     head = Vector((-.085, -.77, .49))
     side = Vector((-.8660254, .5, 0))
     forward = Vector((-.49446818, -.856444, .14834046))
-    for label, target in [('before-r18', baseline), ('after-whole-r01', scene)]:
-        if label not in globals().get('capture_labels', ['before-r18', 'after-whole-r01']):
+    for label, target in [(before_label, baseline), (after_label, scene)]:
+        if label not in globals().get('capture_labels', [before_label, after_label]):
             continue
         configure(target)
         directory = root/label

@@ -1,0 +1,11 @@
+{
+  "result": "harness-error-corrected",
+  "failure": "Flame bounds mismatch before evaluating newly loaded source scene.",
+  "cause": "Library-loaded flame matrix_world read as identity before dependency-graph evaluation, while its location was correct.",
+  "sourceFlameLocation": [
+    -0.3105054498,
+    1.3080376387,
+    0.1850892007
+  ],
+  "fix": "Activate source scene and update view layer before measuring world bounds; preserve asset files."
+}
