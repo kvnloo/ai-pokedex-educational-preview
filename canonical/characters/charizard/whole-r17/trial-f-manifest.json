@@ -1,0 +1,42 @@
+{
+  "status": "unaccepted-construction-trial",
+  "visualGate": false,
+  "files": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r17/charizard-hybrid-r17f-independent-crown.blend",
+      "sha256": "04c7212b5e35654996bbeb015816fb6c26d54037b30bba928208800f17d32b3a"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r17/r17f-front.png",
+      "sha256": "5dede4ba0b5b99f7a4a6789c59054b9582111295d48eff71f7541d5f6a39c9cd"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r17/r17f-head-front.png",
+      "sha256": "ee4eb5123303ea0e4c1e64a68866eeaf5d4dd712ca92909d1e7a8c2b12ccb543"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r17/r17f-head-rear.png",
+      "sha256": "41995862f89b7171ca95daf34e3be1a70b5b9847e7a1ee95a03335a22c23aeb2"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r17/r17f-head-side.png",
+      "sha256": "03789a6ee865911f00ca78e0c9dd271f40fb233bb8ec295c453bac709edf3a1d"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r17/r17f-head-threequarter.png",
+      "sha256": "b354fdb0efa07632fce202dbb8b697ff3a14bdbfae5715aea2f234c5fabd5d01"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r17/r17f-rear.png",
+      "sha256": "2b61dbd1d7ebb24275bb3cb2e72751907047f05406e5692cc231cad0bd2a07fd"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r17/r17f-side.png",
+      "sha256": "a92941d9db34c857a640818e383aca088d33e6a18710b73af23172a7be092bb1"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r17/r17f-threequarter.png",
+      "sha256": "244dc1ee8548d04062868a9d314c4299078987ff28f647411ee630e6b3f1d945"
+    }
+  ]
+}
