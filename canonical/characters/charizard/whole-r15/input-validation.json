@@ -1,0 +1,6 @@
+{
+  "syntaxParse": true,
+  "wrongPidRejectedBeforeInput": true,
+  "nativeModeSelectionAndMeasuredTransformsExercised": true,
+  "exclusiveDesktopGuaranteed": false
+}

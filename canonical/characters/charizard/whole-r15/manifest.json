@@ -1,0 +1,227 @@
+{
+  "retained": "r15e",
+  "assetRoot": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r15",
+  "productionAccepted": false,
+  "files": [
+    {
+      "name": "before.json",
+      "bytes": 555981,
+      "sha256": "7abe253a695443e6a19a5168e2af8139363c0af4403fbfd5e10c8e4fab8d6338"
+    },
+    {
+      "name": "charizard-blockout-r15e.glb",
+      "bytes": 161376,
+      "sha256": "924bb0a26fa32377a940329a2efdeffa2ae63a5cc90dec46c1552ac3f0d058f0"
+    },
+    {
+      "name": "charizard-hybrid-r15-intake.blend",
+      "bytes": 145268,
+      "sha256": "827b5425b2b8b58b47cd24235fdd6542fe72fafc5676c03c97e64cfff85d24b3"
+    },
+    {
+      "name": "charizard-hybrid-r15a-jaw-endpoint.blend",
+      "bytes": 148273,
+      "sha256": "739cef70e5f8c44926ea1904d2df30a8ec6c5d6090b9e1d64bee718526bd5d0c"
+    },
+    {
+      "name": "charizard-hybrid-r15b-rear-cheek.blend",
+      "bytes": 148314,
+      "sha256": "756ae4215845441b84278a296ca82729defdbb44bb81b165696f2569689a504f"
+    },
+    {
+      "name": "charizard-hybrid-r15c-neck-descent.blend",
+      "bytes": 147987,
+      "sha256": "a13f86bf65eba7b33921151af317f646e6111a29b68dd5f2ec6f8a5c360a7ef9"
+    },
+    {
+      "name": "charizard-hybrid-r15d-lower-belly.blend",
+      "bytes": 147532,
+      "sha256": "a3590c2fde1738792b40637c709304b5668303ae9b673db77efb4b8a65ab0afa"
+    },
+    {
+      "name": "charizard-hybrid-r15e-belly-transition.blend",
+      "bytes": 147733,
+      "sha256": "a5c7301feadacdc6aea460e35173eb52053905bc5b6d4d8ad6fc01d449bc790b"
+    },
+    {
+      "name": "focus-incident-geometry.json",
+      "bytes": 12825,
+      "sha256": "a4760dab7b34a9c04a6e16f633b554bcd1bac4f8351048a34d6b7fecebe4f89c"
+    },
+    {
+      "name": "glb-reopened-r15e-front.png",
+      "bytes": 1012116,
+      "sha256": "047dfa00a078cf6f72480597a3033d45820b36bbbf362dcf41e8aa5dd8be4640"
+    },
+    {
+      "name": "glb-reopened-r15e-rear.png",
+      "bytes": 1003013,
+      "sha256": "27079f1e8537ea4d0ee110b1dc6f5a0d78be15b9537f7935bc4911a2cc76e978"
+    },
+    {
+      "name": "glb-reopened-r15e-side.png",
+      "bytes": 908939,
+      "sha256": "6abf4995f1160fc9ea81864dd3ddef712ebd756056a0ff452f0decc5c23a3b6c"
+    },
+    {
+      "name": "glb-reopened-r15e-threequarter.png",
+      "bytes": 1019328,
+      "sha256": "5a398f0711385d0040929b1d627447a797d108e918b5452afc3fc4bcb1e02ad7"
+    },
+    {
+      "name": "gui-belly-d-start.png",
+      "bytes": 633933,
+      "sha256": "efa1cd90623d4f6d7dd9bd96fb89d9a869a46acbfbf03f346a2be21482457cf5"
+    },
+    {
+      "name": "gui-cheek-trial-a.png",
+      "bytes": 222370,
+      "sha256": "90b819f9473c75cc88c217ff3f6065ca2efedb3fcc4fccfbc8e59df058db60be"
+    },
+    {
+      "name": "gui-eye-aperture-start.png",
+      "bytes": 242469,
+      "sha256": "8c9eaca3528971c4a2754f9dd50ed2ba062f2967ce2627245b77a333236335a2"
+    },
+    {
+      "name": "gui-eye-wedge-c.png",
+      "bytes": 241018,
+      "sha256": "e47f5af589ef3e1decbd8b9962dfc5fdbce335183fb3385fd0f76d555dc84b52"
+    },
+    {
+      "name": "gui-focus-incident-inspection.png",
+      "bytes": 265259,
+      "sha256": "a71aa4409dd8f04a6ff7c72ac45862a79d5fd99c95826d8dd201a0b13ab7cc6d"
+    },
+    {
+      "name": "gui-jaw-start.png",
+      "bytes": 239572,
+      "sha256": "f3b45e06ec0e2e626138269e659d7f644811734147b23d16f405bfe131a60607"
+    },
+    {
+      "name": "gui-neck-c-start.png",
+      "bytes": 261427,
+      "sha256": "61f74a6fb636015bd045045585414d1f8b0dcbd6e049a4b3724649fb8e134d78"
+    },
+    {
+      "name": "gui-upper-cheek-start.png",
+      "bytes": 239877,
+      "sha256": "386f84b8113a28e7a7840038f1d50f93ea72d31ded3ae28d853e1666cf0f1044"
+    },
+    {
+      "name": "r15a-front.png",
+      "bytes": 1010499,
+      "sha256": "a5df3115e9aa1356f72498df4a2af2fcd0e5fcece235b6714f961ccc399d511a"
+    },
+    {
+      "name": "r15a-rear.png",
+      "bytes": 1001261,
+      "sha256": "99ef29162b5771349ee193a8ff53d8b34217d540d7bfc91245095b0bcc054895"
+    },
+    {
+      "name": "r15a-side.png",
+      "bytes": 908427,
+      "sha256": "cbff2a373554d306a2822f258ffed256eab66d9e99fd069362ad38ee65c7a591"
+    },
+    {
+      "name": "r15a-threequarter.png",
+      "bytes": 1016398,
+      "sha256": "70ab0e129551c104a5ee9a294a1a5a8135b3bd2a2b7d488c14654c54e833e137"
+    },
+    {
+      "name": "r15b-front.png",
+      "bytes": 1010494,
+      "sha256": "0eb7a2725eb35d8646cdb36b01ac4b15a408ca35aa4c7445c080591b69fd2d8a"
+    },
+    {
+      "name": "r15b-rear.png",
+      "bytes": 1001888,
+      "sha256": "d626a7e152fee3d5f5a727a80d9ec76c7916c74da926a7e242dc79d81268f81c"
+    },
+    {
+      "name": "r15b-side.png",
+      "bytes": 908879,
+      "sha256": "a8f3b0c0417b1ecf6436d27061fc4e17644f1a8d139e4b0ae6bb051f0161036c"
+    },
+    {
+      "name": "r15b-threequarter.png",
+      "bytes": 1016496,
+      "sha256": "91f6e5eaa62cd7f7fcb46fda7ed391c47bd211e56929780ffc0207912d4f0119"
+    },
+    {
+      "name": "r15c-front.png",
+      "bytes": 1010291,
+      "sha256": "5fd14a71a36c651682c35e1d218f5f3b93176ce03dfb3cd3591a03a30f6c53c9"
+    },
+    {
+      "name": "r15c-rear.png",
+      "bytes": 1002639,
+      "sha256": "59f9c49c2f0591ad841dc4a5cad4a2754ed5e60968a51c2ebe6070943b7859d2"
+    },
+    {
+      "name": "r15c-side.png",
+      "bytes": 908529,
+      "sha256": "c1d249a97dc9d4e5f4c0be16f540702669abcb51e98f3630ce21f4b7ab5b26e7"
+    },
+    {
+      "name": "r15c-threequarter.png",
+      "bytes": 1016527,
+      "sha256": "e04d8e610b63b966f6c4af3e2df1d7f8d212edf54c61641d6cb1f7d2b868db1b"
+    },
+    {
+      "name": "r15c-updated-threequarter.png",
+      "bytes": 1016527,
+      "sha256": "654da667867d141b9a67887e5ab055d84f7bb7b169ecb62d47da57e4393af93d"
+    },
+    {
+      "name": "r15d-front.png",
+      "bytes": 1010057,
+      "sha256": "595b21338969379ed373ddb1b75db77cd79bed55ec95ae81030053ddbe270362"
+    },
+    {
+      "name": "r15d-rear.png",
+      "bytes": 1001004,
+      "sha256": "fb03457460e274744ca658873d709cc7d107e20b29d934569756410391c88f7a"
+    },
+    {
+      "name": "r15d-side.png",
+      "bytes": 908150,
+      "sha256": "ec9825990d78bc3ded8f663ae4aede5b7c6d09edb822a6e40116a8127ce21b3a"
+    },
+    {
+      "name": "r15d-threequarter.png",
+      "bytes": 1016236,
+      "sha256": "0f21da2b26b1d58844c6088cd96c3de3fcc7aa560c6cede5d9d2d6030d57bb23"
+    },
+    {
+      "name": "r15e-front.png",
+      "bytes": 1010343,
+      "sha256": "b5bdb02b30fd802f411d897de5ef516d3527fb473e999a159b098998d27e5ecc"
+    },
+    {
+      "name": "r15e-rear.png",
+      "bytes": 1001644,
+      "sha256": "5db04b60c5a24f82c66caa56507ac802b19fee2bf6d4f5318760cdaa3cd7b910"
+    },
+    {
+      "name": "r15e-side.png",
+      "bytes": 908298,
+      "sha256": "048b26f988c3b388a402507d2ccc2c5f7dc952cbb0c6129705560f2fed18268d"
+    },
+    {
+      "name": "r15e-threequarter.png",
+      "bytes": 1016150,
+      "sha256": "abbc1f73f35e552a8da6155948d5f90cc2630ebfb07f7e3a8589efa0111e5551"
+    },
+    {
+      "name": "scope-audit-r15e.json",
+      "bytes": 2092,
+      "sha256": "66828b719ae9b5901d212ce88b054914c9be3cf82e96d72d92bf364552325d46"
+    },
+    {
+      "name": "validation-r15e.json",
+      "bytes": 20305,
+      "sha256": "7e7fba9abbc61d79ff2edc93adc501de2d10e884ab41fa33113c21527dbb1815"
+    }
+  ]
+}
