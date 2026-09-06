@@ -1,0 +1,3 @@
+Charizard R32B — continuous leg skin, revision75ef97a. Native Blender duplication/subdivision/remesh and masked sculpt blended thigh/ankle/foot junctions. Critic retained left-leg improvement; mirrored geometry verified exactly. Both legs exported and reopened, all four renders inspected. Still rough overall: torso/neck/tail joins and likeness remain unfinished. 174188 triangles is sculpt-source density, not final runtime budget.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r32/glb-r32b-threequarter.png
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r32/mirror-corrected-threequarter.png
