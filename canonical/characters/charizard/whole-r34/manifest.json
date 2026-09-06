@@ -18,5 +18,12 @@
   "wrist-front.png": "4d957a24e299b65e231497fb6c16edaa642f77962f21407f3b3ed2b4513a110d",
   "wrist-side.png": "e0cd88595f4fdaa145d988420d5a4068b9bfa9d84bc54973db642e56833664d2",
   "wrist-rear.png": "bf95f33d6adfa616138ccdfbde6fe4e54144ef7875c0f2b5209c2f765c46d8eb",
-  "wrist-threequarter.png": "7f051e4924150213f78fbce804b4b03136b5289aff3af1c81550a077e5877f1f"
+  "wrist-threequarter.png": "7f051e4924150213f78fbce804b4b03136b5289aff3af1c81550a077e5877f1f",
+  "arm-before.json": "89f6d1808539f54c4593d54bc206c412aabc6338c4959d69a2696b26957bf7c2",
+  "arm-audit.json": "cd64760f0e3d823a8d3772dd150ed261c2b9405af22d8bcced42b4f6a0e661ff",
+  "charizard-hybrid-r34-arm-wip.blend": "599ecebf42bf9deb45d70c4a049596896cb0c622e9bbf8b039dbaf6056144e70",
+  "arm-front.png": "55cad9a0cacae5eebd32e8f331786c13835fe21e2e43b07230cdbc4341518f5a",
+  "arm-side.png": "de963d49f0ff41c4bfb387aa71f0db2786d74e8bb19fe42afec2e30c2d2bdf3e",
+  "arm-rear.png": "6a3fe86d047e6cfa2b2b45c37db2835dd4d657ddf18e7360c7170a57f95af68c",
+  "arm-threequarter.png": "17148c1b55ec46a47890545df3ff1ee2ec0eb8c1803a7e480b68e747d363760e"
 }
