@@ -1,0 +1,3 @@
+Charizard R30 — native mouse sculpt checkpoint, revision cfcb9bd. Retained a local brow/eye-opening improvement after independent xhigh review. This is still an unfinished blockout: cheek refinement and component seams remain, and no production quality gate has passed. Next is a frozen-geometry comparison with the official HOME viewing angle before further anatomy changes.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r30/r30a-threequarter.png
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r30/brow-wip-head-threequarter.png

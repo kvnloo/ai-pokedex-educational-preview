@@ -1,7 +1,7 @@
 {
   "status": "regional-improvement-retained",
   "productionAccepted": false,
-  "glbValidated": false,
+  "glbValidated": true,
   "review": "Xhigh critic retains brow/aperture improvement; cheek unresolved. Root inspected four whole-body views; construction seams and unfinished forms remain.",
   "next": "Frozen geometry HOME-angle whole-character comparison before further anatomy edits.",
   "files": [
@@ -54,6 +54,37 @@
       "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r30/brow-wip-head-threequarter.png",
       "bytes": 1150711,
       "sha256": "7ec7dc3ae139841b2e140b37e8ae670c9ef72062d7ddd5ce671fc68b5a547993"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r30/charizard-blockout-r30a.glb",
+      "bytes": 697512,
+      "sha256": "36c38dd110bb95358c15ba7ed6b18cec867aa11159a1c433de8281db7df37a5c"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r30/validation-r30a.json",
+      "bytes": 20308,
+      "sha256": "245709bd9147967f9276b71d29874abd60e7dbe27eb7aaac37b016f52d985420"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r30/glb-r30a-front.png",
+      "bytes": 1016309,
+      "sha256": "6b93b274c0603709b51c26b72d53359eebe9f35d71970cd85326cca378ec747f"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r30/glb-r30a-rear.png",
+      "bytes": 1011371,
+      "sha256": "0139b069f9f3d8e7a664ce054ac5ab871855ec21b2c2807983d8572d89fc1df2"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r30/glb-r30a-side.png",
+      "bytes": 902630,
+      "sha256": "aac183bf8b8ff96f51abd2a1072e1547d286e5e47d55d2771be7e9c7497b750e"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r30/glb-r30a-threequarter.png",
+      "bytes": 1029690,
+      "sha256": "24c5155f0db4160e4149c61b094ea729f63b5d1845018a3f0ea0627539411230"
     }
-  ]
+  ],
+  "glbVisualReview": "Root inspected all four actual reopened GLB renders. Construction seams remain; no production or likeness acceptance."
 }
