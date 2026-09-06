@@ -1,0 +1,3 @@
+Charizard r22B — e2e9036. Higher, broader tail root retained after four-view critique. Reduced central bulge beneath abdomen; rear attachment less circular. Seam still unfinished. Physical GLB reopened:8456 triangles, FlameSocket empty, no flame mesh. Stopping this root adjustment loop.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r22/r22b-rear.png
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r22/r22b-threequarter.png
