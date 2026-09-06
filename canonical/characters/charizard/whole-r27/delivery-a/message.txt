@@ -1,0 +1,3 @@
+Charizard r27A — 2bbf5b1. Corrected the weak center foot claws using native Blender input: moved only the center pair forward by .025 scene units. They were the same size as the outer pair but buried further inside the rounded foot. All mesh shapes and ankles unchanged. Before/after detail attached; critic review pending. Still unfinished blockout.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r27/intake-feet-threequarter.png
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r27/r27a-feet-threequarter.png
