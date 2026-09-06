@@ -1,0 +1,11 @@
+Charizard checkpoint r03 — manual Blender GUI work. Video: r01 before on top, retained r03 below.
+
+I shortened/reposed the oversized tail and fixed the zero-area triangulation. The face-narrowing experiment made the nose/mouth pinched and wrinkled, so I rejected it and restored the previous face. Both trials remain in the inspector. This is still rough: the head needs deliberate rebuilding, and the tail bend/flame need more work. No final textures, rig or attack animations yet.
+
+Source + GLB reopened with matching counts/bounds. Four closed meshes, 339,818 triangles, zero zero-area triangles. Bounded tail check found no confirmed crossings; this is not whole-character or S+ acceptance.
+
+Phone video: https://0.taila30dc.ts.net:8445/assets/blender/charizard-whole-r03/turntable-whole-r01-vs-whole-r03.mp4
+Choose/compare: https://0.taila30dc.ts.net:8445/devtools/experiments.html?pokemon=charizard&a=charizard-whole-r03-match-r01&b=charizard-whole-r03&view=fair-threequarter
+
+Asset milestone: 419481ddda5c9f4a79f5b5c15a240ecb518b2d73. No merge/push. Repaired Field OS on8469 stays unchanged; S25 acceptance remains yours to retest.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r03/turntable-whole-r01-vs-whole-r03.mp4
