@@ -1,0 +1,26 @@
+[
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r26/head-inspection.json",
+    "sha256": "4cc857ded53ca4c69863e68e93e6a9ec1b43099959838ab7ea8b25b87c58cbea"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r26/current-ui.png",
+    "sha256": "e7b1578f4a4833df6d28911e84e9495dad498163d6fdca3f87f95b25224851ae"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r26/r26-intake-head-front.png",
+    "sha256": "37289c8d01c73557fb09924f9da85dd5912ade51330c3368c267e2672b5977d7"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r26/r26-intake-head-rear.png",
+    "sha256": "0bcbd75f9c4eadf7548c0893867eb3eb4e97d0fabd4aabd0c7ebcd396b8275e1"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r26/r26-intake-head-side.png",
+    "sha256": "b58b7570098ac6b56640f8ae3afe5c59310d5bd49f930dc19dc088ba5d11ec49"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r26/r26-intake-head-threequarter.png",
+    "sha256": "a56106d07bd0e74c68a2b0270414d50d9050020fd19717a6b47402da9f532563"
+  }
+]
