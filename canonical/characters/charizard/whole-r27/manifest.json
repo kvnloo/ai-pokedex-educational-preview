@@ -1,0 +1,62 @@
+[
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r27/before.json",
+    "sha256": "c58ab7ecb45039c6d24cb4d8863f1208abd1ccac8b27696f4400780205af951b"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r27/charizard-hybrid-r27-intake.blend",
+    "sha256": "87ea205376259ee1215bc70e4718473fdbf60826a7633afd11dbc74d1ffd3fba"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r27/charizard-hybrid-r27a-center-claws.blend",
+    "sha256": "a88a09a6eec268fe09f3ef4760fd383ade81ceda62a9261a2392567e202dbaa8"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r27/intake-feet-front.png",
+    "sha256": "391622839e3a1b762ff35570f4882e39bef4b57ecb501a42d3c2e80f38ba82b4"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r27/intake-feet-rear.png",
+    "sha256": "48a22545f099ca0ef8fd3df0dada2812263896d224725aab86ab1bf30d65b66d"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r27/intake-feet-side.png",
+    "sha256": "08dd59bfc1d74940ee544a82e7ecb9a06b7dd9f769d0ff8155e32405f0d0cafb"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r27/intake-feet-threequarter.png",
+    "sha256": "32a4d6f6b4a1b001153a054ea2d5009af55e547aeefd27311ea703ddf337c22c"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r27/r27a-feet-front.png",
+    "sha256": "1e9f45ff67a221c3445d13631cdfb2f66aa1b88edc29ede683585a85b03b52a4"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r27/r27a-feet-rear.png",
+    "sha256": "2beb9826e71e18cd47b4b444e2e99379d625f9721f240d4ae4f53d4417a12cc8"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r27/r27a-feet-side.png",
+    "sha256": "5901c86032f087506bc26c55ea25617f191ffa97c2c04f066b59cc9d9e17bf10"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r27/r27a-feet-threequarter.png",
+    "sha256": "d9c75e23d1723af34956f3b263007e788fb2e88f31462a387ea51bba418f0a2e"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r27/r27a-front.png",
+    "sha256": "63dbe86c93a9e3c2d3d1cd8ba8c66cfa8604a7aa84951a0b5213d494757221a7"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r27/r27a-rear.png",
+    "sha256": "00d547d83a1e8479632347b0b632c5edfeeede8b7f847cf79b6faa7aa0cb942b"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r27/r27a-side.png",
+    "sha256": "8c24ddff3bbcee51b66ad7c1f1877bd77cba77fbcff909bad85c69e5bc577481"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r27/r27a-threequarter.png",
+    "sha256": "8190a7bc9ae696c64d18c1c7a265d60247c2b95573c16c6f550e3144f6b9f57a"
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "changedMatrices": [
+    "GEO-r11-foot-claw-L1",
+    "GEO-r11-foot-claw-R1"
+  ],
+  "allMeshCoordinatesUnchanged": true,
+  "nativeOperation": "center claws globalY -.025"
+}
