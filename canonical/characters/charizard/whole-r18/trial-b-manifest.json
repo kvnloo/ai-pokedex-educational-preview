@@ -1,0 +1,38 @@
+[
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r18/charizard-hybrid-r18b-graded-haunch.blend",
+    "sha256": "9f08d4e43073ede2efd49710226bb6ef9e74e53e4672f9686191494188beaaf3"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r18/r18b-front.png",
+    "sha256": "96124dfd9fc8238cf5e33a8ead2c0e4b1d0dee1da70a85e3e6a945666451e677"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r18/r18b-legs-front.png",
+    "sha256": "399af3efb6a2ba28dfbcd13aa27a025b8b3cb28eaaaa8381b57491403a3ea049"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r18/r18b-legs-rear.png",
+    "sha256": "b8b9d3dc4394b016b6a17d72ccdf2bc512f4b811e97b82e3a6ffcb6614e131f1"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r18/r18b-legs-side.png",
+    "sha256": "444af588d5b92b5ca552cbd8273547f6ee1f66156a49daf916ef09113be315ea"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r18/r18b-legs-threequarter.png",
+    "sha256": "81843d2d76de68c4b4beff6088c378e53a1d46d294da1d8af0a061f7f4549ad0"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r18/r18b-rear.png",
+    "sha256": "6b06b8add68cd6380a424b0e5a159f806c1eed1e9f1fff734d777d4b79090ec4"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r18/r18b-side.png",
+    "sha256": "1c80b8faf7a44931ec10afc3157decab01f67d1b154a2133300deceace4d8458"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r18/r18b-threequarter.png",
+    "sha256": "a3ed8dae69f6e84202e97a080c0fd65faf670d2818340bdda0548adbaf01ab27"
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r18/charizard-hybrid-r18b-graded-haunch.blend",
+  "changes": {
+    "GEO-r11-thigh-L": {
+      "count": 136,
+      "maxWorldAxisDelta": [
+        0.0,
+        0.05000000633299351,
+        0.0
+      ]
+    },
+    "GEO-r11-thigh-R": {
+      "count": 136,
+      "maxWorldAxisDelta": [
+        0.0,
+        0.05000000633299351,
+        0.0
+      ]
+    }
+  },
+  "faceChanges": [],
+  "matrixChanges": []
+}
