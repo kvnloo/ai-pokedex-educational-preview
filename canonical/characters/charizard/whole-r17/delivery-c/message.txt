@@ -1,0 +1,3 @@
+Charizard r17C work-in-progress — dfbce76. Rejected the inward-eye trial and moved back to larger head forms. Native Blender edits raised the muzzle bridge and broadened the cheek. This is still an unaccepted blockout: the close-up change is modest and full-body likeness needs more work. Sharing the actual render, not a finished-quality claim.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r17/r17c-head-threequarter.png
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r17/r17c-threequarter.png
