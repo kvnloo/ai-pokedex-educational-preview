@@ -1,0 +1,8 @@
+Charizard r15E preview: broader lower belly with less of the hanging-egg shape. The xhigh critic retained this as a modest blockout improvement; flank, neck and jaw still need work. The neck descent trial was rejected and rolled back.
+
+Your MAX planning agent and XHIGH critic are set up and have both reviewed this iteration. I remain the sole Blender editor.
+
+Source and GLB reopened: 39 meshes / 7,984 triangles. Flame remains runtime-only. This is not the final quality gate. Known source/GLB mouth-shading difference remains.
+Revision: 0723c0f1b2d2ca57825214140502fcb56a6d62cf
+No merge/push/deploy.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r15/r15e-threequarter.png

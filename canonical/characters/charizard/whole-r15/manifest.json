@@ -222,6 +222,11 @@
       "name": "validation-r15e.json",
       "bytes": 20305,
       "sha256": "7e7fba9abbc61d79ff2edc93adc501de2d10e884ab41fa33113c21527dbb1815"
+    },
+    {
+      "name": "gui-r15e-home-review.png",
+      "bytes": 318408,
+      "sha256": "8041d2fbf8a3d4689454ebe65816cacaaef436f2d465de5f7f5753b5653c5c79"
     }
   ]
 }
