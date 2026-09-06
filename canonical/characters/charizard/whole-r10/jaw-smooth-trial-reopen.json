@@ -1,0 +1,29 @@
+{
+  "sourceReopened": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r10/charizard-components-r10-jaw-smooth-trial.blend",
+  "sourceBytes": 16918483,
+  "glbReopened": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r10/charizard-components-r10-jaw-smooth-trial.glb",
+  "parts": [
+    {
+      "name": "GEO-charizard-body-remainder-r10",
+      "vertices": 320190,
+      "triangles": 640036,
+      "intentionalBoundaryEdges": 342,
+      "otherNonManifoldEdges": 0
+    },
+    {
+      "name": "GEO-charizard-head-neck-r10",
+      "vertices": 25671,
+      "triangles": 50998,
+      "intentionalBoundaryEdges": 342,
+      "otherNonManifoldEdges": 0
+    }
+  ],
+  "meshCount": 2,
+  "socketVerified": true,
+  "materialCount": 0,
+  "uvLayerCount": 0,
+  "animations": [],
+  "topologyStatus": "Intentional matching open neck rings; not final deformation topology",
+  "visualAcceptance": false,
+  "publication": false
+}

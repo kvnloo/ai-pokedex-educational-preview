@@ -1,0 +1,28 @@
+{
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r09/charizard-home-native-r09-horn-isolated.blend",
+  "scene": "EDIT-charizard-components-r10",
+  "parts": [
+    {
+      "name": "GEO-charizard-head-neck-r10",
+      "vertices": 25671,
+      "triangles": 50998,
+      "intentionalBoundaryEdges": 342,
+      "otherNonManifoldEdges": 0
+    },
+    {
+      "name": "GEO-charizard-body-remainder-r10",
+      "vertices": 320190,
+      "triangles": 640036,
+      "intentionalBoundaryEdges": 342,
+      "otherNonManifoldEdges": 0
+    }
+  ],
+  "anatomicalVertexDisplacement": 0,
+  "cutZ": 0.1,
+  "ringEdgesPerPart": 342,
+  "constructionBoundariesIntentional": true,
+  "productionTopologyLocked": false,
+  "shapeQualityAccepted": false,
+  "sourcePreserved": "GEO-charizard-home-whole-r09",
+  "remaining": "Separate membranes from spars, wings from torso, tail, arms/legs, eyes and hard parts"
+}

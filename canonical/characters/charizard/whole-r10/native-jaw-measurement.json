@@ -1,0 +1,38 @@
+{
+  "method": "Two native GUI Grab strokes in right orthographic view; X symmetry enabled",
+  "strokes": [
+    {
+      "brushSizePx": 300,
+      "strength": 0.4,
+      "start": [
+        489,
+        374
+      ],
+      "end": [
+        500,
+        341
+      ]
+    },
+    {
+      "brushSizePx": 300,
+      "strength": 1,
+      "start": [
+        490,
+        374
+      ],
+      "end": [
+        502,
+        333
+      ]
+    }
+  ],
+  "changedVertices": 4558,
+  "maxDisplacement": 0.05182582437010779,
+  "neckJoinMaxDisplacement": 0.0,
+  "upperHeadZOver055MaxDisplacement": 0.007842524432753727,
+  "intentionalBoundaryEdges": 342,
+  "otherNonManifoldEdges": 0,
+  "zeroAreaFaces": 0,
+  "visualReview": "pending",
+  "productionAccepted": false
+}

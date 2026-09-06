@@ -1,0 +1,35 @@
+{
+  "decision": "Retain compact component intake as rollback; retain jaw-smooth only as an unapproved comparison candidate",
+  "visualAcceptance": false,
+  "productionTopologyLocked": false,
+  "publication": false,
+  "observedImprovement": "Jaw underside has less hanging volume. Follow-up native smoothing reduces the new surface ripples.",
+  "remainingProblems": [
+    "Cheek-to-throat transition is too recessed in the jaw candidate; mouth expression has changed.",
+    "Muzzle is inflated, horns blunt, eye and mouth structure unresolved.",
+    "Body, wings, membranes, spars, legs and tail still share the body-remainder mesh. Component separation is incomplete.",
+    "Whole-body silhouette and surface quality remain below Kevin visual gate."
+  ],
+  "inspectedViews": [
+    "intake and jaw head front/side/threequarter",
+    "jaw-smooth head front/side/threequarter",
+    "jaw-smooth whole front/side/rear/threequarter",
+    "native Blender GUI with official HOME reference"
+  ],
+  "comparisonLimit": "Fixed mesh-to-mesh cameras, not calibrated orthographic official-art overlays. HOME remains the source reference; no invented views treated as official.",
+  "next": "Continue head silhouette using visible reference landmarks; account for posed head orientation before using object-X sculpt symmetry. Resolve muzzle and jaw shape before microdetail.",
+  "effort": {
+    "requestedDefault": "xhigh",
+    "continuationTool": "send_message_to_thread thinking=xhigh",
+    "toolAccepted": true,
+    "currentTurnRuntimeVerified": false,
+    "appliesTo": "subsequent continuation; global config not changed"
+  },
+  "recovery": {
+    "crashOperation": "bpy.data.libraries.write during component-only save",
+    "cause": "not established",
+    "replacementPid": 4106097,
+    "r09SourceHashUnchanged": "98c63ab050389607fc7b8547ea5a5470dda39e21e7fc0ce1b1a78f3e5f6a25bd",
+    "successfulSave": "wm.save_as_mainfile after context settled"
+  }
+}

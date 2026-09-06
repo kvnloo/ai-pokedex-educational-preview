@@ -1,0 +1,40 @@
+{
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r10/charizard-components-r10-intake.blend",
+  "scenes": [
+    "EDIT-charizard-components-r10"
+  ],
+  "objects": [
+    "CAM-r10-front",
+    "CAM-r10-side",
+    "CAM-r10-rear",
+    "CAM-r10-threequarter",
+    "GEO-charizard-head-neck-r10",
+    "GEO-charizard-body-remainder-r10",
+    "FlameSocket"
+  ],
+  "removedFromWorkingCopyOnly": [
+    "EDIT-charizard-head-home-r07",
+    "EDIT-charizard-head-home-r07.001",
+    "EDIT-charizard-head-home-r08",
+    "EDIT-charizard-head-home-r08.001",
+    "EDIT-charizard-whole-home-r09",
+    "EDIT-charizard-whole-r04",
+    "EDIT-charizard-whole-r04.001",
+    "EDIT-charizard-whole-r05",
+    "EDIT-charizard-whole-r05.001",
+    "EDIT-charizard-whole-r06",
+    "EDIT-charizard-whole-r06.001",
+    "EXPORT-charizard-home-head-r07",
+    "EXPORT-charizard-home-head-r07.001",
+    "EXPORT-charizard-home-head-repaired-r07",
+    "EXPORT-charizard-home-head-repaired-r07.001",
+    "EXPORT-charizard-whole-r06",
+    "EXPORT-charizard-whole-r06.001",
+    "REFERENCE-charizard-head-baselines-r07",
+    "REFERENCE-charizard-head-baselines-r07.001",
+    "REVIEW-native-r09-fixed-views",
+    "VALIDATION-native-r09-GLB",
+    "VALIDATION-native-r09-GLB.001"
+  ],
+  "historicalFilesModified": false
+}
