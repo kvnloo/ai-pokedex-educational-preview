@@ -1,0 +1,12 @@
+{
+  "glbBytes": 137620,
+  "sourceBytes": 143429,
+  "meshes": 36,
+  "nodes": 37,
+  "textures": 0,
+  "animations": [],
+  "preservedRollbacks": [
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r10/charizard-components-r10-intake.blend",
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r10/charizard-components-r10-jaw-smooth-trial.blend"
+  ]
+}

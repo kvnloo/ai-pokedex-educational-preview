@@ -1,0 +1,46 @@
+{
+  "revision": "r11d",
+  "visualGatePassed": false,
+  "productionAccepted": false,
+  "stage": "coarse-blockout",
+  "decision": "Retain d as the current coarse construction candidate; do not promote over dense studies as a finished likeness result.",
+  "silhouette": "FAIL: component decomposition is now controllable; shoulder transitions remain mechanical and wing surfaces are flat.",
+  "torsoToHead": "Measured abdomen/head world width1.719; head is turned, so this is not an anatomical or calibrated art ratio. Broad abdomen retained; head shape not locked.",
+  "wingSpan": "Measured span/abdomen width3.397. Large silhouette retained. Root position, spars and membrane curvature need more reference matching.",
+  "legMass": "Squat, broad thighs are closer than r11a. Foot orientation, stance and shin transitions remain coarse and unapproved.",
+  "armLength": "Reduced reach retained; upper-arm root still visibly mechanical. Hands/fingers are placeholders.",
+  "headProfile": "FAIL: one short broad block now replaces the stacked ovals; cheek, muzzle plane and horn placement are still unresolved. No face detail authorized yet.",
+  "neckThickness": "Head/neck gap repaired in d; thick neck retained. Chest transition and S-curve remain visibly coarse.",
+  "tailAttachment": "Transported ring frame repaired twist, pelvic overlap retained, separate tail and endpoint socket verified. Intersections are construction overlaps and have not passed production validation.",
+  "viewsInspected": [
+    "r11a-front.png",
+    "r11a-side.png",
+    "r11a-rear.png",
+    "r11a-threequarter.png",
+    "r11b-front.png",
+    "r11b-side.png",
+    "r11b-rear.png",
+    "r11b-threequarter.png",
+    "r11c-front.png",
+    "r11c-side.png",
+    "r11c-rear.png",
+    "r11c-threequarter.png",
+    "r11d-front.png",
+    "r11d-side.png",
+    "r11d-rear.png",
+    "r11d-threequarter.png"
+  ],
+  "referenceComparison": {
+    "front": "HOME and official illustration support wide belly, small arms, broad head and enormous wings; candidate remains unapproved.",
+    "side": "Profile inferred from oblique HOME/art. No supplied matching side orthographic reference; exact side fidelity remains unverified.",
+    "rear": "Official rear game sprite supports general wing/head/tail relationships but is low resolution and differently posed. Exact rear fidelity remains unverified.",
+    "threequarter": "Compared directly to HOME/art and in Blender GUI; no claim of camera-calibrated overlap."
+  },
+  "effort": {
+    "requested": "xhigh",
+    "maxUsed": false,
+    "runtimeEffortIndependentlyVerified": false
+  },
+  "next": "Continue coarse reference alignment of head/neck, wing roots and stance; require another four-view critique before refinement.",
+  "publication": false
+}

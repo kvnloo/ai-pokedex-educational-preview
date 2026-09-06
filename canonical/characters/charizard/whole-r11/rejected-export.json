@@ -1,0 +1,23 @@
+{
+  "reason": "export_apply omitted; exported base cages rather than evaluated modifiers",
+  "passed": false,
+  "mismatches": {
+    "head": [
+      288,
+      76
+    ],
+    "neck": [
+      704,
+      188
+    ],
+    "eachMembrane": [
+      64,
+      15
+    ],
+    "tail": [
+      832,
+      220
+    ]
+  },
+  "correction": "export_apply=True; reopen and compare evaluated geometry"
+}

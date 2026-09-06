@@ -1,0 +1,13 @@
+{
+  "revision": "r11a",
+  "gatePassed": false,
+  "silhouette": "FAIL: upright egg body, hanging thighs, mechanical wing edges.",
+  "torsoToHead": "FAIL: head reads as three stacked blobs; jaw/muzzle not one short broad mass.",
+  "wingSpan": "Retain large span for next comparison; no evidence to shrink wings yet.",
+  "legMass": "FAIL: sufficient volume but too vertical; broaden and squat thighs.",
+  "armLength": "FAIL: low hands and projecting roots; shorten reach and move roots inward.",
+  "headProfile": "FAIL: sausage-shaped muzzle and exposed eye spheres.",
+  "neckThickness": "Review: adequate coarse diameter, but angular S and exposed chest transition.",
+  "tailAttachment": "FAIL: base depth needs more pelvic overlap; tube frame twist must be repaired.",
+  "referenceLimit": "HOME and illustration are oblique references; rear sprite is low resolution and differently posed. No supplied exact side orthographic reference."
+}
