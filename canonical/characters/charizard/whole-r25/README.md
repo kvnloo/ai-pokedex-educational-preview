@@ -5,3 +5,5 @@ Base retained/exportvalidatedr24A. Native multiobjectedit inwardtranslations: el
 A audit confirms intended76wing coordinates Xonly, roots/outerlandmarks unchanged. Rootall4views. Head/eyes/jaw versuswing surfaceBVH no overlap pairs; containmentnotchecked, notwholeintersectionpass. Critic rejects retention pending silhouetteclearance correction despite no physicaloverlap. Telegram17184 confirmedApreview.
 
 B native matchingwristgroups .05outward, keepingelbowpositions. SavedB and4views; root3q gapimproved. Finalcriticpending; nomoreamplitudeloop.
+
+B retained by critic after4views and A3q comparison. Clearbackgroundgap beside muzzle restored; broaderfans/spreadspars retained, continuousborders/scallops, no observednewkink/gap. Root inspectedall4sourceviews. Closewingtrial atthisamplitude. Exportvalidationpending; wholevisualgate false.
