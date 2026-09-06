@@ -1,0 +1,3 @@
+Charizard crown comparison — 1e4387a. D (first) raised and widened the crown: rejected because it obscures the eye. E (second) isolates height only: still under review, not accepted. Both are actual Blender renders; rollback preserved.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r17/r17d-head-threequarter.png
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r17/r17e-head-threequarter.png
