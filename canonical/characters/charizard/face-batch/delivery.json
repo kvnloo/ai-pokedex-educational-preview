@@ -1,0 +1,45 @@
+{
+  "checkpoint": "charizard-head-r18",
+  "milestoneRevision": "000abdac3d72f19eec047bf442da247da512e5a7",
+  "recordedAt": "2026-09-06T02:48:58.532399+00:00",
+  "manifestSHA256": "7eae23333445026b9581d4e1499b67f5070d81ece7ef0f49748389ce378ef73a",
+  "manifestVerifiedRecords": 606,
+  "phoneUrl": "https://0.taila30dc.ts.net:8445/devtools/pokedex.html?pokemon=charizard&tab=iterations&run=charizard-head-r18&view=face-negative-side",
+  "comparisonUrl": "https://0.taila30dc.ts.net:8445/devtools/experiments.html?pokemon=charizard&a=charizard-head-r09&b=charizard-head-r18&view=face-negative-side",
+  "telegram": {
+    "success": true,
+    "platform": "telegram",
+    "chat_id": "1083429746",
+    "message_id": "16847",
+    "mirrored": true
+  },
+  "message": {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r04/head-r18/telegram-message.txt",
+    "bytes": 1289,
+    "sha256": "5544e2a71650ae9a8bccfc28d7e3d2c4332b0936a115da2d7dec9887e65ba8cf"
+  },
+  "receipt": {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r04/head-r18/telegram-receipt.json",
+    "bytes": 120,
+    "sha256": "8a5fea4be8a90456654282e0d0ef6ec5868621d123e4d29f529b40bd31618926"
+  },
+  "media": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r04/head-r18/face-negative-side.png",
+      "bytes": 1234366,
+      "sha256": "c497b9a388834b4851e4a85141414938173ca82265bff2747298f236969fe27c"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r04/head-r18/face-reference.png",
+      "bytes": 1278160,
+      "sha256": "892b16fb7afe9dafd7eea0cb768e70540b9e6af298af3ea45575d7aa4aafab6d"
+    }
+  ],
+  "fieldOSReleaseUnchanged": "f85e3ae295feec02",
+  "fieldOSURL": "https://0.taila30dc.ts.net:8469/pokedex.html",
+  "actualS25Acceptance": "pending",
+  "merged": false,
+  "pushed": false,
+  "overallGoal": "active; complete Charizard before another Pokemon",
+  "next": "Refine muzzle, jaw and eyelids against official references; later body anatomy, deformation topology, UV/PBR, rig/animations/attacks and game integration remain open."
+}
