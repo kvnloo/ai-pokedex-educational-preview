@@ -1,0 +1,11 @@
+Charizard r14 update: current candidate r14f.
+
+Native Blender edits now give him a separate lower jaw, recessed mouth interior and a small physical mouth clearance. The lowest neck ring fits into the torso better. I rejected a second neck shrink that gave little visual benefit.
+
+Still a rough likeness study. Mouth corners extend too far rearward; eye expression and component joins need work. No texture or rig pass yet.
+
+The saved .blend and GLB reopened. 39 mesh components, 7,984 triangles. Head/jaw geometry matches through export, and the targeted overlap check reports zero intersections between them. A localized Workbench mouth-shading difference remains unresolved; this is not a visual acceptance claim.
+
+FlameSocket only; no flame mesh. Rollbacks preserved. Nothing merged, pushed or deployed.
+Asset revision: 16db1d49c588b1ba413c4270debe7680cb56db4e
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r14/gui-r14f-home-review.png

@@ -1,0 +1,12 @@
+{
+  "assetRevision": "16db1d49c588b1ba413c4270debe7680cb56db4e",
+  "preview": "gui-r14f-home-review.png",
+  "previewSha256": "ca5e81a389c701fa386119ded18dd15195bc8afd607be23bc578e9b593e6d004",
+  "result": {
+    "success": true,
+    "platform": "telegram",
+    "chat_id": "1083429746",
+    "message_id": "17112",
+    "mirrored": true
+  }
+}
