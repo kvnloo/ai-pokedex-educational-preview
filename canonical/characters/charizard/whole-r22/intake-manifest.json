@@ -1,0 +1,14 @@
+[
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r22/before.json",
+    "sha256": "45ba35426fc20c97aa89dd294bb1de281dcc671726aee6468dcb56290d597ff4"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r22/charizard-hybrid-r22-intake.blend",
+    "sha256": "45cd9f8e22d16b9b5f71abf61bdc3b7674fe1476248a28ee5b0baccda12932bd"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r22/gui-tail-intake.png",
+    "sha256": "eedd6022eee46634e5aa9522758e7e53ec6fc6a18457902e7aacdad6c91e2418"
+  }
+]

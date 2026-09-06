@@ -1,0 +1,2 @@
+Charizard r21D —231a808. Retained coarse finger bends; original roots/tips unchanged. Export reopened and visually checked:39 meshes,8456 triangles. Blunt tips, component seams and whole-character likeness remain unfinished. Next investigating tail/pelvis form.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r21/r21d-threequarter.png
