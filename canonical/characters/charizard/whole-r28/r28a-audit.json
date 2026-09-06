@@ -1,0 +1,113 @@
+{
+  "coordinatesUnchanged": true,
+  "changedEdgeCreases": [
+    {
+      "i": 33,
+      "vertices": [
+        4,
+        8
+      ],
+      "before": 0.0,
+      "after": 0.3499999940395355
+    },
+    {
+      "i": 34,
+      "vertices": [
+        5,
+        9
+      ],
+      "before": 0.0,
+      "after": 0.3499999940395355
+    },
+    {
+      "i": 36,
+      "vertices": [
+        6,
+        10
+      ],
+      "before": 0.0,
+      "after": 0.3499999940395355
+    },
+    {
+      "i": 37,
+      "vertices": [
+        7,
+        11
+      ],
+      "before": 0.0,
+      "after": 0.3499999940395355
+    },
+    {
+      "i": 47,
+      "vertices": [
+        29,
+        28
+      ],
+      "before": 0.0,
+      "after": 0.5
+    },
+    {
+      "i": 48,
+      "vertices": [
+        30,
+        29
+      ],
+      "before": 0.0,
+      "after": 0.5
+    },
+    {
+      "i": 49,
+      "vertices": [
+        31,
+        30
+      ],
+      "before": 0.0,
+      "after": 0.5
+    },
+    {
+      "i": 50,
+      "vertices": [
+        28,
+        31
+      ],
+      "before": 0.0,
+      "after": 0.5
+    },
+    {
+      "i": 55,
+      "vertices": [
+        33,
+        32
+      ],
+      "before": 0.0,
+      "after": 0.5
+    },
+    {
+      "i": 56,
+      "vertices": [
+        34,
+        33
+      ],
+      "before": 0.0,
+      "after": 0.5
+    },
+    {
+      "i": 57,
+      "vertices": [
+        35,
+        34
+      ],
+      "before": 0.0,
+      "after": 0.5
+    },
+    {
+      "i": 58,
+      "vertices": [
+        32,
+        35
+      ],
+      "before": 0.0,
+      "after": 0.5
+    }
+  ]
+}
