@@ -1,0 +1,50 @@
+{
+  "candidate": "r16b",
+  "changedPositions": {
+    "GEO-r11-neck": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ],
+    "GEO-r14-jaw": [
+      5,
+      6,
+      9,
+      10
+    ]
+  },
+  "topologyChanges": [],
+  "transformChanges": [],
+  "other37MeshesUnchanged": true,
+  "allNeckHeightsPreserved": true,
+  "upperNeckVertices32Through95Unchanged": true
+}

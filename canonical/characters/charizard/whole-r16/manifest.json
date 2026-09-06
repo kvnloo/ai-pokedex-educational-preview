@@ -1,0 +1,167 @@
+{
+  "retained": "r16b",
+  "assetRoot": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r16",
+  "productionAccepted": false,
+  "files": [
+    {
+      "name": "before.json",
+      "bytes": 556067,
+      "sha256": "291b8eb18a18ce9f74d8e118d547f58003f26e772207494128643caaf2456a26"
+    },
+    {
+      "name": "charizard-blockout-r16b.glb",
+      "bytes": 161376,
+      "sha256": "608437a124f4c0ac7206e39ee919054468c7eba7bcbba4d0c4f90b6c2abea688"
+    },
+    {
+      "name": "charizard-hybrid-r16-intake.blend",
+      "bytes": 145368,
+      "sha256": "c8b379e12629c5a63b421aaa20de37628e99f4511cb032eb78bafaf7e5379bea"
+    },
+    {
+      "name": "charizard-hybrid-r16a-jaw-underside.blend",
+      "bytes": 148497,
+      "sha256": "9d39e922b989f46a3363d07cf4e037111417454e10ea49e890c0478b44854a21"
+    },
+    {
+      "name": "charizard-hybrid-r16b-neck-flare.blend",
+      "bytes": 148263,
+      "sha256": "82d40ac8c30750b8ba79df12f325fa586a3339c81b74aa784823ee1130a1a173"
+    },
+    {
+      "name": "glb-reopened-r16b-front.png",
+      "bytes": 1010880,
+      "sha256": "48ab81cbd65ce8abfd73b5e3d684595b4134581dda5aba012a71e31b5067150c"
+    },
+    {
+      "name": "glb-reopened-r16b-rear.png",
+      "bytes": 1002728,
+      "sha256": "24dc9cebb7db639050b3e3bd7c27ca5e9402f567de099a2d67a0f4492ad4e248"
+    },
+    {
+      "name": "glb-reopened-r16b-side.png",
+      "bytes": 907610,
+      "sha256": "4c0bf8913cd2011d9b78aa2fe37345a065b924a5a036317aeb4a4d8f9ddcd77f"
+    },
+    {
+      "name": "glb-reopened-r16b-threequarter.png",
+      "bytes": 1018376,
+      "sha256": "646b19c6e9e905df3c8aaf8de276c258614cd9232a0373583db60ad0575f9964"
+    },
+    {
+      "name": "gui-jaw-start.png",
+      "bytes": 315055,
+      "sha256": "b3761a7442d8c30ce9f4d7be16566388a76242ea869330ae326c4d93ded4cd88"
+    },
+    {
+      "name": "gui-neck-b-aligned.png",
+      "bytes": 334261,
+      "sha256": "774df7e642d28b5b6b0fd35ec4be59074ac5044652062f032d6c4084108da57e"
+    },
+    {
+      "name": "gui-neck-b-side.png",
+      "bytes": 326026,
+      "sha256": "23a09c9da63a48597408d0a9a9f6be9b37cb25b23fc0005e9bb5d6032aa6feca"
+    },
+    {
+      "name": "gui-neck-b-start.png",
+      "bytes": 328085,
+      "sha256": "69758abf243b0315a780d9ee78609953f4b5a9b9a3e4c0c47f3e8f14b2c9d157"
+    },
+    {
+      "name": "intake-head-front.png",
+      "bytes": 977649,
+      "sha256": "d3a8431d003f021cf7b6b09eb06e1377beea5ad3350ca8885ee238bdac1385e9"
+    },
+    {
+      "name": "intake-head-rear.png",
+      "bytes": 981543,
+      "sha256": "6e10224d9f6c6f34d5b3ed2b58e710778e5b6924852fb650bb3ea27a579234bd"
+    },
+    {
+      "name": "intake-head-side.png",
+      "bytes": 979428,
+      "sha256": "3c064b896c69f0264ead89892c4c1f780289a872fd748bf864cae5a1d2a629c2"
+    },
+    {
+      "name": "intake-head-threequarter.png",
+      "bytes": 1118466,
+      "sha256": "138c205ba324018687bed8978956d413d9a5c209bb3b9c573bbb86ed26899f92"
+    },
+    {
+      "name": "r16a-front.png",
+      "bytes": 1010331,
+      "sha256": "489fa401aaacd657235cf1c75ffd71eb794dd0895d0c29eaaf430b5a2bf8369c"
+    },
+    {
+      "name": "r16a-head-front.png",
+      "bytes": 976021,
+      "sha256": "f75097a46a30370e33aba9032786a1a62100d3b768c6eca243a01f05096099cb"
+    },
+    {
+      "name": "r16a-head-rear.png",
+      "bytes": 977780,
+      "sha256": "21a6491eb21cc57b556c240d71087d274a7f7cc2ac2639cd67831f31fcfda31c"
+    },
+    {
+      "name": "r16a-head-side.png",
+      "bytes": 976456,
+      "sha256": "76a5487a2fd70c31c47913c3477478a6cc52168eefbe1e0d452a7a6bb399d6ca"
+    },
+    {
+      "name": "r16a-head-threequarter.png",
+      "bytes": 1115940,
+      "sha256": "3bd48e5e4e9e59e54a0c78de7f19f272f58df4cf5d2d228ba25d6723a45d95f7"
+    },
+    {
+      "name": "r16a-rear.png",
+      "bytes": 1003074,
+      "sha256": "7bd524b3fd3ef88b083c83d6418a02e58770e652a9d3ee0f56e737cb131f7dd9"
+    },
+    {
+      "name": "r16a-side.png",
+      "bytes": 907433,
+      "sha256": "4945c7ada14898b162c938afb7773c25e27c024f44d1bdd8455acdd5b8c135cc"
+    },
+    {
+      "name": "r16a-threequarter.png",
+      "bytes": 1015815,
+      "sha256": "dc0097fd959d045b5978517a56e17f2d01164556dcb774a9f663417faed478d4"
+    },
+    {
+      "name": "r16b-front.png",
+      "bytes": 1009726,
+      "sha256": "b50c1001f14c8200ab64acdd2b2355617b5cf931cfa48ee9eb8aabdd44cbcabd"
+    },
+    {
+      "name": "r16b-rear.png",
+      "bytes": 1002193,
+      "sha256": "21f3e011d9c51432601ba128b44ae7630ded82569804f7cd8d046d2154699ba3"
+    },
+    {
+      "name": "r16b-side.png",
+      "bytes": 907094,
+      "sha256": "ef7000fce9ead90c957fa656c202fc9eb6add58d76a64e253d9921e2a5a0e665"
+    },
+    {
+      "name": "r16b-threequarter.png",
+      "bytes": 1015391,
+      "sha256": "8f548293048ee8596d37334846f0356f6c51901a15e5244602224dca6bb01aff"
+    },
+    {
+      "name": "scope-audit-r16a.json",
+      "bytes": 202,
+      "sha256": "632acac0ae1bf92c81497618689a63c1f0ea7c12daf16668ae7fd9c7665d139f"
+    },
+    {
+      "name": "scope-audit-r16b.json",
+      "bytes": 624,
+      "sha256": "bc2231cfef250fa96656bc89857d9d8a6ad4ca33a5a82d2592e8d48fe07d1b25"
+    },
+    {
+      "name": "validation-r16b.json",
+      "bytes": 20300,
+      "sha256": "7d0013cf4b2f98dcacba6f32470152f766c877b6a5c200a7c90530ad03e24716"
+    }
+  ]
+}

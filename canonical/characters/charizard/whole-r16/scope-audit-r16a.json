@@ -1,0 +1,14 @@
+{
+  "candidate": "r16a",
+  "changedPositions": {
+    "GEO-r14-jaw": [
+      5,
+      6,
+      9,
+      10
+    ]
+  },
+  "topologyChanges": [],
+  "transformChanges": [],
+  "other38MeshesUnchanged": true
+}
