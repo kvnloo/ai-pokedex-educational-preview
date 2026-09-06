@@ -1,0 +1,48 @@
+{
+  "nativeStrokes": [
+    {
+      "brush": "Flatten/Contrast",
+      "strength": 0.18,
+      "diameter": 100,
+      "from": [
+        744,
+        489
+      ],
+      "to": [
+        554,
+        448
+      ]
+    },
+    {
+      "brush": "Elastic Grab",
+      "strength": 0.45,
+      "diameter": 100,
+      "from": [
+        710,
+        401
+      ],
+      "to": [
+        710,
+        382
+      ]
+    },
+    {
+      "brush": "Elastic Grab",
+      "strength": 0.75,
+      "diameter": 70,
+      "from": [
+        725,
+        408
+      ],
+      "to": [
+        725,
+        380
+      ]
+    }
+  ],
+  "changedVertices": 3802,
+  "maxDelta": 0.014195708622160578,
+  "matrixUnchanged": true,
+  "constructionSource": "r29 smooth-density; altered from A, not previously accepted",
+  "originalHeadPreserved": true
+}

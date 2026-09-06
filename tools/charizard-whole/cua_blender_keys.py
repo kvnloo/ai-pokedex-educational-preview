@@ -14,7 +14,7 @@ import time
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--pid', type=int, default=4106097)
 parser.add_argument('--window', type=int, default=4194306)
-parser.add_argument('operation', choices=('key', 'type', 'box'))
+parser.add_argument('operation', choices=('key', 'type', 'box', 'click', 'stroke'))
 parser.add_argument('values', nargs='+')
 args = parser.parse_args()
 env = dict(os.environ, DISPLAY=':1')
@@ -36,7 +36,30 @@ if focused.get('pid') != args.pid:
     raise SystemExit('Refusing input: owned Blender is not focused; never steal focus from the user')
 run('xdotool', 'mousemove', '--window', window, '620', '450')
 # Explicit window targeting prevents a focus change from redirecting text into chat.
-if args.operation == 'box':
+if args.operation == 'click':
+    if len(args.values) != 2:
+        raise SystemExit('click expects window-relative x y')
+    x, y = (str(int(value)) for value in args.values)
+    run('xdotool', 'mousemove', '--window', window, x, y)
+    run('xdotool', 'click', '1')
+elif args.operation == 'stroke':
+    if len(args.values) != 4:
+        raise SystemExit('stroke expects window-relative x1 y1 x2 y2')
+    x1, y1, x2, y2 = (int(value) for value in args.values)
+    run('xdotool', 'mousemove', '--window', window, str(x1), str(y1))
+    run('xdotool', 'mousedown', '1')
+    try:
+        for step in range(1, 13):
+            if json.loads(run('hyprctl', 'activewindow', '-j')).get('pid') != args.pid:
+                raise SystemExit('Focus changed during stroke; releasing mouse')
+            fraction = step / 12
+            run('xdotool', 'mousemove', '--window', window,
+                str(round(x1 + (x2 - x1) * fraction)),
+                str(round(y1 + (y2 - y1) * fraction)))
+            time.sleep(0.025)
+    finally:
+        run('xdotool', 'mouseup', '1')
+elif args.operation == 'box':
     if len(args.values) != 4:
         raise SystemExit('box expects x1 y1 x2 y2 in window coordinates')
     x1, y1, x2, y2 = (str(int(value)) for value in args.values)

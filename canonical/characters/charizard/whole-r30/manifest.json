@@ -1,0 +1,59 @@
+{
+  "status": "regional-improvement-retained",
+  "productionAccepted": false,
+  "glbValidated": false,
+  "review": "Xhigh critic retains brow/aperture improvement; cheek unresolved. Root inspected four whole-body views; construction seams and unfinished forms remain.",
+  "next": "Frozen geometry HOME-angle whole-character comparison before further anatomy edits.",
+  "files": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r30/charizard-hybrid-r30a-regional-brow.blend",
+      "bytes": 567813,
+      "sha256": "4ec757987e7a193908f0cc8bc3057b0b1a6d3b0f0fe2fc10a18d69d28bf8b005"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r30/sculpt-audit.json",
+      "bytes": 804,
+      "sha256": "e604e47d2c2e995a681e00f330e7568cce700c68a64dc79733e7f8d066a906c2"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r30/r30a-front.png",
+      "bytes": 1014930,
+      "sha256": "1daf9749ab94b56abaebab27b9d73e6494686ea16f3de20aa2c96e9ee466ab3c"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r30/r30a-rear.png",
+      "bytes": 1007838,
+      "sha256": "3b87b7ff3fcab2a8bad7f46610d6832aea63ac6c0ea93c30da56d9f3dfd311ca"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r30/r30a-side.png",
+      "bytes": 902593,
+      "sha256": "1278360159c499aba3052195f0c266de569e40757f71deae1c8c87ea0eabde73"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r30/r30a-threequarter.png",
+      "bytes": 1029201,
+      "sha256": "0f02260a3c437564b0c8423ffd8d96edb59f937c6e0c4858b46d670ca590476a"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r30/brow-wip-head-front.png",
+      "bytes": 986936,
+      "sha256": "856e8a6b1aebb8c35bdd8bfb4c65a9cf468ee9b2446f2b3749c65cb526dd51e5"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r30/brow-wip-head-rear.png",
+      "bytes": 992257,
+      "sha256": "9074818c10bbf8530f6df9250b002be0eb71a9b0171f63c711f32e797d87e340"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r30/brow-wip-head-side.png",
+      "bytes": 974832,
+      "sha256": "76d676f2e8a303d26249cd64d93d984b400f830af877fb23fe23b5a59a2bf9fc"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r30/brow-wip-head-threequarter.png",
+      "bytes": 1150711,
+      "sha256": "7ec7dc3ae139841b2e140b37e8ae670c9ef72062d7ddd5ce671fc68b5a547993"
+    }
+  ]
+}
