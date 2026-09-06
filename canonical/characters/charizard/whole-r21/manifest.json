@@ -1,0 +1,33 @@
+{
+  "status": "trial-critic-pending",
+  "files": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r21/before.json",
+      "sha256": "85a14d775d3ccb7639d5093a9490fdadd58b1cbc1b1769347be63ffe921fca91"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r21/charizard-hybrid-r21-intake.blend",
+      "sha256": "015eb3bbb02fd2ebbdbe5895d9fb5f525cc1380094c663e13f3f03500546eb74"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r21/charizard-hybrid-r21a-arm-smoothing.blend",
+      "sha256": "a0c3f818143017c49de8d3d9e41ab10521278e694fec67ef12f6bd2e76a6329d"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r21/r21a-front.png",
+      "sha256": "75a4d04c9ebdb0eb1494b24bc910ce0bd4c354677de29f12bbe2181419b2cd03"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r21/r21a-rear.png",
+      "sha256": "d929aa9300d4bbd39805b6291e598193a1cbcea8707e6d2c5fefa75490637b3e"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r21/r21a-side.png",
+      "sha256": "3e56a052983c1dabfae981095758013026964d7a080856f51ad7342e8b51c04d"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r21/r21a-threequarter.png",
+      "sha256": "341896d64db434e2f8ad6c58d02a4257fe52e4729d3652dd903a40cdede703de"
+    }
+  ]
+}
