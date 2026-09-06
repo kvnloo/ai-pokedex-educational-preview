@@ -7,3 +7,5 @@ A native pelvic-tail trial per max planner: ring0 median SZ0.8 then GZ+0.10; rin
 A retained by critic as limited placement gain: frontbulb recedes, higher side departure. Rearplug remains. Root inspected rear closeup; attachmentaudit verifies unchangedfaces/matrix/distalcoords and EMPTYsocket at(.86,.13,.58),energyBakedfalse.
 
 B bounded correction: native median SX1.2 ring0 and SX1.1 ring1. Height/distalcurve held. SavedB and4views. Root inspected front/rear; critic pending. No production acceptance.
+
+B retained by root and critic after all4source views; broader lesscircular rear departure, continuous taper, frontbulb remains suppressed, no newcuff. Stop root loop. Seam/integration incomplete. Source/GLB reopened:39meshes3268controlverts8456triangles; manifold/nondegenerate/bounds/count/socket checks pass. Reopened GLB visual renders pending.
