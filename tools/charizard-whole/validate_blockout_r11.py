@@ -8,14 +8,14 @@ from mathutils import Vector
 root=Path(globals().get('artifact_root','/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r11'))
 scene=bpy.context.scene
 checkpoint=globals().get('checkpoint','r11d')
-assert checkpoint in {'r11d','r11e','r12c','r13f','r13h','r13i'}
+assert checkpoint in {'r11d','r11e','r12c','r13f','r13h','r13i','r14c','r14f'}
 assert scene.name=='EDIT-charizard-coarse-r11' and len(bpy.data.scenes)==1
-expected_source={'r11d':'charizard-blockout-r11d-review.blend','r11e':'charizard-blockout-r11e-flame-contract.blend','r12c':'charizard-hybrid-r12c.blend','r13f':'charizard-hybrid-r13f-socket-cage.blend','r13h':'charizard-hybrid-r13h-head-turn.blend','r13i':'charizard-hybrid-r13i-head-turn.blend'}[checkpoint]
+expected_source={'r11d':'charizard-blockout-r11d-review.blend','r11e':'charizard-blockout-r11e-flame-contract.blend','r12c':'charizard-hybrid-r12c.blend','r13f':'charizard-hybrid-r13f-socket-cage.blend','r13h':'charizard-hybrid-r13h-head-turn.blend','r13i':'charizard-hybrid-r13i-head-turn.blend','r14c':'charizard-hybrid-r14c-neck-base.blend','r14f':'charizard-hybrid-r14f-mouth-clearance.blend'}[checkpoint]
 assert Path(bpy.data.filepath).name==expected_source
 geometry=[o for o in scene.objects if o.type=='MESH' and not o.hide_render]
 socket=scene.objects['FlameSocket']
 assert socket.type=='EMPTY' and socket.data is None and not socket.children
-if checkpoint in {'r11e','r12c','r13f','r13h','r13i'}:
+if checkpoint in {'r11e','r12c','r13f','r13h','r13i','r14c','r14f'}:
     assert socket.empty_display_size<=0.05
 assert socket.parent==scene.objects['GEO-r11-tail']
 assert socket.get('energyBaked') is False
@@ -70,7 +70,7 @@ report={'source':bpy.data.filepath,'sourceReopened':True,'glb':str(glb),'glbReop
     'evaluatedTriangles':sum(s['triangles'] for s in stats),'parts':stats,
     'ratios':{'wingSpan':span,'abdomenWidth':width(body),'headWorldWidth':width(head),
         'wingSpanToAbdomenWidth':span/width(body),'abdomenToHeadWorldWidth':width(body)/width(head)},
-    'referenceRatioLimit':'Head is posed; world width is not an anatomical head-width measurement or a calibrated reference score.',
+    'referenceRatioLimit':'Head is posed; this world width covers the upper head component, excluding a separate jaw where present. It is not an anatomical head-width measurement or a calibrated reference score.',
     'socketVerified':True,'textures':0,'uvLayers':0,'animations':[],
     'physicalEnergyBaked':False,'socketContainsGeometry':False,
     'intentionalConstructionOverlaps':True,'intersectionsPassed':False,

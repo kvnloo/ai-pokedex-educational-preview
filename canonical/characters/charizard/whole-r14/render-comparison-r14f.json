@@ -1,0 +1,98 @@
+{
+  "front": {
+    "sourceReopenedVsGLBMeanAbsoluteRGB": [
+      0.06897,
+      0.073408,
+      0.073929
+    ],
+    "initialVsReopenedSourceMeanAbsoluteRGB": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "identical": false,
+    "headRegion": [
+      345,
+      180,
+      580,
+      305
+    ],
+    "headRegionMeanAbsoluteRGB": [
+      1.9586382978723405,
+      2.072204255319149,
+      2.0839148936170213
+    ]
+  },
+  "side": {
+    "sourceReopenedVsGLBMeanAbsoluteRGB": [
+      0.070658,
+      0.075066,
+      0.075444
+    ],
+    "initialVsReopenedSourceMeanAbsoluteRGB": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "identical": false,
+    "headRegion": [
+      365,
+      180,
+      575,
+      305
+    ],
+    "headRegionMeanAbsoluteRGB": [
+      2.3235047619047617,
+      2.474552380952381,
+      2.4858666666666664
+    ]
+  },
+  "rear": {
+    "sourceReopenedVsGLBMeanAbsoluteRGB": [
+      0.078797,
+      0.082799,
+      0.083008
+    ],
+    "initialVsReopenedSourceMeanAbsoluteRGB": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "identical": false,
+    "headRegion": [
+      440,
+      180,
+      655,
+      305
+    ],
+    "headRegionMeanAbsoluteRGB": [
+      2.234753488372093,
+      2.362827906976744,
+      2.371348837209302
+    ]
+  },
+  "threequarter": {
+    "sourceReopenedVsGLBMeanAbsoluteRGB": [
+      0.092631,
+      0.097925,
+      0.098403
+    ],
+    "initialVsReopenedSourceMeanAbsoluteRGB": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "identical": false,
+    "headRegion": [
+      340,
+      195,
+      585,
+      330
+    ],
+    "headRegionMeanAbsoluteRGB": [
+      2.592320483749055,
+      2.7395313681027966,
+      2.751322751322751
+    ]
+  }
+}

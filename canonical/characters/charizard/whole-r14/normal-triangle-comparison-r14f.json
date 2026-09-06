@@ -1,0 +1,22 @@
+{
+  "GEO-r11-head-block": {
+    "sourceTriangles": 412,
+    "glbTriangles": 412,
+    "matchingTriangles": 231,
+    "sourceUniquePositions": 208,
+    "glbUniquePositions": 208,
+    "matchedPositions": 171,
+    "maxCornerNormalAngleDegrees": 0.01978234059262607,
+    "meanCornerNormalAngleDegrees": 0.00011551731732920332
+  },
+  "GEO-r14-jaw": {
+    "sourceTriangles": 284,
+    "glbTriangles": 284,
+    "matchingTriangles": 187,
+    "sourceUniquePositions": 144,
+    "glbUniquePositions": 144,
+    "matchedPositions": 127,
+    "maxCornerNormalAngleDegrees": 0.01978234059262607,
+    "meanCornerNormalAngleDegrees": 0.0003165174494820171
+  }
+}

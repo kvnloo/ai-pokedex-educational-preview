@@ -1,0 +1,23 @@
+{
+  "current": "r14f",
+  "visualGatePassed": false,
+  "productionAccepted": false,
+  "iterations": {
+    "A": "Separate closed lower jaw makes a mouth readable, but its flat interior caps coincide.",
+    "B": "Rear mouth upturn is retained provisionally; endpoint still extends too far behind the cheek.",
+    "C": "Lowest neck ring fits inside the torso better; visible chest overhang is reduced.",
+    "D": "Rejected. Shrinking the next neck ring gives little visual gain and thins the transition. Reopened C.",
+    "E": "Retained interior recess construction. Lip boundaries still need clearance.",
+    "F": "Current candidate adds native jaw clearance. Targeted upper-head/jaw BVH reports no overlaps."
+  },
+  "renderLimitation": "Workbench source and GLB appearance differs locally at the mouth. Geometry, subdivision and near-identical corner normals were inspected; exact rendering cause remains unresolved. Do not claim a passed appearance gate.",
+  "remaining": [
+    "Mouth endpoint and cheek relationship differ from HOME",
+    "Eye aperture/expression and muzzle form remain coarse",
+    "Head/neck, chest and wing-root joins remain visible",
+    "Other component overlaps and deformation topology are not accepted",
+    "Textures, UVs, rig, clips and runtime flame remain unfinished"
+  ],
+  "next": "Correct mouth endpoint/cheek and head expression in native component edits. Keep the rendering difference as a separate bounded technical check.",
+  "referenceLimit": "Official HOME/art guide visual review; fixed scene cameras are not calibrated official orthographic views."
+}

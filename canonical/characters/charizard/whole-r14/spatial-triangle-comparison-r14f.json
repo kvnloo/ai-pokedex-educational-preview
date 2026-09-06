@@ -1,0 +1,16 @@
+{
+  "GEO-r11-head-block": {
+    "sourceTriangles": 412,
+    "glbTriangles": 412,
+    "matchingTriangles": 412,
+    "maxVertexDistance": 2.6415435172566504e-07,
+    "uniqueMappedVertices": 208
+  },
+  "GEO-r14-jaw": {
+    "sourceTriangles": 284,
+    "glbTriangles": 284,
+    "matchingTriangles": 284,
+    "maxVertexDistance": 2.6193850999334245e-07,
+    "uniqueMappedVertices": 144
+  }
+}

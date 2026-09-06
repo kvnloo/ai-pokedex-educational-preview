@@ -1,0 +1,14 @@
+R14 input record, reconstructed from actual native Blender operations in this turn.
+Blender PID4106097, DISPLAY:1, XID4194306. No scripted mesh-coordinate writes.
+
+Intake: mechanical Save As from r13i; preserved all previous checkpoints.
+A: isolate head, local RIGHT ortho, Xray. Native Edit Mode Select All, F3 Bisect, mouse stroke window(360,416)->(880,486). Cut ring runs from local nose z1.585014 to rear z1.525110. Native face-mode box selections(385,447)->(855,610) and(389,430)->(446,448) select22 lower faces. Native P>Selection makes lower jaw. Whole-object rename to GEO-r14-jaw is mechanical metadata only. Each cut boundary selected by native Select Non-Manifold, F fill, edge crease0.6, normals recalculated outside. Upper46verts/39faces, jaw30verts/23faces; both closed. Four-view saved A.
+B: head and jaw in multi-object Edit Mode; native box(831,473)->(853,490) selects two rear mouth vertices per object; G Z Z +0.04 creates a rear upturn. Four-view saved B.
+C: neck in global FRONT, Xray, native box(475,725)->(810,770) selects ring0, vertices0..15. S Shift+Z 0.78 scales globalXY around median, preserving height. Four-view saved C. Source and GLB reopened; mouth caps were coincident and appearance differed around the mouth.
+D: native box(515,615)->(785,645) selects neck ring1, vertices16..31. S Shift+Z 0.9. Four-view saved D. Rejected for negligible visual benefit and a thinner transition; reopened C.
+E: upper head local BOTTOM isolated; native face click selects cap38,10sides. I0.008, G Z Z +0.012. Jaw local TOP isolated; native cap22,10sides selected, I0.008, G Z Z -0.012. Normals recalculated outside. Four-view saved E. This recesses interior faces; lip boundaries still need clearance.
+F: jaw Object Mode native G Z Z -0.006. Four-view saved F. Source and physical GLB reopened, four source/GLB views inspected. Targeted head/jaw BVH overlap count0. Source and GLB subdivision1, triangles match after spatial vertex mapping. A remaining Workbench appearance difference is documented rather than hidden.
+
+Technical check after F: native Shade Smooth on head/jaw made no change; all faces already smooth. No new G anatomy candidate. Source render after reopen/dependency update is identical to initial source render. Existing GUI input latency caused an initial mode assertion to fail during A separation; actual mode was checked and corrected before capping. No fallback to scripted anatomy.
+
+Current GUI frames head/jaw/neck from global FRONT alongside official HOME, local view OFF, overlays/Xray OFF. This viewing setup is transient; reopening F restores its saved local jaw view. F remains the authoritative geometry source.

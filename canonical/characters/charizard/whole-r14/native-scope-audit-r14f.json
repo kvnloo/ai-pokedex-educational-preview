@@ -1,0 +1,20 @@
+{
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r14/charizard-hybrid-r14f-mouth-clearance.blend",
+  "sourceObjects": 45,
+  "changedExistingMeshData": [
+    "GEO-r11-head-block",
+    "GEO-r11-neck"
+  ],
+  "unchangedMeshCoordinateArrays": 36,
+  "newComponents": [
+    "GEO-r14-jaw"
+  ],
+  "changedExistingObjectTransforms": [],
+  "newJawLocalClearance": -0.006,
+  "headJawEvaluatedBVHOverlapPairs": 0,
+  "intersectionScope": "Head versus jaw only; other component intersections are not accepted.",
+  "formAuthoring": "Native Blender keyboard/mouse only",
+  "visualGatePassed": false,
+  "retainedNeckCoordinateChanges": 16,
+  "headTopologyChanged": true
+}
