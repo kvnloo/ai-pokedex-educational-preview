@@ -1,0 +1,23 @@
+{
+  "status": "unaccepted",
+  "nativeStroke": {
+    "brush": "Smooth",
+    "strength": 0.7,
+    "diameter": 70,
+    "from": [
+      525,
+      497
+    ],
+    "to": [
+      656,
+      541
+    ]
+  },
+  "changedVertices": 1087,
+  "maxDelta": 0.013673157071718815,
+  "mask": "world Z .10..25, Y>-.25, feather; upper haunch/toe/sole protected",
+  "smoothFacesVerified": 35716,
+  "finding": "Geometric coarse-source facets remain despite smooth shading. Junction softens but input preparation under critic review.",
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r32/charizard-hybrid-r32-junction-wip.blend",
+  "sha256": "dd362b9723376e542fe5590424e8c6ac522adea4d3da9425c144ed98d44e0f36"
+}
