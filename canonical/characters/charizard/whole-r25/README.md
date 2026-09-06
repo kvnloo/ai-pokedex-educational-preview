@@ -7,3 +7,5 @@ A audit confirms intended76wing coordinates Xonly, roots/outerlandmarks unchange
 B native matchingwristgroups .05outward, keepingelbowpositions. SavedB and4views; root3q gapimproved. Finalcriticpending; nomoreamplitudeloop.
 
 B retained by critic after4views and A3q comparison. Clearbackgroundgap beside muzzle restored; broaderfans/spreadspars retained, continuousborders/scallops, no observednewkink/gap. Root inspectedall4sourceviews. Closewingtrial atthisamplitude. Exportvalidationpending; wholevisualgate false.
+
+Source/GLB reopened:39meshes3268controlverts9856tri. Perpart manifold/nondegenerate and importedbounds/count/socket pass. Root inspected4importGLBrenders; knownmouthshadingdifference andconstructionseams persist. Wholevisual/productionfalse.
