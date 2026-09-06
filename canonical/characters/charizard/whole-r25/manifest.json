@@ -1,0 +1,30 @@
+[
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r25/charizard-hybrid-r25-intake.blend",
+    "sha256": "5705f03507f867cdf3c51421985a588c72714803c14c5fddb8b4d4de5fd638af"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r25/charizard-hybrid-r25a-wing-distribution.blend",
+    "sha256": "efec11186811940b4c7851b1c8dc0402a4a5b9f6cb94ff647b36f9c94a68ca5c"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r25/r25a-front.png",
+    "sha256": "23cf8d683045d0ba1b0bd25f5b5457f8c66dccc72a78cbb605d67c4149ea9d6f"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r25/r25a-rear.png",
+    "sha256": "015733dec8b77924d38dac766c6391b73998900566f47129c2c47c50a98be66a"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r25/r25a-side.png",
+    "sha256": "047dc0bb66a6d46ca6b954fe8505ba9bb2e84e7fd7fb3f8fde5d2af29f7c1abb"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r25/r25a-threequarter.png",
+    "sha256": "12b16d900cd167a56fb1a6bdf3bec35d62f4799397077aafdec1fbdd9a7cbac2"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r25/wing-inspection.json",
+    "sha256": "d3d5442fc6eaaee504ce9ca9fe072b65455bbf1b9c18ac46d0de4ceddfd30dc7"
+  }
+]
