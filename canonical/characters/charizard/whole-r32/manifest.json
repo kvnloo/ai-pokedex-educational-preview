@@ -1,0 +1,39 @@
+{
+  "status": "regional-leg-improvement",
+  "productionAccepted": false,
+  "sourceAndGlbReopened": true,
+  "mirrorMaxError": 0,
+  "rootGlbViewsInspected": [
+    "front",
+    "side",
+    "rear",
+    "threequarter"
+  ],
+  "remaining": "Whole-character likeness, production topology and other component junctions remain unfinished.",
+  "files": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r32/charizard-hybrid-r32b-continuous-legs.blend",
+      "sha256": "ecd5d9d0fb6d9c4ae8f5f92bfd109016acb4e0830094fc64f098927aabd14637"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r32/charizard-blockout-r32b.glb",
+      "sha256": "5ced2bd30754d618d35523d1b8ca6c38970b03b6d8e1367acc021707d7f8db3b"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r32/glb-r32b-front.png",
+      "sha256": "4f8aaaea18cb08e4e7b0e4fcae3bb71d02dcdac5b6acda268205fcdb633136c8"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r32/glb-r32b-rear.png",
+      "sha256": "bb879584c7172f581854decaadc7e4844e17f2075608f94e41f2de1c9c42d4c8"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r32/glb-r32b-side.png",
+      "sha256": "df1c435e6e4a92bbeeb993d8e94022731bade04db7db6ae3942d50923edcc375"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r32/glb-r32b-threequarter.png",
+      "sha256": "41b792c45cfcde2ea0700b7e66db17303e0f04ed71aa935907f60a991f1c8dbf"
+    }
+  ]
+}
