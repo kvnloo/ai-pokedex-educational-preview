@@ -162,6 +162,11 @@
       "name": "validation-r16b.json",
       "bytes": 20300,
       "sha256": "7d0013cf4b2f98dcacba6f32470152f766c877b6a5c200a7c90530ad03e24716"
+    },
+    {
+      "name": "gui-r16b-home-review.png",
+      "bytes": 320209,
+      "sha256": "12b6c0f7b53357de051cfc8d314b9e4047f0c005fe6bfdd101eae7d60a859e01"
     }
   ]
 }

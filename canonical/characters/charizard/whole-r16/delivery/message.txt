@@ -1,0 +1,7 @@
+Charizard r16B: retained a shallower middle jaw and a lower neck that spreads toward the shoulders. The xhigh critic checked all four views; the max planner helped identify the neck cross-section issue. Body/neck remain separate and the accepted belly is preserved.
+
+The chest seam and facial expression still need work. This is a working blockout, not final quality. Source + GLB reopened and inspected: 39 meshes / 7,984 triangles, no flame mesh. Known mouth shading difference remains.
+
+Next: angular eye opening and integrated brow, preserving the skull and jaw gains.
+Revision: 7429af78ac9aa5649ea37b5cb927106e54c336a6
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r16/r16b-threequarter.png
