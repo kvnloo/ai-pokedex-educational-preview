@@ -1,0 +1,3 @@
+Charizard sculpt-density tests — 473d1ac. Both rejected before sculpting. Linear subdivision exposed coarse facets; higher smooth subdivision rounded the accepted eye opening/muzzle. Retained r28A restored. Images: rejected linear then rejected smooth density. No claimed likeness improvement; this identifies a preparation issue to resolve before hand sculpt.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r29/dense-ready-head-threequarter.png
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r29/smooth-density-head-threequarter.png
