@@ -1,0 +1,3 @@
+Charizard r19A retained — 76a3879. Fuller outer wing panels, keeping apex/span/scallops fixed; membrane and border moved together with native Blender edits. Critic retained the improvement across front/rear/threequarter. Source and GLB reopened, 8016 triangles. Still unfinished; overall likeness gate remains open.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r19/r19a-front.png
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r19/r19a-threequarter.png
