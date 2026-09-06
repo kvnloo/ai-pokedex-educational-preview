@@ -1,0 +1,22 @@
+[
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r17/charizard-blockout-r17f.glb",
+    "sha256": "26381a15a46c8bdd59fc8679f8cf8c4efa99b28a4e7bf82f5adebde6a5360846"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r17/r17f-glb-front.png",
+    "sha256": "1befcd8433fc20a267895adda13ded5072562169d50b792fe5b8b261ec471d48"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r17/r17f-glb-rear.png",
+    "sha256": "b44920ccf37cca062495e156fe5b343dbc8e34108d7a01bf518741bb851cc205"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r17/r17f-glb-side.png",
+    "sha256": "56ab5d067c99e6f40f6e66549f148ed4bd0eb3909a2c995a1e43c9de14a7d120"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r17/r17f-glb-threequarter.png",
+    "sha256": "bfd46af5e6c6de2c867653dca27f1369e87db5ca104804a540ecf524e28f1483"
+  }
+]
