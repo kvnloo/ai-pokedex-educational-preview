@@ -1,0 +1,21 @@
+{
+  "source": "charizard-hybrid-r26-intake.blend",
+  "anatomyChanged": false,
+  "cameraChangesOnly": true,
+  "elevationsDegrees": [
+    -10,
+    10
+  ],
+  "sourceCamerasRestored": true,
+  "rootVisualReview": "Lower elevation reduces head top visibility; rounded muzzle/jaw concern persists. Not a calibrated reference match and not production acceptance.",
+  "artifacts": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r26/camera-front-elevation-+10.png",
+      "sha256": "1888ba9cf75d3ad80ef88cd6deda8307ce3f52961c757451e6d55de92652b6cd"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r26/camera-front-elevation--10.png",
+      "sha256": "b8cf1beb2f8435c0ed0c8119eaef503b8092252782b6e7d5896da44c2c76ac3c"
+    }
+  ]
+}
