@@ -1,0 +1,28 @@
+{
+  "status": "critic-pending",
+  "action": "Native per-thigh proportional S ShiftZ .9, lowest pole, smooth radius .22",
+  "productionAccepted": false,
+  "rootReview": "More short ankle exposure in side/threequarter, scalloped component seam persists. One correction budget exhausted; retain or revert next.",
+  "files": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r31/charizard-hybrid-r31b-ankle-taper.blend",
+      "sha256": "2d328e0c181885b598b568a09439538cffdb85601a3d5f0b429803a811433266"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r31/leg-b-front.png",
+      "sha256": "bff949cbb8f1b85754fa342496fe3805b7dc50f41f3b52e75ce853240a10a076"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r31/leg-b-rear.png",
+      "sha256": "fa1e2c84506a9f941582da1b2aea046d05511e815955c9ae10675a8e672c8140"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r31/leg-b-side.png",
+      "sha256": "1ba484f09c96e9ef6bb05eae1e2b9d1f6e4ccfcc476002c243a8eed53838f407"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r31/leg-b-threequarter.png",
+      "sha256": "232a594cab5deb0f7ba9f0b07e17d7f07ccadcfdf7f2f9890fdf693a8f2c4417"
+    }
+  ]
+}
