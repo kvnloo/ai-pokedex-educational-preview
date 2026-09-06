@@ -1,0 +1,96 @@
+{
+  "GEO-r11-finger-L0": {
+    "vertices": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "facesChanged": false,
+    "matrixChanged": false
+  },
+  "GEO-r11-finger-L1": {
+    "vertices": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "facesChanged": false,
+    "matrixChanged": false
+  },
+  "GEO-r11-finger-L2": {
+    "vertices": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "facesChanged": false,
+    "matrixChanged": false
+  },
+  "GEO-r11-finger-R0": {
+    "vertices": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "facesChanged": false,
+    "matrixChanged": false
+  },
+  "GEO-r11-finger-R1": {
+    "vertices": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "facesChanged": false,
+    "matrixChanged": false
+  },
+  "GEO-r11-finger-R2": {
+    "vertices": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "facesChanged": false,
+    "matrixChanged": false
+  },
+  "GEO-r11-hand-L": {
+    "vertices": [],
+    "facesChanged": false,
+    "matrixChanged": true
+  },
+  "GEO-r11-hand-R": {
+    "vertices": [],
+    "facesChanged": false,
+    "matrixChanged": true
+  }
+}

@@ -1,0 +1,3 @@
+Charizard r21 — cab6e16. Smoother short arms retained after four-view critique. New hand trial broadens/flattens palms and splays three coarse digits. First image previous r20B; second r21C. Hands still under critique, not finished anatomy. No texture/rig gate claimed.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r20/r20b-front.png
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r21/r21c-front.png

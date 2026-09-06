@@ -1,5 +1,5 @@
 {
-  "status": "A retained, C hand trial critic pending",
+  "status": "A and C retained; D bend trial pending",
   "files": [
     {
       "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r21/before.json",
@@ -20,6 +20,10 @@
     {
       "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r21/charizard-hybrid-r21c-three-digits.blend",
       "sha256": "6fb26c4ad122f790ae231604d0d88526716bdba4be8d3e69105fc2a75295a262"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r21/charizard-hybrid-r21d-digit-bend.blend",
+      "sha256": "d148c166cb004d7990b137f3bae6f5741a36d5282f983b95b9a26c7c75a24672"
     },
     {
       "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r21/r21a-front.png",
@@ -86,8 +90,28 @@
       "sha256": "ee48c333a6b68077e28ba29c01aa1dcd494ada764bc16a8f928731007b77a9fb"
     },
     {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r21/r21d-front.png",
+      "sha256": "398857a6e57caa29fc640c83f4f4292d6d9de27926d4fe8d568e5ce18b728165"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r21/r21d-rear.png",
+      "sha256": "f686f5a28e1572e1fc2a6ca7582862a46b5c2285b1770de5b19d2d2e6ab6a595"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r21/r21d-side.png",
+      "sha256": "b83c5b7b6b660ae80249ac735ab9966fb3d4d79b477fa0d9e1355bd24e0a547c"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r21/r21d-threequarter.png",
+      "sha256": "22bfebb7dce42d4cc49d95ec4da8a52c7af0d0bee38868aa97ed6376e4aa5f1d"
+    },
+    {
       "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r21/scope-audit-r21a.json",
       "sha256": "0ad1be8213f15b8ccf5c1805ef36d2d8aad724bce023b5de3874219f6d51da0b"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r21/scope-audit-r21c.json",
+      "sha256": "21c25e3f21f9c1c64c21871034977d036be36211bd9da3b96ce0d8b3ccbd3871"
     }
   ]
 }
