@@ -1,0 +1,3 @@
+Charizard r17F retained — fb019b7. Native inset gives the crown independent controls, so it changes without obscuring the eyes. Critic retained this limited improvement. Blender source and physical GLB reopened and checked: 8016 triangles. Still a rough blockout, not production quality. Next: haunch/foot silhouette.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r17/r17f-head-threequarter.png
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r17/r17f-threequarter.png
