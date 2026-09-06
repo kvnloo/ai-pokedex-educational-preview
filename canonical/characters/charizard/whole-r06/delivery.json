@@ -1,0 +1,29 @@
+{
+  "assetRevision": "9f63353d9ae8e94f49fe2d4050ebbd3a6f3c9ad9",
+  "exitCode": 0,
+  "result": {
+    "success": true,
+    "platform": "telegram",
+    "chat_id": "1083429746",
+    "message_id": "17015",
+    "mirrored": true
+  },
+  "previousUncertainFieldOSDeliveryRetried": false,
+  "artifacts": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r06/delivery/message.txt",
+      "bytes": 762,
+      "sha256": "965c1aa238d8f4e24e71014df348eee4ee0380629e7a3d4641c16c5ab82d2221"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r06/delivery/result.json",
+      "bytes": 120,
+      "sha256": "f4737c99d2895c9d2942ac0094935c51da337f272b34e15fb854caa22dc91b5e"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r06/reopened/threequarter.png",
+      "bytes": 704380,
+      "sha256": "fd4cb024749b55775729a1628a288709d114b2c6a59c1d480b4f20d176ac0927"
+    }
+  ]
+}

@@ -4,6 +4,8 @@ The unbounded vertical-slice goal is active. Root/Astra is sole Blender author. 
 
 ## Frozen study
 
+Asset milestone `9f63353d9ae8e94f49fe2d4050ebbd3a6f3c9ad9`. Independent script/receipt review found no remaining precommit blocker.
+
 Lane `/mnt/zer0models/workspace/zer0/experiments/pokemon/.worktrees/charizard-anatomy`, branch `codex/charizard-anatomy`.
 
 Private root `/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r06`.
@@ -56,6 +58,6 @@ Restored Field OS: https://0.taila30dc.ts.net:8469/pokedex.html
 
 Implementation `fa975753269125aebcf471a04515664b90d7fc7c`, release `f85e3ae295feec02`, repair lane HEAD `44218507331caf4b12930ce041d45b57828b9feb`. All six species entries/images, Pidgey scan/registration, Research/Map/Party/Tools/Home and persistent controls passed browser checks at412×892. Published18file hashes matched. Actual installed S25 touch/audio/GPU acceptance remains Kevin's gate. Correct Home says `BROWSE POKÉMON ·6ENTRIES`. Old installed SW may persist until an online load and closure of app plus all8469tabs. Do not clear user data.
 
-Hermes Telegram target1083429746. r03 delivery16979 succeeded previously. Prior Field OS delivery exited143 with empty receipt and remains unconfirmed; do not blindly retry. Record any new r06 delivery separately and verify its result.
+Hermes Telegram target1083429746. r03 delivery16979 succeeded previously. Prior Field OS delivery exited143 with empty receipt and remains unconfirmed; do not blindly retry. r06 preview delivery succeeded with exit0, success:true, Telegram message17015, mirrored:true. See delivery.json. Do not resend this preview automatically.
 
 Physical device roadmap remains board01=v2 and board02=v3, with distinct generation assets and story unlocks. Preserve stopped-worker artifacts and v001. No physical-device acceptance or new polish during the phone retest gate.

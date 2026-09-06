@@ -1,0 +1,10 @@
+Charizard r06 geometry study: the neck is now connected, the muzzle is shorter, and the jaw gap is narrower. The eyes, jaw shape, nose and horns still need work. This is unfinished clay, with no textures or rig. Next is a direct comparison with the untouched HOME head.
+
+Study and eight views:
+https://0.taila30dc.ts.net:8445/devtools/pokedex.html?pokemon=charizard&tab=iterations&run=charizard-whole-r06&view=head-threequarter
+
+Matched before/after:
+https://0.taila30dc.ts.net:8445/devtools/experiments.html?pokemon=charizard&a=charizard-whole-r06-intake&b=charizard-whole-r06&view=head-threequarter
+
+Asset revision: 9f63353d9ae8e94f49fe2d4050ebbd3a6f3c9ad9
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r06/reopened/threequarter.png
