@@ -9,3 +9,5 @@ A retained by critic as limited placement gain: frontbulb recedes, higher side d
 B bounded correction: native median SX1.2 ring0 and SX1.1 ring1. Height/distalcurve held. SavedB and4views. Root inspected front/rear; critic pending. No production acceptance.
 
 B retained by root and critic after all4source views; broader lesscircular rear departure, continuous taper, frontbulb remains suppressed, no newcuff. Stop root loop. Seam/integration incomplete. Source/GLB reopened:39meshes3268controlverts8456triangles; manifold/nondegenerate/bounds/count/socket checks pass. Reopened GLB visual renders pending.
+
+Root inspected all four reopened GLB renders. Knownmouth shading discrepancy persists; no new export deformation observed. Wholevisual and production gates remain false.
