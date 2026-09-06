@@ -1,0 +1,26 @@
+{
+  "geometryChanged": false,
+  "anglesDegrees": [
+    -10,
+    10
+  ],
+  "orthographicScale": 2.85,
+  "target": [
+    0,
+    0,
+    0.84
+  ],
+  "calibratedHomeMatch": false,
+  "criticStatus": "requested",
+  "rootObservation": "Minus10 view still shows feet facing camera and limited eye exposure versus HOME. Pose and shape remain confounded; no anatomy edit justified yet.",
+  "files": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r30/camera-front-elevation-+10.png",
+      "sha256": "bb897f37f8ad4d4a26d34648ebd189bbc825688b13c035ab6cd0391bcebba483"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r30/camera-front-elevation--10.png",
+      "sha256": "e19371dc63fd1dc1ab4b880bc5cb3b38eac988fae46d9a143f910f8aff807bcb"
+    }
+  ]
+}
