@@ -1,0 +1,20 @@
+{
+  "status": "unaccepted-wip",
+  "source": "charizard-hybrid-r32-dense-junction-wip.blend",
+  "nativePreparation": "Ctrl3 -> Convert44166 -> Join -> Sculpt CtrlR .006 ->34752 vertices",
+  "rootReview": "Exposed left-side grid resolved; one masked Smooth stroke softens outer ankle. Inner/underside junction not yet worked.",
+  "stroke": {
+    "brush": "Smooth",
+    "strength": 0.5,
+    "diameter": 70,
+    "from": [
+      511,
+      539
+    ],
+    "to": [
+      687,
+      499
+    ]
+  },
+  "productionAccepted": false
+}
