@@ -25,5 +25,9 @@
   "arm-front.png": "55cad9a0cacae5eebd32e8f331786c13835fe21e2e43b07230cdbc4341518f5a",
   "arm-side.png": "de963d49f0ff41c4bfb387aa71f0db2786d74e8bb19fe42afec2e30c2d2bdf3e",
   "arm-rear.png": "6a3fe86d047e6cfa2b2b45c37db2835dd4d657ddf18e7360c7170a57f95af68c",
-  "arm-threequarter.png": "17148c1b55ec46a47890545df3ff1ee2ec0eb8c1803a7e480b68e747d363760e"
+  "arm-threequarter.png": "17148c1b55ec46a47890545df3ff1ee2ec0eb8c1803a7e480b68e747d363760e",
+  "whole-front.png": "0b43454f042787f7cdf672640fbf4d7ba4e752c34fe00976829fecf8bf6f6e0b",
+  "whole-side.png": "ebcb6467630ff93cb93e96bd62033987f72025f6ed85024df5412cddebfc42ee",
+  "whole-rear.png": "c42e8044a95a527bc444d6a7e2ba653cefc0dfc165b0c2c1eb2929d8d8847f5f",
+  "whole-threequarter.png": "b0d448b3ea9d55946da186a8d642ef55a90f5d63a74349cdcc7fe3a73cb01bc3"
 }
