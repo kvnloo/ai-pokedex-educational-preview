@@ -1,0 +1,7 @@
+Charizard r10: your operating law is applied. The head and neck are now separate from the body, and the source is a compact 17 MB. I made native Blender Grab and Smooth edits to reduce the hanging jaw volume.
+
+This is an unapproved comparison candidate. The cheek/throat transition and expression still need work; likeness has not passed. The original intake and all earlier rollback sources are preserved. Source and GLB reopened successfully; neck join unchanged. No production textures, rig or animation.
+
+Revision: 49d350bcdb2225a41535db37a53a8bf989c8a9e7
+No merge, push or preview deployment. This is the private progress preview you requested.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r10/head-jaw-smooth-threequarter.png

@@ -1,0 +1,14 @@
+{
+  "assetRevision": "49d350b",
+  "deliveryConfirmed": false,
+  "processExitCode": 1,
+  "transportResult": {
+    "error": "No deliverable text or media remained after processing MEDIA tags",
+    "warnings": [
+      "Failed to send media /mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r10/head-jaw-smooth-threequarter.png: Timed out"
+    ]
+  },
+  "privateReceipt": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r10/delivery/result.json",
+  "retry": "Not retried because media timeout leaves delivery uncertain",
+  "publication": false
+}
