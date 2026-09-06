@@ -1,0 +1,30 @@
+{
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r17/charizard-hybrid-r17c-muzzle-cheek.blend",
+  "changedVerticesVsIntake": {
+    "GEO-r11-head-block": [
+      4,
+      7,
+      8,
+      9,
+      10,
+      11,
+      13,
+      14,
+      20,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      30,
+      31,
+      33,
+      34,
+      35
+    ]
+  },
+  "changedFaces": [],
+  "changedMatrices": [],
+  "visualGate": false
+}
