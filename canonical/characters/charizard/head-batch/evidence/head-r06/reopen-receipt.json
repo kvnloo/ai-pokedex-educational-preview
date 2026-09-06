@@ -1,0 +1,79 @@
+{
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r03/head-r06/charizard-head-r06.glb",
+  "sha256": "143b9a2a0094296b03caabd1d6975a0147d03cd5de15452baf0a4a30542df1ff",
+  "scene": "VERIFY-charizard-head-r06-reopened",
+  "objects": [
+    {
+      "name": "GEO-charizard-body-head-r06.001",
+      "vertices": 122633,
+      "triangles": 245266,
+      "dimensions": [
+        1.9055476188659668,
+        1.8211395740509033,
+        1.1991386413574219
+      ],
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "GEO-charizard-flame-head-r06.001",
+      "vertices": 4516,
+      "triangles": 9028,
+      "dimensions": [
+        0.2047710418701172,
+        0.21991899609565735,
+        0.36425885558128357
+      ],
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.14757436513900757
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.16797137260437012
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.14880594611167908
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1721 @@
+{
+  "coordinateConvention": "Apply glTF scene transform, then (x,-z,y) to Blender world.",
+  "stableIdConvention": "Source IDs are frozen r02e exported body POSITION rows, validated against audit.before. New centers receive distinct diagnostic IDs starting at 122336; candidate export row IDs are also reported.",
+  "audit": {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r03/head-r01/topology-audit.npz",
+    "sha256": "062c482de01946e5131627252433ede87535b59b43c92ea21fbaa87b216680c2",
+    "checks": {
+      "protectedMaskMatchesIndependentHeadComplement": true,
+      "protectedVertexCount113062": true,
+      "allRetainedCoordinatesExact": true,
+      "retainedParentVertexIdsUnique": true,
+      "removedVertexComplementExact": true,
+      "removedVertexCountMatchesReceipt": true,
+      "newCenterCountMatchesReceipt": true,
+      "removedPolygonCountMatchesReceipt": true,
+      "newPolygonCountMatchesReceipt": true,
+      "retainedParentPolygonIdsExact": true
+    }
+  },
+  "receipt": {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r03/head-r01/prune-receipt.json",
+    "sha256": "296469f13d1fe5860999df13ec0a39c2cf4e2abb5fb8bce00c50f55f7e64d60d"
+  },
+  "versions": {
+    "source": {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02e/charizard-tail-r02e.glb",
+      "sha256": "11091f72a5f3369cddc631e7f97034b5ff00eec219503e4362d07f25eaf96ad7",
+      "structure": {
+        "scenes": 1,
+        "nodes": 2,
+        "meshes": 2,
+        "nodeNames": [
+          "GEO-charizard-body-tail-r02e",
+          "GEO-charizard-flame-reference-r02e"
+        ],
+        "meshPrimitiveCounts": [
+          1,
+          1
+        ]
+      },
+      "transforms": {
+        "body": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "flame": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.14757436513900757
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.14880594611167908
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -0.16797137260437012
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      },
+      "coordinateBijection": {
+        "exportRows": 122336,
+        "auditRows": 122336,
+        "uniqueMappedRows": 122336,
+        "maximumExportToAuditDistance": 0.0,
+        "maximumAuditToExportDistance": 0.0,
+        "originalRowOrderExact": true
+      },
+      "body": {
+        "vertices": 122336,
+        "triangles": 244672,
+        "components": 1,
+        "eulerCharacteristic": 0,
+        "boundaryEdges": 0,
+        "edgesAboveTwoFaceIncidence": 0,
+        "interiorEdgesWithInconsistentWinding": 0,
+        "repeatedIndexTriangles": 0,
+        "duplicateOrientedTriangles": 0,
+        "areaAtMost1eMinus14Triangles": 0,
+        "minimumTriangleArea": 4.608268174547748e-14,
+        "watertight": true,
+        "windingConsistent": true,
+        "signedVolume": 0.29020446189204246,
+        "surfaceArea": 5.701835179524479,
+        "bounds": [
+          [
+            -0.958707332611084,
+            -0.9876829981803894,
+            -0.6133004426956177
+          ],
+          [
+            0.946840226650238,
+            0.8334565758705139,
+            0.6025716662406921
+          ]
+        ]
+      },
+      "flame": {
+        "vertices": 4516,
+        "triangles": 9028,
+        "components": 1,
+        "eulerCharacteristic": 2,
+        "boundaryEdges": 0,
+        "edgesAboveTwoFaceIncidence": 0,
+        "interiorEdgesWithInconsistentWinding": 0,
+        "repeatedIndexTriangles": 0,
+        "duplicateOrientedTriangles": 0,
+        "areaAtMost1eMinus14Triangles": 0,
+        "minimumTriangleArea": 1.236858298028624e-11,
+        "watertight": true,
+        "windingConsistent": true,
+        "signedVolume": 0.004518745747211714,
+        "surfaceArea": 0.18854623733438367,
+        "bounds": [
+          [
+            0.6976145505905151,
+            -0.4899594783782959,
+            -0.12000000476837158
+          ],
+          [
+            0.9023855924606323,
+            -0.27004048228263855,
+            0.24425885826349258
+          ]
+        ]
+      },
+      "localIntersections": {
+        "trianglesTested": 19473,
+        "pairCount": 1,
+        "pairs": [
+          {
+            "exportFaceIds": [
+              123767,
+              125397
+            ],
+            "stableTriangleIds": [
+              [
+                62092,
+                62088,
+                61248
+              ],
+              [
+                62898,
+                62094,
+                62093
+              ]
+            ],
+            "triangleBounds": [
+              [
+                -0.16112840175628662,
+                -0.7008721232414246,
+                0.4676653742790222
+              ],
+              [
+                -0.15326710045337677,
+                -0.6914861798286438,
+                0.47552528977394104
+              ]
+            ],
+            "meanOfSixTriangleVertices": [
+              -0.15509187430143356,
+              -0.6957953373591105,
+              0.4715958486000697
+            ],
+            "involvesNewCapTriangle": false
+          }
+        ],
+        "newPairsAgainstSource": 0,
+        "retainedPairsFromSource": 1,
+        "removedSourcePairs": 0
+      }
+    },
+    "candidate": {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r03/head-r01/charizard-head-r01.glb",
+      "sha256": "c315dc995e518b2fba710627c38bbc47b22c00e48200c897cd4f42cb60d97712",
+      "structure": {
+        "scenes": 1,
+        "nodes": 2,
+        "meshes": 2,
+        "nodeNames": [
+          "GEO-charizard-body-head-r01",
+          "GEO-charizard-flame-head-r01"
+        ],
+        "meshPrimitiveCounts": [
+          1,
+          1
+        ]
+      },
+      "transforms": {
+        "body": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "flame": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.14757436513900757
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.14880594611167908
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -0.16797137260437012
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      },
+      "coordinateBijection": {
+        "exportRows": 121305,
+        "auditRows": 121305,
+        "uniqueMappedRows": 121305,
+        "maximumExportToAuditDistance": 0.0,
+        "maximumAuditToExportDistance": 0.0,
+        "originalRowOrderExact": true
+      },
+      "body": {
+        "vertices": 121305,
+        "triangles": 242610,
+        "components": 1,
+        "eulerCharacteristic": 0,
+        "boundaryEdges": 0,
+        "edgesAboveTwoFaceIncidence": 0,
+        "interiorEdgesWithInconsistentWinding": 0,
+        "repeatedIndexTriangles": 0,
+        "duplicateOrientedTriangles": 0,
+        "areaAtMost1eMinus14Triangles": 0,
+        "minimumTriangleArea": 4.608268174547748e-14,
+        "watertight": true,
+        "windingConsistent": true,
+        "signedVolume": 0.2897358963777333,
+        "surfaceArea": 5.678539269895308,
+        "bounds": [
+          [
+            -0.958707332611084,
+            -0.9876829981803894,
+            -0.6133004426956177
+          ],
+          [
+            0.946840226650238,
+            0.8334565758705139,
+            0.585838258266449
+          ]
+        ]
+      },
+      "flame": {
+        "vertices": 4516,
+        "triangles": 9028,
+        "components": 1,
+        "eulerCharacteristic": 2,
+        "boundaryEdges": 0,
+        "edgesAboveTwoFaceIncidence": 0,
+        "interiorEdgesWithInconsistentWinding": 0,
+        "repeatedIndexTriangles": 0,
+        "duplicateOrientedTriangles": 0,
+        "areaAtMost1eMinus14Triangles": 0,
+        "minimumTriangleArea": 1.236858298028624e-11,
+        "watertight": true,
+        "windingConsistent": true,
+        "signedVolume": 0.004518745747211714,
+        "surfaceArea": 0.18854623733438367,
+        "bounds": [
+          [
+            0.6976145505905151,
+            -0.4899594783782959,
+            -0.12000000476837158
+          ],
+          [
+            0.9023855924606323,
+            -0.27004048228263855,
+            0.24425885826349258
+          ]
+        ]
+      },
+      "localIntersections": {
+        "trianglesTested": 17411,
+        "pairCount": 1,
+        "pairs": [
+          {
+            "exportFaceIds": [
+              123767,
+              125397
+            ],
+            "stableTriangleIds": [
+              [
+                62092,
+                62088,
+                61248
+              ],
+              [
+                62898,
+                62094,
+                62093
+              ]
+            ],
+            "triangleBounds": [
+              [
+                -0.16112840175628662,
+                -0.7008721232414246,
+                0.4676653742790222
+              ],
+              [
+                -0.15326710045337677,
+                -0.6914861798286438,
+                0.47552528977394104
+              ]
+            ],
+            "meanOfSixTriangleVertices": [
+              -0.15509187430143356,
+              -0.6957953373591105,
+              0.4715958486000697
+            ],
+            "involvesNewCapTriangle": false
+          }
+        ],
+        "newPairsAgainstSource": 0,
+        "retainedPairsFromSource": 1,
+        "removedSourcePairs": 0
+      }
+    }
+  },
+  "protected": {
+    "expectedVertices": 113062,
+    "retainedVertices": 113062,
+    "removedProtectedVertexIds": [],
+    "maximumCoordinateDisplacement": 0.0,
+    "orientedTrianglesBefore": 226039,
+    "orientedTrianglesAfter": 226039,
+    "missing": 0,
+    "added": 0
+  },
+  "capCorrespondence": {
+    "deletedExportTriangles": 2217,
+    "newExportTriangles": 155,
+    "newAuditVertexRows": [
+      81279,
+      81280
+    ],
+    "checks": {
+      "allReceiptCapsPresentWithOrientation": true,
+      "receiptCapsUnique": true,
+      "canonicalNewTrianglesExactlyReceiptCaps": true,
+      "canonicalDeletedTriangleCountMatchesReceipt": true,
+      "twoDeclaredDiskFans": true
+    },
+    "patches": [
+      {
+        "centerAuditRow": 81280,
+        "centerDiagnosticStableId": 122337,
+        "centerCoordinate": [
+          -0.06512496620416641,
+          -0.6667444705963135,
+          0.5506317615509033
+        ],
+        "triangles": 66,
+        "boundaryVertices": 66,
+        "declaredBoundaryMatches": true,
+        "eulerCharacteristic": 1,
+        "allFanTrianglesHaveExactlyOneNewCenter": true
+      },
+      {
+        "centerAuditRow": 81279,
+        "centerDiagnosticStableId": 122336,
+        "centerCoordinate": [
+          0.0007145996787585318,
+          -0.6169138550758362,
+          0.4400971829891205
+        ],
+        "triangles": 89,
+        "boundaryVertices": 89,
+        "declaredBoundaryMatches": true,
+        "eulerCharacteristic": 1,
+        "allFanTrianglesHaveExactlyOneNewCenter": true
+      }
+    ]
+  },
+  "sharedCenterCapIntersections": {
+    "method": "All pairs within each receipt fan, including pairs Open3D omits due to a shared center. Noncoplanar pairs are tested for a ray lying strictly inside both triangle cones beyond the shared center; nearly coplanar pairs use 2D convex clipping. Thresholds: normal cross <=1e-9 for coplanarity, overlap area >1e-14, interior ray length >1e-7 and midpoint barycentric weights >1e-8.",
+    "pairsTested": 6061,
+    "nearlyCoplanarPairs": 0,
+    "detectedOverlapPairs": 0,
+    "pairs": []
+  },
+  "localIntersectionBounds": [
+    [
+      -0.28422906875610354,
+      -1.0176829981803894,
+      0.2710274767875671
+    ],
+    [
+      0.19351063549518585,
+      -0.43377786993980405,
+      0.6325716662406922
+    ]
+  ],
+  "localIntersectionMethod": "Open3D 0.19.0: all body triangles with AABBs overlapping the frozen head bounds expanded by .03, identical for source and candidate. Pair correspondence uses parent IDs plus distinct new-center IDs. Shared-vertex pairs are omitted by this test; fan triangles sharing their center require separate attention if visual evidence suggests folds. This is not a whole-model test or a flame/body test.",
+  "posteriorSections": {
+    "source": [
+      {
+        "y": -0.6,
+        "closedLoopCount": 3,
+        "posteriorGraphComponents": 4,
+        "closedPaths": [
+          {
+            "points": 62,
+            "closed": true,
+            "bounds": [
+              [
+                0.09018610766670991,
+                -0.6,
+                0.45903809531547163
+              ],
+              [
+                0.15048573981643934,
+                -0.6,
+                0.5120552116007654
+              ]
+            ],
+            "perimeterOrLength": 0.1771254649325517
+          },
+          {
+            "points": 56,
+            "closed": true,
+            "bounds": [
+              [
+                -0.11698207536226057,
+                -0.6,
+                0.4590800042819276
+              ],
+              [
+                -0.06783186499694271,
+                -0.6,
+                0.5133097678142006
+              ]
+            ],
+            "perimeterOrLength": 0.16253026807247326
+          },
+          {
+            "points": 45,
+            "closed": true,
+            "bounds": [
+              [
+                -0.07289859929504972,
+                -0.6,
+                0.5262938712298393
+              ],
+              [
+                -0.03144185851550285,
+                -0.6,
+                0.5760385298997073
+              ]
+            ],
+            "perimeterOrLength": 0.1449976602787833
+          }
+        ]
+      },
+      {
+        "y": -0.59,
+        "closedLoopCount": 4,
+        "posteriorGraphComponents": 5,
+        "closedPaths": [
+          {
+            "points": 65,
+            "closed": true,
+            "bounds": [
+              [
+                0.019861320990057888,
+                -0.59,
+                0.40824814204575094
+              ],
+              [
+                0.06319561661634698,
+                -0.59,
+                0.4801990208616988
+              ]
+            ],
+            "perimeterOrLength": 0.1916478107837746
+          },
+          {
+            "points": 59,
+            "closed": true,
+            "bounds": [
+              [
+                -0.11477436625150263,
+                -0.59,
+                0.4571433312866625
+              ],
+              [
+                -0.06603853682563046,
+                -0.59,
+                0.5102409121483382
+              ]
+            ],
+            "perimeterOrLength": 0.1607201323172064
+          },
+          {
+            "points": 64,
+            "closed": true,
+            "bounds": [
+              [
+                0.09811805411763114,
+                -0.59,
+                0.45826550185081033
+              ],
+              [
+                0.15618467048039722,
+                -0.59,
+                0.511218653111519
+              ]
+            ],
+            "perimeterOrLength": 0.17397014550848727
+          },
+          {
+            "points": 47,
+            "closed": true,
+            "bounds": [
+              [
+                -0.07070257324802569,
+                -0.59,
+                0.5289857405255973
+              ],
+              [
+                -0.032093354380534275,
+                -0.59,
+                0.5758541157147136
+              ]
+            ],
+            "perimeterOrLength": 0.13533057639203594
+          }
+        ]
+      },
+      {
+        "y": -0.58,
+        "closedLoopCount": 5,
+        "posteriorGraphComponents": 6,
+        "closedPaths": [
+          {
+            "points": 53,
+            "closed": true,
+            "bounds": [
+              [
+                0.029326446611043937,
+                -0.58,
+                0.4059922256639173
+              ],
+              [
+                0.06610046374412987,
+                -0.58,
+                0.4699244014492388
+              ]
+            ],
+            "perimeterOrLength": 0.16723983133300968
+          },
+          {
+            "points": 52,
+            "closed": true,
+            "bounds": [
+              [
+                -0.032181657991712714,
+                -0.58,
+                0.40599918863794826
+              ],
+              [
+                0.007966823143254345,
+                -0.58,
+                0.4555003301190898
+              ]
+            ],
+            "perimeterOrLength": 0.14445083141443532
+          },
+          {
+            "points": 55,
+            "closed": true,
+            "bounds": [
+              [
+                -0.11282972404884324,
+                -0.58,
+                0.4547688062239934
+              ],
+              [
+                -0.06421281948461904,
+                -0.58,
+                0.507287174165366
+              ]
+            ],
+            "perimeterOrLength": 0.15917375524691674
+          },
+          {
+            "points": 60,
+            "closed": true,
+            "bounds": [
+              [
+                0.10561400276252378,
+                -0.58,
+                0.45828661495888673
+              ],
+              [
+                0.16122384202471113,
+                -0.58,
+                0.5109321395669494
+              ]
+            ],
+            "perimeterOrLength": 0.16939133646457413
+          },
+          {
+            "points": 46,
+            "closed": true,
+            "bounds": [
+              [
+                -0.06772828040553164,
+                -0.58,
+                0.5321021596784852
+              ],
+              [
+                -0.03293476359749044,
+                -0.58,
+                0.5743784637249506
+              ]
+            ],
+            "perimeterOrLength": 0.12127519734539002
+          }
+        ]
+      },
+      {
+        "y": -0.57,
+        "closedLoopCount": 5,
+        "posteriorGraphComponents": 6,
+        "closedPaths": [
+          {
+            "points": 40,
+            "closed": true,
+            "bounds": [
+              [
+                -0.02406499089269182,
+                -0.57,
+                0.4045922322487563
+              ],
+              [
+                0.009582180318859719,
+                -0.57,
+                0.4455395464858049
+              ]
+            ],
+            "perimeterOrLength": 0.11893692961196287
+          },
+          {
+            "points": 32,
+            "closed": true,
+            "bounds": [
+              [
+                0.03567381351158145,
+                -0.57,
+                0.4058436590852808
+              ],
+              [
+                0.06672519707439598,
+                -0.57,
+                0.4425634065269425
+              ]
+            ],
+            "perimeterOrLength": 0.1057282213361484
+          },
+          {
+            "points": 47,
+            "closed": true,
+            "bounds": [
+              [
+                -0.11082976602721142,
+                -0.57,
+                0.45260687935692867
+              ],
+              [
+                -0.061856202758100644,
+                -0.57,
+                0.5038171517371741
+              ]
+            ],
+            "perimeterOrLength": 0.15767295838900303
+          },
+          {
+            "points": 57,
+            "closed": true,
+            "bounds": [
+              [
+                0.11352194130570528,
+                -0.57,
+                0.46060617905994666
+              ],
+              [
+                0.16348259591240044,
+                -0.57,
+                0.5109316957311243
+              ]
+            ],
+            "perimeterOrLength": 0.15755942906985348
+          },
+          {
+            "points": 41,
+            "closed": true,
+            "bounds": [
+              [
+                -0.06199061358180923,
+                -0.57,
+                0.5371649744763286
+              ],
+              [
+                -0.03430782959389493,
+                -0.57,
+                0.5704017724613655
+              ]
+            ],
+            "perimeterOrLength": 0.0953173664405618
+          }
+        ]
+      },
+      {
+        "y": -0.56,
+        "closedLoopCount": 5,
+        "posteriorGraphComponents": 6,
+        "closedPaths": [
+          {
+            "points": 21,
+            "closed": true,
+            "bounds": [
+              [
+                -0.012583362934479467,
+                -0.56,
+                0.4068430643764282
+              ],
+              [
+                0.005605420112947533,
+                -0.56,
+                0.43044672574249615
+              ]
+            ],
+            "perimeterOrLength": 0.06514889140661828
+          },
+          {
+            "points": 7,
+            "closed": true,
+            "bounds": [
+              [
+                0.0548045966589018,
+                -0.56,
+                0.4162798847046095
+              ],
+              [
+                0.06034332741554606,
+                -0.56,
+                0.42314545388608105
+              ]
+            ],
+            "perimeterOrLength": 0.018902489239006587
+          },
+          {
+            "points": 58,
+            "closed": true,
+            "bounds": [
+              [
+                -0.10880025334815854,
+                -0.56,
+                0.4505694442742681
+              ],
+              [
+                -0.060076412317019545,
+                -0.56,
+                0.5010110257335577
+              ]
+            ],
+            "perimeterOrLength": 0.157137017361821
+          },
+          {
+            "points": 42,
+            "closed": true,
+            "bounds": [
+              [
+                0.1221708265275334,
+                -0.56,
+                0.4667091366933141
+              ],
+              [
+                0.1606376477862833,
+                -0.56,
+                0.5090108875866713
+              ]
+            ],
+            "perimeterOrLength": 0.1278866877409339
+          },
+          {
+            "points": 6,
+            "closed": true,
+            "bounds": [
+              [
+                -0.04512866102809889,
+                -0.56,
+                0.5523720767009047
+              ],
+              [
+                -0.04267831298933342,
+                -0.56,
+                0.555164318018672
+              ]
+            ],
+            "perimeterOrLength": 0.007763782193078162
+          }
+        ]
+      },
+      {
+        "y": -0.55,
+        "closedLoopCount": 2,
+        "posteriorGraphComponents": 3,
+        "closedPaths": [
+          {
+            "points": 55,
+            "closed": true,
+            "bounds": [
+              [
+                -0.10705829989936297,
+                -0.55,
+                0.4479246667159097
+              ],
+              [
+                -0.05885918835675131,
+                -0.55,
+                0.4982511770837841
+              ]
+            ],
+            "perimeterOrLength": 0.15676337595513712
+          },
+          {
+            "points": 18,
+            "closed": true,
+            "bounds": [
+              [
+                0.1330559018497502,
+                -0.55,
+                0.47835324838947024
+              ],
+              [
+                0.15094054716922053,
+                -0.55,
+                0.5002767030441647
+              ]
+            ],
+            "perimeterOrLength": 0.06468965927809264
+          }
+        ]
+      },
+      {
+        "y": -0.54,
+        "closedLoopCount": 1,
+        "posteriorGraphComponents": 2,
+        "closedPaths": [
+          {
+            "points": 50,
+            "closed": true,
+            "bounds": [
+              [
+                -0.10563537290036953,
+                -0.54,
+                0.44544842364820275
+              ],
+              [
+                -0.056778612576827814,
+                -0.54,
+                0.49529945562820177
+              ]
+            ],
+            "perimeterOrLength": 0.15666068854027695
+          }
+        ]
+      },
+      {
+        "y": -0.53,
+        "closedLoopCount": 1,
+        "posteriorGraphComponents": 1,
+        "closedPaths": [
+          {
+            "points": 55,
+            "closed": true,
+            "bounds": [
+              [
+                -0.10392939952970234,
+                -0.53,
+                0.44297228815590506
+              ],
+              [
+                -0.05477468358088416,
+                -0.53,
+                0.4926816822570746
+              ]
+            ],
+            "perimeterOrLength": 0.15685920807458734
+          }
+        ]
+      },
+      {
+        "y": -0.52,
+        "closedLoopCount": 1,
+        "posteriorGraphComponents": 1,
+        "closedPaths": [
+          {
+            "points": 50,
+            "closed": true,
+            "bounds": [
+              [
+                -0.10226013896851623,
+                -0.52,
+                0.4401288173832539
+              ],
+              [
+                -0.05297408390815904,
+                -0.52,
+                0.49030271228770195
+              ]
+            ],
+            "perimeterOrLength": 0.15696185724529074
+          }
+        ]
+      },
+      {
+        "y": -0.51,
+        "closedLoopCount": 1,
+        "posteriorGraphComponents": 1,
+        "closedPaths": [
+          {
+            "points": 55,
+            "closed": true,
+            "bounds": [
+              [
+                -0.10033134277462626,
+                -0.51,
+                0.43713027959625933
+              ],
+              [
+                -0.050822460819582964,
+                -0.51,
+                0.48750570796745385
+              ]
+            ],
+            "perimeterOrLength": 0.1567991097789157
+          }
+        ]
+      },
+      {
+        "y": -0.5,
+        "closedLoopCount": 1,
+        "posteriorGraphComponents": 1,
+        "closedPaths": [
+          {
+            "points": 55,
+            "closed": true,
+            "bounds": [
+              [
+                -0.09811530034181708,
+                -0.5,
+                0.43489191751856615
+              ],
+              [
+                -0.04899466230260184,
+                -0.5,
+                0.48471412347554416
+              ]
+            ],
+            "perimeterOrLength": 0.15544147473150155
+          }
+        ]
+      },
+      {
+        "y": -0.49,
+        "closedLoopCount": 1,
+        "posteriorGraphComponents": 1,
+        "closedPaths": [
+          {
+            "points": 51,
+            "closed": true,
+            "bounds": [
+              [
+                -0.09542921475679424,
+                -0.49,
+                0.43450809070943364
+              ],
+              [
+                -0.04719242417445005,
+                -0.49,
+                0.4820639951364262
+              ]
+            ],
+            "perimeterOrLength": 0.14976857252947962
+          }
+        ]
+      },
+      {
+        "y": -0.48,
+        "closedLoopCount": 1,
+        "posteriorGraphComponents": 1,
+        "closedPaths": [
+          {
+            "points": 46,
+            "closed": true,
+            "bounds": [
+              [
+                -0.09160718985668688,
+                -0.48,
+                0.4373654021490336
+              ],
+              [
+                -0.04931160405479527,
+                -0.48,
+                0.47859192915643217
+              ]
+            ],
+            "perimeterOrLength": 0.13048772673839
+          }
+        ]
+      },
+      {
+        "y": -0.47,
+        "closedLoopCount": 1,
+        "posteriorGraphComponents": 1,
+        "closedPaths": [
+          {
+            "points": 29,
+            "closed": true,
+            "bounds": [
+              [
+                -0.0844788350225091,
+                -0.47,
+                0.44472217507742695
+              ],
+              [
+                -0.05821444536100287,
+                -0.47,
+                0.47217382594136276
+              ]
+            ],
+            "perimeterOrLength": 0.08321125326301958
+          }
+        ]
+      },
+      {
+        "y": -0.46,
+        "closedLoopCount": 0,
+        "posteriorGraphComponents": 0,
+        "closedPaths": []
+      },
+      {
+        "y": -0.45,
+        "closedLoopCount": 0,
+        "posteriorGraphComponents": 0,
+        "closedPaths": []
+      },
+      {
+        "y": -0.44,
+        "closedLoopCount": 0,
+        "posteriorGraphComponents": 0,
+        "closedPaths": []
+      },
+      {
+        "y": -0.43,
+        "closedLoopCount": 0,
+        "posteriorGraphComponents": 0,
+        "closedPaths": []
+      },
+      {
+        "y": -0.42,
+        "closedLoopCount": 0,
+        "posteriorGraphComponents": 0,
+        "closedPaths": []
+      },
+      {
+        "y": -0.41,
+        "closedLoopCount": 0,
+        "posteriorGraphComponents": 0,
+        "closedPaths": []
+      },
+      {
+        "y": -0.4,
+        "closedLoopCount": 0,
+        "posteriorGraphComponents": 0,
+        "closedPaths": []
+      },
+      {
+        "y": -0.39,
+        "closedLoopCount": 0,
+        "posteriorGraphComponents": 0,
+        "closedPaths": []
+      },
+      {
+        "y": -0.38,
+        "closedLoopCount": 0,
+        "posteriorGraphComponents": 0,
+        "closedPaths": []
+      },
+      {
+        "y": -0.37,
+        "closedLoopCount": 0,
+        "posteriorGraphComponents": 0,
+        "closedPaths": []
+      },
+      {
+        "y": -0.36,
+        "closedLoopCount": 0,
+        "posteriorGraphComponents": 0,
+        "closedPaths": []
+      },
+      {
+        "y": -0.35,
+        "closedLoopCount": 0,
+        "posteriorGraphComponents": 0,
+        "closedPaths": []
+      }
+    ],
+    "candidate": [
+      {
+        "y": -0.6,
+        "closedLoopCount": 2,
+        "posteriorGraphComponents": 3,
+        "closedPaths": [
+          {
+            "points": 62,
+            "closed": true,
+            "bounds": [
+              [
+                0.09018610766670991,
+                -0.6,
+                0.45903809531547163
+              ],
+              [
+                0.15048573981643934,
+                -0.6,
+                0.5120552116007654
+              ]
+            ],
+            "perimeterOrLength": 0.1771254649325517
+          },
+          {
+            "points": 56,
+            "closed": true,
+            "bounds": [
+              [
+                -0.11698207536226057,
+                -0.6,
+                0.4590800042819276
+              ],
+              [
+                -0.06783186499694271,
+                -0.6,
+                0.5133097678142006
+              ]
+            ],
+            "perimeterOrLength": 0.16253026807247326
+          }
+        ]
+      },
+      {
+        "y": -0.59,
+        "closedLoopCount": 2,
+        "posteriorGraphComponents": 3,
+        "closedPaths": [
+          {
+            "points": 59,
+            "closed": true,
+            "bounds": [
+              [
+                -0.11477436625150263,
+                -0.59,
+                0.4571433312866625
+              ],
+              [
+                -0.06603853682563046,
+                -0.59,
+                0.5102409121483382
+              ]
+            ],
+            "perimeterOrLength": 0.1607201323172064
+          },
+          {
+            "points": 64,
+            "closed": true,
+            "bounds": [
+              [
+                0.09811805411763114,
+                -0.59,
+                0.45826550185081033
+              ],
+              [
+                0.15618467048039722,
+                -0.59,
+                0.511218653111519
+              ]
+            ],
+            "perimeterOrLength": 0.17397014550848727
+          }
+        ]
+      },
+      {
+        "y": -0.58,
+        "closedLoopCount": 2,
+        "posteriorGraphComponents": 3,
+        "closedPaths": [
+          {
+            "points": 55,
+            "closed": true,
+            "bounds": [
+              [
+                -0.11282972404884324,
+                -0.58,
+                0.4547688062239934
+              ],
+              [
+                -0.06421281948461904,
+                -0.58,
+                0.507287174165366
+              ]
+            ],
+            "perimeterOrLength": 0.15917375524691674
+          },
+          {
+            "points": 60,
+            "closed": true,
+            "bounds": [
+              [
+                0.10561400276252378,
+                -0.58,
+                0.45828661495888673
+              ],
+              [
+                0.16122384202471113,
+                -0.58,
+                0.5109321395669494
+              ]
+            ],
+            "perimeterOrLength": 0.16939133646457413
+          }
+        ]
+      },
+      {
+        "y": -0.57,
+        "closedLoopCount": 2,
+        "posteriorGraphComponents": 3,
+        "closedPaths": [
+          {
+            "points": 47,
+            "closed": true,
+            "bounds": [
+              [
+                -0.11082976602721142,
+                -0.57,
+                0.45260687935692867
+              ],
+              [
+                -0.061856202758100644,
+                -0.57,
+                0.5038171517371741
+              ]
+            ],
+            "perimeterOrLength": 0.15767295838900303
+          },
+          {
+            "points": 57,
+            "closed": true,
+            "bounds": [
+              [
+                0.11352194130570528,
+                -0.57,
+                0.46060617905994666
+              ],
+              [
+                0.16348259591240044,
+                -0.57,
+                0.5109316957311243
+              ]
+            ],
+            "perimeterOrLength": 0.15755942906985348
+          }
+        ]
+      },
+      {
+        "y": -0.56,
+        "closedLoopCount": 2,
+        "posteriorGraphComponents": 3,
+        "closedPaths": [
+          {
+            "points": 58,
+            "closed": true,
+            "bounds": [
+              [
+                -0.10880025334815854,
+                -0.56,
+                0.4505694442742681
+              ],
+              [
+                -0.060076412317019545,
+                -0.56,
+                0.5010110257335577
+              ]
+            ],
+            "perimeterOrLength": 0.157137017361821
+          },
+          {
+            "points": 42,
+            "closed": true,
+            "bounds": [
+              [
+                0.1221708265275334,
+                -0.56,
+                0.4667091366933141
+              ],
+              [
+                0.1606376477862833,
+                -0.56,
+                0.5090108875866713
+              ]
+            ],
+            "perimeterOrLength": 0.1278866877409339
+          }
+        ]
+      },
+      {
+        "y": -0.55,
+        "closedLoopCount": 2,
+        "posteriorGraphComponents": 3,
+        "closedPaths": [
+          {
+            "points": 55,
+            "closed": true,
+            "bounds": [
+              [
+                -0.10705829989936297,
+                -0.55,
+                0.4479246667159097
+              ],
+              [
+                -0.05885918835675131,
+                -0.55,
+                0.4982511770837841
+              ]
+            ],
+            "perimeterOrLength": 0.15676337595513712
+          },
+          {
+            "points": 18,
+            "closed": true,
+            "bounds": [
+              [
+                0.1330559018497502,
+                -0.55,
+                0.47835324838947024
+              ],
+              [
+                0.15094054716922053,
+                -0.55,
+                0.5002767030441647
+              ]
+            ],
+            "perimeterOrLength": 0.06468965927809264
+          }
+        ]
+      },
+      {
+        "y": -0.54,
+        "closedLoopCount": 1,
+        "posteriorGraphComponents": 2,
+        "closedPaths": [
+          {
+            "points": 50,
+            "closed": true,
+            "bounds": [
+              [
+                -0.10563537290036953,
+                -0.54,
+                0.44544842364820275
+              ],
+              [
+                -0.056778612576827814,
+                -0.54,
+                0.49529945562820177
+              ]
+            ],
+            "perimeterOrLength": 0.15666068854027695
+          }
+        ]
+      },
+      {
+        "y": -0.53,
+        "closedLoopCount": 1,
+        "posteriorGraphComponents": 1,
+        "closedPaths": [
+          {
+            "points": 55,
+            "closed": true,
+            "bounds": [
+              [
+                -0.10392939952970234,
+                -0.53,
+                0.44297228815590506
+              ],
+              [
+                -0.05477468358088416,
+                -0.53,
+                0.4926816822570746
+              ]
+            ],
+            "perimeterOrLength": 0.15685920807458734
+          }
+        ]
+      },
+      {
+        "y": -0.52,
+        "closedLoopCount": 1,
+        "posteriorGraphComponents": 1,
+        "closedPaths": [
+          {
+            "points": 50,
+            "closed": true,
+            "bounds": [
+              [
+                -0.10226013896851623,
+                -0.52,
+                0.4401288173832539
+              ],
+              [
+                -0.05297408390815904,
+                -0.52,
+                0.49030271228770195
+              ]
+            ],
+            "perimeterOrLength": 0.15696185724529074
+          }
+        ]
+      },
+      {
+        "y": -0.51,
+        "closedLoopCount": 1,
+        "posteriorGraphComponents": 1,
+        "closedPaths": [
+          {
+            "points": 55,
+            "closed": true,
+            "bounds": [
+              [
+                -0.10033134277462626,
+                -0.51,
+                0.43713027959625933
+              ],
+              [
+                -0.050822460819582964,
+                -0.51,
+                0.48750570796745385
+              ]
+            ],
+            "perimeterOrLength": 0.1567991097789157
+          }
+        ]
+      },
+      {
+        "y": -0.5,
+        "closedLoopCount": 1,
+        "posteriorGraphComponents": 1,
+        "closedPaths": [
+          {
+            "points": 55,
+            "closed": true,
+            "bounds": [
+              [
+                -0.09811530034181708,
+                -0.5,
+                0.43489191751856615
+              ],
+              [
+                -0.04899466230260184,
+                -0.5,
+                0.48471412347554416
+              ]
+            ],
+            "perimeterOrLength": 0.15544147473150155
+          }
+        ]
+      },
+      {
+        "y": -0.49,
+        "closedLoopCount": 1,
+        "posteriorGraphComponents": 1,
+        "closedPaths": [
+          {
+            "points": 51,
+            "closed": true,
+            "bounds": [
+              [
+                -0.09542921475679424,
+                -0.49,
+                0.43450809070943364
+              ],
+              [
+                -0.04719242417445005,
+                -0.49,
+                0.4820639951364262
+              ]
+            ],
+            "perimeterOrLength": 0.14976857252947962
+          }
+        ]
+      },
+      {
+        "y": -0.48,
+        "closedLoopCount": 1,
+        "posteriorGraphComponents": 1,
+        "closedPaths": [
+          {
+            "points": 46,
+            "closed": true,
+            "bounds": [
+              [
+                -0.09160718985668688,
+                -0.48,
+                0.4373654021490336
+              ],
+              [
+                -0.04931160405479527,
+                -0.48,
+                0.47859192915643217
+              ]
+            ],
+            "perimeterOrLength": 0.13048772673839
+          }
+        ]
+      },
+      {
+        "y": -0.47,
+        "closedLoopCount": 1,
+        "posteriorGraphComponents": 1,
+        "closedPaths": [
+          {
+            "points": 29,
+            "closed": true,
+            "bounds": [
+              [
+                -0.0844788350225091,
+                -0.47,
+                0.44472217507742695
+              ],
+              [
+                -0.05821444536100287,
+                -0.47,
+                0.47217382594136276
+              ]
+            ],
+            "perimeterOrLength": 0.08321125326301958
+          }
+        ]
+      },
+      {
+        "y": -0.46,
+        "closedLoopCount": 0,
+        "posteriorGraphComponents": 0,
+        "closedPaths": []
+      },
+      {
+        "y": -0.45,
+        "closedLoopCount": 0,
+        "posteriorGraphComponents": 0,
+        "closedPaths": []
+      },
+      {
+        "y": -0.44,
+        "closedLoopCount": 0,
+        "posteriorGraphComponents": 0,
+        "closedPaths": []
+      },
+      {
+        "y": -0.43,
+        "closedLoopCount": 0,
+        "posteriorGraphComponents": 0,
+        "closedPaths": []
+      },
+      {
+        "y": -0.42,
+        "closedLoopCount": 0,
+        "posteriorGraphComponents": 0,
+        "closedPaths": []
+      },
+      {
+        "y": -0.41,
+        "closedLoopCount": 0,
+        "posteriorGraphComponents": 0,
+        "closedPaths": []
+      },
+      {
+        "y": -0.4,
+        "closedLoopCount": 0,
+        "posteriorGraphComponents": 0,
+        "closedPaths": []
+      },
+      {
+        "y": -0.39,
+        "closedLoopCount": 0,
+        "posteriorGraphComponents": 0,
+        "closedPaths": []
+      },
+      {
+        "y": -0.38,
+        "closedLoopCount": 0,
+        "posteriorGraphComponents": 0,
+        "closedPaths": []
+      },
+      {
+        "y": -0.37,
+        "closedLoopCount": 0,
+        "posteriorGraphComponents": 0,
+        "closedPaths": []
+      },
+      {
+        "y": -0.36,
+        "closedLoopCount": 0,
+        "posteriorGraphComponents": 0,
+        "closedPaths": []
+      },
+      {
+        "y": -0.35,
+        "closedLoopCount": 0,
+        "posteriorGraphComponents": 0,
+        "closedPaths": []
+      }
+    ]
+  },
+  "headVertexCounts": {
+    "source": 9274,
+    "candidate": 8243
+  },
+  "flameCoordinatesAndTrianglesExact": true,
+  "signedVolumeChangePercent": -0.16146047902030336,
+  "surfaceAreaChangePercent": -0.40856862563877216,
+  "checks": {
+    "sourceAndCandidateCoordinateBijections": true,
+    "sourceCanonicalMapAndReceipt": true,
+    "oneSceneTwoMeshNodes": true,
+    "expectedBodyCounts": true,
+    "protectedCoordinatesAndOrientedTriangles": true,
+    "capReceiptCorrespondence": true,
+    "bodyTopology": true,
+    "flameExact": true,
+    "noNewDetectedLocalIntersectionPairs": true,
+    "noDetectedSharedCenterCapOverlaps": true,
+    "fiveToTwoClosedBranchesAtThreePlanes": true
+  },
+  "limits": [
+    "Closed paths omit the open neck-truncated section; posterior graph components include the neck remainder.",
+    "Numerical branch counts do not establish horn identity or artistic acceptance.",
+    "No mesh or target coordinates are authored.",
+    "Local intersection coverage and shared-vertex limitations are stated above."
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "parentSelection": "selection-r01",
+  "status": "geometry unchanged; disconnected fragments excluded",
+  "groups": {
+    "central-upper-duplicate": {
+      "vertices": 306,
+      "discardedDisconnectedVertices": 0,
+      "bounds": [
+        [
+          -0.08731954544782639,
+          -0.6492851376533508,
+          0.5154950618743896
+        ],
+        [
+          -0.02750972844660282,
+          -0.5596907138824463,
+          0.5760711431503296
+        ]
+      ]
+    },
+    "lower-posterior-duplicates": {
+      "vertices": 607,
+      "discardedDisconnectedVertices": 32,
+      "bounds": [
+        [
+          -0.05194185674190521,
+          -0.6294524669647217,
+          0.3957936763763428
+        ],
+        [
+          0.06672970205545425,
+          -0.5562479496002197,
+          0.48851630091667175
+        ]
+      ]
+    },
+    "dorsal-spike": {
+      "vertices": 118,
+      "discardedDisconnectedVertices": 0,
+      "bounds": [
+        [
+          -0.09038910269737244,
+          -0.7191829085350037,
+          0.5740311145782471
+        ],
+        [
+          -0.04626099765300751,
+          -0.6533410549163818,
+          0.6025716662406921
+        ]
+      ]
+    }
+  }
+}

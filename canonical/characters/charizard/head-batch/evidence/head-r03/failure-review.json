@@ -1,0 +1,4 @@
+{
+  "status": "rejected audit metadata",
+  "reason": "BMesh wrapper set membership invalidated after adding custom data layers; all original IDs were reset to -1, making protection test vacuous. No acceptance or export. Frozen parent unchanged."
+}

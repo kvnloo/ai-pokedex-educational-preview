@@ -1,0 +1,11 @@
+{
+  "r04R05ExportTriangleArraysExact": true,
+  "auditArraysExact": {
+    "before": true,
+    "parent_vertex_ids": true,
+    "tail_vertex_ids": true,
+    "protected": true,
+    "subdivided": true
+  },
+  "triangleCount": 245814
+}

@@ -1,0 +1,10 @@
+{
+  "inputsVerified": 14,
+  "parentBlend": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02e/charizard-tail-r02e.blend",
+  "stages": [
+    "prune-r01",
+    "refine-r05",
+    "horns-r06"
+  ],
+  "status": "authored; awaiting comparison to actual artifacts"
+}

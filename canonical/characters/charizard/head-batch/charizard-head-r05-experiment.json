@@ -1,0 +1,131 @@
+{
+  "id": "charizard-head-r05",
+  "species": "charizard",
+  "title": "Broader skull blend \u00b7 r05",
+  "stage": "blender",
+  "status": "completed",
+  "parents": [
+    "charizard-head-r01"
+  ],
+  "question": "Can manual head repair recover two tapered horns and a coherent skull without changing the rest of the character?",
+  "changedFactors": [
+    {
+      "name": "head operation",
+      "from": "charizard-head-r01",
+      "to": "Conforming triangle edge splits in two skull caps; relax a geodesic band into the retained skull"
+    }
+  ],
+  "controls": [
+    "Official illustration generation ancestor; no new image or mesh generation",
+    "Frozen tail-r02e outside-head geometry and flame",
+    "Matched shadow-free head cameras"
+  ],
+  "inputs": [
+    {
+      "role": "shape reference",
+      "path": "assets/references/objects/b6/b6d5b8ee9fb05dc6f53294b2cae660dec770b92762cdb19d16bcbd679e1ba43a.png",
+      "sha256": "b6d5b8ee9fb05dc6f53294b2cae660dec770b92762cdb19d16bcbd679e1ba43a",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png",
+      "sourceKind": "official_artwork"
+    }
+  ],
+  "recipe": {
+    "model": "Manual Blender through Blender MCP",
+    "codePath": "assets/blender/charizard-head-r05/refine_caps.py",
+    "runnerSHA256": "8de6e30f7cde5cbaf61d448799352a1c23ef5dc7248f1ecc1e1b12c3730d0fd7",
+    "parameters": {
+      "candidate": "charizard-head-r05",
+      "parent": "charizard-head-r01",
+      "parentBlendSha256": "cfb1dc4e772f103ca17da6e730c370153f505236a1cceb503665c91194bee56c",
+      "method": "Conforming triangle edge splits in two skull caps; relax a geodesic band into the retained skull",
+      "edgeSplits": 1602,
+      "maximumPatchEdge": 0.012,
+      "band": 0.075,
+      "iterations": 220,
+      "factor": 0.4,
+      "verticesBefore": 121305,
+      "verticesAfter": 122907,
+      "movedVertices": 3557,
+      "newVertices": 1602,
+      "protectedVertices": 113062,
+      "maximumDisplacement": 0.033725529946160016,
+      "status": "awaiting actual visual/export validation"
+    }
+  },
+  "outputs": {
+    "rawMesh": "assets/blender/charizard-head-r05/charizard-head-r05.glb",
+    "blend": "assets/blender/charizard-head-r05/charizard-head-r05.blend",
+    "previews": [
+      {
+        "view": "head-front",
+        "path": "assets/blender/charizard-head-r05/charizard-head-r05-head-front.png"
+      },
+      {
+        "view": "head-right",
+        "path": "assets/blender/charizard-head-r05/charizard-head-r05-head-right.png"
+      },
+      {
+        "view": "head-left",
+        "path": "assets/blender/charizard-head-r05/charizard-head-r05-head-left.png"
+      },
+      {
+        "view": "head-rear",
+        "path": "assets/blender/charizard-head-r05/charizard-head-r05-head-rear.png"
+      },
+      {
+        "view": "head-top",
+        "path": "assets/blender/charizard-head-r05/charizard-head-r05-head-top.png"
+      },
+      {
+        "view": "head-threequarter",
+        "path": "assets/blender/charizard-head-r05/charizard-head-r05-head-threequarter.png"
+      },
+      {
+        "view": "fair-minusY",
+        "path": "assets/blender/charizard-head-r05/charizard-head-r05-minusY.png"
+      },
+      {
+        "view": "fair-plusX",
+        "path": "assets/blender/charizard-head-r05/charizard-head-r05-plusX.png"
+      },
+      {
+        "view": "fair-plusY",
+        "path": "assets/blender/charizard-head-r05/charizard-head-r05-plusY.png"
+      },
+      {
+        "view": "fair-minusX",
+        "path": "assets/blender/charizard-head-r05/charizard-head-r05-minusX.png"
+      },
+      {
+        "view": "fair-threequarter",
+        "path": "assets/blender/charizard-head-r05/charizard-head-r05-threequarter.png"
+      }
+    ]
+  },
+  "evaluation": {
+    "verdict": "needs-work",
+    "reviewer": "assistant",
+    "notes": "The broader blend reduces the fold further. A small posterior divot remains; horn shafts are still rounded.",
+    "unresolved": [
+      "Facial anatomy and posterior divot",
+      "One inherited head intersection pair",
+      "Hands/feet and wing roots",
+      "Deformation retopology, UVs, colors/PBR, rig, clips, attacks and game integration"
+    ]
+  },
+  "metrics": {
+    "vertices": 127423,
+    "trianglesAfterGLTFExport": 254842,
+    "meshSHA256": "4203b0c04150217471aef55802cf39972981bfcb1174c5a4e73de9b820404b94",
+    "protectedVerticesUnchanged": 113062,
+    "wholeModelSelfIntersectionTested": false
+  },
+  "comparability": {
+    "cohort": "charizard-manual-head",
+    "confounds": [
+      "Head views disable cast shadows; whole-body views retain them",
+      "Numerical gates do not establish anatomical fidelity or whole-model intersection freedom"
+    ]
+  },
+  "createdAt": "2026-09-06T00:48:52.152513+00:00"
+}

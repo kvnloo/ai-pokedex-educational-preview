@@ -1,0 +1,28 @@
+{
+  "exception": "Traceback (most recent call last):\n  File \"<string>\", line 5, in <module>\n  File \"/mnt/zer0models/workspace/zer0/experiments/pokemon/.worktrees/charizard-anatomy/tools/charizard-head/refine_caps.py\", line 96, in <module>\n    assert all(len(edge.link_faces)==2 for edge in bm.edges)\n           ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+  "edgeIncidence": {
+    "2": 373090,
+    "4": 1
+  },
+  "badEdges": [
+    {
+      "vertices": [
+        [
+          0.0011062397388741374,
+          -0.6179565787315369,
+          0.4418865144252777
+        ],
+        [
+          -0.01095668040215969,
+          -0.6241347789764404,
+          0.4588194787502289
+        ]
+      ],
+      "headIds": [
+        -1,
+        -1
+      ],
+      "faces": 4
+    }
+  ]
+}

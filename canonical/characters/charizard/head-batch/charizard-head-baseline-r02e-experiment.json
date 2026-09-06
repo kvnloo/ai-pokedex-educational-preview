@@ -1,0 +1,96 @@
+{
+  "id": "charizard-head-baseline-r02e",
+  "species": "charizard",
+  "title": "Before head repair \u00b7 tail-r02e",
+  "stage": "blender",
+  "status": "completed",
+  "parents": [
+    "charizard-tail-r02e"
+  ],
+  "question": "Can manual head repair recover two tapered horns and a coherent skull without changing the rest of the character?",
+  "changedFactors": [
+    {
+      "name": "head operation",
+      "from": "charizard-tail-r02e",
+      "to": "Read-only matched head views of frozen tail-r02e"
+    }
+  ],
+  "controls": [
+    "Official illustration generation ancestor; no new image or mesh generation",
+    "Frozen tail-r02e outside-head geometry and flame",
+    "Matched shadow-free head cameras"
+  ],
+  "inputs": [
+    {
+      "role": "shape reference",
+      "path": "assets/references/objects/b6/b6d5b8ee9fb05dc6f53294b2cae660dec770b92762cdb19d16bcbd679e1ba43a.png",
+      "sha256": "b6d5b8ee9fb05dc6f53294b2cae660dec770b92762cdb19d16bcbd679e1ba43a",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png",
+      "sourceKind": "official_artwork"
+    }
+  ],
+  "recipe": {
+    "model": "Manual Blender through Blender MCP",
+    "codePath": "assets/blender/charizard-head-baseline-r02e/inspect_head.py",
+    "runnerSHA256": "7c95ce6aee963c8d8b8b8f35cf029b08c1b841e6f6deeada6c056e4a0f28c2ce",
+    "parameters": {
+      "method": "Read-only matched head views of frozen tail-r02e"
+    }
+  },
+  "outputs": {
+    "rawMesh": "assets/blender/charizard-tail-r02e/charizard-tail-r02e.glb",
+    "blend": "assets/blender/charizard-tail-r02e/charizard-tail-r02e.blend",
+    "previews": [
+      {
+        "view": "head-front",
+        "path": "assets/blender/charizard-head-baseline-r02e/head-front.png"
+      },
+      {
+        "view": "head-right",
+        "path": "assets/blender/charizard-head-baseline-r02e/head-right.png"
+      },
+      {
+        "view": "head-left",
+        "path": "assets/blender/charizard-head-baseline-r02e/head-left.png"
+      },
+      {
+        "view": "head-rear",
+        "path": "assets/blender/charizard-head-baseline-r02e/head-rear.png"
+      },
+      {
+        "view": "head-top",
+        "path": "assets/blender/charizard-head-baseline-r02e/head-top.png"
+      },
+      {
+        "view": "head-threequarter",
+        "path": "assets/blender/charizard-head-baseline-r02e/head-threequarter.png"
+      }
+    ]
+  },
+  "evaluation": {
+    "verdict": "needs-work",
+    "reviewer": "assistant",
+    "notes": "Five posterior branches and a dorsal spike; rounded intended horn tips. Frozen parent for this comparison.",
+    "unresolved": [
+      "Facial anatomy and posterior divot",
+      "One inherited head intersection pair",
+      "Hands/feet and wing roots",
+      "Deformation retopology, UVs, colors/PBR, rig, clips, attacks and game integration"
+    ]
+  },
+  "metrics": {
+    "vertices": 126852,
+    "trianglesAfterGLTFExport": 253700,
+    "meshSHA256": "11091f72a5f3369cddc631e7f97034b5ff00eec219503e4362d07f25eaf96ad7",
+    "protectedVerticesUnchanged": 113062,
+    "wholeModelSelfIntersectionTested": false
+  },
+  "comparability": {
+    "cohort": "charizard-manual-head",
+    "confounds": [
+      "Head views disable cast shadows; whole-body views retain them",
+      "Numerical gates do not establish anatomical fidelity or whole-model intersection freedom"
+    ]
+  },
+  "createdAt": "2026-09-05T23:20:04.592461+00:00"
+}

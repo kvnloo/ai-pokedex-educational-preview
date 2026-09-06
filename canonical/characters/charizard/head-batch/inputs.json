@@ -1,0 +1,90 @@
+{
+  "parentBlend": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02e/charizard-tail-r02e.blend",
+  "headCameras": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r03/baseline/cameras.json",
+  "files": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02e/charizard-tail-r02e.blend",
+      "pathRoot": "private",
+      "bytes": 13056383,
+      "sha256": "998ed1a4bea9dfc565217ac1ab545953646e216c3ee0640363ae43cdc8c2bb8e"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r03/baseline/cameras.json",
+      "pathRoot": "private",
+      "bytes": 861,
+      "sha256": "61e069240eea16509ecca3c6a79620166a8c17ba2492b16c8d6818b4f1c49037"
+    },
+    {
+      "path": "/mnt/zer0models/workspace/zer0/experiments/pokemon/assets/blender/charizard-fair-review/charizard-official-61062-o256.json",
+      "pathRoot": "private",
+      "bytes": 1443,
+      "sha256": "0391e2f0bf9566987c6c40430b93e80f0a2301e76b4896582fefead3e2d4faf5"
+    },
+    {
+      "path": "tools/charizard-head/inspect_head.py",
+      "pathRoot": "repository",
+      "bytes": 2398,
+      "sha256": "7c95ce6aee963c8d8b8b8f35cf029b08c1b841e6f6deeada6c056e4a0f28c2ce"
+    },
+    {
+      "path": "tools/charizard-head/prepare_head.py",
+      "pathRoot": "repository",
+      "bytes": 2244,
+      "sha256": "78a2914a7c65e8014cf57626aa2dba5bf4bbd03de360d59168b0e4b45c6df22b"
+    },
+    {
+      "path": "tools/charizard-head/render_selection.py",
+      "pathRoot": "repository",
+      "bytes": 2371,
+      "sha256": "7000b15bc10a459b3d890abeac47c08b00ceec3623058421be928a255a60cf1f"
+    },
+    {
+      "path": "tools/charizard-head/refine_selection.py",
+      "pathRoot": "repository",
+      "bytes": 1867,
+      "sha256": "bf748bd022a02f3fa5972e0cd99c872d6f9c6a04b3771472280fddaf61278f86"
+    },
+    {
+      "path": "tools/charizard-head/prune_duplicates.py",
+      "pathRoot": "repository",
+      "bytes": 4572,
+      "sha256": "820dcf86245273396acffd665cc481b11fe1ba689157be9e0dcedb0e4347476f"
+    },
+    {
+      "path": "tools/charizard-head/render_candidate.py",
+      "pathRoot": "repository",
+      "bytes": 3224,
+      "sha256": "efa58656bac7abd924dcb201e2cead607243594e290daac90ac59ffdf76537ec"
+    },
+    {
+      "path": "tools/charizard-head/cap_patch.py",
+      "pathRoot": "repository",
+      "bytes": 3899,
+      "sha256": "d6ceaac431a17ed49820fab0213a91327678741ae34a14a37ac7b4f2222e6c4d"
+    },
+    {
+      "path": "tools/charizard-head/refine_caps.py",
+      "pathRoot": "repository",
+      "bytes": 6602,
+      "sha256": "7ae0f24b01bf8e91bbbbb860769b15738a1ab71896f8edf2b363ce0c4b4e689d"
+    },
+    {
+      "path": "tools/charizard-head/select_horns.py",
+      "pathRoot": "repository",
+      "bytes": 3705,
+      "sha256": "63fbff67c1fbb5e53f32381270afb79c2bf5cfb26c61ccb2616ca780ada84bbf"
+    },
+    {
+      "path": "tools/charizard-head/shape_horns.py",
+      "pathRoot": "repository",
+      "bytes": 6686,
+      "sha256": "3fdf4d0cb11a641791d4c4e749d609aa8a624afc5f9fad44be9a0347ab44661f"
+    },
+    {
+      "path": "tools/charizard-head/replay.py",
+      "pathRoot": "repository",
+      "bytes": 2121,
+      "sha256": "9dcf3b8e740ec67af4096456f35488c2cffe96db74ceb59a50d09264af7bae7d"
+    }
+  ]
+}

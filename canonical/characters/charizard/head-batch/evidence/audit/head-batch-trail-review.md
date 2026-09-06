@@ -1,0 +1,25 @@
+# Head batch trail review
+
+Reviewed read-only by **gpt-6-astra** at xhigh reasoning effort. Root was the sole Blender author. This is a same-GPT-family review and does not provide different-family model diversity.
+
+## Outcome
+
+No geometry blocker was found to retaining r06 as a local head-and-horn checkpoint. The saved views support the narrow visual claim: compared with frozen tail-r02e, the extra posterior branches are removed and two connected shafts now taper to distinct points. The evidence also plainly shows the remaining posterior skull divot, soft featureless face, inherited head intersection pair, malformed extremities and wing roots. Nothing reviewed supports full-character, deformation-topology, UV/PBR, rig, animation, game-promotion, or real-device acceptance.
+
+The protection chain is strong. The validators independently recover the connected 9,274-vertex head region from the frozen tail-r02e export, map exported coordinates bijectively to the saved arrays, and carry stable source identities through r01, r05 and r06. They confirm all 113,062 protected frozen-source vertices at zero displacement and all 226,039 protected oriented triangle triples unchanged. Flame geometry and transforms remain exact. The final two lofts account for all 767 new horn vertices and all 1,581 created exported triangles; their unchanged 25- and 26-vertex root cycles match the two deleted patches. The body remains one watertight, consistently wound component with no tested degenerate triangles or excess-incidence edges.
+
+The intersection claim is correctly scoped. The common saved head AABB contains every removed and new horn vertex. Open3D reports one inherited pair and no new pair against either tail-r02e or r05; a separate test covers the 625 final tip-fan pairs sharing a tip. Other shared-vertex configurations, the rest of the body, and flame/body intersections are explicitly outside the gates.
+
+Rejected work is recoverable enough to explain the path. The initial fill diagnostics preserve nonmanifold and boundary failures. The failed subdivision script and `refine-caps-failure.json` preserve the four-face edge failure. Head-r03 preserves the invalid identity metadata, failed blend, receipt and explicit explanation that the protection result was vacuous; accepted validators exclude it. R04 and r05 retain matched renders, receipts, arrays and numerical reports, making the choice of the broader r05 blend reviewable rather than silently replacing r04. Head-r02 is the weakest failure record: the constrained-Delaunay script and exact colliding face IDs remain, but there is no raw error file or failed candidate. README and the decision row disclose that its failure description was reconstructed from the tool transcript.
+
+## Finding and resolution
+
+The first `reproduction-r06` result is exact but is not a clean replay from only frozen tail-r02e plus source scripts. `refine_caps.py` reads the original private r01 blend and topology audit through its `frozen` path, and `shape_horns.py` likewise reads the original private r05 blend and refinement audit. `inputs.json` pins those derived artifacts. The generated scenes are used, and all three replay stages match both mesh arrays and transforms, all audit arrays, and all eleven renders pixel-for-pixel, so this does not undermine the delivered geometry. It weakens the causal replay claim because intermediate ancestry/protection data comes from the original run.
+
+This was corrected before delivery. `refine_caps.py` and `shape_horns.py` now resolve their intermediate blends and audit arrays from `head_root`; original `.blend` hash guards apply only to the normal frozen private run. `replay.py` verifies 14 source, camera and recipe records, requires the parent and camera paths to belong to that verified set, and checks membership again for every executed script. The four original derived r01/r05 dependencies remain separately recorded in `inputs-original-replay.json` and are absent from the final input list.
+
+The fresh `reproduction-r06-final` chain completed from tail-r02e and newly generated intermediates. `comparison.json` reports both mesh position arrays, triangle arrays and transforms exact at r01, r05 and r06; all 22 stage audit arrays and all 33 rendered images are exact. The final replay CPU report passes the same 12 gates with the same 113,062 protected vertices, 226,039 protected oriented triangles, one inherited local pair and zero new pairs.
+
+The assembled README and 13-row decision snapshot match the receipts and retain the open predicates. A command-level documentation issue found at final review was also corrected: README now lists both the original validator command and the exact final-replay command with its `--candidate-dir` and `--output-prefix`. No blocker remains for this limited checkpoint.
+
+Before this report was finalized, an independent pass resolved all 433 manifest file records and found every path, byte count and SHA-256 exact. The package must run once more after copying this final report and any README command correction so those final text bytes are the ones pinned for delivery.

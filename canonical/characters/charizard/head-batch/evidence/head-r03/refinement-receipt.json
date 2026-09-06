@@ -1,0 +1,18 @@
+{
+  "candidate": "charizard-head-r03",
+  "parent": "charizard-head-r01",
+  "parentBlendSha256": "cfb1dc4e772f103ca17da6e730c370153f505236a1cceb503665c91194bee56c",
+  "method": "Conforming triangle edge splits in two skull caps; relax a geodesic band into the retained skull",
+  "edgeSplits": 1602,
+  "maximumPatchEdge": 0.012,
+  "band": 0.035,
+  "iterations": 60,
+  "factor": 0.4,
+  "verticesBefore": 121305,
+  "verticesAfter": 122907,
+  "movedVertices": 2480,
+  "newVertices": 122907,
+  "protectedVertices": 0,
+  "maximumDisplacement": 0.02133223398947765,
+  "status": "awaiting actual visual/export validation"
+}

@@ -1,0 +1,69 @@
+{
+  "checkedAt": "2026-09-06T01:07:04.750Z",
+  "checks": [
+    {
+      "name": "correct frozen parent and current head",
+      "pass": true
+    },
+    {
+      "name": "matched comparison decodes head-front",
+      "pass": true
+    },
+    {
+      "name": "matched comparison decodes head-right",
+      "pass": true
+    },
+    {
+      "name": "matched comparison decodes head-left",
+      "pass": true
+    },
+    {
+      "name": "matched comparison decodes head-rear",
+      "pass": true
+    },
+    {
+      "name": "matched comparison decodes head-top",
+      "pass": true
+    },
+    {
+      "name": "matched comparison decodes head-threequarter",
+      "pass": true
+    },
+    {
+      "name": "phone reveals the exact head preview",
+      "pass": true
+    },
+    {
+      "name": "phone switches checkpoint charizard-head-baseline-r02e",
+      "pass": true
+    },
+    {
+      "name": "phone switches checkpoint charizard-head-r01",
+      "pass": true
+    },
+    {
+      "name": "phone switches checkpoint charizard-head-r04",
+      "pass": true
+    },
+    {
+      "name": "phone switches checkpoint charizard-head-r05",
+      "pass": true
+    },
+    {
+      "name": "phone switches checkpoint charizard-head-r06",
+      "pass": true
+    },
+    {
+      "name": "no horizontal page overflow",
+      "pass": true
+    },
+    {
+      "name": "no uncaught JavaScript errors",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "comparisonUrl": "https://0.taila30dc.ts.net:8445/devtools/experiments.html?pokemon=charizard&a=charizard-head-baseline-r02e&b=charizard-head-r06&view=head-top",
+  "phoneUrl": "https://0.taila30dc.ts.net:8445/devtools/pokedex.html?pokemon=charizard&tab=iterations&run=charizard-head-r06&view=head-top",
+  "status": "browser-pass/device-review-pending"
+}
