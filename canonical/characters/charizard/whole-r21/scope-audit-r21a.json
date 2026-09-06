@@ -1,0 +1,20 @@
+{
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r21/charizard-hybrid-r21a-arm-smoothing.blend",
+  "coordinateFaceMatrixChanges": {},
+  "armModifiers": {
+    "GEO-r11-arm-L": [
+      {
+        "type": "SUBSURF",
+        "levels": 1,
+        "renderLevels": 2
+      }
+    ],
+    "GEO-r11-arm-R": [
+      {
+        "type": "SUBSURF",
+        "levels": 1,
+        "renderLevels": 2
+      }
+    ]
+  }
+}

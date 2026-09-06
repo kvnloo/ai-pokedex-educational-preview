@@ -1,5 +1,5 @@
 {
-  "status": "trial-critic-pending",
+  "status": "A retained, C hand trial critic pending",
   "files": [
     {
       "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r21/before.json",
@@ -11,11 +11,35 @@
     },
     {
       "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r21/charizard-hybrid-r21a-arm-smoothing.blend",
-      "sha256": "a0c3f818143017c49de8d3d9e41ab10521278e694fec67ef12f6bd2e76a6329d"
+      "sha256": "b810a8dfa0c61cf9c5cee90ae4d4ea105f818b97175283a4c7eda14274ea99e9"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r21/charizard-hybrid-r21b-hand-splay.blend",
+      "sha256": "d288fc3a7259a36576bdebf0096250a8a9cf33325aa436d81ba3ee25fffc556b"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r21/charizard-hybrid-r21c-three-digits.blend",
+      "sha256": "6fb26c4ad122f790ae231604d0d88526716bdba4be8d3e69105fc2a75295a262"
     },
     {
       "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r21/r21a-front.png",
       "sha256": "75a4d04c9ebdb0eb1494b24bc910ce0bd4c354677de29f12bbe2181419b2cd03"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r21/r21a-matched-front.png",
+      "sha256": "655b2aedec4bdce5e382155c92b142fa3bc7200838f982914a20dde51c93cf0e"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r21/r21a-matched-rear.png",
+      "sha256": "79371cabdb17f34e641bea08dfff2f044f3666799e5ec3b3c56b0efb3ab49912"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r21/r21a-matched-side.png",
+      "sha256": "47f0f7081056eeac32ae6e524bbfbd7e8f0d19c9796e1a4b299fab7fb69cb99e"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r21/r21a-matched-threequarter.png",
+      "sha256": "27040f1d38dd88a973b8a9231ae3d3f1a5f3f3b2d94ff40923d66a99fcfa75bd"
     },
     {
       "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r21/r21a-rear.png",
@@ -28,6 +52,42 @@
     {
       "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r21/r21a-threequarter.png",
       "sha256": "341896d64db434e2f8ad6c58d02a4257fe52e4729d3652dd903a40cdede703de"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r21/r21b-front.png",
+      "sha256": "7f92f8c6811829ae562106ac0cfaf2959a314bec0073cd7e84bffd4a8b3d665a"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r21/r21b-rear.png",
+      "sha256": "3d413f0ddb08efebcac651f0a129993352c61d8c96cb533cbc5034c21962c006"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r21/r21b-side.png",
+      "sha256": "093d35283f567a1d76ff5bb86d6ea08a004bb521cd355c9c89ab9889ea84c506"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r21/r21b-threequarter.png",
+      "sha256": "652de92d523b654e79082358cc68b04082b08552f59822ee2fafb88169a18a62"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r21/r21c-front.png",
+      "sha256": "6ded9380ee7be6b37befc54d62af7f158172c528fbe67cd35bf90c16c8a5624a"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r21/r21c-rear.png",
+      "sha256": "b51ce5479963612a7c2fe3211a01a7b70dc44cb70496b01b215da9d557dcc66d"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r21/r21c-side.png",
+      "sha256": "3f1538d75631583c6f5052f2d32d4f91806d5e7af8237744eb9156fa6d181cab"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r21/r21c-threequarter.png",
+      "sha256": "ee48c333a6b68077e28ba29c01aa1dcd494ada764bc16a8f928731007b77a9fb"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r21/scope-audit-r21a.json",
+      "sha256": "0ad1be8213f15b8ccf5c1805ef36d2d8aad724bce023b5de3874219f6d51da0b"
     }
   ]
 }
