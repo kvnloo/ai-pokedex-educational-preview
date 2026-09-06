@@ -1,0 +1,63 @@
+{
+  "GEO-r11-eye-L": {
+    "changedVertices": [],
+    "matrixChanged": true
+  },
+  "GEO-r11-eye-R": {
+    "changedVertices": [],
+    "matrixChanged": true
+  },
+  "GEO-r11-head-block": {
+    "changedVertices": [],
+    "matrixChanged": true
+  },
+  "GEO-r11-horn-L": {
+    "changedVertices": [],
+    "matrixChanged": true
+  },
+  "GEO-r11-horn-R": {
+    "changedVertices": [],
+    "matrixChanged": true
+  },
+  "GEO-r11-neck": {
+    "changedVertices": [
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95
+    ],
+    "matrixChanged": false
+  },
+  "GEO-r14-jaw": {
+    "changedVertices": [],
+    "matrixChanged": true
+  }
+}

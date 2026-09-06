@@ -1,0 +1,3 @@
+Charizard e9a3464: smoother pear-shaped torso retained. Head orientation trial turns complete assembly12degrees toward front; upperneck follows, head shape unchanged. Critique pending. Images previous r23A and trial r24A. Still coarse blockout with unfinished joins and likeness.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r23/r23a-front.png
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r24/r24a-front.png
