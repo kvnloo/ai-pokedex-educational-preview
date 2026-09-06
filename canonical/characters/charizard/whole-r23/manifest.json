@@ -1,0 +1,46 @@
+[
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r23/charizard-hybrid-r23-intake.blend",
+    "sha256": "0d080f5599544a004a339e45801ea5b99adfe182770a303e5611cac409b960bf"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r23/charizard-hybrid-r23a-torso-smoothing.blend",
+    "sha256": "c6e01082b6e6dcc040bf9fd2bba5442e3dbca742f2beac0175b8d33c208cddbe"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r23/chest-inspection.json",
+    "sha256": "fcc960cd453f6379be75ff6400b80557b097e7e3960e5ba00240ccf17be90f54"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r23/r23-intake-chest-front.png",
+    "sha256": "03b02de6f53445819501e5dcfe53ed55c6d7bf0196d9cce6b25a31042567195d"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r23/r23-intake-chest-rear.png",
+    "sha256": "e4175b327ba5a22c2e6090aacb73ce095677098849fc6dd914b013869b19c2c6"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r23/r23-intake-chest-side.png",
+    "sha256": "de193e5121f9d0c3ad4ac0cfe072173b451f2b5f0e60307d2d1d28493f9c884b"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r23/r23-intake-chest-threequarter.png",
+    "sha256": "f4af101f6e8e2a913ce4756a6045e6d253c640f6b8f6114ffa015cdbbe5dea4b"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r23/r23a-front.png",
+    "sha256": "0ad2fec852ac59bb7e0d5e89f4ae5850945e5c1cb79855a22d44f44c93d3011e"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r23/r23a-rear.png",
+    "sha256": "d67355d224cc8c78f14ab28ddd4db34497005c31043a136722896a3bb9eab1f6"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r23/r23a-side.png",
+    "sha256": "af846e10163aefc1b9dc0a556143fdada584dada1f8e731367579037f4519350"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r23/r23a-threequarter.png",
+    "sha256": "a0bf5eba0ca872717c5f3e3337af493484fc4abbda12632542712e722bd0595e"
+  }
+]
