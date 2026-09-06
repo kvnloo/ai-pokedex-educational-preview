@@ -1,0 +1,3 @@
+Charizard r25A —25aaa93. Wing distribution trial: elbow/wrist moved inward with matching membrane+spars, keeping outer span and height fixed. Fuller fans, shorter inner supports. Audit confirms only intended wing landmarks moved alongX. Critique pending, still coarse asset.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r25/r25a-front.png
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r25/r25a-threequarter.png
