@@ -1,3 +1,7 @@
-# R31 ankle exposure trial — unaccepted
+# R31B ankle exposure — regional retention
 
-Native proportional G Z .04, bottom pole of each thigh, smooth connected influence .22. Source and intake preserved in private whole-r31. 118 vertices each changed. Local XY also changed; inspect transform orientation/world-space deltas before retention. Root inspected side render: more shin exposure, possible abrupt seam. Critic review pending. No export or production acceptance.
+A native proportional global Z lift .04 revealed the squat ankle; one native per-thigh global XY taper .9 reduced its overhang. Xhigh critic retained B after four-view review. Scalloped component seams remain. No further amplitude loop.
+
+World audit resolves local-axis concern: A displacement is global Z only within numerical tolerance. Original A/intake and R30 rollback remain preserved.
+
+Actual GLB reopening validates 39 meshes, 17,418 source vertices, 37,828 evaluated triangles, bounds and FlameSocket. Root inspected four reopened renders. This is not a production-topology or intersection pass. No production acceptance. Telegram preview 17267 delivered.

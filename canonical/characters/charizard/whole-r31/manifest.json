@@ -1,0 +1,38 @@
+{
+  "status": "regional-improvement-retained",
+  "productionAccepted": false,
+  "glbReopened": true,
+  "sourceAndGlbViewsInspected": true,
+  "files": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r31/charizard-hybrid-r31b-ankle-taper.blend",
+      "bytes": 568850,
+      "sha256": "2d328e0c181885b598b568a09439538cffdb85601a3d5f0b429803a811433266"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r31/charizard-blockout-r31b.glb",
+      "bytes": 697512,
+      "sha256": "3fbd7ef3c51519faaa6aa9f0bb3424c1efdd1ffb97f5993631a533b67f81c83c"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r31/glb-r31b-front.png",
+      "bytes": 1015409,
+      "sha256": "7c0ef7f105ae2320d7cb469ed60a5aa71fe347f76f9c9fd3586982f814a42df0"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r31/glb-r31b-rear.png",
+      "bytes": 1013872,
+      "sha256": "b44dbd7d59afa5fdd2cefd6897f8508abc84ed7bebf7350329384babc7ffdc04"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r31/glb-r31b-side.png",
+      "bytes": 903680,
+      "sha256": "c405b4bf6e929911939a898cae8edf22743ef7d728c9715fcde0a79d54e8c7a1"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r31/glb-r31b-threequarter.png",
+      "bytes": 1029030,
+      "sha256": "76e57438b09a03e20bab7932c8dbd0141ed6509fa98dedf0fbdde9bdedfb226a"
+    }
+  ]
+}

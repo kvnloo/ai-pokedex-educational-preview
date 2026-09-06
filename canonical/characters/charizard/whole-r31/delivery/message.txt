@@ -1,0 +1,3 @@
+Charizard R31B trial — revision 4d905f4. Native Blender input lifted/tapered the lower thigh to reveal the squat ankle seen in official HOME art. World-space movement audit passed. This candidate is NOT accepted yet: the thigh/shin component boundary remains visibly rough, and xhigh critic is deciding retain or revert. No textures/rig/production approval.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r31/r31b-threequarter.png
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r31/leg-b-side.png
