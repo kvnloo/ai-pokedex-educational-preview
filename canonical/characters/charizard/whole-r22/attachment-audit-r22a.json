@@ -1,0 +1,16 @@
+{
+  "facesUnchanged": true,
+  "matrixUnchanged": true,
+  "distalCoordinatesUnchanged": true,
+  "socket": {
+    "type": "EMPTY",
+    "parent": "GEO-r11-tail",
+    "position": [
+      0.8600000143051147,
+      0.12999999523162842,
+      0.5799999833106995
+    ],
+    "energyBaked": false,
+    "children": 0
+  }
+}
