@@ -1,0 +1,38 @@
+[
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r28/charizard-hybrid-r28b-cheek-planes.blend",
+    "sha256": "46a790482c6215a072ba5795057a0d0f5d61acac2d0222b75274324af9dc7fa9"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r28/r28b-front.png",
+    "sha256": "c6f26ef315ac1c7daf6e7ad53c19df8d2bcdaf430bc224286401d429dc6432a4"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r28/r28b-head-front.png",
+    "sha256": "7d7c6a0301c00cf3bc509520dc673cd73cec7d541d4593923bc02469d93afd10"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r28/r28b-head-rear.png",
+    "sha256": "ce1c58847f2e0408d393874b909dd887d52477cb8062ee6fbd49561237d1f1ef"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r28/r28b-head-side.png",
+    "sha256": "8c5de1a0f6af65f8fa1a8fd08d8f69ec596fac88a3cbe5f34a9dd89e75db0995"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r28/r28b-head-threequarter.png",
+    "sha256": "7fc3cba5e8553b47e8efc8c3b8489ebe45ed124228a7c6a091904a2a9cacea3c"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r28/r28b-rear.png",
+    "sha256": "931aed45518f0f34ccd98ec705da28ce6ccfab800cd50052e80d76ef0c6bd914"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r28/r28b-side.png",
+    "sha256": "61d376eca938d4a464c27f8e34153aa739cb8644255cb087fea8fe43af1f7b92"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r28/r28b-threequarter.png",
+    "sha256": "c820c66ed850272b1a82a169bd489c06ddb47f05967b49447de1c002146464f6"
+  }
+]

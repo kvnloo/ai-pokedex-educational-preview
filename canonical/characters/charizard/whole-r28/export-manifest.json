@@ -1,0 +1,22 @@
+[
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r28/charizard-blockout-r28a.glb",
+    "sha256": "a1aa7b1a16ecb604fa7ec697aefe77794aa8c2b7c14e27a3686fc96835b7172f"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r28/reopened-r28a-front.png",
+    "sha256": "83b4624c2e9ff0f44d67d798457fe1e4024e64cd39ff5e8f57891d0d11070b54"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r28/reopened-r28a-rear.png",
+    "sha256": "684081dbcc4b2df0f706d2935b393d188eb4f79708f39b2331106ed35eecc8e3"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r28/reopened-r28a-side.png",
+    "sha256": "6c4f8d65c33ac6162f7bbcf4428c4daeeeb511d0d4f70554b9302f0a65b2c0bf"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r28/reopened-r28a-threequarter.png",
+    "sha256": "69f3eb0f6bdda509954066ec6edfa8c2d795356f3b30a28d029fb65bb134e851"
+  }
+]

@@ -1,0 +1,1 @@
+R28A actual source/GLB reopened and validated: 39 meshes, 3268 control vertices, 9856 evaluated triangles; FlameSocket empty and energyBaked=false. Root inspected all four imported renders. Aperture definition survives export. Known mouth shading difference persists. Whole likeness/assembled intersections/production gates remain false. B rejected and A restored.
