@@ -1,0 +1,15 @@
+{
+  "originalCoordinatesPreserved": true,
+  "vertexCount": 44,
+  "selectedInnerControls": [
+    1,
+    2,
+    5,
+    6
+  ],
+  "nativeOperations": [
+    "Inset face2 .015",
+    "Move selected inner face localZ +.035"
+  ],
+  "indexReassignment": "Inset reused indices1,2,5,6 for inner face; boundary coordinates retained on new indices."
+}

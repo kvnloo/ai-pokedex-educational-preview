@@ -1,0 +1,13 @@
+{
+  "changedJawVertices": [
+    1,
+    2,
+    5,
+    6
+  ],
+  "nativeOperations": [
+    "rear underside1/2 localZ+.035",
+    "next underside5/6 localZ+.015"
+  ],
+  "mouthRimAndChinUnchanged": true
+}
