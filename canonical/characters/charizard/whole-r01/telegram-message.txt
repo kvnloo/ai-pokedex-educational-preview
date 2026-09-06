@@ -1,0 +1,11 @@
+Charizard GUI sculpt checkpoint whole-r01. I used Blender's actual sculpt UI on the jaw, lips, eye rims, paws, shoulders and tail. The side face is smoother, but the front lip is still swollen and the tail needs a much larger correction. This is saved as needs-work, not promoted into the game.
+
+The turntable shows r18 above and the working sculpt below. The front comparison exposes the regression clearly. Source, GLB, strokes, geometry issues and 221 verified file hashes are recorded in revision 1cbbf0f89d4baa868bb4b01183b06287e7c0cc40.
+
+Compare: https://0.taila30dc.ts.net:8445/devtools/experiments.html?pokemon=charizard&a=charizard-whole-r01-match-r18&b=charizard-whole-r01&view=face-front
+Full-size video: https://0.taila30dc.ts.net:8445/assets/blender/charizard-whole-r01/turntable-r18-vs-whole-r01.mp4
+
+The research inspector may need a scroll after switching views. The repaired functional Field OS on8469 remains unchanged and awaits your actual S25 retest. No merge or push.
+
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r01/turntable-r18-vs-whole-r01.mp4
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r01/comparison-preview.png
