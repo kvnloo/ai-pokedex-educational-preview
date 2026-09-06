@@ -1,0 +1,15 @@
+{
+  "nativeScaleWorld": [
+    1,
+    0.7,
+    0.85
+  ],
+  "pivot": [
+    -0.44,
+    -0.16,
+    0.8
+  ],
+  "affineError": 5.960464477539063e-08,
+  "vertices": 222,
+  "productionGate": false
+}
