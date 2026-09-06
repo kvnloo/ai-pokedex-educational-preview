@@ -1,5 +1,5 @@
 {
-  "status": "critic-pending",
+  "status": "regional-improvement-retained",
   "action": "Native per-thigh proportional S ShiftZ .9, lowest pole, smooth radius .22",
   "productionAccepted": false,
   "rootReview": "More short ankle exposure in side/threequarter, scalloped component seam persists. One correction budget exhausted; retain or revert next.",
@@ -24,5 +24,6 @@
       "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r31/leg-b-threequarter.png",
       "sha256": "232a594cab5deb0f7ba9f0b07e17d7f07ccadcfdf7f2f9890fdf693a8f2c4417"
     }
-  ]
+  ],
+  "criticReview": "Retain B: reduced overhang, short broad ankle, upper mass preserved, no visible gap or stalk. Scalloped seam remains; close amplitude loop."
 }
