@@ -1,0 +1,22 @@
+[
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r19/charizard-hybrid-r19a-wing-shoulder.blend",
+    "sha256": "7704f3b63ca248f3f0888cbd29f2e46f43f8ebd8cdde138f4c769e3da69832b8"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r19/r19a-front.png",
+    "sha256": "f0ad0c13d7cb03f56dc12062e916e72549dd241bdad98af53ccf6e7bcf525de9"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r19/r19a-rear.png",
+    "sha256": "01b8b4639fd33c3c247df27c1b564569b39ca4053ec6f376517658929ccba044"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r19/r19a-side.png",
+    "sha256": "331a77e30387288311b3cfd13c2f8b212963d2d83422691845f86d4878b6bd00"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r19/r19a-threequarter.png",
+    "sha256": "279469622ba067249d3d34d2e0d9739d7788b70d0ee71563773fa96a2975680f"
+  }
+]
