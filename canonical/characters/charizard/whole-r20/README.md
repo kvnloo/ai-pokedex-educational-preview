@@ -7,3 +7,5 @@ B tests the upper throat beneath the rear cheek: native local Y -0.03 on neck ve
 No texture, rig or animation progression. No merge/push. Flame remains runtime SFX. Whole-character likeness and production readiness remain incomplete.
 
 B retained as a limited throat-continuity gain. Xhigh critic inspected all eight B renders, opposing A head views and HOME: reduced unsupported overhang, retained neck thickness, no new collar/jowl. Keep amplitude; visible coarse boundary remains unresolved. Root inspected opposing side/rear head views. Coordinate audit proves only26 neck vertices changed localY, max0.03; othermesh coordinates unchanged. Export/reopen validation remains pending.
+
+R20B source and exported GLB reopened. 39 meshes,3220 control vertices,8016 evaluated triangles. Per-part manifold/nondegenerate and imported triangle/bounds/socket checks pass. Root inspected all four reopened GLB renders. Existing mouth shading discrepancy remains visible; construction seams and overlaps remain unresolved. No whole-character visual or production acceptance.
