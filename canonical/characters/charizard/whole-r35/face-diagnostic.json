@@ -1,0 +1,126 @@
+{
+  "GEO-r11-membrane-L": [
+    {
+      "face": 0,
+      "xzSignedArea": 0.01192777464720951
+    },
+    {
+      "face": 1,
+      "xzSignedArea": 0.006357328033299581
+    },
+    {
+      "face": 2,
+      "xzSignedArea": 0.011358310135868521
+    },
+    {
+      "face": 3,
+      "xzSignedArea": 0.00632778345743823
+    },
+    {
+      "face": 4,
+      "xzSignedArea": 0.004253009930694773
+    },
+    {
+      "face": 5,
+      "xzSignedArea": 0.006803705892739487
+    },
+    {
+      "face": 6,
+      "xzSignedArea": 0.01292767521681526
+    },
+    {
+      "face": 7,
+      "xzSignedArea": 0.0007138784706590684
+    },
+    {
+      "face": 8,
+      "xzSignedArea": 0.0037197442586034413
+    },
+    {
+      "face": 9,
+      "xzSignedArea": -0.00785276069707308
+    },
+    {
+      "face": 10,
+      "xzSignedArea": 0.0617166528622306
+    },
+    {
+      "face": 11,
+      "xzSignedArea": 0.007233350796170157
+    },
+    {
+      "face": 12,
+      "xzSignedArea": 0.012620834248593837
+    },
+    {
+      "face": 13,
+      "xzSignedArea": 0.09317998150706686
+    },
+    {
+      "face": 14,
+      "xzSignedArea": 0.10546500590800889
+    }
+  ],
+  "GEO-r11-membrane-R": [
+    {
+      "face": 0,
+      "xzSignedArea": -0.01192777464720951
+    },
+    {
+      "face": 1,
+      "xzSignedArea": -0.006357328033299581
+    },
+    {
+      "face": 2,
+      "xzSignedArea": -0.011358310135868521
+    },
+    {
+      "face": 3,
+      "xzSignedArea": -0.00632778345743823
+    },
+    {
+      "face": 4,
+      "xzSignedArea": -0.004253009930694773
+    },
+    {
+      "face": 5,
+      "xzSignedArea": -0.006803705892739487
+    },
+    {
+      "face": 6,
+      "xzSignedArea": -0.01292767521681526
+    },
+    {
+      "face": 7,
+      "xzSignedArea": -0.0007138784706590684
+    },
+    {
+      "face": 8,
+      "xzSignedArea": -0.0037197442586034413
+    },
+    {
+      "face": 9,
+      "xzSignedArea": 0.00785276069707308
+    },
+    {
+      "face": 10,
+      "xzSignedArea": -0.0617166528622306
+    },
+    {
+      "face": 11,
+      "xzSignedArea": -0.007233350796170157
+    },
+    {
+      "face": 12,
+      "xzSignedArea": -0.012620834248593837
+    },
+    {
+      "face": 13,
+      "xzSignedArea": -0.09317998150706686
+    },
+    {
+      "face": 14,
+      "xzSignedArea": -0.10546500590800889
+    }
+  ]
+}
