@@ -1,0 +1,51 @@
+{
+  "status": "unaccepted-form-trial",
+  "visualGate": false,
+  "files": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r17/charizard-hybrid-r17c-muzzle-cheek.blend",
+      "sha256": "971576a55935dcafcb11c0fba06869905e921b6ba7f8c7c76f37876a21286453",
+      "bytes": 148367
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r17/r17c-front.png",
+      "sha256": "cb96c02b773a01778fedfe1e7469b6c11fff80dcec8f9bb1cc961e83cac01b6b",
+      "bytes": 1010425
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r17/r17c-head-front.png",
+      "sha256": "a8aa65999a0a6da5007af59c8e001de3c5710daf9d8f83be4bb974993945feff",
+      "bytes": 976421
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r17/r17c-head-rear.png",
+      "sha256": "fb4062e8e64cea434a0b707c56452a5745c4c9352f9ca73388631a00aa0cbe63",
+      "bytes": 980039
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r17/r17c-head-side.png",
+      "sha256": "93ef26bd39c69ed7d0c71bf5250fcabcca04ccae6804641a090858b79b57c08f",
+      "bytes": 975457
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r17/r17c-head-threequarter.png",
+      "sha256": "a14559013ce8fe0f27d32e25612dab28136b9b43a01d8b5658133ac0460696d4",
+      "bytes": 1119347
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r17/r17c-rear.png",
+      "sha256": "84f83e82a2b569cdd79f5b0c1ab1d4d9fcbaf5c09b6c5c8b470ca3e0651ccb45",
+      "bytes": 1002310
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r17/r17c-side.png",
+      "sha256": "a270f191f978d903ebba2cc70c91714d5786d0a4712ff791d0777713cc7097fb",
+      "bytes": 907093
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r17/r17c-threequarter.png",
+      "sha256": "e344936246d75276799a15658256e0200125e93278c13d932f8ae63bcb6a3068",
+      "bytes": 1015981
+    }
+  ]
+}
