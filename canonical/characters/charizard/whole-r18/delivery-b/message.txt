@@ -1,0 +1,3 @@
+Charizard haunch trial B — aa51bd2. Replaced the rejected hard-boundary move with native smooth proportional editing. The rear ledge is gone; upper thighs, feet and claws preserved. Actual side/detail and full-body renders below. Critic review pending; still unfinished blockout.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r18/r18b-legs-side.png
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r18/r18b-threequarter.png
