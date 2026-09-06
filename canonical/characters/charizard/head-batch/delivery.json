@@ -1,0 +1,41 @@
+{
+  "milestoneRevision": "ced1729d10712199a7273c95e8dbf99e5fb0871f",
+  "receipt": {
+    "success": true,
+    "platform": "telegram",
+    "chat_id": "1083429746",
+    "message_id": "16817",
+    "mirrored": true
+  },
+  "files": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r03/head-r06/telegram-message.txt",
+      "bytes": 1060,
+      "sha256": "b192b0ba1771c77e496a334fca7a802c4b7a07e6f45e344d0bd0876165ce0a73"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r03/head-r06/telegram-receipt.json",
+      "bytes": 120,
+      "sha256": "4f09a13f49a7c7b57160d03accc96a1f35e3f192ff600b6b3747a07cd3b8426b"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r03/head-r06/comparison-preview.png",
+      "bytes": 235482,
+      "sha256": "655b19ddbed19047f03896609444423ecb35aa767cf2c4a4cc08660c360886fb"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r03/head-r06/charizard-head-r06-threequarter.png",
+      "bytes": 778801,
+      "sha256": "70dadf3709aaaf4ca685927aa40c706eccd6e6390d308e210981894b9d8bd942"
+    }
+  ],
+  "phoneUrl": "https://0.taila30dc.ts.net:8445/devtools/pokedex.html?pokemon=charizard&tab=iterations&run=charizard-head-r06&view=head-top",
+  "comparisonUrl": "https://0.taila30dc.ts.net:8445/devtools/experiments.html?pokemon=charizard&a=charizard-head-baseline-r02e&b=charizard-head-r06&view=head-top",
+  "independentFinalManifestAudit": {
+    "records": 434,
+    "allPathsHashesAndSizesExact": true,
+    "reviewer": "gpt-6-astra; same GPT family"
+  },
+  "fieldOSReleaseUnchanged": "f85e3ae295feec02",
+  "nextUnit": "Remaining skull defect and faithful facial structure; root is sole Blender author; full character goal active"
+}
