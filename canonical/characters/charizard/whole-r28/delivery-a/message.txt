@@ -1,0 +1,3 @@
+Charizard r28A orbital form study — 4c0ced9. Native Blender edge-crease edits make the eye socket more angular while preserving the eye, muzzle, jaw and pose. This is a regional test, not a completed face; broader brow/cheek improvement remains subtle and critic review is pending. Before/after closeups attached.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r26/r26b-head-threequarter.png
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r28/r28a-head-threequarter.png
