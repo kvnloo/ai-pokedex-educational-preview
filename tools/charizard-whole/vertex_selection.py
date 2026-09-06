@@ -6,6 +6,11 @@ import bmesh
 def prepare(object_name, vertex_indices):
     assert bpy.context.mode == 'OBJECT'
     obj = bpy.data.objects[object_name]
+    for area in bpy.context.screen.areas:
+        if area.type == 'VIEW_3D' and area.spaces.active.local_view:
+            region = next(region for region in area.regions if region.type == 'WINDOW')
+            with bpy.context.temp_override(area=area, region=region):
+                bpy.ops.view3d.localview(frame_selected=False)
     indices = set(vertex_indices)
     assert indices and min(indices) >= 0 and max(indices) < len(obj.data.vertices)
     for other in bpy.context.scene.objects:
