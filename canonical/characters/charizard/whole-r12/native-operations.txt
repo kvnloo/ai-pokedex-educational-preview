@@ -1,0 +1,12 @@
+# Executed native form operations, owned Blender XID4194306 / DISPLAY=:1
+# Head isolated, active; align to local RIGHT. Edit Mode, vertex selection, X-ray.
+# Box-select x305..390/y125..285; read-only audit: vertices24..39 only.
+G Y Y 0.055 Enter
+# Four fixed-camera renders inspected; saved r12a.
+S Z Z 0.7 Enter
+# Four fixed-camera renders inspected; saved r12b.
+# Neck active, Front Ortho, Edit Mode, X-ray, deselect.
+# Box-select x495..790/y515..780; read-only audit: rings0..2,48selected.
+S X 1.35 Enter
+# Four fixed-camera renders inspected;42off-center vertices changed,6centerline unchanged.
+# bpy did not write anatomy coordinates. Preserve intake and A/B rollback files.

@@ -5,16 +5,18 @@ import json
 from pathlib import Path
 from mathutils import Vector
 
-root=Path('/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r11')
+root=Path(globals().get('artifact_root','/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r11'))
 scene=bpy.context.scene
 checkpoint=globals().get('checkpoint','r11d')
-assert checkpoint in {'r11d','r11e'}
+assert checkpoint in {'r11d','r11e','r12c'}
 assert scene.name=='EDIT-charizard-coarse-r11' and len(bpy.data.scenes)==1
-expected_source='charizard-blockout-r11d-review.blend' if checkpoint=='r11d' else 'charizard-blockout-r11e-flame-contract.blend'
+expected_source={'r11d':'charizard-blockout-r11d-review.blend','r11e':'charizard-blockout-r11e-flame-contract.blend','r12c':'charizard-hybrid-r12c.blend'}[checkpoint]
 assert Path(bpy.data.filepath).name==expected_source
 geometry=[o for o in scene.objects if o.type=='MESH' and not o.hide_render]
 socket=scene.objects['FlameSocket']
 assert socket.type=='EMPTY' and socket.data is None and not socket.children
+if checkpoint in {'r11e','r12c'}:
+    assert socket.empty_display_size<=0.05
 assert socket.parent==scene.objects['GEO-r11-tail']
 assert socket.get('energyBaked') is False
 for obj in geometry:

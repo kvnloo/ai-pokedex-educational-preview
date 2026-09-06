@@ -1,0 +1,37 @@
+{
+  "reference": "Official PokeAPI HOME; existing fixed front/side/rear/threequarter cameras. No exact supplied side/rear orthographic reference.",
+  "iterations": [
+    {
+      "id": "r12a",
+      "nativeChange": "Front two muzzle rings local Y +0.055",
+      "decision": "retain",
+      "reason": "Shorter forward projection visible in side and three-quarter; no head width scaling. Head still too rectangular."
+    },
+    {
+      "id": "r12b",
+      "nativeChange": "Same muzzle rings local Z scale 0.7 about median",
+      "decision": "retain",
+      "reason": "Less rectangular nose cross-section, round broad rear skull retained. Featureless head is still not likeness-locked."
+    },
+    {
+      "id": "r12c",
+      "nativeChange": "Neck lower three rings global X scale 1.35 about median",
+      "decision": "retain as blockout",
+      "reason": "Flared base replaces cylindrical front/rear neck silhouette. Neck/chest intersection seam remains visible; do not call it seamless."
+    }
+  ],
+  "fourViewsVisuallyInspectedForEach": true,
+  "audit": {
+    "silhouette": "Still coarse and visibly constructed; not accepted as faithful Charizard.",
+    "torsoToHead": "Less projected muzzle; pear abdomen unchanged. Head/neck relationship requires more reference work.",
+    "wingSpan": "Unchanged enormous span; membrane and spars remain separate.",
+    "legMass": "Unchanged large thighs; squat feet and shin transitions unresolved.",
+    "armLength": "Unchanged short arms; shoulder joins remain hard and mechanical.",
+    "headProfile": "Shorter tapered muzzle is an incremental improvement; cheek/skull profile not locked.",
+    "neckThickness": "Lower flare improved in front/rear; S profile unchanged; join seam unresolved.",
+    "tailAttachment": "Unchanged coarse pelvic overlap, meshless FlameSocket only; no fire geometry."
+  },
+  "next": "Native component correction of head cheek/skull silhouette and neck/chest continuity; keep four-view gates. No details or production stage transition.",
+  "visualGatePassed": false,
+  "productionAccepted": false
+}
