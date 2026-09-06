@@ -1,0 +1,35 @@
+{
+  "productionAccepted": false,
+  "files": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r24/charizard-hybrid-r24a-head-orientation.blend",
+      "bytes": 149966,
+      "sha256": "d5f455f8900062b96e4d0ca399ad4241ec4e2aec475051b23c844db4a490cb37"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r24/charizard-blockout-r24a.glb",
+      "bytes": 194024,
+      "sha256": "b7e713fd0a55aae6a9a92c4565b9c94bb45c5acc5f435718706d8ac417ba22ba"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r24/reopened-r24a-front.png",
+      "bytes": 1011034,
+      "sha256": "786b42c5d6b53171b4d4a63a4c19b84ce668ace6b2fa5cf2b03bf77cd2e4145a"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r24/reopened-r24a-rear.png",
+      "bytes": 1011048,
+      "sha256": "f19f12a0457d063f98fc0520325558f6a07f3b622d0495c8b81232033e3c0935"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r24/reopened-r24a-side.png",
+      "bytes": 902335,
+      "sha256": "97781a6be10bd9bf80aa2e22de5f18d7ccfd383435315646df71d28a3235bb7e"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r24/reopened-r24a-threequarter.png",
+      "bytes": 1025605,
+      "sha256": "a7ffd1dd55383726ee0aed92ff25c5c87164a5ba9f1a029d2e4022ffce43c547"
+    }
+  ]
+}
