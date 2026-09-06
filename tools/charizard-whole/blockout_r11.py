@@ -114,6 +114,7 @@ def build():
     socket=bpy.data.objects.new('FlameSocket',None)
     bpy.data.collections['R11-controls'].objects.link(socket)
     socket.location=(.86,.13,.58); socket.parent=tail
+    socket.empty_display_size=.035
     socket['energyBaked']=False; socket['effect']='charizard-tail-flame'
     for sign, side in ((-1,'L'),(1,'R')):
         outline=[(.18,.15,1.02),(.57,.17,1.16),(.79,.18,1.57),(1.06,.20,1.33),(1.24,.23,.85),(.98,.20,1.025),(.84,.18,.85),(.63,.16,1.0),(.42,.15,.85)]

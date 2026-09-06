@@ -1,0 +1,37 @@
+{
+  "instructionApplied": "Tail flame is runtime SFX/VFX; no connected fire mesh or character UV/retopology for energy",
+  "alreadyNoFlameGeometryBeforeThisSteer": true,
+  "anatomyChanged": false,
+  "geometryBinaryIdenticalToR11d": true,
+  "onlyExportedAttachment": "FlameSocket",
+  "attachmentType": "Empty node without mesh or children",
+  "parent": "GEO-r11-tail",
+  "emptyDisplaySize": 0.035,
+  "allPhysicalMeshesEnergyBaked": false,
+  "meshCount": 36,
+  "evaluatedTriangles": 6696,
+  "sourceAndGLBReopened": true,
+  "visualTailInspection": "gui-tail-socket-r11e.png",
+  "runtimeEffectImplemented": false,
+  "stage": "coarse-blockout; likeness gate still fails",
+  "effortRequested": "xhigh",
+  "noMaxPass": true,
+  "publication": false,
+  "artifacts": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r11/charizard-blockout-r11e-flame-contract.blend",
+      "bytes": 142934,
+      "sha256": "bd9b834ad424dfb83dd5940c95f344e0071815e60adf455870e8948b12c9aa22"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r11/charizard-blockout-r11e.glb",
+      "bytes": 137736,
+      "sha256": "b06cc45408c2bc31925ae33c3127c1053b99051ab3d20ba22049779f27f26040"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r11/gui-tail-socket-r11e.png",
+      "bytes": 253106,
+      "sha256": "fbb996fd561ddc155e691f19ebc542f7f8742bc6593fb27c97234fb7145751cd"
+    }
+  ]
+}

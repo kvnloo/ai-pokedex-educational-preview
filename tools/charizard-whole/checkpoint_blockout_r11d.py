@@ -24,6 +24,7 @@ for blocks in (bpy.data.meshes,bpy.data.cameras,bpy.data.collections):
         if block.users==0:blocks.remove(block)
 socket=next(obj for obj in scene.objects if obj.get('effect')=='charizard-tail-flame')
 socket.name='FlameSocket'
+socket.empty_display_size=.035
 for obj in scene.objects:obj.select_set(obj.type=='MESH')
 bpy.context.view_layer.objects.active=scene.objects['GEO-r11-body-pear']
 ns['capture']('d')

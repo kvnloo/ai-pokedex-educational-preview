@@ -7,10 +7,19 @@ from mathutils import Vector
 
 root=Path('/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r11')
 scene=bpy.context.scene
+checkpoint=globals().get('checkpoint','r11d')
+assert checkpoint in {'r11d','r11e'}
 assert scene.name=='EDIT-charizard-coarse-r11' and len(bpy.data.scenes)==1
-assert Path(bpy.data.filepath).name=='charizard-blockout-r11d-review.blend'
+expected_source='charizard-blockout-r11d-review.blend' if checkpoint=='r11d' else 'charizard-blockout-r11e-flame-contract.blend'
+assert Path(bpy.data.filepath).name==expected_source
 geometry=[o for o in scene.objects if o.type=='MESH' and not o.hide_render]
 socket=scene.objects['FlameSocket']
+assert socket.type=='EMPTY' and socket.data is None and not socket.children
+assert socket.parent==scene.objects['GEO-r11-tail']
+assert socket.get('energyBaked') is False
+for obj in geometry:
+    assert obj.get('energyBaked') is False
+    assert not any(word in obj.name.lower() for word in ('flame','fire','glow','plasma')),obj.name
 stats=[]
 graph=bpy.context.evaluated_depsgraph_get()
 for obj in geometry:
@@ -28,7 +37,7 @@ for obj in geometry:
         'bounds':bounds,'nonmanifoldEdges':nonmanifold,'degenerateTriangles':degenerate})
     bm.free(); evaluated.to_mesh_clear()
 for obj in scene.objects:obj.select_set(obj in geometry or obj==socket)
-glb=root/'charizard-blockout-r11d.glb'
+glb=root/('charizard-blockout-'+checkpoint+'.glb')
 assert not glb.exists()
 bpy.ops.export_scene.gltf(filepath=str(glb),export_format='GLB',use_selection=True,
     use_active_scene=True,export_extras=True,export_animations=False,export_apply=True)
@@ -61,9 +70,10 @@ report={'source':bpy.data.filepath,'sourceReopened':True,'glb':str(glb),'glbReop
         'wingSpanToAbdomenWidth':span/width(body),'abdomenToHeadWorldWidth':width(body)/width(head)},
     'referenceRatioLimit':'Head is posed; world width is not an anatomical head-width measurement or a calibrated reference score.',
     'socketVerified':True,'textures':0,'uvLayers':0,'animations':[],
+    'physicalEnergyBaked':False,'socketContainsGeometry':False,
     'intentionalConstructionOverlaps':True,'intersectionsPassed':False,
     'visualGatePassed':False,'productionAccepted':False,'publication':False}
-(root/'validation-r11d.json').write_text(json.dumps(report,indent=2)+'\n')
+(root/('validation-'+checkpoint+'.json')).write_text(json.dumps(report,indent=2)+'\n')
 bpy.context.window.scene=scene
 for obj in list(validation.objects):
     data=obj.data if obj.type=='MESH' else None
