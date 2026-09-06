@@ -1,0 +1,196 @@
+{
+  "recordedAt": "2026-09-06T06:54:33.654937+00:00",
+  "status": "experimental-checkpoint; visual-quality-failed; not-promoted",
+  "retainedOverallCandidate": "whole-r03",
+  "scene": "EDIT-charizard-whole-r05",
+  "source": {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r05/charizard-whole-r05-mouth-jaw-study.blend",
+    "bytes": 9926960,
+    "sha256": "746f0988ac4d5095bccdcd7bd281a593aefb5e258cbb743aa9c2df58953d360e"
+  },
+  "r04Decision": {
+    "status": "rejected",
+    "reason": "Rounded nose forms a bulb with an abrupt transition to the rectangular skull and jaw. The silhouette loses the source character. Preserve the experiment, do not promote it.",
+    "reusable": "Exclusive body copy and topological neck cut; not the primitive face design."
+  },
+  "r05Decision": {
+    "status": "unfinished, no overall quality acceptance",
+    "gain": "Reversible reduction of forward lower-jaw depth while preserving the incised Basis.",
+    "remaining": [
+      "Straight artificial mouth slit",
+      "Inflated irregular nasal cap and folded lip",
+      "Heavy rear cheek lobe",
+      "Inherited eye objects buried by raw head",
+      "Separate overlapping head and body with visible seam",
+      "No teeth, finished oral cavity, UV/PBR, rig, attack clips or runtime export"
+    ]
+  },
+  "authoring": {
+    "GUI": "r04 transforms/sculpt gestures and r05 cutter placement; key/stroke journals record delivered input, not operator completion",
+    "MCP": "Independent data copies, native remesh/neck cut/raw-head extraction, Exact Boolean mouth cut, native jaw shape key, captures and saves"
+  },
+  "geometry": {
+    "bodyVertices": 128383,
+    "headVertices": 9834,
+    "headPolygons": 18942,
+    "jawChangedVertices": 1816,
+    "jawMaximumDisplacement": 0.03930532932281494,
+    "jawValue": 1,
+    "basis": "Post-incision head, not the original uncut raw source"
+  },
+  "checks": {
+    "mouthBoundaryEdges": 0,
+    "mouthNonmanifoldEdges": 0,
+    "scriptsParsed": 8,
+    "savedSourceBytesAndHashInspected": true,
+    "sourceReopen": false,
+    "glbExported": false,
+    "selfIntersectionsCertified": false,
+    "zeroAreaFacesCertified": false,
+    "headBodyJoined": false,
+    "compressedBlenderHeader": true,
+    "initialHeaderCheck": "Initial check expected uncompressed BLENDER header and failed. File uses Zstandard compression; decompressed header, file size and hash verified. This is not source reopening.",
+    "nativeExistingOutputGuards": {
+      "scripts": [
+        "capture_mouth_study_r05.py",
+        "refine_jaw_r05.py",
+        "open_mouth_r05.py"
+      ],
+      "blocked": 3,
+      "jawValueCameraRenderPathAndHeadVertexCountUnchanged": true
+    },
+    "cutterCoordinateMaximumCorrection": 4.4117567249860653e-08,
+    "cutterCoordinateCorrection": "cutter-coordinate-correction.json"
+  },
+  "archive": {
+    "scenes": 94,
+    "meshVerticesBeforeFocus": 12739788,
+    "scope": "Scene-name metadata checked after save. Full archive geometry was not reopened. Original checkpoints remain untouched."
+  },
+  "visualReview": {
+    "by": "root",
+    "method": "Inspected GUI screenshots and rendered stills; no animation or video acceptance",
+    "r04": "gui-rounded-nose.png",
+    "r05": [
+      "original-jaw/near.png",
+      "reduced-jaw/near.png",
+      "reduced-jaw/front.png",
+      "reduced-jaw/far.png",
+      "reduced-jaw/threequarter.png"
+    ]
+  },
+  "artifacts": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r04/session-archive-94-scenes.blend",
+      "bytes": 574884050,
+      "sha256": "58a27def1e74af9198cdee3481dac4dbb6b0095552e13a8d3f58ebe524c97b16"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r04/session-archive-inventory.json",
+      "bytes": 8844,
+      "sha256": "b6ccd96fbcde4114fecdf0f26fcd4abed5477bfbff4f71827afce93515189601"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r04/session-archive-receipt.json",
+      "bytes": 761,
+      "sha256": "33cc28129db26df03060b512a054d2b75f3f87abdf8be33a74aa6f3f06c2812b"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r04/charizard-whole-r04-rejected-rounded-nose.blend",
+      "bytes": 12247449,
+      "sha256": "8a2e33d9b0f6d453279796524052178f6284d9b64cb95add7d5ebd98c0b85a25"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r04/gui-rounded-nose.png",
+      "bytes": 488640,
+      "sha256": "0821d6ce99951327aa8d44f73b119fcc2fc9c36306113cc23baafa580864ec1b"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r04/gui-modeling.jsonl",
+      "bytes": 11352,
+      "sha256": "f7a0bec09969a42e4d36543d4734a2ba59f58610882736517c801148d948b05f"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r04/audit/neck-cut-result.json",
+      "bytes": 530,
+      "sha256": "95416855df1db82987cad8c0d808100d64fd002df6db0048818840a811b26cfc"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r05/charizard-whole-r05-raw-head-start.blend",
+      "bytes": 9800929,
+      "sha256": "e406fe4d71280d0f3cbd50aa3f34b879528857aae0daf6be6a923826cfe3419f"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r05/charizard-whole-r05-before-mouth-cut.blend",
+      "bytes": 9802559,
+      "sha256": "97a9e5afe57ab3b3db2ee24747062681a857529eff6fb88a9e3d8420392f412f"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r05/charizard-whole-r05-mouth-jaw-study.blend",
+      "bytes": 9926960,
+      "sha256": "746f0988ac4d5095bccdcd7bd281a593aefb5e258cbb743aa9c2df58953d360e"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r05/raw-head-intake.json",
+      "bytes": 740,
+      "sha256": "30ce851511569d4e1a89bf61f5cc0b0f339ada5a4d47a8a438c31bf57e2d93dc"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r05/mouth-cut-result.json",
+      "bytes": 1258,
+      "sha256": "40eeabd7b4d5b9bf9e234bf21fdfd1c73c7c2d9b8c7923434ba61e82dc62951d"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r05/jaw-refinement.json",
+      "bytes": 492,
+      "sha256": "1a8f66cbe1bc62ff93a012f00f12a94048e88c1e74a432db5fcf616e3fd0942c"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r05/mouth-study-cameras.json",
+      "bytes": 521,
+      "sha256": "e9095f0c0d6402e02cd6f135a6906bccec94774ac8a2170e344ccc5b25e601bf"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r05/original-jaw/front.png",
+      "bytes": 718533,
+      "sha256": "756040ddbe244e88384d5a01a0cbd3b53d2bf14e6aa2439fc6512baf0f56954b"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r05/original-jaw/near.png",
+      "bytes": 666516,
+      "sha256": "0b74190fe0e4d0a0f8d63d7fbf509e31217d5662f163274e9aefbfcdd501330b"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r05/original-jaw/far.png",
+      "bytes": 670106,
+      "sha256": "06ef6f99cea0d3f193f1fbf60890fcde04e38f948b555d8e1b5ae79b22793334"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r05/original-jaw/threequarter.png",
+      "bytes": 739489,
+      "sha256": "7817dac463c4073f1510b87588122dcb061228758caaa05e764c3fff3bf7cf65"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r05/reduced-jaw/front.png",
+      "bytes": 719072,
+      "sha256": "bf2ae7df245ec6398da6cd05b435774174e8474bf9deca9898b9935eb0d24085"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r05/reduced-jaw/near.png",
+      "bytes": 660579,
+      "sha256": "6a75907da6cf52ed9d11712f38984b8c6ddefd070501aa368e2539323eeb82cc"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r05/reduced-jaw/far.png",
+      "bytes": 666909,
+      "sha256": "8bfffac0714c077c329860b25fbbca9c85b982407cb68742f5c3618eb39288c7"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r05/reduced-jaw/threequarter.png",
+      "bytes": 738572,
+      "sha256": "6f7b25129ebe3e801fd165e6143b44f0cbb8a0ca8687e7407fcf570ac799325c"
+    }
+  ],
+  "next": "Keep physical Pok\u00e9dex polish paused for S25 acceptance. For later Charizard work, correct mouth/nose/cheek/eye proportions in front and both sides before joining the neck or adding finish. Save a new version for every mutation.",
+  "provenanceScriptReview": "Moved existing-output guards before r05 mutations and corrected recorded cutter coordinates to head-local. No geometry rerun. The historical jaw receipt phrase raw Basis means the post-incision head; source receipt retained unchanged."
+}
