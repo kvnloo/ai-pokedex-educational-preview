@@ -33,5 +33,17 @@
       "bytes": 253106,
       "sha256": "fbb996fd561ddc155e691f19ebc542f7f8742bc6593fb27c97234fb7145751cd"
     }
-  ]
+  ],
+  "delivery": {
+    "assetRevision": "6efb818e09b2fae3d4bc2640f7e6b2d2500b8d25",
+    "transport": {
+      "success": true,
+      "platform": "telegram",
+      "chat_id": "1083429746",
+      "message_id": "17104",
+      "mirrored": true
+    },
+    "processExitCode": 0,
+    "type": "User-authorized private Telegram preview"
+  }
 }
