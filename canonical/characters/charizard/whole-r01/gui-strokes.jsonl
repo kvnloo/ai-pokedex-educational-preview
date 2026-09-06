@@ -1,0 +1,35 @@
+{"brush": "Elastic Grab", "start": [902, 274], "end": [902, 250], "size": 70, "strength": 0.5, "view": "front orthographic 2 scroll-in from start", "purpose": "lift swollen jaw underside into firmer muzzle wedge", "time": 1788664907.9411702}
+{"time": 1788665021.701345, "start": [902, 276], "end": [902, 248], "shift": false, "note": "Grab jaw underside upward; diameter 130 strength 0.7; front orthographic"}
+{"time": 1788665071.8640344, "start": [610, 754], "end": [616, 713], "shift": false, "note": "lift overthick tail underside; Grab diameter230 strength0.6 front"}
+{"time": 1788665073.0783687, "start": [565, 704], "end": [588, 689], "shift": false, "note": "round flattened tail side profile; Grab diameter230 strength0.6 front"}
+{"time": 1788665105.450574, "start": [845, 253], "end": [939, 270], "shift": true, "note": "smooth muzzle jaw relief; shift smooth diameter180 front"}
+{"time": 1788665106.5726101, "start": [939, 270], "end": [845, 253], "shift": true, "note": "smooth reverse jaw pass; shift smooth diameter180 front"}
+{"time": 1788665107.7509956, "start": [592, 683], "end": [709, 740], "shift": true, "note": "fair pulled tail outer bend; shift smooth diameter180 front"}
+{"time": 1788665109.048784, "start": [709, 740], "end": [592, 683], "shift": true, "note": "fair reverse tail pass; shift smooth diameter180 front"}
+{"time": 1788665161.2088666, "start": [748, 750], "end": [732, 753], "shift": false, "note": "broaden left paw; Grab diameter120 strength0.7 front"}
+{"time": 1788665162.3422713, "start": [1170, 751], "end": [1187, 754], "shift": false, "note": "broaden right paw; Grab diameter120 strength0.7 front"}
+{"time": 1788665163.414123, "start": [770, 755], "end": [770, 767], "shift": false, "note": "extend left forefoot; Grab diameter120 strength0.7 front"}
+{"time": 1788665164.4866838, "start": [1135, 752], "end": [1143, 766], "shift": false, "note": "extend right forefoot; Grab diameter120 strength0.7 front"}
+{"time": 1788665165.64314, "start": [886, 455], "end": [868, 441], "shift": false, "note": "broaden and lift left shoulder transition; Grab diameter210 strength0.6 front"}
+{"time": 1788665166.7265227, "start": [1046, 446], "end": [1060, 433], "shift": false, "note": "broaden and lift right shoulder transition; Grab diameter210 strength0.6 front"}
+{"time": 1788665225.4503038, "start": [1132, 766], "end": [1125, 706], "shift": false, "note": "reduce tail lower mass; Grab diameter480 strength0.65 plusX side"}
+{"time": 1788665226.5024486, "start": [1132, 659], "end": [1132, 694], "shift": false, "note": "reduce tail upper mass; Grab diameter480 strength0.65 plusX side"}
+{"time": 1788665229.013424, "start": [1379, 657], "end": [1312, 638], "shift": false, "note": "bring tail bend toward hips; Grab diameter480 strength0.65 plusX side"}
+{"time": 1788665260.1333978, "start": [933, 660], "end": [1097, 698], "shift": true, "note": "fair root-to-tail transition; shift smooth diameter240 plusX side"}
+{"time": 1788665261.2163062, "start": [1097, 710], "end": [930, 685], "shift": true, "note": "fair lower tail root; shift smooth diameter240 plusX side"}
+{"time": 1788665262.2932692, "start": [1181, 684], "end": [1348, 684], "shift": true, "note": "fair tail bend; shift smooth diameter240 plusX side"}
+{"time": 1788665427.8418727, "start": [566, 464], "end": [867, 514], "via": [603, 475, 649, 474, 699, 464, 744, 463, 792, 473, 835, 489], "shift": false, "note": "Crease Sharp closed lip line; diameter42 strength0.25; negative local-side face view"}
+{"time": 1788665470.5613015, "start": [567, 464], "end": [867, 514], "via": [603, 475, 649, 474, 699, 464, 744, 463, 792, 473, 835, 489], "shift": false, "note": "Crease Sharp second lip pass; diameter42 strength0.65; same face view"}
+{"time": 1788665668.8128357, "start": [580, 468], "end": [863, 510], "via": [630, 478, 699, 468, 755, 468, 809, 482], "shift": true, "note": "smooth subdivided lip edge; diameter85 low strength; same face view"}
+{"time": 1788665923.2776558, "start": [1100, 520], "end": [1278, 483], "via": [], "shift": false, "note": "fair opposite cheek and muzzle; Smooth diameter190 strength0.16; opposite local-side"}
+{"time": 1788665926.6410484, "start": [1283, 522], "end": [1065, 566], "via": [], "shift": false, "note": "fair opposite jaw primary plane; Smooth diameter190 strength0.16; opposite local-side"}
+{"time": 1788665929.401131, "start": [832, 510], "end": [846, 431], "via": [], "shift": false, "note": "blend opposite horn-root pinch; Smooth diameter190 strength0.16; opposite local-side"}
+{"time": 1788665936.318646, "start": [1330, 464], "end": [1029, 514], "via": [1293, 475, 1247, 474, 1197, 464, 1152, 463, 1104, 473, 1061, 489], "shift": false, "note": "Crease Sharp opposite closed lip; diameter42 strength0.6; opposite local-side"}
+{"time": 1788665996.412861, "start": [1188, 577], "end": [1188, 538], "via": [], "shift": false, "note": "lift opposite lower jaw into slimmer wedge; Grab diameter310 strength0.7"}
+{"time": 1788665998.3206213, "start": [708, 577], "end": [708, 538], "via": [], "shift": false, "note": "lift near lower jaw into slimmer wedge; Grab diameter310 strength0.7"}
+{"time": 1788666087.2137227, "start": [837, 397], "end": [982, 386], "via": [874, 384, 919, 375, 957, 371], "shift": false, "note": "Draw upper orbital rim; diameter65 strength0.25 near local-side"}
+{"time": 1788666128.4286025, "start": [836, 418], "end": [998, 426], "via": [877, 435, 912, 446, 956, 436], "shift": false, "note": "Draw lower orbital rim; diameter42 strength0.18 near local-side"}
+{"time": 1788666130.757272, "start": [1059, 397], "end": [914, 386], "via": [1022, 384, 977, 375, 939, 371], "shift": false, "note": "Draw opposite upper orbital rim; diameter65 strength0.25"}
+{"time": 1788666133.3057141, "start": [1060, 418], "end": [898, 426], "via": [1019, 435, 984, 446, 940, 436], "shift": false, "note": "Draw opposite lower orbital rim; diameter42 strength0.18"}
+{"time": 1788666176.649715, "start": [1266, 395], "end": [1254, 405], "via": [], "shift": false, "note": "Draw Sharp opposite nostril recess; diameter34 strength0.7"}
+{"time": 1788666177.3250868, "start": [630, 395], "end": [642, 405], "via": [], "shift": false, "note": "Draw Sharp near nostril recess; diameter34 strength0.7"}

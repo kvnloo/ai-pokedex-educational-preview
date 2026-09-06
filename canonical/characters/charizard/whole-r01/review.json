@@ -1,0 +1,66 @@
+{
+  "candidate": "charizard-whole-r01",
+  "verdict": "needs-substantial-correction",
+  "promoted": false,
+  "parent": "charizard-head-r18",
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r01/charizard-whole-r01.blend",
+  "glb": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r01/charizard-whole-r01.glb",
+  "vertices": 169915,
+  "triangles": 339818,
+  "meshes": 4,
+  "uvLayers": 0,
+  "materials": 0,
+  "textures": [],
+  "animations": [],
+  "visual": {
+    "improvements": [
+      "smoother head surface",
+      "clearer side lip separation"
+    ],
+    "regressions": [
+      "front muzzle too broad and lower lip swollen",
+      "rear jaw thins too quickly",
+      "mouth line too wavy and wrapped"
+    ],
+    "remaining": [
+      "heavy horizontal tail loop",
+      "weak hands/feet/wing roots",
+      "no oral cavity, teeth, articulated lids or deformation topology"
+    ],
+    "inspected": [
+      "face-near",
+      "face-far",
+      "face-front",
+      "front",
+      "right",
+      "rear",
+      "threequarter",
+      "actual Edit Mode wire screenshot",
+      "12 frames decoded from the actual MP4 turntable"
+    ],
+    "notInspected": [
+      "real-time video playback",
+      "matched baseline Edit Mode topology"
+    ]
+  },
+  "geometry": {
+    "zeroAreaTriangles": 40,
+    "bodyEyeConfirmedPairs": [
+      312,
+      30
+    ],
+    "sampledEyePenetration": [
+      0.000420072436,
+      0.000318214647
+    ],
+    "scope": "four exported meshes reopened by CPU tools; orbital crossing checks only, not a full self-intersection certificate"
+  },
+  "captureCorrection": "Historical face-wire.png files are clay; actual topology evidence is gui-face-wire-actual.png. Source preserved.",
+  "fieldOs": {
+    "url": "https://0.taila30dc.ts.net:8469/pokedex.html",
+    "implementationRevision": "fa975753269125aebcf471a04515664b90d7fc7c",
+    "release": "f85e3ae295feec02",
+    "deploymentChanged": false,
+    "deviceAcceptance": "S25 pending; Pok\u00e9dex polish paused"
+  }
+}

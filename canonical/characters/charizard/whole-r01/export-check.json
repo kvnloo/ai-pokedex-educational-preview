@@ -1,0 +1,1277 @@
+{
+  "candidate": {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r01/charizard-whole-r01.glb",
+    "sha256": "e7381c6d3be1f66a6996d67c5b1cc1c5231d0a6729926fef98c1daa724a875db",
+    "structure": {
+      "scenes": 1,
+      "nodes": 4,
+      "meshes": 4,
+      "nodeNames": [
+        "GEO-charizard-body-whole-r01",
+        "GEO-charizard-eye-1-whole-r01",
+        "GEO-charizard-eye--1-whole-r01",
+        "GEO-charizard-flame-whole-r01"
+      ],
+      "meshPrimitiveCounts": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "transforms": {
+      "body": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "flame": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.14757436513900757
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.14880594611167908
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          -0.16797137260437012
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    }
+  },
+  "captureReceipt": {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r01/capture-receipt.json",
+    "sha256": "60bdd40537d86b2d346ee1137ceec5e4ba54fb99f2158250a0a50141c11a7be4"
+  },
+  "baseline": {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r04/head-r18/charizard-head-r18.glb",
+    "sha256": "b84668b7557eaeaf2a01b4da94113391981a5e635573af3443041321d15faa96"
+  },
+  "scope": "Working sculpt integrity and focused orbital intersections only. No frozen-coordinate constraint, local surgery plan, anatomical approval, or runtime promotion.",
+  "coordinateConvention": "glTF world transforms followed by Blender (x,-z,y). Face/vertex IDs refer to the actual exported mesh named in the report.",
+  "meshes": {
+    "GEO-charizard-flame-whole-r01": {
+      "finiteVertices": true,
+      "validTriangleIndices": true,
+      "countsMatchCapture": true,
+      "topology": {
+        "vertices": 4516,
+        "triangles": 9028,
+        "components": 1,
+        "eulerCharacteristic": 2,
+        "boundaryEdges": 0,
+        "edgesAboveTwoFaceIncidence": 0,
+        "interiorEdgesWithInconsistentWinding": 0,
+        "repeatedIndexTriangles": 0,
+        "duplicateOrientedTriangles": 0,
+        "areaAtMost1eMinus14Triangles": 0,
+        "minimumTriangleArea": 1.236858298028624e-11,
+        "watertight": true,
+        "windingConsistent": true,
+        "signedVolume": 0.004518745747211714,
+        "surfaceArea": 0.18854623733438367,
+        "bounds": [
+          [
+            0.6976145505905151,
+            -0.4899594783782959,
+            -0.12000000476837158
+          ],
+          [
+            0.9023855924606323,
+            -0.27004048228263855,
+            0.24425885826349258
+          ]
+        ]
+      },
+      "areaAtMost1eMinus14ExportTriangleIds": []
+    },
+    "GEO-charizard-eye--1-whole-r01": {
+      "finiteVertices": true,
+      "validTriangleIndices": true,
+      "countsMatchCapture": true,
+      "topology": {
+        "vertices": 3074,
+        "triangles": 6144,
+        "components": 1,
+        "eulerCharacteristic": 2,
+        "boundaryEdges": 0,
+        "edgesAboveTwoFaceIncidence": 0,
+        "interiorEdgesWithInconsistentWinding": 0,
+        "repeatedIndexTriangles": 0,
+        "duplicateOrientedTriangles": 0,
+        "areaAtMost1eMinus14Triangles": 0,
+        "minimumTriangleArea": 9.863315762735882e-09,
+        "watertight": true,
+        "windingConsistent": true,
+        "signedVolume": 1.653517586207851e-05,
+        "surfaceArea": 0.006846855528108439,
+        "bounds": [
+          [
+            -0.06993785500526428,
+            -0.8719107508659363,
+            0.5238165855407715
+          ],
+          [
+            0.001785006490536034,
+            -0.7788476943969727,
+            0.5593766570091248
+          ]
+        ]
+      },
+      "areaAtMost1eMinus14ExportTriangleIds": []
+    },
+    "GEO-charizard-eye-1-whole-r01": {
+      "finiteVertices": true,
+      "validTriangleIndices": true,
+      "countsMatchCapture": true,
+      "topology": {
+        "vertices": 3074,
+        "triangles": 6144,
+        "components": 1,
+        "eulerCharacteristic": 2,
+        "boundaryEdges": 0,
+        "edgesAboveTwoFaceIncidence": 0,
+        "interiorEdgesWithInconsistentWinding": 0,
+        "repeatedIndexTriangles": 0,
+        "duplicateOrientedTriangles": 0,
+        "areaAtMost1eMinus14Triangles": 0,
+        "minimumTriangleArea": 1.106618511331295e-08,
+        "watertight": true,
+        "windingConsistent": true,
+        "signedVolume": 1.7305204176904345e-05,
+        "surfaceArea": 0.0066780452041743,
+        "bounds": [
+          [
+            -0.18628796935081482,
+            -0.8069288730621338,
+            0.5238165855407715
+          ],
+          [
+            -0.14272677898406982,
+            -0.6951935291290283,
+            0.5593766570091248
+          ]
+        ]
+      },
+      "areaAtMost1eMinus14ExportTriangleIds": []
+    },
+    "GEO-charizard-body-whole-r01": {
+      "finiteVertices": true,
+      "validTriangleIndices": true,
+      "countsMatchCapture": true,
+      "topology": {
+        "vertices": 159251,
+        "triangles": 318502,
+        "components": 1,
+        "eulerCharacteristic": 0,
+        "boundaryEdges": 0,
+        "edgesAboveTwoFaceIncidence": 0,
+        "interiorEdgesWithInconsistentWinding": 0,
+        "repeatedIndexTriangles": 0,
+        "duplicateOrientedTriangles": 0,
+        "areaAtMost1eMinus14Triangles": 40,
+        "minimumTriangleArea": 0.0,
+        "watertight": true,
+        "windingConsistent": true,
+        "signedVolume": 0.2794842099007753,
+        "surfaceArea": 5.562357459661711,
+        "bounds": [
+          [
+            -0.958707332611084,
+            -0.9847948551177979,
+            -0.6039645075798035
+          ],
+          [
+            0.946840226650238,
+            0.8221479654312134,
+            0.5849010348320007
+          ]
+        ]
+      },
+      "areaAtMost1eMinus14ExportTriangleIds": [
+        7795,
+        8928,
+        10200,
+        10209,
+        12888,
+        14288,
+        15741,
+        20167,
+        21685,
+        23262,
+        29411,
+        29414,
+        30976,
+        32529,
+        32541,
+        35656,
+        37241,
+        40452,
+        43736,
+        45436,
+        48785,
+        50543,
+        53549,
+        55903,
+        57599,
+        61302,
+        64110,
+        65933,
+        65944,
+        67879,
+        70289,
+        75761,
+        77270,
+        78966,
+        82448,
+        139711,
+        139714,
+        139749,
+        144225,
+        158654
+      ]
+    }
+  },
+  "eyes": [
+    {
+      "side": 1,
+      "eyeMesh": "GEO-charizard-eye-1-whole-r01",
+      "eyeGeometryExactlyR18": true,
+      "bounds": [
+        [
+          -0.19628796935081483,
+          -0.8169288730621338,
+          0.5138165855407715
+        ],
+        [
+          -0.13272677898406982,
+          -0.6851935291290283,
+          0.5693766570091248
+        ]
+      ],
+      "intersectionComparison": {
+        "r18": {
+          "bodyTrianglesTested": 818,
+          "eyeTrianglesTested": 6144,
+          "counts": {
+            "body-body": {
+              "detectedPairs": 0,
+              "strictConfirmedPairs": 0
+            },
+            "body-eye": {
+              "detectedPairs": 0,
+              "strictConfirmedPairs": 0
+            },
+            "eye-eye": {
+              "detectedPairs": 0,
+              "strictConfirmedPairs": 0
+            }
+          },
+          "samplePairs": [],
+          "completePairArraysPrefix": "side_1_r18"
+        },
+        "whole-r01": {
+          "bodyTrianglesTested": 3115,
+          "eyeTrianglesTested": 6144,
+          "counts": {
+            "body-body": {
+              "detectedPairs": 0,
+              "strictConfirmedPairs": 0
+            },
+            "body-eye": {
+              "detectedPairs": 312,
+              "strictConfirmedPairs": 312
+            },
+            "eye-eye": {
+              "detectedPairs": 0,
+              "strictConfirmedPairs": 0
+            }
+          },
+          "samplePairs": [
+            {
+              "kinds": [
+                "body",
+                "eye"
+              ],
+              "exportTriangleIds": [
+                278601,
+                130
+              ],
+              "strictInteriorCrossingConfirmed": true,
+              "strictInteriorHitCount": 2,
+              "bodyBands": [
+                -1,
+                null
+              ],
+              "bounds": [
+                [
+                  -0.1618478000164032,
+                  -0.7249293327331543,
+                  0.5290918946266174
+                ],
+                [
+                  -0.14803406596183777,
+                  -0.7140951752662659,
+                  0.5298474431037903
+                ]
+              ],
+              "meanTriangleVertexPosition": [
+                -0.15764633069435754,
+                -0.7186305522918701,
+                0.5295460025469462
+              ]
+            },
+            {
+              "kinds": [
+                "body",
+                "eye"
+              ],
+              "exportTriangleIds": [
+                278601,
+                6083
+              ],
+              "strictInteriorCrossingConfirmed": true,
+              "strictInteriorHitCount": 2,
+              "bodyBands": [
+                -1,
+                null
+              ],
+              "bounds": [
+                [
+                  -0.1618478000164032,
+                  -0.7469507455825806,
+                  0.5290918946266174
+                ],
+                [
+                  -0.14803406596183777,
+                  -0.7140951752662659,
+                  0.5407324433326721
+                ]
+              ],
+              "meanTriangleVertexPosition": [
+                -0.15682106465101242,
+                -0.7230516672134399,
+                0.5314250985781351
+              ]
+            },
+            {
+              "kinds": [
+                "body",
+                "eye"
+              ],
+              "exportTriangleIds": [
+                278602,
+                128
+              ],
+              "strictInteriorCrossingConfirmed": true,
+              "strictInteriorHitCount": 2,
+              "bodyBands": [
+                -1,
+                null
+              ],
+              "bounds": [
+                [
+                  -0.16101057827472687,
+                  -0.7249293327331543,
+                  0.5297116637229919
+                ],
+                [
+                  -0.14708185195922852,
+                  -0.7137181162834167,
+                  0.5305598974227905
+                ]
+              ],
+              "meanTriangleVertexPosition": [
+                -0.1543341800570488,
+                -0.7184172670046488,
+                0.5300468703111013
+              ]
+            },
+            {
+              "kinds": [
+                "body",
+                "eye"
+              ],
+              "exportTriangleIds": [
+                278602,
+                130
+              ],
+              "strictInteriorCrossingConfirmed": true,
+              "strictInteriorHitCount": 2,
+              "bodyBands": [
+                -1,
+                null
+              ],
+              "bounds": [
+                [
+                  -0.16101057827472687,
+                  -0.7249293327331543,
+                  0.5290918946266174
+                ],
+                [
+                  -0.14708185195922852,
+                  -0.7140951752662659,
+                  0.5301674604415894
+                ]
+              ],
+              "meanTriangleVertexPosition": [
+                -0.15518533935149512,
+                -0.7199291189511617,
+                0.5296837091445923
+              ]
+            },
+            {
+              "kinds": [
+                "body",
+                "eye"
+              ],
+              "exportTriangleIds": [
+                278602,
+                131
+              ],
+              "strictInteriorCrossingConfirmed": true,
+              "strictInteriorHitCount": 2,
+              "bodyBands": [
+                -1,
+                null
+              ],
+              "bounds": [
+                [
+                  -0.16101057827472687,
+                  -0.7249293327331543,
+                  0.5294578671455383
+                ],
+                [
+                  -0.14708185195922852,
+                  -0.7140951752662659,
+                  0.5301688313484192
+                ]
+              ],
+              "meanTriangleVertexPosition": [
+                -0.15495781103769937,
+                -0.7195349236329397,
+                0.529863198598226
+              ]
+            },
+            {
+              "kinds": [
+                "body",
+                "eye"
+              ],
+              "exportTriangleIds": [
+                278602,
+                6081
+              ],
+              "strictInteriorCrossingConfirmed": true,
+              "strictInteriorHitCount": 2,
+              "bodyBands": [
+                -1,
+                null
+              ],
+              "bounds": [
+                [
+                  -0.16101057827472687,
+                  -0.7469507455825806,
+                  0.5297116637229919
+                ],
+                [
+                  -0.14708185195922852,
+                  -0.7137181162834167,
+                  0.5407324433326721
+                ]
+              ],
+              "meanTriangleVertexPosition": [
+                -0.15379888812700906,
+                -0.7233245770136515,
+                0.5318074723084768
+              ]
+            },
+            {
+              "kinds": [
+                "body",
+                "eye"
+              ],
+              "exportTriangleIds": [
+                278602,
+                6083
+              ],
+              "strictInteriorCrossingConfirmed": true,
+              "strictInteriorHitCount": 2,
+              "bodyBands": [
+                -1,
+                null
+              ],
+              "bounds": [
+                [
+                  -0.16101057827472687,
+                  -0.7469507455825806,
+                  0.5290918946266174
+                ],
+                [
+                  -0.14708185195922852,
+                  -0.7140951752662659,
+                  0.5407324433326721
+                ]
+              ],
+              "meanTriangleVertexPosition": [
+                -0.15436007330814996,
+                -0.7243502338727316,
+                0.5315628051757812
+              ]
+            },
+            {
+              "kinds": [
+                "body",
+                "eye"
+              ],
+              "exportTriangleIds": [
+                278603,
+                130
+              ],
+              "strictInteriorCrossingConfirmed": true,
+              "strictInteriorHitCount": 2,
+              "bodyBands": [
+                -1,
+                null
+              ],
+              "bounds": [
+                [
+                  -0.16267523169517517,
+                  -0.7264118194580078,
+                  0.5289682149887085
+                ],
+                [
+                  -0.14898627996444702,
+                  -0.7156554460525513,
+                  0.5298259258270264
+                ]
+              ],
+              "meanTriangleVertexPosition": [
+                -0.15808247526486716,
+                -0.7193990647792816,
+                0.5293687582015991
+              ]
+            },
+            {
+              "kinds": [
+                "body",
+                "eye"
+              ],
+              "exportTriangleIds": [
+                278603,
+                6083
+              ],
+              "strictInteriorCrossingConfirmed": true,
+              "strictInteriorHitCount": 2,
+              "bodyBands": [
+                -1,
+                null
+              ],
+              "bounds": [
+                [
+                  -0.16267523169517517,
+                  -0.7469507455825806,
+                  0.5289682149887085
+                ],
+                [
+                  -0.14898627996444702,
+                  -0.7156554460525513,
+                  0.5407324433326721
+                ]
+              ],
+              "meanTriangleVertexPosition": [
+                -0.157257209221522,
+                -0.7238201797008514,
+                0.5312478542327881
+              ]
+            },
+            {
+              "kinds": [
+                "body",
+                "eye"
+              ],
+              "exportTriangleIds": [
+                278604,
+                130
+              ],
+              "strictInteriorCrossingConfirmed": true,
+              "strictInteriorHitCount": 2,
+              "bodyBands": [
+                -1,
+                null
+              ],
+              "bounds": [
+                [
+                  -0.1618478000164032,
+                  -0.7264118194580078,
+                  0.5290918946266174
+                ],
+                [
+                  -0.14803406596183777,
+                  -0.7156554460525513,
+                  0.5298474431037903
+                ]
+              ],
+              "meanTriangleVertexPosition": [
+                -0.15564228097597757,
+                -0.7206833263238271,
+                0.5295152962207794
+              ]
+            },
+            {
+              "kinds": [
+                "body",
+                "eye"
+              ],
+              "exportTriangleIds": [
+                278604,
+                6083
+              ],
+              "strictInteriorCrossingConfirmed": true,
+              "strictInteriorHitCount": 2,
+              "bodyBands": [
+                -1,
+                null
+              ],
+              "bounds": [
+                [
+                  -0.1618478000164032,
+                  -0.7469507455825806,
+                  0.5290918946266174
+                ],
+                [
+                  -0.14803406596183777,
+                  -0.7156554460525513,
+                  0.5407324433326721
+                ]
+              ],
+              "meanTriangleVertexPosition": [
+                -0.15481701493263245,
+                -0.725104441245397,
+                0.5313943922519684
+              ]
+            },
+            {
+              "kinds": [
+                "body",
+                "eye"
+              ],
+              "exportTriangleIds": [
+                278637,
+                132
+              ],
+              "strictInteriorCrossingConfirmed": true,
+              "strictInteriorHitCount": 2,
+              "bodyBands": [
+                -1,
+                null
+              ],
+              "bounds": [
+                [
+                  -0.16396085917949677,
+                  -0.7276448607444763,
+                  0.5283579230308533
+                ],
+                [
+                  -0.1503056287765503,
+                  -0.7172237634658813,
+                  0.5292034149169922
+                ]
+              ],
+              "meanTriangleVertexPosition": [
+                -0.15980450312296549,
+                -0.7214226822058359,
+                0.5288277566432953
+              ]
+            }
+          ],
+          "completePairArraysPrefix": "side_1_whole-r01"
+        }
+      },
+      "clearance": {
+        "signedAgainstClosedBody": true,
+        "minimumSampledDistance": -0.000420072436099872,
+        "minimumDistanceEyeVertexId": 86,
+        "eyeVertexSamplesInsideByMoreThan1eMinus6": 28,
+        "poles": [
+          {
+            "eyeVertexId": 3072,
+            "coordinate": [
+              -0.16848433017730713,
+              -0.7387007474899292,
+              0.5407324433326721
+            ],
+            "sampledDistance": 0.015066396445035934,
+            "nearestBodyExportTriangleId": 278680
+          },
+          {
+            "eyeVertexId": 3073,
+            "coordinate": [
+              -0.1541949063539505,
+              -0.7469507455825806,
+              0.5407324433326721
+            ],
+            "sampledDistance": 0.013052446767687798,
+            "nearestBodyExportTriangleId": 279798
+          }
+        ]
+      },
+      "sharedVertexCoverage": "Eye geometry is exactly the previously checked r18 mesh; its prior shared-vertex result remains applicable."
+    },
+    {
+      "side": -1,
+      "eyeMesh": "GEO-charizard-eye--1-whole-r01",
+      "eyeGeometryExactlyR18": true,
+      "bounds": [
+        [
+          -0.07993785500526428,
+          -0.8819107508659363,
+          0.5138165855407715
+        ],
+        [
+          0.011785006490536034,
+          -0.7688476943969726,
+          0.5693766570091248
+        ]
+      ],
+      "intersectionComparison": {
+        "r18": {
+          "bodyTrianglesTested": 869,
+          "eyeTrianglesTested": 6144,
+          "counts": {
+            "body-body": {
+              "detectedPairs": 0,
+              "strictConfirmedPairs": 0
+            },
+            "body-eye": {
+              "detectedPairs": 0,
+              "strictConfirmedPairs": 0
+            },
+            "eye-eye": {
+              "detectedPairs": 0,
+              "strictConfirmedPairs": 0
+            }
+          },
+          "samplePairs": [],
+          "completePairArraysPrefix": "side_-1_r18"
+        },
+        "whole-r01": {
+          "bodyTrianglesTested": 3412,
+          "eyeTrianglesTested": 6144,
+          "counts": {
+            "body-body": {
+              "detectedPairs": 0,
+              "strictConfirmedPairs": 0
+            },
+            "body-eye": {
+              "detectedPairs": 30,
+              "strictConfirmedPairs": 30
+            },
+            "eye-eye": {
+              "detectedPairs": 0,
+              "strictConfirmedPairs": 0
+            }
+          },
+          "samplePairs": [
+            {
+              "kinds": [
+                "body",
+                "eye"
+              ],
+              "exportTriangleIds": [
+                243907,
+                10
+              ],
+              "strictInteriorCrossingConfirmed": true,
+              "strictInteriorHitCount": 2,
+              "bodyBands": [
+                -1,
+                null
+              ],
+              "bounds": [
+                [
+                  -0.07181809842586517,
+                  -0.8754921555519104,
+                  0.5421780347824097
+                ],
+                [
+                  -0.06814128905534744,
+                  -0.8695627450942993,
+                  0.544093668460846
+                ]
+              ],
+              "meanTriangleVertexPosition": [
+                -0.06953305378556252,
+                -0.8718173503875732,
+                0.5432048638661703
+              ]
+            },
+            {
+              "kinds": [
+                "body",
+                "eye"
+              ],
+              "exportTriangleIds": [
+                243907,
+                11
+              ],
+              "strictInteriorCrossingConfirmed": true,
+              "strictInteriorHitCount": 2,
+              "bodyBands": [
+                -1,
+                null
+              ],
+              "bounds": [
+                [
+                  -0.07181809842586517,
+                  -0.8754921555519104,
+                  0.5421780347824097
+                ],
+                [
+                  -0.06814128905534744,
+                  -0.870112419128418,
+                  0.544093668460846
+                ]
+              ],
+              "meanTriangleVertexPosition": [
+                -0.06975405166546504,
+                -0.8721586267153422,
+                0.5431269605954488
+              ]
+            },
+            {
+              "kinds": [
+                "body",
+                "eye"
+              ],
+              "exportTriangleIds": [
+                243908,
+                10
+              ],
+              "strictInteriorCrossingConfirmed": true,
+              "strictInteriorHitCount": 2,
+              "bodyBands": [
+                -1,
+                null
+              ],
+              "bounds": [
+                [
+                  -0.07181809842586517,
+                  -0.8745390772819519,
+                  0.5428298711776733
+                ],
+                [
+                  -0.06814128905534744,
+                  -0.8695627450942993,
+                  0.5454649329185486
+                ]
+              ],
+              "meanTriangleVertexPosition": [
+                -0.06981323411067326,
+                -0.8709187110265096,
+                0.5437526802221934
+              ]
+            },
+            {
+              "kinds": [
+                "body",
+                "eye"
+              ],
+              "exportTriangleIds": [
+                243908,
+                13
+              ],
+              "strictInteriorCrossingConfirmed": true,
+              "strictInteriorHitCount": 2,
+              "bodyBands": [
+                -1,
+                null
+              ],
+              "bounds": [
+                [
+                  -0.07181809842586517,
+                  -0.8745390772819519,
+                  0.5433114767074585
+                ],
+                [
+                  -0.06835188716650009,
+                  -0.8695627450942993,
+                  0.5454649329185486
+                ]
+              ],
+              "meanTriangleVertexPosition": [
+                -0.0701041507224242,
+                -0.8709265192349752,
+                0.5439468721548716
+              ]
+            },
+            {
+              "kinds": [
+                "body",
+                "eye"
+              ],
+              "exportTriangleIds": [
+                243908,
+                5965
+              ],
+              "strictInteriorCrossingConfirmed": true,
+              "strictInteriorHitCount": 2,
+              "bodyBands": [
+                -1,
+                null
+              ],
+              "bounds": [
+                [
+                  -0.07181809842586517,
+                  -0.8745390772819519,
+                  0.5407324433326721
+                ],
+                [
+                  -0.03348609432578087,
+                  -0.8166420459747314,
+                  0.5454649329185486
+                ]
+              ],
+              "meanTriangleVertexPosition": [
+                -0.06429318524897099,
+                -0.8621064027150472,
+                0.5435080528259277
+              ]
+            },
+            {
+              "kinds": [
+                "body",
+                "eye"
+              ],
+              "exportTriangleIds": [
+                245266,
+                5963
+              ],
+              "strictInteriorCrossingConfirmed": true,
+              "strictInteriorHitCount": 2,
+              "bodyBands": [
+                -1,
+                null
+              ],
+              "bounds": [
+                [
+                  -0.07138946652412415,
+                  -0.8716104030609131,
+                  0.5407324433326721
+                ],
+                [
+                  -0.03348609432578087,
+                  -0.8166420459747314,
+                  0.5454649329185486
+                ]
+              ],
+              "meanTriangleVertexPosition": [
+                -0.06375191174447536,
+                -0.8608885804812113,
+                0.5434210399786631
+              ]
+            },
+            {
+              "kinds": [
+                "body",
+                "eye"
+              ],
+              "exportTriangleIds": [
+                245266,
+                5965
+              ],
+              "strictInteriorCrossingConfirmed": true,
+              "strictInteriorHitCount": 2,
+              "bodyBands": [
+                -1,
+                null
+              ],
+              "bounds": [
+                [
+                  -0.07138946652412415,
+                  -0.8710182905197144,
+                  0.5407324433326721
+                ],
+                [
+                  -0.03348609432578087,
+                  -0.8166420459747314,
+                  0.5454649329185486
+                ]
+              ],
+              "meanTriangleVertexPosition": [
+                -0.06378673079113166,
+                -0.8606467247009277,
+                0.5436038871606191
+              ]
+            },
+            {
+              "kinds": [
+                "body",
+                "eye"
+              ],
+              "exportTriangleIds": [
+                245267,
+                5963
+              ],
+              "strictInteriorCrossingConfirmed": true,
+              "strictInteriorHitCount": 2,
+              "bodyBands": [
+                -1,
+                null
+              ],
+              "bounds": [
+                [
+                  -0.06993785500526428,
+                  -0.8716104030609131,
+                  0.5407324433326721
+                ],
+                [
+                  -0.03348609432578087,
+                  -0.8166420459747314,
+                  0.5446686744689941
+                ]
+              ],
+              "meanTriangleVertexPosition": [
+                -0.06296377318600814,
+                -0.8601762255032858,
+                0.5429319143295288
+              ]
+            },
+            {
+              "kinds": [
+                "body",
+                "eye"
+              ],
+              "exportTriangleIds": [
+                245268,
+                4
+              ],
+              "strictInteriorCrossingConfirmed": true,
+              "strictInteriorHitCount": 2,
+              "bodyBands": [
+                -1,
+                null
+              ],
+              "bounds": [
+                [
+                  -0.06924080848693848,
+                  -0.8718854784965515,
+                  0.5411733388900757
+                ],
+                [
+                  -0.06599786132574081,
+                  -0.8658261895179749,
+                  0.5433114767074585
+                ]
+              ],
+              "meanTriangleVertexPosition": [
+                -0.0674044278760751,
+                -0.8698983987172445,
+                0.5419871608416239
+              ]
+            },
+            {
+              "kinds": [
+                "body",
+                "eye"
+              ],
+              "exportTriangleIds": [
+                245268,
+                5
+              ],
+              "strictInteriorCrossingConfirmed": true,
+              "strictInteriorHitCount": 2,
+              "bodyBands": [
+                -1,
+                null
+              ],
+              "bounds": [
+                [
+                  -0.06924080848693848,
+                  -0.8718854784965515,
+                  0.5411733388900757
+                ],
+                [
+                  -0.06599786132574081,
+                  -0.8658261895179749,
+                  0.5433114767074585
+                ]
+              ],
+              "meanTriangleVertexPosition": [
+                -0.06747941921154658,
+                -0.8701006174087524,
+                0.541896124680837
+              ]
+            },
+            {
+              "kinds": [
+                "body",
+                "eye"
+              ],
+              "exportTriangleIds": [
+                245268,
+                7
+              ],
+              "strictInteriorCrossingConfirmed": true,
+              "strictInteriorHitCount": 2,
+              "bodyBands": [
+                -1,
+                null
+              ],
+              "bounds": [
+                [
+                  -0.06924080848693848,
+                  -0.8719107508659363,
+                  0.5414077639579773
+                ],
+                [
+                  -0.06666063517332077,
+                  -0.8658261895179749,
+                  0.5433114767074585
+                ]
+              ],
+              "meanTriangleVertexPosition": [
+                -0.06792973478635152,
+                -0.8702103594938914,
+                0.5421810150146484
+              ]
+            },
+            {
+              "kinds": [
+                "body",
+                "eye"
+              ],
+              "exportTriangleIds": [
+                245268,
+                5957
+              ],
+              "strictInteriorCrossingConfirmed": true,
+              "strictInteriorHitCount": 2,
+              "bodyBands": [
+                -1,
+                null
+              ],
+              "bounds": [
+                [
+                  -0.06924080848693848,
+                  -0.8718854784965515,
+                  0.5407324433326721
+                ],
+                [
+                  -0.03348609432578087,
+                  -0.8166420459747314,
+                  0.5433114767074585
+                ]
+              ],
+              "meanTriangleVertexPosition": [
+                -0.062060791378219925,
+                -0.8612011273701986,
+                0.5418226420879364
+              ]
+            }
+          ],
+          "completePairArraysPrefix": "side_-1_whole-r01"
+        }
+      },
+      "clearance": {
+        "signedAgainstClosedBody": true,
+        "minimumSampledDistance": -0.0003182146465405822,
+        "minimumDistanceEyeVertexId": 4,
+        "eyeVertexSamplesInsideByMoreThan1eMinus6": 6,
+        "poles": [
+          {
+            "eyeVertexId": 3072,
+            "coordinate": [
+              -0.01919667422771454,
+              -0.8248920440673828,
+              0.5407324433326721
+            ],
+            "sampledDistance": 0.013293045572936535,
+            "nearestBodyExportTriangleId": 244425
+          },
+          {
+            "eyeVertexId": 3073,
+            "coordinate": [
+              -0.03348609432578087,
+              -0.8166420459747314,
+              0.5407324433326721
+            ],
+            "sampledDistance": 0.0025999939534813166,
+            "nearestBodyExportTriangleId": 244217
+          }
+        ]
+      },
+      "sharedVertexCoverage": "Eye geometry is exactly the previously checked r18 mesh; its prior shared-vertex result remains applicable."
+    }
+  ],
+  "blockers": [],
+  "risks": [
+    "GEO-charizard-body-whole-r01: repeated, duplicate or near-zero-area triangles; exact IDs/counts are recorded.",
+    "Eye side +1: 312 confirmed body-eye crossing pairs in the orbital region.",
+    "Eye side +1: 28 sampled eye vertices lie inside the closed body.",
+    "Eye side -1: 30 confirmed body-eye crossing pairs in the orbital region.",
+    "Eye side -1: 6 sampled eye vertices lie inside the closed body."
+  ],
+  "oneSceneFourMeshes": true,
+  "bodyDegenerateComparison": {
+    "r18AreaAtMost1eMinus14Triangles": 0,
+    "candidateAreaAtMost1eMinus14Triangles": 40,
+    "candidateExactlyZeroAreaTriangles": 40,
+    "exactMidpointCollinearTriangles": 40,
+    "bounds": [
+      [
+        -0.8038870096206665,
+        -0.7112160325050354,
+        0.33739373087882996
+      ],
+      [
+        0.05100365728139877,
+        -0.33171194791793823,
+        0.381206214427948
+      ]
+    ],
+    "interpretation": "An exact midpoint among three distinct-index triangle corners is consistent with collinear edge vertices emitted during subdivision-boundary triangulation; this does not alone indicate a torn surface."
+  },
+  "limits": [
+    "The body self-crossing check is restricted to two orbital AABBs. Other sculpted body areas and shared-vertex body configurations are not exhaustively screened.",
+    "Every eye triangle and all body triangles whose AABBs overlap the eye region participate in body-eye detection; strict counts independently confirm proper interior edge-triangle crossings among detector candidates.",
+    "Signed distances sample eye vertices; they are not a complete triangle-surface minimum-clearance certificate.",
+    "Body-eye overlap is a numerical finding for visual review; it is not automatically a blocker for independent eye meshes in a working sculpt.",
+    "Topology checks do not establish silhouette, anatomy, surface quality or readiness for animation/runtime use. Root handles visual review."
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "checks": [
+    {
+      "view": "fair-minusY",
+      "pass": true
+    },
+    {
+      "view": "fair-plusX",
+      "pass": true
+    },
+    {
+      "view": "fair-plusY",
+      "pass": true
+    },
+    {
+      "view": "fair-minusX",
+      "pass": true
+    },
+    {
+      "view": "fair-threequarter",
+      "pass": true
+    },
+    {
+      "view": "face-negative-side",
+      "pass": true
+    },
+    {
+      "view": "face-positive-side",
+      "pass": true
+    },
+    {
+      "view": "face-front",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "phone": "Selections load; changing views can require scrolling above the dock. No device acceptance.",
+  "status": "desktop-comparison-pass/phone-scroll-limitation"
+}

@@ -1,0 +1,31 @@
+{
+  "bounds": [
+    [
+      -0.958707332611084,
+      -0.9876829981803894,
+      -0.6112245321273804
+    ],
+    [
+      0.946840226650238,
+      0.9951756596565247,
+      0.6025716662406921
+    ]
+  ],
+  "wholeOrthoScale": 2.4785733222961426,
+  "headTarget": [
+    -0.08500000089406967,
+    -0.7699999809265137,
+    0.49000000953674316
+  ],
+  "headOrthoScale": 0.65,
+  "engine": "BLENDER_WORKBENCH",
+  "light": "paint.sl",
+  "shadows": false,
+  "cavity": false,
+  "supplementaryFaceClipping": [
+    2.8,
+    3.2
+  ],
+  "turntableFrames": 72,
+  "turntableElevation": 0.12
+}

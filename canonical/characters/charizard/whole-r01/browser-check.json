@@ -1,0 +1,10 @@
+{
+  "checkedAt": "2026-09-06T04:09:14.470Z",
+  "checks": [],
+  "errors": [],
+  "priorFailure": "Initial bounds assertion ran before scheduled route scroll; wait for image decoding and settled visible bounds.",
+  "scope": "Experiment inspector only; no Field OS deployment or human review writes",
+  "phoneUrl": "https://0.taila30dc.ts.net:8445/devtools/pokedex.html?pokemon=charizard&tab=iterations&run=charizard-whole-r01&view=face-front",
+  "error": "TimeoutError: page.waitForFunction: Timeout 15000ms exceeded.",
+  "status": "failed"
+}

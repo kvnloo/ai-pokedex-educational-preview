@@ -1,0 +1,103 @@
+{
+  "id": "charizard-whole-r01-match-r18",
+  "species": "charizard",
+  "title": "r18 \u00b7 matched camera baseline",
+  "stage": "blender",
+  "status": "completed",
+  "parents": [
+    "charizard-head-r18"
+  ],
+  "question": "Do broad GUI sculpt edits improve Charizard across front, side and whole-body views?",
+  "changedFactors": [
+    {
+      "name": "authoring",
+      "from": "r18",
+      "to": "matched capture only"
+    }
+  ],
+  "controls": [
+    "Official-source ancestry; no new generation inputs",
+    "Matched cameras and neutral clay lighting",
+    "R18 rollback source preserved"
+  ],
+  "inputs": [
+    {
+      "role": "shape reference",
+      "path": "assets/references/objects/b6/b6d5b8ee9fb05dc6f53294b2cae660dec770b92762cdb19d16bcbd679e1ba43a.png",
+      "sha256": "b6d5b8ee9fb05dc6f53294b2cae660dec770b92762cdb19d16bcbd679e1ba43a",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png",
+      "sourceKind": "official_artwork"
+    }
+  ],
+  "recipe": {
+    "model": "Blender GUI sculpting; MCP setup/capture",
+    "parameters": {
+      "baselineCaptureOnly": true,
+      "authoritativeSource": "assets/blender/charizard-head-r18/charizard-head-r18.blend"
+    }
+  },
+  "outputs": {
+    "rawMesh": "assets/blender/charizard-head-r18/charizard-head-r18.glb",
+    "blend": "assets/blender/charizard-head-r18/charizard-head-r18.blend",
+    "previews": [
+      {
+        "view": "fair-minusY",
+        "path": "assets/blender/charizard-whole-r01/before-r18/front.png"
+      },
+      {
+        "view": "fair-plusX",
+        "path": "assets/blender/charizard-whole-r01/before-r18/right.png"
+      },
+      {
+        "view": "fair-plusY",
+        "path": "assets/blender/charizard-whole-r01/before-r18/rear.png"
+      },
+      {
+        "view": "fair-minusX",
+        "path": "assets/blender/charizard-whole-r01/before-r18/left.png"
+      },
+      {
+        "view": "fair-threequarter",
+        "path": "assets/blender/charizard-whole-r01/before-r18/threequarter.png"
+      },
+      {
+        "view": "face-negative-side",
+        "path": "assets/blender/charizard-whole-r01/before-r18/face-near.png"
+      },
+      {
+        "view": "face-positive-side",
+        "path": "assets/blender/charizard-whole-r01/before-r18/face-far.png"
+      },
+      {
+        "view": "face-front",
+        "path": "assets/blender/charizard-whole-r01/before-r18/face-front.png"
+      }
+    ]
+  },
+  "evaluation": {
+    "verdict": "needs-work",
+    "reviewer": "assistant",
+    "notes": "Unchanged r18 mesh under cameras matched to whole-r01.",
+    "unresolved": [
+      "heavy horizontal tail loop",
+      "weak hands/feet/wing roots",
+      "no oral cavity, teeth, articulated lids or deformation topology",
+      "UV/PBR, rig, animation, attacks and game integration"
+    ]
+  },
+  "metrics": {
+    "vertices": 132644,
+    "trianglesAfterGLTFExport": 265276,
+    "meshSHA256": "b84668b7557eaeaf2a01b4da94113391981a5e635573af3443041321d15faa96",
+    "wholeModelSelfIntersectionTested": false
+  },
+  "comparability": {
+    "cohort": "charizard-whole-gui",
+    "confounds": [
+      "Several forms changed together",
+      "Supplementary side views clip foreground wings",
+      "Provisional eye colors; no final materials"
+    ]
+  },
+  "createdAt": "2026-09-06T03:48:40.286342+00:00"
+}

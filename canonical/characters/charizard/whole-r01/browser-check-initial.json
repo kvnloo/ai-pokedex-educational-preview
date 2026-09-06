@@ -1,0 +1,26 @@
+{
+  "checkedAt": "2026-09-06T04:07:27.370Z",
+  "checks": [
+    {
+      "name": "phone selects charizard-whole-r01",
+      "pass": true
+    },
+    {
+      "name": "phone selects charizard-whole-r01-match-r18",
+      "pass": true
+    },
+    {
+      "name": "no horizontal overflow",
+      "pass": true
+    },
+    {
+      "name": "preview fits portrait viewport",
+      "pass": false
+    }
+  ],
+  "errors": [],
+  "scope": "New experiment registration only; no data writes or game deployment changes",
+  "phoneUrl": "https://0.taila30dc.ts.net:8445/devtools/pokedex.html?pokemon=charizard&tab=iterations&run=charizard-whole-r01&view=face-front",
+  "status": "failed",
+  "error": "Error: preview fits portrait viewport"
+}
