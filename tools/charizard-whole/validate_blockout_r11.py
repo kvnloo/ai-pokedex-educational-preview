@@ -9,14 +9,14 @@ root=Path(globals().get('artifact_root','/mnt/zer0models/pokemon-iac/characters/
 assert hasattr(bpy.context, 'active_object'), 'Validate in a fresh MCP call after open_mainfile completes'
 scene=bpy.context.scene
 checkpoint=globals().get('checkpoint','r11d')
-assert checkpoint in {'r11d','r11e','r12c','r13f','r13h','r13i','r14c','r14f','r15e','r16b','r17f','r18b'}
+assert checkpoint in {'r11d','r11e','r12c','r13f','r13h','r13i','r14c','r14f','r15e','r16b','r17f','r18b','r19a'}
 assert scene.name=='EDIT-charizard-coarse-r11' and len(bpy.data.scenes)==1
-expected_source={'r11d':'charizard-blockout-r11d-review.blend','r11e':'charizard-blockout-r11e-flame-contract.blend','r12c':'charizard-hybrid-r12c.blend','r13f':'charizard-hybrid-r13f-socket-cage.blend','r13h':'charizard-hybrid-r13h-head-turn.blend','r13i':'charizard-hybrid-r13i-head-turn.blend','r14c':'charizard-hybrid-r14c-neck-base.blend','r14f':'charizard-hybrid-r14f-mouth-clearance.blend','r15e':'charizard-hybrid-r15e-belly-transition.blend','r16b':'charizard-hybrid-r16b-neck-flare.blend','r17f':'charizard-hybrid-r17f-independent-crown.blend','r18b':'charizard-hybrid-r18b-graded-haunch.blend'}[checkpoint]
+expected_source={'r11d':'charizard-blockout-r11d-review.blend','r11e':'charizard-blockout-r11e-flame-contract.blend','r12c':'charizard-hybrid-r12c.blend','r13f':'charizard-hybrid-r13f-socket-cage.blend','r13h':'charizard-hybrid-r13h-head-turn.blend','r13i':'charizard-hybrid-r13i-head-turn.blend','r14c':'charizard-hybrid-r14c-neck-base.blend','r14f':'charizard-hybrid-r14f-mouth-clearance.blend','r15e':'charizard-hybrid-r15e-belly-transition.blend','r16b':'charizard-hybrid-r16b-neck-flare.blend','r17f':'charizard-hybrid-r17f-independent-crown.blend','r18b':'charizard-hybrid-r18b-graded-haunch.blend','r19a':'charizard-hybrid-r19a-wing-shoulder.blend'}[checkpoint]
 assert Path(bpy.data.filepath).name==expected_source
 geometry=[o for o in scene.objects if o.type=='MESH' and not o.hide_render]
 socket=scene.objects['FlameSocket']
 assert socket.type=='EMPTY' and socket.data is None and not socket.children
-if checkpoint in {'r11e','r12c','r13f','r13h','r13i','r14c','r14f','r15e','r16b','r17f','r18b'}:
+if checkpoint in {'r11e','r12c','r13f','r13h','r13i','r14c','r14f','r15e','r16b','r17f','r18b','r19a'}:
     assert socket.empty_display_size<=0.05
 assert socket.parent==scene.objects['GEO-r11-tail']
 assert socket.get('energyBaked') is False
