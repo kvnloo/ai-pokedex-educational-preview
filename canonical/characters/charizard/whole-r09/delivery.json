@@ -1,0 +1,17 @@
+{
+  "assetRevision": "e15dbd07878addd61cefa7a1b8ca70de8015fbb2",
+  "transport": {
+    "success": true,
+    "platform": "telegram",
+    "chat_id": "1083429746",
+    "message_id": "17089",
+    "mirrored": true
+  },
+  "processExitCode": 0,
+  "phoneUrl": "https://0.taila30dc.ts.net:8445/devtools/pokedex.html?pokemon=charizard&tab=iterations&run=charizard-home-native-r09&view=threequarter",
+  "comparisonUrl": "https://0.taila30dc.ts.net:8445/devtools/experiments.html?pokemon=charizard&a=charizard-home-native-r09-intake&b=charizard-home-native-r09&view=head-threequarter",
+  "previewImage": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r09/horn-isolated-threequarter.png",
+  "previewSHA256": "4afb0141e760f425e793b80f09529a7b8b3b862b4fc02db72184b612fbf6f461",
+  "privateReceipt": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r09/delivery/result.json",
+  "deliveredAt": "2026-09-06T16:24:18.462787+00:00"
+}

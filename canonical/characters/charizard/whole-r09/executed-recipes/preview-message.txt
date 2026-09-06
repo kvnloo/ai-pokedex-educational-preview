@@ -1,0 +1,13 @@
+Charizard r09 checkpoint: modest native horn taper retained after the xhigh visual review. Still an unfinished shape study.
+
+Baked fire is removed from the physical mesh; the capped tail now has a verified FlameSocket. Actual flame VFX is pending. Source + GLB reopened successfully; no materials, rig or animation yet. Face, hands, wings and horn tips still need substantial work.
+
+Phone preview:
+https://0.taila30dc.ts.net:8445/devtools/pokedex.html?pokemon=charizard&tab=iterations&run=charizard-home-native-r09&view=threequarter
+
+Matched horn comparison:
+https://0.taila30dc.ts.net:8445/devtools/experiments.html?pokemon=charizard&a=charizard-home-native-r09-intake&b=charizard-home-native-r09&view=head-threequarter
+
+Revision: e15dbd07878addd61cefa7a1b8ca70de8015fbb2
+Next: controllable components and further face/horn correction. Field OS8469 is unchanged. No merge/push.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r09/horn-isolated-threequarter.png
