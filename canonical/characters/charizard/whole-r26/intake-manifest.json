@@ -1,0 +1,26 @@
+[
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r26/charizard-hybrid-r26-intake.blend",
+    "sha256": "da1da061a1d8ec020aaa4a272321ed2ea22189651b72f30f2f87dd9b047ec8cf"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r26/leg-inspection.json",
+    "sha256": "be734b6549dfc769ce70a391c1d743d9cd71aec458f04eb4548b967674aa7419"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r26/r26-intake-legs-front.png",
+    "sha256": "caf583b4fe1d794da80cf300d9a81ff4cb2d55b79359b6c512eecffe8f73075d"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r26/r26-intake-legs-rear.png",
+    "sha256": "0ff96cf1c0c3f6626c707501e13300af25a2cef0ca15daac2d74d9626d21cf8f"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r26/r26-intake-legs-side.png",
+    "sha256": "aea4bffdfd7a56fd3461b73b4ffef985ea6dc813f54c3b38a167c3dac7caee15"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r26/r26-intake-legs-threequarter.png",
+    "sha256": "9354734a8343d6c857371c18b710566a95bdba870f81545653ea8a0469635812"
+  }
+]
