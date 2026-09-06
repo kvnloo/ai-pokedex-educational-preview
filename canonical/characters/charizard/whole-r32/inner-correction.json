@@ -1,0 +1,32 @@
+{
+  "status": "whole-leg-review-pending",
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r32/charizard-hybrid-r32-front-inner-wip.blend",
+  "nativeStrokes": [
+    {
+      "view": "rear-inner",
+      "from": [
+        552,
+        516
+      ],
+      "to": [
+        738,
+        550
+      ]
+    },
+    {
+      "view": "front-inner",
+      "from": [
+        529,
+        491
+      ],
+      "to": [
+        675,
+        538
+      ]
+    }
+  ],
+  "brush": "Smooth",
+  "strength": 0.5,
+  "diameter": 70,
+  "rootReview": "Front-inner ridge softer in threequarter, short broad ankle remains. No opposite-leg edits or production acceptance."
+}
