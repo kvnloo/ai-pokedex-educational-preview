@@ -1,0 +1,3 @@
+Charizard r28 verdict — c2463e1. Retained A for its sharper eye aperture; exported and reopened GLB checked. Rejected B: the cheek inset made a dent/rim instead of a natural broad plane. Restored A; no further inset-amplitude loop. Images are retained A, then rejected B. Broader facial form remains unfinished.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r28/r28a-head-threequarter.png
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r28/r28b-head-threequarter.png
