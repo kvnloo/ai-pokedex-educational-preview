@@ -1,0 +1,12 @@
+{
+  "GEO-r11-thigh-L": {
+    "changed": 118,
+    "maxZ": 0.037969425320625305,
+    "xyFixed": false
+  },
+  "GEO-r11-thigh-R": {
+    "changed": 118,
+    "maxZ": 0.037969425320625305,
+    "xyFixed": false
+  }
+}

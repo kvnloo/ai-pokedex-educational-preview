@@ -1,0 +1,33 @@
+{
+  "geometryChanged": false,
+  "target": [
+    0,
+    0,
+    0.3
+  ],
+  "orthoScale": 1.55,
+  "rootInspected": [
+    "side",
+    "threequarter"
+  ],
+  "observation": "Shin is largely occluded by thigh and foot in side and threequarter. This is evidence to evaluate, not a prescribed scale or pose fix.",
+  "criticStatus": "running",
+  "files": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r30/leg-diagnostic-front.png",
+      "sha256": "c29667effca887fdf4bc4d471b988bf6c6c13d5b68233b3c6f15f37f1a8e828a"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r30/leg-diagnostic-rear.png",
+      "sha256": "3afdea863e888c6ee8d48418612f677a97378c5a74af9d658365126854ec9fa6"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r30/leg-diagnostic-side.png",
+      "sha256": "d416f18fb1041c1c5a7d65346a47337fa0d7645d7d399247c87505a0b20c2d0c"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r30/leg-diagnostic-threequarter.png",
+      "sha256": "992ebc8f26599a02e076e3b5fdfaedd0e9bd6e3b45e94b5dcedbb69b88a474db"
+    }
+  ]
+}
