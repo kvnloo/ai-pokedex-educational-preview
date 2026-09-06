@@ -1,0 +1,6 @@
+Charizard r12 — applied your hybrid workflow. Three short native Blender keyboard/mouse form passes: shortened and tapered the muzzle, then widened the neck base. Four fixed-camera views inspected after every change. bpy was mechanical/read-only only.
+
+Still a rough blockout, not a quality pass: head likeness and chest/shoulder joins need more work. No textures or rig. FlameSocket remains empty; no fire mesh. Source + GLB reopened, 36 physical meshes / 6,696 triangles.
+
+Checkpoint d761d847addced38947ddd8972b3b2c5c029c9b1. Rollbacks preserved; no merge/push/deployment.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r12/r12c-threequarter.png
