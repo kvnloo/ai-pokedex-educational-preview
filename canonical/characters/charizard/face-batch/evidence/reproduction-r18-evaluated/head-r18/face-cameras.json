@@ -1,0 +1,35 @@
+{
+  "origin": [
+    -0.08500000089406967,
+    -0.7699999809265137,
+    0.49000000953674316
+  ],
+  "frame": [
+    [
+      -0.8660253882408142,
+      0.5,
+      0.0
+    ],
+    [
+      -0.49446818232536316,
+      -0.8564440011978149,
+      0.14834046363830566
+    ],
+    [
+      0.07417023181915283,
+      0.12846660614013672,
+      0.9889363646507263
+    ]
+  ],
+  "orthoScale": 0.65,
+  "resolution": [
+    1000,
+    1000
+  ],
+  "sideClipping": [
+    2.8,
+    3.2
+  ],
+  "sideClippingPurpose": "Exclude foreground wings only in supplementary face inspections; unclipped standard head/whole-body views remain available",
+  "palette": "Provisional vertex colors, not PBR textures"
+}

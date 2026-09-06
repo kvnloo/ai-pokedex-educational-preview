@@ -1,0 +1,138 @@
+{
+  "id": "charizard-head-r14",
+  "species": "charizard",
+  "title": "Simple skull grid \u00b7 intermediate r14",
+  "stage": "blender",
+  "status": "completed",
+  "parents": [
+    "charizard-head-r07"
+  ],
+  "question": "Can bounded manual edits produce a smoother skull and faithful connected eye anatomy?",
+  "changedFactors": [
+    {
+      "name": "manual head operation",
+      "from": "r07",
+      "to": "r14"
+    }
+  ],
+  "controls": [
+    "Official illustration ancestor; no new generation inputs",
+    "Frozen protected source geometry; exact flame geometry/transform, with neutral inspection color added to r09/r18",
+    "Matched unclipped standard head views"
+  ],
+  "inputs": [
+    {
+      "role": "shape reference",
+      "path": "assets/references/objects/b6/b6d5b8ee9fb05dc6f53294b2cae660dec770b92762cdb19d16bcbd679e1ba43a.png",
+      "sha256": "b6d5b8ee9fb05dc6f53294b2cae660dec770b92762cdb19d16bcbd679e1ba43a",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png",
+      "sourceKind": "official_artwork"
+    }
+  ],
+  "recipe": {
+    "model": "Root manual Blender through Blender MCP",
+    "codePath": "assets/blender/charizard-head-r14/replace_divot.py",
+    "runnerSHA256": "25434ce096993e20d76615019e38461579a3b2611f22e341d480dcc41978d635",
+    "parameters": {
+      "parent": "charizard-head-r07",
+      "candidate": "charizard-head-r14",
+      "method": "Blender grid fill of the visually inspected 72-edge skull patch boundary",
+      "simpleInterpolation": true,
+      "removedVertices": 1317,
+      "newVertices": 289,
+      "newNativeFaces": 324,
+      "boundaryVertices": 72,
+      "retainedVerticesExact": 121314,
+      "protectedVerticesExact": 113062,
+      "status": "awaiting rendered/exported validation"
+    }
+  },
+  "outputs": {
+    "rawMesh": "assets/blender/charizard-head-r14/charizard-head-r14.glb",
+    "blend": "assets/blender/charizard-head-r14/charizard-head-r14.blend",
+    "previews": [
+      {
+        "view": "head-front",
+        "path": "assets/blender/charizard-head-r14/charizard-head-r14-head-front.png"
+      },
+      {
+        "view": "head-right",
+        "path": "assets/blender/charizard-head-r14/charizard-head-r14-head-right.png"
+      },
+      {
+        "view": "head-left",
+        "path": "assets/blender/charizard-head-r14/charizard-head-r14-head-left.png"
+      },
+      {
+        "view": "head-rear",
+        "path": "assets/blender/charizard-head-r14/charizard-head-r14-head-rear.png"
+      },
+      {
+        "view": "head-top",
+        "path": "assets/blender/charizard-head-r14/charizard-head-r14-head-top.png"
+      },
+      {
+        "view": "head-threequarter",
+        "path": "assets/blender/charizard-head-r14/charizard-head-r14-head-threequarter.png"
+      },
+      {
+        "view": "fair-minusY",
+        "path": "assets/blender/charizard-head-r14/charizard-head-r14-minusY.png"
+      },
+      {
+        "view": "fair-plusX",
+        "path": "assets/blender/charizard-head-r14/charizard-head-r14-plusX.png"
+      },
+      {
+        "view": "fair-plusY",
+        "path": "assets/blender/charizard-head-r14/charizard-head-r14-plusY.png"
+      },
+      {
+        "view": "fair-minusX",
+        "path": "assets/blender/charizard-head-r14/charizard-head-r14-minusX.png"
+      },
+      {
+        "view": "fair-threequarter",
+        "path": "assets/blender/charizard-head-r14/charizard-head-r14-threequarter.png"
+      },
+      {
+        "view": "divot-top",
+        "path": "assets/blender/charizard-head-r14/divot-top.png"
+      },
+      {
+        "view": "divot-rear",
+        "path": "assets/blender/charizard-head-r14/divot-rear.png"
+      },
+      {
+        "view": "divot-oblique",
+        "path": "assets/blender/charizard-head-r14/divot-oblique.png"
+      }
+    ]
+  },
+  "evaluation": {
+    "verdict": "needs-work",
+    "reviewer": "assistant",
+    "notes": "Simple grid interpolation avoids the r13 overshoot, but boundary ripples remain. Intermediate input to r15 fairing.",
+    "unresolved": [
+      "Muzzle, jaw, eyelids and expression",
+      "Hands, feet and wing roots",
+      "Deformation retopology, UV/PBR, rigging, clips, attacks and game integration"
+    ]
+  },
+  "metrics": {
+    "vertices": 126119,
+    "trianglesAfterGLTFExport": 252234,
+    "meshSHA256": "f27e68877da9fc3f02c1a107010b1a6158ff649276a7d7b2e8f1752b80fd257b",
+    "wholeModelSelfIntersectionTested": false
+  },
+  "comparability": {
+    "cohort": "charizard-manual-face",
+    "confounds": [
+      "r09 to r18 changes both the eye method and the skull patch",
+      "Supplementary side views clip foreground wings for inspection",
+      "Eye colors are provisional; standard views use uniform clay",
+      "Completed experiment does not mean approved character"
+    ]
+  },
+  "createdAt": "2026-09-06T02:07:57.485691+00:00"
+}

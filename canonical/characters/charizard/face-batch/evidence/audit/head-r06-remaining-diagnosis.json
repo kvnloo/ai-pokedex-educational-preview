@@ -1,0 +1,965 @@
+{
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r03/head-r06/charizard-head-r06.glb",
+  "sha256": "143b9a2a0094296b03caabd1d6975a0147d03cd5de15452baf0a4a30542df1ff",
+  "coordinateConvention": "Apply glTF scene transform, then (x,-z,y) to Blender world. All IDs below are actual r06 exported rows, checked against horn-audit.npz.",
+  "reportedPair": {
+    "r06ExportFaceIds": [
+      123767,
+      125397
+    ],
+    "r06TriangleVertexIds": [
+      [
+        62092,
+        62088,
+        61248
+      ],
+      [
+        62898,
+        62094,
+        62093
+      ]
+    ],
+    "firstEdgesIntoSecond": [],
+    "secondEdgesIntoFirst": [],
+    "minimumSurfaceClearance": 1.643223582368955e-06,
+    "separatingPlaneX": -0.1532684862613678,
+    "firstMaximumXEqualsSecondMinimumX": true,
+    "firstTouchesPlaneOnlyAtVertex": 62088,
+    "secondTouchesPlaneOnlyAtEdge": [
+      62094,
+      62093
+    ],
+    "vertexToEdgeGapWithinSharedPlane": 3.3207865422210978e-06,
+    "classification": "Disjoint near-contact involving a severe sliver; Open3D reports a numerical false positive. No proper crossing is present in the stored float coordinates."
+  },
+  "faceMetrics": [
+    {
+      "r06ExportFaceId": 123767,
+      "r06VertexIds": [
+        62092,
+        62088,
+        61248
+      ],
+      "coordinates": [
+        [
+          -0.1563502848148346,
+          -0.6956031322479248,
+          0.47552528977394104
+        ],
+        [
+          -0.1532684862613678,
+          -0.6956043243408203,
+          0.4676653742790222
+        ],
+        [
+          -0.16112840175628662,
+          -0.7008721232414246,
+          0.47552528977394104
+        ]
+      ],
+      "area": 2.9109209043624396e-05,
+      "edgeLengths": [
+        0.00844249698445315,
+        0.012300660487621684,
+        0.0071128522827184045
+      ],
+      "minimumAltitude": 0.004732950571705865,
+      "longestEdgeDividedByMinimumAltitude": 2.5989412526630806
+    },
+    {
+      "r06ExportFaceId": 125397,
+      "r06VertexIds": [
+        62898,
+        62094,
+        62093
+      ],
+      "coordinates": [
+        [
+          -0.15326710045337677,
+          -0.6956031322479248,
+          0.4676653742790222
+        ],
+        [
+          -0.1532684862613678,
+          -0.6956031322479248,
+          0.46766847372055054
+        ],
+        [
+          -0.1532684862613678,
+          -0.6914861798286438,
+          0.47552528977394104
+        ]
+      ],
+      "area": 8.858949677169645e-09,
+      "edgeLengths": [
+        3.39514382250195e-06,
+        0.008870110242800731,
+        0.008872855838474584
+      ],
+      "minimumAltitude": 1.996865459879414e-06,
+      "longestEdgeDividedByMinimumAltitude": 4443.391914350802
+    },
+    {
+      "r06ExportFaceId": 125398,
+      "r06VertexIds": [
+        62088,
+        62094,
+        62898
+      ],
+      "coordinates": [
+        [
+          -0.1532684862613678,
+          -0.6956043243408203,
+          0.4676653742790222
+        ],
+        [
+          -0.1532684862613678,
+          -0.6956031322479248,
+          0.46766847372055054
+        ],
+        [
+          -0.15326710045337677,
+          -0.6956031322479248,
+          0.4676653742790222
+        ]
+      ],
+      "area": 2.950841507856912e-12,
+      "edgeLengths": [
+        3.3207865422210978e-06,
+        3.39514382250195e-06,
+        1.8279904976549511e-06
+      ],
+      "minimumAltitude": 1.7382718742573784e-06,
+      "longestEdgeDividedByMinimumAltitude": 1.953171924818963
+    }
+  ],
+  "cleanupPatch": {
+    "faceCount": 13,
+    "r06ExportFaceIds": [
+      123757,
+      123765,
+      123766,
+      123767,
+      123768,
+      125383,
+      125384,
+      125385,
+      125386,
+      125395,
+      125396,
+      125397,
+      125398
+    ],
+    "vertexCount": 12,
+    "eulerCharacteristic": 1,
+    "boundaryEdges": 9,
+    "boundaryOneSimpleCycle": true,
+    "fixedBoundaryR06VertexCycle": [
+      61243,
+      61248,
+      62092,
+      62093,
+      62903,
+      62899,
+      62894,
+      62893,
+      62085
+    ],
+    "interiorR06VertexIds": [
+      62088,
+      62094,
+      62898
+    ],
+    "bounds": [
+      [
+        -0.16112840175628662,
+        -0.7023159861564636,
+        0.4598054587841034
+      ],
+      [
+        -0.14540855586528778,
+        -0.6877431869506836,
+        0.47552528977394104
+      ]
+    ]
+  },
+  "clusterEdgeCollapseChecks": [
+    {
+      "r06EdgeVertexIds": [
+        62088,
+        62898
+      ],
+      "length": 1.8279904976549511e-06,
+      "incidentFaceIds": [
+        125385,
+        125398
+      ],
+      "commonNeighborIds": [
+        62085,
+        62094
+      ],
+      "oppositeTriangleVertexIds": [
+        62085,
+        62094
+      ],
+      "singleEdgeTriangleLinkConditionPasses": true
+    },
+    {
+      "r06EdgeVertexIds": [
+        62088,
+        62094
+      ],
+      "length": 3.3207865422210978e-06,
+      "incidentFaceIds": [
+        123766,
+        125398
+      ],
+      "commonNeighborIds": [
+        62092,
+        62898
+      ],
+      "oppositeTriangleVertexIds": [
+        62092,
+        62898
+      ],
+      "singleEdgeTriangleLinkConditionPasses": true
+    },
+    {
+      "r06EdgeVertexIds": [
+        62898,
+        62094
+      ],
+      "length": 3.39514382250195e-06,
+      "incidentFaceIds": [
+        125397,
+        125398
+      ],
+      "commonNeighborIds": [
+        62088,
+        62093
+      ],
+      "oppositeTriangleVertexIds": [
+        62088,
+        62093
+      ],
+      "singleEdgeTriangleLinkConditionPasses": true
+    }
+  ],
+  "ancestry": {
+    "r06VertexIds": [
+      61248,
+      62088,
+      62092,
+      62093,
+      62094,
+      62898
+    ],
+    "r05ParentIds": [
+      61248,
+      62088,
+      62092,
+      62093,
+      62094,
+      62898
+    ],
+    "tailR02eVertexIds": [
+      61248,
+      62088,
+      62092,
+      62093,
+      62094,
+      62898
+    ],
+    "coordinatesExactlyMatchFrozenTailR02e": true,
+    "coordinatesExactlyMatchR05": true
+  },
+  "posteriorDivot": {
+    "rootProvidedApproximateSeed": [
+      -0.025,
+      -0.59,
+      0.4
+    ],
+    "nearestR06Vertex": 73884,
+    "nearestCoordinate": [
+      -0.018173279240727425,
+      -0.5994976758956909,
+      0.3962763547897339
+    ],
+    "mostConcaveOneRingSamplesWithinRadius004": [
+      {
+        "r06VertexId": 121970,
+        "coordinate": [
+          -0.009910454973578453,
+          -0.6145270466804504,
+          0.42726612091064453
+        ],
+        "signedOneRingOffset": 4.3653050854538134e-05,
+        "valence": 5,
+        "r05ParentId": 122244,
+        "tailR02eVertexId": -1
+      },
+      {
+        "r06VertexId": 121960,
+        "coordinate": [
+          -0.01250489242374897,
+          -0.6152524948120117,
+          0.42704054713249207
+        ],
+        "signedOneRingOffset": 4.383938760388497e-05,
+        "valence": 6,
+        "r05ParentId": 122234,
+        "tailR02eVertexId": -1
+      },
+      {
+        "r06VertexId": 121494,
+        "coordinate": [
+          -0.017907246947288513,
+          -0.6164466738700867,
+          0.42712441086769104
+        ],
+        "signedOneRingOffset": 4.4436293696013594e-05,
+        "valence": 8,
+        "r05ParentId": 121768,
+        "tailR02eVertexId": -1
+      },
+      {
+        "r06VertexId": 121493,
+        "coordinate": [
+          -0.01843000203371048,
+          -0.6151572465896606,
+          0.42396092414855957
+        ],
+        "signedOneRingOffset": 4.4996941626209664e-05,
+        "valence": 7,
+        "r05ParentId": 121767,
+        "tailR02eVertexId": -1
+      },
+      {
+        "r06VertexId": 121480,
+        "coordinate": [
+          -0.020664915442466736,
+          -0.6170052886009216,
+          0.4276832640171051
+        ],
+        "signedOneRingOffset": 4.5232159415248834e-05,
+        "valence": 6,
+        "r05ParentId": 121754,
+        "tailR02eVertexId": -1
+      },
+      {
+        "r06VertexId": 121973,
+        "coordinate": [
+          -0.0067213005386292934,
+          -0.6122561097145081,
+          0.42589735984802246
+        ],
+        "signedOneRingOffset": 4.5554711749832206e-05,
+        "valence": 6,
+        "r05ParentId": 122247,
+        "tailR02eVertexId": -1
+      },
+      {
+        "r06VertexId": 121502,
+        "coordinate": [
+          -0.0158586036413908,
+          -0.6126201748847961,
+          0.42091602087020874
+        ],
+        "signedOneRingOffset": 4.557585562174207e-05,
+        "valence": 7,
+        "r05ParentId": 121776,
+        "tailR02eVertexId": -1
+      },
+      {
+        "r06VertexId": 121503,
+        "coordinate": [
+          -0.013109640218317509,
+          -0.6116883754730225,
+          0.4212508797645569
+        ],
+        "signedOneRingOffset": 4.566322864005427e-05,
+        "valence": 7,
+        "r05ParentId": 121777,
+        "tailR02eVertexId": -1
+      },
+      {
+        "r06VertexId": 121492,
+        "coordinate": [
+          -0.0187637060880661,
+          -0.6135725975036621,
+          0.4207419753074646
+        ],
+        "signedOneRingOffset": 4.585619738146284e-05,
+        "valence": 6,
+        "r05ParentId": 121766,
+        "tailR02eVertexId": -1
+      },
+      {
+        "r06VertexId": 121506,
+        "coordinate": [
+          -0.010658844374120235,
+          -0.6109896898269653,
+          0.42179176211357117
+        ],
+        "signedOneRingOffset": 4.611166406734246e-05,
+        "valence": 8,
+        "r05ParentId": 121780,
+        "tailR02eVertexId": -1
+      },
+      {
+        "r06VertexId": 122191,
+        "coordinate": [
+          -0.022863244637846947,
+          -0.6163746118545532,
+          0.42464911937713623
+        ],
+        "signedOneRingOffset": 4.632302728795313e-05,
+        "valence": 5,
+        "r05ParentId": 122465,
+        "tailR02eVertexId": -1
+      },
+      {
+        "r06VertexId": 122193,
+        "coordinate": [
+          -0.022557970136404037,
+          -0.6160146594047546,
+          0.4237423837184906
+        ],
+        "signedOneRingOffset": 4.646858859737366e-05,
+        "valence": 4,
+        "r05ParentId": 122467,
+        "tailR02eVertexId": -1
+      }
+    ],
+    "geodesicNeighborhoods": [
+      {
+        "centerR06VertexId": 73884,
+        "centerCoordinate": [
+          -0.018173279240727425,
+          -0.5994976758956909,
+          0.3962763547897339
+        ],
+        "outwardAreaWeightedNormal": [
+          -0.45020887659780695,
+          0.8188160061149875,
+          0.35616332708806675
+        ],
+        "radii": [
+          {
+            "geodesicRadius": 0.015,
+            "vertices": 60,
+            "annulusVertices": 39,
+            "centerSignedDistanceFromAnnulusPcaPlane": 0.0004179986089791715,
+            "bounds": [
+              [
+                -0.02737261727452278,
+                -0.6074731945991516,
+                0.3829861879348755
+              ],
+              [
+                -0.005430558696389198,
+                -0.5939424633979797,
+                0.40884044766426086
+              ]
+            ],
+            "sourceTailVertices": 13,
+            "newR06HornVertices": 0,
+            "protectedVertices": 0
+          },
+          {
+            "geodesicRadius": 0.025,
+            "vertices": 134,
+            "annulusVertices": 74,
+            "centerSignedDistanceFromAnnulusPcaPlane": 0.0013647814532738909,
+            "bounds": [
+              [
+                -0.036492522805929184,
+                -0.6121814250946045,
+                0.3757687509059906
+              ],
+              [
+                0.0035744700580835342,
+                -0.5877885222434998,
+                0.4177228808403015
+              ]
+            ],
+            "sourceTailVertices": 29,
+            "newR06HornVertices": 0,
+            "protectedVertices": 0
+          },
+          {
+            "geodesicRadius": 0.035,
+            "vertices": 219,
+            "annulusVertices": 121,
+            "centerSignedDistanceFromAnnulusPcaPlane": 0.0023510442787453645,
+            "bounds": [
+              [
+                -0.04319756105542183,
+                -0.6174169182777405,
+                0.3640727400779724
+              ],
+              [
+                0.011617017909884453,
+                -0.5836136937141418,
+                0.42589735984802246
+              ]
+            ],
+            "sourceTailVertices": 52,
+            "newR06HornVertices": 0,
+            "protectedVertices": 0
+          },
+          {
+            "geodesicRadius": 0.045,
+            "vertices": 340,
+            "annulusVertices": 191,
+            "centerSignedDistanceFromAnnulusPcaPlane": 0.003416572049739002,
+            "bounds": [
+              [
+                -0.04900309443473816,
+                -0.6211656332015991,
+                0.35546064376831055
+              ],
+              [
+                0.020376477390527725,
+                -0.5794459581375122,
+                0.43207409977912903
+              ]
+            ],
+            "sourceTailVertices": 83,
+            "newR06HornVertices": 0,
+            "protectedVertices": 0
+          },
+          {
+            "geodesicRadius": 0.055,
+            "vertices": 493,
+            "annulusVertices": 296,
+            "centerSignedDistanceFromAnnulusPcaPlane": 0.004510287279207455,
+            "bounds": [
+              [
+                -0.056025877594947815,
+                -0.6282485127449036,
+                0.3459615707397461
+              ],
+              [
+                0.02970460243523121,
+                -0.5733608603477478,
+                0.43935543298721313
+              ]
+            ],
+            "sourceTailVertices": 131,
+            "newR06HornVertices": 0,
+            "protectedVertices": 0
+          }
+        ]
+      },
+      {
+        "centerR06VertexId": 121970,
+        "centerCoordinate": [
+          -0.009910454973578453,
+          -0.6145270466804504,
+          0.42726612091064453
+        ],
+        "outwardAreaWeightedNormal": [
+          -0.2957498322021312,
+          0.7915712257501408,
+          0.5347401530807566
+        ],
+        "radii": [
+          {
+            "geodesicRadius": 0.015,
+            "vertices": 27,
+            "annulusVertices": 18,
+            "centerSignedDistanceFromAnnulusPcaPlane": -0.0006005902383455042,
+            "bounds": [
+              [
+                -0.022557970136404037,
+                -0.6181909441947937,
+                0.41609448194503784
+              ],
+              [
+                -0.003316461807116866,
+                -0.6085171699523926,
+                0.4341013431549072
+              ]
+            ],
+            "sourceTailVertices": 0,
+            "newR06HornVertices": 0,
+            "protectedVertices": 0
+          },
+          {
+            "geodesicRadius": 0.025,
+            "vertices": 99,
+            "annulusVertices": 72,
+            "centerSignedDistanceFromAnnulusPcaPlane": -0.00077417242854154,
+            "bounds": [
+              [
+                -0.03206901252269745,
+                -0.6229222416877747,
+                0.4064483344554901
+              ],
+              [
+                0.0072566731832921505,
+                -0.6022607088088989,
+                0.4416870176792145
+              ]
+            ],
+            "sourceTailVertices": 0,
+            "newR06HornVertices": 0,
+            "protectedVertices": 0
+          },
+          {
+            "geodesicRadius": 0.035,
+            "vertices": 373,
+            "annulusVertices": 315,
+            "centerSignedDistanceFromAnnulusPcaPlane": -3.826297926154008e-05,
+            "bounds": [
+              [
+                -0.040189456194639206,
+                -0.6278714537620544,
+                0.39861106872558594
+              ],
+              [
+                0.0157308392226696,
+                -0.597476601600647,
+                0.4575536549091339
+              ]
+            ],
+            "sourceTailVertices": 6,
+            "newR06HornVertices": 0,
+            "protectedVertices": 0
+          },
+          {
+            "geodesicRadius": 0.045,
+            "vertices": 798,
+            "annulusVertices": 655,
+            "centerSignedDistanceFromAnnulusPcaPlane": 6.005213530342179e-05,
+            "bounds": [
+              [
+                -0.04889131709933281,
+                -0.6344844102859497,
+                0.38874173164367676
+              ],
+              [
+                0.02369205839931965,
+                -0.5927367210388184,
+                0.4673621952533722
+              ]
+            ],
+            "sourceTailVertices": 42,
+            "newR06HornVertices": 0,
+            "protectedVertices": 0
+          },
+          {
+            "geodesicRadius": 0.055,
+            "vertices": 1122,
+            "annulusVertices": 811,
+            "centerSignedDistanceFromAnnulusPcaPlane": 0.00035717734181829695,
+            "bounds": [
+              [
+                -0.056750260293483734,
+                -0.6432508230209351,
+                0.379988431930542
+              ],
+              [
+                0.031164640560746193,
+                -0.5894162654876709,
+                0.47370201349258423
+              ]
+            ],
+            "sourceTailVertices": 125,
+            "newR06HornVertices": 0,
+            "protectedVertices": 0
+          }
+        ]
+      }
+    ],
+    "measurementLimits": "The supplied seed locates a visual feature approximately. Negative one-ring offset and annulus-plane offset measure local concavity; they are not anatomical ground truth or new target coordinates. Geodesic regions remain on the connected surface and preserve separation from horn tips.",
+    "actualTopCameraRaySamples": [
+      {
+        "label": "crease_crown_pixel_527_509",
+        "existingSurfaceXY": [
+          0.002377777405248749,
+          -0.6209778016196357
+        ],
+        "headIntersectionsTopToBottom": [
+          {
+            "z": 0.45869953892838916,
+            "r06ExportFaceId": 244762,
+            "faceNormalZ": 0.17081031424616785
+          }
+        ]
+      },
+      {
+        "label": "lower_cap_pole",
+        "existingSurfaceXY": [
+          4.750042080559069e-06,
+          -0.6192114353179932
+        ],
+        "headIntersectionsTopToBottom": [
+          {
+            "z": 0.43935543298721313,
+            "r06ExportFaceId": 158800,
+            "faceNormalZ": 0.6505822117990658
+          }
+        ]
+      },
+      {
+        "label": "upper_cap_pole",
+        "existingSurfaceXY": [
+          -0.06458328664302826,
+          -0.672367513179779
+        ],
+        "headIntersectionsTopToBottom": [
+          {
+            "z": 0.5449729561805725,
+            "r06ExportFaceId": 243156,
+            "faceNormalZ": 0.7742614123650603
+          },
+          {
+            "z": 0.32861456282111867,
+            "r06ExportFaceId": 140929,
+            "faceNormalZ": -0.3059093843181418
+          }
+        ]
+      }
+    ],
+    "capPoles": [
+      {
+        "r06AuditVertexId": 81005,
+        "coordinate": [
+          4.750042080559069e-06,
+          -0.6192114353179932,
+          0.43935543298721313
+        ],
+        "valence": 92,
+        "outwardNormal": [
+          0.13790526821366197,
+          0.8965853633620865,
+          0.42085249577945166
+        ]
+      },
+      {
+        "r06AuditVertexId": 81006,
+        "coordinate": [
+          -0.06458328664302826,
+          -0.672367513179779,
+          0.5449729561805725
+        ],
+        "valence": 66,
+        "outwardNormal": [
+          0.1489718007514756,
+          0.6227384563732685,
+          0.7681173201632037
+        ]
+      }
+    ],
+    "crownNeighborhoods": [
+      {
+        "centerR06VertexId": 81005,
+        "coordinate": [
+          4.750042080559069e-06,
+          -0.6192114353179932,
+          0.43935543298721313
+        ],
+        "radii": [
+          {
+            "radius": 0.025,
+            "vertices": 314,
+            "bounds": [
+              [
+                -0.02457411214709282,
+                -0.631415069103241,
+                0.41873282194137573
+              ],
+              [
+                0.021412443369627,
+                -0.6057786345481873,
+                0.4638349711894989
+              ]
+            ],
+            "protectedVertices": 0,
+            "newHornVertices": 0
+          },
+          {
+            "radius": 0.035,
+            "vertices": 765,
+            "bounds": [
+              [
+                -0.03450094163417816,
+                -0.6396974325180054,
+                0.41059449315071106
+              ],
+              [
+                0.028658373281359673,
+                -0.6007441878318787,
+                0.47157326340675354
+              ]
+            ],
+            "protectedVertices": 0,
+            "newHornVertices": 0
+          },
+          {
+            "radius": 0.05,
+            "vertices": 1237,
+            "bounds": [
+              [
+                -0.04689434543251991,
+                -0.6531343460083008,
+                0.39708009362220764
+              ],
+              [
+                0.03733571991324425,
+                -0.5936259031295776,
+                0.48075804114341736
+              ]
+            ],
+            "protectedVertices": 0,
+            "newHornVertices": 0
+          },
+          {
+            "radius": 0.065,
+            "vertices": 1389,
+            "bounds": [
+              [
+                -0.06064711511135101,
+                -0.666946530342102,
+                0.38439929485321045
+              ],
+              [
+                0.043573860079050064,
+                -0.5878680348396301,
+                0.49361273646354675
+              ]
+            ],
+            "protectedVertices": 0,
+            "newHornVertices": 0
+          },
+          {
+            "radius": 0.08,
+            "vertices": 1538,
+            "bounds": [
+              [
+                -0.07204029709100723,
+                -0.6828922033309937,
+                0.3698902726173401
+              ],
+              [
+                0.0541355200111866,
+                -0.5827193260192871,
+                0.5035650134086609
+              ]
+            ],
+            "protectedVertices": 0,
+            "newHornVertices": 0
+          }
+        ]
+      },
+      {
+        "centerR06VertexId": 122385,
+        "coordinate": [
+          0.00278424727730453,
+          -0.6208987832069397,
+          0.45950084924697876
+        ],
+        "radii": [
+          {
+            "radius": 0.025,
+            "vertices": 315,
+            "bounds": [
+              [
+                -0.01321050338447094,
+                -0.6353765726089478,
+                0.43935543298721313
+              ],
+              [
+                0.0170644111931324,
+                -0.6192114353179932,
+                0.4773682951927185
+              ]
+            ],
+            "protectedVertices": 0,
+            "newHornVertices": 0
+          },
+          {
+            "radius": 0.035,
+            "vertices": 485,
+            "bounds": [
+              [
+                -0.021664950996637344,
+                -0.6450484991073608,
+                0.42785951495170593
+              ],
+              [
+                0.021442139521241188,
+                -0.6122035384178162,
+                0.4836825132369995
+              ]
+            ],
+            "protectedVertices": 0,
+            "newHornVertices": 0
+          },
+          {
+            "radius": 0.05,
+            "vertices": 768,
+            "bounds": [
+              [
+                -0.03468792513012886,
+                -0.6584179997444153,
+                0.41530007123947144
+              ],
+              [
+                0.0274284016340971,
+                -0.6034271717071533,
+                0.4945951998233795
+              ]
+            ],
+            "protectedVertices": 0,
+            "newHornVertices": 0
+          },
+          {
+            "radius": 0.065,
+            "vertices": 1206,
+            "bounds": [
+              [
+                -0.04731957986950874,
+                -0.6724907159805298,
+                0.40175896883010864
+              ],
+              [
+                0.03454423323273659,
+                -0.5959277153015137,
+                0.5060136914253235
+              ]
+            ],
+            "protectedVertices": 0,
+            "newHornVertices": 0
+          },
+          {
+            "radius": 0.08,
+            "vertices": 1456,
+            "bounds": [
+              [
+                -0.06409347057342529,
+                -0.686886727809906,
+                0.3891492187976837
+              ],
+              [
+                0.04155758395791054,
+                -0.5916149616241455,
+                0.513785719871521
+              ]
+            ],
+            "protectedVertices": 0,
+            "newHornVertices": 0
+          }
+        ]
+      }
+    ]
+  },
+  "recommendation": "For the inherited sliver, use a strictly local edge collapse/weld of the three interior cluster vertices while fixing all nine patch-boundary coordinates. Each single-edge link condition passes; validate the resulting topology and exact exterior coordinates after the complete operation. Do not smooth a broad head region to remove this near-contact. Divot operator/radius should follow the measured connected surface region and visual review, separately from this sliver.",
+  "limits": [
+    "No mesh or coordinate targets are generated.",
+    "The previous whole-model numerical passes remain limited to their stated tests; this diagnoses only the reported pair and supplied divot vicinity.",
+    "The one-ring statistic depends on triangulation; the annulus-plane statistic also includes local anatomical curvature."
+  ]
+}

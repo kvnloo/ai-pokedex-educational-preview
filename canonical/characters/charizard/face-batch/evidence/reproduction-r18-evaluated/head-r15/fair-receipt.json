@@ -1,0 +1,12 @@
+{
+  "parent": "charizard-head-r14",
+  "candidate": "charizard-head-r15",
+  "method": "Least-squares inverse-edge-length Laplacian on free grid vertices plus fixed boundary equations",
+  "freeVertices": 289,
+  "boundaryEquationVertices": 68,
+  "rank": 289,
+  "maxDisplacement": 0.024534426629543304,
+  "retainedExteriorCoordinatesExact": true,
+  "protectedVerticesExact": 113062,
+  "status": "awaiting rendered/exported validation"
+}

@@ -1,0 +1,52 @@
+{
+  "parent": "charizard-tail-r02e",
+  "sourceBlend": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r02/r02e/charizard-tail-r02e.blend",
+  "sourceSHA256": "998ed1a4bea9dfc565217ac1ab545953646e216c3ee0640363ae43cdc8c2bb8e",
+  "engine": "BLENDER_WORKBENCH",
+  "light": "paint.sl",
+  "shadows": false,
+  "cavity": false,
+  "target": [
+    -0.06499999761581421,
+    -0.699999988079071,
+    0.4399999976158142
+  ],
+  "orthoScale": 0.85,
+  "resolution": [
+    900,
+    900
+  ],
+  "directions": {
+    "head-front": [
+      0,
+      -1,
+      0
+    ],
+    "head-right": [
+      1,
+      0,
+      0
+    ],
+    "head-left": [
+      -1,
+      0,
+      0
+    ],
+    "head-rear": [
+      0,
+      1,
+      0
+    ],
+    "head-top": [
+      0,
+      0,
+      1
+    ],
+    "head-threequarter": [
+      1,
+      -1,
+      0.35
+    ]
+  },
+  "geometryEdited": false
+}

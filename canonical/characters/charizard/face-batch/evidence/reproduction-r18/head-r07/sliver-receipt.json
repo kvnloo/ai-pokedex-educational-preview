@@ -1,0 +1,15 @@
+{
+  "parent": "charizard-head-r06",
+  "candidate": "charizard-head-r07",
+  "method": "Weld two interior near-coincident vertices onto existing row62088; all retained coordinates unchanged",
+  "selectedParentRows": [
+    62088,
+    62094,
+    62898
+  ],
+  "destinationParentRow": 62088,
+  "removedVertices": 2,
+  "retainedVerticesExact": 122631,
+  "protectedVerticesExact": 113062,
+  "status": "awaiting export and independent validation"
+}

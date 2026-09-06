@@ -1,0 +1,13 @@
+{
+  "parent": "charizard-head-r07",
+  "candidate": "charizard-head-r14",
+  "method": "Blender grid fill of the visually inspected 72-edge skull patch boundary",
+  "simpleInterpolation": true,
+  "removedVertices": 1317,
+  "newVertices": 289,
+  "newNativeFaces": 324,
+  "boundaryVertices": 72,
+  "retainedVerticesExact": 121314,
+  "protectedVerticesExact": 113062,
+  "status": "awaiting rendered/exported validation"
+}

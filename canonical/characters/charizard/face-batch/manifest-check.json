@@ -1,0 +1,46 @@
+{
+  "checkedAt": "2026-09-06T02:45:36.544503+00:00",
+  "reviewerRuntime": {
+    "model": "gpt-6-astra",
+    "reasoningEffort": "xhigh",
+    "family": "GPT",
+    "crossFamilyReview": false
+  },
+  "manifest": {
+    "path": "/mnt/zer0models/workspace/zer0/experiments/pokemon/.worktrees/charizard-anatomy/canonical/characters/charizard/face-batch/manifest.json",
+    "expectedSha256": "7eae23333445026b9581d4e1499b67f5070d81ece7ef0f49748389ce378ef73a",
+    "actualSha256": "7eae23333445026b9581d4e1499b67f5070d81ece7ef0f49748389ce378ef73a",
+    "sha256Exact": true,
+    "recordsDeclared": 606,
+    "uniquePathRecords": 606,
+    "recordsVerifiedExact": 606,
+    "mismatches": []
+  },
+  "currentArtifactAndParentLinks": {
+    "currentBlendRecordMatchesFile": true,
+    "currentBlendRecordOccursOnceInManifestFiles": true,
+    "publicBlendResolvesToCurrentArtifact": true,
+    "publicBlendBytesAndHashMatchCurrent": true,
+    "currentGlbRecordMatchesFile": true,
+    "currentGlbRecordOccursOnceInManifestFiles": true,
+    "publicGlbResolvesToCurrentArtifact": true,
+    "publicGlbBytesAndHashMatchCurrent": true,
+    "parentManifestRecordMatchesFile": true,
+    "parentManifestRecordOccursOnceInManifestFiles": true,
+    "sourceParentMatchesParentManifestCurrentId": true,
+    "inputParentBlendPathMatchesParentManifest": true,
+    "inputParentBlendRecordMatchesParentManifest": true,
+    "currentGlbStructureMatchesManifest": true
+  },
+  "currentGlbObservedStructure": {
+    "sceneCount": 1,
+    "meshCount": 4,
+    "vertices": 132644,
+    "triangles": 265276
+  },
+  "reviewEvidence": {
+    "privateReviewStillMatchesFrozenDigest": true,
+    "canonicalReviewCopyMatchesPrivate": true
+  },
+  "allChecksPass": true
+}

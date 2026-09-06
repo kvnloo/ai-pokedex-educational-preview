@@ -1,0 +1,511 @@
+{
+  "audit": {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r04/head-r07/sliver-audit.npz",
+    "sha256": "554fb241d2cf25ade3cf8b45236faff9db3f6fcf111851641bc4aa615a421b9c",
+    "checks": {
+      "beforeExactlyMatchesR06AuditAfter": true,
+      "everyRetainedCoordinateExact": true,
+      "parentIdsUnique": true,
+      "removedIdsExactlyExpected": true,
+      "removedComplementExact": true,
+      "protectedMaskExactlyComposedFromR06": true,
+      "validatedR06SourceHashUnchanged": true,
+      "r06FrozenSourceProtectionPreviouslyVerified": true,
+      "countsMatchReceipt": true
+    }
+  },
+  "receipt": {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r04/head-r07/sliver-receipt.json",
+    "sha256": "b7710895e6567fdc740dae494370e5a7802fa60f5571c028d18380ce62936f3b"
+  },
+  "parentAudit": {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r03/head-r06/horn-audit.npz",
+    "sha256": "9543b3fe40c70b15c9fc9e68230ec16e2dd1a5c4e16fbe532779f04aa8dac449"
+  },
+  "parentFrozenAncestryValidation": {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r03/audit/head-r06-validation.json",
+    "sha256": "f45989b7905d66a27648df35ab7029a7ae748c7af0c72e3f5db7df48651ddd30"
+  },
+  "coordinateConvention": "Apply glTF scene transform, then (x,-z,y) to Blender world.",
+  "identityConvention": "All stable triangle and boundary IDs are r06 exported/audit vertex rows. Candidate export rows map bijectively to r07 audit rows, then parent_vertex_ids maps them to r06. Native Blender polygon IDs are not inferred from exported triangle rows.",
+  "versions": {
+    "r06": {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r03/head-r06/charizard-head-r06.glb",
+      "sha256": "143b9a2a0094296b03caabd1d6975a0147d03cd5de15452baf0a4a30542df1ff",
+      "structure": {
+        "scenes": 1,
+        "nodes": 2,
+        "meshes": 2,
+        "nodeNames": [
+          "GEO-charizard-body-head-r06",
+          "GEO-charizard-flame-head-r06"
+        ],
+        "meshPrimitiveCounts": [
+          1,
+          1
+        ]
+      },
+      "transforms": {
+        "body": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "flame": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.14757436513900757
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.14880594611167908
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -0.16797137260437012
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      },
+      "coordinateBijection": {
+        "exportRows": 122633,
+        "auditRows": 122633,
+        "uniqueMappedRows": 122633,
+        "maximumExportToAuditDistance": 0.0,
+        "maximumAuditToExportDistance": 0.0,
+        "originalRowOrderExact": true
+      },
+      "body": {
+        "vertices": 122633,
+        "triangles": 245266,
+        "components": 1,
+        "eulerCharacteristic": 0,
+        "boundaryEdges": 0,
+        "edgesAboveTwoFaceIncidence": 0,
+        "interiorEdgesWithInconsistentWinding": 0,
+        "repeatedIndexTriangles": 0,
+        "duplicateOrientedTriangles": 0,
+        "areaAtMost1eMinus14Triangles": 0,
+        "minimumTriangleArea": 4.608268174547748e-14,
+        "watertight": true,
+        "windingConsistent": true,
+        "signedVolume": 0.28901742246362155,
+        "surfaceArea": 5.642890442607521,
+        "bounds": [
+          [
+            -0.958707332611084,
+            -0.9876829981803894,
+            -0.6133004426956177
+          ],
+          [
+            0.946840226650238,
+            0.8334565758705139,
+            0.585838258266449
+          ]
+        ]
+      },
+      "flame": {
+        "vertices": 4516,
+        "triangles": 9028,
+        "components": 1,
+        "eulerCharacteristic": 2,
+        "boundaryEdges": 0,
+        "edgesAboveTwoFaceIncidence": 0,
+        "interiorEdgesWithInconsistentWinding": 0,
+        "repeatedIndexTriangles": 0,
+        "duplicateOrientedTriangles": 0,
+        "areaAtMost1eMinus14Triangles": 0,
+        "minimumTriangleArea": 1.236858298028624e-11,
+        "watertight": true,
+        "windingConsistent": true,
+        "signedVolume": 0.004518745747211714,
+        "surfaceArea": 0.18854623733438367,
+        "bounds": [
+          [
+            0.6976145505905151,
+            -0.4899594783782959,
+            -0.12000000476837158
+          ],
+          [
+            0.9023855924606323,
+            -0.27004048228263855,
+            0.24425885826349258
+          ]
+        ]
+      },
+      "localIntersections": {
+        "trianglesTested": 20067,
+        "pairCount": 1,
+        "pairs": [
+          {
+            "exportFaceIds": [
+              123767,
+              125397
+            ],
+            "stableTriangleIds": [
+              [
+                62092,
+                62088,
+                61248
+              ],
+              [
+                62898,
+                62094,
+                62093
+              ]
+            ],
+            "triangleBounds": [
+              [
+                -0.16112840175628662,
+                -0.7008721232414246,
+                0.4676653742790222
+              ],
+              [
+                -0.15326710045337677,
+                -0.6914861798286438,
+                0.47552528977394104
+              ]
+            ],
+            "meanOfSixTriangleVertices": [
+              -0.15509187430143356,
+              -0.6957953373591105,
+              0.4715958486000697
+            ]
+          }
+        ],
+        "newPairsAgainstR06": 0,
+        "retainedPairsFromR06": 1
+      }
+    },
+    "candidate": {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r04/head-r07/charizard-head-r07.glb",
+      "sha256": "b6ac1a0d4a83c9d53efae18b5c771f83131b8944cd68c17122e690bfc807d024",
+      "structure": {
+        "scenes": 1,
+        "nodes": 2,
+        "meshes": 2,
+        "nodeNames": [
+          "GEO-charizard-body-head-r07",
+          "GEO-charizard-flame-head-r07"
+        ],
+        "meshPrimitiveCounts": [
+          1,
+          1
+        ]
+      },
+      "transforms": {
+        "body": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "flame": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.14757436513900757
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.14880594611167908
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -0.16797137260437012
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      },
+      "coordinateBijection": {
+        "exportRows": 122631,
+        "auditRows": 122631,
+        "uniqueMappedRows": 122631,
+        "maximumExportToAuditDistance": 0.0,
+        "maximumAuditToExportDistance": 0.0,
+        "originalRowOrderExact": true
+      },
+      "body": {
+        "vertices": 122631,
+        "triangles": 245262,
+        "components": 1,
+        "eulerCharacteristic": 0,
+        "boundaryEdges": 0,
+        "edgesAboveTwoFaceIncidence": 0,
+        "interiorEdgesWithInconsistentWinding": 0,
+        "repeatedIndexTriangles": 0,
+        "duplicateOrientedTriangles": 0,
+        "areaAtMost1eMinus14Triangles": 0,
+        "minimumTriangleArea": 4.608268174547748e-14,
+        "watertight": true,
+        "windingConsistent": true,
+        "signedVolume": 0.2890174224677279,
+        "surfaceArea": 5.642890442789174,
+        "bounds": [
+          [
+            -0.958707332611084,
+            -0.9876829981803894,
+            -0.6133004426956177
+          ],
+          [
+            0.946840226650238,
+            0.8334565758705139,
+            0.585838258266449
+          ]
+        ]
+      },
+      "flame": {
+        "vertices": 4516,
+        "triangles": 9028,
+        "components": 1,
+        "eulerCharacteristic": 2,
+        "boundaryEdges": 0,
+        "edgesAboveTwoFaceIncidence": 0,
+        "interiorEdgesWithInconsistentWinding": 0,
+        "repeatedIndexTriangles": 0,
+        "duplicateOrientedTriangles": 0,
+        "areaAtMost1eMinus14Triangles": 0,
+        "minimumTriangleArea": 1.236858298028624e-11,
+        "watertight": true,
+        "windingConsistent": true,
+        "signedVolume": 0.004518745747211714,
+        "surfaceArea": 0.18854623733438367,
+        "bounds": [
+          [
+            0.6976145505905151,
+            -0.4899594783782959,
+            -0.12000000476837158
+          ],
+          [
+            0.9023855924606323,
+            -0.27004048228263855,
+            0.24425885826349258
+          ]
+        ]
+      },
+      "localIntersections": {
+        "trianglesTested": 20063,
+        "pairCount": 0,
+        "pairs": [],
+        "newPairsAgainstR06": 0,
+        "retainedPairsFromR06": 0
+      }
+    }
+  },
+  "protected": {
+    "expectedVertices": 113062,
+    "retainedVertices": 113062,
+    "maximumDisplacement": 0.0,
+    "orientedTrianglesBefore": 226039,
+    "orientedTrianglesAfter": 226039,
+    "missing": 0,
+    "added": 0
+  },
+  "patch": {
+    "checks": {
+      "oldPatchIsExpected13TriangleDisk": true,
+      "newPatchIs9TriangleDisk": true,
+      "fixedNineVertexBoundaryUnchanged": true,
+      "newTrianglesExactlyMatchDeclaredWeld": true,
+      "allExteriorOrientedTrianglesExact": true
+    },
+    "oldExportTriangleIds": [
+      123757,
+      123765,
+      123766,
+      123767,
+      123768,
+      125383,
+      125384,
+      125385,
+      125386,
+      125395,
+      125396,
+      125397,
+      125398
+    ],
+    "newExportTriangleIds": [
+      123757,
+      123765,
+      123766,
+      123767,
+      125382,
+      125383,
+      125384,
+      125393,
+      125394
+    ],
+    "newActualTriangleR06ParentRows": [
+      [
+        61243,
+        62088,
+        62085
+      ],
+      [
+        62092,
+        62093,
+        62088
+      ],
+      [
+        62092,
+        62088,
+        61248
+      ],
+      [
+        61248,
+        62088,
+        61243
+      ],
+      [
+        62088,
+        62894,
+        62893
+      ],
+      [
+        62899,
+        62894,
+        62088
+      ],
+      [
+        62893,
+        62085,
+        62088
+      ],
+      [
+        62088,
+        62903,
+        62899
+      ],
+      [
+        62088,
+        62093,
+        62903
+      ]
+    ],
+    "fixedBoundaryR06ParentCycle": [
+      61243,
+      61248,
+      62092,
+      62093,
+      62903,
+      62899,
+      62894,
+      62893,
+      62085
+    ],
+    "newBoundaryR07ExportCycle": [
+      61243,
+      61248,
+      62092,
+      62093,
+      62901,
+      62897,
+      62893,
+      62892,
+      62085
+    ],
+    "oldTriangleCount": 13,
+    "newTriangleCount": 9,
+    "oldMinimumTriangleArea": 2.950841507856912e-12,
+    "newMinimumTriangleArea": 1.6229396101621592e-05,
+    "exteriorOrientedTrianglesBefore": 245253,
+    "exteriorOrientedTrianglesAfter": 245253,
+    "exteriorDifference": {
+      "missing": 0,
+      "added": 0
+    }
+  },
+  "localIntersectionBounds": [
+    [
+      -0.28422906875610354,
+      -1.0176829981803894,
+      0.2710274767875671
+    ],
+    [
+      0.19351063549518585,
+      -0.43377786993980405,
+      0.6325716662406922
+    ]
+  ],
+  "localIntersectionMethod": "Open3D using exactly the saved expanded head AABB from head-r01. Reports detector pair counts; the r06 pair was independently classified as disjoint near-contact/sliver, not a proper crossing. Shared-vertex configurations and other model regions are outside this check.",
+  "flameExactAgainstR06": true,
+  "signedVolumeChangeVsR06Percent": 1.4207968135337978e-09,
+  "checks": {
+    "exportAuditBijections": true,
+    "sourceAncestryAndRetainedCoordinates": true,
+    "oneSceneTwoMeshes": true,
+    "expectedBodyCounts": true,
+    "protectedCoordinatesAndOrientedTrianglesExact": true,
+    "fixedBoundaryAndExteriorAndActualWeldExact": true,
+    "bodyTopologyAndDegeneracy": true,
+    "flameExact": true,
+    "noDetectedLocalHeadPairs": true
+  },
+  "limits": [
+    "The near-contact detector artifact is removed; this is not a claim that an actual triangle crossing was repaired.",
+    "No whole-model or anatomical acceptance. The skull/neck crease is outside this sliver edit.",
+    "Actual output triangles are recorded for validation; no replacement mesh or new coordinate targets are authored by this script."
+  ]
+}

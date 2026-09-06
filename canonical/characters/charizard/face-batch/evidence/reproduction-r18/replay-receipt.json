@@ -1,0 +1,12 @@
+{
+  "inputsVerified": 15,
+  "parentBlend": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r03/head-r06/charizard-head-r06.blend",
+  "selection": "/mnt/zer0models/workspace/zer0/experiments/pokemon/.worktrees/charizard-anatomy/canonical/characters/charizard/face-batch/manual-divot-selection.json",
+  "stages": [
+    "r07",
+    "r14",
+    "r15",
+    "r18"
+  ],
+  "status": "authored; awaiting artifact comparison"
+}

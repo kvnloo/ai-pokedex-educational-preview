@@ -1,0 +1,137 @@
+{
+  "id": "charizard-head-r15",
+  "species": "charizard",
+  "title": "Smooth the skull patch \u00b7 r15",
+  "stage": "blender",
+  "status": "completed",
+  "parents": [
+    "charizard-head-r14"
+  ],
+  "question": "Can bounded manual edits produce a smoother skull and faithful connected eye anatomy?",
+  "changedFactors": [
+    {
+      "name": "manual head operation",
+      "from": "r14",
+      "to": "r15"
+    }
+  ],
+  "controls": [
+    "Official illustration ancestor; no new generation inputs",
+    "Frozen protected source geometry; exact flame geometry/transform, with neutral inspection color added to r09/r18",
+    "Matched unclipped standard head views"
+  ],
+  "inputs": [
+    {
+      "role": "shape reference",
+      "path": "assets/references/objects/b6/b6d5b8ee9fb05dc6f53294b2cae660dec770b92762cdb19d16bcbd679e1ba43a.png",
+      "sha256": "b6d5b8ee9fb05dc6f53294b2cae660dec770b92762cdb19d16bcbd679e1ba43a",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png",
+      "sourceKind": "official_artwork"
+    }
+  ],
+  "recipe": {
+    "model": "Root manual Blender through Blender MCP",
+    "codePath": "assets/blender/charizard-head-r15/fair_patch.py",
+    "runnerSHA256": "2a66369f8bf4ad192811e8b6bf8e80fb954094302b000e4aa2f9f8afc00aee8e",
+    "parameters": {
+      "parent": "charizard-head-r14",
+      "candidate": "charizard-head-r15",
+      "method": "Least-squares inverse-edge-length Laplacian on free grid vertices plus fixed boundary equations",
+      "freeVertices": 289,
+      "boundaryEquationVertices": 68,
+      "rank": 289,
+      "maxDisplacement": 0.024534426629543304,
+      "retainedExteriorCoordinatesExact": true,
+      "protectedVerticesExact": 113062,
+      "status": "awaiting rendered/exported validation"
+    }
+  },
+  "outputs": {
+    "rawMesh": "assets/blender/charizard-head-r15/charizard-head-r15.glb",
+    "blend": "assets/blender/charizard-head-r15/charizard-head-r15.blend",
+    "previews": [
+      {
+        "view": "head-front",
+        "path": "assets/blender/charizard-head-r15/charizard-head-r15-head-front.png"
+      },
+      {
+        "view": "head-right",
+        "path": "assets/blender/charizard-head-r15/charizard-head-r15-head-right.png"
+      },
+      {
+        "view": "head-left",
+        "path": "assets/blender/charizard-head-r15/charizard-head-r15-head-left.png"
+      },
+      {
+        "view": "head-rear",
+        "path": "assets/blender/charizard-head-r15/charizard-head-r15-head-rear.png"
+      },
+      {
+        "view": "head-top",
+        "path": "assets/blender/charizard-head-r15/charizard-head-r15-head-top.png"
+      },
+      {
+        "view": "head-threequarter",
+        "path": "assets/blender/charizard-head-r15/charizard-head-r15-head-threequarter.png"
+      },
+      {
+        "view": "fair-minusY",
+        "path": "assets/blender/charizard-head-r15/charizard-head-r15-minusY.png"
+      },
+      {
+        "view": "fair-plusX",
+        "path": "assets/blender/charizard-head-r15/charizard-head-r15-plusX.png"
+      },
+      {
+        "view": "fair-plusY",
+        "path": "assets/blender/charizard-head-r15/charizard-head-r15-plusY.png"
+      },
+      {
+        "view": "fair-minusX",
+        "path": "assets/blender/charizard-head-r15/charizard-head-r15-minusX.png"
+      },
+      {
+        "view": "fair-threequarter",
+        "path": "assets/blender/charizard-head-r15/charizard-head-r15-threequarter.png"
+      },
+      {
+        "view": "divot-top",
+        "path": "assets/blender/charizard-head-r15/divot-top.png"
+      },
+      {
+        "view": "divot-rear",
+        "path": "assets/blender/charizard-head-r15/divot-rear.png"
+      },
+      {
+        "view": "divot-oblique",
+        "path": "assets/blender/charizard-head-r15/divot-oblique.png"
+      }
+    ]
+  },
+  "evaluation": {
+    "verdict": "needs-work",
+    "reviewer": "assistant",
+    "notes": "The bounded posterior crease is much smoother; all 14 local geometry gates pass. The muzzle, jaw and brow still need anatomical refinement.",
+    "unresolved": [
+      "Muzzle, jaw, eyelids and expression",
+      "Hands, feet and wing roots",
+      "Deformation retopology, UV/PBR, rigging, clips, attacks and game integration"
+    ]
+  },
+  "metrics": {
+    "vertices": 126119,
+    "trianglesAfterGLTFExport": 252234,
+    "meshSHA256": "f4d884034ac7a2665f579094278fd850b4ecf276dca5ad279dd9d441f82df78a",
+    "wholeModelSelfIntersectionTested": false
+  },
+  "comparability": {
+    "cohort": "charizard-manual-face",
+    "confounds": [
+      "r09 to r18 changes both the eye method and the skull patch",
+      "Supplementary side views clip foreground wings for inspection",
+      "Eye colors are provisional; standard views use uniform clay",
+      "Completed experiment does not mean approved character"
+    ]
+  },
+  "createdAt": "2026-09-06T02:11:05.961238+00:00"
+}

@@ -1,0 +1,100 @@
+{
+  "parentBlend": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r03/head-r06/charizard-head-r06.blend",
+  "copies": {
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r04/baseline/cameras.json": "baseline/cameras.json",
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r04/landmarks-r02/landmarks.json": "landmarks-r02/landmarks.json",
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r04/divot-baseline/cameras.json": "divot-baseline/cameras.json"
+  },
+  "files": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r03/head-r06/charizard-head-r06.blend",
+      "pathRoot": "private",
+      "bytes": 18889735,
+      "sha256": "c13a6d73a602d760804a5bb311ed6450c6bb069a7031788cfaa9b5465fe79dc8"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r03/head-r06/horn-audit.npz",
+      "pathRoot": "private",
+      "bytes": 2293129,
+      "sha256": "9543b3fe40c70b15c9fc9e68230ec16e2dd1a5c4e16fbe532779f04aa8dac449"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r04/baseline/cameras.json",
+      "pathRoot": "private",
+      "bytes": 861,
+      "sha256": "61e069240eea16509ecca3c6a79620166a8c17ba2492b16c8d6818b4f1c49037"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r04/divot-baseline/cameras.json",
+      "pathRoot": "private",
+      "bytes": 370,
+      "sha256": "138cd0f233171c6fa0d6568b877ca753bec8699cf2983f43c3ae57d4aee8765a"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r04/landmarks-r02/landmarks.json",
+      "pathRoot": "private",
+      "bytes": 4293,
+      "sha256": "d4017a44cc19691792cf51a4b02f184acf0b1ebf8d6c1ca33926f0b6c9e410b6"
+    },
+    {
+      "path": "canonical/characters/charizard/face-batch/manual-divot-selection.json",
+      "pathRoot": "repository",
+      "bytes": 161101,
+      "sha256": "9bb61b3feee2282f8c6440412002cbe7c0d9b8b51e3db4452629957eacbf47ce"
+    },
+    {
+      "path": "tools/charizard-face/build_eyes_cdt.py",
+      "pathRoot": "repository",
+      "bytes": 13886,
+      "sha256": "1b01a8c8ab050daeadfcb6934295bc7ada8a7994699467fa195f6741bba6eab5"
+    },
+    {
+      "path": "tools/charizard-face/clean_sliver.py",
+      "pathRoot": "repository",
+      "bytes": 3124,
+      "sha256": "ccfcdf39b486f83c5bd86625b96d75f50d9a958be4e855ee10575784ae4ed762"
+    },
+    {
+      "path": "tools/charizard-face/fair_patch.py",
+      "pathRoot": "repository",
+      "bytes": 3025,
+      "sha256": "2a66369f8bf4ad192811e8b6bf8e80fb954094302b000e4aa2f9f8afc00aee8e"
+    },
+    {
+      "path": "tools/charizard-face/render_divot.py",
+      "pathRoot": "repository",
+      "bytes": 1179,
+      "sha256": "e924b9bbf1d161fabee8cdfe66b5c8f0f61b981258a669e3a974f6a9a6b504bc"
+    },
+    {
+      "path": "tools/charizard-face/render_face.py",
+      "pathRoot": "repository",
+      "bytes": 1797,
+      "sha256": "90e8f1adb7f3f6b7c1d6e85ae202bc3ced16f6ff4c1793b0a2a555f887bdeabe"
+    },
+    {
+      "path": "tools/charizard-face/replace_divot.py",
+      "pathRoot": "repository",
+      "bytes": 5100,
+      "sha256": "25434ce096993e20d76615019e38461579a3b2611f22e341d480dcc41978d635"
+    },
+    {
+      "path": "tools/charizard-face/replay.py",
+      "pathRoot": "repository",
+      "bytes": 3801,
+      "sha256": "01be1d5ca055616d78332380859de11f028677b7127df62a07a3ac6639c3c1c8"
+    },
+    {
+      "path": "tools/charizard-head/render_candidate.py",
+      "pathRoot": "repository",
+      "bytes": 3224,
+      "sha256": "efa58656bac7abd924dcb201e2cead607243594e290daac90ac59ffdf76537ec"
+    },
+    {
+      "path": "/mnt/zer0models/workspace/zer0/experiments/pokemon/assets/blender/charizard-fair-review/charizard-official-61062-o256.json",
+      "pathRoot": "private",
+      "bytes": 1443,
+      "sha256": "0391e2f0bf9566987c6c40430b93e80f0a2301e76b4896582fefead3e2d4faf5"
+    }
+  ]
+}

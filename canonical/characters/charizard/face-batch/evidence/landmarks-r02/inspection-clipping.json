@@ -1,0 +1,5 @@
+{
+  "near": 2.8,
+  "far": 3.2,
+  "purpose": "Clip nearer/farther wings for facial landmark inspection only; original whole-body geometry and views preserved"
+}

@@ -1,0 +1,7 @@
+# Charizard skull and facial anatomy
+
+Continue from committed head-r06 without changing frozen artifacts or the Field OS. The preceding turn made verified progress and delivered its local checkpoint; the full character goal is active. Root is the sole Blender author, with read-only CPU diagnosis/audit support.
+
+Inspect official illustration and HOME directions against actual head views. Diagnose the remaining reported intersection and posterior divot, then resolve their causes with bounded connected edits. Then define the paired eye/brow anatomy on the existing skull, preserving muzzle proportions and the established horn roots. Establish actual surface landmarks and inspect both sides before authoring the facial openings. Build physical geometry that can support later eyelids and deformation, rather than a painted face illusion. Preserve every rejected branch and report remaining defects.
+
+New outputs live under `/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r04`; start from frozen `anatomy-r03/head-r06/charizard-head-r06.blend`, SHA256 c13a6d73a602d760804a5bb311ed6450c6bb069a7031788cfaa9b5465fe79dc8. Keep matched head and whole-body cameras. Inspect selections, actual rendered candidates, reopened GLB and Blender viewport. Verify the protected source geometry, patch connectivity and local intersections; do not claim those tests approve the full character. Commit a coherent milestone, register choice-ready renders and deliver them through Hermes.

@@ -1,0 +1,93 @@
+{
+  "checkedAt": "2026-09-06T02:27:59.643Z",
+  "checks": [
+    {
+      "name": "correct rejected eye baseline and current eye checkpoint",
+      "pass": true
+    },
+    {
+      "name": "matched comparison decodes head-front",
+      "pass": true
+    },
+    {
+      "name": "matched comparison decodes head-right",
+      "pass": true
+    },
+    {
+      "name": "matched comparison decodes head-left",
+      "pass": true
+    },
+    {
+      "name": "matched comparison decodes head-rear",
+      "pass": true
+    },
+    {
+      "name": "matched comparison decodes head-top",
+      "pass": true
+    },
+    {
+      "name": "matched comparison decodes head-threequarter",
+      "pass": true
+    },
+    {
+      "name": "matched comparison decodes face-reference",
+      "pass": true
+    },
+    {
+      "name": "matched comparison decodes face-front",
+      "pass": true
+    },
+    {
+      "name": "matched comparison decodes face-negative-side",
+      "pass": true
+    },
+    {
+      "name": "matched comparison decodes face-positive-side",
+      "pass": true
+    },
+    {
+      "name": "matched comparison decodes face-top",
+      "pass": true
+    },
+    {
+      "name": "phone reveals the exact eye preview",
+      "pass": true
+    },
+    {
+      "name": "phone switches checkpoint charizard-head-r07",
+      "pass": true
+    },
+    {
+      "name": "phone switches checkpoint charizard-head-r09",
+      "pass": true
+    },
+    {
+      "name": "phone switches checkpoint charizard-head-r13",
+      "pass": true
+    },
+    {
+      "name": "phone switches checkpoint charizard-head-r14",
+      "pass": true
+    },
+    {
+      "name": "phone switches checkpoint charizard-head-r15",
+      "pass": true
+    },
+    {
+      "name": "phone switches checkpoint charizard-head-r18",
+      "pass": true
+    },
+    {
+      "name": "no horizontal page overflow",
+      "pass": true
+    },
+    {
+      "name": "no uncaught JavaScript errors",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "comparisonUrl": "https://0.taila30dc.ts.net:8445/devtools/experiments.html?pokemon=charizard&a=charizard-head-r09&b=charizard-head-r18&view=face-negative-side",
+  "phoneUrl": "https://0.taila30dc.ts.net:8445/devtools/pokedex.html?pokemon=charizard&tab=iterations&run=charizard-head-r18&view=face-negative-side",
+  "status": "browser-pass/device-review-pending"
+}

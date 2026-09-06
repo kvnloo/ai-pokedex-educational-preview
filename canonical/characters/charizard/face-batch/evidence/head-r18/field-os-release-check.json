@@ -1,0 +1,12 @@
+{
+  "url": "https://0.taila30dc.ts.net:8469/pokedex-pwa-release.json",
+  "observedOn": "2026-09-06 UTC",
+  "httpBytesExactlyMatchPreservedR03Build": true,
+  "sha256": "d89d8807e496c33ea81696b9c63b0e4d5486e460f360e6cc6080854fa27fe0c4",
+  "release": "f85e3ae295feec02",
+  "implementation": "fa975753269125aebcf471a04515664b90d7fc7c",
+  "repairWorktreeHEAD": "12a7a771e4433a7bde44a186718b707db5754151",
+  "repairWorktreeClean": true,
+  "deploymentChanged": false,
+  "scope": "Release receipt comparison only; existing functional repair test evidence remains in the Field OS lane. Actual S25 acceptance pending."
+}

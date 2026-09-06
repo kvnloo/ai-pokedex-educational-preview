@@ -1,0 +1,291 @@
+{
+  "reproduction": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r04/reproduction-r18",
+  "stages": {
+    "r07": {
+      "geometry": {
+        "GEO-charizard-flame-head-r07": {
+          "positionsExact": true,
+          "trianglesExact": true,
+          "transformExact": false
+        },
+        "GEO-charizard-body-head-r07": {
+          "positionsExact": true,
+          "trianglesExact": true,
+          "transformExact": true
+        }
+      },
+      "arrays": {
+        "before": true,
+        "after": true,
+        "parent_vertex_ids": true,
+        "protected": true,
+        "removed_parent_vertices": true
+      },
+      "renders": {
+        "minusY": {
+          "pixelsExact": false,
+          "differentChannels": 29073
+        },
+        "plusX": {
+          "pixelsExact": false,
+          "differentChannels": 46674
+        },
+        "plusY": {
+          "pixelsExact": false,
+          "differentChannels": 18185
+        },
+        "minusX": {
+          "pixelsExact": false,
+          "differentChannels": 2365
+        },
+        "threequarter": {
+          "pixelsExact": false,
+          "differentChannels": 36075
+        },
+        "head-front": {
+          "pixelsExact": true,
+          "differentChannels": 0
+        },
+        "head-right": {
+          "pixelsExact": false,
+          "differentChannels": 99693
+        },
+        "head-left": {
+          "pixelsExact": false,
+          "differentChannels": 23365
+        },
+        "head-rear": {
+          "pixelsExact": true,
+          "differentChannels": 0
+        },
+        "head-top": {
+          "pixelsExact": true,
+          "differentChannels": 0
+        },
+        "head-threequarter": {
+          "pixelsExact": true,
+          "differentChannels": 0
+        }
+      },
+      "allExact": false
+    },
+    "r14": {
+      "geometry": {
+        "GEO-charizard-flame-head-r14": {
+          "positionsExact": true,
+          "trianglesExact": true,
+          "transformExact": false
+        },
+        "GEO-charizard-body-head-r14": {
+          "positionsExact": true,
+          "trianglesExact": true,
+          "transformExact": true
+        }
+      },
+      "arrays": {
+        "before": true,
+        "after": true,
+        "parent_vertex_ids": true,
+        "protected": true,
+        "removed_parent_vertices": true,
+        "removed_parent_faces": true,
+        "boundary_parent_vertices": true
+      },
+      "renders": {
+        "minusY": {
+          "pixelsExact": false,
+          "differentChannels": 29073
+        },
+        "plusX": {
+          "pixelsExact": false,
+          "differentChannels": 46674
+        },
+        "plusY": {
+          "pixelsExact": false,
+          "differentChannels": 18185
+        },
+        "minusX": {
+          "pixelsExact": false,
+          "differentChannels": 2365
+        },
+        "threequarter": {
+          "pixelsExact": false,
+          "differentChannels": 36075
+        },
+        "head-front": {
+          "pixelsExact": true,
+          "differentChannels": 0
+        },
+        "head-right": {
+          "pixelsExact": false,
+          "differentChannels": 99693
+        },
+        "head-left": {
+          "pixelsExact": false,
+          "differentChannels": 23365
+        },
+        "head-rear": {
+          "pixelsExact": true,
+          "differentChannels": 0
+        },
+        "head-top": {
+          "pixelsExact": true,
+          "differentChannels": 0
+        },
+        "head-threequarter": {
+          "pixelsExact": true,
+          "differentChannels": 0
+        }
+      },
+      "allExact": false
+    },
+    "r15": {
+      "geometry": {
+        "GEO-charizard-flame-head-r15": {
+          "positionsExact": true,
+          "trianglesExact": true,
+          "transformExact": false
+        },
+        "GEO-charizard-body-head-r15": {
+          "positionsExact": true,
+          "trianglesExact": true,
+          "transformExact": true
+        }
+      },
+      "arrays": {
+        "before": true,
+        "after": true,
+        "free": true,
+        "protected": true,
+        "head_r07_vertex_ids": true
+      },
+      "renders": {
+        "minusY": {
+          "pixelsExact": false,
+          "differentChannels": 29073
+        },
+        "plusX": {
+          "pixelsExact": false,
+          "differentChannels": 46674
+        },
+        "plusY": {
+          "pixelsExact": false,
+          "differentChannels": 18185
+        },
+        "minusX": {
+          "pixelsExact": false,
+          "differentChannels": 2365
+        },
+        "threequarter": {
+          "pixelsExact": false,
+          "differentChannels": 36075
+        },
+        "head-front": {
+          "pixelsExact": true,
+          "differentChannels": 0
+        },
+        "head-right": {
+          "pixelsExact": false,
+          "differentChannels": 99693
+        },
+        "head-left": {
+          "pixelsExact": false,
+          "differentChannels": 23365
+        },
+        "head-rear": {
+          "pixelsExact": true,
+          "differentChannels": 0
+        },
+        "head-top": {
+          "pixelsExact": true,
+          "differentChannels": 0
+        },
+        "head-threequarter": {
+          "pixelsExact": true,
+          "differentChannels": 0
+        }
+      },
+      "allExact": false
+    },
+    "r18": {
+      "geometry": {
+        "GEO-charizard-flame-head-r18": {
+          "positionsExact": true,
+          "trianglesExact": true,
+          "transformExact": false
+        },
+        "GEO-charizard-eye--1-r18": {
+          "positionsExact": true,
+          "trianglesExact": true,
+          "transformExact": true
+        },
+        "GEO-charizard-eye-1-r18": {
+          "positionsExact": true,
+          "trianglesExact": true,
+          "transformExact": true
+        },
+        "GEO-charizard-body-head-r18": {
+          "positionsExact": true,
+          "trianglesExact": true,
+          "transformExact": true
+        }
+      },
+      "arrays": {
+        "before": true,
+        "after": true,
+        "parent_vertex_ids": true,
+        "protected": true,
+        "removed_parent_vertices": true,
+        "removed_parent_faces": true
+      },
+      "renders": {
+        "minusY": {
+          "pixelsExact": false,
+          "differentChannels": 29073
+        },
+        "plusX": {
+          "pixelsExact": false,
+          "differentChannels": 46674
+        },
+        "plusY": {
+          "pixelsExact": false,
+          "differentChannels": 18185
+        },
+        "minusX": {
+          "pixelsExact": false,
+          "differentChannels": 2365
+        },
+        "threequarter": {
+          "pixelsExact": false,
+          "differentChannels": 36075
+        },
+        "head-front": {
+          "pixelsExact": true,
+          "differentChannels": 0
+        },
+        "head-right": {
+          "pixelsExact": false,
+          "differentChannels": 99693
+        },
+        "head-left": {
+          "pixelsExact": false,
+          "differentChannels": 23365
+        },
+        "head-rear": {
+          "pixelsExact": true,
+          "differentChannels": 0
+        },
+        "head-top": {
+          "pixelsExact": true,
+          "differentChannels": 0
+        },
+        "head-threequarter": {
+          "pixelsExact": true,
+          "differentChannels": 0
+        }
+      },
+      "allExact": false
+    }
+  },
+  "allExact": false
+}
