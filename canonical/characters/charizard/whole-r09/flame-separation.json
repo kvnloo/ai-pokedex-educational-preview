@@ -1,0 +1,29 @@
+{
+  "before": {
+    "vertices": 364846,
+    "faces": 729684,
+    "nonmanifold_edges": 0
+  },
+  "after": {
+    "vertices": 345177,
+    "faces": 690294,
+    "nonmanifold_edges": 0,
+    "triangles": 690350
+  },
+  "cut_z": -0.405,
+  "socket": [
+    0.8085156679153442,
+    0.43155738711357117,
+    -0.40499991178512573
+  ],
+  "cap_boundary_edges": 108,
+  "excluded_reference": "REFERENCE-baked-flame-excluded-r09",
+  "runtime_flame": "pending VFX; no baked fire in physical export",
+  "materialCount": 0,
+  "uvLayerCount": 0,
+  "socket_rotation_euler": [
+    0.0,
+    0.0,
+    0.0
+  ]
+}

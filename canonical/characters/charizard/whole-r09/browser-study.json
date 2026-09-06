@@ -1,0 +1,189 @@
+{
+  "startedAt": "2026-09-06T16:17:12.467Z",
+  "status": "passed",
+  "comparison": "https://0.taila30dc.ts.net:8445/devtools/experiments.html?pokemon=charizard&a=charizard-home-native-r09-intake&b=charizard-home-native-r09&view=head-threequarter",
+  "phoneUrl": "https://0.taila30dc.ts.net:8445/devtools/pokedex.html?pokemon=charizard&tab=iterations&run=charizard-home-native-r09&view=head-threequarter",
+  "script": "/mnt/zer0models/workspace/zer0/experiments/pokemon/.worktrees/charizard-anatomy/tools/charizard-whole/verify_native_r09.mjs",
+  "scriptSHA256": "8ef57c5ff99ccdce0ec2c8144174a48345f95d1b183e3e76817a0bea1e69f9f1",
+  "scope": "Read-only selection, exact image paths, 1000-pixel image decoding and page errors. No model quality, visual, device or layout acceptance.",
+  "deviceAcceptance": false,
+  "layoutAcceptance": false,
+  "visualAcceptance": false,
+  "checks": [
+    {
+      "kind": "comparison",
+      "a": "charizard-home-native-r09-intake",
+      "b": "charizard-home-native-r09",
+      "view": "head-front",
+      "selectorIDsCorrect": true,
+      "images": [
+        {
+          "src": "https://0.taila30dc.ts.net:8445/assets/blender/charizard-native-r09/horn-before-front.png",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "src": "https://0.taila30dc.ts.net:8445/assets/blender/charizard-native-r09/horn-after-front.png",
+          "width": 1000,
+          "height": 1000
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "comparison",
+      "a": "charizard-home-native-r09-intake",
+      "b": "charizard-home-native-r09",
+      "view": "head-side",
+      "selectorIDsCorrect": true,
+      "images": [
+        {
+          "src": "https://0.taila30dc.ts.net:8445/assets/blender/charizard-native-r09/horn-before-side.png",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "src": "https://0.taila30dc.ts.net:8445/assets/blender/charizard-native-r09/horn-after-side.png",
+          "width": 1000,
+          "height": 1000
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "comparison",
+      "a": "charizard-home-native-r09-intake",
+      "b": "charizard-home-native-r09",
+      "view": "head-rear",
+      "selectorIDsCorrect": true,
+      "images": [
+        {
+          "src": "https://0.taila30dc.ts.net:8445/assets/blender/charizard-native-r09/horn-before-rear.png",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "src": "https://0.taila30dc.ts.net:8445/assets/blender/charizard-native-r09/horn-after-rear.png",
+          "width": 1000,
+          "height": 1000
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "comparison",
+      "a": "charizard-home-native-r09-intake",
+      "b": "charizard-home-native-r09",
+      "view": "head-threequarter",
+      "selectorIDsCorrect": true,
+      "images": [
+        {
+          "src": "https://0.taila30dc.ts.net:8445/assets/blender/charizard-native-r09/horn-before-threequarter.png",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "src": "https://0.taila30dc.ts.net:8445/assets/blender/charizard-native-r09/horn-after-threequarter.png",
+          "width": 1000,
+          "height": 1000
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "phone",
+      "run": "charizard-home-native-r09",
+      "view": "head-front",
+      "selectorIDCorrect": true,
+      "images": [
+        {
+          "src": "https://0.taila30dc.ts.net:8445/assets/blender/charizard-native-r09/horn-after-front.png",
+          "width": 1000,
+          "height": 1000
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "phone",
+      "run": "charizard-home-native-r09",
+      "view": "head-side",
+      "selectorIDCorrect": true,
+      "images": [
+        {
+          "src": "https://0.taila30dc.ts.net:8445/assets/blender/charizard-native-r09/horn-after-side.png",
+          "width": 1000,
+          "height": 1000
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "phone",
+      "run": "charizard-home-native-r09",
+      "view": "head-rear",
+      "selectorIDCorrect": true,
+      "images": [
+        {
+          "src": "https://0.taila30dc.ts.net:8445/assets/blender/charizard-native-r09/horn-after-rear.png",
+          "width": 1000,
+          "height": 1000
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "phone",
+      "run": "charizard-home-native-r09",
+      "view": "head-threequarter",
+      "selectorIDCorrect": true,
+      "images": [
+        {
+          "src": "https://0.taila30dc.ts.net:8445/assets/blender/charizard-native-r09/horn-after-threequarter.png",
+          "width": 1000,
+          "height": 1000
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "pageerrors": [],
+  "blockedWriteRequests": [],
+  "cleanup": {
+    "browserClosed": true
+  },
+  "browser": {
+    "version": "151.0.7922.173",
+    "headless": true
+  },
+  "screenshot": {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r09/browser-study/comparison-threequarter.png",
+    "sha256": "c9461cc1900c58ed8057ff03ae93984a045f0d81792260478eb02d070bfefcec",
+    "a": "charizard-home-native-r09-intake",
+    "b": "charizard-home-native-r09",
+    "view": "head-threequarter",
+    "viewport": [
+      1440,
+      1100
+    ],
+    "visualAcceptance": false
+  },
+  "phone": {
+    "viewport": [
+      412,
+      892
+    ],
+    "emulated": true,
+    "deviceAcceptance": false,
+    "layoutAcceptance": false,
+    "initialUrl": "https://0.taila30dc.ts.net:8445/devtools/pokedex.html?pokemon=charizard&tab=iterations&run=charizard-home-native-r09&view=head-threequarter",
+    "initialImages": [
+      {
+        "src": "https://0.taila30dc.ts.net:8445/assets/blender/charizard-native-r09/horn-after-threequarter.png",
+        "width": 1000,
+        "height": 1000
+      }
+    ]
+  },
+  "finishedAt": "2026-09-06T16:17:48.385Z"
+}

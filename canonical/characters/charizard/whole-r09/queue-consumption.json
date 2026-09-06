@@ -1,0 +1,13 @@
+{
+  "readOnly": true,
+  "backend": "/home/kvn/.codex/queue_1.sqlite",
+  "threadId": "01a07016-37f1-7090-a47c-04caa562ffe0",
+  "queueIds": [
+    "01a0774e-4558-7d70-95b6-f25cb8a7f8e2",
+    "01a0774e-be6f-7772-8821-62da31cd12dd",
+    "01a07759-8914-7552-98df-be23d85e0d32",
+    "01a0775e-d7ba-70c1-a09e-ddc65d560b6a"
+  ],
+  "backendModified": false,
+  "applied": "Charizard-only; native CUA form; bpy mechanical only; xhigh read-only visual critic; flame runtime VFX with socket; preserve rollbacks; no merge/push"
+}

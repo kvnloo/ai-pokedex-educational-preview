@@ -1,0 +1,37 @@
+{
+  "file": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r09/charizard-home-native-r09-physical-study.glb",
+  "meshes": 1,
+  "vertices": 345177,
+  "triangles": 690350,
+  "nonmanifold_edges": 0,
+  "energyBaked": false,
+  "objects": [
+    "GEO-charizard-home-whole-r09.002",
+    "FlameSocket.002"
+  ],
+  "animations": [],
+  "stage": "unapproved high-density form study; no UVs, textures, rig or clips",
+  "materialCount": 0,
+  "uvLayerCount": 0,
+  "socket": {
+    "parentVerified": true,
+    "effect": "charizard-tail-flame",
+    "energyBaked": false,
+    "local": [
+      0.8085156679153442,
+      0.43155738711357117,
+      -0.40499991178512573
+    ],
+    "world": [
+      0.8085156679153442,
+      0.43155738711357117,
+      -0.40499991178512573
+    ],
+    "rotation_euler": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "transformTolerance": 1e-06
+  }
+}

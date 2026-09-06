@@ -1,0 +1,38 @@
+{
+  "acceptedAsLocalStudy": "charizard-home-native-r09-horn-isolated.blend",
+  "qualityGate": "needs-work",
+  "mechanicalChange": "Baked flame archived and excluded; closed tail cap with FlameSocket. VFX implementation pending.",
+  "nativeChange": "Whole HOME scene copy; native wing Smooth and horn sweep, followed by isolated native Pinch horn taper.",
+  "retainedReason": "xhigh critic and root see modest taper improvement at whole-body scale.",
+  "remaining": [
+    "Rounded horn tips",
+    "Slight distal shaft waviness and taper shoulder",
+    "Small far-horn dent",
+    "Bulbous muzzle and jaw, mitten digits, lumpy membranes, faceted tail",
+    "No materials, UVs, rig, clips or runtime VFX; high-density one-body study; component separation remains next"
+  ],
+  "rejected": [
+    {
+      "file": "charizard-home-native-r09-horn-taper-trial.blend",
+      "reason": "Screen-space mask exposed neck behind horns. Changed region extended to Z0.177. Restored entire pre-pinch checkpoint before the second trial."
+    },
+    {
+      "file": "failed-export-included-other-scenes.glb",
+      "reason": "Selection-only export included historical scenes. Fixed use_active_scene=True and reopened exactly one mesh plus socket."
+    }
+  ],
+  "secondTrialProtection": {
+    "hiddenVerticesMoved": 0,
+    "maskedVerticesMoved": 0,
+    "verticesBelowZ05Moved": 0,
+    "changedVertices": 1041
+  },
+  "critic": {
+    "agent": "r09_form_critic",
+    "model": "gpt-6-astra",
+    "reasoningEffort": "xhigh",
+    "rootEffortOverrideClaimed": false
+  },
+  "newGeneration": false,
+  "fieldOsChanged": false
+}

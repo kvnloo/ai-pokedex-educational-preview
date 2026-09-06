@@ -1,0 +1,18 @@
+{
+  "changedVertices": 1041,
+  "maxDisplacement": 0.018027640879154205,
+  "belowHeadChanged": 0,
+  "changedBounds": [
+    [
+      0.03623618558049202,
+      -0.6012815237045288,
+      0.5166451930999756
+    ],
+    [
+      0.2053634077310562,
+      -0.3962624967098236,
+      0.5924087166786194
+    ]
+  ],
+  "stage": "isolated-horn-taper-second-trial-awaiting-visual-review"
+}

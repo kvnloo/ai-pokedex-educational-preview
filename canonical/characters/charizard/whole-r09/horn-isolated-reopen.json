@@ -1,0 +1,33 @@
+{
+  "sourceReopened": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r09/charizard-home-native-r09-horn-isolated.blend",
+  "glbReopened": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r09/charizard-home-native-r09-horn-isolated.glb",
+  "vertices": 345177,
+  "triangles": 690350,
+  "meshes": 1,
+  "objects": 2,
+  "nonManifoldEdges": 0,
+  "materialCount": 0,
+  "uvLayerCount": 0,
+  "animations": [],
+  "dimensions": [
+    1.988854169845581,
+    1.5961689949035645,
+    1.3509559631347656
+  ],
+  "energyBaked": false,
+  "socket": {
+    "parentVerified": true,
+    "effect": "charizard-tail-flame",
+    "position": [
+      0.8085156679153442,
+      0.43155738711357117,
+      -0.40499991178512573
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "stage": "retained local form study; likeness and runtime readiness unapproved"
+}

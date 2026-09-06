@@ -1,0 +1,101 @@
+{
+  "id": "charizard-home-native-r09-intake",
+  "species": "charizard",
+  "stage": "blender",
+  "status": "unfinished",
+  "title": "r09 HOME \u00b7 flame-separated intake",
+  "parents": [
+    "charizard-home-raw-61061"
+  ],
+  "question": "Does a protected native horn taper improve the HOME silhouette?",
+  "inputs": [
+    {
+      "role": "official HOME shape reference",
+      "path": "assets/references/objects/ff/ffe2db1065f91feda24f21c81c461e4ca6b863cf31afb4e4918aba79fb31ee70.png",
+      "sha256": "ffe2db1065f91feda24f21c81c461e4ca6b863cf31afb4e4918aba79fb31ee70",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/6.png"
+    }
+  ],
+  "controls": [
+    "Same whole-body HOME baseline; no new generation",
+    "Same fixed orthographic cameras and shadow-free clay lighting",
+    "Flame excluded in both sides of this horn comparison"
+  ],
+  "changedFactors": [],
+  "recipe": {
+    "model": "Blender native GUI sculpt; MCP mechanical saves/cameras/socket/export",
+    "parameters": {
+      "newGeneration": false,
+      "energyBaked": false,
+      "authoritativeSource": "assets/blender/charizard-native-r09/charizard-home-native-r09.blend"
+    }
+  },
+  "outputs": {
+    "blend": "assets/blender/charizard-native-r09/charizard-home-native-r09.blend",
+    "rawMesh": "assets/blender/charizard-native-r09/charizard-home-native-r09-physical-study.glb",
+    "previews": [
+      {
+        "view": "front",
+        "path": "assets/blender/charizard-native-r09/candidate-front-neutral.png"
+      },
+      {
+        "view": "head-front",
+        "path": "assets/blender/charizard-native-r09/horn-before-front.png"
+      },
+      {
+        "view": "side",
+        "path": "assets/blender/charizard-native-r09/candidate-side-neutral.png"
+      },
+      {
+        "view": "head-side",
+        "path": "assets/blender/charizard-native-r09/horn-before-side.png"
+      },
+      {
+        "view": "rear",
+        "path": "assets/blender/charizard-native-r09/candidate-rear-neutral.png"
+      },
+      {
+        "view": "head-rear",
+        "path": "assets/blender/charizard-native-r09/horn-before-rear.png"
+      },
+      {
+        "view": "threequarter",
+        "path": "assets/blender/charizard-native-r09/candidate-threequarter-neutral.png"
+      },
+      {
+        "view": "head-threequarter",
+        "path": "assets/blender/charizard-native-r09/horn-before-threequarter.png"
+      }
+    ]
+  },
+  "evaluation": {
+    "verdict": "needs-work",
+    "reviewer": "assistant + xhigh visual critic",
+    "notes": "Flame separation passes technical checks; anatomy remains unfinished. Intake for the isolated horn test.",
+    "unresolved": [
+      "Rounded horn tips",
+      "Slight distal shaft waviness and taper shoulder",
+      "Small far-horn dent",
+      "Bulbous muzzle and jaw, mitten digits, lumpy membranes, faceted tail",
+      "No materials, UVs, rig, clips or runtime VFX; high-density one-body study; component separation remains next"
+    ]
+  },
+  "metrics": {
+    "vertices": 345177,
+    "trianglesAfterGLTFExport": 690350,
+    "meshSHA256": "f2ae175749cadd1e6b86088b87161751ba03ae3141455c2e3f2fccb4bea7c895",
+    "glbReopenPassed": true,
+    "materialCount": 0,
+    "textureCount": 0,
+    "animationCount": 0,
+    "wholeModelSelfIntersectionTested": false
+  },
+  "comparability": {
+    "cohort": "charizard-native-r09-horn-pair",
+    "confounds": [
+      "Approximate reference angle; HOME is not an orthographic source",
+      "High-density triangulated study; not deformation-ready"
+    ]
+  },
+  "createdAt": "2026-09-06T16:15:25.523284+00:00"
+}

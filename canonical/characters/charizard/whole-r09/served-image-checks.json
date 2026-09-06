@@ -1,0 +1,101 @@
+{
+  "checks": [
+    {
+      "run": "charizard-home-native-r09-intake",
+      "view": "front",
+      "sha256": "82c6bbe9f573c9321cf894566620dedd06ba5c54901814ff19b73eaac934f152",
+      "passed": true
+    },
+    {
+      "run": "charizard-home-native-r09-intake",
+      "view": "head-front",
+      "sha256": "eedb633d20386a2c7fed2385b54b0c6609264b892139b73c1903d7099beb9760",
+      "passed": true
+    },
+    {
+      "run": "charizard-home-native-r09-intake",
+      "view": "side",
+      "sha256": "404f3f509d4a9af3c5e76e5746a9d4d4535e379e8e9563bf810f302d62874114",
+      "passed": true
+    },
+    {
+      "run": "charizard-home-native-r09-intake",
+      "view": "head-side",
+      "sha256": "8e392eafa7e399faffa4afd1a64dbc8dc73139b2212315c477e3be0d5f2338b0",
+      "passed": true
+    },
+    {
+      "run": "charizard-home-native-r09-intake",
+      "view": "rear",
+      "sha256": "58e931549db1550dbaea0586e65cc4fbac12e1e8ae60384e4eae0b4276997341",
+      "passed": true
+    },
+    {
+      "run": "charizard-home-native-r09-intake",
+      "view": "head-rear",
+      "sha256": "349b0b74aba7769274c78b5844e657b8ecc3a19a9eed8bd057c668a07d1d570d",
+      "passed": true
+    },
+    {
+      "run": "charizard-home-native-r09-intake",
+      "view": "threequarter",
+      "sha256": "dee8a114d5bf793bfa6ee932b2cafaa811d5ac9aa2231c4c8a1dea11ae9accef",
+      "passed": true
+    },
+    {
+      "run": "charizard-home-native-r09-intake",
+      "view": "head-threequarter",
+      "sha256": "5221bac20043ed2b89272b0bd2dabc1b7c35c78c8fcc259f0eda951809276442",
+      "passed": true
+    },
+    {
+      "run": "charizard-home-native-r09",
+      "view": "front",
+      "sha256": "b393b27a888e635ba9883139feaba79aa753f799998c4d6a20920aedce823113",
+      "passed": true
+    },
+    {
+      "run": "charizard-home-native-r09",
+      "view": "head-front",
+      "sha256": "58d1331b0cd4e478d2c8165988051c613474c43883e022e784d8ab889e9a3952",
+      "passed": true
+    },
+    {
+      "run": "charizard-home-native-r09",
+      "view": "side",
+      "sha256": "483c9c9b0a245a28be9199860156893c5e30cf306ef005e289fe20ea8624472c",
+      "passed": true
+    },
+    {
+      "run": "charizard-home-native-r09",
+      "view": "head-side",
+      "sha256": "0280fa005a5d85e5f52eb74546192faab14f672f5d036bae3e4847375c92cb4c",
+      "passed": true
+    },
+    {
+      "run": "charizard-home-native-r09",
+      "view": "rear",
+      "sha256": "0e73dc59357d20ad9c17526ec21c3ef8213f07bac4362af20fe91b4f73899858",
+      "passed": true
+    },
+    {
+      "run": "charizard-home-native-r09",
+      "view": "head-rear",
+      "sha256": "263330421adc4426af01ba84ec921b3c3d4925a77aa85a59782e900ef5d34d81",
+      "passed": true
+    },
+    {
+      "run": "charizard-home-native-r09",
+      "view": "threequarter",
+      "sha256": "4afb0141e760f425e793b80f09529a7b8b3b862b4fc02db72184b612fbf6f461",
+      "passed": true
+    },
+    {
+      "run": "charizard-home-native-r09",
+      "view": "head-threequarter",
+      "sha256": "6a184173cec95d8b56f8fa9b70174d655144d63921e22834c9b1458f56275091",
+      "passed": true
+    }
+  ],
+  "passed": true
+}

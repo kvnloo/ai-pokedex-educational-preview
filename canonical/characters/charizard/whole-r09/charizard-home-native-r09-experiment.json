@@ -1,0 +1,107 @@
+{
+  "id": "charizard-home-native-r09",
+  "species": "charizard",
+  "stage": "blender",
+  "status": "unfinished",
+  "title": "r09 HOME \u00b7 isolated horn taper, unfinished",
+  "parents": [
+    "charizard-home-native-r09-intake"
+  ],
+  "question": "Does a protected native horn taper improve the HOME silhouette?",
+  "inputs": [
+    {
+      "role": "official HOME shape reference",
+      "path": "assets/references/objects/ff/ffe2db1065f91feda24f21c81c461e4ca6b863cf31afb4e4918aba79fb31ee70.png",
+      "sha256": "ffe2db1065f91feda24f21c81c461e4ca6b863cf31afb4e4918aba79fb31ee70",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/6.png"
+    }
+  ],
+  "controls": [
+    "Same whole-body HOME baseline; no new generation",
+    "Same fixed orthographic cameras and shadow-free clay lighting",
+    "Flame excluded in both sides of this horn comparison"
+  ],
+  "changedFactors": [
+    {
+      "name": "horn taper",
+      "from": "Blunt tubular tips after native sweep",
+      "to": "Native Pinch with hidden-body and skull-mask protection"
+    }
+  ],
+  "recipe": {
+    "model": "Blender native GUI sculpt; MCP mechanical saves/cameras/socket/export",
+    "parameters": {
+      "newGeneration": false,
+      "energyBaked": false,
+      "authoritativeSource": "assets/blender/charizard-native-r09/charizard-home-native-r09-horn-isolated.blend"
+    }
+  },
+  "outputs": {
+    "blend": "assets/blender/charizard-native-r09/charizard-home-native-r09-horn-isolated.blend",
+    "rawMesh": "assets/blender/charizard-native-r09/charizard-home-native-r09-horn-isolated.glb",
+    "previews": [
+      {
+        "view": "front",
+        "path": "assets/blender/charizard-native-r09/horn-isolated-front.png"
+      },
+      {
+        "view": "head-front",
+        "path": "assets/blender/charizard-native-r09/horn-after-front.png"
+      },
+      {
+        "view": "side",
+        "path": "assets/blender/charizard-native-r09/horn-isolated-side.png"
+      },
+      {
+        "view": "head-side",
+        "path": "assets/blender/charizard-native-r09/horn-after-side.png"
+      },
+      {
+        "view": "rear",
+        "path": "assets/blender/charizard-native-r09/horn-isolated-rear.png"
+      },
+      {
+        "view": "head-rear",
+        "path": "assets/blender/charizard-native-r09/horn-after-rear.png"
+      },
+      {
+        "view": "threequarter",
+        "path": "assets/blender/charizard-native-r09/horn-isolated-threequarter.png"
+      },
+      {
+        "view": "head-threequarter",
+        "path": "assets/blender/charizard-native-r09/horn-after-threequarter.png"
+      }
+    ]
+  },
+  "evaluation": {
+    "verdict": "needs-work",
+    "reviewer": "assistant + xhigh visual critic",
+    "notes": "Modest horn taper improvement retained; tips remain rounded with slight waviness and a small dent. Whole Charizard is not accepted.",
+    "unresolved": [
+      "Rounded horn tips",
+      "Slight distal shaft waviness and taper shoulder",
+      "Small far-horn dent",
+      "Bulbous muzzle and jaw, mitten digits, lumpy membranes, faceted tail",
+      "No materials, UVs, rig, clips or runtime VFX; high-density one-body study; component separation remains next"
+    ]
+  },
+  "metrics": {
+    "vertices": 345177,
+    "trianglesAfterGLTFExport": 690350,
+    "meshSHA256": "9a364500216b888f7ce22021a03ee585a1cb9542ee997d81787d8cdda29bf97d",
+    "glbReopenPassed": true,
+    "materialCount": 0,
+    "textureCount": 0,
+    "animationCount": 0,
+    "wholeModelSelfIntersectionTested": false
+  },
+  "comparability": {
+    "cohort": "charizard-native-r09-horn-pair",
+    "confounds": [
+      "Approximate reference angle; HOME is not an orthographic source",
+      "High-density triangulated study; not deformation-ready"
+    ]
+  },
+  "createdAt": "2026-09-06T16:15:25.523284+00:00"
+}
