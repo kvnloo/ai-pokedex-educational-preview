@@ -1,0 +1,12 @@
+{
+  "object": "GEO-charizard-body-joined-r06",
+  "vertices": 138925,
+  "polygons": 259615,
+  "boundaryEdges": 0,
+  "nonmanifoldEdges": 0,
+  "connectedComponentVertexCounts": [
+    138925
+  ],
+  "authoring": "MCP native Exact Boolean union on an exclusive body copy. Editable source head and body preserved.",
+  "scope": "Assembly experiment. No self-intersection, deformation or fidelity acceptance implied."
+}

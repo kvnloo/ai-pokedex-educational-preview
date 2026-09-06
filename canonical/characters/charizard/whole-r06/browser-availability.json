@@ -1,0 +1,76 @@
+{
+  "comparison": "https://0.taila30dc.ts.net:8445/devtools/experiments.html?pokemon=charizard&a=charizard-whole-r06-intake&b=charizard-whole-r06&view=head-threequarter",
+  "phoneUrl": "https://0.taila30dc.ts.net:8445/devtools/pokedex.html?pokemon=charizard&tab=iterations&run=charizard-whole-r06&view=head-threequarter",
+  "checks": [
+    {
+      "view": "head-front",
+      "matchedPairDecoded": true
+    },
+    {
+      "view": "head-near",
+      "matchedPairDecoded": true
+    },
+    {
+      "view": "head-far",
+      "matchedPairDecoded": true
+    },
+    {
+      "view": "head-threequarter",
+      "matchedPairDecoded": true
+    },
+    {
+      "view": "head-front",
+      "phoneImageDecoded": true
+    },
+    {
+      "view": "head-near",
+      "phoneImageDecoded": true
+    },
+    {
+      "view": "head-far",
+      "phoneImageDecoded": true
+    },
+    {
+      "view": "head-threequarter",
+      "phoneImageDecoded": true
+    },
+    {
+      "view": "whole-front",
+      "phoneImageDecoded": true
+    },
+    {
+      "view": "whole-back",
+      "phoneImageDecoded": true
+    },
+    {
+      "view": "whole-side",
+      "phoneImageDecoded": true
+    },
+    {
+      "view": "whole-threequarter",
+      "phoneImageDecoded": true
+    }
+  ],
+  "errors": [],
+  "deviceAcceptance": false,
+  "scope": "Experiment selection, image decoding and published artifact bytes. No phone acceptance or Field OS change.",
+  "phone": {
+    "viewport": [
+      412,
+      892
+    ],
+    "layoutAcceptance": false
+  },
+  "artifacts": [
+    {
+      "name": "charizard-whole-r06-study.glb",
+      "status": 200,
+      "sha256": "1eb2b7e113f5d2d198f5cc50609882341e174ed8c0aa522422338d3516a65dc7"
+    },
+    {
+      "name": "charizard-whole-r06-study.blend",
+      "status": 200,
+      "sha256": "93f96697cb9ce4e5f8f8214c1ee4e11a9d97df1d8c52086174bcbfaaf6fb08e6"
+    }
+  ]
+}

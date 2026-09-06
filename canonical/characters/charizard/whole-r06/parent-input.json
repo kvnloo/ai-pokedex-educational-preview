@@ -1,0 +1,12 @@
+{
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r05/charizard-whole-r05-mouth-jaw-study.blend",
+  "bytes": 9926960,
+  "sha256": "746f0988ac4d5095bccdcd7bd281a593aefb5e258cbb743aa9c2df58953d360e",
+  "relationship": "Live r05 scene was the immediate authoring input; its frozen checkpoint is recorded here. Frozen r06-start is authoritative for the matched comparison.",
+  "registeredIn": [
+    "charizard-whole-r06-intake",
+    "charizard-whole-r06"
+  ],
+  "humanReviewsChanged": false,
+  "binaryAssetsChanged": false
+}

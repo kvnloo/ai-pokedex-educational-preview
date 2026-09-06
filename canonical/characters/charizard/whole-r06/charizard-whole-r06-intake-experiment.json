@@ -1,0 +1,90 @@
+{
+  "id": "charizard-whole-r06-intake",
+  "species": "charizard",
+  "stage": "blender",
+  "status": "unfinished",
+  "title": "r06 intake \u00b7 matched head baseline",
+  "parents": [
+    "charizard-whole-r03",
+    "charizard-official-raw-61062-o256"
+  ],
+  "question": "Can controlled native head edits and a clean neck bridge improve the inherited raw head?",
+  "inputs": [
+    {
+      "role": "shape reference",
+      "path": "assets/references/objects/b6/b6d5b8ee9fb05dc6f53294b2cae660dec770b92762cdb19d16bcbd679e1ba43a.png",
+      "sha256": "b6d5b8ee9fb05dc6f53294b2cae660dec770b92762cdb19d16bcbd679e1ba43a",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png",
+      "sourceKind": "official_artwork"
+    },
+    {
+      "role": "Immediate source scene checkpoint \u00b7 r05 mouth/jaw study",
+      "path": "assets/blender/charizard-whole-r05/charizard-whole-r05-mouth-jaw-study.blend",
+      "sha256": "746f0988ac4d5095bccdcd7bd281a593aefb5e258cbb743aa9c2df58953d360e",
+      "sourceKind": "blender_checkpoint",
+      "note": "Prepared from live r05 scene state, not a hash-guarded file replay. Frozen r06-start is the authoritative comparison intake."
+    }
+  ],
+  "controls": [
+    "Official illustration/HOME visual references; no new generation",
+    "Matched head cameras and vertex-color clay lighting within this pair",
+    "Earlier sources, failed Boolean and curved bridge preserved"
+  ],
+  "changedFactors": [],
+  "recipe": {
+    "model": "Blender native GUI transforms/sculpt/bridge; MCP selection, surface fitting, checks and capture",
+    "parameters": {
+      "baselineCaptureOnly": true,
+      "authoritativeSource": "assets/blender/charizard-whole-r06/charizard-whole-r06-start.blend",
+      "newGeneration": false,
+      "headBaseline": "charizard-official-raw-61062-o256"
+    }
+  },
+  "outputs": {
+    "blend": "assets/blender/charizard-whole-r06/charizard-whole-r06-start.blend",
+    "previews": [
+      {
+        "view": "head-front",
+        "path": "assets/blender/charizard-whole-r06/matched-intake/front.png"
+      },
+      {
+        "view": "head-near",
+        "path": "assets/blender/charizard-whole-r06/matched-intake/near.png"
+      },
+      {
+        "view": "head-far",
+        "path": "assets/blender/charizard-whole-r06/matched-intake/far.png"
+      },
+      {
+        "view": "head-threequarter",
+        "path": "assets/blender/charizard-whole-r06/matched-intake/threequarter.png"
+      }
+    ]
+  },
+  "evaluation": {
+    "verdict": "needs-work",
+    "reviewer": "assistant",
+    "notes": "Preserved starting geometry under the same head cameras.",
+    "unresolved": [
+      "Eye gaze and lids unfinished",
+      "Straight mouth seam, inflated nose and hanging jaw remain",
+      "Horn proportions and anatomical neck shaping incomplete",
+      "No UV/PBR, rig, clips, attacks or game integration",
+      "Self-intersections and deformation quality not certified",
+      "High triangle count; no LOD pass"
+    ]
+  },
+  "metrics": {
+    "baselineCaptureOnly": true
+  },
+  "comparability": {
+    "cohort": "charizard-head-r06-matched",
+    "confounds": [
+      "Several sequential changes in one study",
+      "Head cameras are matched only within the r06 intake/r06 pair",
+      "Side head views clip foreground wings",
+      "Provisional vertex colors; no PBR or rig"
+    ]
+  },
+  "createdAt": "2026-09-06T07:01:59.812172+00:00"
+}

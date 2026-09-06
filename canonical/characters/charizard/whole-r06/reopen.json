@@ -1,0 +1,202 @@
+{
+  "source": [
+    {
+      "object": "GEO-charizard-flame-whole-r06.001",
+      "vertices": 4516,
+      "triangles": 9028,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "zeroAreaTriangles": 0,
+      "bounds": [
+        [
+          0.23953473567962646,
+          0.44430577754974365
+        ],
+        [
+          0.6501067876815796,
+          0.8700257539749146
+        ],
+        [
+          -0.0837167501449585,
+          0.2805421054363251
+        ]
+      ],
+      "maximumBoundsError": 0.0
+    },
+    {
+      "object": "GEO-charizard-eye-1-whole-r06.001",
+      "vertices": 3074,
+      "triangles": 6144,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "zeroAreaTriangles": 0,
+      "bounds": [
+        [
+          -0.18915611505508423,
+          -0.1477426290512085
+        ],
+        [
+          -0.809928297996521,
+          -0.6925196647644043
+        ],
+        [
+          0.5238165855407715,
+          0.5593766570091248
+        ]
+      ],
+      "maximumBoundsError": 0.0
+    },
+    {
+      "object": "GEO-charizard-eye--1-whole-r06.001",
+      "vertices": 3074,
+      "triangles": 6144,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "zeroAreaTriangles": 0,
+      "bounds": [
+        [
+          -0.0705578550696373,
+          0.00503726489841938
+        ],
+        [
+          -0.8722618222236633,
+          -0.780725359916687
+        ],
+        [
+          0.5238165855407715,
+          0.5593766570091248
+        ]
+      ],
+      "maximumBoundsError": 0.0
+    },
+    {
+      "object": "GEO-charizard-neck-bridge-r06.001",
+      "vertices": 137700,
+      "triangles": 275404,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "zeroAreaTriangles": 0,
+      "bounds": [
+        [
+          -0.958707332611084,
+          0.946840226650238
+        ],
+        [
+          -0.9613844156265259,
+          0.7462244629859924
+        ],
+        [
+          -0.6039645075798035,
+          0.6025716662406921
+        ]
+      ],
+      "maximumBoundsError": 0.0
+    }
+  ],
+  "glb": [
+    {
+      "object": "EXPORT-charizard-eye-1-whole-r06.001",
+      "vertices": 3074,
+      "triangles": 6144,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "zeroAreaTriangles": 0,
+      "bounds": [
+        [
+          -0.18915611505508423,
+          -0.1477426290512085
+        ],
+        [
+          -0.809928297996521,
+          -0.6925196647644043
+        ],
+        [
+          0.5238165855407715,
+          0.5593766570091248
+        ]
+      ],
+      "maximumBoundsError": 0.0
+    },
+    {
+      "object": "EXPORT-charizard-eye--1-whole-r06.001",
+      "vertices": 3074,
+      "triangles": 6144,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "zeroAreaTriangles": 0,
+      "bounds": [
+        [
+          -0.0705578550696373,
+          0.005037265829741955
+        ],
+        [
+          -0.8722618222236633,
+          -0.780725359916687
+        ],
+        [
+          0.5238165855407715,
+          0.5593766570091248
+        ]
+      ],
+      "maximumBoundsError": 9.313225746154785e-10
+    },
+    {
+      "object": "EXPORT-charizard-flame-whole-r06.001",
+      "vertices": 4516,
+      "triangles": 9028,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "zeroAreaTriangles": 0,
+      "bounds": [
+        [
+          0.23953473567962646,
+          0.44430577754974365
+        ],
+        [
+          0.6501067876815796,
+          0.8700257539749146
+        ],
+        [
+          -0.0837167501449585,
+          0.2805421054363251
+        ]
+      ],
+      "maximumBoundsError": 0.0
+    },
+    {
+      "object": "EXPORT-charizard-neck-bridge-r06.001",
+      "vertices": 137700,
+      "triangles": 275404,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "zeroAreaTriangles": 0,
+      "bounds": [
+        [
+          -0.958707332611084,
+          0.946840226650238
+        ],
+        [
+          -0.9613844156265259,
+          0.7462244629859924
+        ],
+        [
+          -0.6039645075798035,
+          0.6025716662406921
+        ]
+      ],
+      "maximumBoundsError": 0.0
+    }
+  ],
+  "views": [
+    "front",
+    "near",
+    "far",
+    "threequarter",
+    "whole-front",
+    "whole-back",
+    "whole-side",
+    "whole-threequarter"
+  ],
+  "status": "source-and-GLB-reopened; awaiting visual review",
+  "scope": "Counts, bounds, finite saved geometry, edge manifoldness and zero-area tessellation. No whole-character self-intersection, rig or quality acceptance."
+}

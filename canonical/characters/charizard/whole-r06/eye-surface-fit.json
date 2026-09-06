@@ -1,0 +1,24 @@
+{
+  "authoring": "MCP native BVH ray queries and reversible Blender shape keys after GUI trial placement",
+  "outerSurfaceOffset": 0.0008,
+  "method": "Move each eye column to the head surface while preserving its original front-to-back depth. Tangent rays use a bounded inset sample at the rim.",
+  "eyes": [
+    {
+      "object": "GEO-charizard-eye--1-whole-r06",
+      "vertices": 3074,
+      "maximumDisplacement": 0.012774873245076934,
+      "shapeKey": "Fit_RawHead_r06",
+      "rimRaysInsetByFraction": 0.0001,
+      "rimSamples": 32
+    },
+    {
+      "object": "GEO-charizard-eye-1-whole-r06",
+      "vertices": 3074,
+      "maximumDisplacement": 0.01833496611223008,
+      "shapeKey": "Fit_RawHead_r06",
+      "rimRaysInsetByFraction": 0.0001,
+      "rimSamples": 51
+    }
+  ],
+  "scope": "Static eye fit only. Eyelids, corneal material and gaze/blink deformation remain unfinished."
+}

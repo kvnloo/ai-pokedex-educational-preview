@@ -1,0 +1,21 @@
+{
+  "object": "GEO-charizard-neck-bridge-r06",
+  "loops": [
+    {
+      "source": "GEO-charizard-body-whole-r06",
+      "cutHeadUp": -0.19,
+      "boundaryVertices": 199,
+      "retainedVertices": 127644
+    },
+    {
+      "source": "GEO-charizard-raw-head-r06",
+      "cutHeadUp": -0.145,
+      "boundaryVertices": 186,
+      "retainedVertices": 9446
+    }
+  ],
+  "selectedBoundaryEdges": 385,
+  "gapHeadUp": 0.045,
+  "authoring": "MCP native bmesh cuts on copied evaluated data. Original source objects remain unchanged.",
+  "status": "Two open boundary loops prepared for GUI Bridge Edge Loops"
+}

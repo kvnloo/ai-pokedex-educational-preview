@@ -1,0 +1,78 @@
+{
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r06/charizard-whole-r06-study.glb",
+  "sha256": "1eb2b7e113f5d2d198f5cc50609882341e174ed8c0aa522422338d3516a65dc7",
+  "shaMatchesExportReceipt": true,
+  "meshCount": 4,
+  "meshes": {
+    "EXPORT-charizard-neck-bridge-r06": {
+      "vertices": 137700,
+      "triangles": 275404,
+      "finite": true,
+      "validIndices": true,
+      "countsMatchReceipt": true
+    },
+    "EXPORT-charizard-flame-whole-r06": {
+      "vertices": 4516,
+      "triangles": 9028,
+      "finite": true,
+      "validIndices": true,
+      "countsMatchReceipt": true
+    },
+    "EXPORT-charizard-eye--1-whole-r06": {
+      "vertices": 3074,
+      "triangles": 6144,
+      "finite": true,
+      "validIndices": true,
+      "countsMatchReceipt": true
+    },
+    "EXPORT-charizard-eye-1-whole-r06": {
+      "vertices": 3074,
+      "triangles": 6144,
+      "finite": true,
+      "validIndices": true,
+      "countsMatchReceipt": true
+    }
+  },
+  "totalTriangles": 296720,
+  "bodyBoundsBlenderPerAxis": [
+    [
+      -0.958707332611084,
+      0.946840226650238
+    ],
+    [
+      -0.9613844156265259,
+      0.7462244629859924
+    ],
+    [
+      -0.6039645075798035,
+      0.6025716662406921
+    ]
+  ],
+  "bodyBoundsMaximumError": 0.0,
+  "bodyBoundsMatchReceiptExactly": true,
+  "neckROI": {
+    "axes": [
+      "side",
+      "forward",
+      "up"
+    ],
+    "low": [
+      -0.2,
+      -0.4,
+      -0.21
+    ],
+    "high": [
+      0.2,
+      -0.02,
+      -0.125
+    ],
+    "trianglesTested": 3381,
+    "verticesTested": 1790,
+    "detectorPairs": 0,
+    "strictConfirmedPairs": 0,
+    "strictConfirmedPairsWithHitsInsideROI": 0,
+    "pairs": []
+  },
+  "method": "Conservative triangle-AABB overlap selects the neck ROI. Open3D detects nonadjacent triangle candidates; independent float64 edge-triangle solves confirm proper interior crossings with barycentric/edge margin 1e-7.",
+  "scope": "Neck ROI only. Shared-vertex triangle overlaps, adjacent folds, coplanar contact and whole-body self-intersection freedom are not certified. No separate eye/flame contact test."
+}

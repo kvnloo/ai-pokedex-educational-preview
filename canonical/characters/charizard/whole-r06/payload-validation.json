@@ -1,0 +1,25 @@
+{
+  "artifactsMatchFrozenReceipt": [
+    {
+      "role": "source",
+      "bytes": 28901243,
+      "sha256": "93f96697cb9ce4e5f8f8214c1ee4e11a9d97df1d8c52086174bcbfaaf6fb08e6"
+    },
+    {
+      "role": "glb",
+      "bytes": 7082744,
+      "sha256": "1eb2b7e113f5d2d198f5cc50609882341e174ed8c0aa522422338d3516a65dc7"
+    }
+  ],
+  "glbCounts": {
+    "meshes": 4,
+    "materials": 0,
+    "textures": 0,
+    "images": 0,
+    "animations": 0,
+    "skins": 0
+  },
+  "morphTargets": 0,
+  "uvAttributes": 0,
+  "scope": "Static payload and recorded source/GLB hash consistency. No visual or runtime acceptance."
+}

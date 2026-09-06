@@ -1,0 +1,137 @@
+{
+  "status": "study-only; not promoted",
+  "artifacts": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r06/charizard-whole-r06-study.blend",
+      "bytes": 28901243,
+      "sha256": "93f96697cb9ce4e5f8f8214c1ee4e11a9d97df1d8c52086174bcbfaaf6fb08e6"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r06/charizard-whole-r06-study.glb",
+      "bytes": 7082744,
+      "sha256": "1eb2b7e113f5d2d198f5cc50609882341e174ed8c0aa522422338d3516a65dc7"
+    }
+  ],
+  "meshes": [
+    {
+      "object": "EXPORT-charizard-neck-bridge-r06",
+      "vertices": 137700,
+      "polygons": 258313,
+      "triangles": 275404,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "zeroAreaTriangles": 0,
+      "finite": true,
+      "bounds": [
+        [
+          -0.958707332611084,
+          0.946840226650238
+        ],
+        [
+          -0.9613844156265259,
+          0.7462244629859924
+        ],
+        [
+          -0.6039645075798035,
+          0.6025716662406921
+        ]
+      ],
+      "colorAttributes": []
+    },
+    {
+      "object": "EXPORT-charizard-eye--1-whole-r06",
+      "vertices": 3074,
+      "polygons": 3168,
+      "triangles": 6144,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "zeroAreaTriangles": 0,
+      "finite": true,
+      "bounds": [
+        [
+          -0.0705578550696373,
+          0.00503726489841938
+        ],
+        [
+          -0.8722618222236633,
+          -0.780725359916687
+        ],
+        [
+          0.5238165855407715,
+          0.5593766570091248
+        ]
+      ],
+      "colorAttributes": [
+        "provisional-eye-palette"
+      ]
+    },
+    {
+      "object": "EXPORT-charizard-eye-1-whole-r06",
+      "vertices": 3074,
+      "polygons": 3168,
+      "triangles": 6144,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "zeroAreaTriangles": 0,
+      "finite": true,
+      "bounds": [
+        [
+          -0.18915611505508423,
+          -0.1477426290512085
+        ],
+        [
+          -0.809928297996521,
+          -0.6925196647644043
+        ],
+        [
+          0.5238165855407715,
+          0.5593766570091248
+        ]
+      ],
+      "colorAttributes": [
+        "provisional-eye-palette"
+      ]
+    },
+    {
+      "object": "EXPORT-charizard-flame-whole-r06",
+      "vertices": 4516,
+      "polygons": 9028,
+      "triangles": 9028,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "zeroAreaTriangles": 0,
+      "finite": true,
+      "bounds": [
+        [
+          0.23953473567962646,
+          0.44430577754974365
+        ],
+        [
+          0.6501067876815796,
+          0.8700257539749146
+        ],
+        [
+          -0.0837167501449585,
+          0.2805421054363251
+        ]
+      ],
+      "colorAttributes": [
+        "clay-preview"
+      ]
+    }
+  ],
+  "vertices": 148364,
+  "triangles": 296720,
+  "exportScene": "EXPORT-charizard-whole-r06",
+  "animationClips": [],
+  "textureImages": [],
+  "morphs": "Baked into static runtime geometry. Editable keys remain in source blend.",
+  "knownLimitations": [
+    "Eye gaze and lids unfinished",
+    "Straight mouth seam, inflated nose and hanging jaw remain",
+    "Horn proportions and anatomical neck shaping incomplete",
+    "No UV/PBR, rig, clips, attacks or game integration",
+    "Self-intersections and deformation quality not certified",
+    "High triangle count; no LOD pass"
+  ]
+}

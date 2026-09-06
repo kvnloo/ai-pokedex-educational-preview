@@ -1,0 +1,744 @@
+{
+  "recordedAt": "2026-09-06T07:51:24.151598+00:00",
+  "status": "unfinished geometry study; not promoted; goal remains active",
+  "privateRoot": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r06",
+  "scene": "EDIT-charizard-whole-r06",
+  "source": {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r06/charizard-whole-r06-study.blend",
+    "bytes": 28901243,
+    "sha256": "93f96697cb9ce4e5f8f8214c1ee4e11a9d97df1d8c52086174bcbfaaf6fb08e6"
+  },
+  "glb": {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r06/charizard-whole-r06-study.glb",
+    "bytes": 7082744,
+    "sha256": "1eb2b7e113f5d2d198f5cc50609882341e174ed8c0aa522422338d3516a65dc7"
+  },
+  "geometry": {
+    "vertices": 148364,
+    "triangles": 296720,
+    "meshes": [
+      {
+        "object": "EXPORT-charizard-neck-bridge-r06",
+        "vertices": 137700,
+        "polygons": 258313,
+        "triangles": 275404,
+        "boundaryEdges": 0,
+        "nonmanifoldEdges": 0,
+        "zeroAreaTriangles": 0,
+        "finite": true,
+        "bounds": [
+          [
+            -0.958707332611084,
+            0.946840226650238
+          ],
+          [
+            -0.9613844156265259,
+            0.7462244629859924
+          ],
+          [
+            -0.6039645075798035,
+            0.6025716662406921
+          ]
+        ],
+        "colorAttributes": []
+      },
+      {
+        "object": "EXPORT-charizard-eye--1-whole-r06",
+        "vertices": 3074,
+        "polygons": 3168,
+        "triangles": 6144,
+        "boundaryEdges": 0,
+        "nonmanifoldEdges": 0,
+        "zeroAreaTriangles": 0,
+        "finite": true,
+        "bounds": [
+          [
+            -0.0705578550696373,
+            0.00503726489841938
+          ],
+          [
+            -0.8722618222236633,
+            -0.780725359916687
+          ],
+          [
+            0.5238165855407715,
+            0.5593766570091248
+          ]
+        ],
+        "colorAttributes": [
+          "provisional-eye-palette"
+        ]
+      },
+      {
+        "object": "EXPORT-charizard-eye-1-whole-r06",
+        "vertices": 3074,
+        "polygons": 3168,
+        "triangles": 6144,
+        "boundaryEdges": 0,
+        "nonmanifoldEdges": 0,
+        "zeroAreaTriangles": 0,
+        "finite": true,
+        "bounds": [
+          [
+            -0.18915611505508423,
+            -0.1477426290512085
+          ],
+          [
+            -0.809928297996521,
+            -0.6925196647644043
+          ],
+          [
+            0.5238165855407715,
+            0.5593766570091248
+          ]
+        ],
+        "colorAttributes": [
+          "provisional-eye-palette"
+        ]
+      },
+      {
+        "object": "EXPORT-charizard-flame-whole-r06",
+        "vertices": 4516,
+        "polygons": 9028,
+        "triangles": 9028,
+        "boundaryEdges": 0,
+        "nonmanifoldEdges": 0,
+        "zeroAreaTriangles": 0,
+        "finite": true,
+        "bounds": [
+          [
+            0.23953473567962646,
+            0.44430577754974365
+          ],
+          [
+            0.6501067876815796,
+            0.8700257539749146
+          ],
+          [
+            -0.0837167501449585,
+            0.2805421054363251
+          ]
+        ],
+        "colorAttributes": [
+          "clay-preview"
+        ]
+      }
+    ],
+    "animationClips": [],
+    "textureImages": []
+  },
+  "retained": [
+    "shorter muzzle",
+    "three-degree jaw closure",
+    "local lower-lip cleanup",
+    "continuous linear neck bridge"
+  ],
+  "provisional": [
+    "surface-fitted eyes; gaze and lids still fail"
+  ],
+  "rejected": [
+    "Exact Boolean neck union",
+    "default curved bridge interpolation"
+  ],
+  "visualVerdict": "Local construction gains; likeness remains below target. See review.md and all whole-body views.",
+  "matchedPair": [
+    "charizard-whole-r06-intake",
+    "charizard-whole-r06"
+  ],
+  "checks": {
+    "sourceAndGLBReopened": true,
+    "reopenScope": "Counts, bounds, edge manifoldness and zero-area tessellation; no separate finite assertion.",
+    "finiteCoordinates": "Export script and independent CPU GLB import.",
+    "neckIntersectionScope": "Neck ROI only. Shared-vertex triangle overlaps, adjacent folds, coplanar contact and whole-body self-intersection freedom are not certified. No separate eye/flame contact test.",
+    "neckTrianglesTested": 3381,
+    "neckDetectorPairs": 0,
+    "browser": {
+      "comparison": "https://0.taila30dc.ts.net:8445/devtools/experiments.html?pokemon=charizard&a=charizard-whole-r06-intake&b=charizard-whole-r06&view=head-threequarter",
+      "phoneUrl": "https://0.taila30dc.ts.net:8445/devtools/pokedex.html?pokemon=charizard&tab=iterations&run=charizard-whole-r06&view=head-threequarter",
+      "checks": [
+        {
+          "view": "head-front",
+          "matchedPairDecoded": true
+        },
+        {
+          "view": "head-near",
+          "matchedPairDecoded": true
+        },
+        {
+          "view": "head-far",
+          "matchedPairDecoded": true
+        },
+        {
+          "view": "head-threequarter",
+          "matchedPairDecoded": true
+        },
+        {
+          "view": "head-front",
+          "phoneImageDecoded": true
+        },
+        {
+          "view": "head-near",
+          "phoneImageDecoded": true
+        },
+        {
+          "view": "head-far",
+          "phoneImageDecoded": true
+        },
+        {
+          "view": "head-threequarter",
+          "phoneImageDecoded": true
+        },
+        {
+          "view": "whole-front",
+          "phoneImageDecoded": true
+        },
+        {
+          "view": "whole-back",
+          "phoneImageDecoded": true
+        },
+        {
+          "view": "whole-side",
+          "phoneImageDecoded": true
+        },
+        {
+          "view": "whole-threequarter",
+          "phoneImageDecoded": true
+        }
+      ],
+      "errors": [],
+      "deviceAcceptance": false,
+      "scope": "Experiment selection, image decoding and published artifact bytes. No phone acceptance or Field OS change.",
+      "phone": {
+        "viewport": [
+          412,
+          892
+        ],
+        "layoutAcceptance": false
+      },
+      "artifacts": [
+        {
+          "name": "charizard-whole-r06-study.glb",
+          "status": 200,
+          "sha256": "1eb2b7e113f5d2d198f5cc50609882341e174ed8c0aa522422338d3516a65dc7"
+        },
+        {
+          "name": "charizard-whole-r06-study.blend",
+          "status": 200,
+          "sha256": "93f96697cb9ce4e5f8f8214c1ee4e11a9d97df1d8c52086174bcbfaaf6fb08e6"
+        }
+      ]
+    },
+    "rootViewed": [
+      "eight reopened GLB stills",
+      "four matched head pairs",
+      "desktop comparison screenshot",
+      "phone inspector screenshot"
+    ],
+    "animationPlayback": false,
+    "deviceAcceptance": false
+  },
+  "limitations": [
+    "Eye gaze and lids unfinished",
+    "Straight mouth seam, inflated nose and hanging jaw remain",
+    "Horn proportions and anatomical neck shaping incomplete",
+    "No UV/PBR, rig, clips, attacks or game integration",
+    "Self-intersections and deformation quality not certified",
+    "High triangle count; no LOD pass"
+  ],
+  "fieldOSDeploymentChanged": false,
+  "humanReviewsChanged": false,
+  "mergeOrPush": false,
+  "next": "Compare untouched official HOME61061 head against illustration61062 before further source commitment; then correct gaze/lids, jaw/nasal shape and horns.",
+  "artifacts": [
+    {
+      "path": "before-muzzle/capture.json",
+      "bytes": 1838,
+      "sha256": "6257c605ca01d648b0ea64799686f911514376554f8eb4b1c4fd34e99d2727e1"
+    },
+    {
+      "path": "before-muzzle/far.png",
+      "bytes": 666909,
+      "sha256": "7cb4433b8ff627e52fbbed7030ee6979ee3d057840e6e8a69e76d50f67ff0cae"
+    },
+    {
+      "path": "before-muzzle/front.png",
+      "bytes": 719072,
+      "sha256": "01d2cfa5c9fb9e4e5e8170543ad34f86573db51ba86be2abfec9bfaf94d825e7"
+    },
+    {
+      "path": "before-muzzle/near.png",
+      "bytes": 660579,
+      "sha256": "bcd8cbc1aac56e5577011e052faf1eff05e166c54ea663aa902426e803113535"
+    },
+    {
+      "path": "before-muzzle/threequarter.png",
+      "bytes": 738572,
+      "sha256": "c34f60851e3f626c0ef937723b17f5941ded8e89df63b58869ddc5bb72e41af9"
+    },
+    {
+      "path": "bridge-linear-targets.json",
+      "bytes": 44915,
+      "sha256": "62225855aa9298d8df285971b96f6754eca8d67aed08be60f1eed4b81a8b6e95"
+    },
+    {
+      "path": "bridge-selection.json",
+      "bytes": 14391,
+      "sha256": "44429d76f9c3569ef8cd6670e52d58db52af687afeab5c410f2a867d19b7da30"
+    },
+    {
+      "path": "browser/desktop-comparison.png",
+      "bytes": 342688,
+      "sha256": "9275f60249211073ffbb588a44584e72a54df88dbb445d0435bfe68106ff6f95"
+    },
+    {
+      "path": "browser-verified/availability.json",
+      "bytes": 1849,
+      "sha256": "7e3aef3d920c63b4d63c43e2a6006340e84a188061c91c7945f612d25c037565"
+    },
+    {
+      "path": "browser-verified/desktop-comparison.png",
+      "bytes": 342688,
+      "sha256": "9275f60249211073ffbb588a44584e72a54df88dbb445d0435bfe68106ff6f95"
+    },
+    {
+      "path": "browser-verified/phone-study.png",
+      "bytes": 216394,
+      "sha256": "798c962cf797e56ea331e14bada107370086857b33725b639eb56f66165438fb"
+    },
+    {
+      "path": "charizard-whole-r06-before-eye-fit.blend",
+      "bytes": 10254325,
+      "sha256": "f56adaec7537ce9d62250cb15a254547503a66c77304be02943dce03701381ab"
+    },
+    {
+      "path": "charizard-whole-r06-before-neck-union.blend",
+      "bytes": 10331029,
+      "sha256": "98e892cd7e5605e124eb31353d386f8dbef7196a086a8d5a6e714071e2246814"
+    },
+    {
+      "path": "charizard-whole-r06-before-triangulation.blend",
+      "bytes": 28902268,
+      "sha256": "cf71171b9d28bdafb8cf8703034342512603c6ca3bcef5c312e9ea1be3dfad42"
+    },
+    {
+      "path": "charizard-whole-r06-eyes-fitted.blend",
+      "bytes": 10324340,
+      "sha256": "6266e03a45dd46a10da1ff4573e78051c12cddd35979067cdbd7c8881ec23b4c"
+    },
+    {
+      "path": "charizard-whole-r06-mouth-closure.blend",
+      "bytes": 10258352,
+      "sha256": "b448f12dceb3d04516ce44618bc105a34fde5944faf08847ea0b98c4c9989622"
+    },
+    {
+      "path": "charizard-whole-r06-rejected-curved-bridge.blend",
+      "bytes": 26684296,
+      "sha256": "6255a23a473ff0f0657887244f6bff7a87a8a4a6bf2f2e3b1bff946dcefa9d2c"
+    },
+    {
+      "path": "charizard-whole-r06-rejected-neck-boolean.blend",
+      "bytes": 20246281,
+      "sha256": "d45059c45d0879c8b8a62a2a9f5780723ff0a0ba744d00bc215b733152909a57"
+    },
+    {
+      "path": "charizard-whole-r06-shorter-muzzle.blend",
+      "bytes": 10239617,
+      "sha256": "59b8960bd68a6bf79408e9347c6b038981232318c3d1436feff2844f4aaf1dcd"
+    },
+    {
+      "path": "charizard-whole-r06-start.blend",
+      "bytes": 10210281,
+      "sha256": "fc5734f23d08984d6c66e7d105ff4dd7cf01ad0cd9943f5e4afdd6b95262b2cf"
+    },
+    {
+      "path": "charizard-whole-r06-study.blend",
+      "bytes": 28901243,
+      "sha256": "93f96697cb9ce4e5f8f8214c1ee4e11a9d97df1d8c52086174bcbfaaf6fb08e6"
+    },
+    {
+      "path": "charizard-whole-r06-study.glb",
+      "bytes": 7082744,
+      "sha256": "1eb2b7e113f5d2d198f5cc50609882341e174ed8c0aa522422338d3516a65dc7"
+    },
+    {
+      "path": "closed-mouth/capture.json",
+      "bytes": 1873,
+      "sha256": "b2f30d8418b9d00bc67ab98be0e916e9675b97f9db0d83d6fb3f43ab5087d66a"
+    },
+    {
+      "path": "closed-mouth/far.png",
+      "bytes": 664159,
+      "sha256": "4a0c66fa49e6ea9d6c3faf6ecda8815cd5b285e143d56cf720bf3dc48402cd71"
+    },
+    {
+      "path": "closed-mouth/front.png",
+      "bytes": 718997,
+      "sha256": "a45def7d263df82a3215e9f094bda92c32661b9d80322cc64b4f28a09bfd3de6"
+    },
+    {
+      "path": "closed-mouth/near.png",
+      "bytes": 659166,
+      "sha256": "5cc5e6d381b4eda67e41d2846493e8e4d8719cb2bb4a43a0806cc507d52522aa"
+    },
+    {
+      "path": "closed-mouth/threequarter.png",
+      "bytes": 738979,
+      "sha256": "850f59b0cd3baee5b21ebbe071e792237de8e20774bd1c3a6a89111e3d576a7e"
+    },
+    {
+      "path": "export.json",
+      "bytes": 3429,
+      "sha256": "7742fd5488217760c71f51dc9f59cc7fc4ddead03c8c31d78253ba03ed688ccf"
+    },
+    {
+      "path": "eye-before-transforms.json",
+      "bytes": 399491,
+      "sha256": "38afe3ccd72c7f829914e6d7c31f5b6b9e0d8c42360880112a0a9890e3d46c39"
+    },
+    {
+      "path": "eye-surface-fit.json",
+      "bytes": 896,
+      "sha256": "e06f6be6fe615f55cc792819fbb4e559129ae252ed2ac6c6f3fe21ca908af0de"
+    },
+    {
+      "path": "eyes-before/capture.json",
+      "bytes": 1897,
+      "sha256": "5ed14d0cfd1be12fe1ef5e99c9c62af2e1c08519d2d4cfeef5b1d0d28364ac91"
+    },
+    {
+      "path": "eyes-before/far.png",
+      "bytes": 622665,
+      "sha256": "e23b33c3df30512640c0d89a07702c81f6f5efb055a113e27e1ae8cbdfc55d74"
+    },
+    {
+      "path": "eyes-before/front.png",
+      "bytes": 710040,
+      "sha256": "6cb83787e2c4537c91803d2fb7d40bf8e81e06d55afdcbfe4db1847dcc56c768"
+    },
+    {
+      "path": "eyes-before/near.png",
+      "bytes": 615646,
+      "sha256": "4b6f7e401cdfabc1fe6578fccfb6bcb4c12db44903b8e11b976c742653544c6a"
+    },
+    {
+      "path": "eyes-before/threequarter.png",
+      "bytes": 717673,
+      "sha256": "c9b76fab49e20c026e16b6e0a20aa61164f545e6b1a079c45971f7c29a2142c3"
+    },
+    {
+      "path": "eyes-fitted/capture.json",
+      "bytes": 1897,
+      "sha256": "916de0792f75aa14ebb4c997c4ff00b6b271bfd4ff59253249ad91893416d909"
+    },
+    {
+      "path": "eyes-fitted/far.png",
+      "bytes": 627531,
+      "sha256": "86aaa3db813cf1a951593708d9a9c69e47b571543429c650882f3900d91bb821"
+    },
+    {
+      "path": "eyes-fitted/front.png",
+      "bytes": 710832,
+      "sha256": "c750b124d4e93bc3980744f31d088d85eae87d9ce5e842b50f5245bd91bb8dba"
+    },
+    {
+      "path": "eyes-fitted/near.png",
+      "bytes": 619992,
+      "sha256": "33a5c3809f1002e2d787e3104333cce254af068a26879ab200f6fb0f0f1071a4"
+    },
+    {
+      "path": "eyes-fitted/threequarter.png",
+      "bytes": 720855,
+      "sha256": "85ed292a263ebb43d8d37c1ed7e694d025e984b0e6e9e1f8032546c94abbe3cb"
+    },
+    {
+      "path": "eyes-offset/capture.json",
+      "bytes": 1897,
+      "sha256": "2151ef60c4726cc7eef6e7e41bdfe9028c609f22769da6d6ca1dc52598662acd"
+    },
+    {
+      "path": "eyes-offset/far.png",
+      "bytes": 627348,
+      "sha256": "af251f7da2438dba86b2e5dd842470424d173ced6e76c17658152c95cf14f470"
+    },
+    {
+      "path": "eyes-offset/front.png",
+      "bytes": 711217,
+      "sha256": "2a3e665ddf5800df3a1402568b1039c54c6848ac42e05760a2ffe14e5e5011b9"
+    },
+    {
+      "path": "eyes-offset/near.png",
+      "bytes": 619901,
+      "sha256": "fa59cae1c2b1d8c29b12a7162ac637e78e6a03343405eff8ae1e3a5eb3d25d16"
+    },
+    {
+      "path": "eyes-offset/threequarter.png",
+      "bytes": 720702,
+      "sha256": "23b486800d9319c17d7683892c36d0e1c1af928d46516282933f8d984f0ead0e"
+    },
+    {
+      "path": "gui-lip-mask.png",
+      "bytes": 222728,
+      "sha256": "619c149f5de4a268a17be5b2013f8a4dd298d80c7c4f7e3eb357bbff022217b1"
+    },
+    {
+      "path": "gui-modeling.jsonl",
+      "bytes": 5833,
+      "sha256": "816e093b45be8bd656cf14efc97ee2273c2b16cfe8105982bffe6458125fdce4"
+    },
+    {
+      "path": "gui-neck-bridge-options.png",
+      "bytes": 1709542,
+      "sha256": "a0b42dff0acea87dde2045ef23915d2d9b93abb3087bff4a1cef611473954646"
+    },
+    {
+      "path": "gui-neck-bridge.png",
+      "bytes": 1830263,
+      "sha256": "97b5cc5e448ddbaf478dcba186c38bf24e83691face91bad797c2847883ab856"
+    },
+    {
+      "path": "gui-subdivide-inspect.png",
+      "bytes": 1794951,
+      "sha256": "2288214810cbbe274488f42b609236041e3e70ea097bd109cda51674fcb4e98b"
+    },
+    {
+      "path": "jaw-close-before.json",
+      "bytes": 659211,
+      "sha256": "5a12f682241f927ce3df76bc8c84f79cea38ef27653ffe357cf6793cbf2185aa"
+    },
+    {
+      "path": "jaw-close-transform.json",
+      "bytes": 265,
+      "sha256": "7a8da65cf46307d7a6f898d58bc3bf54c4713669eb18ac6b936b3ab01ffd8d27"
+    },
+    {
+      "path": "lip-before.json",
+      "bytes": 659290,
+      "sha256": "ec7ae9787bb284d3127b3d30ad688e70ae749c92b74c2672a9d3474f5b0449ad"
+    },
+    {
+      "path": "lip-smooth-a/capture.json",
+      "bytes": 1930,
+      "sha256": "e9dd54c609f42fbacfb6073bb24e56f399abd5771b98e0df96bc197118f4f0ea"
+    },
+    {
+      "path": "lip-smooth-a/far.png",
+      "bytes": 627723,
+      "sha256": "45ddea9dffbc95e026caa377f3d9aa750302be841ea2539f9121799385a66484"
+    },
+    {
+      "path": "lip-smooth-a/front.png",
+      "bytes": 710561,
+      "sha256": "e0c60dcae42594079a91ed0a53f561df7744df080bfa9289ea2ac15039c9d2e3"
+    },
+    {
+      "path": "lip-smooth-a/near.png",
+      "bytes": 619763,
+      "sha256": "24e5848d263c3c76b925dfbf69dad8b372e824ba632b62237ec222cdb05d1de9"
+    },
+    {
+      "path": "lip-smooth-a/threequarter.png",
+      "bytes": 720435,
+      "sha256": "757176a03b62ae2e66540b7aebbafd41739b4c40a0fe23b7526bfdc63615fe3e"
+    },
+    {
+      "path": "matched-intake/capture.json",
+      "bytes": 1859,
+      "sha256": "b68db542da27851ffc8ead477724e8d7723c212346995b2b890e9a823588826d"
+    },
+    {
+      "path": "matched-intake/far.png",
+      "bytes": 623516,
+      "sha256": "dd04725424ddef878bfa4943462d262433f1cf792e27448e9e90a74b8c8bc982"
+    },
+    {
+      "path": "matched-intake/front.png",
+      "bytes": 708710,
+      "sha256": "8576599aec786d27873511bfa3a98f8c9d7fc7bdf71335a1b78fb884522e2b04"
+    },
+    {
+      "path": "matched-intake/near.png",
+      "bytes": 614644,
+      "sha256": "0c7abbbf911cc30155148459aa27283000713fd5030099c09d71dc5b32c6dad4"
+    },
+    {
+      "path": "matched-intake/threequarter.png",
+      "bytes": 714996,
+      "sha256": "220eb0c69701c1aedb900db74c09c5373bdccd042d7a5eca4cd9fdc1161b9473"
+    },
+    {
+      "path": "muzzle-before.json",
+      "bytes": 1317993,
+      "sha256": "bc4110bc8bb13e6342d55e77d2b13749862f4b669959465bf677592e588e5705"
+    },
+    {
+      "path": "muzzle-transform.json",
+      "bytes": 232,
+      "sha256": "3a0dad9abb2c66d3e7532ea7af7a2fccf0ac2f617c5f673042a2de145eff1c43"
+    },
+    {
+      "path": "neck-audit.json",
+      "bytes": 2124,
+      "sha256": "57fb2fc423f18136a258d0e611a5c9df197ef846f6738088d5818ebbcd054e04"
+    },
+    {
+      "path": "neck-audit.py",
+      "bytes": 4452,
+      "sha256": "4a6bc96f034a73298d2af11981a148ddaab6496d68aea7f62d8e934f7080f7f4"
+    },
+    {
+      "path": "neck-bridge/capture.json",
+      "bytes": 1929,
+      "sha256": "7bb27d8556e78a60c82aeb7b759dc02165141df8a0e733226fc65b5ae7668a1b"
+    },
+    {
+      "path": "neck-bridge/far.png",
+      "bytes": 610671,
+      "sha256": "2a0ecf6225c2be3793a2f40ea5aff066c3ab4cd4df9026ded96b2a8eea4deee8"
+    },
+    {
+      "path": "neck-bridge/front.png",
+      "bytes": 696977,
+      "sha256": "06ca7e515117b64548f21ce8fc109295b7fbf079ea8efc847598b2b69d82d000"
+    },
+    {
+      "path": "neck-bridge/near.png",
+      "bytes": 600889,
+      "sha256": "f9a2d2324cd915992139533e02c51ec51fb1e999beae8696773bda116f04de96"
+    },
+    {
+      "path": "neck-bridge/threequarter.png",
+      "bytes": 707536,
+      "sha256": "4dcb7183cf1ea8f4631ca698e8360ca52996411148f7016211880af66f34e13c"
+    },
+    {
+      "path": "neck-bridge-preparation.json",
+      "bytes": 600,
+      "sha256": "d6fa7bbacfadcccc56eb42c5baac2cc300d5695de7135971d1f9a692eb629339"
+    },
+    {
+      "path": "neck-linear/capture.json",
+      "bytes": 1929,
+      "sha256": "627192e911947e5fbab8b8ff8b812d1c9ebd36941ea103a983913c57709caa4c"
+    },
+    {
+      "path": "neck-linear/far.png",
+      "bytes": 609522,
+      "sha256": "25b9d183f70712044705e81dcd630ba6d0d939486c06897cdbc7ce3d09cfb200"
+    },
+    {
+      "path": "neck-linear/front.png",
+      "bytes": 693347,
+      "sha256": "d278ede5661bd7a1137ceb84dc1c087822a2227ed17fab5e684185e48487b703"
+    },
+    {
+      "path": "neck-linear/near.png",
+      "bytes": 602092,
+      "sha256": "08b7574b879c3ab0b03345fdc89f604c1b15c2818ea0dad47177bacb766036b2"
+    },
+    {
+      "path": "neck-linear/threequarter.png",
+      "bytes": 704616,
+      "sha256": "760bed5333124beb6bd9f3da329b29d4fb87fab671ff6b4b082191d7fa131fce"
+    },
+    {
+      "path": "neck-union/capture.json",
+      "bytes": 1928,
+      "sha256": "3bf72e24eeffa6842df383f39a25763eed2db17bbb80eae37944e533a40cdf25"
+    },
+    {
+      "path": "neck-union/far.png",
+      "bytes": 670324,
+      "sha256": "545e24736aa96049088c97137dd062f3d01f2eb744c90a8ad37ba7e5f77cf7ac"
+    },
+    {
+      "path": "neck-union/front.png",
+      "bytes": 722948,
+      "sha256": "f5f8c749df94d432bda970af120250d6744aba72b906190fced802cc922b4249"
+    },
+    {
+      "path": "neck-union/near.png",
+      "bytes": 665458,
+      "sha256": "aa9183bcfdf99586b43e353542ecf19e10cf8528e88205d66aa6d4ce90d9e17a"
+    },
+    {
+      "path": "neck-union/threequarter.png",
+      "bytes": 745041,
+      "sha256": "a7679c8ce5a266b82b9a5a2ce80c8a8271ca33c9b906a0e82c1590c4e6ac989f"
+    },
+    {
+      "path": "neck-union.json",
+      "bytes": 411,
+      "sha256": "8178f54f72df7a9dbf1350ca218935e5e1b9b89f546f90ac981bebece3f4e01d"
+    },
+    {
+      "path": "reopen.json",
+      "bytes": 4464,
+      "sha256": "e457db311c1bd5f70301da46757173fcbad0998cdd06db0419d26d6d4df9e06c"
+    },
+    {
+      "path": "reopened/far.png",
+      "bytes": 609338,
+      "sha256": "4b3bfd58ab8a4742a3381e92953394f89ce65d094cc5a5bc45ff7df878ecf9ae"
+    },
+    {
+      "path": "reopened/front.png",
+      "bytes": 693539,
+      "sha256": "dca15121ea4e19fae11fffdc928f2bd07bcec3da08cab88e424c7af2dfdef199"
+    },
+    {
+      "path": "reopened/near.png",
+      "bytes": 602340,
+      "sha256": "192d8707b3fa2f75012c3efb059cfaaa244d83046421b7142437c6ca815f4e5a"
+    },
+    {
+      "path": "reopened/threequarter.png",
+      "bytes": 704380,
+      "sha256": "fd4cb024749b55775729a1628a288709d114b2c6a59c1d480b4f20d176ac0927"
+    },
+    {
+      "path": "reopened/whole-back.png",
+      "bytes": 599024,
+      "sha256": "d5e6fc5e70f82d511c80fadc9d2f91cf89962068086c3eace50219dd4e5d42fa"
+    },
+    {
+      "path": "reopened/whole-front.png",
+      "bytes": 627114,
+      "sha256": "9abb623f4f992e3584a38826146b6ec22eef64ccaf14f5e19ecb61888f234d0b"
+    },
+    {
+      "path": "reopened/whole-side.png",
+      "bytes": 603439,
+      "sha256": "04fe8f54d9d718a85f001b0a466fbbfecfbc1c129cb942b105f3454f46eca97d"
+    },
+    {
+      "path": "reopened/whole-threequarter.png",
+      "bytes": 624170,
+      "sha256": "1556219a2c708c9613e9b6f59b5e122b7fcfe02eddd0958af41bf43a28b1b9a4"
+    },
+    {
+      "path": "shorter-muzzle/capture.json",
+      "bytes": 1839,
+      "sha256": "ff359abd56d6f4284a69d96163d637c56f61b1aea7353793d10431aa98e71a6f"
+    },
+    {
+      "path": "shorter-muzzle/far.png",
+      "bytes": 663620,
+      "sha256": "d5076bf75c473bae64c0f899e80bf6db2ec8aaa759a7d492c32d77eae1124269"
+    },
+    {
+      "path": "shorter-muzzle/front.png",
+      "bytes": 719777,
+      "sha256": "a661196cc1d128c414805bc29013b21e2a1d1f633a2fba7b6f2ce9ca21bb4b08"
+    },
+    {
+      "path": "shorter-muzzle/near.png",
+      "bytes": 657655,
+      "sha256": "628dc5d423fb4c3159247b7da8a2c80a5abd1fd3f11e552aa77b41a471636777"
+    },
+    {
+      "path": "shorter-muzzle/threequarter.png",
+      "bytes": 738989,
+      "sha256": "6e86ba0cd94b29be43698eea1754185c28a9e1dd8211c58756fa2c5f5ab0b26e"
+    }
+  ]
+}

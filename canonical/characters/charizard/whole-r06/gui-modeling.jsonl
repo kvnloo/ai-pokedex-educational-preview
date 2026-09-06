@@ -1,0 +1,38 @@
+{"time": 1788678228.2822955, "input": "s", "index": 0, "note": "Shorten muzzle and jaw together 15 percent about local forward .035 on exclusive r06 key"}
+{"time": 1788678228.7516904, "input": "y", "index": 1, "note": "Shorten muzzle and jaw together 15 percent about local forward .035 on exclusive r06 key"}
+{"time": 1788678229.262254, "input": {"text": "0.85"}, "index": 2, "note": "Shorten muzzle and jaw together 15 percent about local forward .035 on exclusive r06 key"}
+{"time": 1788678229.7628834, "input": "Return", "index": 3, "note": "Shorten muzzle and jaw together 15 percent about local forward .035 on exclusive r06 key"}
+{"time": 1788678230.239834, "input": "Tab", "index": 4, "note": "Shorten muzzle and jaw together 15 percent about local forward .035 on exclusive r06 key"}
+{"time": 1788678318.013509, "input": "r", "index": 0, "note": "Close lower jaw by three degrees around the mouth corner on exclusive r06 key"}
+{"time": 1788678318.4819217, "input": "x", "index": 1, "note": "Close lower jaw by three degrees around the mouth corner on exclusive r06 key"}
+{"time": 1788678319.0261412, "input": {"text": "3"}, "index": 2, "note": "Close lower jaw by three degrees around the mouth corner on exclusive r06 key"}
+{"time": 1788678319.5067537, "input": "Return", "index": 3, "note": "Close lower jaw by three degrees around the mouth corner on exclusive r06 key"}
+{"time": 1788678319.9760997, "input": "Tab", "index": 4, "note": "Close lower jaw by three degrees around the mouth corner on exclusive r06 key"}
+{"time": 1788678473.6138465, "input": "g", "index": 0, "note": "Trial fit near eye outward by .012 head-local units"}
+{"time": 1788678474.0836024, "input": "x", "index": 1, "note": "Trial fit near eye outward by .012 head-local units"}
+{"time": 1788678474.6136565, "input": {"text": "-0.012"}, "index": 2, "note": "Trial fit near eye outward by .012 head-local units"}
+{"time": 1788678475.0833638, "input": "Return", "index": 3, "note": "Trial fit near eye outward by .012 head-local units"}
+{"time": 1788678492.4243703, "input": "g", "index": 0, "note": "Trial fit far eye outward by .012 head-local units"}
+{"time": 1788678492.892453, "input": "x", "index": 1, "note": "Trial fit far eye outward by .012 head-local units"}
+{"time": 1788678493.411542, "input": {"text": "0.012"}, "index": 2, "note": "Trial fit far eye outward by .012 head-local units"}
+{"time": 1788678493.8810341, "input": "Return", "index": 3, "note": "Trial fit far eye outward by .012 head-local units"}
+{"time": 1788678752.5698938, "start": [800, 545], "end": [945, 550], "via": [840, 555, 885, 560, 922, 555], "shift": false, "note": "Smooth inherited lower-lip folds within the protected jaw band, local X symmetry"}
+{"time": 1788679178.4496298, "input": "F3", "index": 0, "note": "Bridge the two trimmed neck boundary loops with the native mesh operator"}
+{"time": 1788679179.1163821, "input": {"text": "Bridge Edge Loops"}, "index": 1, "note": "Bridge the two trimmed neck boundary loops with the native mesh operator"}
+{"time": 1788679179.5955431, "input": "Return", "index": 2, "note": "Bridge the two trimmed neck boundary loops with the native mesh operator"}
+{"time": 1788679228.2425983, "input": "F9", "index": 0, "note": "Inspect native bridge interpolation and cut count in the redo panel"}
+{"time": 1788679260.7640436, "note": "Set Bridge Edge Loops Number of Cuts to 3 through native redo panel", "commands": [["mousemove", "--window", "10485762", "1110", "638"], ["click", "--repeat", "2", "--delay", "90", "1"], ["key", "ctrl+a"], ["type", "--", "3"], ["key", "Return"], ["mousemove", "--window", "10485762", "1270", "770"], ["click", "1"]]}
+{"time": 1788679299.6810641, "input": "ctrl+z", "index": 0, "note": "Undo bridge to equalize boundary counts; unequal loops ignored native cut count"}
+{"time": 1788679392.219474, "input": "F3", "index": 0, "note": "Split 13 longest upper-neck boundary edges once to match the lower loop"}
+{"time": 1788679392.8078856, "input": {"text": "Subdivide"}, "index": 1, "note": "Split 13 longest upper-neck boundary edges once to match the lower loop"}
+{"time": 1788679393.2770863, "input": "Return", "index": 2, "note": "Split 13 longest upper-neck boundary edges once to match the lower loop"}
+{"time": 1788679454.673576, "input": "F3", "index": 0, "note": "Bridge equal 199-vertex neck loops with the native cut-count setting"}
+{"time": 1788679455.340227, "input": {"text": "Bridge Edge Loops"}, "index": 1, "note": "Bridge equal 199-vertex neck loops with the native cut-count setting"}
+{"time": 1788679455.808545, "input": "Return", "index": 2, "note": "Bridge equal 199-vertex neck loops with the native cut-count setting"}
+{"time": 1788679487.166112, "input": "F9", "index": 0, "note": "Add three transition rows to the equal-loop neck bridge"}
+{"time": 1788679490.4422905, "note": "Set three cuts for equal-loop bridge through native redo panel", "commands": [["mousemove", "--window", "10485762", "1110", "638"], ["click", "--repeat", "2", "--delay", "90", "1"], ["key", "ctrl+a"], ["type", "--", "3"], ["key", "Return"], ["mousemove", "--window", "10485762", "1270", "770"], ["click", "1"]]}
+{"time": 1788679522.0278249, "input": "a", "index": 0, "note": "Recalculate outward normals on the connected neck assembly"}
+{"time": 1788679522.5080655, "input": "shift+n", "index": 1, "note": "Recalculate outward normals on the connected neck assembly"}
+{"time": 1788679522.9773202, "input": "Tab", "index": 2, "note": "Recalculate outward normals on the connected neck assembly"}
+{"time": 1788679755.7792697, "input": "ctrl+t", "index": 0, "note": "Triangulate the single degenerate tessellation face without changing vertices"}
+{"time": 1788679756.2470384, "input": "Tab", "index": 1, "note": "Triangulate the single degenerate tessellation face without changing vertices"}
