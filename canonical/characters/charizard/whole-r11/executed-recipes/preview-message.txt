@@ -1,0 +1,7 @@
+Charizard r11 coarse blockout batch. Your decomposition addendum is applied in the existing lane. I made four separate revisions with front/side/rear/three-quarter inspection between them. Body, head-neck, membranes, spars, tail and hard parts are now independent.
+
+Current d has36 exported parts and6,696 triangles. The tail twist and head/neck gap were repaired. This is deliberately a rough proportion study, not a finished character. The likeness gate still fails; head profile, wing roots and stance need further correction. No detail, textures or rigging.
+
+The .blend and evaluated GLB both reopened and passed geometry/bounds/socket checks. Earlier rollbacks are preserved. No merge, push or deployment.
+Revision eba79180015c2de16d9278eb5df29fa214eb6257
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r11/r11d-threequarter.png

@@ -1,0 +1,15 @@
+{
+  "assetRevision": "eba79180015c2de16d9278eb5df29fa214eb6257",
+  "transport": {
+    "success": true,
+    "platform": "telegram",
+    "chat_id": "1083429746",
+    "message_id": "17103",
+    "mirrored": true
+  },
+  "processExitCode": 0,
+  "publication": false,
+  "deliveryType": "User-authorized private Telegram preview",
+  "preview": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r11/r11d-threequarter.png",
+  "previewSHA256": "c0a27aae43bb7aee92c1854dfdc8336a7f6457225d31cb4897116fe76b38470e"
+}
