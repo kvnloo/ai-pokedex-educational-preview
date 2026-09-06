@@ -8,14 +8,14 @@ from mathutils import Vector
 root=Path(globals().get('artifact_root','/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r11'))
 scene=bpy.context.scene
 checkpoint=globals().get('checkpoint','r11d')
-assert checkpoint in {'r11d','r11e','r12c'}
+assert checkpoint in {'r11d','r11e','r12c','r13f','r13h','r13i'}
 assert scene.name=='EDIT-charizard-coarse-r11' and len(bpy.data.scenes)==1
-expected_source={'r11d':'charizard-blockout-r11d-review.blend','r11e':'charizard-blockout-r11e-flame-contract.blend','r12c':'charizard-hybrid-r12c.blend'}[checkpoint]
+expected_source={'r11d':'charizard-blockout-r11d-review.blend','r11e':'charizard-blockout-r11e-flame-contract.blend','r12c':'charizard-hybrid-r12c.blend','r13f':'charizard-hybrid-r13f-socket-cage.blend','r13h':'charizard-hybrid-r13h-head-turn.blend','r13i':'charizard-hybrid-r13i-head-turn.blend'}[checkpoint]
 assert Path(bpy.data.filepath).name==expected_source
 geometry=[o for o in scene.objects if o.type=='MESH' and not o.hide_render]
 socket=scene.objects['FlameSocket']
 assert socket.type=='EMPTY' and socket.data is None and not socket.children
-if checkpoint in {'r11e','r12c'}:
+if checkpoint in {'r11e','r12c','r13f','r13h','r13i'}:
     assert socket.empty_display_size<=0.05
 assert socket.parent==scene.objects['GEO-r11-tail']
 assert socket.get('energyBaked') is False

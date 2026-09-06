@@ -1,0 +1,16 @@
+Native Blender input log reconstructed from this session; quantities are Blender units.
+
+Intake: saved r12c as a distinct r13 intake. No geometry changed.
+A: Edit Mode, head local right view, Xray box selection of nose top vertices 33/34; G Z Z +0.055. Retained.
+B: native top-view box selection of head rings 2/3, vertices 16..31; S X X 0.85 around median. Retained.
+C: existing eyes made render-visible. Native per-eye local scales Y1.5 Z0.65 X0.5; localZ+0.04, inward localX0.02; right localY rotation -25deg, left +25deg; localY-0.035. Rejected as floating/too far forward.
+D: per-eye native localY+0.1 and inward localX0.025. Rejected as buried.
+E: per-eye native outward localX0.018. Retained as coarse placement only.
+F: native head face selection 8/10, inset0.012, Extrude Individual Faces -0.012. Retained coarse socket cage:56vertices/50faces.
+G: native selection of socket edges90/98, Merge menu Collapse. Menu required Return after mouse highlight. Final54vertex cage rendered as r13g-ready. Rejected for no meaningful form improvement and extra complexity; reopened F to restore56vertices. Preliminary r13g renders were taken while the menu operation was pending.
+H: whole-object group selection of head, neck, two eyes and two horns; cursor pivot at(0,0,0.79); native R Z -20deg. Head yaw -38deg. Saved separately.
+I: same group and pivot; native R Z -25deg additional. Head yaw -63deg. Current provisional candidate. Reset pivot to MEDIAN_POINT and selected head only before saving/reopening.
+
+Every meaningful change was inspected in front/side/rear/three-quarter source renders before continuing or reverting. F/H/I additionally exported and reopened for mechanical validation and actual rendered GLB inspection. See README for the remaining failed visual gates.
+
+Native events and display redraw can lag. Confirm actual mode, selection and evaluated transforms before repeating input. Read-only bpy inspection and depsgraph update were used for that purpose; no mesh coordinate writes were used.

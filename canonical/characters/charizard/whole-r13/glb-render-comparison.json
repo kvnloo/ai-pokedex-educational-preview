@@ -1,0 +1,50 @@
+{
+  "front": {
+    "dimensions": [
+      1000,
+      1000
+    ],
+    "pixelIdentical": false,
+    "meanAbsoluteChannelDifference": [
+      0.027862,
+      0.029639,
+      0.029811
+    ]
+  },
+  "side": {
+    "dimensions": [
+      1000,
+      1000
+    ],
+    "pixelIdentical": false,
+    "meanAbsoluteChannelDifference": [
+      0.022956,
+      0.024187,
+      0.024272
+    ]
+  },
+  "rear": {
+    "dimensions": [
+      1000,
+      1000
+    ],
+    "pixelIdentical": false,
+    "meanAbsoluteChannelDifference": [
+      0.030308,
+      0.031172,
+      0.031199
+    ]
+  },
+  "threequarter": {
+    "dimensions": [
+      1000,
+      1000
+    ],
+    "pixelIdentical": false,
+    "meanAbsoluteChannelDifference": [
+      0.028968,
+      0.030444,
+      0.030615
+    ]
+  }
+}

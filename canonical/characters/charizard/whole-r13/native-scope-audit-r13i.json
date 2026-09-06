@@ -1,0 +1,23 @@
+{
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r13/charizard-hybrid-r13i-head-turn.blend",
+  "mode": "OBJECT",
+  "sceneObjects": 44,
+  "changedMeshCoordinatesOrTopology": [
+    "GEO-r11-head-block"
+  ],
+  "unchangedMeshCoordinateArrays": 37,
+  "headControlVerticesBefore": 40,
+  "headControlVerticesAfter": 56,
+  "changedObjectTransforms": [
+    "GEO-r11-head-block",
+    "GEO-r11-neck",
+    "GEO-r11-eye-L",
+    "GEO-r11-eye-R",
+    "GEO-r11-horn-L",
+    "GEO-r11-horn-R"
+  ],
+  "headYawDegrees": -62.999991507850964,
+  "pose": "Six existing separate head/neck/eyes/horns components turned -45 degrees total around global Z at the neck base versus intake. F and H remain alternate poses.",
+  "formAuthoring": "Native Blender keyboard/mouse only",
+  "visualGatePassed": false
+}

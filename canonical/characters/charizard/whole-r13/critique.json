@@ -1,0 +1,27 @@
+{
+  "visualGatePassed": false,
+  "productionAccepted": false,
+  "current": "r13i",
+  "retained": {
+    "r13a": "Raised nose gives the upper muzzle a clearer break.",
+    "r13b": "Narrower bridge keeps a stronger cheek transition.",
+    "r13e": "Eyes sit nearer the skull surface, but remain rough ovals.",
+    "r13f": "Coarse socket cage retained; jaw and expression remain unresolved.",
+    "r13h": "Preserved -38 degree head-yaw pose alternative.",
+    "r13i": "Provisional -63 degree head-yaw pose makes the cheek/profile more visible against HOME. Not a calibrated match."
+  },
+  "rejected": {
+    "r13c": "Eye placeholders protrude too far and sit too far forward.",
+    "r13d": "Eye placeholders are buried.",
+    "r13g": "Collapsing socket edges did not improve the visible form; reverted by reopening F."
+  },
+  "remaining": [
+    "Blunt featureless muzzle; no convincing mouth/jaw structure",
+    "Eye shape and brow expression differ from official Charizard",
+    "Head/neck and neck/chest joins remain visible",
+    "Wing roots, hands, legs and stance remain coarse",
+    "Intentional component overlaps have not passed a production intersection audit"
+  ],
+  "next": "Coarse jaw/cheek and head/neck form, not more eye-position micro-iterations.",
+  "referenceLimit": "Official HOME and artwork guide visual comparison. Fixed front/side/rear/three-quarter cameras are not calibrated artwork overlays."
+}
