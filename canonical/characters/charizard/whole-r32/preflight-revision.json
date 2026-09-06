@@ -1,0 +1,15 @@
+{
+  "status": "unaccepted",
+  "oldStudy": "rejected for broad geometric facet grid",
+  "nativeSteps": [
+    "duplicate original left thigh/shin/foot",
+    "Ctrl1 each; match render level1",
+    "render preflight including exposed left-side camera",
+    "Convert Mesh:2766 vertices,0 modifiers",
+    "join",
+    "Sculpt CtrlR voxel .006:34622 vertices"
+  ],
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r32/charizard-hybrid-r32-smooth-remesh.blend",
+  "rootReview": "Preflight preserves broad haunch, short ankle and covered claw roots. Remesh still has finer facet grid; critic reviewing preparation.",
+  "productionAccepted": false
+}
