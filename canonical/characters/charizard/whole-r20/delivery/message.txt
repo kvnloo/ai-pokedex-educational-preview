@@ -1,0 +1,3 @@
+Charizard r20 progress — d34aaf1. Shorter muzzle retained after reference critique. Second image tests smoother upper throat; still under review, not a final asset. Mouth, eyes and separate components preserved. Still a coarse blockout; no texture/rig gate claimed.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r20/r20a-head-threequarter.png
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r20/r20b-head-threequarter.png

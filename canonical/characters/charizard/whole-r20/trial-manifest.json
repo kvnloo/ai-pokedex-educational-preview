@@ -1,7 +1,7 @@
 {
   "qualityGate": "needs-work",
   "r20a": "retained limited muzzle improvement",
-  "r20b": "critic pending",
+  "r20b": "retained limited throat-continuity gain; GLB validation pending",
   "files": [
     {
       "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r20/before.json",
