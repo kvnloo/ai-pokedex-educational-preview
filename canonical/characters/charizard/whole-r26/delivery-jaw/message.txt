@@ -1,0 +1,3 @@
+Charizard r26 jaw iteration — 5c5e4bb. Used native Blender keyboard edits. First inset trial was rejected because it did not improve the visible contour. Second trial raises only the posterior underside, preserving mouth rim, chin, head and pose. Rear jaw band is reduced in closeups; xhigh retain/revert review pending. Still unfinished blockout, no production acceptance. Images: before then candidate B.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r26/r26-intake-head-front.png
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r26/r26b-head-front.png
