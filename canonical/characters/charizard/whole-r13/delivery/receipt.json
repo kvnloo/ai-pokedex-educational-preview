@@ -1,0 +1,12 @@
+{
+  "assetRevision": "203f2d72102fdccbd93b665f9c5b3dc8fecb307c",
+  "preview": "gui-r13i-pose-test.png",
+  "previewSha256": "07a40e2f94a56ccedd3d24c44834a4ff0fae209f60172ed58ce942a7bbfbb14a",
+  "result": {
+    "success": true,
+    "platform": "telegram",
+    "chat_id": "1083429746",
+    "message_id": "17106",
+    "mirrored": true
+  }
+}

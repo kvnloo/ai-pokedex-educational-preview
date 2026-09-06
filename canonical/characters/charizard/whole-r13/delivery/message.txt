@@ -1,0 +1,10 @@
+Charizard r13 native Blender study. Current candidate: r13i.
+
+I raised the nose, narrowed the bridge and added a coarse socket cage through keyboard/mouse edits. Two eye placements and a socket collapse were rejected and reverted. Turning the separate head/neck group makes the profile easier to compare with official HOME.
+
+This is still a rough blockout, not an accepted likeness. The mouth/jaw is missing its proper form, the eyes lack Charizard’s expression, and the neck join is visible. Jaw/cheek and head-to-neck form are next; no texture or rig pass yet.
+
+Saved .blend and physical GLB both reopened. Four-view source/export comparison inspected: 38 components, 7,704 triangles. FlameSocket only, energyBaked=false. Prior versions preserved. Nothing merged, pushed or deployed.
+
+Asset revision: 203f2d72102fdccbd93b665f9c5b3dc8fecb307c
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r13/gui-r13i-pose-test.png
