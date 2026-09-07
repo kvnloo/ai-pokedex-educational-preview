@@ -1,0 +1,16 @@
+{
+  "file": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r104/charizard-home-r104-end-fit.blend",
+  "bidirectional_return_interface": [
+    {
+      "samples": 236,
+      "nearest_vertex_max": 0.016614427790045738,
+      "nearest_vertex_mean": 0.009086209306911707
+    },
+    {
+      "samples": 32,
+      "nearest_vertex_max": 0.009646556340157986,
+      "nearest_vertex_mean": 0.004735261209134478
+    }
+  ],
+  "limitation": "Nearest-vertex distances depend on sampling density; not point-to-edge surface distance or a weld certificate"
+}
