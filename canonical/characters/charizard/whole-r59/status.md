@@ -1,3 +1,7 @@
-# R59 membrane form correction in progress
+# R59 membrane form review
 
-Xhigh critic: R58 removes rumples but flatcutout; central trailingpoint blunt. One shallow twobay formcorrection before joining. Native duplicate R57sheet to GEO-wing-membrane-bow-r59 exact45positions, originalhidden preserved. Native VertexCrease.8 on central tipindex1 verified. No bowmovement yet; tip-crease.blend saved. No visualacceptance.
+Native CUA moved interior columns 1,2,3,5,6,7 at rows 1/2/3 by +Y .0075/.015/.0075. Central tip vertex crease .8. Saved bow checkpoint and inspected front, side, rear and three-quarter renders against R58.
+
+Mechanical audit: 18 changed controls; maximum target error 7.15e-9; protected controls unchanged. This proves execution, not likeness.
+
+Root visual verdict: central point sharper, but broad membrane still looks flat/papery. Insufficient evidence of meaningful broad form gain. No joining, retopology, material or rig gate passed. Independent critic verdict pending. R58 and all earlier source checkpoints preserved.

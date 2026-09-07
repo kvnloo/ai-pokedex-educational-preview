@@ -1,0 +1,30 @@
+{
+  "qualityGate": "needs-work",
+  "artifacts": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r59/charizard-home-r59-bow.blend",
+      "bytes": 38862747,
+      "sha256": "b3811387e9651b0e52ce737b61e027219e97e9f54a377cd793bbf93614aee679"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r59/bow-front.png",
+      "bytes": 1184231,
+      "sha256": "a8f5dbf07f11949976881f90320238fc1a33bf028e5f5d94e3a8ff592276846e"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r59/bow-rear.png",
+      "bytes": 1164611,
+      "sha256": "1952e325f7e16f84da83ed1698b8c3d7c057018daaa6e30102cd7586f0aa3c07"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r59/bow-side.png",
+      "bytes": 1050111,
+      "sha256": "5131f5d4d98baf37b060679026e0ebe4bb3a3875186a0a7a9f57e574730a159d"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r59/bow-threequarter.png",
+      "bytes": 1136791,
+      "sha256": "a8f75b774e6d8be2d978d031f3b8e0734afa26a82eae0ba9c4d18ea8a2fa97b8"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "changedControls": 18,
+  "maxTargetError": 7.152557372769319e-09,
+  "protectedMax": 0.0,
+  "direction": "+Y",
+  "rowDisplacements": [
+    0.0075,
+    0.015,
+    0.0075
+  ]
+}

@@ -1,0 +1,3 @@
+Charizard R59 review: sharper central wing point, but the shallow bow still reads too flat. Mechanical check passed (18 controls moved; perimeter protected), visual form gate has NOT passed. Holding joining/rig/textures; independent critic reviewing. These are work-in-progress evidence, not a finished asset.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r59/bow-front.png
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r59/bow-threequarter.png
