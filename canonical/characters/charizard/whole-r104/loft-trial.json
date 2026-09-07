@@ -9,5 +9,6 @@
     "loft-front.png": "bc49e815a25972cbd9d012bf2bde07b095f88cac7f5ea762fa011985aafb6c24",
     "loft-rear.png": "20a43efc84ffe3ae85692cb49deecd8b0b9761713ff9a10bc737838aea9589c2",
     "loft-whole.png": "50722f62fcfe561de9007240b3cc907b32b89c2aae909e793c728e0fa2515df8"
-  }
+  },
+  "end_fit": "Native selected return32ring SX.79284,SZ1.14457,GX-.005965,GZ+.026191. Bounds agree with evaluated236edge tail interface to approx1e-6 inX/Z; exact contour correspondence not established. Stillunconnected."
 }
