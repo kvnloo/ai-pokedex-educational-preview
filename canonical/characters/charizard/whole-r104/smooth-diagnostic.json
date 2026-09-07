@@ -1,0 +1,26 @@
+{
+  "status": "diagnostic only; not retained replacement",
+  "method": "Native F3 Shade Smooth on 128 loft faces; no anatomy coordinates changed. Same camera original, flat trial, smooth trial renders; source guide visibility restored afterward.",
+  "root_review": "Smooth shading removes facets but does not solve open interface or establish improved tail silhouette. Defer graded topology work until silhouette review.",
+  "vertices": 396,
+  "faces": 128,
+  "last_retained": "R103",
+  "artifacts": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r104/comparison-original.png",
+      "sha256": "09100d4cb68c2a5361ca02947720ea46ca8fe0aedc9fe9fca553cbf29af30db1"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r104/comparison-trial.png",
+      "sha256": "b1a8feb48fe41b470ee71cc77ad51a699eb77cc8f1b2169819be656270a29133"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r104/comparison-smooth-trial.png",
+      "sha256": "63f67cf3afc24a7742bc98b17451a6bce04a5d290d27bc3103b72b0fc7d38edf"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r104/charizard-home-r104-smooth-diagnostic.blend",
+      "sha256": "895f49efd666ad93cd6555e5fb3ad6dd39a3b171cd6278459b73340067a3695c"
+    }
+  ]
+}
