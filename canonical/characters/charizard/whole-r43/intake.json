@@ -1,0 +1,23 @@
+{
+  "source": "whole-r38/charizard-hybrid-r38-bilateral.blend",
+  "geometryEdited": false,
+  "rootInspection": "Rear tail-pelvis connection has a conspicuous circular collar. New diagnostic only; no repair selected yet. Upperjaw issue remains unresolved.",
+  "files": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r43/pelvis-before-front.png",
+      "sha256": "68a2270e0d39f197537ca42c56a7a7f4ab548489f7622b1a4a85b65196920a4e"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r43/pelvis-before-side.png",
+      "sha256": "571091096ab9241686a0707d13fc15aa45d264b39eed535acdc0c10f97d73296"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r43/pelvis-before-rear.png",
+      "sha256": "63cb79682778c0c1f16988a1b39a3a3a3fcb8d81c98eebceee33a745deea4604"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r43/pelvis-before-threequarter.png",
+      "sha256": "0b1bcaa1e86dc64c3f4eda7873e3729dfc0576e71b47d68bd57df5fa2c20d6a5"
+    }
+  ]
+}
