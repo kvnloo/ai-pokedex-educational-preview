@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "pokemon": "charizard",
   "retainedSource": {
-    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r74/charizard-home-r74-grafted.blend",
-    "sha256": "7666fb52d1cdb77b86223afd0f9e3ce1a28d65e40db4c9383f5ccfac44a99597",
-    "scope": "R67 cleaned body plus rebuilt positive-X wing membrane/collar and separate spar",
-    "knownLimitation": "Planar membrane, thick root transition, capped spar contact and opposite-wing mismatch remain; whole character unfinished",
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r75/charizard-home-r75-root-lowered-trial.blend",
+    "sha256": "88df464ddb0f34520130af96b4937e54a03c69645bbe1a354b0ce5c4bcb0a395",
+    "scope": "R67 cleaned body with both rebuilt wing membranes and native upper-root lowering",
+    "knownLimitation": "Local collar-to-spar step, planar membranes, unfinished head/feet/tail and whole-character form; not production approved",
     "wholeAssetQualityGate": "needs-work"
   },
   "retainedLineage": [
@@ -15,7 +15,8 @@
     "whole-r66",
     "whole-r67",
     "whole-r73",
-    "whole-r74"
+    "whole-r74",
+    "whole-r75"
   ],
   "pendingCandidate": null,
   "qualityGate": "needs-work",
@@ -32,5 +33,5 @@
     "Runtime flame and attack effects",
     "Stats and playable game integration"
   ],
-  "latestReview": "whole-r74/graft-review.json"
+  "latestReview": "whole-r75/root-lowered-audit.json"
 }
