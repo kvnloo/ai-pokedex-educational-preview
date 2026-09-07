@@ -1,0 +1,30 @@
+[
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r40/jaw-before.json",
+    "sha256": "7360bfed75329083e49b42a35a9f0ccc2d5aaa2bc91a1f4fad8f3f2663bd3612"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r40/audit.json",
+    "sha256": "47009e4949917a71ff14f7e4b1e21af3f2f29973fe79dc8213b6c2d71a604657"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r40/charizard-hybrid-r40-jaw-shoulder.blend",
+    "sha256": "1549da2dce63a1fa7380a4486ceb5b942fbc243b5855864cac2258be8b9cf1dc"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r40/jaw-shoulder-front.png",
+    "sha256": "09da76692accb31d71b6f1c1353cdb1fba65b07dc1de8ae8a6d535bb3bc088c2"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r40/jaw-shoulder-side.png",
+    "sha256": "89503d35728cf3da34b14e4bd0703b8c7ac4c78cbaa992d43f20a2af3906a9d2"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r40/jaw-shoulder-rear.png",
+    "sha256": "4e87d85ae009277ba974f0e3e3c32d09658d5fbd1d035574aa73dd7ea1da68cc"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r40/jaw-shoulder-threequarter.png",
+    "sha256": "c5e9c3c148a0e9f93034d2cf76820555cb46a7a818908dec101f228852d51861"
+  }
+]

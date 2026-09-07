@@ -1,0 +1,1 @@
+REJECTED after root side/threequarter inspection. Native jaw4/7 localX.85 and localZ+.015 exactly verified; all other jaw coordinates fixed. Slight underside shape change does not clearly reduce jaw-neck step. Restored R38 bilateral. Stop cage nudges; next regional jaw-neck construction study. No export or production acceptance.
