@@ -1,0 +1,29 @@
+{
+  "status": "root visual inspection complete; independent latest-version verdict pending",
+  "live_source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r114/charizard-home-r114-seam-protected.blend",
+  "modifier": "Jaw cage trial r114 enabled and unapplied",
+  "FlameSocket": "EMPTY",
+  "root_review": "Head, side and whole opened. No new underside notch apparent; regional relief subtle. Overall head likeness remains unaccepted.",
+  "files": {
+    "charizard-home-r114-seam-protected.blend": {
+      "bytes": 88563325,
+      "sha256": "46be64bc9c8cca0b817ec338f646c22253f534b065e44640a4ca54fd80b31452"
+    },
+    "seam-protected-head.png": {
+      "bytes": 1162186,
+      "sha256": "440da0ce58b1a0b8777662cc47bbc17af5c9f967eba92454e723ee52b69abf4d"
+    },
+    "seam-protected-side.png": {
+      "bytes": 1044400,
+      "sha256": "7f93335ea6e761a49b6a490f401eebf6f5c13ac2a2a438fa2922942b611660ff"
+    },
+    "seam-protected-whole.png": {
+      "bytes": 1154334,
+      "sha256": "a466c10d32d3d477432223feacdc8357b6d38e64160e403ab5255ea6a43fad8e"
+    },
+    "seam-audit.json": {
+      "bytes": 66,
+      "sha256": "e5c54b4145860407804ac512d5f1ce5fb19ea2de4eecc420afc036c62ab4a8f9"
+    }
+  }
+}
