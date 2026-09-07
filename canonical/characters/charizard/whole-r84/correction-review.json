@@ -1,0 +1,13 @@
+{
+  "status": "fails early form gate; unpromoted",
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r84/charizard-home-r84-head-form-correction.blend",
+  "sha256": "99abf3d845ecfc4fb4781b84c69a528d99afc6ddda2ab8e86f7c21b2ec52ed3a",
+  "method": "Native muzzle/chin shortening; posterior skull local-height and width increase; posterior jaw underside lift. One coordinated correction.",
+  "rootReview": "Both corrected renders opened. Explicit shorter snout now visible, but rear skull is a pointed wedge and cheek remains a flat plate. Does not establish convincing organic skull. No further amplitude series.",
+  "views": [
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r84/corrected-side.png",
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r84/corrected-low-front.png"
+  ],
+  "retained": "R80",
+  "productionApproved": false
+}
