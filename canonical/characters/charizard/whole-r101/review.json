@@ -1,0 +1,17 @@
+{
+  "status": "critic pending; construction study only",
+  "method": [
+    "Actual selected-face perimeter derived by one-face edge adjacency,10edgesdegree2",
+    "Anterior3 perimeter vertices native HEAD-Y scale .35 aboutY.045",
+    "Rear3 perimeter vertices native HEAD-Y scale .65 aboutY.052",
+    "Inner six-face region native Extrude HEAD-X-.003; remains connected"
+  ],
+  "root_review": "Opened side,low-front,whole. Less chipped outer surround than R100, but inner patch uneven and lowfront dark wedge. Not accepted, not paired.",
+  "files": {
+    "charizard-home-r101-intake.blend": "e79d871727f8239fae73e86572574726baa717ce519624984f6b189a30bb7d64",
+    "charizard-home-r101-shaped-recess.blend": "94db63c30f5818dc5c33b9e0b2f98de02a9452532422891e8efc6629c6bd8c0b",
+    "side.png": "e73695af47257114b36f3da9fa1054b1ab5e60537b41fda6542c12e5bbd300c0",
+    "low-front.png": "682bbf140dbba7b7810b900510d3fe7b9e555c4baa2aac1456a2db846a808657",
+    "whole.png": "56ab2229d94329562e908d45234be0c7492df02a4f3ee757172b4359ea74eab0"
+  }
+}
