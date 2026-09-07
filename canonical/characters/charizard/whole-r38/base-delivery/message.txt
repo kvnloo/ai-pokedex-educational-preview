@@ -1,0 +1,3 @@
+Charizard R38 hand trial: native finger/palm union plus one protected base-blending stroke. Fingers stay separate and bent; overall model remains rough, especially head/neck/body transitions. Regional critique pending; this is not a final asset. Revision a9e802b.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r38/blend-threequarter.png
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r38/whole-threequarter.png
