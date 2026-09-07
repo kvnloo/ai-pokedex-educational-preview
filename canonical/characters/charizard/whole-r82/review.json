@@ -1,0 +1,16 @@
+{
+  "status": "root rejected; critic comparison pending",
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r82/charizard-home-r82-cap-trial.blend",
+  "sha256": "b56fd8c29aae78a2952cd395338b6851d2a3a68d7787a14633701dc4e791c8ba",
+  "method": "Native posed-frame control49v/Subsurf2,49projectionhits; native9localZ-0.006 plus center-0.006. NewSurfaceDeform bound with2409vertex influence, preservingexistingR80modifier.",
+  "rootReview": "Little whole-head silhouette benefit; suspected sharper mouthcorner crease. Fails useful gain/protected-mouth gate; no amplitude series.",
+  "views": {
+    "low-front": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r82/low-front.png",
+    "local-side": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r82/local-side.png",
+    "axis": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r82/axis.png",
+    "top": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r82/top.png",
+    "threequarter": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r82/threequarter.png"
+  },
+  "retained": "R80 remains registry source",
+  "productionApproved": false
+}

@@ -1,0 +1,6 @@
+{
+  "bound": true,
+  "groupVertices": 2409,
+  "neutralDeltaComparedToR80": 1.2880672684296554e-06,
+  "protected": "z<=.53,z>=.65,x>=-.08,y>=-.64 have zero new influence; semantic visual gate still required"
+}
