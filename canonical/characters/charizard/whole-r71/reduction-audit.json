@@ -1,0 +1,17 @@
+{
+  "before": {
+    "vertices": 276640,
+    "faces": 553042,
+    "boundaryEdges": 236,
+    "nonManifoldEdges": 236
+  },
+  "after": {
+    "vertices": 267368,
+    "faces": 534498,
+    "boundaryEdges": 236,
+    "nonManifoldEdges": 236
+  },
+  "protectedCoordinatesMissing": 0,
+  "selectedAfter": 601,
+  "ratio": 0.1
+}

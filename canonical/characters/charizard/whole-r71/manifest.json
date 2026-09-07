@@ -1,0 +1,47 @@
+[
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r71/charizard-home-r71-intake.blend",
+    "sha256": "20ea53b526d2c847eafeb5f4c7555158f0d75710663cd530cc5ec3f31fc2d281",
+    "bytes": 77712358
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r71/reduction-audit.json",
+    "sha256": "0fc56ca760608b7a46b73af2bebaeeba6a0faefea0591ce8ecb7eb9213de31a3",
+    "bytes": 313
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r71/charizard-home-r71-reduced.blend",
+    "sha256": "9bbba9f1cf2a80435d3b418554200fbcfbb86bcaadf714f1ad94e08c93834ef9",
+    "bytes": 90877369
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r71/reduced-controls.json",
+    "sha256": "56495103cf809affb949d5694d2ec32188652f339a3ac9706d031e45afdceb23",
+    "bytes": 96389
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r71/reduced-front.png",
+    "sha256": "50641dbc92f920e122d1410f1b898abd4dd452d003e8028b34495b346ad2aa17",
+    "bytes": 1189384
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r71/reduced-side.png",
+    "sha256": "1a5942b50cc758087f7a719ed712cbd4f06a64d03000418e43034db228285df9",
+    "bytes": 1050788
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r71/reduced-rear.png",
+    "sha256": "0b59e3b2676255661a15d5e2301e58a3efd18cd622aeb696347da128f223f198",
+    "bytes": 1168197
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r71/reduced-threequarter.png",
+    "sha256": "0ea2b49c05e66910fd0e0e4dbc13e61811a88981e7b38850519fe5d6e0ddfe55",
+    "bytes": 1142430
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r71/native-ratio.png",
+    "sha256": "2d0268ac0ef3162fca30046822ef440d82ae74138f81df6f615df77baf6315ba",
+    "bytes": 385084
+  }
+]
