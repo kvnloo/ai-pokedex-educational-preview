@@ -1,0 +1,9 @@
+{
+  "status": "rejected-folded-bridge",
+  "vertices": 185008,
+  "faces": 366485,
+  "nativeSettings": "2cuts BlendSurface smoothness1 profile0",
+  "operatorFix": "Explicit ed.undo_push before native bridge made F9 geometry update work;84extra vertices verified",
+  "visualFailure": "Actual rear shaded render shows crossing/folded root. Pairing investigation needed; no smoothing or acceptance.",
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r75/charizard-home-r75-surface-bridge.blend"
+}
