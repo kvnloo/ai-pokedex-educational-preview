@@ -1,0 +1,15 @@
+{
+  "status": "reuse-candidate-not-integrated",
+  "method": "Native duplicate selected opposite-foot vertices, mirror X around world origin, separate, recalculate normals, delete disconnected copied tail strip, yaw Z30 about (.38,-.36,-.63), Y+.03.",
+  "vertices": 6488,
+  "originalBodyVertices": 167917,
+  "review": "More natural three-terminal form than R128\u2013129 primitives. Open jagged ankle boundary requires fitting and topology. Candidate hidden; original preserved. No gate passed.",
+  "next": "Fit and rebuild candidate ankle boundary; do not return to primitive pad or false-lobe smoothing.",
+  "artifacts": {
+    "foot.png": "f82e699fcc433304e7b6b1b03d3d819a2742a22aa9904089ee97750d490042ab",
+    "whole.png": "6a5c694cd0bc732849140088409f7ad5f40efb7287ff6797dbf2a484f507c722",
+    "aligned-foot.png": "8b571747dcd956319c576d974c30d640b5e85e69575efe29453b114b084af3db",
+    "aligned-whole.png": "ff3004b783644ae113c049f4fc8d15838e361ff39ee91a199c5096318c96f60f",
+    "charizard-home-r130-reuse-candidate.blend": "b51aa2f4c0565b90f46e4a649c74e1e414ac8c14f4a795f1fbde28b89c4ee8b9"
+  }
+}
