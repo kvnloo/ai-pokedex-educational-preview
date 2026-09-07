@@ -15,6 +15,8 @@
     "whole.png": "1a0c045f1ac5869e8d0fdc7b2efe5ac7b7ee009bf9734b1081eb338d692c8d07",
     "audit.json": "5cb74c20d9cf70eb6145ce8264452c3da106303be4f6dcc0c9b2956179b2c258",
     "contrast-opposite.png": "39c4e8ebb8b8e679c3fbe162496ed42c7ce2e1393b87c1caca0dbfb3a244bd43",
-    "contrast-front.png": "7d9d5031919266c1c03354fd99e97ffa65e109ff682075311d91e12dab137cdc"
-  }
+    "contrast-front.png": "7d9d5031919266c1c03354fd99e97ffa65e109ff682075311d91e12dab137cdc",
+    "opposite-unobstructed.png": "be25ad5efe9d7ffe7ed97bb26433cc6c7b2bedabb782e276276245ade1f77752"
+  },
+  "unobstructed_review": "Root opened opposite-unobstructed.png. Camera placed head-localX-.145 inside wing line of sight, no hidden/moved geometry. Full aperture visible, no obvious floating rim or cushion. Critic reviewing."
 }
