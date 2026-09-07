@@ -1,0 +1,2 @@
+R44 retained: rounded wing scallops now on both sides. Exact mirror checked; physical GLB reopened and inspected in4views.343004tri construction asset, not optimized or final. Neck/jaw and tail-root continuity remain unresolved. Revision b00117e.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r44/glb-threequarter.png
