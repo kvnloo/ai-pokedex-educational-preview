@@ -1,0 +1,22 @@
+{
+  "status": "rejected",
+  "review": "Inspected all4views and root closeup. Union topology adds no boundary/overconnected edges but produces rim pinching and uneven seam. Restored blend-collar separate components. No Boolean parameter series; proper junction topology required. R67 canonical.",
+  "files": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r73/union-front.png",
+      "sha256": "f7aca76d3d111a28ac5526b262c5074bcd19ef6bce9bf1d7cfa4966fbefda155"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r73/union-side.png",
+      "sha256": "d67bf99e72a18d763412421facad0f5d264c3ccd802c8bc2eab35345db11a5bf"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r73/union-rear.png",
+      "sha256": "7d7c1b17906e10326d0f9877f710346ec8819dcaa1818e3925592f78430cd5e6"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r73/union-threequarter.png",
+      "sha256": "775940e1b2bdea98d1795c5322479f67b3ef034fcd5d352188b67c3d73ba509b"
+    }
+  ]
+}
