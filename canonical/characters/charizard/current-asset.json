@@ -38,15 +38,15 @@
   ],
   "latestReview": "whole-r80/review.json",
   "workingCheckpoint": {
-    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r109/charizard-home-r109-retained-digits.blend",
-    "sha256": "379f5ec002084b6aa7cd13bc71407b5d9b2210251f9402c2d2c53cb01aeb191b",
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r114/charizard-home-r114-seam-protected.blend",
+    "sha256": "46be64bc9c8cca0b817ec338f646c22253f534b065e44640a4ca54fd80b31452",
     "status": "limited component improvements retained; whole-character acceptance pending",
-    "scope": "R103 anatomy plus R107-R109 bilateral fingertip taper",
+    "scope": "R109 retained digits plus R114 seam-protected central jaw cage",
     "productionApproved": false,
     "evidence": [
-      "whole-r107/retention.json",
-      "whole-r108/retention.json",
-      "whole-r109/retention.json"
+      "whole-r109/retention.json",
+      "whole-r114/retention.json",
+      "whole-r114/final-view-evidence.json"
     ]
   },
   "subsequentTrials": [

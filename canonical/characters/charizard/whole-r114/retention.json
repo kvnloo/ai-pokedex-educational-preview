@@ -1,0 +1,16 @@
+{
+  "status": "retained for limited central-jaw relief only",
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r114/charizard-home-r114-seam-protected.blend",
+  "sha256": "46be64bc9c8cca0b817ec338f646c22253f534b065e44640a4ca54fd80b31452",
+  "critic": "XHIGH directly reviewed exact seam-protected head, side, whole against R110 and HOME. Modestly shallower underside without new notch or seam step; chin projection and mouth stable.",
+  "root_review": "Head, side and whole opened. No new underside notch apparent; regional relief subtle. Overall head likeness remains unaccepted.",
+  "limitations": [
+    "Whole-scale benefit slight",
+    "Broad rounded muzzle and cheek differ from HOME head planes",
+    "Visible neck banding remains",
+    "Whole-character likeness and production gate not passed"
+  ],
+  "closed_loop": "No further jaw amplitude trials",
+  "lattice": "Preserved unapplied and editable",
+  "productionApproved": false
+}
