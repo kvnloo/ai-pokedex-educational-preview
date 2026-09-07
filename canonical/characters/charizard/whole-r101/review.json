@@ -22,11 +22,14 @@
     "independent-side.png": "327afd04f8770989ed62a5def76b77f5eb91cef428ed2db576f510f6adfec137",
     "independent-low-front.png": "aa51a32f9d3cad2b7cef235b4930d082cc73b15df74aef345a715785cea79f42",
     "independent-whole.png": "f3c3ac4f6352fc301063d80902350ec2643a5a3463b5c6423d248af5b997201b",
-    "contrast-dark-low-front.png": "ae9eb1890f37c2513412109604bdcb899d9cbb737f47034f65d1ac47e39d05e1"
+    "contrast-dark-low-front.png": "ae9eb1890f37c2513412109604bdcb899d9cbb737f47034f65d1ac47e39d05e1",
+    "contrast-dark-side.png": "439708b6a1c44e6a2efb7605cfc576fce018a9cf6b6b36dd602e85ed91c253c3",
+    "contrast-dark-whole.png": "d0ea94bc5320fb87ee79ce76708abb6df32e83c359aa2287263805042cb2701d"
   },
   "critic_review": "Outline more coherent than R100, but interior cushion and dark anterior pocket fail side/low-front/whole eye read. One bounded interior-only correction permitted; no separation or pairing.",
   "interior_trial": "Topology-derived two interior vertices only; native Smooth Vertices once. Opened relax-side and relax-low-front; no meaningful improvement, not retained.",
   "normal_diagnostic": "Temporary flat shading on six inner faces greatly reduces cushion without geometry edits; flags restored. Native P Selection separates those6faces as12vertex GEO-eye-positive-r101 with no transforms. Opened independent side/low-front/whole: much reduced cushion. Critic withdrew categorical claim separation cannot help after flat diagnostic; independent result pending.",
   "independent_critic_review": "Opened three independent views. Cushion and dark/bright pocket greatly reduced; retain independent insert construction. No new raised pad or conspicuous gap. No more interior relaxation or depth changes supported. Residual clipped quadrilateral, short nasalpoint and blunt boxy rear; angular expression gate open.",
-  "contrast_diagnostic": "Opened official HOME plus temporary dark-eye OBJECT-color low-front render. Actual aperture reads more clearly as a wedge with contrast; monochrome alone may overstate rectangularity. Display restored; no production material added. White-eye attempt provided no usefulcontrast because body also white."
+  "contrast_diagnostic": "Opened official HOME plus temporary dark-eye OBJECT-color low-front render. Actual aperture reads more clearly as a wedge with contrast; monochrome alone may overstate rectangularity. Display restored; no production material added. White-eye attempt provided no usefulcontrast because body also white.",
+  "contrast_batch": "Root opened dark-side, dark-low-front, dark-whole. Side remains polygonal with broadrear; whole clear aperture. Planner/critic settling contour gate from contrast evidence."
 }
