@@ -1,1 +1,3 @@
 Native left three-digit taper trial. Middle16–23 scale.85; terminal8–15 scale.55; median pivots, roots unchanged. Exact affine audit passes. Planner final recommended.60 tip after execution; root used.55 as bounded trial, not reference measurement. Four taper renders saved, root threequarter inspected: clearer taper, abrupt bases remain. No retention yet; edited-side and whole-scale review pending.
+
+Added actual exposed-left-side and four whole-character renders. Root inspected left side/full front: taper reads at whole scale, side tips narrow; palm-base ledges remain. XHIGH reviewing chunkiness and retain/correct before mirroring. No further geometry changes.
