@@ -38,14 +38,15 @@
   ],
   "latestReview": "whole-r80/review.json",
   "workingCheckpoint": {
-    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r103/charizard-home-r103-jaw-closure.blend",
-    "sha256": "8afaa996b13c83913180ae2f68476cca1e9fa3f9922dadc041d8b73826504c3a",
-    "status": "component improvements retained for continued modeling; whole-asset acceptance pending",
-    "scope": "R103 jaw closure with R102 coarse eye pair and earlier component revisions",
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r109/charizard-home-r109-retained-digits.blend",
+    "sha256": "379f5ec002084b6aa7cd13bc71407b5d9b2210251f9402c2d2c53cb01aeb191b",
+    "status": "limited component improvements retained; whole-character acceptance pending",
+    "scope": "R103 anatomy plus R107-R109 bilateral fingertip taper",
     "productionApproved": false,
     "evidence": [
-      "whole-r103",
-      "whole-r102"
+      "whole-r107/retention.json",
+      "whole-r108/retention.json",
+      "whole-r109/retention.json"
     ]
   },
   "subsequentTrials": [

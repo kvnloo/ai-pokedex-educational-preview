@@ -1,0 +1,15 @@
+{
+  "status": "retained limited finger-form improvement",
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r109/charizard-home-r109-retained-digits.blend",
+  "sha256": "379f5ec002084b6aa7cd13bc71407b5d9b2210251f9402c2d2c53cb01aeb191b",
+  "critic": "Corrected short digit retained side/opposite: longer more even taper, mild residual contour break.",
+  "root_whole_review": "Post-correction shoulder-whole.png inspected: pointed silhouettes persist, no visible whole regression.",
+  "audit": {
+    "changed": 1772,
+    "new_zero_area": 0,
+    "normal_reversals": 0,
+    "socket_type": "EMPTY",
+    "file": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r109/charizard-home-r109-shoulder-correction.blend"
+  },
+  "productionApproved": false
+}
