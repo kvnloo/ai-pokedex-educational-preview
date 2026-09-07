@@ -1,0 +1,3 @@
+Charizard R69: rejected the native wing cage test. It reduced bulge depth but introduced a stronger crease near the inner support. Sampled membrane thickness stayed >=65%, but visual quality failed. R67 restored. Before, after below. Next method must directly correct surface form, not repeat compression.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r67/haunch-front.png
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r69/compressed-front.png
