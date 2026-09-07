@@ -43,5 +43,55 @@
     "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r71/native-ratio.png",
     "sha256": "2d0268ac0ef3162fca30046822ef440d82ae74138f81df6f615df77baf6315ba",
     "bytes": 385084
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r71/form-allowed.json",
+    "sha256": "763b5a9404210ba0e332e5cc81f25f98623f85938d4a5003ad3af2aeb84ec032",
+    "bytes": 53377
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r71/charizard-home-r71-invalid-redo.blend",
+    "sha256": "8de8eb1ecb98ee27bdca194f4cc80c2fe7909ecd77789bc3e5863f7aa77616ed",
+    "bytes": 104043346
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r71/form-audit.json",
+    "sha256": "b3ddc96e336d459199105d6a83a21654581553154bd9ae95a8f65bb06dcd707c",
+    "bytes": 185
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r71/charizard-home-r71-form.blend",
+    "sha256": "d982ae5f552c74180070da137570601a792cca2ab0705b4ac5b42d8b8ac21ef7",
+    "bytes": 104044393
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r71/form-front.png",
+    "sha256": "265b139a843e9f0c55d85bf311fd4a6efec67fd4d5730bb0a475dec92adc9af2",
+    "bytes": 1190369
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r71/form-side.png",
+    "sha256": "61ca2fcf5cc38983244f024d053bd869f6e1913734dd84bbd4f5028aae0b382a",
+    "bytes": 1050698
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r71/form-rear.png",
+    "sha256": "57062727d632d8faabf535716502bc2ad7d89c36a5e3f1b01425e0a77cf19780",
+    "bytes": 1167867
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r71/form-threequarter.png",
+    "sha256": "a199f8e612ebd8a7e2cd46bb452e189995756d3aedc538eb4d8b5f268d07342f",
+    "bytes": 1142576
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r71/form-thickness.json",
+    "sha256": "e1fb012cc02d6d206c7d69aca415d78a5553117ce71bb62910d19383cac19ac0",
+    "bytes": 4041
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r71/invalid-redo-settings.png",
+    "sha256": "1978fef208afcc84fe91865c9d6f9daae81f373603bc48ea5677f607101b87e6",
+    "bytes": 418061
   }
 ]
