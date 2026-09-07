@@ -1,0 +1,11 @@
+{
+  "status": "seam-protected candidate; final visual check pending",
+  "source": "charizard-home-r114-seam-protected.blend",
+  "reason": "One nearzero triangle reversal identified at existing9gon neckjunction; cage affected fixed seam. Mask now zero at worldZ<=.435 and ramps tofull at.47; no cage movement.",
+  "audit": {
+    "changed": 208,
+    "normal_reversals": 0,
+    "seam_changed": 0
+  },
+  "root_review": "Head render opened, smooth underside remains. Side/whole pending after seam protection."
+}
