@@ -1,0 +1,26 @@
+{
+  "file": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r104/charizard-home-r104-lobe-intake.blend",
+  "selected_vertices": 19067,
+  "full_selected_faces": 37647,
+  "interface_edges": 487,
+  "degree_histogram": {
+    "1": 0,
+    "2": 487,
+    "3": 0,
+    "4": 0
+  },
+  "interface_bounds": [
+    [
+      -0.8296043872833252,
+      -0.5000209808349609
+    ],
+    [
+      -0.2545792758464813,
+      0.2544679343700409
+    ],
+    [
+      -0.6681678295135498,
+      -0.3607553541660309
+    ]
+  ]
+}
