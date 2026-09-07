@@ -1,5 +1,5 @@
 {
-  "status": "joined but root fails visual bridge gate; critic pending",
+  "status": "rejected joined surface by root and critic",
   "retained": "R80",
   "productionApproved": false,
   "method": "Preserved lowcontrol head; native duplicate base+.03clearance, Ctrl2+Convert32rim. Native newneckringextrusion/Collapse157->80->40->32 at.006increments. NativeJoin/Bridge32. Selected152newneckrows SmoothVertices3passes; nativeShadeSmooth.",
@@ -10,5 +10,6 @@
     "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r92/charizard-home-r92-joined-trial.blend": "9c301db512f007182a250674b6920e1f2c3e58f57c9c55e460e869d1a7f11087",
     "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r92/charizard-home-r92-relaxed-bridge.blend": "05f038610ca8c0d4e164a83248333dc3fcedc5ef539c4372065e7f80f5c2681b",
     "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r92/charizard-home-r92-smooth-shaded-trial.blend": "8cba33365e03c8e23e40e7109909b08c4216d43247e32b24e12f81173dd7210d"
-  }
+  },
+  "critic": "All4smoothviews inspected. Outwardcuff/narrowthroat, inwardpinch/rearwardpoint persistwholescale. Too-shorttransition+incompatiblefixedends supported; relativecausesunproven. Replace longerlocalband includingcontactrowsbothsides, anchorfartherintosmoothneck/upperthroat. Preservehead/distantneck. No moredensity orsame narrowstripsmoothing."
 }
