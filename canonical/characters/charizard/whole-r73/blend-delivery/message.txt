@@ -1,0 +1,3 @@
+Charizard wing: rebuilt a broader root transition with native Blend Surface bridge. The diagonal seam is smoother; the side-view thickness transition still needs critique. Four views checked. Still construction only, R67 retained.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r73/blend-rear.png
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r73/blend-root.png

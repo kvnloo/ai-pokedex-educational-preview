@@ -1,0 +1,42 @@
+{
+  "status": "construction-review-pending",
+  "operation": "Native remove42bridge plus42first-sheet-column faces, DeleteLoose, Bridge42to42; F9 number_cuts2 interpolationSURFACE smoothness1 profile0",
+  "vertices": 232226,
+  "faces": 462602,
+  "boundary": 236,
+  "review": "Root and all4views inspected. Smoother diagonal seam, but thickroot flap still visible side and sparcap junction remains. R67 retained; no production pass.",
+  "files": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r73/charizard-home-r73-broad-collar.blend",
+      "sha256": "9b12c53cd7eb8e2443aab9db12743ffc8bdce44fab3cc6ee6cd8d69853625f4b"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r73/charizard-home-r73-blend-collar.blend",
+      "sha256": "a2fc4723d9fbd277fb40b64cd97efeee19f1cdba955b000e02d6861ca9c84a53"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r73/broad-root.png",
+      "sha256": "cef4d7a4b7fb800a9a4af5d040584b9c02daebdf4b07e982a9596624dbb734e6"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r73/blend-root.png",
+      "sha256": "da65c5f8477c87161d9141971452e2cc04b487805721d8874dc6933a75cfb1ea"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r73/blend-front.png",
+      "sha256": "4a9b83d087a350baaf96263bb834c73229b5e85311753d44b15b3f1cd17b6d9a"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r73/blend-side.png",
+      "sha256": "a8748718f87e82335eb68dba6e53d00f3637a9027a58289abce8aaccc7ac5724"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r73/blend-rear.png",
+      "sha256": "9d8e42c63afaed7ce0a32af49901f96ec7bb293a88c373b4eb1364e4e32fc861"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r73/blend-threequarter.png",
+      "sha256": "a7f7c986cade92f0fbbacfb59ca04171bff792dde714acf23bea97d4e4b88b37"
+    }
+  ]
+}
