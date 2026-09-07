@@ -1,0 +1,61 @@
+{
+  "geometryChanged": false,
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r77/charizard-home-r77-lobe-cleanup.blend",
+  "views": [
+    {
+      "name": "CAM-r78-head-low-front",
+      "location": [
+        -0.10000000149011612,
+        -5.599999904632568,
+        0.35999998450279236
+      ],
+      "quaternion": [
+        0.6964242458343506,
+        0.7176302671432495,
+        0.0,
+        0.0
+      ],
+      "orthoScale": 0.85,
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r78/head-low-front.png",
+      "sha256": "0b9f1ef80b74d0b8c2348be04d51bf7422849bfe29108bbc72ab5f3193440c60"
+    },
+    {
+      "name": "CAM-r78-head-local-side",
+      "location": [
+        4.200000286102295,
+        -3.0999999046325684,
+        0.5099999904632568
+      ],
+      "quaternion": [
+        0.6129071116447449,
+        0.6129070520401001,
+        0.3526257872581482,
+        0.35262566804885864
+      ],
+      "orthoScale": 0.85,
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r78/head-local-side.png",
+      "sha256": "f82f198559f08b7df36a0893d6211a441100178452dccb74542f7d5bb2dbb126"
+    },
+    {
+      "name": "CAM-r78-head-opposite-side",
+      "location": [
+        -4.400000095367432,
+        1.899999976158142,
+        0.5099999904632568
+      ],
+      "quaternion": [
+        0.35262569785118103,
+        0.35262569785118103,
+        -0.6129071116447449,
+        -0.6129071116447449
+      ],
+      "orthoScale": 0.85,
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r78/head-opposite-side.png",
+      "sha256": "c4438c6de1a6358a5c6ed48773b5e2eef6f2605773f2e2ef4c8edb790779b42e"
+    }
+  ],
+  "status": "diagnostic-only; anatomy unchanged; critic pending",
+  "finding": "Low front still rounded underside; near side tapers; far side wing occluded. No production claim.",
+  "checkpoint": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r78/charizard-home-r78-head-intake.blend",
+  "checkpointSha256": "1d1841d2cc012cb9db3d81439ec345ece1bfb99e62608195db268ebf8d5b17d0"
+}
