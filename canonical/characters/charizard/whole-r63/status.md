@@ -5,3 +5,5 @@ Native body duplicate from retained R54. Selected ellipse (x/.18)^2+((z+.30)/.20
 Initial audit read stale object data while EDIT_MESH and incorrectly reported zero; overwritten after settled ObjectMode read. Actual6770changed,maxdelta.005563259,protected0. Saved final ObjectMode checkpoint. Root inspected four views: central bands calmer, lower perimeter bands remain. No obvious whole silhouette loss observed; critic reviewing for patch rim/dent/shrink. Not retained yet. No textures/rig gate.
 
 Matched800px abdomen before/after renders inspected. Central stacked bands visibly reduced; lower and side bands outside patch persist. Root supports limited regional retention, independent final review pending. No additional smoothing applied.
+
+Final: RETAIN regional central-abdomen cleanup. XHIGH independently compared all4 against R54: materially calmer bands, convex belly preserved, no apparent dent or new elliptical rim, rear no regression. Lower/lateral bands remain; whole-torso gate open. Close pass without more amplitude changes.
