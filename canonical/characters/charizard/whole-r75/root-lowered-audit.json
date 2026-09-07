@@ -1,0 +1,11 @@
+{
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r75/charizard-home-r75-root-lowered-trial.blend",
+  "operation": "native proportional GZ -0.07; Smooth connected radius 0.14; 96 upper-root vertices selected",
+  "changedVertices": 1884,
+  "vertices": 185008,
+  "faces": 366485,
+  "boundaryEdges": 236,
+  "overconnectedEdges": 0,
+  "inconsistentEdges": 0,
+  "review": "Root inspected all four renders. Spur reduced; small stepped ridge remains. Critic pending. Trial only."
+}
