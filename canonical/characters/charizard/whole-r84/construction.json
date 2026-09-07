@@ -1,0 +1,9 @@
+{
+  "status": "incomplete coarse construction; not retained",
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r84/charizard-home-r84-coarse-head-pair.blend",
+  "sha256": "7596aa96c4ae32530c986c8e796545f6f1dff8c9ca0bca2aa1c88e2e3e4180b3",
+  "method": "Native cube extrude, taper and bevel; posed upper shell and duplicate lower jaw. Native posterior roof raise and width correction. bpy selection/camera/file/audit only.",
+  "review": "Actual isolated side render inspected. Slab-like upper and lower forms; skull and cheek mass unresolved. Needs coordinated form correction before full-body comparison. Original head/body preserved.",
+  "render": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r84/isolated-side.png",
+  "productionApproved": false
+}
