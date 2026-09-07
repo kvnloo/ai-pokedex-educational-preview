@@ -5,3 +5,5 @@ Native plane, rotateX90, scale.4 and translate(.55,-.2,.2); Subdivide twice give
 Native scaleX.5 about cursorX.15 brought the9columns into X.15..95 spacing.1. Saved width-fit.blend; row/column index map captured for native fitting. Still rectangular/unfitted, not an accepted membrane.
 
 All45controls now fitted through native individual GXYZ moves. Grouped columntransform attempt changed unintended controls and was reverted to root-column.blend. Explicit clearface/edge selection fixed execution. Final targeterror8.43e-8. Saved fitted-cage.blend. Front overlay inspected; reverse/side and standalone sheet review still pending. No modifiers or surface acceptance.
+
+Inspected side/rear cageoverlay, then wholeguidehidden standalone sheet fourrenders. Rootgap and missing leadingrim/knuckle explicit. Native Ctrl1 + ShadeSmooth preview, renderlevel mechanically matched1; four subdiv renders. Frontpreview smoother but plainSubsurf rounds trailingtips; notaccepted. Current subdiv-preview.blend. Need supported corners and originalrim extraction/attachment. Originalguide intacthidden.
