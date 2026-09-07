@@ -1,0 +1,8 @@
+{
+  "status": "rejected-restored-r131",
+  "trial": "Native Smooth Vertices .5 repeat10 selected290collar vertices; Z toggle did not apply, so XYZ smoothing collapsed collar height. Restored saved R131.",
+  "diagnostic": "All collar faces smooth; no custom normals or sharp edges. Visible ridges are geometric.",
+  "boundedCritic": "Do not keep deforming long irregular strips. On working copies discard collar, extend/cap foot inside leg, remove original foot and cap leg inside overlap, Exact Boolean Union then masked native sculpt smoothing. No need to replace more leg.",
+  "previewTool": "Reusable mechanical preview executed successfully, hides8522original foot vertices, restores modifier/group/visibility/camera.",
+  "next": "Use rollback R130 foot and working body copy for volume union experiment. Original retained anatomy stays intact."
+}
