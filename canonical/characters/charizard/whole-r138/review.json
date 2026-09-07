@@ -1,0 +1,17 @@
+{
+  "status": "usable-construction-candidate-not-integrated",
+  "method": "Native joined isolated operands, Sculpt Mode via dropdown, Remesh popover voxel .005, native Ctrl+R.",
+  "audit": {
+    "vertices": 29522,
+    "faces": 29520,
+    "boundary": 0,
+    "nonmanifold": 0,
+    "zeroArea": 0,
+    "voxel": 0.004999999888241291
+  },
+  "visual": "Toe forms survive with some softening. Oversized ridged collar remains and must be locally sculpted. Upper cut-cap artifacts remain construction only. No production approval.",
+  "next": "Mask outside ankle band, native Shift-smooth strokes to remove collar while preserving toes/sole. Inspect multiangle before integration.",
+  "uiLesson": "Verify visible Sculpt Mode; dropdown worked. Commit size field before executing remesh; actual vertex-count change proves execution.",
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r138/charizard-home-r138-remesh-candidate.blend",
+  "sha256": "089d59282d20b11957d5095da52724cf290eb235b722140fba36d904d0057b90"
+}
