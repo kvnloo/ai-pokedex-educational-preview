@@ -1,0 +1,39 @@
+{
+  "body_vertices": 167753,
+  "body_faces": 329558,
+  "body_same_index_max_delta": 0.0,
+  "components": [
+    {
+      "name": "GEO-eye-positive-r98",
+      "vertices": 42,
+      "faces": 80,
+      "boundary": 0,
+      "overconnected": 0,
+      "matrix_determinant": 1.0
+    },
+    {
+      "name": "GEO-brow-positive-r98",
+      "vertices": 42,
+      "faces": 80,
+      "boundary": 0,
+      "overconnected": 0,
+      "matrix_determinant": 0.9315000176429749
+    },
+    {
+      "name": "GEO-eye-negative-r98",
+      "vertices": 42,
+      "faces": 80,
+      "boundary": 0,
+      "overconnected": 0,
+      "matrix_determinant": -1.0
+    },
+    {
+      "name": "GEO-brow-negative-r98",
+      "vertices": 42,
+      "faces": 80,
+      "boundary": 0,
+      "overconnected": 0,
+      "matrix_determinant": -0.9315000176429749
+    }
+  ]
+}
