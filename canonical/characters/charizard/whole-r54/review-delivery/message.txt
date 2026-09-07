@@ -1,0 +1,3 @@
+Charizard R54 — native Blender graded tail cross-section reduction. Before R53, then R54. Small reduction of the returning band; the large proximal bulge remains. Root and protected tip coordinates unchanged. Critic review pending; not final/production accepted. Revision 58256c0.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r53/lattice-rear.png
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r54/section-rear.png
