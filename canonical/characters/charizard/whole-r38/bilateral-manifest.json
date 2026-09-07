@@ -1,0 +1,27 @@
+[
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r38/charizard-hybrid-r38-bilateral.blend",
+    "bytes": 8245847,
+    "sha256": "0c9e457400ef424ec438743f91189ef3b8bd416251d7b0f35f9403a9915b7c5e"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r38/bilateral-front.png",
+    "bytes": 1019766,
+    "sha256": "04213024c8dacf1257a2b14727baac61d2aaef5fdab3e29716a6d378f5d421b9"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r38/bilateral-side.png",
+    "bytes": 905275,
+    "sha256": "88689428ffcaab5b6edb6c83b36e77394c12f2dd84db6489534944be0bf08a21"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r38/bilateral-rear.png",
+    "bytes": 1015379,
+    "sha256": "dfb89b6551e4f15f3957f67ff4fb2760f3a95a48e0a7544fae9042db765d95e0"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r38/bilateral-threequarter.png",
+    "bytes": 1029505,
+    "sha256": "b0af53d2cf192f3f0fb1b06341506f073e7db15f6a03bd88b36913217e4d74e5"
+  }
+]
