@@ -1,0 +1,17 @@
+{
+  "GEO-r11-finger-L0.001": {
+    "creasedEdges": 8,
+    "crease": 0.5,
+    "subsurf": 2
+  },
+  "GEO-r11-finger-L1.001": {
+    "creasedEdges": 8,
+    "crease": 0.5,
+    "subsurf": 2
+  },
+  "GEO-r11-finger-L2.001": {
+    "creasedEdges": 8,
+    "crease": 0.5,
+    "subsurf": 2
+  }
+}

@@ -1,0 +1,1 @@
+Native duplicated retained fingers, Ctrl2, middle-ring8 edges per digit ShiftE.5. Verified crease values. Saved supported-bends source/four support renders. Root3q sees modest bend definition restored versus plainSubsurf, but distal roundness remains; not accepted. Need editedside/critic before union. Originals hidden preserved.
