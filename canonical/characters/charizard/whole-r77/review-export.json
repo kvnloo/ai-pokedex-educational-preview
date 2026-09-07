@@ -1,0 +1,16 @@
+{
+  "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r77/charizard-home-r77-cleanup-review.glb",
+  "sha256": "df2a6ea458883fd909880b9503b933b1a90985dc6a4cf78a23251e5b4fbb7cd4",
+  "bytes": 13932560,
+  "validHeader": true,
+  "meshes": 4,
+  "nodes": [
+    "GEO-home-body-wing-r74",
+    "FlameSocket",
+    "GEO-home-tail-crosssection-r54",
+    "GEO-wing-opposite-fit-spar-r75",
+    "GEO-wing-spar-control-r73"
+  ],
+  "animations": 0,
+  "scope": "Static review export, not production ready; reopening pending"
+}

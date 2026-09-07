@@ -1,0 +1,28 @@
+{
+  "meshes": [
+    {
+      "name": "GEO-home-body-wing-r74.001",
+      "vertices": 185093,
+      "triangles": 369948
+    },
+    {
+      "name": "GEO-home-tail-crosssection-r54.001",
+      "vertices": 68773,
+      "triangles": 137308
+    },
+    {
+      "name": "GEO-wing-opposite-fit-spar-r75.001",
+      "vertices": 3690,
+      "triangles": 7376
+    },
+    {
+      "name": "GEO-wing-spar-control-r73.001",
+      "vertices": 3762,
+      "triangles": 7520
+    }
+  ],
+  "socket": {
+    "type": "EMPTY",
+    "parent": "GEO-home-tail-crosssection-r54.001"
+  }
+}
