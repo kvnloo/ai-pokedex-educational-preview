@@ -1,0 +1,13 @@
+{
+  "status": "protected-mask candidate; re-review pending",
+  "source": "charizard-home-r114-protected-cage.blend",
+  "reason": "Initial BSpline cage influenced lip/anterior despite fixed endpoints. Corrected mask zeroes mouth band y>=-.02 and anterior z>=.15 with smooth ramps into lower jaw; no further cage motion.",
+  "audit": {
+    "changed": 326,
+    "mouth_band_changed": 0,
+    "anterior_changed": 0,
+    "max_delta": 0.01111281100667381
+  },
+  "root_review": "Protected head and side opened; smooth contour remains.",
+  "productionApproved": false
+}
