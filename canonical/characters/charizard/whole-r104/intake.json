@@ -1,5 +1,5 @@
 {
-  "status": "native separated lobe guide; replacement not built",
+  "status": "corrected native face separation; replacement not built",
   "source": "whole-r103/charizard-home-r103-jaw-closure.blend",
   "region": "body worldX<-.5 worldZ<-.3",
   "vertices": 19067,
@@ -9,5 +9,6 @@
   "next_construction": "Preserve large volume; native rounded-oval cross-section loft replacing complete outer bend, interfaces fixed. Preserve old lobe guide. No separate-tail globalscaling or further smoothing.",
   "checkpoint_sha256": "504e8998f5d21db7fdaa861c2ffd8a507016116551a8f1bdf56c4e140ecfeafb",
   "interfaces": "251edge body-side loop and236edge already-open return-side loop",
-  "source_trial": "charizard-home-r104-separated-guide.blend; original lobe geometry preserved visible as wire guide"
+  "source_trial": "charizard-home-r104-surface-guide.blend",
+  "correction": "Previous vertex-only separation made19067loose guidevertices and leftbodyintact. Preserved as GUIDE-rejected-loose-lobe-r104. Repeated with explicit37647face selection; actualsurface verified37647faces."
 }
