@@ -1,0 +1,31 @@
+{
+  "status": "camera diagnostic; no geometry edit",
+  "source": "charizard-home-r110-camera-review.blend",
+  "camera": {
+    "location": [
+      1.2,
+      -5,
+      -0.25
+    ],
+    "target": [
+      0,
+      0,
+      0
+    ],
+    "ortho_scale": 2.3,
+    "head_crop_offset": [
+      -0.1,
+      -0.65,
+      0.55
+    ],
+    "head_ortho_scale": 0.55
+  },
+  "qualification": "Approximate HOME-like lower oblique, not calibrated reference match. Original CAM-r50-front was level; first home-low-whole candidate actually raised elevation and is not the chosen lower view.",
+  "root_review": "Whole and head opened. Soft forehead-muzzle shape still present, no scale edit justified yet.",
+  "critic_pending": true,
+  "hashes": {
+    "home-lower-oblique.png": "f34cf5e327bb81b9b6e043706c3dc4788929529759224976bea9f3ca4d33c34f",
+    "home-head.png": "cea59a643754ff482c53678ff15fb77956190010bb80c4a436ae3b8baccd0d05",
+    "charizard-home-r110-camera-review.blend": "ac1adea76d2e61e3c3531a3aa8ec3a1116e955d5c35e38479352ad5293ee1103"
+  }
+}
