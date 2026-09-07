@@ -1,0 +1,30 @@
+{
+  "status": "input-failure-not-promoted",
+  "files": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r72/charizard-home-r72-separated.blend",
+      "bytes": 91233034,
+      "sha256": "f2a676fc907d7650397abcadf87e21c9db7bf5a424fb6f03b0b7300c36f2f0cc"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r72/native-settings.png",
+      "bytes": 417308,
+      "sha256": "66c7b61a20b40bfe24b25e604fd9d38d709a1a4eef634bdb453fb245a79591d9"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r72/charizard-home-r72-cleaned.blend",
+      "bytes": 91206561,
+      "sha256": "9e1fab3fcc9854b2ebef0d83e23adae82112ff6b5526aeb6fed650a51453ddfb"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r72/charizard-home-r72-temporary-cap.blend",
+      "bytes": 91210193,
+      "sha256": "cea04bfb1336856f2fc8509e11a7b3643e1b586317d10f34822f36cc3632a8c6"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r72/input-error.png",
+      "bytes": 453728,
+      "sha256": "b637d95caddb996d78ed9c0a5a7ed1570c2939bebe64607942993c9d7173774b"
+    }
+  ]
+}
