@@ -1,0 +1,10 @@
+{
+  "GEO-eye-positive-r101": {
+    "boundary_vertices": 10,
+    "max_nearest_body_vertex_distance": 0.0
+  },
+  "GEO-eye-negative-r102": {
+    "boundary_vertices": 10,
+    "max_nearest_body_vertex_distance": 0.0
+  }
+}

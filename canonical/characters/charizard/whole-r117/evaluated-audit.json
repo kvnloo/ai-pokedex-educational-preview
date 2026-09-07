@@ -1,0 +1,17 @@
+{
+  "GEO-body-head-joined-r92": {
+    "changed": 345,
+    "max_delta": 0.006417013747091274,
+    "protected_changed": 0
+  },
+  "GEO-eye-positive-r101": {
+    "changed": 12,
+    "max_delta": 0.0035191538278909356,
+    "protected_changed": 0
+  },
+  "GEO-eye-negative-r102": {
+    "changed": 12,
+    "max_delta": 0.0035191542397817383,
+    "protected_changed": 0
+  }
+}
