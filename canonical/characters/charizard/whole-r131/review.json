@@ -1,0 +1,16 @@
+{
+  "status": "construction-not-integrated",
+  "method": "Native 145-vertex ankle boundary flatten Z=-.575, extrude ring, correct initial sideways input to Z=-.51, taper XY .85 then .7 and Y+.04. Shade Smooth invoked.",
+  "vertices": 6633,
+  "review": "Inspected closeup/front/side/rear/threequarter. Collar reaches leg but jagged XY rim causes visible fluting and cuff silhouette. Not acceptable for integration. Next regularize rim rather than more whole-foot transforms. Candidate hidden, original body preserved.",
+  "artifacts": {
+    "foot.png": "8b6575de31f28fa885b243b30fbe6dafb64ef7e21af8c9c4916db51324abfcea",
+    "corrected-foot.png": "0b6a88aa814723b58559b51b41154be2a0ce0273d0b8a47cd9129fde4acadb53",
+    "front.png": "69aa33bdb004058bb28d1e6ecb51743e59e478386295b21dd126a2a43de7a0c7",
+    "side.png": "447132a43ac442004c6fdc0f594c55fef077351f844e0128e197ae82872ccd2e",
+    "rear.png": "820f1e35a978ac1ec70edc5355e51253f743f6f724b6377215ba5e15ae59934d",
+    "threequarter.png": "7a97c30465b4114a0381ea428a8c0c7c5bf96932759fe2503b0ab333ee9ea1ce",
+    "fitted-foot.png": "4f12664c0568cd6ccdaee37a52daaea0d57f79a1659b2045daedd0d4dbdbf695",
+    "charizard-home-r131-fitted-foot-candidate.blend": "4edffdda8806bb836e0a3bb4bd5c12fed668fa81871f62e726deb68ab0d24458"
+  }
+}
