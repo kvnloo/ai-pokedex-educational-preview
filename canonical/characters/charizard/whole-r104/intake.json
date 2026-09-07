@@ -1,0 +1,8 @@
+{
+  "status": "selection intake only; no geometry edits",
+  "source": "whole-r103/charizard-home-r103-jaw-closure.blend",
+  "region": "body worldX<-.5 worldZ<-.3",
+  "vertices": 19067,
+  "visual_review": "Opened front screenshot: body-side blunt lobe selected, haunch unselected. Rear still requires separate-return-tail visibility isolation.",
+  "prior_constraint": "R77 smoothing retained limited cleanup only; no more smoothing or separate-return-tail global scale to fix this region"
+}
