@@ -13,3 +13,7 @@ Native ShadeFlat on base ngon index30 only, smooth sides retained. Verified only
 ## One basal fit
 
 Measured cut47vertices: X[-.4549544,-.4258053],Y[-.5445309,-.5121869],Z~-.11630. Native32basevertices SX1.041 GX.00003 GY-.00302. Apex unchanged (-.43809697,-.51155514,-.13484630). Front/threequarter lip reduced; exposed profile shows abrupt triangular transition. All four fit views rendered; root inspected closeups, independent final verdict requested. No further amplitude series.
+
+## Final verdict: rejected
+
+XHIGH and root reject fitted R62. Exposed profile shows broad straight wedge at flat cut; fitting the footprint did not fit curvature/tangent transition. Whole-view gain insufficient. Restore R54 retained source, preserve R62 studies. No more base scaling/translation series. Protected-body audit remains valid but does not establish visual quality.
