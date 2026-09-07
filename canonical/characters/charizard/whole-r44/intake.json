@@ -1,0 +1,29 @@
+{
+  "source": "R38 bilateral",
+  "nativeDuplicate": "GEO-r44-wing-study-L",
+  "originalPreserved": true,
+  "geometryChanged": false,
+  "rootInspection": "Front detail confirms six-segment angular concave bays; tips/spars remain attached. Preparing boundary curvature trial.",
+  "files": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r44/wing-before-front.png",
+      "sha256": "8c4ceab5065315346adc3c4bbb591da5fc259ecf254d060c3a2c6a914812ac95"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r44/wing-before-side.png",
+      "sha256": "2a66d2e39fe2e30baab8cffbfc7cbeeab79ed93317d3bfedd007f48dceccbc05"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r44/wing-before-rear.png",
+      "sha256": "a225f404db3d9f9cb859e132d9a102b6097319e499ed1791647d2de77ba57895"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r44/wing-before-threequarter.png",
+      "sha256": "1c0cc4a2533d4c50abd72209ee522a4b28901c5717a8a7b60ef99122c99f9e16"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r44/charizard-hybrid-r44-wing-intake.blend",
+      "sha256": "cb15d5ae00f5dac746ffe7269a3b48ab45f46493ff5d928e0358dc876501b9ab"
+    }
+  ]
+}
