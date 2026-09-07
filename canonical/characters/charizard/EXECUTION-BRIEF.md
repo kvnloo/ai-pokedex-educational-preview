@@ -13,10 +13,11 @@ R119 is the retained working checkpoint: R114 anatomy plus longer seated eye ape
 - R117: mechanically clean shared deformation still failed likeness. Coherent control is necessary, not sufficient.
 - R115/R120/R121: smoothing, wall normals and triangulation did not solve the visible target. These paths are closed.
 - R123: compressing an unwanted foot lobe folded its surface. Remove/reconstruct the local lobe rather than escalating retraction.
-- R124: bisect UI parameters failed readback. This was an execution failure, not evidence against the proposed cut.
+- R125: correctly executed local bisect crossed the adjacent true toe base; rejected. R126 confirmed the lobe belongs to the continuous body, not a detachable island.
+- R127: native smoothing (100 iterations) softened the lobe but preserved the false terminal and scalloped the pad; rejected. Close local compression, spatial cut and smoothing routes.
 
 ## Priority and next batch
-1. Correct one foot from four apparent terminals to three. Preserve the true toe roots, sole and ankle. Native local bisect/cap on rollback copy; verify exact operator parameters before geometry review. Do not repeat blind popup-coordinate sequences. A planar cap is construction only.
+1. Correct one foot from four apparent terminals to three. Preserve the true toe roots, sole and ankle. Build a separate clean coarse foot candidate with three distinct claws using native UI, preserving the dense original as rollback. Compare before integration. Do not repeat local patch deformation or spatial cuts.
 2. Resolve the tail slab visible from the side using component construction; preserve the pelvis attachment and existing rollback. Do not revive failed corner pushes or the rejected R104 loft unchanged.
 3. Reassess full-character reference fidelity before further small eye-corner work. The corner is deferred, not solved.
 

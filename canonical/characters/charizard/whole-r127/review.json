@@ -1,0 +1,11 @@
+{
+  "status": "rejected-restored-r119-anatomy",
+  "method": "native Smooth Vertices, factor .5, repeat 100, XYZ; 956 selected medial foot vertices",
+  "finding": "Surface softened but false fourth terminal persists and pad scallops. No retained visual gain. Close deformation/cut trials on this patch; next clean separate foot component blockout preserving source.",
+  "artifacts": {
+    "charizard-home-r127-intake.blend": "f8537a810734bffd120b05f89378e7b64c100fb2a78533c1f5ada8bafb9ac201",
+    "foot.png": "89779e08c9443635e8a01ba8b0f549c0c5bbf7112a10f2a305f66a51c5ba5af0",
+    "charizard-home-r127-smooth-trial.blend1": "b8839edda22d6bacfcff2cd6005782529a37d169e434271366b36c83ebdb1f4f",
+    "charizard-home-r127-smooth-trial.blend": "644f298626e51f1489f293017d7af3f57ee93c3f7b4bb0722ef67336c3ebd874"
+  }
+}
