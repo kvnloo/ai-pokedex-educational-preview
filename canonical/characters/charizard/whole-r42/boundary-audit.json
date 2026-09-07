@@ -1,0 +1,12 @@
+{
+  "GEO-r42-neck-cage": {
+    "boundaryEdges": 16,
+    "faces": 49,
+    "vertices": 96
+  },
+  "GEO-r42-jaw-cage": {
+    "boundaryEdges": 10,
+    "faces": 22,
+    "vertices": 40
+  }
+}
