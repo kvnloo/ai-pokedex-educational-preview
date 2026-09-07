@@ -1,0 +1,3 @@
+Charizard R62: separate short claw built with native Blender controls; old rounded cap trimmed with native Bisect. Original fingertip reach preserved. Corrected base/side shading. Point is clearer but attachment lip remains, so this is still under review—not accepted.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r62/base-flat-front.png
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r62/base-flat-threequarter.png
