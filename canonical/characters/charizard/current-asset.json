@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "pokemon": "charizard",
   "retainedSource": {
-    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r67/charizard-home-r67-retained.blend",
-    "sha256": "39eeb7b1bb5adbbf3fe5105e170b4c31a8c49e9183a13491b00ab63b6b828169",
-    "scope": "positive-X front haunch surface cleanup",
-    "knownLimitation": "residual facets around patch; broader mesh still unfinished",
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r74/charizard-home-r74-grafted.blend",
+    "sha256": "7666fb52d1cdb77b86223afd0f9e3ce1a28d65e40db4c9383f5ccfac44a99597",
+    "scope": "R67 cleaned body plus rebuilt positive-X wing membrane/collar and separate spar",
+    "knownLimitation": "Planar membrane, thick root transition, capped spar contact and opposite-wing mismatch remain; whole character unfinished",
     "wholeAssetQualityGate": "needs-work"
   },
   "retainedLineage": [
@@ -13,7 +13,9 @@
     "whole-r63",
     "whole-r65",
     "whole-r66",
-    "whole-r67"
+    "whole-r67",
+    "whole-r73",
+    "whole-r74"
   ],
   "pendingCandidate": null,
   "qualityGate": "needs-work",
@@ -30,5 +32,5 @@
     "Runtime flame and attack effects",
     "Stats and playable game integration"
   ],
-  "latestReview": "whole-r67/status.md"
+  "latestReview": "whole-r74/graft-review.json"
 }

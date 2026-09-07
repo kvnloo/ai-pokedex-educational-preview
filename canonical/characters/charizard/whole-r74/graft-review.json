@@ -1,7 +1,8 @@
 {
-  "status": "construction-candidate-review-pending",
+  "status": "retained-construction-candidate",
   "productionApproved": false,
   "rootReview": "All4 renders inspected. Cleaner R67 torso and R73 wing preserved, no visible new transfer seam. Root thickness, spar cap and planar membrane unresolved.",
   "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r74/charizard-home-r74-grafted.blend",
-  "sha256": "7666fb52d1cdb77b86223afd0f9e3ce1a28d65e40db4c9383f5ccfac44a99597"
+  "sha256": "7666fb52d1cdb77b86223afd0f9e3ce1a28d65e40db4c9383f5ccfac44a99597",
+  "criticReview": "XHIGH critic inspected all12 R74/R67/R73 views. Retain: cleaned torso and wing contour preserved, no new graft seam, gap or silhouette break. Existing root, membrane and opposite-wing limitations remain."
 }
