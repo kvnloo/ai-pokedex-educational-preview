@@ -1,0 +1,7 @@
+{
+  "status": "rejected; intake restored",
+  "method": "Native Bisect planeY=-.515 normal+Y,local2686face selection,clearinner; cap trial",
+  "finding": "Extra point removed, but cut/cap intrudes into adjacent toe transition. Fails preserved toe-root gate.",
+  "execution_lesson": "Keyboard Tab traversal populated numeric fields; immediate MCP readback preceded UI completion. Allow operation to settle before reading.",
+  "next": "Do not repeat this spatial cut. Need topological isolation of medial lobe before any further removal."
+}
