@@ -1,6 +1,6 @@
 {
   "iteration": "r53",
-  "qualityGate": "review-pending",
+  "qualityGate": "regional-retain-whole-character-needs-work",
   "files": [
     {
       "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r53/cage-before.json",
@@ -16,6 +16,11 @@
       "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r53/charizard-home-r53-lattice.blend",
       "bytes": 19946835,
       "sha256": "45371f889a168eff6d4161300c647f5edcc399e4b5205d7de03a499b389a6790"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r53/charizard-home-r53-retained.blend",
+      "bytes": 19944898,
+      "sha256": "ddce9aa40e11b17fb7318e0d1234ac2080f2265f70b591cb2e3fd2d3edcb4f0e"
     },
     {
       "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r53/lattice-audit.json",
@@ -41,6 +46,11 @@
       "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r53/lattice-threequarter.png",
       "bytes": 1146560,
       "sha256": "6b7e6a46f7c4e5cbf3487bb58bed926e34265f90b512d8ca329582a12448e13f"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r53/socket-audit.json",
+      "bytes": 615,
+      "sha256": "6526b4b9cc82d74c55b7020432bd5d887088d9e6533b23872970f12eb2ea1657"
     }
   ]
 }

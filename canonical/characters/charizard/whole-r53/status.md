@@ -1,7 +1,9 @@
-# R53 tail lattice study — visual review pending
+# R53 — retained regional reach improvement
 
-Source R51 preserved. Native lattice deformation shortens the posterior tail loop using a 2 × 4 × 2 B-spline cage. Native G Y moves: row 2 −0.05; row 3 −0.12. X/Z controls unchanged. Boundary-weight pinning and modifier binding were mechanical MCP setup; geometry deformation was keyboard input.
+Root and xhigh critic inspected four R53 views against R51 and official HOME. Retain only the shorter posterior reach: side and three-quarter improve without a new visible root kink or dent. Rear remains an oversized flattened tail band. Tail and whole-character fidelity gates still fail.
 
-Verified saved Blender filepath and four rendered views. Audit: 67,461 evaluated vertices changed, maximum displacement 0.1083334092 source units; root border displacement exactly zero. Root inspected front, side, rear and three-quarter renders. Side reach is reduced without R52 speckling. Rear remains excessively broad and flattened. This is not accepted tail anatomy or production geometry.
+Native 2×4×2 B-spline cage: row 2 G Y −0.05, row 3 G Y −0.12. X/Z unchanged. Mechanical modifier binding/root weights. 67,461 evaluated vertices changed; maximum displacement 0.1083334092; attachment border displacement zero. R51 originals remain preserved.
 
-Critic decision pending. FlameSocket remains attached to the preserved original tail; its binding must be updated if this candidate is retained. Open construction borders remain. No new GLB, textures, rig, or animation. No merge/push.
+Retained source: private whole-r53/charizard-home-r53-retained.blend. FlameSocket moved to the evaluated mean of the same 108 tip-cap vertices used by the previous socket; original mean matches old socket within 1e-6. Parent is the visible study tail, EMPTY with no children, energyBaked=false. This is a sampled checkpoint position, not automatic lattice following; recompute after further deformation.
+
+No new GLB, topology acceptance, textures, rig or animation. Open construction borders remain. Next bounded target: swollen loop cross-section, not more posterior displacement. Telegram before/after preview confirmed message 17332. No merge/push.

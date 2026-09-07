@@ -1,0 +1,26 @@
+{
+  "capVertices": 108,
+  "originalCapMean": [
+    0.8085157871246338,
+    0.4315573275089264,
+    -0.40499991178512573
+  ],
+  "evaluatedCapMean": [
+    0.8085157871246338,
+    0.4230671525001526,
+    -0.40499991178512573
+  ],
+  "oldSocket": [
+    0.8085156679153442,
+    0.43155738711357117,
+    -0.40499991178512573
+  ],
+  "newSocket": [
+    0.8085157871246338,
+    0.4230671525001526,
+    -0.40499991178512573
+  ],
+  "parent": "GEO-home-tail-lattice-study-r53",
+  "energyBaked": false,
+  "binding": "object parent; socket sampled from evaluated cap mean at checkpoint, not automatic lattice-follow constraint"
+}

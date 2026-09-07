@@ -1,0 +1,3 @@
+Charizard R53 study — review pending, not final. Native Blender lattice shortened the oversized backward tail loop while keeping the attachment border fixed. No new surface speckling, but the tail is still too broad/flattened. Max planner and xhigh critic are reviewing it. Revision 8aed95d. First: R51 side baseline; second: R53 side candidate.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r51/split-side.png
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r53/lattice-side.png
