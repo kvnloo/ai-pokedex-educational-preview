@@ -1,0 +1,14 @@
+{
+  "vertices": 185093,
+  "faces": 366666,
+  "boundaryEdges": 236,
+  "windingErrors": 0,
+  "overconnectedEdges": 0,
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r76/charizard-home-r76-bridge-trial.blend",
+  "operator": {
+    "cuts": 0,
+    "interpolation": "PATH",
+    "twist": 0
+  },
+  "review": "Front rear threequarter opened. Closed but serrated body-side seam remains; critic pending. Not promoted."
+}
