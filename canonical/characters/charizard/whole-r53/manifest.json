@@ -1,0 +1,46 @@
+{
+  "iteration": "r53",
+  "qualityGate": "review-pending",
+  "files": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r53/cage-before.json",
+      "bytes": 1004,
+      "sha256": "5a835c7afd7ca00630f758a56aced0bd4ebb3de729957c653f133c62397a5073"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r53/charizard-home-r53-intake.blend",
+      "bytes": 19801291,
+      "sha256": "eb897c3f7bb508220801eede76183c566582d03c8a9166d9e4e3ce5fe4925568"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r53/charizard-home-r53-lattice.blend",
+      "bytes": 19946835,
+      "sha256": "45371f889a168eff6d4161300c647f5edcc399e4b5205d7de03a499b389a6790"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r53/lattice-audit.json",
+      "bytes": 1558,
+      "sha256": "2139a44b3bb1b5dfa1fc9f0e87e4e7c84cfa5cde20a62b326b6304a78cd6107f"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r53/lattice-front.png",
+      "bytes": 1192765,
+      "sha256": "df4ee1e3ba6c23a21fd319a9e8e4cc74d1b95a772f8bf0876a4f3e95b623e736"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r53/lattice-rear.png",
+      "bytes": 1169309,
+      "sha256": "2e6b44c76dc98918597baae2b62fa6881052504931f7b300f84cb5e07f773789"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r53/lattice-side.png",
+      "bytes": 1050880,
+      "sha256": "6e80c39a8b909065a50eb02585da3de9cbb7e38aba9fae446085c3fb2fc80530"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r53/lattice-threequarter.png",
+      "bytes": 1146560,
+      "sha256": "6b7e6a46f7c4e5cbf3487bb58bed926e34265f90b512d8ca329582a12448e13f"
+    }
+  ]
+}
