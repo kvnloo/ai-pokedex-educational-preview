@@ -1,0 +1,3 @@
+R66 retained after four-view critic review: chest/lower-throat streaks reduced, rounded side projection preserved. A faint lower patch transition remains; this is regional cleanup, not seamless or finished geometry.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r66/chest-front.png
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r66/chest-threequarter.png

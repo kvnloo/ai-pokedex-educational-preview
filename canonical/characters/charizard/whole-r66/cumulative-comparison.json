@@ -1,0 +1,20 @@
+{
+  "before": "R54 body and retained tail",
+  "after": "R66 body and same retained tail",
+  "camera": "CAM-r50-front",
+  "resolution": [
+    1000,
+    1000
+  ],
+  "purpose": "Cumulative regional cleanup, not whole-asset acceptance",
+  "artifacts": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r66/cumulative-after.png",
+      "sha256": "32b2a80e7fc66458e88a775ce2f826e04c4f26ea4d3a29ad366a25a7849e53dd"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r66/cumulative-before.png",
+      "sha256": "e8858fccd9b6c059981d89813d07d205c88dbc22b435f0527782a7da90279944"
+    }
+  ]
+}
