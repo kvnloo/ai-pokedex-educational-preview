@@ -1,0 +1,10 @@
+{
+  "status": "construction study; no production approval",
+  "retained": "R80",
+  "productionApproved": false,
+  "rootReview": "Physical separation verified: one157edge neckloop, degree2;166392belowcut vertices match evaluated R80 with nearest delta0. All3renders inspected, oldjaw/horn scraps removed. Head detached awaiting transition.",
+  "sources": {
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r88/charizard-home-r88-neck-intake.blend": "007a4dbdb453029b2d6e51474435bf61e839191c73ac14cf3510665a9bcdcbb3",
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r88/charizard-home-r88-physical-neck-boundary.blend": "0382aa5bc4ac5a67157550b831d0686768f17a3601386c1fa1cb3ebf63999424"
+  }
+}

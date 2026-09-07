@@ -1,0 +1,13 @@
+{
+  "neckBoundaryComponents": 1,
+  "neckBoundaryEdges": [
+    157
+  ],
+  "degrees": [
+    2
+  ],
+  "bodyVertices": 167103,
+  "headGuideVertices": 18234,
+  "belowCutComparedVertices": 166392,
+  "belowCutMaxNearestDelta": 0.0
+}
