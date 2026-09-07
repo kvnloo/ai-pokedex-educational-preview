@@ -1,0 +1,21 @@
+{
+  "qualityGate": "incomplete",
+  "artifacts": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r62/charizard-home-r62-claw-staged.blend",
+      "sha256": "00849a3ee128d61b2810b3b5f91bd3db9b0009bbc6029eb4890f6a8ae350209b"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r62/charizard-home-r62-intake.blend",
+      "sha256": "5d2b60b3297bf4ccc5b5011992580742dd3c61e8469e6c7cac27a1d0f2065bca"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r62/claw-audit.json",
+      "sha256": "7dd59e3ca502f2f2239e108c41d30a8188fa3daf524521842e10557c17c11d9d"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r62/staged-front.png",
+      "sha256": "ba1071b9a2c5856181f461aeab3e36566be5f13a2c561a4976a43b9ae28d811e"
+    }
+  ]
+}
