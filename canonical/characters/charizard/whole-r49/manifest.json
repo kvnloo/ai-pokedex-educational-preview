@@ -1,0 +1,47 @@
+{
+  "home-r09-front.png": {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r49/home-r09-front.png",
+    "bytes": 1099580,
+    "sha256": "79e903568ef336a32fe78bfee9ffe3d69a78224d98f3236fad0e924fd7380a4b"
+  },
+  "home-r09-side.png": {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r49/home-r09-side.png",
+    "bytes": 967916,
+    "sha256": "58e026bc818d95cb1363e8a2ad80217267079f85969bdacbeffe800ef80b967d"
+  },
+  "home-r09-rear.png": {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r49/home-r09-rear.png",
+    "bytes": 1003297,
+    "sha256": "b7ff21d43ffee06c27f6caadd2e36c0a4761c1eaa08ed8a765cf1f78dcef59b4"
+  },
+  "home-r09-threequarter.png": {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r49/home-r09-threequarter.png",
+    "bytes": 1042848,
+    "sha256": "1df69219c245db09fa90abac60ff512412bdb7d35702ced4f479895643c09e46"
+  },
+  "manual-r46-front.png": {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r49/manual-r46-front.png",
+    "bytes": 1018233,
+    "sha256": "8e92202156e28cad77ea26d551ee1644e2528b2ced7fd2c91a83f53cd14e93e4"
+  },
+  "manual-r46-side.png": {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r49/manual-r46-side.png",
+    "bytes": 904748,
+    "sha256": "1f5904300c15bbd437334eb9f4608c04c5e4662f4fcfd66d221540b1a6fc8c7c"
+  },
+  "manual-r46-rear.png": {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r49/manual-r46-rear.png",
+    "bytes": 1010255,
+    "sha256": "27c365fefc019ec72b42e6453deb5fdc140114f1a867f404fb7119be8da90179"
+  },
+  "manual-r46-threequarter.png": {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r49/manual-r46-threequarter.png",
+    "bytes": 1027308,
+    "sha256": "dbf91f23f888939872dc0ec203d74691fb6b7af8ac619647e9f2ed3527389d3b"
+  },
+  "comparison.json": {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r49/comparison.json",
+    "bytes": 1999,
+    "sha256": "477ad389b715a9d44bec5752b3fc8505176b29772ceb1b75e48da2d7457213db"
+  }
+}
