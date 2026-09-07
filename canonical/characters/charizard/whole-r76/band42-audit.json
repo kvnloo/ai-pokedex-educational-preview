@@ -1,0 +1,12 @@
+{
+  "boundaryLoops": [
+    236,
+    42,
+    42
+  ],
+  "pinchVertices": 0,
+  "overconnectedEdges": 0,
+  "vertices": 185093,
+  "faces": 366624,
+  "status": "unbridged construction; fit and visual gates pending"
+}
