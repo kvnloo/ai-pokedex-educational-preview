@@ -1,0 +1,22 @@
+{
+  "parts": [
+    {
+      "name": "GEO-home-body-root-r51",
+      "verts": 276640,
+      "faces": 553042,
+      "boundaryEdges": 236,
+      "maxSourceDelta": 0.0
+    },
+    {
+      "name": "GEO-home-tail-distal-r51",
+      "verts": 68773,
+      "faces": 137252,
+      "boundaryEdges": 236,
+      "maxSourceDelta": 0.0
+    }
+  ],
+  "sharedBorderDuplicatedVertices": 236,
+  "socketMatrixDelta": 0.0,
+  "openConstructionBorders": true,
+  "productionAccepted": false
+}
