@@ -1,0 +1,42 @@
+[
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r41/charizard-hybrid-r41-joined-study.blend",
+    "sha256": "d0bb39f404522ee93ed55305d7e041a31fddc52f0ba75e5f35076632eea7e70f"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r41/joined-front.png",
+    "sha256": "6cb0f3d329ce21e93f32d252b1501ff5f6f1d647a232164ba964cf4fd8a76a1b"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r41/joined-side.png",
+    "sha256": "a012dd56a12016546a0b1d0c1d90798cc58a9b052f3468bc76e68cfcc3143ed3"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r41/joined-rear.png",
+    "sha256": "6fdc3974d81f4d192f2fda603078762b8d4e672d8d37eff6a96d816da4a533a8"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r41/joined-threequarter.png",
+    "sha256": "e44741cf62e2baa98db69730b2477fd38b575a024262a25145a215d7f1cefff9"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r41/charizard-hybrid-r41-union.blend",
+    "sha256": "61f2303de9b51ba984ca1164b2ec3f3ade4ae56932577aad4dc8d49b0e1dbe8b"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r41/union-front.png",
+    "sha256": "6961bfc469c2199d7f5dac1c2807647b338dfec8d603e2068df2623161bebe5a"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r41/union-side.png",
+    "sha256": "75d5b2709733538ff4ed1dcf167a1c049e4afd901a85ec3d098a369b9d3c8f82"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r41/union-rear.png",
+    "sha256": "4315bd645408136efc8e9f6586dda3fcc4b1380d6581c5a91e60f82d0250fc86"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r41/union-threequarter.png",
+    "sha256": "97d601239a1b87195e924280b85faa6db27c111e02ed432c8ad805bd1333c956"
+  }
+]
