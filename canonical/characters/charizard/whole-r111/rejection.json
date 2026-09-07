@@ -1,0 +1,12 @@
+{
+  "status": "rejected and restored R109 anatomy via R110 camera source",
+  "critic": "Close dip reduction small, dominant rounded cap unchanged; whole-scale gain not convincing. Side does not establish clearer reference transition. Close amplitude loop.",
+  "audit": {
+    "file": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r111/charizard-home-r111-bridge-trial.blend",
+    "changed": 20,
+    "new_zero_area": 0,
+    "normal_reversals": 0
+  },
+  "lesson": "No technical damage is insufficient for visual retention; moderate-confidence saddle hypothesis not validated.",
+  "next": "Larger reference-supported head form target; no more saddle lift amplitudes."
+}
