@@ -1,0 +1,2 @@
+Charizard R51: distal tail separated natively into its own component. Pelvic root/body left intact; every vertex position and total face count preserved. FlameSocket reparented with exact world pose preserved. Open matching borders are temporary construction edges. This prepares the oversized loop for controlled shape correction; no cosmetic gain claimed yet.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r51/split-side.png
