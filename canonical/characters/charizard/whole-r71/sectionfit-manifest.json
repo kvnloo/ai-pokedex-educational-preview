@@ -1,0 +1,35 @@
+{
+  "status": "not-promoted",
+  "files": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r71/charizard-home-r71-sectionfit-intake.blend",
+      "bytes": 104057996,
+      "sha256": "dc309ddf19cf6961793775921d0eed126b2c9df28aeb06edb8b52b9b5d049543"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r71/charizard-home-r71-sectionfit.blend",
+      "bytes": 104056290,
+      "sha256": "ea009ee12ac137f94c795d972424c289341d938baa1f0603972930a4be37d321"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r71/sectionfit-front.png",
+      "bytes": 1190097,
+      "sha256": "9ab6947f391d3205c15ed4826293f3feee69bdf3cfd8658ee71bafbeab21789f"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r71/sectionfit-side.png",
+      "bytes": 1050611,
+      "sha256": "02197298bbc9803774a8c3a11f77ecdb73380e6400cb49ad51b87d14c27f4423"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r71/sectionfit-rear.png",
+      "bytes": 1168013,
+      "sha256": "43a1b889036c613ba68f3cd6a1439e084f19977093140116cff1da529d985639"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r71/sectionfit-threequarter.png",
+      "bytes": 1142315,
+      "sha256": "99751f7b0028f055eaabf0a1f9f5295fec71275ec3bc31e2d3a9d61a50e74239"
+    }
+  ]
+}

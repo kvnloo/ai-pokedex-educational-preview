@@ -1,0 +1,3 @@
+Charizard R71 measured wing fit: rejected, not a new final. The broad membrane remains uneven and the change sharpens the transition above the scallop. I restored Blender to retained R67 and preserved the trial. Images: reduced baseline, then section-fit trial. MAX planning and XHIGH visual critic are active; no rigging/texturing or promotion.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r71/reduced-threequarter.png
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r71/sectionfit-threequarter.png
