@@ -1,0 +1,8 @@
+{
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r76/charizard-home-r76-surface-relax.blend",
+  "operation": "Native306newverts SelectMore twice SmoothVertices0.5 ten passes",
+  "boundaryEdges": 236,
+  "overconnectedEdges": 0,
+  "windingErrors": 0,
+  "review": "Front rear threequarter and oblique detail opened. Sharp teeth removed; faint ripple and upper shelf remain. Critic pending; registry remainsR75."
+}
