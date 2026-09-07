@@ -12,5 +12,5 @@
     "GEO-wing-spar-control-r73"
   ],
   "animations": 0,
-  "scope": "Static review export, not production ready; reopening pending"
+  "scope": "Static review export, not production ready; reopened geometry/node audit recorded in reopen-audit.json; reimport render not yet verified"
 }

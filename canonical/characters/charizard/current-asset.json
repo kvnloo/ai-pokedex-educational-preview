@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "pokemon": "charizard",
   "retainedSource": {
-    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r76/charizard-home-r76-surface-relax.blend",
-    "sha256": "5b8fba06df307889e5f0123fa50131b0eb55df0b70db42c30a528a8b43e05a31",
-    "scope": "R75 character with graded opposite-wing collar and bounded native seam relaxation",
-    "knownLimitation": "Upper collar shelf, abrupt spar cap and faint ripple remain; character form, head, feet and tail unfinished",
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r77/charizard-home-r77-lobe-cleanup.blend",
+    "sha256": "6d7062079f1f18337700d2f5fb62381588aacd370b32f92209e5465bb4c011fe",
+    "scope": "R76 collar repair plus protected proximal body-lobe surface cleanup",
+    "knownLimitation": "Broad flat proximal lobe and angular turn remain; collar shelf/spar cap, head, feet and overall form unfinished",
     "wholeAssetQualityGate": "needs-work"
   },
   "retainedLineage": [
@@ -17,7 +17,8 @@
     "whole-r73",
     "whole-r74",
     "whole-r75",
-    "whole-r76"
+    "whole-r76",
+    "whole-r77"
   ],
   "pendingCandidate": null,
   "qualityGate": "needs-work",
@@ -34,5 +35,5 @@
     "Runtime flame and attack effects",
     "Stats and playable game integration"
   ],
-  "latestReview": "whole-r76/surface-relax-audit.json"
+  "latestReview": "whole-r77/lobe-cleanup.json"
 }
