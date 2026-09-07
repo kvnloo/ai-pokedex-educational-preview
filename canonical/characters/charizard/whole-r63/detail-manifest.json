@@ -1,0 +1,13 @@
+{
+  "qualityGate": "review-pending",
+  "artifacts": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r63/detail-after.png",
+      "sha256": "cecf0d09507a3b96429a6239080ab7a281decc792031db73a9b8cd011c99eb29"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r63/detail-before.png",
+      "sha256": "951e020e97fd32c3725fcc4977c8817319e855e8ad9756f9e0b5d28b835d781f"
+    }
+  ]
+}
