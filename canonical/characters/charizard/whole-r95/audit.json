@@ -1,0 +1,10 @@
+{
+  "source_vertices": 167753,
+  "trial_vertices": 167753,
+  "changed_vertices_above_1e-6": 141,
+  "maximum_delta": 0.020000035717862314,
+  "protected_vertices": 167559,
+  "protected_max_delta": 0.0,
+  "changed_max_headlocal_transverse_or_forward_delta": 3.4924596548080444e-08,
+  "method": "Native head-oriented G Y .020, connected proportional SMOOTH radius .075; outside cap edit-hidden; source/current same-index audit."
+}

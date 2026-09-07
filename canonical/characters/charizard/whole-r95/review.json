@@ -1,0 +1,15 @@
+{
+  "status": "critic-pending; no promotion",
+  "method": "Native upper-cap proportional translation in HEAD-R95 orientation from preserved head matrix. Mechanical mask/selection only:194 cap vertices visible,30 selected. G Y .020; connected Smooth radius.075. All edit hiding cleared after transform.",
+  "root_review": "Opened side, low-front, whole, front and rear. Clearer full-width lifted nasal cap and dip behind it; low-front may be too blocky/high. No width/reach edit; protected vertices unchanged.",
+  "files": {
+    "charizard-home-r95-muzzle-intake.blend": "abe3eaef040c3dfd1fc03144e080f9267f06e543f46c84cdc7ad0c1b364df6aa",
+    "charizard-home-r95-lifted-cap.blend": "e2ea980f5278bbbb4db8dc30f2eb60575db9ad10b34c05d02c6be17793ee305a",
+    "side.png": "be801a2de4cafb1920772c5fbaaf5e75ad74b3a933a015053932b86294f9b4f5",
+    "low-front.png": "1e12989205845f7940e91c50faa10b8a3ee177fef60833f49dc337006e20a82c",
+    "whole.png": "7ece4d1bcc134e45985b1547d7bcdaac97e52cf7b15adc316a96cfffe9e32a49",
+    "audit.json": "fcc72859c664cb8cde054890f5c7fec41aa968d56722d4726abb46e2a79cd952",
+    "front.png": "351c066e41634f54363d39964006618c5d08825d0272b6c48bf68083c26c3945",
+    "rear.png": "399023ab6bf2223010a073ef0121c4ef9df9bfd847526b01f409ba2b0884210b"
+  }
+}
