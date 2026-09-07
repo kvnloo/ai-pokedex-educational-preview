@@ -1,0 +1,651 @@
+{
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r38/charizard-hybrid-r38-bilateral.blend",
+  "sourceReopened": true,
+  "glb": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r38/charizard-blockout-r38.glb",
+  "glbReopened": true,
+  "meshCount": 27,
+  "controlVertices": 170106,
+  "evaluatedTriangles": 342908,
+  "parts": [
+    {
+      "name": "GEO-r11-body-pear",
+      "component": "body",
+      "controlVertices": 222,
+      "evaluatedVertices": 922,
+      "triangles": 1840,
+      "bounds": [
+        [
+          -0.39970648288726807,
+          0.3997063636779785
+        ],
+        [
+          -0.30365729331970215,
+          0.30365726351737976
+        ],
+        [
+          0.21896538138389587,
+          1.0430635213851929
+        ]
+      ],
+      "nonmanifoldEdges": 0,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "GEO-r32-leg-dense-study-L",
+      "component": "body",
+      "controlVertices": 34752,
+      "evaluatedVertices": 34752,
+      "triangles": 69500,
+      "bounds": [
+        [
+          -0.5984578132629395,
+          -0.10706290602684021
+        ],
+        [
+          -0.4334634244441986,
+          0.2407512217760086
+        ],
+        [
+          0.0006508231163024902,
+          0.5067460536956787
+        ]
+      ],
+      "nonmanifoldEdges": 0,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "GEO-r32-leg-skin-R",
+      "component": "body",
+      "controlVertices": 34752,
+      "evaluatedVertices": 34752,
+      "triangles": 69500,
+      "bounds": [
+        [
+          0.10706290602684021,
+          0.5984578132629395
+        ],
+        [
+          -0.4334634244441986,
+          0.2407512217760086
+        ],
+        [
+          0.0006508231163024902,
+          0.5067460536956787
+        ]
+      ],
+      "nonmanifoldEdges": 0,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "GEO-r38-hand-union-L",
+      "component": "body",
+      "controlVertices": 42588,
+      "evaluatedVertices": 42588,
+      "triangles": 85172,
+      "bounds": [
+        [
+          -0.5307595729827881,
+          -0.1296851933002472
+        ],
+        [
+          -0.21012656390666962,
+          0.045460522174835205
+        ],
+        [
+          0.674630880355835,
+          1.0071035623550415
+        ]
+      ],
+      "nonmanifoldEdges": 0,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "GEO-r38-hand-union-R",
+      "component": "body",
+      "controlVertices": 42588,
+      "evaluatedVertices": 42588,
+      "triangles": 85172,
+      "bounds": [
+        [
+          0.1296851933002472,
+          0.5307595729827881
+        ],
+        [
+          -0.21012656390666962,
+          0.045460522174835205
+        ],
+        [
+          0.674630880355835,
+          1.0071035623550415
+        ]
+      ],
+      "nonmanifoldEdges": 0,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "GEO-r11-neck",
+      "component": "head-neck",
+      "controlVertices": 96,
+      "evaluatedVertices": 354,
+      "triangles": 704,
+      "bounds": [
+        [
+          -0.23416009545326233,
+          0.2273273766040802
+        ],
+        [
+          -0.2009902000427246,
+          0.18979674577713013
+        ],
+        [
+          0.7958462834358215,
+          1.6029913425445557
+        ]
+      ],
+      "nonmanifoldEdges": 0,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "GEO-r14-jaw",
+      "component": "jaw",
+      "controlVertices": 40,
+      "evaluatedVertices": 144,
+      "triangles": 284,
+      "bounds": [
+        [
+          -0.3713064193725586,
+          0.049600522965192795
+        ],
+        [
+          -0.34072059392929077,
+          0.078874871134758
+        ],
+        [
+          1.4572148323059082,
+          1.6231563091278076
+        ]
+      ],
+      "nonmanifoldEdges": 0,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "GEO-r29-head-sculpt-study",
+      "component": "head-neck",
+      "controlVertices": 14210,
+      "evaluatedVertices": 14210,
+      "triangles": 28416,
+      "bounds": [
+        [
+          -0.36902758479118347,
+          0.0600968636572361
+        ],
+        [
+          -0.3393760025501251,
+          0.08285213261842728
+        ],
+        [
+          1.5412983894348145,
+          1.7148324251174927
+        ]
+      ],
+      "nonmanifoldEdges": 0,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "GEO-r11-membrane-L",
+      "component": "wing-membranes",
+      "controlVertices": 17,
+      "evaluatedVertices": 34,
+      "triangles": 64,
+      "bounds": [
+        [
+          -1.2400000095367432,
+          -0.12986037135124207
+        ],
+        [
+          0.15000000596046448,
+          0.23798316717147827
+        ],
+        [
+          0.7200000286102295,
+          1.5700000524520874
+        ]
+      ],
+      "nonmanifoldEdges": 0,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "GEO-r11-membrane-R",
+      "component": "wing-membranes",
+      "controlVertices": 17,
+      "evaluatedVertices": 34,
+      "triangles": 64,
+      "bounds": [
+        [
+          0.12999999523162842,
+          1.2404344081878662
+        ],
+        [
+          0.1420297473669052,
+          0.23000000417232513
+        ],
+        [
+          0.7197164297103882,
+          1.5701013803482056
+        ]
+      ],
+      "nonmanifoldEdges": 0,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "GEO-r11-finger-spar-L0",
+      "component": "wing-spars",
+      "controlVertices": 16,
+      "evaluatedVertices": 16,
+      "triangles": 28,
+      "bounds": [
+        [
+          -0.8489783406257629,
+          -0.7170552611351013
+        ],
+        [
+          0.15700000524520874,
+          0.203000009059906
+        ],
+        [
+          0.8893765211105347,
+          1.5715934038162231
+        ]
+      ],
+      "nonmanifoldEdges": 0,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "GEO-r11-finger-spar-L1",
+      "component": "wing-spars",
+      "controlVertices": 16,
+      "evaluatedVertices": 16,
+      "triangles": 28,
+      "bounds": [
+        [
+          -0.760460615158081,
+          -0.4119936525821686
+        ],
+        [
+          0.14100781083106995,
+          0.20298007130622864
+        ],
+        [
+          0.9258927702903748,
+          1.5804963111877441
+        ]
+      ],
+      "nonmanifoldEdges": 0,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "GEO-r11-finger-spar-R0",
+      "component": "wing-spars",
+      "controlVertices": 16,
+      "evaluatedVertices": 16,
+      "triangles": 28,
+      "bounds": [
+        [
+          0.7170552611351013,
+          0.8489783406257629
+        ],
+        [
+          0.15700000524520874,
+          0.203000009059906
+        ],
+        [
+          0.8893765211105347,
+          1.5715934038162231
+        ]
+      ],
+      "nonmanifoldEdges": 0,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "GEO-r11-finger-spar-R1",
+      "component": "wing-spars",
+      "controlVertices": 16,
+      "evaluatedVertices": 16,
+      "triangles": 28,
+      "bounds": [
+        [
+          0.4119936525821686,
+          0.760460615158081
+        ],
+        [
+          0.14100781083106995,
+          0.20298007130622864
+        ],
+        [
+          0.9258927702903748,
+          1.5804963111877441
+        ]
+      ],
+      "nonmanifoldEdges": 0,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "GEO-r11-leading-spar-L",
+      "component": "wing-spars",
+      "controlVertices": 50,
+      "evaluatedVertices": 50,
+      "triangles": 96,
+      "bounds": [
+        [
+          -1.2489609718322754,
+          -0.10909684002399445
+        ],
+        [
+          0.09488824009895325,
+          0.23998288810253143
+        ],
+        [
+          0.7164900898933411,
+          1.6077808141708374
+        ]
+      ],
+      "nonmanifoldEdges": 0,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "GEO-r11-leading-spar-R",
+      "component": "wing-spars",
+      "controlVertices": 50,
+      "evaluatedVertices": 50,
+      "triangles": 96,
+      "bounds": [
+        [
+          0.10909684002399445,
+          1.2489609718322754
+        ],
+        [
+          0.09488824009895325,
+          0.23998288810253143
+        ],
+        [
+          0.7164900898933411,
+          1.6077808141708374
+        ]
+      ],
+      "nonmanifoldEdges": 0,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "GEO-r11-tail",
+      "component": "tail",
+      "controlVertices": 112,
+      "evaluatedVertices": 418,
+      "triangles": 832,
+      "bounds": [
+        [
+          -0.20930375158786774,
+          0.8700023293495178
+        ],
+        [
+          0.10817069560289383,
+          0.782543957233429
+        ],
+        [
+          0.05247996002435684,
+          0.5714020133018494
+        ]
+      ],
+      "nonmanifoldEdges": 0,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "GEO-r11-eye-L",
+      "component": "eyes",
+      "controlVertices": 222,
+      "evaluatedVertices": 222,
+      "triangles": 440,
+      "bounds": [
+        [
+          -0.2843421697616577,
+          -0.17973557114601135
+        ],
+        [
+          -0.04727870225906372,
+          0.03864619880914688
+        ],
+        [
+          1.6300095319747925,
+          1.6703897714614868
+        ]
+      ],
+      "nonmanifoldEdges": 0,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "GEO-r11-eye-R",
+      "component": "eyes",
+      "controlVertices": 222,
+      "evaluatedVertices": 222,
+      "triangles": 440,
+      "bounds": [
+        [
+          -0.10227236151695251,
+          0.002334222197532654
+        ],
+        [
+          -0.27228960394859314,
+          -0.1860177218914032
+        ],
+        [
+          1.6300095319747925,
+          1.6703897714614868
+        ]
+      ],
+      "nonmanifoldEdges": 0,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "GEO-r11-horn-L",
+      "component": "hard-parts",
+      "controlVertices": 13,
+      "evaluatedVertices": 13,
+      "triangles": 22,
+      "bounds": [
+        [
+          -0.19406893849372864,
+          -0.029489979147911072
+        ],
+        [
+          -0.01229036320000887,
+          0.20518401265144348
+        ],
+        [
+          1.4823802709579468,
+          1.657416582107544
+        ]
+      ],
+      "nonmanifoldEdges": 0,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "GEO-r11-foot-claw-L0",
+      "component": "hard-parts",
+      "controlVertices": 13,
+      "evaluatedVertices": 13,
+      "triangles": 22,
+      "bounds": [
+        [
+          -0.5149999856948853,
+          -0.4350000023841858
+        ],
+        [
+          -0.4749999940395355,
+          -0.3400799036026001
+        ],
+        [
+          0.03524961322546005,
+          0.11275036633014679
+        ]
+      ],
+      "nonmanifoldEdges": 0,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "GEO-r11-foot-claw-L1",
+      "component": "hard-parts",
+      "controlVertices": 13,
+      "evaluatedVertices": 13,
+      "triangles": 22,
+      "bounds": [
+        [
+          -0.429999977350235,
+          -0.3499999940395355
+        ],
+        [
+          -0.5,
+          -0.3650799095630646
+        ],
+        [
+          0.03524961322546005,
+          0.11275036633014679
+        ]
+      ],
+      "nonmanifoldEdges": 0,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "GEO-r11-foot-claw-L2",
+      "component": "hard-parts",
+      "controlVertices": 13,
+      "evaluatedVertices": 13,
+      "triangles": 22,
+      "bounds": [
+        [
+          -0.3449999988079071,
+          -0.26500001549720764
+        ],
+        [
+          -0.4749999940395355,
+          -0.3400799036026001
+        ],
+        [
+          0.03524961322546005,
+          0.11275036633014679
+        ]
+      ],
+      "nonmanifoldEdges": 0,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "GEO-r11-horn-R",
+      "component": "hard-parts",
+      "controlVertices": 13,
+      "evaluatedVertices": 13,
+      "triangles": 22,
+      "bounds": [
+        [
+          -0.03559747338294983,
+          0.1970653533935547
+        ],
+        [
+          -0.20145806670188904,
+          -0.07458846271038055
+        ],
+        [
+          1.4823802709579468,
+          1.657416582107544
+        ]
+      ],
+      "nonmanifoldEdges": 0,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "GEO-r11-foot-claw-R0",
+      "component": "hard-parts",
+      "controlVertices": 13,
+      "evaluatedVertices": 13,
+      "triangles": 22,
+      "bounds": [
+        [
+          0.26500001549720764,
+          0.3449999988079071
+        ],
+        [
+          -0.4749999940395355,
+          -0.3400799036026001
+        ],
+        [
+          0.03524961322546005,
+          0.11275036633014679
+        ]
+      ],
+      "nonmanifoldEdges": 0,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "GEO-r11-foot-claw-R1",
+      "component": "hard-parts",
+      "controlVertices": 13,
+      "evaluatedVertices": 13,
+      "triangles": 22,
+      "bounds": [
+        [
+          0.3499999940395355,
+          0.429999977350235
+        ],
+        [
+          -0.5,
+          -0.3650799095630646
+        ],
+        [
+          0.03524961322546005,
+          0.11275036633014679
+        ]
+      ],
+      "nonmanifoldEdges": 0,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "GEO-r11-foot-claw-R2",
+      "component": "hard-parts",
+      "controlVertices": 13,
+      "evaluatedVertices": 13,
+      "triangles": 22,
+      "bounds": [
+        [
+          0.4350000023841858,
+          0.5149999856948853
+        ],
+        [
+          -0.4749999940395355,
+          -0.3400799036026001
+        ],
+        [
+          0.03524961322546005,
+          0.11275036633014679
+        ]
+      ],
+      "nonmanifoldEdges": 0,
+      "degenerateTriangles": 0
+    }
+  ],
+  "ratios": {
+    "wingSpan": 2.497921943664551,
+    "abdomenWidth": 0.7994128465652466,
+    "headWorldWidth": 0.42912444844841957,
+    "wingSpanToAbdomenWidth": 3.1246957744013124,
+    "abdomenToHeadWorldWidth": 1.8628928029052518
+  },
+  "referenceRatioLimit": "Head is posed; this world width covers the upper head component, excluding a separate jaw where present. It is not an anatomical head-width measurement or a calibrated reference score.",
+  "socketVerified": true,
+  "textures": 0,
+  "uvLayers": 0,
+  "animations": [],
+  "physicalEnergyBaked": false,
+  "socketContainsGeometry": false,
+  "intentionalConstructionOverlaps": true,
+  "intersectionsPassed": false,
+  "visualGatePassed": false,
+  "productionAccepted": false,
+  "publication": false
+}

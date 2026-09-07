@@ -9,14 +9,14 @@ root=Path(globals().get('artifact_root','/mnt/zer0models/pokemon-iac/characters/
 assert hasattr(bpy.context, 'active_object'), 'Validate in a fresh MCP call after open_mainfile completes'
 scene=bpy.context.scene
 checkpoint=globals().get('checkpoint','r11d')
-assert checkpoint in {'r11d','r11e','r12c','r13f','r13h','r13i','r14c','r14f','r15e','r16b','r17f','r18b','r19a','r20b','r21d','r22b','r24a','r25b','r26b','r27a','r28a','r30a','r31b','r32b','r35'}
+assert checkpoint in {'r11d','r11e','r12c','r13f','r13h','r13i','r14c','r14f','r15e','r16b','r17f','r18b','r19a','r20b','r21d','r22b','r24a','r25b','r26b','r27a','r28a','r30a','r31b','r32b','r35','r38'}
 assert scene.name=='EDIT-charizard-coarse-r11' and len(bpy.data.scenes)==1
-expected_source={'r11d':'charizard-blockout-r11d-review.blend','r11e':'charizard-blockout-r11e-flame-contract.blend','r12c':'charizard-hybrid-r12c.blend','r13f':'charizard-hybrid-r13f-socket-cage.blend','r13h':'charizard-hybrid-r13h-head-turn.blend','r13i':'charizard-hybrid-r13i-head-turn.blend','r14c':'charizard-hybrid-r14c-neck-base.blend','r14f':'charizard-hybrid-r14f-mouth-clearance.blend','r15e':'charizard-hybrid-r15e-belly-transition.blend','r16b':'charizard-hybrid-r16b-neck-flare.blend','r17f':'charizard-hybrid-r17f-independent-crown.blend','r18b':'charizard-hybrid-r18b-graded-haunch.blend','r19a':'charizard-hybrid-r19a-wing-shoulder.blend','r20b':'charizard-hybrid-r20b-throat.blend','r21d':'charizard-hybrid-r21d-digit-bend.blend','r22b':'charizard-hybrid-r22b-broad-tail-root.blend','r24a':'charizard-hybrid-r24a-head-orientation.blend','r25b':'charizard-hybrid-r25b-wing-clearance.blend','r26b':'charizard-hybrid-r26b-jaw-taper.blend','r27a':'charizard-hybrid-r27a-center-claws.blend','r28a':'charizard-hybrid-r28a-orbital-planes.blend','r30a':'charizard-hybrid-r30a-regional-brow.blend','r31b':'charizard-hybrid-r31b-ankle-taper.blend','r32b':'charizard-hybrid-r32b-continuous-legs.blend','r35':'charizard-hybrid-r35-retriangulated.blend'}[checkpoint]
+expected_source={'r11d':'charizard-blockout-r11d-review.blend','r11e':'charizard-blockout-r11e-flame-contract.blend','r12c':'charizard-hybrid-r12c.blend','r13f':'charizard-hybrid-r13f-socket-cage.blend','r13h':'charizard-hybrid-r13h-head-turn.blend','r13i':'charizard-hybrid-r13i-head-turn.blend','r14c':'charizard-hybrid-r14c-neck-base.blend','r14f':'charizard-hybrid-r14f-mouth-clearance.blend','r15e':'charizard-hybrid-r15e-belly-transition.blend','r16b':'charizard-hybrid-r16b-neck-flare.blend','r17f':'charizard-hybrid-r17f-independent-crown.blend','r18b':'charizard-hybrid-r18b-graded-haunch.blend','r19a':'charizard-hybrid-r19a-wing-shoulder.blend','r20b':'charizard-hybrid-r20b-throat.blend','r21d':'charizard-hybrid-r21d-digit-bend.blend','r22b':'charizard-hybrid-r22b-broad-tail-root.blend','r24a':'charizard-hybrid-r24a-head-orientation.blend','r25b':'charizard-hybrid-r25b-wing-clearance.blend','r26b':'charizard-hybrid-r26b-jaw-taper.blend','r27a':'charizard-hybrid-r27a-center-claws.blend','r28a':'charizard-hybrid-r28a-orbital-planes.blend','r30a':'charizard-hybrid-r30a-regional-brow.blend','r31b':'charizard-hybrid-r31b-ankle-taper.blend','r32b':'charizard-hybrid-r32b-continuous-legs.blend','r35':'charizard-hybrid-r35-retriangulated.blend','r38':'charizard-hybrid-r38-bilateral.blend'}[checkpoint]
 assert Path(bpy.data.filepath).name==expected_source
 geometry=[o for o in scene.objects if o.type=='MESH' and not o.hide_render]
 socket=scene.objects['FlameSocket']
 assert socket.type=='EMPTY' and socket.data is None and not socket.children
-if checkpoint in {'r11e','r12c','r13f','r13h','r13i','r14c','r14f','r15e','r16b','r17f','r18b','r19a','r20b','r21d','r22b','r24a','r25b','r26b','r27a','r28a','r30a','r31b','r32b','r35'}:
+if checkpoint in {'r11e','r12c','r13f','r13h','r13i','r14c','r14f','r15e','r16b','r17f','r18b','r19a','r20b','r21d','r22b','r24a','r25b','r26b','r27a','r28a','r30a','r31b','r32b','r35','r38'}:
     assert socket.empty_display_size<=0.05
 assert socket.parent==scene.objects['GEO-r11-tail']
 assert socket.get('energyBaked') is False
@@ -61,7 +61,7 @@ tip=next(o for o in validation.objects if o.get('effect')=='charizard-tail-flame
 assert tip.parent.name.startswith('GEO-r11-tail') and tip.get('energyBaked') is False
 assert (tip.matrix_world.translation-socket.matrix_world.translation).length<1e-5
 assert tip.matrix_world.to_quaternion().rotation_difference(socket.matrix_world.to_quaternion()).angle<1e-5
-head_name='GEO-r29-head-sculpt-study' if checkpoint in {'r30a','r31b','r32b','r35'} else 'GEO-r11-head-block'
+head_name='GEO-r29-head-sculpt-study' if checkpoint in {'r30a','r31b','r32b','r35','r38'} else 'GEO-r11-head-block'
 head=next(s for s in stats if s['name']==head_name)
 body=next(s for s in stats if s['name']=='GEO-r11-body-pear')
 wings=[s for s in stats if s['component'] in {'wing-membranes','wing-spars'}]

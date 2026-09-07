@@ -1,0 +1,1 @@
+REJECTED: native terminal-face normal extrusion .035 added16vertices, preserved original96 coordinates. Root inspected side/threequarter: lateral step persists and new lip exposed beneath chin in threequarter. Restored R38 bilateral source. Preserve rejected .blend and renders. Do not repeat/increase extrusion.

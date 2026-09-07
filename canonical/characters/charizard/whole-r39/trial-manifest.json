@@ -1,0 +1,26 @@
+[
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r39/neck-extension-front.png",
+    "sha256": "3565819d18a20a4439f80761340df626980613317e662ac05b2e1b7ec12ce166"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r39/neck-extension-side.png",
+    "sha256": "d4e3ff88e8ad1e31e92d2ef069494bb18226bc4c00b62136f38b7a2583615d42"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r39/neck-extension-rear.png",
+    "sha256": "5c9ef67dee253bb08fc3b701bc0d0a3a42d724b5c7b50f7f84cffcc1cbfa300c"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r39/neck-extension-threequarter.png",
+    "sha256": "2fed022abd53ee679395f5c2ee9dda46a9afbff23c94dd8c33b40c3d8c0de8de"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r39/charizard-hybrid-r39-neck-extension.blend",
+    "sha256": "8991a72795898addad53876a3ec6d2bc09470bc25f36f432cda8bda4f63a5351"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r38/charizard-blockout-r38.glb",
+    "sha256": "2c62c0d8bfbff5c2a320c6135122937cca9dd93da0a7e7fad17036ce3a2d13c4"
+  }
+]
