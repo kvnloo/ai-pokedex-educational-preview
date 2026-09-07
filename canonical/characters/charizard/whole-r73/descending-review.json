@@ -1,0 +1,32 @@
+{
+  "status": "construction-in-progress-not-promoted",
+  "operation": "From blend-collar, native spar endpoint5 EZ-.07;17controlvertices.",
+  "reference": "Official HOME image re-opened before edit. Downward leading-root continuation inferred from visible reference; rear depth not proven by HOME.",
+  "review": "All four views and closeup inspected. More plausible downward continuity than sideways endpoint trial, but capped joint still visible in threequarter and surfaces not united. Preserve as unfinished construction; blend-collar remains rollback and R67 canonical.",
+  "files": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r73/charizard-home-r73-descending-root.blend",
+      "sha256": "649c21f38630c5d2460ce8e02b2c8be9390f14233f64f3b1f6c623ad4a29abcc"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r73/descending-root.png",
+      "sha256": "b5f920e0a1615ee24e9f370a23ca648655375c3102793ea9da4c5435205d1043"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r73/descending-front.png",
+      "sha256": "bb60f274db1545aba9fbfc0bd9e8ef9447f8bde58f6019de33383d92dac85bd0"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r73/descending-side.png",
+      "sha256": "d8677b5c97f19f570256cd3fadb548376f0f8d75658d7942147c784601041d33"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r73/descending-rear.png",
+      "sha256": "b771c88e2369be9de064e73aa77e91b44e083793f1225656871b85c6312cd08c"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r73/descending-threequarter.png",
+      "sha256": "8c0de6967c989105b7527b118a8c29801efb8074e8ddbd8c5cd7915b8e6e30c4"
+    }
+  ]
+}
