@@ -1,0 +1,26 @@
+{
+  "status": "construction study; eye contour unaccepted",
+  "native_operations": [
+    "Inset six contiguous head quads .003",
+    "Extrude HEAD-X -.004; separate selected inner six faces",
+    "Scale anterior three insert vertices and six body rim vertices HEAD-Y .25 around headY .045; body index167879 required separate correction after separation shifted indices"
+  ],
+  "root_review": "Opened side/low-front/whole for recessed, taper and complete-taper variants. Initial rectangle contained in skull. Taper sharpens front but rear remains panel-like and anterior dark notch requires inspection. No pairing. R99 remains rollback.",
+  "files": {
+    "charizard-home-r100-orbit-intake.blend": "c10c0fb44d0ecfc5ffd04e1dbcc4083689b378e7cbbab0e59a46acaca3100493",
+    "charizard-home-r100-orbit-inset.blend": "9d1e6b27d9cbb7ce1ffc66accb007c813fee8f74ea369bee1e59ad95ea2f87a6",
+    "charizard-home-r100-recessed-eye.blend": "bd018f937ea45b45cfbfef302cb245921f6f9a0d943523b8a066af65bf2e80f7",
+    "side.png": "4137c6e68b912be0d55f3f259ca3a677e6c6fe3016d28e90626fd4342d479424",
+    "low-front.png": "8c1a53aa889c7b088a7158ffebdf5a18f7070fe87981a9d7707f9e01cf1756f1",
+    "whole.png": "4a0697cddd094b4c0bb561660292114f5da1036d0ecdfb87ba1c14ba09674301",
+    "charizard-home-r100-tapered-eye.blend": "63ecf008dd34c78e3ae52afdca0db09e971199cca738a5f3fb5eb8240ea79e8f",
+    "taper-side.png": "562285d1709882dcda8e80e12fecc0ba6cb38981cce77e9ee04a95a40af2c92c",
+    "taper-low-front.png": "7733a181e43095a920a51c6e2ef297c24da1a9d9ab1527b0e3768792838d1db7",
+    "taper-whole.png": "eef6e93479585bdb63843b657f72793cc526d78593c375104ed343a543c8eafb",
+    "charizard-home-r100-complete-taper.blend": "def76eb3f8e6a6f0a68a2ff4dd9d6b0ff1f007a4ebf73044db8b2a988091d66a",
+    "complete-side.png": "dc8721cd4aa0d403033c9b5130ed9a4d482ab2c3fdc26fc95d99c603dbf1ef0a",
+    "complete-low-front.png": "1be776848851777ce203ab01eccf34381dd36ddda53f1408530f316b87f966e8",
+    "complete-whole.png": "31f85ac36811ecd4217166bd4dfc413e79ce706c7ae1f6fd9be5d19c9a465f42",
+    "audit.json": "fafded9d4128b5032a830d7a87c8ec7304ddccda5facbf28fb8f0e15a38825bd"
+  }
+}

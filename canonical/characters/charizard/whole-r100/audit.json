@@ -1,0 +1,17 @@
+{
+  "GEO-body-head-joined-r92": {
+    "vertices": 167899,
+    "faces": 329762,
+    "boundary_edges": 246,
+    "overconnected_edges": 0,
+    "zero_area_faces": 11
+  },
+  "GEO-eye-positive-r100": {
+    "vertices": 12,
+    "faces": 6,
+    "boundary_edges": 10,
+    "overconnected_edges": 0,
+    "zero_area_faces": 0
+  },
+  "status": "construction study; contour not accepted"
+}
