@@ -1,0 +1,15 @@
+{
+  "status": "watertight-construction-operand-not-integrated",
+  "rootCause": "Boundary vertex selection included internal edges/faces. Initial cap had18boundary+28three-face edges. Restored and explicitly selected boundary edges in edge mode.",
+  "nativeMethod": "Flatten rim Z=-.575; extrude then cancel translation; separate native G Z .12; Fill; recalculate normals.",
+  "audit": {
+    "vertices": 6633,
+    "boundaryEdges": 0,
+    "nonmanifoldEdges": 0,
+    "zeroAreaFaces": 0
+  },
+  "visual": "Overlap collar is intentionally oversized, fluted and unfinished. Must fit/fuse and locally sculpt before acceptance. Original retained, candidate hidden.",
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r133/charizard-home-r133-watertight-foot.blend",
+  "sha256": "bd2025c1fff32e6f8b3aefe0fae9080e038190354b7bfeb78c330c860764cf63",
+  "next": "Prepare closed body working copy with original foot removed, union with fitted closed candidate, inspect and locally sculpt."
+}
