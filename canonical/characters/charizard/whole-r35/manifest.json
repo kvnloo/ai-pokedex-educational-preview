@@ -20,5 +20,11 @@
   "repair-front.png": "c3a30f7aadc3451003e1a3a4161427fccf2942028855367afacc74941080067f",
   "repair-side.png": "a05fa98d79d2f4bb462cba9ae94fe3d66ed32cff33ff5632e17d66a6620472cc",
   "repair-rear.png": "1df555e7960a17b74e1b988fd8e553372975098063caa58babcd8e0cf9282cd8",
-  "repair-threequarter.png": "c7b5e05709637c5cec9a80ef348427a329a4d5ec27900bd45ac5315b5e7ec69e"
+  "repair-threequarter.png": "c7b5e05709637c5cec9a80ef348427a329a4d5ec27900bd45ac5315b5e7ec69e",
+  "charizard-blockout-r35.glb": "f9e37215b7f2f14acaae344258528d17f2fe7a3be12dd374194d18d2b2bf91ab",
+  "validation-r35.json": "1a9e568b5ad2f2d718a5b1650eca3ca9801a70228bdbe0fe0a7e07d37ee9d122",
+  "glb-front.png": "717a8bc0ec5cbc109860e5bb0700bb8255dc456cee7ed068571515c56ae90d0f",
+  "glb-side.png": "889d4eda74adfb1659fcac9bfb1a58bb60ad8d3e531b75a08ecb721076fdb663",
+  "glb-rear.png": "fc9783f51739e135e7d90549c29779e2f9d377ae9e95644d3f028bf2295ca968",
+  "glb-threequarter.png": "b6d9430786d3f0d8d75d41bf0f29f2cdb164d9260c6c9a85ed17e8446d7f87b9"
 }
