@@ -1,0 +1,58 @@
+{
+  "status": "construction-in-progress",
+  "files": [
+    {
+      "name": "thickness-audit.json",
+      "sha256": "d52b954297f5f605fc23f387d9c0e07083ddc9e28146deb1c65522e312473b31"
+    },
+    {
+      "name": "charizard-home-r73-thickness.blend1",
+      "sha256": "c1f3e812f0a72b8c6dfe8d3fc2ad0925f4bfa39e07dac00b9f7783726f2a2b92"
+    },
+    {
+      "name": "charizard-home-r73-thickness.blend",
+      "sha256": "72aed9baf2cf5a454bdec3e1154219cd14ebdfc87c842a973536d9c381d62d51"
+    },
+    {
+      "name": "thickness-root.png",
+      "sha256": "85e159fdbf5073c8c64e192d232297d82e5f995c65480e38b45c5563513a5a4a"
+    },
+    {
+      "name": "charizard-home-r73-converted.blend",
+      "sha256": "2a0a681c4e3d025b385a63ea535dcef85cf64bc9f38090b9fdac1ca425f9631f"
+    },
+    {
+      "name": "charizard-home-r73-open-root.blend",
+      "sha256": "03275bc97b52d8310f08b74b0299ef7b0f102920be74ffbb424f65f715ffed9e"
+    },
+    {
+      "name": "bridge-audit.json",
+      "sha256": "bfe06292eb6cb47f72ac7aaeacca39a209a8f48e65f4c9619391e12a76df43c4"
+    },
+    {
+      "name": "charizard-home-r73-bridge.blend",
+      "sha256": "4f30417c14bf4856ec5afc915ba7e05a56074fc50044b10e387ae7e7970a3699"
+    },
+    {
+      "name": "bridge-root.png",
+      "sha256": "04aea7103492a6fb4394429632d2f61590c0b4e980f27c73384d2dd4eab9258d"
+    },
+    {
+      "name": "bridge-front.png",
+      "sha256": "b4411a96df4c942352c252b1cd15ef50a764daf8749dba10099de2acdd61fb6d"
+    },
+    {
+      "name": "bridge-side.png",
+      "sha256": "9320d3e4352f6ac22ef47c392daa0d910d05441a2dfd0f599c31fe48cd72adf2"
+    },
+    {
+      "name": "bridge-rear.png",
+      "sha256": "68aba0ee54c62ce8eeaa5181d564ab3eec0c23fbf0bd3ca9c01722554e2b3d51"
+    },
+    {
+      "name": "bridge-threequarter.png",
+      "sha256": "24ae50f34c7ffd079a02c96f4803a102fd316a10ff88b8ca1f3abb588c19df0d"
+    }
+  ],
+  "review": "All four full views and root closeup inspected. Background wedge closed, jagged diagonal seam remains. Side attachment still needs visual and intersection scrutiny. Not production-approved; R67 retained."
+}
