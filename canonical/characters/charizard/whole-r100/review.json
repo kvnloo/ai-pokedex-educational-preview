@@ -1,5 +1,5 @@
 {
-  "status": "construction study; eye contour unaccepted",
+  "status": "complete-taper rejected; unshaped socket mechanism only retained as construction",
   "native_operations": [
     "Inset six contiguous head quads .003",
     "Extrude HEAD-X -.004; separate selected inner six faces",
@@ -22,5 +22,8 @@
     "complete-low-front.png": "1be776848851777ce203ab01eccf34381dd36ddda53f1408530f316b87f966e8",
     "complete-whole.png": "31f85ac36811ecd4217166bd4dfc413e79ce706c7ae1f6fd9be5d19c9a465f42",
     "audit.json": "fafded9d4128b5032a830d7a87c8ec7304ddccda5facbf28fb8f0e15a38825bd"
-  }
+  },
+  "critic_review": "Opened all complete views. Nasal corner has dark triangular bites, rear remains rectangular, whole reads chipped. No pairing. Shape full upper/lower outline before recessing/separating.",
+  "diagnostic": "All10 eye boundary vertices exactly coincide with body rim vertices. No zero-area face incident to new orbital vertices. These checks do not certify absence of folds or intersections. Ray at side pixel450,392 hits backside of face329748; contour fails regardless.",
+  "live_rollback": "charizard-home-r100-orbit-inset.blend"
 }
