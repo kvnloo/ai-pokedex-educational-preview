@@ -1,0 +1,14 @@
+[
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r71/section-profiles.json",
+    "sha256": "d7f301464fe1a8dd2966d2758d4e56307f240e74d200e5450a8ba85af3e0a9bb"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r71/section-profiles.png",
+    "sha256": "ca7e68cfdba21e6a16a4aa07fc8bf0c2f965c22f425ade6d5d5e35c5fe256f80"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r71/plot-sections.py",
+    "sha256": "64fef3bfc76f862b4afb9012a3fa01f6d6be6eeabcd02624b97e049abcc864e3"
+  }
+]
