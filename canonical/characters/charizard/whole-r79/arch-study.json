@@ -1,0 +1,53 @@
+{
+  "changed": [
+    [
+      30,
+      0.01499998580430894
+    ],
+    [
+      31,
+      0.01499998580430894
+    ],
+    [
+      32,
+      0.01499998580430894
+    ],
+    [
+      35,
+      0.01499998580430894
+    ],
+    [
+      36,
+      0.01499998580430894
+    ],
+    [
+      37,
+      0.01499998580430894
+    ],
+    [
+      40,
+      0.01499998580430894
+    ],
+    [
+      41,
+      0.01499998580430894
+    ],
+    [
+      42,
+      0.01499998580430894
+    ]
+  ],
+  "notAttached": true,
+  "renderExcluded": true,
+  "status": "unattached construction study; not retained character change",
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r79/charizard-home-r79-jaw-arch-study.blend",
+  "fitSource": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r79/charizard-home-r79-jaw-fit-study.blend",
+  "method": "Native scale0.8, throat row7 GY-0.03 GZ+0.015; nativeConvertMesh,Ctrl2 subdivision; native9interior GZ+0.015;40border/support fixed",
+  "visualEvidence": [
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r79/patch-isolated.png",
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r79/patch-arch-isolated.png"
+  ],
+  "rootReview": "Coarse surface remains continuous in isolated inspection; this does not establish full-head likeness, attachment or seam quality.",
+  "next": "Plan finite-width integration and full-head comparison; no detached-sheet promotion",
+  "sha256": "ce3970ec8ce5aacc2d7b538f27cbf96d910f0871a2ea5d0663e36b4ae2a54ab9"
+}
