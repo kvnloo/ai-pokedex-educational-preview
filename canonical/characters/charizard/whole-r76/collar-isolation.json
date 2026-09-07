@@ -1,0 +1,11 @@
+{
+  "source": "charizard-home-r76-collar-isolated.blend",
+  "collarVertices": 431,
+  "collarFaces": 168,
+  "boundaryComponents": [
+    293,
+    42
+  ],
+  "purpose": "Native isolated bridge plus42 adjacent body ngons; preserved as rebuild guide; no geometry discarded",
+  "status": "rebuild-preparation-not-promoted"
+}
