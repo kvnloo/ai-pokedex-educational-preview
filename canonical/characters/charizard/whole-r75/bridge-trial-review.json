@@ -1,0 +1,8 @@
+{
+  "status": "rejected-initial-bridge",
+  "vertices": 184924,
+  "faces": 366401,
+  "boundary": 236,
+  "overconnected": 0,
+  "reason": "Rear shaded render shows projecting root transition/dark seam. Native initial bridge has0cuts; planned2cut surface bridge and pairing checks remain. No visual acceptance."
+}
