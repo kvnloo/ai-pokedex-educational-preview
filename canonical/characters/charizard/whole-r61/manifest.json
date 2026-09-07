@@ -1,0 +1,29 @@
+{
+  "qualityGate": "rejected",
+  "artifacts": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r61/audit.json",
+      "sha256": "bd62a56bd9f9d021fff19f9037ff2399cd70336042c8b1c7e9e1d33c2d88c319"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r61/charizard-home-r61-intake.blend",
+      "sha256": "18ff366670dccafb3d2482b70ce5299ade6a2a1234186284fa5a338f33b3bb58"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r61/charizard-home-r61-taper.blend",
+      "sha256": "d9664d10e5844e340642caf2b99ce300cf0688922b4d56bd319477cfad6db1bc"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r61/hand-front.png",
+      "sha256": "560223e452ae127b8b1bcf916bd11e516254b6db2edfc7424bf12f60420d8acc"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r61/selected-cap.json",
+      "sha256": "a50b3abd9cd7d4ee754b42f5c72c6a806eb0fce5ec4b50788c5fe9cd26244c32"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r61/whole-front.png",
+      "sha256": "cf0b4a5fc50042cc6d8158f121d94720acdb2963ccb5cc3e19bbd1c13d778d1a"
+    }
+  ]
+}
