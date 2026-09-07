@@ -1,0 +1,11 @@
+{
+  "status": "rejected-restored-root-lowered",
+  "operation": "Native select bridge168 vertices, Select More once, Smooth Vertices .5 followed by Repeat Last twice",
+  "evidence": "joint-relax-front.png, joint-relax-rear.png, joint-relax-oblique.png in private whole-r75; all opened",
+  "finding": "Crease softened but dotted/pinched seam introduced. Shelf remains. Stop relaxation trials; rebuild density transition.",
+  "sharpEdgeAudit": {
+    "whole": 0,
+    "bridge": 0,
+    "maximumInterfaceDihedralRadians": 1.601
+  }
+}
