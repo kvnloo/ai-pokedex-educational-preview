@@ -1,0 +1,13 @@
+{
+  "status": "candidate; critic and side gate pending",
+  "source": "charizard-home-r107-bounded-middle.blend",
+  "operation": "Native XY scale .55, cursor at fingertip endpoint, connected Smooth radius .055,211selected",
+  "audit": {
+    "changed": 736,
+    "outside_hand": 0,
+    "vertices": 167917,
+    "z_max_delta": 0.0
+  },
+  "review": "Root opened close and whole render: visibly narrower middle tip. Need side continuity and critic before replicating.",
+  "rejected_initial": "middle-taper trial included lower-body vertices due missing Z lower bound; reverted before bounded trial."
+}
