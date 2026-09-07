@@ -1,0 +1,16 @@
+{
+  "status": "single correction candidate; final critic pending",
+  "source": "charizard-home-r109-shoulder-correction.blend",
+  "method": "270lowerbulbverts nativeXYscale.85, connected Smooth.022; tip not selected",
+  "audit": {
+    "changed": 662,
+    "changed_tip_vertices_below_minus0155": 0,
+    "changed_outside_short_digit_box": 0
+  },
+  "views": [
+    "shoulder-side.png",
+    "shoulder-opposite.png",
+    "shoulder-whole.png"
+  ],
+  "constraint": "No further amplitude corrections; retain or revert short digit after critic."
+}
