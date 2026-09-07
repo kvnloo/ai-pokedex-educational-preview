@@ -1,0 +1,11 @@
+{
+  "status": "comparison only; current R114 geometry unchanged",
+  "source_object": "GUIDE-head-surface-r79",
+  "provenance": "whole-r79/grid-setup.json: native duplicate of then-current body, head isolated. Edited HOME-derived checkpoint, NOT raw Hunyuan.",
+  "camera_match": "CAM-r110-home-head and CAM-r78-head-local-side; no scale compensation",
+  "root_review": "Archived head has rougher surface but a much more pronounced eye region. Compare official eye aperture scale/placement before further crown changes.",
+  "files": {
+    "archived-head.png": "8dfbf3e84a1eb2ad4291302f87cddfd2694dafacbe20218bbfdf479d2f025189",
+    "archived-side.png": "ca0ba5f150f506e532b1c5ae760c69c43313f2c752d5898b9c8f53377c4c80f1"
+  }
+}
