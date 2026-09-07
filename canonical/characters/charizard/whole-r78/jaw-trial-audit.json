@@ -1,0 +1,30 @@
+{
+  "changed": 2780,
+  "maxDelta": 0.025000005541368706,
+  "boundsBefore": [
+    [
+      -0.19390831887722015,
+      0.03487120941281319
+    ],
+    [
+      -0.7678306698799133,
+      -0.573738694190979
+    ],
+    [
+      0.38010942935943604,
+      0.5116419196128845
+    ]
+  ],
+  "method": "Native G Z 0.025, connected Smooth proportional requested radius0.08",
+  "rootReview": "Reject: underside develops horizontal ledge and dents, fails continuous jaw-to-throat taper.",
+  "status": "rejected and reverted to camera-intake source",
+  "trial": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r78/charizard-home-r78-jaw-taper-trial.blend",
+  "sha256": "a69db001af546b95356680d8284a2ca26d1fe8024e15c088014f31634301509b",
+  "views": [
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r78/jaw-low-front.png",
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r78/jaw-local-side.png",
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r78/jaw-front.png",
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r78/jaw-threequarter.png"
+  ],
+  "next": "Do not repeat local patch translation amplitudes; require broader form-control method with mouth and neck protected."
+}
