@@ -1,5 +1,5 @@
 {
-  "status": "critic-pending; construction only",
+  "status": "retained mouth-cavity construction; head likeness unaccepted",
   "native_operations": [
     "Select existing64mouthboundary",
     "Extrude HEAD-Z-.010",
@@ -17,5 +17,6 @@
     "rear.png": "5283e2d249ce673c0f6e76cd5a0443ec785ab66df1b633a348b4363b242e8f8d",
     "audit.json": "56d1578211683fd05a0e317161762d7102a36ee97599704fb6e5ccaff58aa32a",
     "overlap-audit.json": "e4b7a765de5f83416bc833096ea1f8e09bf2c845139e6cb3e41631fe9b5054db"
-  }
+  },
+  "critic_review": "Independent critic inspected all four R99 views and R96 comparisons: recessed opening, no front plate, lip crossing or silhouette regression. Immediate mouth visibility confound resolved. No further cavity iteration needed before orbital fitting."
 }
