@@ -1,0 +1,18 @@
+{
+  "status": "union-operands-prepared-not-unioned",
+  "bodyCandidate": "GEO-body-foot-union-trial-r134",
+  "nativeWork": "Duplicate retained body; delete8522original-foot vertices; select157ankle boundary edges only; flatten Z=-.57 and cap.",
+  "audit": {
+    "bodyVertices": 159395,
+    "localAnkleBoundaryEdges": 0,
+    "totalBoundaryEdges": 256,
+    "preexistingBoundaryEdges": 256,
+    "threePlusFaceEdges": 0
+  },
+  "footCandidate": "GEO-foot-reused-r130 closed R133 operand",
+  "visual": "Inspected overlapping operands, oversized collar still requires fitting/union/local sculpt. No visual gain claimed.",
+  "preservation": "Original visible, working operands hidden. No merge/push.",
+  "next": "Native mesh Intersect Boolean available; object BoolTool absent. Test union on copies, audit outside ankle due preexisting body boundaries.",
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r134/charizard-home-r134-union-operands.blend",
+  "sha256": "cbaeb4cc94b87595275b49559dc04236c37ebcfee1d669ad023ae949dd3e3956"
+}
