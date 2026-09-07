@@ -1,10 +1,12 @@
 {
   "GEO-wing-opposite-fit-membrane-r75": {
-    "changed": 1470,
-    "lowerRegionMaxDelta": 1.9278896659597953
+    "changed": 486,
+    "lowerRegionMaxDelta": 0.0,
+    "method": "matrix_basis for unparented unlinked reference; prior unevaluated matrix_world audit invalid"
   },
   "GEO-wing-opposite-fit-spar-r75": {
-    "changed": 16,
-    "lowerRegionMaxDelta": 1.926144673950879
+    "changed": 7,
+    "lowerRegionMaxDelta": 0.0,
+    "method": "matrix_basis for unparented unlinked reference; prior unevaluated matrix_world audit invalid"
   }
 }
