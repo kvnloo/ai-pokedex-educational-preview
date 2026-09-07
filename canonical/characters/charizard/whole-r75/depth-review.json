@@ -1,0 +1,10 @@
+{
+  "status": "reverted-depth-rotation",
+  "operation": "Native RZ8 trial then Undo",
+  "reason": "Improved wrist depth but displaced outertip away from original. RY10 remains fitting baseline. Broad coordinated wrist/upper-wing adjustment needed with outertip/root held.",
+  "evidence": [
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r75/pose10-rear-overlay.png",
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r75/pose10-left-overlay.png",
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r75/rejected-depth8-overlay.png"
+  ]
+}
