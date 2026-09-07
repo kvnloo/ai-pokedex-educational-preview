@@ -1,0 +1,13 @@
+{
+  "status": "unconnected construction; interface mismatch visible",
+  "vertices": 160,
+  "faces": 128,
+  "method": "Native32edge ring, four extrusions with translations and30degree station rotations. First attempted extrusion in face selection mode created no faces; corrected edge-mode construction verified.",
+  "root_review": "Opened loft-front/rear/whole. Rounded coarse volume present, but return-end gap/overhang obvious and body seam not connected. Do not promote. Fitinterfaces beforebridging.",
+  "files": {
+    "charizard-home-r104-five-sections.blend": "5f65f4458558b84ac9d4e82ebb6929214b25dca4d5013d93e3b239561c0b2764",
+    "loft-front.png": "bc49e815a25972cbd9d012bf2bde07b095f88cac7f5ea762fa011985aafb6c24",
+    "loft-rear.png": "20a43efc84ffe3ae85692cb49deecd8b0b9761713ff9a10bc737838aea9589c2",
+    "loft-whole.png": "50722f62fcfe561de9007240b3cc907b32b89c2aae909e793c728e0fa2515df8"
+  }
+}
