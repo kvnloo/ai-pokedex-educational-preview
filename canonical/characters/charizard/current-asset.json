@@ -38,15 +38,15 @@
   ],
   "latestReview": "whole-r80/review.json",
   "workingCheckpoint": {
-    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r114/charizard-home-r114-seam-protected.blend",
-    "sha256": "46be64bc9c8cca0b817ec338f646c22253f534b065e44640a4ca54fd80b31452",
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r119/charizard-home-r119-eye-reach.blend",
+    "sha256": "d4d5b3b256d11c8c6ce7877f425192beba6c31cb78ff339f4e807e2f41a89a11",
     "status": "limited component improvements retained; whole-character acceptance pending",
-    "scope": "R109 retained digits plus R114 seam-protected central jaw cage",
+    "scope": "R114 retained anatomy plus R119 seated bilateral forward eye aperture extension",
     "productionApproved": false,
     "evidence": [
-      "whole-r109/retention.json",
       "whole-r114/retention.json",
-      "whole-r114/final-view-evidence.json"
+      "whole-r119/retention.json",
+      "whole-r119/geometry-audit.json"
     ]
   },
   "subsequentTrials": [

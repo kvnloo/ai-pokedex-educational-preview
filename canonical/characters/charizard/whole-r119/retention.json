@@ -1,0 +1,14 @@
+{
+  "status": "retained limited aperture proportion improvement",
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r119/charizard-home-r119-eye-reach.blend",
+  "sha256": "d4d5b3b256d11c8c6ce7877f425192beba6c31cb78ff339f4e807e2f41a89a11",
+  "critic": "XHIGH inspected5renders, R118 contrast andHOME; forward wedge clearer at whole scale, preserves muzzle/jaw/brow envelope.",
+  "root_review": "Opened opposite.png close view; matching forward wedge, seated edge with angular anterior corner detail remaining.",
+  "limitations": [
+    "Anterior rim notch/highlight unresolved",
+    "Whole-head and whole-character likeness unaccepted",
+    "No production approval"
+  ],
+  "closed_loop": "No further aperture-length amplitudes",
+  "opposite_render_sha256": "db468fe07762125c24a638f721b51ae4510d1f16457ab588b1738f75898955e9"
+}
