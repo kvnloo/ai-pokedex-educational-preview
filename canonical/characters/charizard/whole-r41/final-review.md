@@ -1,0 +1,1 @@
+REJECTED by root and xhigh critic. All four broad views inspected by critic: projecting jaw band remains, no meaningful transition gain; union introduced underjaw ripples and rough mouth rim. Mask audit3948changed,maxdelta.00182707,fullymasked0. Restore R38 bilateral; preserve R41 trial. No more Smooth/amplitude iterations on this study. Telegram17290 delivered.
