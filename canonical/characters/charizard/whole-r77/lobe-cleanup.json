@@ -1,0 +1,5 @@
+{
+  "source": "whole-r77/charizard-home-r77-lobe-cleanup.blend",
+  "operation": "Native SmoothVertices0.5 ten passes on18181 bodylobevertices, boundary plus3neighbor rings excluded",
+  "review": "Front opened. Surface noise reduced; broad slabform unresolved. Other views/audit pending. Not retained."
+}
