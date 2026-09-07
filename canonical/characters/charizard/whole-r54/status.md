@@ -1,3 +1,5 @@
-# R54 intake
+# R54 graded section study — critic pending
 
-Native duplicate and Convert Mesh of retained R53 evaluated tail. All 68,773 vertex positions match R53 evaluated output exactly (max world delta 0). No anatomy change yet. R53 original preserved hidden. Cross-section operation pending bounded planner recommendation. FlameSocket still attached to preserved R53 tail; update after any retained deformation.
+Native Add Lattice, U6 V2 W2; native scale/translate fits box X[-.4,.85],Y[.25,.8],Z[-.7,-.33]. Native S Shift-X station factors 1,.85,.75,.75,.85,1, cursor pivots measured from original section YZ bounds. Mechanical modifier/group binding only. Four renders complete. Root inspected top, rear, side, threequarter: subtle thinner return band; large proximal bulge remains. No acceptance yet.
+
+Audit: 44859 vertices changed; maxdelta .0237822096; root border and X>=.8 tip displacement0; control target error8.43e-8. R53 preserved. Socket still R53 parent; needs cap check if retained. No GLB/production approval.
