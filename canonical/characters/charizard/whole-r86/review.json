@@ -1,0 +1,17 @@
+{
+  "status": "candidate; root sees structural improvement; independent review pending",
+  "retained": "R80",
+  "productionApproved": false,
+  "method": "Native lower20face separation along12edge equator; matching8edge forward rim extrusion/inset. Lower forward23controls localY-.018; rear held. Native Join/Merge by Distance seats rear cheek; lower controls tagged.",
+  "rootReview": "Both joined renders inspected. Coherent mouth-to-cheek boundary resolves oval pad. Initial rear seam visibly removed. Mouth interior and neck attachment unfinished; full likeness unproven.",
+  "sources": {
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r86/charizard-home-r86-mouth-intake.blend": "a1770407c19ff17d90421af4b95e5a79c4964626ce79e3493241131bae3a61c2",
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r86/charizard-home-r86-shared-mouth-rims.blend": "67824ea35c0a5e78434a46dd6f18d9c261c4b4972d2e5f9a0f4ee07852eeea4d",
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r86/charizard-home-r86-mouth-opening-trial.blend": "d6fc761907d8958c4569c1bfb5e407ad4f9406c04a36be259eca41a02194da85",
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r86/charizard-home-r86-connected-cheek.blend": "502fe73736a4f07b9b0cb748966dcc4f8e3755bb1edd552adea434a0e98e3099"
+  },
+  "renders": [
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r86/joined-side.png",
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r86/joined-low-front.png"
+  ]
+}
