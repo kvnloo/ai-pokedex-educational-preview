@@ -1,0 +1,23 @@
+{
+  "status": "intake; anatomy unchanged from R114",
+  "purpose": "Direct head-local-front exposes continuous rounded orbital dome for next connected skull-plane trial",
+  "camera": {
+    "name": "CAM-r116-head-front",
+    "head_local_location": [
+      0,
+      0.015,
+      0.8
+    ],
+    "head_local_target": [
+      0,
+      0.015,
+      0.045
+    ],
+    "ortho_scale": 0.4
+  },
+  "root_visual_review": "Front opened; eyes sit laterally on rounded mass. Preserve seated eye boundary and mouth in upcoming broad-plane trial. No anatomy acceptance.",
+  "files": {
+    "front-intake.png": "177009cf90e11baf73b3b4696be3d828f20f774f4724ec560759fad59a495605",
+    "charizard-home-r116-intake.blend": "3c642e776d84990e33406092e520a8a1d03910c36f9fe365f22b17aa4fb8f23a"
+  }
+}
