@@ -18,6 +18,6 @@
       -0.3607553541660309
     ]
   ],
-  "review": "Front and rear selection screenshots opened; full width lobe selected, haunch excluded. No deformation yet.",
+  "review": "Front selection opened: blunt body lobe selected, haunch unselected. Rear screenshot is occluded by separate return tail, so it does not establish far-surface coverage; hide return tail before further visual confirmation. Bounds confirm no Y cutoff.",
   "checkpoint": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r77/charizard-home-r77-lobe-selected.blend"
 }
