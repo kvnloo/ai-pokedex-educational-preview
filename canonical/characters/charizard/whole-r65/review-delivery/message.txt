@@ -1,0 +1,3 @@
+R65 retained after root + XHIGH review: lower/lateral abdomen bands softer, transition from cleaned center less stepped, convex belly preserved. Lowest bands remain. This is another regional cleanup, not whole-character acceptance.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r65/crescent-front.png
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r65/detail-after.png

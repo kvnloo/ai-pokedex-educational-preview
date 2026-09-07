@@ -1,0 +1,45 @@
+{
+  "qualityGate": "review-pending",
+  "artifacts": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r66/audit.json",
+      "sha256": "6e9e993d095b482152455e8e007ad6a43b469ec5693149bbba16257f806ea899"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r66/charizard-home-r66-chest.blend",
+      "sha256": "57377b4056866e483961ec6b3f336c0df8a2e0be703aca9962c8c064073992db"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r66/charizard-home-r66-intake.blend",
+      "sha256": "042a313f95d601c607d5a368f751632be54016056ef87a29ce5655278b8cc086"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r66/chest-front.png",
+      "sha256": "0d580979cb38da1bafc44ec4516f7525df99ec643a6d6e2e9e337af1e85ac685"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r66/chest-rear.png",
+      "sha256": "7f66b629ca463bf7a97efb9f42176cb3052675a57de137d281f0376d025f7b63"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r66/chest-side.png",
+      "sha256": "b0d92d8ed5bd20ee0de0a789b93389e98fd2cc22729a75fb7dc8a718c95f2998"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r66/chest-threequarter.png",
+      "sha256": "c1334b46b620c4b65e4d6f9721efb861ce61c0b945c75671ed900ef8d71cb886"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r66/native-parameters.png",
+      "sha256": "8e782785f18eb68d75210ea58f852e23d6c49cedd2ee44fb529522939ecac939"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r66/selection-preview.png",
+      "sha256": "07d3599d97739a3c1dbe3cf8ad57a7a289cf55cae0c714415be35e9fb07f35d1"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r66/selection.json",
+      "sha256": "2556be44454ad24097d8732a20b8b7b51d3ab87aaef06782cebc9b792d7e6314"
+    }
+  ]
+}
