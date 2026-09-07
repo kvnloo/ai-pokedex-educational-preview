@@ -1,0 +1,8 @@
+{
+  "status": "rejected; R103 geometry restored via R105 inspection source",
+  "first_trial": "501 selected through-depth shoulder verts, GX+.02 GZ+.02, Smooth connected .09; hard hidden protection truncated falloff and produced severe step. Invalid setup.",
+  "corrected_trial": "238 verts, same displacement, no hidden vertices, Smooth connected .07 confirmed from actual native operator properties. Front render still shows conspicuous dent rather than contour rounding.",
+  "decision": "Close this proportional-translation approach. No amplitude continuation. Retain failed blend/render evidence privately.",
+  "next": "Reassess higher-impact whole-character silhouette priorities before spending more tail iterations.",
+  "productionApproved": false
+}
