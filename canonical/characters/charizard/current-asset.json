@@ -2,17 +2,18 @@
   "schemaVersion": 1,
   "pokemon": "charizard",
   "retainedSource": {
-    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r66/charizard-home-r66-retained.blend",
-    "sha256": "85bd9fe37016b8a24ff45bec6fb9687a5a89ae221685c9f9e6762908c0825879",
-    "scope": "chest and lower-throat surface cleanup",
-    "knownLimitation": "faint lower patch transition",
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r67/charizard-home-r67-retained.blend",
+    "sha256": "39eeb7b1bb5adbbf3fe5105e170b4c31a8c49e9183a13491b00ab63b6b828169",
+    "scope": "positive-X front haunch surface cleanup",
+    "knownLimitation": "residual facets around patch; broader mesh still unfinished",
     "wholeAssetQualityGate": "needs-work"
   },
   "retainedLineage": [
     "whole-r54",
     "whole-r63",
     "whole-r65",
-    "whole-r66"
+    "whole-r66",
+    "whole-r67"
   ],
   "pendingCandidate": null,
   "qualityGate": "needs-work",
@@ -29,5 +30,5 @@
     "Runtime flame and attack effects",
     "Stats and playable game integration"
   ],
-  "latestReview": "whole-r66/status.md"
+  "latestReview": "whole-r67/status.md"
 }

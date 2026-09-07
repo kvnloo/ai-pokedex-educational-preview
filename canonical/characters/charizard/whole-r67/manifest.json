@@ -48,5 +48,10 @@
     "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r67/native-parameters.png",
     "sha256": "4dbf90afc97774b53965bc3f0a390849d6121a5389bdcfcce23da6e7bf083864",
     "bytes": 811132
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r67/charizard-home-r67-retained.blend",
+    "sha256": "39eeb7b1bb5adbbf3fe5105e170b4c31a8c49e9183a13491b00ab63b6b828169",
+    "bytes": 77712501
   }
 ]
