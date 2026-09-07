@@ -1,0 +1,1 @@
+Native partial edge-slide trials on eight near-side seam edges, +.35 then -.35 from matched rollback. Root closeups inspected; neither resolved the visible crease. Both saved privately; restored matched bridge. No additional slide amplitude series. A broader finite transition with an intermediate ring remains necessary. R67 retained.
