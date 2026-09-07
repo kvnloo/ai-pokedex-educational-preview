@@ -1,5 +1,5 @@
 {
-  "status": "candidate; root sees structural improvement; independent review pending",
+  "status": "retained construction study by root and critic; R80 remains asset registry",
   "retained": "R80",
   "productionApproved": false,
   "method": "Native lower20face separation along12edge equator; matching8edge forward rim extrusion/inset. Lower forward23controls localY-.018; rear held. Native Join/Merge by Distance seats rear cheek; lower controls tagged.",
@@ -13,5 +13,6 @@
   "renders": [
     "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r86/joined-side.png",
     "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r86/joined-low-front.png"
-  ]
+  ],
+  "critic": "Jaw now continues into cheek; intelligible rear-tapering mouth. Next retained-neck fit, side/low-front/whole view. Interior unfinished, chin projects slightly ahead and lowerrear deep; proportions provisional. No production or likeness pass."
 }
