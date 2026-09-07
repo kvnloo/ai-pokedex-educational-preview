@@ -1,0 +1,5 @@
+{
+  "status": "operator-update-not-applied",
+  "observation": "F9 displayed Number of Cuts2 and Blend Surface was selected, but mesh remained184924v366401faces. Expected84 additional vertices for2cuts. No successful new bridge claimed.",
+  "next": "Establish explicit Blender undo checkpoint before native bridge and verify live geometry counts while adjusting popup. Keep body42 rollback."
+}
