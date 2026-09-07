@@ -1,0 +1,12 @@
+{
+  "status": "hand taper intake; no anatomy changes yet",
+  "source": "charizard-home-r107-hand-intake.blend",
+  "critic_priority": "Three blunt digits on one hand. Taper distal parts continuously preserving palm, root, bend, splay and endpoints.",
+  "views": [
+    "retained-front.png",
+    "retained-threequarter.png",
+    "hand-intake.png"
+  ],
+  "gate": "Pointed tips in whole view; no pinch, root gap or straightened bend in exposed side view.",
+  "retained_geometry": "R103"
+}
