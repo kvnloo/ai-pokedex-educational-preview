@@ -1,0 +1,16 @@
+{
+  "qualityGate": "needs-work",
+  "geometryChanged": false,
+  "artifacts": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r60/charizard-home-r60-comparison.blend",
+      "sha256": "dc596a1bfe90bc4266db6d67f0af9675a357f34a12115f9e9712c1156af60349",
+      "bytes": 23239104
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r60/home-width-foot.png",
+      "sha256": "6da552f997ede694dc32a350cadc59220715254e3b51be58d4298721f7fdd690",
+      "bytes": 352232
+    }
+  ]
+}
