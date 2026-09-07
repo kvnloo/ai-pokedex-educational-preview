@@ -1,0 +1,23 @@
+{
+  "status": "rejected",
+  "operation": "Native endpoint5 EX-.025 then newendpoint GY+.04.17controlvertices.",
+  "review": "Both closeups inspected: extension still reads as capped tube resting on root, not an anatomical junction. Restored blend-collar. No endpoint-amplitude series.",
+  "files": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r73/charizard-home-r73-spar-root.blend",
+      "sha256": "90776f691e0dce5a162bb1ac80e1429e202125e7fde8f6255cb359de54dfaba8"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r73/charizard-home-r73-spar-depth.blend",
+      "sha256": "ec2396f3193b6209da9deb727bc39e7337a1400d36e933b0f45b1bd696845678"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r73/spar-root-detail.png",
+      "sha256": "3ba036191c8f04071a974df596d323c74b6f44e1ab238a2dac52acf5867bbdf5"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r73/spar-depth-detail.png",
+      "sha256": "2ddbb248b17e14510508aee4e1142ad64fe04c6979e6141806f522b3bbc8f72d"
+    }
+  ]
+}
