@@ -1,0 +1,10 @@
+{
+  "status": "construction-in-progress",
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r76/charizard-home-r76-first-ring.blend",
+  "operation": "Native E X -0.015 from360-edge body opening",
+  "vertices": 185147,
+  "faces": 366360,
+  "boundaryEdges": 638,
+  "visual": "Rear render inspected. First strip present; opening intentionally remains. No completed joint claim.",
+  "next": "Reduce new ring density in stages while keeping original boundary fixed; verify local surface before bridging to42 wing loop"
+}
