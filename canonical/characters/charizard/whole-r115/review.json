@@ -1,0 +1,13 @@
+{
+  "status": "rejected",
+  "reason": "Fine stripes quieter, broad ribbed planes and upper contact band still dominate. No convincing whole-view form improvement. Insufficient gain, not damage.",
+  "critic": "XHIGH opened all three candidate images against exact R114 counterparts",
+  "action": "Restored exact R114 seam-protected source using Blender MCP",
+  "closed_method": "No more repeat-count smoothing series",
+  "triangle_audit": {
+    "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r115/charizard-home-r115-neck-fairing.blend",
+    "triangles": 335580,
+    "normal_reversals": 0,
+    "new_zero_area": 0
+  }
+}
