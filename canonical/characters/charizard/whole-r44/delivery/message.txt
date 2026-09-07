@@ -1,0 +1,3 @@
+Charizard R44 wing trial: rounded the trailing scallops on ONE wing using native midpoint edits; original tips/span/spar attachments fixed. Curve change is modest but visible. Geometry audit passes; critic checking interior shading before retention/mirroring. Other anatomy still unfinished.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r44/curved-front.png
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r44/whole-threequarter.png
