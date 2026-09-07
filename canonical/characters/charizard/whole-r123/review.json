@@ -1,0 +1,25 @@
+{
+  "status": "rejected",
+  "method": "Native XYscale.25 about(.36,-.48,-.66),343medialcornervertices,connectedSmooth.055",
+  "audit": {
+    "changed": 959,
+    "max_z": 0.0,
+    "changed_bounds": [
+      [
+        0.3279229998588562,
+        0.4328579604625702
+      ],
+      [
+        -0.5952638387680054,
+        -0.48532426357269287
+      ],
+      [
+        -0.670726478099823,
+        -0.5974565744400024
+      ]
+    ]
+  },
+  "root_review": "Foot closeup shows sharp foldedcrease afterpointretraction. Fails smoothpad and3terminalgate.",
+  "action": "RestoredR123intake unchangedR119 anatomy+inspectioncameras",
+  "closed_method": "No stronger pad-retraction transform; require structuralpadcorrection"
+}
