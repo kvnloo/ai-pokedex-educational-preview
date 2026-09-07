@@ -9,3 +9,6 @@ These observations come from R70/R71, not assumptions about other Blender versio
 - Coordinate/thickness success does not imply visual success. That corrected transform was reverted because the rendered transition sharpened.
 
 Geometry remains native CUA. bpy is restricted to mechanical setup, selection, inspection, checkpoints and file I/O.
+
+- R75 confirmed the same undo hazard for Bridge Edge Loops: F9 displayed2cuts while geometry stayed184924v. Immediately after mechanical selection, call `bpy.ops.ed.undo_push(message="Selected root loops before native bridge")`; then native Bridge and F9 actually yielded185008v (+84). Read BMesh counts before leaving Edit Mode; popup text alone is not evidence.
+- Unlinked library objects may have unevaluated `matrix_world`. For unparented comparison references, use `matrix_basis` (assert no parent), or link/evaluate the reference. R75 upper-fit audit initially reported false1.927-unit changes; corrected basis comparison proved lower-region delta0.
