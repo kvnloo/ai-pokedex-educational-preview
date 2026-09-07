@@ -1,0 +1,2 @@
+Wing diagnostic: extracted three actual cross-sections through both membrane skins and outer rim. They show a broad bow and thickness changes; we need a complete surface fit rather than another isolated bump. This is measurement evidence, not a new accepted mesh. R67 remains retained.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r71/section-profiles.png
