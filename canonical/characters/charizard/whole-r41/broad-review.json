@@ -1,0 +1,36 @@
+{
+  "stroke": [
+    570,
+    476,
+    775,
+    478
+  ],
+  "size": 90,
+  "strength": 0.3,
+  "effectiveSizeVerified": true,
+  "settingPath": "tool_settings.sculpt.unified_paint_settings",
+  "rootReview": "Threequarter step still visible, no further strokes planned pending critic.",
+  "retained": false,
+  "files": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r41/charizard-hybrid-r41-broad-smooth.blend",
+      "sha256": "ac1b1a604f4da89278de2c90eb23e6978aec471452be1552f153daf64ea5fcfe"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r41/broad-front.png",
+      "sha256": "563d9248e236f3262c4763f1e5619c5b03a5af9501ef4446aaccc44b5e246715"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r41/broad-side.png",
+      "sha256": "4e05e8169e411aa203b3a8fceaf3ece8616e842c57a5e27258259b4c89911587"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r41/broad-rear.png",
+      "sha256": "30b319ed786c4392289b6985496ae4f1b1898dc8ec757cfd3c205e6ad98a0feb"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r41/broad-threequarter.png",
+      "sha256": "e1aef9c4cf534e8244b20d136e3fa6f9cecc4aff081654f46549fd8ab9c5222b"
+    }
+  ]
+}
