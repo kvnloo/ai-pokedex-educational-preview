@@ -1,0 +1,8 @@
+{
+  "bound": true,
+  "groupVertices": 5334,
+  "neutralMaxDelta": 4.954204728773145e-06,
+  "target": "GEO-jaw-control-patch-r79",
+  "targetSubsurf": 2,
+  "method": "Native Surface Deform modifier; mechanical target/group/bind; no coordinate edits"
+}

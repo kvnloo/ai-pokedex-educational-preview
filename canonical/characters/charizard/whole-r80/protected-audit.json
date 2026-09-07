@@ -1,0 +1,21 @@
+{
+  "changedBounds": [
+    [
+      -0.21764062345027924,
+      0.10744241625070572
+    ],
+    [
+      -0.7843035459518433,
+      -0.5252323746681213
+    ],
+    [
+      0.34134456515312195,
+      0.5189056396484375
+    ]
+  ],
+  "protectedRegionMaxDelta": 0.0,
+  "boundaryEdges": 236,
+  "overconnectedEdges": 0,
+  "windingInconsistency": 0,
+  "note": "Protected region numerical audit supplements visual mouth/neck gate; not a semantic mouth mask."
+}
