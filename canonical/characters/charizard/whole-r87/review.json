@@ -1,0 +1,11 @@
+{
+  "status": "placement study only; neck gate unproven",
+  "retained": "R80",
+  "productionApproved": false,
+  "method": "Native head worldZ-.05 restores intended originZ.53 from.58. Temporary render-only body mask z>.46,y<-.47 removed after all renders.",
+  "rootReview": "All six before/after renders opened. Vertical gap reduced. Collar, lower-jaw remnant and horn scrap from diagnostic mask invalidate clean neck-join assessment. Need actual separation or neck construction, not additional masking or placement amplitudes.",
+  "sources": {
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r87/charizard-home-r87-neck-fit-intake.blend": "67e228bd7d47e1399586e85ec954117959da168104890fba7f3f9de683d492b7",
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r87/charizard-home-r87-placement-trial.blend": "27a1215b02301638fc22b8ea08378b482dd7cf3703de5262aa5b41aceea99bc2"
+  }
+}
