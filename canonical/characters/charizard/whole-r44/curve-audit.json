@@ -1,0 +1,23 @@
+{
+  "vertices": 29,
+  "original17Fixed": true,
+  "newMidpointXYFixed": true,
+  "exactOffsetsPassed": true,
+  "offsets": [
+    0.007843,
+    0.006559,
+    0.010125,
+    0.002796,
+    0.006443,
+    0.006921,
+    0.004339,
+    0.004277,
+    0.003676,
+    0.002049,
+    0.0039,
+    0.004468
+  ],
+  "rootReview": "Closeup visibly rounder bays, whole scale critique pending.",
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r44/charizard-hybrid-r44-curved-bays.blend",
+  "sha256": "e5f6ac7ca9fef84db9dcba346523adedf30f31f56c704a65cbd8bba44caa836b"
+}
