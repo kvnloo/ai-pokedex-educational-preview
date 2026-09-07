@@ -1,0 +1,13 @@
+{
+  "status": "rejected; R96 restored",
+  "diagnosis": "Unchanged low-front render with negativehorn hidden removes polygon. Camera rays at517,433 and525,435 hit negativehorn face0 eight-sided basalcap before head. Confirmed cap intrusion/visibility through unfinished mouth.",
+  "native_trial": "Both basecaps selected in face mode; Individual Origins scale.6 and HEAD-R95 Z-.025. Middle/tips/head unselected.",
+  "root_review": "Opened side/low-front. Cap polygon smaller but still visible; narrowed root not a sufficient repair. Rejected and restored R96. Planner advised against arbitrary radius shrink and against changing positivehorn without evidence. No claim that translation-only trim was tested.",
+  "next": "Preserve diagnosed cap defect; coarse eye/brow assembly remains next head-fidelity study. Final head acceptance requires proper root continuity and mouth interior.",
+  "files": {
+    "charizard-home-r97-cap-intake.blend": "f03a2d2ce1c1fe3b7cb63eb2abfe3f528dc661e4310d3cdf4f6f4b551f00ab63",
+    "charizard-home-r97-cap-trim.blend": "f2a786ef21d3dfeaeabbdf7b81d8b74ca4db960c1a2959777c7eb2c90029a726",
+    "side.png": "d5e2fa72e1dfdce88f0fd41e9e5698eae4a2f727bad5587f59b83fcfd2facc67",
+    "low-front.png": "84bce0bbe7651d0406bf328fed7aed15be2b206742e79d134a27b3dd5407eb59"
+  }
+}
