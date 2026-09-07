@@ -1,0 +1,17 @@
+{
+  "bridge_polygon_sizes": {
+    "4": 1140
+  },
+  "upper_contact_ngons": 38,
+  "upper_ngon_sizes": {
+    "8": 6,
+    "10": 6,
+    "9": 26
+  },
+  "longitudinal_dihedral_degrees": {
+    "count": 1140,
+    "max": 32.19863872865316,
+    "mean": 2.901177110934992
+  },
+  "zero_area_bridge_faces": 0
+}

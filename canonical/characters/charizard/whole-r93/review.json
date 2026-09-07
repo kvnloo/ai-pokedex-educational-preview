@@ -1,5 +1,5 @@
 {
-  "status": "construction-progress; critic-pending; no promotion",
+  "status": "retained-construction-progress; no HOME likeness acceptance; registry R80 unchanged",
   "native_operations": [
     "Bisect lower and upper crosscuts",
     "Separate failed band as hidden GUIDE-rejected-neck-band-r93",
@@ -44,5 +44,7 @@
     "curved-whole.png": "433b71c617934ccbe0ba74a390a39f50862156890f3a87e0a1cea56ed05ceff7",
     "curved-rear.png": "95fbe5459e7a43fe456cc387072dab966d395dadfb7acf0bbf37514754818edd",
     "curved-audit.json": "05c8265299f3825df8f6ebb6f0f15a1a400893daaecebad700fe4d0824154745"
-  }
+  },
+  "critic": "Opened R93 four views, R92 counterparts and HOME. Substantial cuff/pinch reduction and continuous bend. Retain construction checkpoint. Upper boundary/banding unresolved; do not infer folds from bands or geometry-smooth blindly.",
+  "technical_followup": "All bridge faces already smooth; no sharp edges/custom normals/modifiers/winding conflicts. Planner diagnosing38 uppercontact ngons and long-quad correspondence."
 }
