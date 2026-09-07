@@ -1,0 +1,49 @@
+{
+  "body_vertices": 167753,
+  "body_faces": 329558,
+  "body_same_index_max_delta": 0.0,
+  "body_matrix": [
+    [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "horns": [
+    {
+      "name": "GEO-horn-positive-r96",
+      "vertices": 17,
+      "faces": 17,
+      "boundary": 0,
+      "overconnected": 0,
+      "winding_conflicts": 0
+    },
+    {
+      "name": "GEO-horn-negative-r96",
+      "vertices": 17,
+      "faces": 17,
+      "boundary": 0,
+      "overconnected": 0,
+      "winding_conflicts": 0
+    }
+  ]
+}
