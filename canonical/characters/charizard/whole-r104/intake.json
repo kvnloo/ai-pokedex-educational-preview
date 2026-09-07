@@ -4,5 +4,8 @@
   "region": "body worldX<-.5 worldZ<-.3",
   "vertices": 19067,
   "visual_review": "Opened front screenshot: body-side blunt lobe selected, haunch unselected. Rear still requires separate-return-tail visibility isolation.",
-  "prior_constraint": "R77 smoothing retained limited cleanup only; no more smoothing or separate-return-tail global scale to fix this region"
+  "prior_constraint": "R77 smoothing retained limited cleanup only; no more smoothing or separate-return-tail global scale to fix this region",
+  "rear_review": "Opened rear selection with returning-tail temporarily viewporthidden; selected outer body lobe, haunch unselected. Visibility restored.",
+  "next_construction": "Preserve large volume; native rounded-oval cross-section loft replacing complete outer bend, interfaces fixed. Preserve old lobe guide. No separate-tail globalscaling or further smoothing.",
+  "checkpoint_sha256": "504e8998f5d21db7fdaa861c2ffd8a507016116551a8f1bdf56c4e140ecfeafb"
 }
