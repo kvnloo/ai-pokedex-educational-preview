@@ -1,5 +1,5 @@
 {
-  "status": "critic-pending; not accepted",
+  "status": "retained coarse horn landmarks; not attachment finish or head acceptance",
   "ui_failure": "First attempted first-horn.blend/first-horn-side.png contain corrupted transform from popup close selecting body; immediately restored horn-intake. Do NOT reuse those two failed artifacts. Corrected first-horn-corrected and subsequent pair sources passed body audit.",
   "method": "Native8circle fill; radius.027; extrude-.06Z scale.55 offset+.01X; extrude-.05Z offset+.007X merge tip; recalc normals. Object RX70 RZ-40 and native location .01546,-.61483,.56203. Duplicate, headframe mirrorX aboutroot, translate headX-.15. Pair adjustment headY+.02,Z-.02. Root-only correction: paired base8 each, scale headX .733333 aboutheadmidplane, headY-.025,Z+.025.",
   "root_review": "Opened all intermediate and final four-view batches. Backward horn cue established, but coarse root seams and far horn visible through unfinished mouth. Await critic; no fine tip loop.",
@@ -25,5 +25,6 @@
     "root-fit-whole.png": "2a684b0f4f1552ff5d3b2b5ebc48ad262a1f970ed4ef8b5b57f7b9072a564e82",
     "root-fit-rear.png": "d9cd29484a57775bc0eeea5b7af758069ea90069cc24e46c024f6daab46242c2",
     "audit.json": "6fa23ac58ecde732c46b54e8cb6b96b1d162e344c94ee9f003369e9a699701d8"
-  }
+  },
+  "critic": "Opened final4views,R95whole and officialreferences. Rearward descending taper supported. Roots appear seated but blocky intersections unresolved. Mouth polygon source not established by render. No further tip/length adjustment justified. Body audit delta0 confirms preservation."
 }
