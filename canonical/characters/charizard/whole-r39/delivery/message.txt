@@ -1,0 +1,3 @@
+Charizard R39 test rejected: extending the neck cap did not fix the jaw step and exposed a new lip below the chin. Restored retained R38. R38 physical GLB now reopened and visually checked in all four views; still unfinished construction geometry. Images: retained R38, rejected R39 neck trial.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r38/glb-threequarter.png
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r39/neck-extension-threequarter.png

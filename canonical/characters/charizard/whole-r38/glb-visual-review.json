@@ -1,0 +1,22 @@
+{
+  "inspectedAllFour": true,
+  "result": "Bilateral hand changes survive GLB export; no new gross visual discrepancy. Existing neck/body/jaw junction defects remain. Construction quality only.",
+  "files": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r38/glb-front.png",
+      "sha256": "a4657b685707e1c24aaa6ab3c1b88c063247c7f81d68ede6176156bc37c6d48f"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r38/glb-side.png",
+      "sha256": "d961637e30bfc7856142cd138a59e321ca556a2afeb89d8be1a545f01db363c4"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r38/glb-rear.png",
+      "sha256": "246e71504c3827761d1a4f419103b5b616a0a1718001acd31f6ebb3f4563eef7"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r38/glb-threequarter.png",
+      "sha256": "c37857c324af9e9d15d2281c2bd4c78b7a0383fdc7a4987f7e7b3cee5789fcf4"
+    }
+  ]
+}
