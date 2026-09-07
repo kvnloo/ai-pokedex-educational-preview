@@ -1,0 +1,12 @@
+{
+  "status": "rejected; R93 restored",
+  "method": "Native Ctrl+T Beauty on38 uppercontact ngons only. No bridge quad selection.",
+  "visual_review": "Root opened matched side and low-front; no meaningful upper-boundary improvement, upper dimples remain. Closed tessellation test; no blanket triangulation or smoothing follow-up.",
+  "files": {
+    "charizard-home-r94-tessellation-intake.blend": "63392b9b1685d4ceb1aa84f2628e5c167738a34ca5b76fb814d97fb91f3cb4f1",
+    "charizard-home-r94-contact-triangulated.blend": "ddac3163dee7a9db241cf18a0e3a4bb7ddcfa73bb65c237b877c2e5566334f4b",
+    "side.png": "76a1709e6b78996cf684372111f0bdc304265385c6d96567c8793780c12345a3",
+    "low-front.png": "ca005cf93ee802cf477da2731c62ae92f57922d3ea3e71429156b108e26e5682",
+    "audit.json": "3fbb4612b688056984b18c76ef4c70793fde0061f8a442231e3d5c48d35fe36d"
+  }
+}

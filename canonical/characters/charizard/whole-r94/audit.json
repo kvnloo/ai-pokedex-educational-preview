@@ -1,0 +1,8 @@
+{
+  "source_vertices": 167753,
+  "trial_vertices": 167753,
+  "source_faces": 329558,
+  "trial_faces": 329786,
+  "max_vertex_distance_same_index": 0.0,
+  "decision": "rejected; upper contact not visibly calmer and new dimples remain; no silhouette improvement expected with fixed vertices"
+}
