@@ -1,0 +1,10 @@
+{
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r114/charizard-home-r114-seam-protected.blend",
+  "region_definition": "worldZ>.435, worldX(-.3,.15), abs(headlocalX)<.14",
+  "vertices": 1084,
+  "complete_region_faces": {
+    "quads": 1026,
+    "triangles": 62
+  },
+  "interpretation": "Head region is mostly quads; total body density alone does not establish a need to rebuild it. Guarded deformation produced visible discontinuity at fixed crown. Structural reassessment pending."
+}
