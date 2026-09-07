@@ -1,0 +1,21 @@
+{
+  "qualityGate": "rejected",
+  "artifacts": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r64/depth-front.png",
+      "sha256": "a52627d2eb2f4b4722bb4028573d88ca8ad0f0b6b17cd3f0dd1cbeadefb14fcd"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r64/depth-rear.png",
+      "sha256": "e75bfc2db0c35e6a803a688a7c4508b964cf753669237835b10fe2f2e5671bbb"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r64/depth-side.png",
+      "sha256": "b324378f1e6b497c024af7dc1eb988b6e2c6fccfd4c1c2a2c7b13243329d3d5a"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r64/depth-threequarter.png",
+      "sha256": "f7f5a43adbca412c2b97beacbd7e46b02e5e45cd64396d429d73b951e523dddf"
+    }
+  ]
+}
