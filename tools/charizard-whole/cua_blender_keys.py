@@ -15,9 +15,13 @@ parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--pid', type=int, default=4106097)
 parser.add_argument('--window', type=int, default=4194306)
 parser.add_argument('--keep-pointer', action='store_true', help='Preserve pointer position for popup text and property editing')
+parser.add_argument('--key-delay-ms', type=int, default=12, help='Delay between native keystrokes; increase for recomputing property panels')
+parser.add_argument('--settle-ms', type=int, default=400, help='Wait after native input; does not prove Blender completed the operation')
 parser.add_argument('operation', choices=('key', 'type', 'box', 'click', 'stroke'))
 parser.add_argument('values', nargs='+')
 args = parser.parse_args()
+if not 1 <= args.key_delay_ms <= 1000 or not 0 <= args.settle_ms <= 10000:
+    parser.error('key delay must be 1–1000 ms and settle delay 0–10000 ms')
 env = dict(os.environ, DISPLAY=':1')
 
 
@@ -75,10 +79,10 @@ elif args.operation == 'box':
     finally:
         run('xdotool', 'mouseup', '1')
 elif args.operation == 'key':
-    run('xdotool', 'key', '--window', window, '--clearmodifiers', *args.values)
+    run('xdotool', 'key', '--window', window, '--clearmodifiers', '--delay', str(args.key_delay_ms), *args.values)
 else:
     if len(args.values) != 1:
         raise SystemExit('type expects one text argument')
     run('xdotool', 'type', '--window', window, '--clearmodifiers', '--', args.values[0])
-time.sleep(0.4)
+time.sleep(args.settle_ms / 1000)
 print(json.dumps({'targetWindow': args.window, 'verifiedPid': actual_pid, 'operation': args.operation}))
