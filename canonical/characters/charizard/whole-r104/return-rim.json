@@ -1,0 +1,9 @@
+{
+  "status": "fitting rim only; transition unbuilt",
+  "source": "charizard-home-r104-evaluated-rim.blend",
+  "object": "GEO-return-interface-r104",
+  "vertices": 236,
+  "edges": 236,
+  "modifiers": 0,
+  "method": "Native ShiftD of existing236boundaryedges, PSelection, ConvertMesh on copiedrim to evaluate inheritedlattice. Originaltail remains68773vertices."
+}
