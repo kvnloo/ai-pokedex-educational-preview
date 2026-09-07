@@ -1,0 +1,14 @@
+{
+  "status": "read-only correspondence; no second-eye edit",
+  "source": "charizard-home-r101-independent-eye.blend",
+  "opposite_quad_faces": [
+    327360,
+    327361,
+    327370,
+    327369,
+    327368,
+    327367
+  ],
+  "max_center_distance_to_rounded_mirrored_targets": 6.679e-06,
+  "limitation": "Approximate center correspondence from rounded prior coordinates; verify adjacency and visual placement before editing"
+}
