@@ -1,0 +1,35 @@
+{
+  "status": "closed-operands-preserved-union-rejected",
+  "operands": {
+    "GEO-lower-leg-operand-r136": {
+      "v": 12716,
+      "boundary": 0,
+      "nonmanifold": 0,
+      "zeroArea": 0
+    },
+    "GEO-foot-reused-r130": {
+      "v": 6633,
+      "boundary": 0,
+      "nonmanifold": 0,
+      "zeroArea": 0
+    }
+  },
+  "union": {
+    "vertices": 61,
+    "boundary": 57,
+    "nonmanifold": 57,
+    "zeroArea": 0
+  },
+  "extraChecks": {
+    "signedVolumes": [
+      0.012988935072089789,
+      0.007685531101680652
+    ],
+    "normalConsistencyErrors": 0,
+    "joinedFaces": 37877,
+    "selectedFootFaces": 12975,
+    "selectedFootVertices": 6633
+  },
+  "finding": "Exact union failure persists with closed outward-oriented operands and proper selected split. Cause unresolved; watertightness alone does not establish Boolean suitability. No further setting retries. Original visible, operands hidden; no integration.",
+  "next": "Inspect cap tessellation/self-intersections before any additional Boolean; do not attribute failure to open full body alone."
+}
