@@ -1,0 +1,15 @@
+{
+  "changed": 447,
+  "maxDelta": 0.0001806806786308127,
+  "protectedMaxDelta": 0.0,
+  "vertices": 276640,
+  "faces": 553042,
+  "stroke": [
+    600,
+    496,
+    651,
+    506
+  ],
+  "brush": "Fill/Deepen",
+  "strength": 0.25
+}

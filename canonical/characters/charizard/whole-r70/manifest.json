@@ -1,0 +1,97 @@
+[
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r70/charizard-home-r70-intake.blend",
+    "sha256": "6549eee816a1172a4d8b5169009683ceb628c1b51225238b7c80ccef9ab6e598",
+    "bytes": 77712569
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r70/mask.json",
+    "sha256": "e3251cfabae03dcf2e2e6ba759788adfa7ee34610d7f199f4ffe8bc88e53ccfc",
+    "bytes": 16711
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r70/charizard-home-r70-masked.blend",
+    "sha256": "a5abd59fbd4cd35f639496e059c4189ee42790098d91d92e0bdbe0f989c53c10",
+    "bytes": 91341076
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r70/audit.json",
+    "sha256": "07dab5d38bc78b45848f8393ff78d55223cfefe197a6f8a84ba447c4a2097367",
+    "bytes": 226
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r70/charizard-home-r70-fill.blend",
+    "sha256": "cece603d3d0f076719291353f90f476895a68e211fb1b4fa65611436fa152130",
+    "bytes": 91340662
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r70/fill-front.png",
+    "sha256": "fdd22e5f66c2bbfdb8253e4e98d884bb1e2c4d892b3eff12cc65caed4b876d04",
+    "bytes": 1191064
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r70/fill-side.png",
+    "sha256": "c84988bf9a53e7957119bca188220ea7f70bf583941f935596238a65a0e259c7",
+    "bytes": 1050411
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r70/fill-rear.png",
+    "sha256": "cd7a55a789739945b5519646f9a4a754f7f2c39ed46c34fcbfa391713b2b99c3",
+    "bytes": 1168917
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r70/fill-threequarter.png",
+    "sha256": "ca37aa444d32f0e5c05b710b5b637583092b8e78a0318dbb42ad8f282621b111",
+    "bytes": 1142729
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r70/initial-footprint-note.json",
+    "sha256": "1e6f4edba63c6e0c1ee42e014b10202be4d5d1d98c2fc80972dc7a8fab745f71",
+    "bytes": 173
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r70/corrected-audit.json",
+    "sha256": "a40555890a9b0eefcc8f80b851af6649176ac8a80d2feb2d592ee015f33e2491",
+    "bytes": 249
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r70/charizard-home-r70-fill-corrected.blend",
+    "sha256": "cb1e4b2e4f206eea3146192f699a891b3eba53f17fd0a388881e50ef3269d902",
+    "bytes": 91340630
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r70/corrected-front.png",
+    "sha256": "d9898469f476d0285248056d3a9e2d964c0d4cef5e63575dbba6cc09d45e05ea",
+    "bytes": 1189713
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r70/corrected-side.png",
+    "sha256": "4c470ba40873bc8e264ae0fcf7585e384cd90ee9b1256f03afa443475da4a983",
+    "bytes": 1050760
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r70/corrected-rear.png",
+    "sha256": "9e39bee814a981ba9307546171c0d74f94eb676ba113bae79e0863baf4708957",
+    "bytes": 1168026
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r70/corrected-threequarter.png",
+    "sha256": "201101d45421589a0309772d65728ae7624b9e418e4a02be07bc85c1f72d7303",
+    "bytes": 1142012
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r70/oblique.png",
+    "sha256": "61da00418fdca9e44b7ac81904365fd6f762041a62beef3c37befa542d2bb0b0",
+    "bytes": 432450
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r70/corrected-size.png",
+    "sha256": "f84e47997162e5aec783941d403d8756f62b04dcd6c5a9ffcdf49d5783e3ee72",
+    "bytes": 421785
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r70/after-stroke.png",
+    "sha256": "e92ccfcdb6c93918c9674dd13532553e85057c11c53fa5ae9a465a9b87a887d6",
+    "bytes": 436991
+  }
+]
