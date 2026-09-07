@@ -1,0 +1,3 @@
+Charizard R63: testing broader cleanup on the central abdomen using native Smooth Vertices. Center bands appear calmer; lower edge bands remain. 6,770 vertices moved, everything outside selected patch unchanged. Four views inspected, independent critic checking belly depth and patch boundary before retention. Still rough, not production-ready.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r63/smooth-front.png
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r63/smooth-threequarter.png
