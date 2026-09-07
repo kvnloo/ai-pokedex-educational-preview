@@ -1,0 +1,9 @@
+{
+  "vertices": 42,
+  "faces": 40,
+  "allQuads": true,
+  "boundaryEdges": 0,
+  "overconnectedEdges": 0,
+  "viewportSubdivision": 1,
+  "renderSubdivision": 2
+}

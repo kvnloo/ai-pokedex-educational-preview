@@ -1,0 +1,20 @@
+{
+  "status": "upper construction gate cleared; coarse chin added; neck fit and likeness pending",
+  "retained": "R80",
+  "productionApproved": false,
+  "method": "Native cube subdivide once, To Sphere, shaped ellipsoid; front 2x2 face region extruded twice and cap flattened. Subdivision preview1/render2; no bevel. Separate native quad-sphere shallow chin.",
+  "critic": "Side/low-front upper shape now distinguishes blunt muzzle and round skull; proceed to coarse jaw/neck. Construction gate only.",
+  "rootReview": "Upper curved volume resolves R84 flat plate issue. Pair renders inspected: chin currently oval lip-like insert; mouth margins/throat connection unresolved. Temporary whole-character placement render used a removed visibility mask on original head, not a physical cut or integration.",
+  "sources": {
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r85/charizard-home-r85-intake.blend": "a08b50eefaeee2d9eedec79118fbb3331cef24128fb77892d94a245d2cfb94c7",
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r85/charizard-home-r85-quadskull.blend": "21975aae3711a7a360af10b2082d32da7c8791bff7b6a0340e2d7edcc753eabd",
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r85/charizard-home-r85-coarse-head-chin.blend": "996a41ede936acf38bedb9e57eb6f6943c4298cfeaf9407cec9cc7f49a12d551"
+  },
+  "renders": [
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r85/side.png",
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r85/low-front.png",
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r85/placement-threequarter.png",
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r85/pair-side.png",
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r85/pair-low-front.png"
+  ]
+}
