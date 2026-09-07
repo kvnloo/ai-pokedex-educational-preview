@@ -1,0 +1,10 @@
+{
+  "status": "candidate-multiview-pending",
+  "actualOperator": {
+    "interpolation": "LINEAR",
+    "number_cuts": 2
+  },
+  "selectionMethod": "Expanded interpolation dropdown, native Home Return; actual operator properties verified before render",
+  "visual": "Rear render no longer shows folded/open-looking root artifact. Transition remains abrupt. Remaining views and geometric checks pending.",
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r75/charizard-home-r75-linear-verified.blend"
+}
