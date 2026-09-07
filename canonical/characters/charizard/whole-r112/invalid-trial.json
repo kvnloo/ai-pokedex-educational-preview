@@ -1,0 +1,8 @@
+{
+  "status": "invalid selection; reverted",
+  "source": "charizard-home-r112-jaw-trial.blend",
+  "operation": "Native HEAD-Yscale.8 on220selected, connectedSmooth.03",
+  "audit": "327 changed; worldX min-.727 proves wing inclusion. Mask omitted transverse headlocal bound.",
+  "decision": "No visual retention. Restored R110 camera source with R109 anatomy.",
+  "next": "Use headlocal transverse bound plus world head region and connected component; preview and audit selected bounds before native action. Preserve anterior chin; target central/posterior pouch rather than entire jaw."
+}
