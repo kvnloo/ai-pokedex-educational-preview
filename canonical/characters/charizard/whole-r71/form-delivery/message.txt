@@ -1,0 +1,2 @@
+R71 form-edit checkpoint: reverted the localized paired-surface move. It preserved sampled thickness but created a sharper pocket above the scallop. The reduced connected construction source remains available; R67 is still the retained asset. Failed form preview below, not an approved update.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r71/form-front.png
