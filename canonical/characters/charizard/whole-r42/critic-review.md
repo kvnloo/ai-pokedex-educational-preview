@@ -1,0 +1,1 @@
+Current linear bridge NOT RETAINABLE. Xhigh all4views plus HOME/art: shelf removed, mouth cleaner thanR41, but longstraighttriangular throat removes shortchin/upperSturn and introduces midneck bend. One bounded intermediate bridge-shape correction allowed; endpoints/chin/mouth/lowerneck fixed. NoSmooth. Revert if wedge persists. Fullwhole renders captured; root inspected3q.
