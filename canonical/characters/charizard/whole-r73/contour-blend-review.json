@@ -1,0 +1,15 @@
+{
+  "status": "retained-local-contour-improvement-only",
+  "productionApproved": false,
+  "canonicalRetainedAsset": "r67",
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r73/charizard-home-r73-contour-blend.blend",
+  "review": "Root inspected front, side, rear and threequarter. Sharper middle termination versus blend-collar; neighboring flank less abrupt than initial contour. No visible new attachment break. Existing thick root flap, capped spar and older-body scaffold remain unresolved. No production readiness claim.",
+  "operation": "Native SX .55 on28 paired vertices, then SX .8 on20 adjacent vertices around original median cursor.",
+  "hashes": {
+    "charizard-home-r73-contour-blend.blend": "321a371e890a7e5186aeb656d0e0ec2c6b30814bd96edab3f5196a2ab9507eeb",
+    "contour-blend-front.png": "066ac9f67353f6db4e7c44595016119e3305e1761455af8d60f2d43af0c16572",
+    "contour-blend-side.png": "66e5fd7c29a3d3f2e132a89ce2b51181cd96027ded5e0d6976800e7c1bd20927",
+    "contour-blend-rear.png": "b49e11202c72b198a9fc8ccbbf522af7db59943866fb8dec15d893ac670ce9c0",
+    "contour-blend-threequarter.png": "7e5a0319fb9aa6e09850fdceccc423a020762edfddfdb74a8a3745dff9df49f9"
+  }
+}
