@@ -1,0 +1,16 @@
+{
+  "status": "rejected-local-trial",
+  "operation": "Native Shift E 1 on root edges 0,4,12,16,88",
+  "verifiedCrease": 1.0,
+  "review": "Rear render still shows upper triangular opening; boundary crease alone does not resolve attachment. Restored measured-fit checkpoint.",
+  "files": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r73/charizard-home-r73-root-support.blend",
+      "sha256": "ffec3687412d0e8270fef1af78d0a1fc05157566890ac9ab610591fbf19af744"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r73/support-rear.png",
+      "sha256": "32f80cdf2e3d13b675ec57c804e8a5522b7be4b0ad874db74534f41dd14cb38e"
+    }
+  ]
+}
