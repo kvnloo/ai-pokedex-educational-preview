@@ -1,0 +1,19 @@
+{
+  "status": "candidate; visual critic pending",
+  "source": "charizard-home-r109-hand-review.blend",
+  "operations": "Native XYscale.55 about actual endpoints for all3 digits. Middle184selected .05falloff; outer112selected .04; inner103selected .04.",
+  "audit": {
+    "changed": 1476,
+    "outside_hand": 0,
+    "new_zero_area": 0,
+    "normal_reversals": 0
+  },
+  "views": [
+    "hand-front.png",
+    "hand-side.png",
+    "hand-opposite.png",
+    "hand-whole.png"
+  ],
+  "root_concern": "Short inner digit bulb-to-tip transition abrupt from side; no acceptance until critic.",
+  "productionApproved": false
+}
