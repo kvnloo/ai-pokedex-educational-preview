@@ -1,9 +1,10 @@
 {
-  "status": "root fails jaw continuity gate; independent verdict pending",
+  "status": "rejected by root and independent critic",
   "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r85/charizard-home-r85-jaw-wedge-trial.blend",
   "sha256": "4b50da081a1d5b51f48e33f0eb7f3bdab662950bc21445c6053a394698af83c8",
   "method": "Native localY flatten of9mouth-top controls, then9posterior controls localZ-.04/localY+.025. Upper skull unchanged.",
   "rootReview": "Both rendered views inspected: oval protrusion remains, abrupt cheek termination. Do not continue amplitude trials.",
   "retained": "R80",
-  "productionApproved": false
+  "productionApproved": false,
+  "critic": "Closed ellipsoid beneath intact full-depth upper shell duplicates lower-cheek envelope. Back/up movement buries pad without shared mouth boundary. Separate components are valid, but need deliberately allocated lower cheek/chin and shared mouth profile. Preserve crown/nasal mass; no amplitude retries."
 }
