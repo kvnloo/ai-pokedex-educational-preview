@@ -1,5 +1,5 @@
 {
-  "status": "critic-pending; not accepted",
+  "status": "rejected; R96 restored",
   "method": "Native42vertex ico lens:editS.04,SX.2,SY.375; objectRZ25,RX70,RZ-40; Gworld(-.013503,-.668019,.588955). Duplicatebrow localSX1.8,SY.45,SZ1.15,localGY.012. NativeShadeSmooth. Duplicatepair and mirrorHEAD-R95 X aboutheadorigin. Negative transform determinants remain in study; runtime transforms not certified.",
   "root_review": "Opened firsteye,module and fourpair renders. Narrow eye in side,raisedpad/brow lowfront; internaleye surfaces show through unfinishedmouth. No iris/texture or headacceptance.",
   "files": {
@@ -13,5 +13,6 @@
     "pair-whole.png": "67d161dc0ae3f0130e15966ad1d2144aa75726dd369dd051bad870e9f7368a11",
     "pair-rear.png": "51a6f08e47cab673fd185418abef6c25442f8e87a6abf88c06ef4f1b038e86fb",
     "audit.json": "d892c535d8c4e3ad32a7022391010506a69ced68eb347b4507cbee37249cc522"
-  }
+  },
+  "critic": "Four views plus R96 and officialreferences: side landmark but sleepy slit whole; low-front/rear raised rounded pads and separate thin brow rather than eye opening in sloped orbital mass. Seating/form failure independent of iris. Proper rim-derived mouth interior is critical next before more assembly fitting. Preserve lips/gap/chin/skull; no more eye-scale/brow-amplitude pass."
 }
