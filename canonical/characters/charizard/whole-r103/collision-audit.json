@@ -1,0 +1,6 @@
+{
+  "before_nonadjacent_head_pairs_incident_to_changed_vertices": 0,
+  "after_nonadjacent_head_pairs_incident_to_changed_vertices": 0,
+  "new_pairs": 0,
+  "limitation": "BVH triangle overlap diagnostic excludes shared-vertex pairs; not deformation or production certification"
+}

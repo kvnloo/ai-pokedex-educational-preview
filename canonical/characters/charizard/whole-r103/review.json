@@ -1,5 +1,5 @@
 {
-  "status": "critic pending; jaw closure trial",
+  "status": "retained limited jaw-pose improvement; likeness unaccepted",
   "native_method": "459 lowerjaw/lip/floor vertices worldZ>.43 headZ>.04 headY<-.012; HEAD-X -3deg about head(0,-.009,.0366), no proportional fade",
   "limitation": "Posterior falloff requested by planner not implemented; inspect transition before retention",
   "root_review": "Opened side/low-front/whole. Smaller nonzero opening, more compact neutral mouth. No obvious notch at this scale; unaccepted pending critic and audit.",
@@ -9,5 +9,7 @@
     "side.png": "696965ef411ced99bb05ea55132f46ef543baced9dba4d12fdb678092fab06d3",
     "low-front.png": "1168630f2a0d586c959645d16fa95cd047ff34921c2ce657662414a59338ea62",
     "whole.png": "69bf65750550e4c7c743fcfb7f017f642cedbff67fd895395e4f43a1946a68ab"
-  }
+  },
+  "critic_review": "Opened4views comparedR102 and HOME. Compact lip relationship preserves recessed mouth; no visible new corner/throat notch or selection-boundary ledge. No more closure supported.",
+  "collision_diagnostic": "Nonadjacent headtriangle overlaps incident to changedvertices:0 before,0 after. Excludes sharedvertex pairs, not production deformation certification."
 }
