@@ -1,0 +1,58 @@
+{
+  "status": "diagnosis-planar-cap-trial-rejected-restored",
+  "initialOverlapCandidates": {
+    "GEO-lower-leg-operand-r136": {
+      "nonAdjacentTriangleOverlapCandidates": 218,
+      "faceSamples": [
+        53,
+        82,
+        83,
+        88,
+        105,
+        115,
+        202,
+        203,
+        1015,
+        1032,
+        1476,
+        1477,
+        1478,
+        1479,
+        1515,
+        1516,
+        1518,
+        1519,
+        1947,
+        1948
+      ],
+      "ngons": [
+        [
+          24900,
+          155
+        ],
+        [
+          24901,
+          343
+        ]
+      ]
+    },
+    "GEO-foot-reused-r130": {
+      "nonAdjacentTriangleOverlapCandidates": 0,
+      "faceSamples": [],
+      "ngons": [
+        [
+          12974,
+          145
+        ]
+      ]
+    }
+  },
+  "localization": "All218initial lower-leg nonadjacent triangle overlaps involved cap faces. Foot operand had0.",
+  "planarCapTrial": {
+    "overlapCandidates": 183,
+    "nonmanifold": 0,
+    "zeroArea": 0
+  },
+  "finding": "Planar upper cap did not resolve overlaps; some new wall overlaps appeared. Closed edge topology is insufficient for valid volume. No new Boolean attempted.",
+  "next": "Do not repeat cap/Boolean settings. Need replacement connector topology or bounded local volumetric reconstruction with visual verification. Original retained geometry unchanged."
+}
