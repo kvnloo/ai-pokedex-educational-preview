@@ -1,0 +1,30 @@
+{
+  "status": "candidate; critic pending",
+  "method": "Native multiobject HEAD-Z scale1.3 about headZ.02162 rear aperture anchor.20 matched bodyrim+24insert vertices selected, Smooth connected .025. Adjacent skin participates.",
+  "audit": {
+    "GEO-body-head-joined-r92": {
+      "changed": 74,
+      "max_delta": 0.014714325677078225,
+      "head_y_drift": 5.651963874697685e-08
+    },
+    "GEO-eye-positive-r101": {
+      "changed": 12,
+      "max_delta": 0.014714314304005924,
+      "head_y_drift": 2.7241185307502747e-08
+    },
+    "GEO-eye-negative-r102": {
+      "changed": 12,
+      "max_delta": 0.014714325677078225,
+      "head_y_drift": 3.096647560596466e-08
+    }
+  },
+  "root_review": "Head/side/whole clay and contrast-head opened. Longer tapered opening visible; likeness not yet accepted.",
+  "files": {
+    "charizard-home-r119-eye-reach.blend": "d4d5b3b256d11c8c6ce7877f425192beba6c31cb78ff339f4e807e2f41a89a11",
+    "head.png": "288c126326aef6611e6b473606385aa6b96504b766218be7a75c44e91301d239",
+    "side.png": "20ee975776fcd0237163b7dc9032779b9d70c775f07352dfb5fa9442d4c9d75e",
+    "whole.png": "7e21df5c1b8db95aac3a0ccbbdee10d589589d0dcb2bd38c8dafefe3a88d33c5",
+    "contrast-head.png": "13064d870675111eccff63155a7b6d73c01a3bcc6ea5ba53ef2a7ed4113e86be",
+    "contrast-whole.png": "6731ef9ba03c1e6da73063cf5cf7db8d772dc8c25af6d2c2cbed7a57bdca42fe"
+  }
+}
