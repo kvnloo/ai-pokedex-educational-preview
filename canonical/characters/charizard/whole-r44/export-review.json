@@ -1,0 +1,31 @@
+{
+  "rootInspectedGlbViews": [
+    "front",
+    "side",
+    "rear",
+    "threequarter"
+  ],
+  "result": "Retained wing curve survives export, no new gross discrepancy. Existing anatomy and faceted shading remain unfinished.",
+  "files": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r44/charizard-blockout-r44.glb",
+      "sha256": "7f16f754b858561ce78e0b40d5e393beeeb6282ea9757d54fdef0c0250ea4969"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r44/glb-front.png",
+      "sha256": "50fa09544bcc485f88532693b3ec21f25ad47ab797755ab2f2b87f56828c103b"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r44/glb-side.png",
+      "sha256": "706373cb15882e4507106d5937f626cea1fd3addae42bd43c0228bc049eaea63"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r44/glb-rear.png",
+      "sha256": "8e9ac1f8cc1030fc85e06a25c08bc8d2d33b4b321c9ccb988c81989efadb1d2c"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r44/glb-threequarter.png",
+      "sha256": "870933ac6ac71a99b1f677f53d6e62d4a5537c97cc108b32078ce91ab16a1ba7"
+    }
+  ]
+}
