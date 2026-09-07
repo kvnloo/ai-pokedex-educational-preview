@@ -1,0 +1,24 @@
+{
+  "object": "GEO-home-body-wing-r74",
+  "candidateRegion": "x<-.55,y>.15,z<-.3",
+  "vertices": 4120,
+  "bounds": [
+    [
+      -0.8312171101570129,
+      -0.550007164478302
+    ],
+    [
+      0.15027901530265808,
+      0.2544679343700409
+    ],
+    [
+      -0.6682194471359253,
+      -0.3607553541660309
+    ]
+  ],
+  "finding": "Visibility isolation proves proximal lobe is body geometry; separate tail object is returning section. Previous tail object trials did not target whole visible defect; both reverted.",
+  "evidence": [
+    "tail-isolated-front.png",
+    "body-without-tail-diagnostic.png"
+  ]
+}
