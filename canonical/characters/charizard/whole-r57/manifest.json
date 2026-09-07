@@ -8,6 +8,10 @@
     {
       "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r57/charizard-home-r57-shared-grid.blend",
       "sha256": "78cc6a9d20e9f76027a627014cf5ffc96a65a2251a263af03ccbb41a05beb325"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r57/charizard-home-r57-width-fit.blend",
+      "sha256": "248bb25d71a39dd5be071b071c758eb7a8a1bb0774f78079db986ee72926996b"
     }
   ]
 }
