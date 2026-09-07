@@ -14,6 +14,7 @@ import time
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--pid', type=int, default=4106097)
 parser.add_argument('--window', type=int, default=4194306)
+parser.add_argument('--keep-pointer', action='store_true', help='Preserve pointer position for popup text and property editing')
 parser.add_argument('operation', choices=('key', 'type', 'box', 'click', 'stroke'))
 parser.add_argument('values', nargs='+')
 args = parser.parse_args()
@@ -34,7 +35,8 @@ if 'Blender' not in title:
 focused = json.loads(run('hyprctl', 'activewindow', '-j'))
 if focused.get('pid') != args.pid:
     raise SystemExit('Refusing input: owned Blender is not focused; never steal focus from the user')
-run('xdotool', 'mousemove', '--window', window, '620', '450')
+if not args.keep_pointer:
+    run('xdotool', 'mousemove', '--window', window, '620', '450')
 # Explicit window targeting prevents a focus change from redirecting text into chat.
 if args.operation == 'click':
     if len(args.values) != 2:
