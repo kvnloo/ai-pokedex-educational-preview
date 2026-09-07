@@ -1,0 +1,24 @@
+{
+  "status": "in-progress; not visual acceptance",
+  "method": "Native CUA Bisect twice and Separate Selection; bpy selection, audit and checkpoints only",
+  "removedBandFaces": 3735,
+  "rims": [
+    {
+      "edges": 228,
+      "degree2": true,
+      "z": 0.28954861822881195
+    },
+    {
+      "edges": 38,
+      "degree2": true,
+      "z": 0.42924801691582326
+    }
+  ],
+  "next": "Native subdivide upper rim with five cuts to reach 228 edges; then bridge and visually shape transition. Preserve rejected band guide.",
+  "files": {
+    "charizard-home-r93-band-intake.blend": "8dcedac6b2ba9735737a57cc4db6e3e992c44f39c69c2ab66c94091e9319f0b8",
+    "charizard-home-r93-lower-crosscut.blend": "d05c3d78bea7f04072f13a6521b5d324d34b9dae3224f9a8f4d77d489bfa6831",
+    "charizard-home-r93-two-crosscuts.blend": "67cb11f3c5d63f47f2aedaa6c11f597712f8ae8205c81c661adbaeadefa63105",
+    "charizard-home-r93-band-separated.blend": "de0a96a48978ab6b64a5e50b0bd867accb10103b70b83cc3fd32abb8676ff6a1"
+  }
+}
