@@ -6,5 +6,6 @@
   },
   "selectionMethod": "Expanded interpolation dropdown, native Home Return; actual operator properties verified before render",
   "visual": "Rear render no longer shows folded/open-looking root artifact. Transition remains abrupt. Remaining views and geometric checks pending.",
-  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r75/charizard-home-r75-linear-verified.blend"
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r75/charizard-home-r75-linear-verified.blend",
+  "rootMultiviewReview": "All4 views opened. Cleaner opposite wing surface and no previously visible folded bridge. Projecting upperroot point, abrupt seam and sparjunction remain unfinished. Critic review pending."
 }

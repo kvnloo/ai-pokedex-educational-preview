@@ -1,0 +1,5 @@
+{
+  "bridgeNonAdjacentTriangleOverlapCount": 0,
+  "caveat": "Shared-vertex triangle pairs excluded; not a complete intersection certificate",
+  "sample": []
+}

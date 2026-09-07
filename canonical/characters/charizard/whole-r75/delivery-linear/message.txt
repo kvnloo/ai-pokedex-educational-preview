@@ -1,0 +1,2 @@
+Charizard construction comparison: both wings now have rebuilt clean membranes. The new root bridge passes winding/connectivity checks and no longer folds across itself. All4 views inspected. The upper root point and spar seam remain unfinished, so this is not production approval.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r75/linear-verified-threequarter.png
