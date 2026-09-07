@@ -1,0 +1,21 @@
+{
+  "review": "All four rendered views inspected. Zipper reduced; side thick-to-thin step persists. Exact arc correspondence under audit, no production pass.",
+  "files": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r73/matched-front.png",
+      "sha256": "b4a2e1bf9c086402f81dfa3f85be73f2a62807adda95f38ee3ea864c43e40cfa"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r73/matched-side.png",
+      "sha256": "12583aea3870aa141cb6807e1b6ccaac3ff23be5fa6a2bfec9974150496823dc"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r73/matched-rear.png",
+      "sha256": "e444d2fdb2a20fca62cbddd240b316d7c05444c8676d06309f23428b67ed11f6"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r73/matched-threequarter.png",
+      "sha256": "3266d1321baae5174b43420be54896f9a1f496815cdbf026de86b6ef7377c2e4"
+    }
+  ]
+}
