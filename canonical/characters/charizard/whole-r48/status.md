@@ -1,0 +1,1 @@
+R48 intake: preserved native duplicate of R32 left leg from retained R46. No form edit yet. Source/haunch-before four views in private whole-r48. Current Blender charizard-hybrid-r48-intake.blend. Await concrete directional haunch move from active max planner; upper breadth and ankle/foot protected.
