@@ -1,0 +1,13 @@
+{
+  "status": "candidate; critic pending",
+  "method": "Native lattice creation, HEAD alignment and scale .28/.18/.32; mechanical3x3x4 cage and shared mask on body+eyes; native6 full-width interior top controls HEADY-.012.",
+  "mask": "smooth Y0..065; longitudinal fade -.12..-.07 and .09...14; head region only",
+  "root_review": "Opened front/head/side/whole. No R116 plateau, subtle flattening; potential nasal-cap dominance. Likeness not accepted.",
+  "files": {
+    "charizard-home-r117-roof-trial.blend": "d96de08d8a53a7ae2c4f0a4291be733b4d9ee993710b19b3d4ff65f2a5994745",
+    "front.png": "0bcfd9c305f134d27e1e30fda64e4a8715bf3700866a27d8ac644748f00dcf92",
+    "head.png": "80ad36a39d38ac75bbf5ae91ade2dd888a4f03eea0d7ec7823cc00e54c1e4b39",
+    "side.png": "1168b8aa04e31e85b7d07eaf2f94e661f54838077da46dfd459e6c83b61f1419",
+    "whole.png": "b8d25ac37a831fe43ae03e89c2b655ca35f8e2a070b6db6749a01a41748df2d7"
+  }
+}
