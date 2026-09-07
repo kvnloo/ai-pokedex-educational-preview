@@ -1,0 +1,15 @@
+{
+  "controlTargetErrors": {
+    "45": 0.0,
+    "2": 0.0,
+    "13": 0.0,
+    "4": 0.0,
+    "9": 0.0
+  },
+  "lowerContactUnchanged": [
+    0.33320003747940063,
+    -0.1799200028181076,
+    0.004840031266212463
+  ],
+  "sheetSparEndpointDistance": 0.0
+}

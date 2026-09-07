@@ -1,0 +1,139 @@
+{
+  "status": "construction-in-progress",
+  "retainedBaseline": "r67",
+  "productionApproved": false,
+  "energyBaked": false,
+  "privateRoot": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r73",
+  "files": [
+    {
+      "name": "charizard-home-r73-intake.blend",
+      "bytes": 38865697,
+      "sha256": "7f4125556e87b165c87661f15368906569ae19c111d8b88e05eea435d3590ca5"
+    },
+    {
+      "name": "charizard-home-r73-measured-fit.blend",
+      "bytes": 38863348,
+      "sha256": "2c04a2e9ba80dd070762ebf6cbac0eea4568443c97f8f1a3f298639a3ea4f243"
+    },
+    {
+      "name": "charizard-home-r73-rootfit.blend",
+      "bytes": 38863488,
+      "sha256": "cd403b3811f399d34bf369c8d329a16a9e8fc61c65ec5eb2da508f07012cc251"
+    },
+    {
+      "name": "charizard-home-r73-spar.blend",
+      "bytes": 38863488,
+      "sha256": "7488ea6eebb8d09dba1bbbcceaefde688d78962762fc405920ffb5c3729dfa21"
+    },
+    {
+      "name": "charizard-home-r73-strip.blend",
+      "bytes": 38866388,
+      "sha256": "8ea291e272a7999bd5f036bfad534d7b334afcf1737e2353f4401640e6d46e80"
+    },
+    {
+      "name": "intake-membrane.json",
+      "bytes": 3464,
+      "sha256": "4accb43cd9fc63ed08e90ed39aac52d9df67f85288e23212bc584a315baad1cc"
+    },
+    {
+      "name": "measured-fit-audit.json",
+      "bytes": 250,
+      "sha256": "ee7817237fa7c94cc24d6916978ee70b069269a5f708a4d901bb937b06470abf"
+    },
+    {
+      "name": "measured-front.png",
+      "bytes": 1180294,
+      "sha256": "2ae18330c53b762d92d55d07b512f5dab53fa22847759a37da92fb1c204fcf2a"
+    },
+    {
+      "name": "measured-rear.png",
+      "bytes": 1166705,
+      "sha256": "26a167da7da1b65564ee68f074206ca040fc09e4e26083e8614714f82395de6b"
+    },
+    {
+      "name": "measured-side.png",
+      "bytes": 1052147,
+      "sha256": "b771bdc59c9a3e265e3123f4867d4955f662cae8d780f94c33f1608896533fd6"
+    },
+    {
+      "name": "measured-threequarter.png",
+      "bytes": 1131282,
+      "sha256": "ed02b8599f9bc835fead48b6027e20d6bf6519be1cd0486beea637055ff2f1f9"
+    },
+    {
+      "name": "root-target-diagnostic.json",
+      "bytes": 2275,
+      "sha256": "d5a73520d677f93ff1ad3efdbe19a352a65cb38f2d787954efc88ea151644d3f"
+    },
+    {
+      "name": "rootfit-controls.json",
+      "bytes": 4566,
+      "sha256": "d8aa01735ee1537eed5eb73266d15ec1814884e554bff96d7cf27e4a7f292791"
+    },
+    {
+      "name": "rootfit-front.png",
+      "bytes": 1179709,
+      "sha256": "28fcf8613a0c6ecd9308f05940cf2f385b37d1e13322aba5f2aeb839d2b7b0f1"
+    },
+    {
+      "name": "rootfit-rear.png",
+      "bytes": 1167176,
+      "sha256": "e2bed32cd4a9c80ecd0bd472a0fa4544f6df1212deabfdb3c8b392d394881667"
+    },
+    {
+      "name": "rootfit-side.png",
+      "bytes": 1052110,
+      "sha256": "21560947ca308dce438bbc7892da8bfff459cb4f2c44d7ce606180300e7ac50d"
+    },
+    {
+      "name": "rootfit-threequarter.png",
+      "bytes": 1131487,
+      "sha256": "9fd16bb44db36e612d9c0ba2719c999e2216c5a5dfae6dcc76d78476dc14c90d"
+    },
+    {
+      "name": "spar-audit.json",
+      "bytes": 3781,
+      "sha256": "666946bdd9543df58cc8cb8dddd2101ac75f330992bfb2c4ecbc0fe917e179c1"
+    },
+    {
+      "name": "spar-front.png",
+      "bytes": 1179189,
+      "sha256": "e73a10f9e32dcfbd9d120e1cc91c0c49bf61cb4d1a9cf7a06eab370ecaaf59f7"
+    },
+    {
+      "name": "spar-rear.png",
+      "bytes": 1167169,
+      "sha256": "8a824bab698da3fc837ee82fdf96fbc8ca11b4deef3bcea04f2660cb38540654"
+    },
+    {
+      "name": "spar-side.png",
+      "bytes": 1052011,
+      "sha256": "bf5c6097eef2cab2d3410fba8caa42eeddbbf0298f3747f00646e3160f672a53"
+    },
+    {
+      "name": "spar-threequarter.png",
+      "bytes": 1130423,
+      "sha256": "7feebf8fe6be1b9271190ac213632d2f2785ff4ebe7b5eede5d8d6ba1c4d3e4c"
+    },
+    {
+      "name": "strip-front.png",
+      "bytes": 1184721,
+      "sha256": "37b501f02d8ceab2402f2c4634e9ea2e6edbf973403a1e1d2c305d08d84ad699"
+    },
+    {
+      "name": "strip-rear.png",
+      "bytes": 1164211,
+      "sha256": "9308987ead13bd2147a0fd0dd5887faa0239879a532806d470f959c0a70648e4"
+    },
+    {
+      "name": "strip-side.png",
+      "bytes": 1049380,
+      "sha256": "aa0e7577f5c9e7eae53023475e4cead9d598512320556877282c61476810982f"
+    },
+    {
+      "name": "strip-threequarter.png",
+      "bytes": 1136292,
+      "sha256": "c95d24d583f580aee2afc0fa7310dc444dc29dd2aa73f1597f65b0e3cf9150c2"
+    }
+  ]
+}
