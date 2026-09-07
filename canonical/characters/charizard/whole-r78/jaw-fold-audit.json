@@ -1,0 +1,9 @@
+{
+  "restoredFile": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r78/charizard-home-r78-head-intake.blend",
+  "trialChangedVertices": 2780,
+  "trialPolygonsNormalReversedVersusSource": 0,
+  "normalReversedSample": [],
+  "boundaryEdges": 236,
+  "overconnectedEdges": 0,
+  "interpretation": "No polygon normals reversed relative to source; this does not rule out dents, compression or self-intersection. Visual rejection remains authoritative."
+}
