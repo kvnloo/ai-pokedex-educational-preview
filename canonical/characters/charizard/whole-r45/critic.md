@@ -1,0 +1,1 @@
+Xhigh critic: reject R45. Round cuff persists at whole rear scale; no broad pelvic departure. Remesh banding visible in whole side/threequarter and belly front. Protected displacement audit covers Smooth only, not earlier remesh. Stop this method. Root independently agrees and verified R44 reopened.
