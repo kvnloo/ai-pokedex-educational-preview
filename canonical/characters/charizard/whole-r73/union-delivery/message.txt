@@ -1,0 +1,3 @@
+Charizard experiment result: the native spar union is rejected. It connects the surfaces but introduces pinching along the wing rim. Restored the cleaner separate-component collar. Preview is the rejected trial for comparison, not a final asset. Next pass is being scoped around whole-wing form rather than more tiny union fixes.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r73/union-rear.png
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r73/union-root.png
