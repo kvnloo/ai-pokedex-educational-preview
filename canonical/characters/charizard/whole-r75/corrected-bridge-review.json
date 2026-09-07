@@ -1,0 +1,7 @@
+{
+  "status": "winding-fixed-shape-still-rejected",
+  "zeroCutWindingErrors": 0,
+  "twoCutWindingErrors": 0,
+  "visual": "Rear shaded render still has folded root shelf. Correct orientation is necessary but did not resolve interpolation/shape failure.",
+  "next": "Inspect bridge cross-section and tangent overshoot; preserve source loops and accepted wing pose. No repeated smoothing."
+}
