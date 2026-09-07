@@ -1,0 +1,11 @@
+{
+  "status": "invalid-linear-comparison",
+  "actualOperator": {
+    "number_cuts": 2,
+    "interpolation": "PATH",
+    "smoothness": 1,
+    "twist_offset": 0
+  },
+  "reason": "Native dropdown selection did not yield requested LINEAR. Saved filename linear-bridge is attempt label only, not proof of interpolation. Render remains rejected.",
+  "next": "Inspect expanded menu and actual operator properties before render."
+}
