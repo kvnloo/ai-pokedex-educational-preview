@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "pokemon": "charizard",
   "retainedSource": {
-    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r77/charizard-home-r77-lobe-cleanup.blend",
-    "sha256": "6d7062079f1f18337700d2f5fb62381588aacd370b32f92209e5465bb4c011fe",
-    "scope": "R76 collar repair plus protected proximal body-lobe surface cleanup",
-    "knownLimitation": "Broad flat proximal lobe and angular turn remain; collar shelf/spar cap, head, feet and overall form unfinished",
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r80/charizard-home-r80-jaw-control-trial.blend",
+    "sha256": "9fb059397ece68f69218bf573a632d7c1e3bb004fcb2edcce08b4251ee8e7ae5",
+    "scope": "R77 cleanup plus R80 coarse-control jaw underside improvement",
+    "knownLimitation": "Head remains broadly rounded; facial forms, feet, tail slab and collar/spar transitions unresolved",
     "wholeAssetQualityGate": "needs-work"
   },
   "retainedLineage": [
@@ -18,7 +18,8 @@
     "whole-r74",
     "whole-r75",
     "whole-r76",
-    "whole-r77"
+    "whole-r77",
+    "whole-r80"
   ],
   "pendingCandidate": null,
   "qualityGate": "needs-work",
@@ -35,5 +36,5 @@
     "Runtime flame and attack effects",
     "Stats and playable game integration"
   ],
-  "latestReview": "whole-r77/lobe-cleanup.json"
+  "latestReview": "whole-r80/review.json"
 }

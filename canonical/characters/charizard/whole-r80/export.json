@@ -1,0 +1,9 @@
+{
+  "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r80/charizard-home-r80-review.glb",
+  "sha256": "f47b329a367b74193f775e0670ab5e0fe335833e73147cb879c27431a8ccb637",
+  "bytes": 13932256,
+  "meshes": 4,
+  "animations": 0,
+  "controlsExcluded": true,
+  "reimportVisual": "Root opened source and reimport threequarter; consistent silhouette and placement; static review only"
+}

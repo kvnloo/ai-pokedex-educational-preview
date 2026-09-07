@@ -1,0 +1,37 @@
+[
+  {
+    "name": "GEO-home-body-wing-r74.001",
+    "type": "MESH",
+    "parent": null,
+    "vertices": 185093,
+    "polygons": 369948
+  },
+  {
+    "name": "GEO-wing-opposite-fit-spar-r75.001",
+    "type": "MESH",
+    "parent": null,
+    "vertices": 3690,
+    "polygons": 7376
+  },
+  {
+    "name": "FlameSocket.001",
+    "type": "EMPTY",
+    "parent": "GEO-home-tail-crosssection-r54.001",
+    "vertices": null,
+    "polygons": null
+  },
+  {
+    "name": "GEO-wing-spar-control-r73.001",
+    "type": "MESH",
+    "parent": null,
+    "vertices": 3762,
+    "polygons": 7520
+  },
+  {
+    "name": "GEO-home-tail-crosssection-r54.001",
+    "type": "MESH",
+    "parent": null,
+    "vertices": 68773,
+    "polygons": 137308
+  }
+]
