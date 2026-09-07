@@ -1,0 +1,13 @@
+{
+  "regionalGate": "retained by root and xhigh critic",
+  "mirrorWorldError": 0,
+  "rightScaleApplied": true,
+  "rootInspected": [
+    "front",
+    "rear",
+    "threequarter"
+  ],
+  "caveat": "Interior faceted shading remains; no finished membrane or whole-character acceptance.",
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r44/charizard-hybrid-r44-bilateral.blend",
+  "sha256": "893c81155ea0a4fd5ce5de354b77f19e928e3f43dd623331ec754f4e5d053bde"
+}
