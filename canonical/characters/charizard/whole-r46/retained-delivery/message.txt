@@ -1,0 +1,2 @@
+Charizard R46 retained: neck now flows into chest without the old continuous collar seam. Native Exact Union preserved the existing shape; no remeshing or extra density. Xhigh critic agrees this is a regional gain. Small shading patches remain; jaw/throat, haunches and tail root are still unresolved. GLB exported/reopened and four views inspected.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r46/glb-threequarter.png
