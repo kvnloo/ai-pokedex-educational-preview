@@ -1,0 +1,6 @@
+{
+  "bridgeFaces": 249,
+  "nonAdjacentTriangleOverlapPairs": 0,
+  "polygonPairs": [],
+  "scope": "BVH nonadjacent triangle overlaps involving selected bridge faces; shared-vertex pairs excluded, not a complete production intersection proof"
+}

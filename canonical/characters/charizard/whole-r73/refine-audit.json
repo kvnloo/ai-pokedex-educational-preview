@@ -1,0 +1,13 @@
+{
+  "operator": {
+    "factor": 0.5,
+    "repeat": 1,
+    "xaxis": true,
+    "yaxis": true,
+    "zaxis": true,
+    "wait_for_input": true
+  },
+  "changed": 249,
+  "max": 0.01571958105299929,
+  "outsideSelectionChanged": 0
+}
