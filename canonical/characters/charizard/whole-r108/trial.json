@@ -1,0 +1,18 @@
+{
+  "status": "candidate; critic pending",
+  "source": "charizard-home-r108-hand-trial.blend",
+  "method": "Native XYscale .55 about each endpoint. Inner172selected Smooth connected .045; outer133selected .04.",
+  "views": [
+    "pair-front.png",
+    "pair-side.png",
+    "pair-whole.png"
+  ],
+  "audit": {
+    "changed": 1105,
+    "outside_hand": 0,
+    "new_zero_area": 0,
+    "normal_reversals": 0,
+    "z_max_delta": 0.0
+  },
+  "productionApproved": false
+}
