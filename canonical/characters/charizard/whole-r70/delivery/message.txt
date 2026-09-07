@@ -1,0 +1,3 @@
+Charizard R70 Fill-brush trial: rejected for negligible visible improvement. Correct native brush/mask verified; protected geometry unchanged. R67 restored. These small edits are not yet solving the broad wing form; planner is reassessing a workflow that can actually finish it. Before then after.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r67/haunch-front.png
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r70/corrected-front.png

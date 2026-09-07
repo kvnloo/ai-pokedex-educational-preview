@@ -1,0 +1,10 @@
+{
+  "success": true,
+  "platform": "telegram",
+  "chat_id": "1083429746",
+  "message_id": "17384",
+  "warnings": [
+    "Failed to send media /mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r70/corrected-front.png: Timed out"
+  ],
+  "mirrored": true
+}
