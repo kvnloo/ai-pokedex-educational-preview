@@ -1,5 +1,45 @@
 {
-  "qualityGate": "intake-no-form-edit",
-  "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r55/charizard-home-r55-intake.blend",
-  "sha256": "9bf0a8ecf0c8db5e7647e772ec36c37c979d35892f8e2c5a08fb887dadb071fc"
+  "qualityGate": "rejected-no-broad-form-gain",
+  "files": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r55/before-vertices.json",
+      "sha256": "a85a826a034658e369fe97e4f9d823a4710bdfe7aff2db0b8f2a472bc07c4aca"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r55/charizard-home-r55-intake.blend",
+      "sha256": "9bf0a8ecf0c8db5e7647e772ec36c37c979d35892f8e2c5a08fb887dadb071fc"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r55/charizard-home-r55-smooth.blend",
+      "sha256": "8f843512c3380d4b18d2b18b9b153b6e44e527dd1b527b9c7da54424a191e213"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r55/mask-audit.json",
+      "sha256": "c0620011aeef36fd55b509812c8333ae3c1d6b344de26b9f7da6251d99903a29"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r55/positive-wing-inspection.json",
+      "sha256": "a43ca7bfb56aa25a7931e68015075f02356d4ae12c4350d0e163e1154a313694"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r55/smooth-audit.json",
+      "sha256": "2b22d68907ddd887e5c94c5e6f36567116b265c6b59e6e3093a48b4a20236b20"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r55/smooth-front.png",
+      "sha256": "83a2575a4eba3856c729d42886a1b59de1153e32b1d1c1b395900ea3070504b5"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r55/smooth-rear.png",
+      "sha256": "610e954ad93b6d8fe4f9fb20f31df6060dc35cee3c8ab2525ca8d412eae77dbe"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r55/smooth-side.png",
+      "sha256": "e768362cc4ff03fa482288c52218a148d78e4bffb6e5c6dfe7b91fc6cd59f9d5"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r55/smooth-threequarter.png",
+      "sha256": "6075db24d5400cd94abec5cae62f2e0f2a4fa563575842efc04ea7a44402bd92"
+    }
+  ]
 }

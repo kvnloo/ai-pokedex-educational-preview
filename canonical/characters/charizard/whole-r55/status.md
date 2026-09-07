@@ -1,3 +1,3 @@
-# R55 membrane study intake
+# R55 rejected — no meaningful broad form improvement
 
-Native duplicate of GEO-home-body-root-r51, renamed GEO-home-wing-fairing-study-r55. All276640vertex positions verified unchanged; original hidden/preserved. R54 tail retained. No smoothing yet. Planned one protected Surface Smooth test; mask pending verification. Correct front viewport uses explicit -Y direction (camera local/world rotation yielded top view).
+Root inspected front/rear masks and rendered front/rear. One native SurfaceSmooth stroke395,380→435,380, strength.5/default.5shape and pervertex, iteration1. Polygon positiveX outerbay 5077affected mask vertices; protected geometry unchanged. Actual4062vertices changed, maxdelta0.0000444622. Insufficient change to broad membrane dents; reject and close smoothing series. Restored R54 retained.blend via MCP. Trial preserved. No topology/rig/material acceptance.

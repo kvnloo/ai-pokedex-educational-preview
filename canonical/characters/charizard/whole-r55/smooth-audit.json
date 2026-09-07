@@ -1,0 +1,13 @@
+{
+  "changed": 4062,
+  "maxDelta": 4.4462201030869925e-05,
+  "protectedMax": 0.0,
+  "nativeGesture": [
+    395,
+    380,
+    435,
+    380
+  ],
+  "filter": "SURFACE_SMOOTH",
+  "strength": 0.5
+}
