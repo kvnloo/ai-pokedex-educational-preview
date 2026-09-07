@@ -1,0 +1,1 @@
+REJECTED R42. Root/xhigh multiview: shelf removed but triangular throat and open posterior skullcontact. Max planner checked134vertex cage: anterior correction cannot restore separate rear contact; multiple repairs exceed bounded pass. No correction attempted. R38 bilateral restored. Keep allR42 topology study sources/evidence. Telegram17291 trial preview delivered.
