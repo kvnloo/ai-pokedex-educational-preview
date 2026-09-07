@@ -1,0 +1,7 @@
+{
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r81/charizard-home-r81-muzzle-projection-study.blend",
+  "sha256": "4fd720327ad3d63abc8e98621545c2714e193953cabc18ff7cc76cc0a70bb3a2",
+  "status": "unbound control study;12of49projectionmisses, body unchanged",
+  "method": "Reuse native49vgrid fromR79; native transforms toward uppermuzzle; positiveYprojection to isolatedheadguide",
+  "next": "Correct control boundary coverage from recorded missedvertex coordinates before binding; protect R80jaw and mouth. No cap anatomy edit performed."
+}
