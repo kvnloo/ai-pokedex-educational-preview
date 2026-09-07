@@ -1,0 +1,15 @@
+{
+  "status": "unfinished-form-pass",
+  "operation": "Native SX.55 on28 paired skin vertices around intermediate trailing shoulders; median pivot, proportional off.",
+  "review": "Front render inspected: intermediate point narrower, but neighboring flank now has a kink. Coordinated flank transition unfinished; do not retain or promote yet. Blend-collar rollback, R67canonical.",
+  "files": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r73/charizard-home-r73-contour.blend",
+      "sha256": "ddd55c401c9b95ec715cc86cc349f12c67f48fde2cebd628fa8516fe3e761461"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r73/contour-front.png",
+      "sha256": "6ce795ff142ce22216be9710b204d84be5391a7cf29d58b3c4ed5a38f63c1601"
+    }
+  ]
+}
