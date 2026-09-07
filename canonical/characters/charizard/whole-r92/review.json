@@ -1,0 +1,14 @@
+{
+  "status": "joined but root fails visual bridge gate; critic pending",
+  "retained": "R80",
+  "productionApproved": false,
+  "method": "Preserved lowcontrol head; native duplicate base+.03clearance, Ctrl2+Convert32rim. Native newneckringextrusion/Collapse157->80->40->32 at.006increments. NativeJoin/Bridge32. Selected152newneckrows SmoothVertices3passes; nativeShadeSmooth.",
+  "rootReview": "All12rendered views opened across joined/relaxed/smooth-shaded variants. Neck closed withoutoverconnectededges but cuffridge/narrowsection persists. No further tinyrow smoothing; structural junction correction required.",
+  "sources": {
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r92/charizard-home-r92-bridge-intake.blend": "ac78d1578c69f773728d90dcc789bfb57efb878e327dc0da311fded3207ac98e",
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r92/charizard-home-r92-graded-rims.blend": "757f2295f0404e6ec9d0b1c37720b3b3145ebb122e13ce59657a13124307c365",
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r92/charizard-home-r92-joined-trial.blend": "9c301db512f007182a250674b6920e1f2c3e58f57c9c55e460e869d1a7f11087",
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r92/charizard-home-r92-relaxed-bridge.blend": "05f038610ca8c0d4e164a83248333dc3fcedc5ef539c4372065e7f80f5c2681b",
+    "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r92/charizard-home-r92-smooth-shaded-trial.blend": "8cba33365e03c8e23e40e7109909b08c4216d43247e32b24e12f81173dd7210d"
+  }
+}
