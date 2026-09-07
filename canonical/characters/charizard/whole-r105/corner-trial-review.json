@@ -1,0 +1,8 @@
+{
+  "status": "rejected and reverted",
+  "method": "Native GX+.006 on23 visible-surface vertices within .012 of(-.82,.17464,-.554), connected Smooth proportional radius .055 requested.",
+  "review": "Opened front, rear and whole renders. Front shows a new narrow dent/rim at outer edge, no broad rounding benefit. Rear/whole no meaningful gain.",
+  "lesson": "Skin-only selection deforms surface rather than full section contour. Next different-method trial must span lobe depth and protect interface and envelope landmarks; do not increase this local move amplitude.",
+  "live": "charizard-home-r105-inspection.blend: unchanged R103 anatomy, inspection cameras only",
+  "planner_next": "One full-depth lower shoulder selection, broad falloff, inward/up direction; exact selection preview required."
+}
