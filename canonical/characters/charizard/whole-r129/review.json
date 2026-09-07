@@ -1,0 +1,13 @@
+{
+  "status": "candidate-not-retained",
+  "native_changes": "Pad Z 1.5 + Z .03, XY .85; claws individual origins scale 1.3 and Z +.035.",
+  "review": "Rounded boot silhouette and exposed medial claw base; not better than original. Opposite original foot inspected in closeup and clipped top view: three visible terminals, stronger existing ankle.",
+  "next": "Prefer native duplicate/separate of opposite foot as a reuse candidate before additional primitive refinement. Keep original intact.",
+  "artifacts": {
+    "foot.png": "2886d1201c56a79e29455de42d9ccc6e8d1a2a4e5092f4b6e0768e6db053348e",
+    "whole.png": "a9284114d9ac940d8d492fb509ff989105f58c63b752a9b204ba07e124fa8fe4",
+    "opposite-original.png": "9b32d507f2dc879ce4fdbd57f99b5dd8528ecc21a81715cf38951d74fdce7212",
+    "charizard-home-r129-foot-candidate.blend": "a98d880534f21dfe66a5f0633f9f0ea0b17d049530c1183ddc6e84e20cdfdae4",
+    "opposite-top.png": "164d60f7b1eb1b2e7d0e287fad196900cedc3566c3fe48be15ed51f332e9fa1f"
+  }
+}

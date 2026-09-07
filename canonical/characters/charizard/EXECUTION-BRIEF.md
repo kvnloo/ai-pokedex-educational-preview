@@ -17,7 +17,7 @@ R119 is the retained working checkpoint: R114 anatomy plus longer seated eye ape
 - R127: native smoothing (100 iterations) softened the lobe but preserved the false terminal and scalloped the pad; rejected. Close local compression, spatial cut and smoothing routes.
 
 ## Priority and next batch
-1. Correct one foot from four apparent terminals to three. Preserve the true toe roots, sole and ankle. Build a separate clean coarse foot candidate with three distinct claws using native UI, preserving the dense original as rollback. Compare before integration. Do not repeat local patch deformation or spatial cuts.
+1. Correct one foot from four apparent terminals to three. Preserve the true toe roots, sole and ankle. R128–129 primitive foot candidates remain unaccepted (disc/boot silhouette). R129 opposite original foot has three visible terminals in closeup and clipped top view. Next test native duplicate/separate and placement of that existing foot, preserving the source. Prefer reuse over more primitive refinement. Do not repeat local patch deformation or spatial cuts.
 2. Resolve the tail slab visible from the side using component construction; preserve the pelvis attachment and existing rollback. Do not revive failed corner pushes or the rejected R104 loft unchanged.
 3. Reassess full-character reference fidelity before further small eye-corner work. The corner is deferred, not solved.
 
