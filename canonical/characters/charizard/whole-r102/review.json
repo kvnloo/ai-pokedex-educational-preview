@@ -1,0 +1,20 @@
+{
+  "status": "paired critic pending; coarse construction only",
+  "native_method": [
+    "Opposite six quads Inset .003",
+    "Topology-derived10rim; anterior3SY.35 aboutY.045; rear3SY.65 aboutY.052",
+    "Extrude HEAD-X+.003; PSelection six-face insert"
+  ],
+  "root_review": "Opened six views. No obvious first-eye/skull silhouette regression. Opposite closecamera partially occluded by wing; needs unobstructed visual check. Each eye12v6f, rim gap0, mirrored coordinate distance1.04e-7.",
+  "files": {
+    "charizard-home-r102-intake.blend": "783233c9b173bbe3c02239f3d8821f2e38427a2d7e425c1918ffe7aede427944",
+    "charizard-home-r102-eye-pair.blend": "12a1b17c7de9d133c162d2c9ac20e5519723d8a4a8ef4588d7578160555111f9",
+    "side.png": "27adb240cd837bf201fedff129fd9fbbd341362c569132955267b01424a990be",
+    "low-front.png": "5113b2a62ee578fa164f6bc32d1697f9793026e31019d649b857a04e2da23b43",
+    "rear.png": "150c4766891154968639c134fff393611ce2bbb073db958c3aa493ea45ae1c0e",
+    "whole.png": "1a0c045f1ac5869e8d0fdc7b2efe5ac7b7ee009bf9734b1081eb338d692c8d07",
+    "audit.json": "5cb74c20d9cf70eb6145ce8264452c3da106303be4f6dcc0c9b2956179b2c258",
+    "contrast-opposite.png": "39c4e8ebb8b8e679c3fbe162496ed42c7ce2e1393b87c1caca0dbfb3a244bd43",
+    "contrast-front.png": "7d9d5031919266c1c03354fd99e97ffa65e109ff682075311d91e12dab137cdc"
+  }
+}

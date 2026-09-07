@@ -1,0 +1,16 @@
+{
+  "GEO-eye-positive-r101": {
+    "vertices": 12,
+    "faces": 6,
+    "max_rim_gap": 0.0,
+    "zero_area": 0
+  },
+  "GEO-eye-negative-r102": {
+    "vertices": 12,
+    "faces": 6,
+    "max_rim_gap": 0.0,
+    "zero_area": 0
+  },
+  "mirrored_eye_max_coordinate_distance": 1.0357378954495289e-07,
+  "status": "construction only; paired critic pending"
+}
