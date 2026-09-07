@@ -1,0 +1,12 @@
+{
+  "sourceImage": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r77/lobe-cleanup-threequarter.png",
+  "reimportImage": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r77/reimport-threequarter.png",
+  "reimportImageSha256": "fa5dfc0b90029fc7b2867209fc2acf031c7bdf306e68ead55274b90d08b7956c",
+  "meanAbsoluteChannelDifference": [
+    0.002917,
+    0.003105,
+    0.003
+  ],
+  "visualReview": "Root opened both renders: silhouette, parts and placement consistent; unresolved form defects unchanged. Single three-quarter static export check only.",
+  "productionApproved": false
+}
