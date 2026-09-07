@@ -1,0 +1,1 @@
+Xhigh independently rejects after left-before/left-grab and whole front/threequarter: short sharply bounded posterior groove, no broad rear-arc or ankle-taper improvement. Foot/ankle/upper mass preserved but does not compensate for depression. No mirror or Smooth.
