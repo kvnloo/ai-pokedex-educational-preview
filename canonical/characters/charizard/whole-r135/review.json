@@ -1,0 +1,21 @@
+{
+  "status": "rejected-restored-r134",
+  "nativeOperation": "Join working operands, Intersect Boolean UNION/EXACT confirmed. Then local Merge by Distance .0001.",
+  "unionAudit": {
+    "vertices": 166367,
+    "boundaryEdges": 343,
+    "localNonmanifold": 336,
+    "outsideMissingVertices": 0,
+    "outsideAddedVertices": 0,
+    "zeroArea": 16
+  },
+  "weldAudit": {
+    "verts": 166176,
+    "boundary": 343,
+    "localNonmanifold": 325,
+    "zeroArea": 15,
+    "threshold": 9.999999747378752e-05
+  },
+  "review": "Local topology invalid, weld insufficient. Original preserved; no integration or sculpt.",
+  "next": "Isolate/cap lower-leg operand into closed volume before union; do not repeat union on open full body."
+}
