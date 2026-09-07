@@ -1,5 +1,5 @@
 {
-  "status": "coarse tangent candidate; critic pending",
+  "status": "coarse-fit prerequisite cleared by critic; graded bridge trial next",
   "retained": "R80",
   "productionApproved": false,
   "method": "Native adjacent8controls worldZflatten,S.75,X+.07,Z-.014. Measured evaluated outline mismatch; native basal+adjacent16controls worldXscale1.08/Y1.09,X-.0037/Y+.0196.",
@@ -8,5 +8,6 @@
     "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r91/charizard-home-r91-tangent-intake.blend": "8515d70caba0fad373347371a9567a6eeae6d09e4913a82120c2b7b09a17757f",
     "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r91/charizard-home-r91-tangent-trial.blend": "71b691cacdca704c79913e5f331342df9055d8f4442204f27f956a2fea24296e",
     "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r91/charizard-home-r91-outline-fit.blend": "46b44bb64ad736bb3cff4540ea99c8861f415d8e07cf60cb7d4dd7134d658ef6"
-  }
+  },
+  "critic": "All3fitrenders compared R90. Curved elbow replaces pointedfunnel; broad lowfrontcurve. Real localized width/positionstep atopeninterface appropriate forshortgradedbridge. Preservebend/head/lowerneck; no isolatedamplitude pass. Removeledgewithout ridge/serration/waist; inspect side lowfront rear afterjoin."
 }
