@@ -1,0 +1,21 @@
+{
+  "verts": 1635,
+  "faces": 1614,
+  "boundaryEdges": 42,
+  "overconnectedEdges": 0,
+  "bounds": [
+    [
+      0.159759521484375,
+      0.989410400390625
+    ],
+    [
+      -0.5052490234375,
+      0.03924560546875
+    ],
+    [
+      -0.1708984375,
+      0.593017578125
+    ]
+  ],
+  "status": "remesh-produced-visual-gate-fails-front-viewport"
+}

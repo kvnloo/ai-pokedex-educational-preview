@@ -1,0 +1,30 @@
+{
+  "status": "rejected",
+  "files": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r72/charizard-home-r72-remeshed.blend",
+      "bytes": 89090512,
+      "sha256": "45bef6e2e9227de8332bdebf94a0e0534efbdfd07a88da378569a7cbfeaeed9a"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r72/remeshed-front.png",
+      "bytes": 1182046,
+      "sha256": "f6818a758ff666765c2510daa2be37d463ca958374698ccc689e30e6a90615cd"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r72/remeshed-side.png",
+      "bytes": 1049822,
+      "sha256": "040c916af73f37a215cad1571987fcc281c9c1872293613b2fc5d963a7dc82df"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r72/remeshed-rear.png",
+      "bytes": 1161707,
+      "sha256": "d150d0a5187e8b2f6a1b0f42ce767b255c3bc51f853eb2876c2fa00e4f8ccbdf"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r72/remeshed-threequarter.png",
+      "bytes": 1136766,
+      "sha256": "d3589288de75220e9ae45183c15f8fc257bfda32fcb7d90e07f69021b57afaa7"
+    }
+  ]
+}
