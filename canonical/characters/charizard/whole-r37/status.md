@@ -1,3 +1,5 @@
 R36 embedding retained by XHIGH as construction source; no further root translation. Native duplicate4 components and join into GEO-r37-hand-skin-study-L (27328 vertices), originals hidden preserved. Saved R37 intake and joined-study private sources. Not yet voxel union. Study inherits nonuniform scale1.15,.8,1; apply scale natively before remesh. Preserve gaps/bends/shallow palm; reject webbing/bulbous knuckles.
 
 Applied scale natively. First mode-switch failed; union.blend is NOT union (27328 vertices). Separate CtrlTab then2 verified SCULPT, nativeCtrlR succeeded:43690 vertices, voxel.0025. Saved union-retry and retry four views. Root3q: gaps/bends intact but fingers visibly faceted due coarse input; not accepted. Next improve source finger sampling or bounded smoothing, not density-only reruns.
+
+Read-only union inspection: all43688 faces smooth, so facets geometric. Restored intake; native duplicated3 fingers, Ctrl2 Subsurf source trial. Originals hidden preserved. Saved smooth-finger-source and four smooth-source renders. Root3q: smoother but bends softened; critic reviewing before union. No acceptance.
