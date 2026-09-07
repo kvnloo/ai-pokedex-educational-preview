@@ -1,0 +1,22 @@
+{
+  "status": "unbound neutral cage; no deformation",
+  "source": "whole-r77/charizard-home-r77-cage-setup.blend",
+  "method": "Native AddLattice and native translation/scaling; mechanical resolution setup",
+  "object": "CAGE-proximal-section-r77",
+  "resolution": [
+    5,
+    3,
+    3
+  ],
+  "location": [
+    -0.65,
+    0,
+    -0.52
+  ],
+  "scale": [
+    0.4,
+    0.54,
+    0.34
+  ],
+  "next": "Bind verified lobe with feathering away from236 join vertices; native corner-control section rounding. Keep return tail fixed."
+}
