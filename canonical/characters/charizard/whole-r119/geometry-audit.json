@@ -1,0 +1,16 @@
+{
+  "GEO-body-head-joined-r92": {
+    "normal_reversals": 0,
+    "new_zero_area": 0
+  },
+  "GEO-eye-positive-r101": {
+    "normal_reversals": 0,
+    "new_zero_area": 0,
+    "rim_max_nearest_body_vertex": 0.0
+  },
+  "GEO-eye-negative-r102": {
+    "normal_reversals": 0,
+    "new_zero_area": 0,
+    "rim_max_nearest_body_vertex": 0.0
+  }
+}
