@@ -1,0 +1,1 @@
+Retain digit taper only. XHIGH inspected detail front/threequarter/edited side, whole front/rear/threequarter, R34 wrist and HOME. Broad roots through bends to narrower tips read clearly; no convincing fragile-tip failure. Do not change .55 to .60 without evidence or thin further. Base ledges remain unresolved, preventing finished-hand acceptance.

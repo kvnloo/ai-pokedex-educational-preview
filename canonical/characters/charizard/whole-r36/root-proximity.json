@@ -1,0 +1,128 @@
+{
+  "GEO-r11-finger-L0": [
+    {
+      "vertex": 0,
+      "nearestDistance": 0.006642978638410568,
+      "normalSignedDistance": 0.0066429030848667026
+    },
+    {
+      "vertex": 1,
+      "nearestDistance": 0.007544916123151779,
+      "normalSignedDistance": -0.007544884574599564
+    },
+    {
+      "vertex": 2,
+      "nearestDistance": 0.028500963002443314,
+      "normalSignedDistance": -0.028500963584519923
+    },
+    {
+      "vertex": 3,
+      "nearestDistance": 0.015671130269765854,
+      "normalSignedDistance": -0.015671129398924677
+    },
+    {
+      "vertex": 4,
+      "nearestDistance": 0.0015802830457687378,
+      "normalSignedDistance": -0.001580255948681497
+    },
+    {
+      "vertex": 5,
+      "nearestDistance": 0.003844939637929201,
+      "normalSignedDistance": 0.00384340514528958
+    },
+    {
+      "vertex": 6,
+      "nearestDistance": 0.0068669612519443035,
+      "normalSignedDistance": 0.0068669573665829375
+    },
+    {
+      "vertex": 7,
+      "nearestDistance": 0.010273925960063934,
+      "normalSignedDistance": 0.010267558449413627
+    }
+  ],
+  "GEO-r11-finger-L1": [
+    {
+      "vertex": 0,
+      "nearestDistance": 0.003673529252409935,
+      "normalSignedDistance": -0.0036735293542733416
+    },
+    {
+      "vertex": 1,
+      "nearestDistance": 0.010480999946594238,
+      "normalSignedDistance": -0.010480990953510627
+    },
+    {
+      "vertex": 2,
+      "nearestDistance": 0.02827455662190914,
+      "normalSignedDistance": -0.028274556680116802
+    },
+    {
+      "vertex": 3,
+      "nearestDistance": 0.01872185245156288,
+      "normalSignedDistance": -0.018721852652106463
+    },
+    {
+      "vertex": 4,
+      "nearestDistance": 0.012313121929764748,
+      "normalSignedDistance": -0.012313122195109827
+    },
+    {
+      "vertex": 5,
+      "nearestDistance": 0.018721770495176315,
+      "normalSignedDistance": -0.01872177159793864
+    },
+    {
+      "vertex": 6,
+      "nearestDistance": 0.028274962678551674,
+      "normalSignedDistance": -0.028274963202420622
+    },
+    {
+      "vertex": 7,
+      "nearestDistance": 0.01048288308084011,
+      "normalSignedDistance": -0.010482875004527159
+    }
+  ],
+  "GEO-r11-finger-L2": [
+    {
+      "vertex": 0,
+      "nearestDistance": 0.006635092664510012,
+      "normalSignedDistance": 0.006635068537434563
+    },
+    {
+      "vertex": 1,
+      "nearestDistance": 0.01027394738048315,
+      "normalSignedDistance": 0.010267581877997145
+    },
+    {
+      "vertex": 2,
+      "nearestDistance": 0.006867219228297472,
+      "normalSignedDistance": 0.006867214513476938
+    },
+    {
+      "vertex": 3,
+      "nearestDistance": 0.0038449184503406286,
+      "normalSignedDistance": 0.003844348723987423
+    },
+    {
+      "vertex": 4,
+      "nearestDistance": 0.0015831450000405312,
+      "normalSignedDistance": -0.0015831047259666775
+    },
+    {
+      "vertex": 5,
+      "nearestDistance": 0.015671219676733017,
+      "normalSignedDistance": -0.015671219985506468
+    },
+    {
+      "vertex": 6,
+      "nearestDistance": 0.02850070595741272,
+      "normalSignedDistance": -0.028500704851467162
+    },
+    {
+      "vertex": 7,
+      "nearestDistance": 0.007549902889877558,
+      "normalSignedDistance": -0.007549870962975547
+    }
+  ]
+}
