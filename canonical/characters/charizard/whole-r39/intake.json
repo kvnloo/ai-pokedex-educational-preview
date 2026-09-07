@@ -1,0 +1,27 @@
+{
+  "source": "whole-r38/charizard-hybrid-r38-bilateral.blend",
+  "files": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r39/neck-before-front.png",
+      "sha256": "1b73ce0a4a14b9a8523b0c8d4176a551792bd4485b7b1c410a2ccb04f0206489"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r39/neck-before-rear.png",
+      "sha256": "c2b3bc22308c7897035089acf4bbcbc98ba5ce662009399d8b6899c8cf3af73f"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r39/neck-before-side.png",
+      "sha256": "35e9b0edc983f9b189cf8e30f6b9e7c0062353a3a76e2cccea6f227ae4a00858"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r39/neck-before-threequarter.png",
+      "sha256": "d2194a31bc81533606ed3c8072e6867ee73ae263f11ac82fc7bc490199b42992"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r39/interface-source.json",
+      "sha256": "e77388a9b65bf6c1f344089c0af38db0a07daaf959adb4f17f1a5e2c9b8e9ccd"
+    }
+  ],
+  "review": "Root inspected side and threequarter closeups. Upper interface has visible physical step below jaw; lower interface has conspicuous contrast collar. Proportion changes not justified by this diagnostic.",
+  "geometryEdited": false
+}
