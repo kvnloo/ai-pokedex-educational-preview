@@ -1,0 +1,3 @@
+Charizard R67: retained a small haunch cleanup after four-view review. Screen-right thigh is calmer while its fullness and ankle remain intact. Still unfinished—wings, face and other reconstruction artifacts need work. Native Blender edit; 1879 vertices changed, protected vertices unchanged. First image R66 before, second R67 after.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r66/chest-front.png
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r67/haunch-front.png
