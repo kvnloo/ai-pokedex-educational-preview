@@ -1,0 +1,13 @@
+{
+  "status": "critic pending; jaw closure trial",
+  "native_method": "459 lowerjaw/lip/floor vertices worldZ>.43 headZ>.04 headY<-.012; HEAD-X -3deg about head(0,-.009,.0366), no proportional fade",
+  "limitation": "Posterior falloff requested by planner not implemented; inspect transition before retention",
+  "root_review": "Opened side/low-front/whole. Smaller nonzero opening, more compact neutral mouth. No obvious notch at this scale; unaccepted pending critic and audit.",
+  "files": {
+    "charizard-home-r103-intake.blend": "06cb189fe09dd442b976198f4061c5ed01a078bade61b78072c0242aafeb1484",
+    "charizard-home-r103-jaw-closure.blend": "8afaa996b13c83913180ae2f68476cca1e9fa3f9922dadc041d8b73826504c3a",
+    "side.png": "696965ef411ced99bb05ea55132f46ef543baced9dba4d12fdb678092fab06d3",
+    "low-front.png": "1168630f2a0d586c959645d16fa95cd047ff34921c2ce657662414a59338ea62",
+    "whole.png": "69bf65750550e4c7c743fcfb7f017f642cedbff67fd895395e4f43a1946a68ab"
+  }
+}
