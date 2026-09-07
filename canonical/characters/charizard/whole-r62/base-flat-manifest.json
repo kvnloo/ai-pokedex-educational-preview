@@ -1,0 +1,17 @@
+{
+  "qualityGate": "review-pending",
+  "artifacts": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r62/base-flat-front.png",
+      "sha256": "e49ffbe3d4c0d49f667dd8d8c8d0bea74d7bc81bb23e8a285c8dd1ec1ffced0e"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r62/base-flat-threequarter.png",
+      "sha256": "5242b21d359249e10b458bac5f75ba47ef7c376a9fb2b13f999e43d577d1ead0"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r62/charizard-home-r62-base-flat.blend",
+      "sha256": "2751ca8b27cf83aef0a20dd7aff793f55f32fc60133b7f4e01216e2d50ee99cc"
+    }
+  ]
+}

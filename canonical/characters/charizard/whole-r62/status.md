@@ -7,3 +7,5 @@ Original rounded cap still present and occludes the new component. Front render 
 ## Native cap trim completed, visual review pending
 
 Selected311 local distal vertices, native Bisect mouse stroke; F9 set plane Z -.11630, Fill and Clear Inner. Body now276578 vertices,236 boundary edges (same existing tail boundary count). Native Shade Smooth on separate claw. Saved trim and trim-smooth checkpoints. Inspected front/threequarter/512 whole: flat version shows compact point but visible attachment lip; all-face smooth shading looks blunt and exposes collar. Independent critic reviewing. Not retained or production-ready.
+
+Native ShadeFlat on base ngon index30 only, smooth sides retained. Verified only face30 flat. Threequarter render removes erroneous rounded highlight; attachment lip persists. Saved base-flat checkpoint, critic informed. No geometry change from trim.
