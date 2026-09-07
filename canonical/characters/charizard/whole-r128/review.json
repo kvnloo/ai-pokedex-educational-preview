@@ -1,0 +1,15 @@
+{
+  "status": "construction-only-not-retained",
+  "method": "Native UI sphere pad and three separate cone claws, edit transforms, duplicates, smooth shading, group yaw 30 degrees. bpy selection/cameras/temporary visibility/checkpoint only.",
+  "vertices": 581,
+  "components": 4,
+  "review": "Three claws established. Pad too disc-like; claws too low and small in whole view. Needs taller ankle transition, shaped forefoot and elevated broader claws before integration. No production gate passed.",
+  "preservation": "Original body retained, temporary visibility mask removed; candidate hidden in CANDIDATE-foot-r128-unapproved. Registry unchanged.",
+  "artifacts": {
+    "foot-blockout.png": "e1d6f6cdf7a9057d6e84d7e66265db536538619da5e29d8602e89ebfd1939858",
+    "foot-top.png": "17439d2342280a418846f46afccafb36a9a8427508940bc3cbb101d30cf3e4af",
+    "foot-context.png": "e993dbf176fb11d797af94b4224be855f3f887a5bd08220f9fc80b0707e08b29",
+    "whole-context.png": "78ad1065d2f5425175217b69fac553e841136eee416f0a18effde65a4802b899",
+    "charizard-home-r128-foot-candidate.blend": "5a02cfaf1e7d1f19de3e5690220c6f681868d605d6d2376c9568b91c21f5ac40"
+  }
+}
