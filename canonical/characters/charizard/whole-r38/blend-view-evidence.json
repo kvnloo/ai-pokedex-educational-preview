@@ -1,0 +1,39 @@
+{
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r38/charizard-hybrid-r38-base-blend.blend",
+  "sourceSha256": "47e7d9a50f111103f63dad926f45d698dbb9d302c57a0530a3fbf0ad18f77438",
+  "renders": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r38/blend-left-side.png",
+      "sha256": "035c60d5b5245d210154fe55bb137c029ebe21975e9eee47fe5ed2443535ecab",
+      "bytes": 1082204
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r38/whole-front.png",
+      "sha256": "960a0768f7e82d07b80c9f661cd341f5415b895af1f733306c085ae4acadaccb",
+      "bytes": 1021426
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r38/whole-side.png",
+      "sha256": "c53ebf36af591986cdeffbf6262e65922667f9faae71389097af06986eb59ce9",
+      "bytes": 905264
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r38/whole-rear.png",
+      "sha256": "b1f9a9ac421617b9d3e145f2df85845f10546a563a0a0f0d6a80e46dc2fc3eeb",
+      "bytes": 1017781
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r38/whole-threequarter.png",
+      "sha256": "f59fbcdda51bd0d5a9c552aea1aed5082071c155f02cc6472e39355df3147c73",
+      "bytes": 1030375
+    }
+  ],
+  "rootInspected": [
+    "blend-left-side.png",
+    "blend-threequarter.png",
+    "whole-front.png",
+    "whole-threequarter.png"
+  ],
+  "assessment": "Finger separation and bends remain readable. Base ridges softened; oval palm/wrist side transition remains abrupt. Whole-character head/neck/body joins remain conspicuous. Regional acceptance pending critic; no production-quality claim.",
+  "geometryChangedThisPass": false
+}
