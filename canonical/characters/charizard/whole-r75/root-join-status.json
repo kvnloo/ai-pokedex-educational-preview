@@ -1,0 +1,10 @@
+{
+  "status": "unjoined-interface",
+  "bodyRootVertices": 263,
+  "replacementRootVertices": 42,
+  "tailBoundaryVertices": 236,
+  "cutLostCoordinates": 0,
+  "cutNewCoordinates": 0,
+  "visualFinding": "Original guide hidden in rear reveals upper body boundary above newroot, lower collar overlap. Must resolve before join acceptance.",
+  "next": "Planner reviewing coherent interface fit/bridge; wrist and outer span held."
+}
