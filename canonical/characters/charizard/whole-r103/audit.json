@@ -1,0 +1,10 @@
+{
+  "file": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r103/charizard-home-r103-jaw-closure.blend",
+  "vertices": 167917,
+  "changed_vertices": 459,
+  "max_delta": 0.009259513896017138,
+  "unchanged_vertices": 167458,
+  "new_zero_area_incident_faces": 0,
+  "incident_winding_conflicts": 0,
+  "limitation": "No collision certification; rear transition still requires visual review"
+}
