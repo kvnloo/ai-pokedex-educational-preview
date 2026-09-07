@@ -8,6 +8,10 @@
     {
       "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r56/frame-rear.png",
       "sha256": "534cdbbd55889431ecc70482096ed67f9e2394ea50462f1f65b56a9d402dcc64"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r56/charizard-home-r56-intake.blend",
+      "sha256": "902bf6eb1d4c55b9929810c0ead9e9d26679dc604e3c986b2d5e2d65c2f08a4e"
     }
   ]
 }
