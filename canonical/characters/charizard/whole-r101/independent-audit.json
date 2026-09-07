@@ -1,0 +1,10 @@
+{
+  "file": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r101/charizard-home-r101-independent-eye.blend",
+  "eye_vertices": 12,
+  "eye_faces": 6,
+  "rim_vertices": 10,
+  "max_rim_vertex_gap": 0.0,
+  "overconnected_edges": 0,
+  "zero_area_faces": 0,
+  "smooth_faces": 6
+}
