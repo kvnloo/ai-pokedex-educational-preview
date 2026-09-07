@@ -1,0 +1,52 @@
+[
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r69/charizard-home-r69-intake.blend",
+    "bytes": 77712367,
+    "sha256": "b24dbbd240df5ff273c3053bce7b60bc2c49553cc9d73b76d555bb672b32a735"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r69/weights.json",
+    "bytes": 261531,
+    "sha256": "1d1e6727f6b76ba0fba1ed168adf4295fbbf7bfd91af42ff4353aac3c630890a"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r69/charizard-home-r69-cage-intake.blend",
+    "bytes": 91395072,
+    "sha256": "c21245ec8d9112c16f2839eee7d3748d49d22818b2a21cecf1e33f044d953ec4"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r69/audit.json",
+    "bytes": 749,
+    "sha256": "b0e9889ddf8fbddeef9ae38fd5f012f31273a46f37bf769f4e82fb9a46bb18e4"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r69/thickness-samples.json",
+    "bytes": 3253,
+    "sha256": "b3f198e4f078529ff18eb0563c6c9bc0fd0a1fe3634e6084d03b50f5a659c796"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r69/charizard-home-r69-compressed.blend",
+    "bytes": 91395504,
+    "sha256": "1349e80213d4a96bc531cd6462035d881b9c3c0c783447f40fabcd9823076ef3"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r69/compressed-front.png",
+    "bytes": 1189785,
+    "sha256": "45744ecc9750c923e42142285357470eae7cd2700942dfcf8c1d4dd598d93687"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r69/compressed-side.png",
+    "bytes": 1050444,
+    "sha256": "b7a68f229f82582151df4c49bae81f8dae3607b0e95360c188caaa675189032d"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r69/compressed-rear.png",
+    "bytes": 1168094,
+    "sha256": "2d42c57cbe4e8b156ce9b01283bfb5805495bc8d5858c57eb9f05e81b8eb643b"
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r69/compressed-threequarter.png",
+    "bytes": 1142509,
+    "sha256": "be87fb5adcb5f75f2a19d362983886d5359c51e845a820c024e6d5b27f3c2cd7"
+  }
+]
