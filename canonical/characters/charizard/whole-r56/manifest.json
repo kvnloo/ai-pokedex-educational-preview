@@ -1,0 +1,13 @@
+{
+  "qualityGate": "construction-diagnostic",
+  "files": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r56/frame-front.png",
+      "sha256": "3e1d682fd8e0b438852dcbc7aa6d1f0a97ce031312849b9778a086a0c75ad4e0"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r56/frame-rear.png",
+      "sha256": "534cdbbd55889431ecc70482096ed67f9e2394ea50462f1f65b56a9d402dcc64"
+    }
+  ]
+}
