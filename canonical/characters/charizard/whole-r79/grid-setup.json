@@ -1,0 +1,23 @@
+{
+  "status": "construction setup only, not retained anatomy",
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r79/charizard-home-r79-jaw-grid-setup.blend",
+  "sha256": "cc6eb1756b405bb7e7113d9e485a38279b4bfc52775608cdc4d02249247bc345",
+  "patch": {
+    "object": "GEO-jaw-control-patch-r79",
+    "vertices": 49,
+    "quads": 36,
+    "method": "Native AddPlane, Subdivide five cuts, native scale/rotate/translate; native AddShrinkwrap with mechanical guide target assignment",
+    "renderExcluded": true,
+    "modifierApplied": false
+  },
+  "guide": {
+    "object": "GUIDE-head-surface-r79",
+    "vertices": 18073,
+    "method": "Native duplicate body, mechanical selection and native DeleteVertices outside head; remove74 disconnected wing vertices",
+    "renderExcluded": true
+  },
+  "retainedBodyUnedited": true,
+  "visualCheck": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r79/clean-guide-fit.png",
+  "finding": "Hand/wing snapping corrected by isolated head guide. Grid now spans underside but outer rows bunch at silhouette; border fitting, arch shaping and attachment unproven. Do not promote.",
+  "next": "Fit boundary and support rows natively, then shape interior; inspect low-front and local-side before any attachment."
+}
