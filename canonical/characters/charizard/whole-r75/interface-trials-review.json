@@ -1,0 +1,20 @@
+{
+  "status": "rejected-restored-root-lowered",
+  "smoothing": {
+    "operation": "Native Smooth Vertices factor0.5 repeat1 on84 bridge-strip vertices",
+    "changedVertices": 84,
+    "maximumDelta": 0.00352529094,
+    "result": "No meaningful visible interface improvement; reverted"
+  },
+  "endpointFit": {
+    "operation": "Native control5 G X+.020 Y-.015 Z-.015; proportional disabled",
+    "verifiedWorldPosition": [
+      -0.140161052,
+      -0.347673297,
+      0.146661252
+    ],
+    "result": "Front rear oblique inspected. Cap buried but collar shelf/layer persists and front underside bead remains. Fails planner gate; reverted. No amplitude series."
+  },
+  "retainedSource": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r75/charizard-home-r75-root-lowered-trial.blend",
+  "next": "Local interface reconstruction required; smooth flags and independent endpoint placement do not resolve the collar geometry."
+}
