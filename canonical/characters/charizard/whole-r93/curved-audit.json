@@ -1,0 +1,13 @@
+{
+  "source_vertices": 168391,
+  "current_vertices": 167753,
+  "current_faces": 329558,
+  "protected_source_vertices_checked": 165778,
+  "protected_max_nearest_distance": 0.0,
+  "comparison_limit": "One-way nearest coordinate check, not full topology identity.",
+  "neck_boundary_edges": 0,
+  "overconnected_edges": 0,
+  "winding_conflicts": 0,
+  "energyBaked": false,
+  "flame_socket_type": "EMPTY"
+}

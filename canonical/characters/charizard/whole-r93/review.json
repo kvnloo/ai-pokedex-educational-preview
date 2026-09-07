@@ -1,0 +1,48 @@
+{
+  "status": "construction-progress; critic-pending; no promotion",
+  "native_operations": [
+    "Bisect lower and upper crosscuts",
+    "Separate failed band as hidden GUIDE-rejected-neck-band-r93",
+    "Subdivide upper38 rim with5 cuts and smoothness0 to228",
+    "Bridge equal228 rims:4 interior cuts, LINEAR",
+    "Shade Smooth",
+    "Translate four complete intermediate rings with native G X and G Y"
+  ],
+  "ring_offsets_world_xy": [
+    [
+      0.01,
+      -0.004
+    ],
+    [
+      0.014,
+      -0.004
+    ],
+    [
+      0.013,
+      -0.003
+    ],
+    [
+      0.008,
+      -0.0015
+    ]
+  ],
+  "root_review": "Opened all four linear and all four curved renders. Broad curve substantially reduces R92 cuff and inward pinch. Longitudinal streaks and upper boundary remain visible. Full head likeness and production topology are not accepted.",
+  "files": {
+    "charizard-home-r93-band-intake.blend": "8dcedac6b2ba9735737a57cc4db6e3e992c44f39c69c2ab66c94091e9319f0b8",
+    "charizard-home-r93-lower-crosscut.blend": "d05c3d78bea7f04072f13a6521b5d324d34b9dae3224f9a8f4d77d489bfa6831",
+    "charizard-home-r93-two-crosscuts.blend": "67cb11f3c5d63f47f2aedaa6c11f597712f8ae8205c81c661adbaeadefa63105",
+    "charizard-home-r93-band-separated.blend": "de0a96a48978ab6b64a5e50b0bd867accb10103b70b83cc3fd32abb8676ff6a1",
+    "charizard-home-r93-equal-rims.blend": "41cdb83e56a1a666feb10d0b6d3d3f1fa8916bd0c868e163cd41e00f5bb45c77",
+    "charizard-home-r93-linear-bridge.blend": "db265f3021d6d77d01a9ed8b48ce3c7f7dd72857c1753b00ea10f626a35cf83b",
+    "linear-side.png": "02c15e2bb5330d98637306c79b8a563137290b885ceed2171e9a53b2bb53e41e",
+    "linear-low-front.png": "15b326af5526392f586507ae0043c70071959a97c79f7bfc86ed9d92af0664b9",
+    "linear-whole.png": "8d3f4de45e17e854396ae5b3583d0f124d3825bd609dc8e1f31384e8428ee57d",
+    "linear-rear.png": "0eb654a16c853722aa9026dec575cf8886b17d05d66d0309f68eb08b63401498",
+    "charizard-home-r93-curved-bridge.blend": "2d9894702548961d1965dce704c0a899b6934862f87eec40b61d695b16d0be04",
+    "curved-side.png": "1a76ceb639a115317326f99eb7815c1bc64a936b9c7ca676d7a14a1c7a54a49b",
+    "curved-low-front.png": "7428cc3424f82fb3a24631c48eaf4c1a311c67495384b5a209695136e803a559",
+    "curved-whole.png": "433b71c617934ccbe0ba74a390a39f50862156890f3a87e0a1cea56ed05ceff7",
+    "curved-rear.png": "95fbe5459e7a43fe456cc387072dab966d395dadfb7acf0bbf37514754818edd",
+    "curved-audit.json": "05c8265299f3825df8f6ebb6f0f15a1a400893daaecebad700fe4d0824154745"
+  }
+}
