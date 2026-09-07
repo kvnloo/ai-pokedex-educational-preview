@@ -12,6 +12,10 @@
     {
       "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r56/charizard-home-r56-intake.blend",
       "sha256": "902bf6eb1d4c55b9929810c0ead9e9d26679dc604e3c986b2d5e2d65c2f08a4e"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r56/charizard-home-r56-wing-separated.blend",
+      "sha256": "f81deb73677e92529b94a7a385c521ba84576d6fbc28238c75f9518f2c4ffea1"
     }
   ]
 }
