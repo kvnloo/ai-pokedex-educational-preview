@@ -1,0 +1,24 @@
+{
+  "source": "charizard-home-r76-fan-cutout.blend",
+  "remainingFaces": 366040,
+  "preservedGuideFaces": 445,
+  "boundaryLoops": [
+    {
+      "edges": 236,
+      "vertices": 236,
+      "allDegree2": true
+    },
+    {
+      "edges": 380,
+      "vertices": 370,
+      "allDegree2": false
+    },
+    {
+      "edges": 42,
+      "vertices": 42,
+      "allDegree2": true
+    }
+  ],
+  "overconnectedEdges": 0,
+  "status": "cutout-preparation-not-complete"
+}
