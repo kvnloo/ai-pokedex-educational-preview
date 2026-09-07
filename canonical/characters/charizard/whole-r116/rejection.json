@@ -1,0 +1,11 @@
+{
+  "status": "rejected by root visual gate",
+  "method": "Native HEAD-Y -.012 on24 upper-lateral shoulder vertices, Smooth connected .035;42 allowed affected. Central crown and eyes guarded.",
+  "audit": {
+    "changed": 42,
+    "outside_allowed": 0
+  },
+  "visual_failure": "Direct front shows central raised plateau between depressed side panels; fails continuous sloped-plane target. Low-head opened also.",
+  "action": "Restored exact R114 via MCP; trial binary and renders preserved",
+  "closed_loop": "No amplitude retry for this protected strip method"
+}
