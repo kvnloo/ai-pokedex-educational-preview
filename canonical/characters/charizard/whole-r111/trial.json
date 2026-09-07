@@ -1,0 +1,18 @@
+{
+  "status": "candidate; critic pending",
+  "source": "charizard-home-r111-bridge-trial.blend",
+  "method": "10dorsalvertices nativeHEAD-Y+.004 connectedSmooth.018",
+  "views": [
+    "head.png",
+    "side.png",
+    "whole.png"
+  ],
+  "audit": {
+    "changed": 20,
+    "max_displacement": 0.00400002276778037,
+    "changed_forward_of_head_z_014": 0,
+    "changed_below_head_y_004": 0
+  },
+  "root_review": "Very subtle dip reduction; whole gain uncertain. No amplitude continuation assumed.",
+  "productionApproved": false
+}
