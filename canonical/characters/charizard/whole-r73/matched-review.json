@@ -1,0 +1,18 @@
+{
+  "status": "construction-in-progress",
+  "review": "Native dissolve165boundary vertices kept42 anchored arc samples. Native42to42bridge reduces sawtooth in inspected matched-root.png, but diagonal thickness crease remains. Wider collar and full multiview validation pending. R67 retained.",
+  "files": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r73/charizard-home-r73-sparse-root.blend",
+      "sha256": "10b0dd3ededaf8ed3502c0438ae5cb975fd0c5523437f2f077d174984c6768a9"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r73/charizard-home-r73-matched-bridge.blend",
+      "sha256": "1e6d387cbd12aad837b3fafeb457dc37643a0054345e93d2d71fbf5db8ecce66"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r73/matched-root.png",
+      "sha256": "c6bfc9f747133f84ee34974a0558411e0424dda437f7b83696ae2e3f523be18c"
+    }
+  ]
+}
