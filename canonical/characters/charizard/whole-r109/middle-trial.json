@@ -1,0 +1,12 @@
+{
+  "status": "opposite middle candidate; whole and critic pending",
+  "source": "charizard-home-r109-middle-review.blend",
+  "method": "184selected nativeXYscale.55 around endpoint(-.385630,-.569270,-.182641), connected Smooth .05",
+  "audit": {
+    "changed": 631,
+    "outside_hand": 0,
+    "z_max_delta": 0.0
+  },
+  "root_review": "Front and side opened; pointed taper with curved distal direction. No whole-character acceptance.",
+  "remaining": "Other two opposite digits; whole/critic and triangle audit"
+}
