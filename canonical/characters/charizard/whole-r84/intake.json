@@ -1,0 +1,8 @@
+{
+  "status": "intake checkpoint only; no replacement anatomy authored yet",
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r84/charizard-home-r84-head-component-intake.blend",
+  "sha256": "1efd9c1782ba6ac03e96bbb8a0b6659c054112b4805de76b5859d8e3a24501e0",
+  "retained": "R80",
+  "next": "Native connected skull/upper muzzle and separate lower jaw; old head preserved as guide. One complete coarse candidate and at most one coordinated correction. Compare matched views and 512px whole character before detail.",
+  "productionApproved": false
+}

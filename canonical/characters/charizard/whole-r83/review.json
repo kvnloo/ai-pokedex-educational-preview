@@ -1,5 +1,5 @@
 {
-  "status": "root rejects; independent critique pending",
+  "status": "rejected by root and independent critic; R80 retained",
   "retained": "R80",
   "productionApproved": false,
   "method": "Native closed 48-control head cage; neutral Mesh Deform bind; ring 4 local Y x0.85, ring 5 x0.75. No amplitude continuation.",
@@ -12,5 +12,6 @@
     "front",
     "threequarter"
   ],
-  "liveState": "R80 reopened successfully through Blender MCP after preserving R83 trial"
+  "liveState": "R80 reopened successfully through Blender MCP after preserving R83 trial",
+  "critic": "All six R83 views compared with corresponding R80/R81 and HOME. Shallower nose cap but same rounded knob ahead of orbital mass. Whole front/threequarter likeness gain fails. More dark tiering near mouth/chin is visible but physical fold unproven. No clear throat regression. No amplitude retry."
 }
