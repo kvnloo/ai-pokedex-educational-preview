@@ -1,0 +1,14 @@
+{
+  "status": "rejected active candidate; preserved for comparison",
+  "decision": "Restore R103. Do not reduce boundary topology on R104.",
+  "critic": "With original guide hidden and smooth shading, loft projects beyond haunch without demonstrably better tail-turn profile. Excess bulge and unresolved upper/return trajectory remain. HOME supports substantial proximal tail mass; rejection is not justification for shrinking original globally.",
+  "next_gate": "Refit outboard section shape and path, preserving reference mass. Require improved isolated front/oblique/rear shape and return alignment before topology work.",
+  "native_expansion_test": "Not executed: critic evidence changed next action before mutation.",
+  "delivery": {
+    "success": true,
+    "platform": "telegram",
+    "chat_id": "1083429746",
+    "message_id": "17637",
+    "mirrored": true
+  }
+}
