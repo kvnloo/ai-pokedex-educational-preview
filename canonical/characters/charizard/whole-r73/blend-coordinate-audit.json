@@ -1,0 +1,9 @@
+{
+  "reference": "matched-bridge",
+  "referenceVertices": 232184,
+  "currentVertices": 232226,
+  "currentCoordinatesExactlyInReference": 232142,
+  "newCoordinates": 84,
+  "expectedNewBlendRingVertices": 84,
+  "expectedRemovedOldRootRingVertices": 42
+}

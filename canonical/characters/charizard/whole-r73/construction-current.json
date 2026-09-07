@@ -1,0 +1,9 @@
+{
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r73/charizard-home-r73-blend-collar.blend",
+  "status": "retained-construction-only",
+  "canonicalRetainedAsset": "r67",
+  "productionApproved": false,
+  "critic": "XHIGH opened all matched/blend views. Retain blend: softer diagonal seam, broader transition, wedge closed, no visible new outline break. Thick root flap and spar contact remain unresolved.",
+  "coordinateCheck": "232142 surviving coordinates match exactly;42 old root vertices removed;84 blend ring vertices new.",
+  "next": "Resolve residual root volume and spar junction, then whole-wing camber/fidelity; preserve older-body scaffold distinction."
+}
