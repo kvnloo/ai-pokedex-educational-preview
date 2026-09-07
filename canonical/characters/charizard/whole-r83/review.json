@@ -1,0 +1,15 @@
+{
+  "status": "root rejects; independent critique pending",
+  "retained": "R80",
+  "productionApproved": false,
+  "method": "Native closed 48-control head cage; neutral Mesh Deform bind; ring 4 local Y x0.85, ring 5 x0.75. No amplitude continuation.",
+  "rootReview": "All six R83 renders inspected, with R80 side/threequarter and official HOME. Cap height decreases in closeup but rounded muzzle remains; whole-character likeness gain is negligible. No production transition justified.",
+  "views": [
+    "low-front",
+    "local-side",
+    "axis",
+    "top",
+    "front",
+    "threequarter"
+  ]
+}
