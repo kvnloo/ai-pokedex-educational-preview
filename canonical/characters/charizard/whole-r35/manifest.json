@@ -11,5 +11,14 @@
   "trial-front.png": "70a06b2a084fb718aacfd55186eac6a6030e4c5e48d3adb1f766a6a7625fac34",
   "trial-side.png": "34bfb5886431271efd47fc6be3781ffd4c1fb569f97644eac5b47e27bcbbadc2",
   "trial-rear.png": "c3e1dd227435592985519b6b82f7d20c384e8e36ec3261a3da6ee491addcc0af",
-  "trial-threequarter.png": "c9d5aff16dfb3914310372d369b399ae8a216bc1c66d818e99c0a78232803e62"
+  "trial-threequarter.png": "c9d5aff16dfb3914310372d369b399ae8a216bc1c66d818e99c0a78232803e62",
+  "face-diagnostic.json": "0f780b6d9e9428de644027785814d7df2f9a4ca28997c45d3edac03a42e4ccad",
+  "topology-before.json": "c29048fd6c3404ec3fe3dad16564f87837bc96e201dfd1144d0ad642243bddc6",
+  "charizard-hybrid-r35-rejected-dissolve.blend": "1bc451e99fb4d5e061c67c39bd570701a228b0c13f5043686e905ec5e5b3524c",
+  "repair-audit.json": "33b27062394aa6c76f72fa6feedbeaf1b7061a3b1a687deadee7f4a71a7a612e",
+  "charizard-hybrid-r35-retriangulated.blend": "7874a0fdcb26204dbdb8d45dc72f74880e077d5ac7ab1a75de1ba352c005a42e",
+  "repair-front.png": "c3a30f7aadc3451003e1a3a4161427fccf2942028855367afacc74941080067f",
+  "repair-side.png": "a05fa98d79d2f4bb462cba9ae94fe3d66ed32cff33ff5632e17d66a6620472cc",
+  "repair-rear.png": "1df555e7960a17b74e1b988fd8e553372975098063caa58babcd8e0cf9282cd8",
+  "repair-threequarter.png": "c7b5e05709637c5cec9a80ef348427a329a4d5ec27900bd45ac5315b5e7ec69e"
 }

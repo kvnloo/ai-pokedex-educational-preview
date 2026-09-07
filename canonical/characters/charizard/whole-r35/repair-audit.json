@@ -1,0 +1,14 @@
+{
+  "GEO-r11-membrane-L": {
+    "vertices": 17,
+    "triangles": 15,
+    "positionsUnchanged": true,
+    "projectedOrientationConsistent": true
+  },
+  "GEO-r11-membrane-R": {
+    "vertices": 17,
+    "triangles": 15,
+    "positionsUnchanged": true,
+    "projectedOrientationConsistent": true
+  }
+}
