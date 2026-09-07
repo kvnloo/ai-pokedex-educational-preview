@@ -1,0 +1,19 @@
+{
+  "status": "inspection only; R103 geometry unchanged",
+  "finding": "Hiding returning tail opens much of apparent upper cavity to background. Do not fill apparent cavity without distinguishing tail-loop space from local surface defects.",
+  "views": [
+    "original-front.png",
+    "original-rear.png",
+    "original-side.png",
+    "original-front-return-hidden.png"
+  ],
+  "source": "charizard-home-r105-inspection.blend",
+  "method": "Mechanical close cameras and temporary visibility diagnostic; return visibility restored. No anatomy edits.",
+  "sha256": {
+    "original-front.png": "c1cd93c52c35f347f7b3f15b26b23c8fa43066dad20119dc217f88c4d829d060",
+    "original-rear.png": "130e277077233cc79a8ab46d950188099d46848fd5f2b8a9563fcf53baaa8b72",
+    "original-side.png": "074450fdd454797b32adc298972fbb82b595263cb3d996c0491758eed391f2d8",
+    "original-front-return-hidden.png": "8d019afa04f7236940d246deee1b39436d3a104f35d123b0978685a88d359bc2",
+    "charizard-home-r105-inspection.blend": "a6b75af36c707d764e4cd0f0708687e290d0e60a7b007381449f86809327aa5e"
+  }
+}
