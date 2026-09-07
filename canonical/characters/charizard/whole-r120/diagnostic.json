@@ -1,0 +1,7 @@
+{
+  "status": "diagnostic complete; flat wall shading rejected",
+  "method": "Native Shade Flat on20quad socket-wall faces incident to20bodyrimvertices. No coordinate changes.",
+  "root_review": "Opened no-cavity opposite and flat-wall opposite. Mark persists without cavity. Flatwalls replace corner highlight with stronger dark wedge and inferior transition.",
+  "action": "Restored R119 source and original shading viaMCP",
+  "next": "Inspect corner face tessellation or ray hit; no aperture length changes"
+}
