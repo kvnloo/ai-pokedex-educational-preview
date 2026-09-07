@@ -1,5 +1,5 @@
 {
-  "status": "critic pending; construction study only",
+  "status": "outline useful construction only; interior relaxation failed visual improvement",
   "method": [
     "Actual selected-face perimeter derived by one-face edge adjacency,10edgesdegree2",
     "Anterior3 perimeter vertices native HEAD-Y scale .35 aboutY.045",
@@ -12,6 +12,11 @@
     "charizard-home-r101-shaped-recess.blend": "94db63c30f5818dc5c33b9e0b2f98de02a9452532422891e8efc6629c6bd8c0b",
     "side.png": "e73695af47257114b36f3da9fa1054b1ab5e60537b41fda6542c12e5bbd300c0",
     "low-front.png": "682bbf140dbba7b7810b900510d3fe7b9e555c4baa2aac1456a2db846a808657",
-    "whole.png": "56ab2229d94329562e908d45234be0c7492df02a4f3ee757172b4359ea74eab0"
-  }
+    "whole.png": "56ab2229d94329562e908d45234be0c7492df02a4f3ee757172b4359ea74eab0",
+    "charizard-home-r101-interior-relax.blend": "ff4029f286868eede1d1c8d2e44ca8450c7b20efd108548ce8ccef75078516d6",
+    "relax-side.png": "7ccd4c27c6758651e7fc9d6f221d31b4e648651d01738ea6224bcd01cf073057",
+    "relax-low-front.png": "c5f9c93239af454585a384e96abe17e40fb1fe54c5d725d5a6c4c374325e13cb"
+  },
+  "critic_review": "Outline more coherent than R100, but interior cushion and dark anterior pocket fail side/low-front/whole eye read. One bounded interior-only correction permitted; no separation or pairing.",
+  "interior_trial": "Topology-derived two interior vertices only; native Smooth Vertices once. Opened relax-side and relax-low-front; no meaningful improvement, not retained."
 }
