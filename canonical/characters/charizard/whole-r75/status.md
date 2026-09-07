@@ -3,3 +3,5 @@ Native world-X mirror of appended clean membrane/collar and spar, both wire-disp
 Shared native RY10 around mirrored upper root improves front leading rim and trailing-tip placement compared with blind mirror. Front and side overlays inspected. Wrist remains offset; side overlap includes original far wing so depth fit remains unverified. Saved pose10 rollback. No original geometry cut.
 
 Native multimesh proportional Smooth radius.3, upper z>.52 selection, GX+.04 GY-.04 GZ-.04. Front overlay wrist now closer to original. Saved upper-fit; lower-region coordinate audit recorded. Remaining side/rear and thickness validation pending; no graft approval.
+
+Original wing separated natively after connected-component selection inspection. Initial spatial selection included head/arm and was rejected; largest connected induced region excluded those. Original wing preserved as GEO-original-opposite-wing-guide-r75:48689v97111faces263boundary. Saved before-wing-cut and original-wing-separated. New263 root boundary now available for fitting; not grafted.
