@@ -1,0 +1,14 @@
+{
+  "status": "attachment-detail-needs-work",
+  "views": {
+    "front": {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r75/root-detail-front.png",
+      "sha256": "c718676b1a539d60b6a4a7b7b1cb6b42b0c23a0b9071b99fcf05ab8b28b4779d"
+    },
+    "rear": {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r75/root-detail-rear.png",
+      "sha256": "2ea1630aec9de7d885a398cdd1de93cf24d1e5a4abdd7d5dfefedddcb93f5649"
+    }
+  },
+  "inspection": "Front and rear closeups opened. Residual collar shelf and rounded separate spar cap are clear; lower bridge edge has serrated shading and a thin layered appearance. These details are not resolved by whole-view acceptance. Next correction must preserve retained shoulder height and wing outline."
+}
