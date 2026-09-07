@@ -1,0 +1,3 @@
+Charizard claw fit follow-up: one base adjustment reduced the lip, with fingertip reach unchanged. Verified all276329bodyvertices outside local digit area retain their original positions. Exposed profile still shows an abrupt transition, so this has not passed. Sharing the revealing angle as well as front.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r62/fit-front.png
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r62/fit-profile.png
