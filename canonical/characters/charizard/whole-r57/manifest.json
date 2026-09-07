@@ -12,6 +12,10 @@
     {
       "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r57/charizard-home-r57-width-fit.blend",
       "sha256": "248bb25d71a39dd5be071b071c758eb7a8a1bb0774f78079db986ee72926996b"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r57/charizard-home-r57-fitted-cage.blend",
+      "sha256": "d08c6ad8c44a6bef1d6fa38313a788d1baec227b83f723f0b1b66d7bf7f3e0d9"
     }
   ]
 }
