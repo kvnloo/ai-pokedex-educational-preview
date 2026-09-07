@@ -1,0 +1,3 @@
+Charizard source reassessment: first image is the existing official-HOME Hunyuan-derived R09; second is manual R46. Same view directions, normalized framing. HOME has better connected anatomy but a badly distorted tail and soft details. Manual is smoother but still looks assembled. Neither is AAA-ready. I am reviewing the stronger form source before more local tweaks.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r49/home-r09-threequarter.png
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r49/manual-r46-threequarter.png
