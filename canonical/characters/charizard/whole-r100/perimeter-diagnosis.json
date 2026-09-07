@@ -1,0 +1,97 @@
+{
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r100/charizard-home-r100-orbit-inset.blend",
+  "perimeter_edges": 10,
+  "perimeter": [
+    {
+      "index": 165454,
+      "head_local": [
+        0.07701471447944641,
+        0.0547838918864727,
+        0.06904402375221252
+      ],
+      "degree": 2
+    },
+    {
+      "index": 165545,
+      "head_local": [
+        0.07941064238548279,
+        0.058317702263593674,
+        0.0547306090593338
+      ],
+      "degree": 2
+    },
+    {
+      "index": 165546,
+      "head_local": [
+        0.0825299322605133,
+        0.06179283186793327,
+        0.03698983043432236
+      ],
+      "degree": 2
+    },
+    {
+      "index": 165547,
+      "head_local": [
+        0.08465622365474701,
+        0.06379714608192444,
+        0.021622711792588234
+      ],
+      "degree": 2
+    },
+    {
+      "index": 165548,
+      "head_local": [
+        0.08666185289621353,
+        0.04526236653327942,
+        0.0695212110877037
+      ],
+      "degree": 2
+    },
+    {
+      "index": 165549,
+      "head_local": [
+        0.09307920932769775,
+        0.03526747599244118,
+        0.07066769897937775
+      ],
+      "degree": 2
+    },
+    {
+      "index": 165944,
+      "head_local": [
+        0.10513609647750854,
+        0.03922946751117706,
+        0.02262500301003456
+      ],
+      "degree": 2
+    },
+    {
+      "index": 167887,
+      "head_local": [
+        0.09633283317089081,
+        0.05216355621814728,
+        0.021850742399692535
+      ],
+      "degree": 2
+    },
+    {
+      "index": 167889,
+      "head_local": [
+        0.10165465623140335,
+        0.03868117555975914,
+        0.0383344441652298
+      ],
+      "degree": 2
+    },
+    {
+      "index": 167890,
+      "head_local": [
+        0.09669428318738937,
+        0.03709925338625908,
+        0.05655272677540779
+      ],
+      "degree": 2
+    }
+  ],
+  "lesson": "Native inset may reuse old vertex indices for inner perimeter. New-index threshold does not identify aperture rim. Use selected region edge adjacency."
+}
