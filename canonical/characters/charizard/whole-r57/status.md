@@ -7,3 +7,5 @@ Native scaleX.5 about cursorX.15 brought the9columns into X.15..95 spacing.1. Sa
 All45controls now fitted through native individual GXYZ moves. Grouped columntransform attempt changed unintended controls and was reverted to root-column.blend. Explicit clearface/edge selection fixed execution. Final targeterror8.43e-8. Saved fitted-cage.blend. Front overlay inspected; reverse/side and standalone sheet review still pending. No modifiers or surface acceptance.
 
 Inspected side/rear cageoverlay, then wholeguidehidden standalone sheet fourrenders. Rootgap and missing leadingrim/knuckle explicit. Native Ctrl1 + ShadeSmooth preview, renderlevel mechanically matched1; four subdiv renders. Frontpreview smoother but plainSubsurf rounds trailingtips; notaccepted. Current subdiv-preview.blend. Need supported corners and originalrim extraction/attachment. Originalguide intacthidden.
+
+NativeShiftE.8 on edges1,46,70,74 (boundary edges adjacent central/outer tips), verified all.80000001. tip-support.blend and supported4renders. Rootfront sees lessrounded outertip. Leadingrim/root remain missing; no acceptance. Telegram constructionpreview in flight session10091; do not resend.

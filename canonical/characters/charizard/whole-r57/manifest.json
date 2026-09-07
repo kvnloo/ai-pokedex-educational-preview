@@ -76,6 +76,10 @@
     {
       "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r57/subdiv-threequarter.png",
       "sha256": "e94a02d9b48add87d70ffbbd8c2ca94c5970e2e9d129799feb1f8c2fd52f3bc7"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r57/charizard-home-r57-tip-support.blend",
+      "sha256": "48d430ed456c834d777f287404db6b6ddd2ff260cbae825dc998ba673532ccc4"
     }
   ]
 }
