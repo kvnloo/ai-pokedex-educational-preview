@@ -1,0 +1,49 @@
+{
+  "qualityGate": "review-pending",
+  "artifacts": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r65/audit.json",
+      "sha256": "58300a0b398aa92f2df7ca26b421cbf350003633dfe4b9ba97ed4f08e8cad7a5"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r65/charizard-home-r65-crescent.blend",
+      "sha256": "fd2e28f63357951d394007eda04dd01f0d1ffe8106395b962e29545a0f30f21f"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r65/charizard-home-r65-intake.blend",
+      "sha256": "71391405e47789f9775b69ce697799dd10e4e3357a60c9474d4ffda819ae32c3"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r65/crescent-front.png",
+      "sha256": "b9f6ded38472ddbe8cc2b88375f56210d0d34ffe51be136d2b3025ccb63e3ea1"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r65/crescent-rear.png",
+      "sha256": "129413d59a126fb7da790920ee433bfbda7e4ec56e682121ba3c7254a1d014ea"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r65/crescent-side.png",
+      "sha256": "ecffd632f88c93b8a552f1560c0de751c6cc715715bb4949efb2fb693fbc7feb"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r65/crescent-threequarter.png",
+      "sha256": "9907523bf9aee6cb45d49de8427f2aeaa275b85b9eda8a2baea4074eea59a8da"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r65/detail-after.png",
+      "sha256": "9f891a837b29ef26aef481029e7bf606474bb0606f4cec1afb30277972d036cf"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r65/native-parameters.png",
+      "sha256": "9bb99827bb77927900078239f2b3514da7b7aba8e2ea5c2ab555b8b6d35e0963"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r65/selection-preview.png",
+      "sha256": "5dba26bf260e7bba9770cf2dc80f674b92091dd8f9c12ec07cd6ee1f5ba78005"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r65/selection.json",
+      "sha256": "e87fa3061c370d082d135843b99bfb426b837e2e873a1e171aa29f2f8535bbbb"
+    }
+  ]
+}
