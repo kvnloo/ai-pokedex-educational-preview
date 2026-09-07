@@ -36,5 +36,36 @@
     "Runtime flame and attack effects",
     "Stats and playable game integration"
   ],
-  "latestReview": "whole-r80/review.json"
+  "latestReview": "whole-r80/review.json",
+  "workingCheckpoint": {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r103/charizard-home-r103-jaw-closure.blend",
+    "sha256": "8afaa996b13c83913180ae2f68476cca1e9fa3f9922dadc041d8b73826504c3a",
+    "status": "component improvements retained for continued modeling; whole-asset acceptance pending",
+    "scope": "R103 jaw closure with R102 coarse eye pair and earlier component revisions",
+    "productionApproved": false,
+    "evidence": [
+      "whole-r103",
+      "whole-r102"
+    ]
+  },
+  "subsequentTrials": [
+    {
+      "iteration": "whole-r104",
+      "status": "rejected",
+      "reason": "Loft added bulk without improved turn silhouette",
+      "review": "whole-r104/rejection-review.json"
+    },
+    {
+      "iteration": "whole-r105",
+      "status": "inspection retained; anatomy trial rejected",
+      "reason": "Local corner move produced dent",
+      "review": "whole-r105/corner-trial-review.json"
+    },
+    {
+      "iteration": "whole-r106",
+      "status": "rejected",
+      "reason": "Proportional shoulder moves produced dents",
+      "review": "whole-r106/review.json"
+    }
+  ]
 }
