@@ -1,0 +1,6 @@
+{
+  "status": "unbridged transition intake",
+  "source": "charizard-home-r104-transition-intake.blend",
+  "method": "NativeCtrlJ loft160vertices plus236rim =>396. Native movedloft32endringY-.03 toopen transition span. No bridge created.",
+  "planner_constraint": "Avoiddirect236to32 or251to32 fan. Grade newlyextruded rings through128,64,32 acrossfullbay. Preserve originalboundaries and largevolume. Copiedrim is exact fittingguide, finaltail weld stillrequired."
+}
