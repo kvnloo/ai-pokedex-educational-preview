@@ -1,0 +1,2 @@
+Charizard R57 construction preview, NOT final: rebuilt one wing membrane as a continuous45control32quad sheet using native Blender inputs. It avoids the old corrugations but still lacks its leading rim/knuckle and proper root attachment. Those gaps are visible deliberately; original wing is preserved. Currently testing tip support before rim integration.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r57/supported-front.png
