@@ -1,0 +1,19 @@
+{
+  "status": "candidate; critic pending",
+  "method": "Native Smooth Vertices factor0.5 repeat10 XY only on four topology-verified228-edge interior rings. Native per-ring SX/SY/GX/GY restored bounds and midpoint. Attachment loops fixed.",
+  "audit": {
+    "changed": 912,
+    "outside": 0,
+    "maxZ": 0.0,
+    "max_lower_bound_error": 5.960464477539063e-08
+  },
+  "root_review": "All three renders opened. Fine stripes calmer, broad bands remain. No production acceptance.",
+  "files": {
+    "charizard-home-r115-neck-fairing.blend": "4d60d8f58a0961e1076814a8a677529e94fd23135921d33b6bd389d7ee2904fe",
+    "head.png": "c83fd645771f6cb9e3aed68b2bafb28b98605a66ee24bcbc58fa0ec26390d823",
+    "side.png": "653ae046d0a067eecbfa7c2836ba02ddffbaff6c5b23fb05821c99920aa11303",
+    "whole.png": "bb316d662130b2f2c223ccff88f3a4f0a3bf96e48362b2afccdf3749c2f16d40",
+    "rings-before.json": "d5999e77dac24b302923ece1e9bf529c6560e2a2443e3a3ddc25857d16afebae",
+    "vertices-before.json": "e42a5579afa6557e981b98e44890ab3c03bb57379bd096d0ac4bc4392b9c4eff"
+  }
+}
