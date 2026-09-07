@@ -1,0 +1,7 @@
+{
+  "new_triangles": 318,
+  "nonadjacent_cavity_self_bvh_overlap_pairs": 0,
+  "nonadjacent_cavity_original_bvh_overlap_pairs": 0,
+  "examples": [],
+  "limit": "BVH overlap diagnostic excludes triangles sharing vertices; not a deformation or production topology certification."
+}

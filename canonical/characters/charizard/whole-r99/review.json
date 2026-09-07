@@ -1,0 +1,21 @@
+{
+  "status": "critic-pending; construction only",
+  "native_operations": [
+    "Select existing64mouthboundary",
+    "Extrude HEAD-Z-.010",
+    "Scale newring HEAD-Y1.444444 about headY-.009",
+    "Extrude newring; flattenonlynewring HEAD-Z.015; scaleX.8 aboutX0",
+    "Fill rearsection; CtrlT Beauty rearcap only"
+  ],
+  "root_review": "Opened side,low-front,whole,rear. Recessed mouth visible; horncap no longer shows through knownarea. Outer lip/skull sourcevertices fixed. EyesR98 absent/rejected.",
+  "files": {
+    "charizard-home-r99-cavity-intake.blend": "565f3f375c79b009e94fdc6cc376c6e322727bbaa8b2030b30cf3d54b654a023",
+    "charizard-home-r99-connected-cavity.blend": "06ad57bffcb7e3fcb58d687cd23445fae78b0c93c71a943a1c8edb6049f86a29",
+    "side.png": "b0954a02545f1151f35f84f055b001ff125d798852f7d354c5043d39ad09c25d",
+    "low-front.png": "6843467ecd6577e0c57fb70e7a6950dbef9eceb6d5bac94b7807de66f300f61e",
+    "whole.png": "05830f876292a761d21e438c115446b1be7539158efe02983dcfc0eb4bde87fa",
+    "rear.png": "5283e2d249ce673c0f6e76cd5a0443ec785ab66df1b633a348b4363b242e8f8d",
+    "audit.json": "56d1578211683fd05a0e317161762d7102a36ee97599704fb6e5ccaff58aa32a",
+    "overlap-audit.json": "e4b7a765de5f83416bc833096ea1f8e09bf2c845139e6cb3e41631fe9b5054db"
+  }
+}

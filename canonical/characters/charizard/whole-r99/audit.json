@@ -1,0 +1,55 @@
+{
+  "source_vertices": 167753,
+  "current_vertices": 167881,
+  "source_faces": 329558,
+  "current_faces": 329748,
+  "source_same_index_max_delta": 0.0,
+  "new_faces": 190,
+  "new_smooth_faces": 190,
+  "new_zero_area_faces": 0,
+  "mouth_boundary": 0,
+  "winding_conflicts": 0,
+  "overconnected": 0,
+  "rays": [
+    {
+      "pixel": [
+        517,
+        433
+      ],
+      "hits": [
+        {
+          "object": "GEO-body-head-joined-r92",
+          "face": 329654,
+          "distance": 4.909746276215805,
+          "new_cavity_face": true
+        },
+        {
+          "object": "GEO-horn-negative-r96",
+          "face": 0,
+          "distance": 5.070263307653123,
+          "new_cavity_face": false
+        }
+      ]
+    },
+    {
+      "pixel": [
+        525,
+        435
+      ],
+      "hits": [
+        {
+          "object": "GEO-body-head-joined-r92",
+          "face": 329657,
+          "distance": 4.910050139877692,
+          "new_cavity_face": true
+        },
+        {
+          "object": "GEO-horn-negative-r96",
+          "face": 0,
+          "distance": 5.063601270664726,
+          "new_cavity_face": false
+        }
+      ]
+    }
+  ]
+}
