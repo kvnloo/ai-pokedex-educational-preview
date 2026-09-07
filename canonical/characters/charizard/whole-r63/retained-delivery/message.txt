@@ -1,0 +1,3 @@
+R63 accepted as a regional improvement by both me and the XHIGH critic: smoother central abdomen, no apparent dent or patch rim, belly volume preserved. Before/after closeups attached in that order. Lower/side bands still need work; no whole-asset acceptance. Retained checkpoint saved, Git3547fa2.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r63/detail-before.png
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r63/detail-after.png

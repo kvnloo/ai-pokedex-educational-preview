@@ -1,0 +1,1 @@
+R64 candidate only. Native duplicate R63; no geometry edits.3100lowerstripvertices excludingallR63patch. Visualselection reachesbellybottom; do not XYZsmooth blindly. Depth-only or revisedregion underplannerreview. R63retained.
