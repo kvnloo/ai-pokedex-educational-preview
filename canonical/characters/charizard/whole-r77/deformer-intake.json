@@ -1,0 +1,15 @@
+{
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r76/charizard-home-r76-surface-relax.blend",
+  "tailObject": "GEO-home-tail-crosssection-r54",
+  "modifierObject": "CAGE-return-section-r54",
+  "modifierVertexGroup": "ReturnOnly-r54",
+  "targetRegion": "x < -0.55",
+  "regionVertices": 13322,
+  "weightedVertices": 0,
+  "maxWeight": 0.0,
+  "cageWorldXRange": [
+    -0.4,
+    0.85
+  ],
+  "finding": "Existing return-section lattice does not provide a local cage across the proximal outer lobe. Preserve its existing deformation; do not reuse its controls blindly."
+}
