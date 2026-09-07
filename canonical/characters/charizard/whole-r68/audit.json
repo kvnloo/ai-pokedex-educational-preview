@@ -1,0 +1,10 @@
+{
+  "vertices": 276640,
+  "faces": 553042,
+  "selected": 9873,
+  "changed": 9873,
+  "maxDelta": 0.00499348628124933,
+  "protectedMaxDelta": 0.0,
+  "operator": "Native Smooth Vertices .5 / 30 / XYZ",
+  "qualityGate": "needs-work"
+}
