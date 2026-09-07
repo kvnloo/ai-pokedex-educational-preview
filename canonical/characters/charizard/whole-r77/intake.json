@@ -1,0 +1,20 @@
+{
+  "status": "form-review-intake-no-geometry-change",
+  "source": "whole-r76/charizard-home-r76-surface-relax.blend",
+  "views": {
+    "head-intake": {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r77/head-intake.png",
+      "sha256": "9fec52080cd1bfb34f862f339b7b51bfd46ec9054dc82b039702f9605753ab29"
+    },
+    "head-front": {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r77/head-front.png",
+      "sha256": "11461101e195b1258e0d30e15f6f0cdd92faea8d0e69c0e2fe22cae6c2572b0f"
+    },
+    "head-side": {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r77/head-side.png",
+      "sha256": "5ef45d9522c6ae41185732027371fa3a1760af46717314585b1bf7284cb9cbf4"
+    }
+  },
+  "finding": "Head closeups expose blended muzzle/brow/eye masses and unresolved facial form. World-axis front/side are not anatomical front/side because the head is posed. Do not infer bilateral ratios from these alone.",
+  "next": "Official HOME whole-character critic priority pending; use posed-head-aligned views before anatomy edits."
+}
