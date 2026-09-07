@@ -1,0 +1,11 @@
+{
+  "mode": "OBJECT",
+  "vertices": 276640,
+  "faces": 553042,
+  "selected": 1879,
+  "changed": 1879,
+  "maxDelta": 0.006589273232101532,
+  "protectedMaxDelta": 0.0,
+  "operator": "Native Smooth Vertices .5 / 30 / XYZ",
+  "qualityGate": "needs-work"
+}

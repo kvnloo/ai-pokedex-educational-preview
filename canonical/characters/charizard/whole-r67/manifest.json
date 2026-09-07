@@ -1,0 +1,52 @@
+[
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r67/charizard-home-r67-intake.blend",
+    "sha256": "87e860fb74e5d29454f547ed130fec0cec3c8748979d19bb994a12810a25ec7c",
+    "bytes": 64090239
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r67/selection.json",
+    "sha256": "898e7e02901eadfcd166fd22f6abb3d3c1f048f40705df1c868f4b09a4a988c8",
+    "bytes": 15041
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r67/audit.json",
+    "sha256": "2a9cbce8bfd2ad5485a71d03e3f698bd902b686a7dffb81d47da36365fcda502",
+    "bytes": 251
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r67/charizard-home-r67-haunch.blend",
+    "sha256": "488250f1f8411224fc1fa15144c03e682764e71476884f25f76459733515c323",
+    "bytes": 77713955
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r67/haunch-front.png",
+    "sha256": "31147bfdc0f16186e8ee627e272dfcd96c1c009e04d1e9c71966a2ea689d4fae",
+    "bytes": 1189237
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r67/haunch-side.png",
+    "sha256": "da77b15e69f1d680a61973a5fdd1c7d90b011700b9ce887f874778ae5a42cc87",
+    "bytes": 1050913
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r67/haunch-rear.png",
+    "sha256": "c931738beba4af74e9ab8abe163fe8ade629c053ed67be7951a9b1aaad4dc43d",
+    "bytes": 1168092
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r67/haunch-threequarter.png",
+    "sha256": "9b916b60764d7d799c95ece3a5a8acfe24cc6183998e1ee2ebf2de889c29dadd",
+    "bytes": 1142426
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r67/selection-preview.png",
+    "sha256": "bc496098a568f9c446aa5b3c99f4c5bc511a9b3d99b4bb114aa53ce072f9009b",
+    "bytes": 840895
+  },
+  {
+    "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r67/native-parameters.png",
+    "sha256": "4dbf90afc97774b53965bc3f0a390849d6121a5389bdcfcce23da6e7bf083864",
+    "bytes": 811132
+  }
+]
