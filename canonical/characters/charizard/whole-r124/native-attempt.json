@@ -1,0 +1,17 @@
+{
+  "status": "invalid UI attempt; intake restored",
+  "reason": "Readback bisect plane point/normal and fill/clear flags did not match intended controls. No cut accepted.",
+  "selection_faces": 2686,
+  "expected_plane_point": [
+    0.38,
+    -0.515,
+    -0.64
+  ],
+  "expected_normal": [
+    0,
+    1,
+    0
+  ],
+  "next": "Correct native popup fields one at a time with readback; screenshots may lag.",
+  "restored_source": "charizard-home-r124-intake.blend"
+}
