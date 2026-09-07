@@ -1,0 +1,3 @@
+Charizard R68 wing test: rejected. Native smoothing softened fine ripples but did not fix the broad uneven membrane bulges. R67 restored; trial preserved. Closing this smoothing approach rather than escalating repetitions. Images: before, after.
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r68/detail-before.png
+MEDIA:/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r68/detail-after.png
