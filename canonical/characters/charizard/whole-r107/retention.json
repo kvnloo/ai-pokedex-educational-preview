@@ -1,0 +1,14 @@
+{
+  "status": "retain limited middle digit; whole character needs work",
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r107/charizard-home-r107-side-review.blend",
+  "sha256": "8ed4f7ea3f90dadc57597b295ff0a4495a80eaf89ecffa45c5537c168a4aba8f",
+  "critic": "Matched side confirms bend and volume, continuous narrowing; no collar or waist. Front/whole improvement retained. Close amplitude loop.",
+  "audit": {
+    "changed": 736,
+    "new_zero_area_triangles": 0,
+    "triangle_normal_reversals": 0,
+    "changed_above_world_z_minus_012": 0,
+    "note": "Local geometric audit, not deformation or production certification"
+  },
+  "productionApproved": false
+}
