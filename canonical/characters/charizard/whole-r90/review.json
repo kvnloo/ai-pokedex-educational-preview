@@ -1,5 +1,5 @@
 {
-  "status": "unaccepted throat construction; critic pending",
+  "status": "upper-connected direction useful; coarse throat fails bridge gate",
   "retained": "R80",
   "productionApproved": false,
   "method": "Native4posterior undersideface extrusions2rings; explicit cap64-67 Delete Faces verified80verts68faces24boundaryedges (16mouth+8throat). Native8basecontrols scaled.75 then worldX+.047/Y+.012/Z-.0207.",
@@ -9,5 +9,6 @@
     "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r90/charizard-home-r90-head-throat-patch.blend": "220665a0d78b22927cb6e71ec1dd8360cd843aace6b83fca680abce6d2958a4b",
     "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r90/charizard-home-r90-open-throat.blend": "06b4c0c9b97b473ee2eab7e008d2d9a23bc63cae05f9c7be9d36ecb9f1f7eb23",
     "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r90/charizard-home-r90-open-throat-fit.blend": "ec6ede45d61766301f7188d0c88014b55bb777fad91643652b26fa3279d5bf4f"
-  }
+  },
+  "critic": "All3finalrenders inspected: diagonal taper funnels into collar; silhouette mismatch beyond seam. Refit basal and adjacent sections to original neck full cross-section/upward tangent; turn higher toward fixed head. No dense bridge before this gate."
 }
