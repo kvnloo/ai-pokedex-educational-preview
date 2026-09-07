@@ -1,0 +1,13 @@
+{
+  "changed": 2246,
+  "maxDelta": 0.0013489814276689545,
+  "stroke": [
+    570,
+    476,
+    775,
+    478
+  ],
+  "strength": 0.3,
+  "size": 50,
+  "sizeNote": "Viewport showed50px. Attempt to set unified size90 failed with missing ToolSettings attribute; stroke proceeded at prior displayed size. No90px claim."
+}

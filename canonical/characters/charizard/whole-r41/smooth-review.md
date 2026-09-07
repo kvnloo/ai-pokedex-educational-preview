@@ -1,0 +1,1 @@
+One native protected Smooth stroke at displayed50px, strength.3; intended90px setup failed, recorded honestly. Root3q inspection finds no convincing junction improvement yet. Critic review requested. R41 remains trial, R38 retained.
