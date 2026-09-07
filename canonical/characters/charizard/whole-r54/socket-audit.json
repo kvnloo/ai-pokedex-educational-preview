@@ -1,0 +1,17 @@
+{
+  "capCount": 108,
+  "capMean": [
+    0.8085157871246338,
+    0.4230915307998657,
+    -0.4051010012626648
+  ],
+  "socket": [
+    0.8085157871246338,
+    0.4230915307998657,
+    -0.4051010012626648
+  ],
+  "deltaFromPrior": 0.00010398742215298948,
+  "parent": "GEO-home-tail-crosssection-r54",
+  "energyBaked": false,
+  "binding": "sampled evaluated cap; recompute after future deformation"
+}

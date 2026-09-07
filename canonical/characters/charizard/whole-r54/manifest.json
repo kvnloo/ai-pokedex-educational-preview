@@ -1,5 +1,5 @@
 {
-  "qualityGate": "review-pending",
+  "qualityGate": "regional-retain-whole-character-needs-work",
   "files": [
     {
       "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r54/cage-before.json",
@@ -40,6 +40,10 @@
     {
       "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r54/section-threequarter.png",
       "sha256": "1d8bb652775c3043eda6e5a1f9325fe635012ab55f06a95715905caa5f6d056f"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r54/charizard-home-r54-retained.blend",
+      "sha256": "b82e663e2633c7f7bb2091b97fdce67e9a94ed603e7151e828c1264908aa11d8"
     }
   ]
 }
