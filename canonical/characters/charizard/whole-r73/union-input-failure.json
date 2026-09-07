@@ -1,0 +1,6 @@
+{
+  "status": "aborted-input-failure",
+  "finding": "Boolean native UI set UNION but object picker did not receive text; keystrokes reached viewport and transformed selected scene objects. Screenshot caught transform. Reopened descending-root saved checkpoint; no union result or changed transforms retained.",
+  "next": "Use inspected picker popup or eyedropper, verify target before evaluation.",
+  "restored": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r73/charizard-home-r73-descending-root.blend"
+}

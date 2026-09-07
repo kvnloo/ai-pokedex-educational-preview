@@ -1,0 +1,20 @@
+{
+  "source": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r73/charizard-home-r73-descending-root.blend",
+  "allContactTrianglePairs": 1260,
+  "rootContactTrianglePairs": 164,
+  "rootSparContactBounds": [
+    [
+      0.13800035417079926,
+      0.22566422820091248
+    ],
+    [
+      -0.3433895707130432,
+      -0.3102756142616272
+    ],
+    [
+      0.09578748792409897,
+      0.17361348867416382
+    ]
+  ],
+  "scope": "Evaluated cross-object triangle overlap; does not prove clean union or likeness."
+}
