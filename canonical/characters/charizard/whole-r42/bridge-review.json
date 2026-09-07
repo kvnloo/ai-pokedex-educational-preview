@@ -1,0 +1,31 @@
+{
+  "vertices": 134,
+  "nonmanifoldEdges": 0,
+  "cuts": 2,
+  "interpolation": "LINEAR",
+  "nativeUiSettingsVerified": true,
+  "zeroCutLandmarksMatched": 16,
+  "rootReview": "Threequarter projecting band removed. Full critic review pending, regional trial only.",
+  "files": [
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r42/charizard-hybrid-r42-linear-bridge.blend",
+      "sha256": "54e03a82a53b478001676e859e957496364bdb049380d9178a6868596fefa972"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r42/bridge-front.png",
+      "sha256": "f5c6eb93f6282d175c8c8dd7493eb3bb4dc3a142db474cb3ea527d7fbbffef9b"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r42/bridge-side.png",
+      "sha256": "9d6d8c233ee5b3b5a19654fa2e072418dcd7aa1b873ea9f3652fc7847351b89d"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r42/bridge-rear.png",
+      "sha256": "68461c37b1dfb9e64554f9b0cd73b4e54b14d5ca1335523d325f77b4134f9723"
+    },
+    {
+      "path": "/mnt/zer0models/pokemon-iac/characters/charizard/anatomy-r05/whole-r42/bridge-threequarter.png",
+      "sha256": "64f9bb302f858df6231fdacd81aa2e9be4dc37f3a2cb98bd435441a16143b453"
+    }
+  ]
+}
