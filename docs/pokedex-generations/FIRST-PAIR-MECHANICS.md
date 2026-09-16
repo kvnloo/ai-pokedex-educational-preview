@@ -1,6 +1,6 @@
 # Kanto and Johto: reference decisions before Blender
 
-Root inspected the four original first-pair images and four additional images. The complete manifest now pins 21 private images across the eight families. These notes specify the next Blender pair; no Kanto or Johto source/GLB has been built yet. Concept V2/V3 remain distinct families and are not starting shells for the anime devices.
+Root inspected the four original first-pair images and four additional images. The complete manifest now pins 21 private images across the eight families. Kanto has a rough r03 study and an unapproved r24 mechanics candidate with a reopened runtime GLB and rendered opening clip. Johto has no Blender source yet. Concept V2/V3 remain distinct families and are not starting shells for the anime devices.
 
 ## Kanto
 
@@ -28,4 +28,14 @@ Build each in a new root-authored scene and private revision directory under `de
 
 Then validate actual wall sections, supported components, hinge clearances and closure. Continue to swappable display materials, authored PBR, the appropriate physical clips, GLB reopening, matched overlays and inspected animation video. Unseen construction can be deliberate and believable without being mislabeled as verified anime detail. Both remain unapproved candidates until Kevin chooses.
 
+## Kanto blockout checkpoint · 2026-09-16
+
+`canonical/devices/generations/kanto-r03-blockout.json` records the root-authored r03 source hash, reference hashes, render paths, and measured geometry. The open front and three-quarter renders were visually inspected against `kanto-open`; the closed front render confirms the leaf hides the main display while leaving the raised sensor header exposed. r01 and r02 remain private rollback iterations. r03 is a rough, color-blocked study only: its stacked panel layout is recognizable, but the shell is still slab-like, the speaker vents and two thin controls are absent, and rear/mechanical clearance has not passed a sweep audit. Do not promote it to an accepted candidate or use it as runtime content.
+
 Reference URLs, local paths, provenance and hashes are in `canonical/devices/generations/era-reference-manifest.json`. `fetch_references.py --verify` checks the exact retained pixels without downloading or changing them.
+
+## Kanto hinge correction · r24
+
+The mid-swing review found the rotating hinge ears intersected the stationary shell. r24 relocates the hinge axis 0.06 units toward the front, compensates the lid children so the closed pose stays in place, reduces the rotating knuckles, and replaces oversized blocks with compact leaf-side ears. Blender's BVH sweep tested 23 rotating meshes against five stationary chassis/display targets at all 108 animation frames and found zero surface intersections. Fixed barrels are intentionally embedded at the chassis edge.
+
+Private artifacts are under `/mnt/zer0models/pokemon-iac/devices/pokedex/eras/kanto/r24/`: `Kanto-r24.blend`, `Kanto-r24.glb`, `Kanto-opening-r24.mp4`, and `opening-storyboard.png`. The manifest records hashes and measurements. Blender reopened the GLB as 46 meshes plus the animated hinge root; the `Kanto-Opening-Z-Hinge` clip spans frames 1–108 at 24 fps. Closed and open frames, intermediate hinge close-ups, and the rendered storyboard were visually inspected. r24 remains a mechanics-review candidate, not Kevin-approved or production-ready: screen content remains placeholder geometry/material, speaker details and final shell surfacing are incomplete, and BootUp/Ready/Idle/button interaction clips and final PBR remain future work.

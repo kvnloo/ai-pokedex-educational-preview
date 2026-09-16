@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "id": "kanto-r03",
+  "familyId": "kanto",
+  "status": "blockout-review-unapproved",
+  "date": "2026-09-16",
+  "source": {
+    "blend": "/mnt/zer0models/pokemon-iac/devices/pokedex/eras/kanto/r03/Kanto-r03.blend",
+    "sha256": "d86def76eeae4a5dd7579a5b1d119bad62847cb72e5ef408293d5e93d10932a2"
+  },
+  "references": [
+    {
+      "id": "kanto-open",
+      "sha256": "5cc568de2fd6c8101f9165d9e443deb9b283593cd5fce0a981e870d48e428969",
+      "provenance": "Anime screenshot hosted by Bulbagarden Archives; private visual reference only"
+    },
+    {
+      "id": "kanto-scan",
+      "sha256": "d45ca510d5bc2a03ba447f496b7e4cecd9810fa156618ac49a5bdcd28db3f2e8",
+      "provenance": "Anime screenshot hosted by Bulbagarden Archives; private visual reference only"
+    }
+  ],
+  "renders": {
+    "directory": "/mnt/zer0models/pokemon-iac/devices/pokedex/eras/kanto/r03/views",
+    "openFront": {
+      "file": "open-front.png",
+      "sha256": "f870df54167ef9c842f37bc9e65c74b5cb3a4a0f1df4c98e68540b3b2a51657b"
+    },
+    "openThreeQuarter": {
+      "file": "open-three-quarter.png",
+      "sha256": "67b247be49f253b9c7374089d0c318ac373ad7a5736ba1849e5a946092a5f0b8"
+    },
+    "closedFront": {
+      "file": "closed-front.png",
+      "sha256": "9c4a2d5699a9ad1f8531d540bde1b60ad1a58699b2172954c95f6afd459dc80c"
+    },
+    "engine": "Blender Workbench neutral color-block review",
+    "resolution": "1600x1000"
+  },
+  "geometry": {
+    "meshObjects": 34,
+    "allCollectionObjects": 36,
+    "baseVertices": 1032,
+    "baseFaces": 584,
+    "evaluatedVertices": 5600,
+    "evaluatedTriangles": 11064,
+    "evaluatedNonManifoldMeshes": 0,
+    "missingUvMeshes": 0,
+    "rig": "RIG-Kanto-Leaf-Hinge",
+    "animationClips": 0,
+    "runtimeGltf": false
+  },
+  "visualReview": {
+    "inspected": ["open front", "open three-quarter", "closed front"],
+    "matches": [
+      "raised red sensor header with blue lens and three status lamps",
+      "white-framed main display and lower green display",
+      "lower right control leaf with upper readout, two-by-five keypad, two white keys, two dark lower controls, and amber key",
+      "closed leaf covers the main display while the raised header remains exposed"
+    ],
+    "remainingDifferences": [
+      "housing remains a slab-like blockout rather than the softer reference silhouette",
+      "four speaker slots and two thin controls are not yet modeled",
+      "rear construction and hinge clearances have not passed a physical sweep audit",
+      "PBR, replaceable screen content, animation, and GLB export are not authored"
+    ],
+    "acceptance": "not accepted; continue silhouette and mechanical correction before detail"
+  }
+}

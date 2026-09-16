@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "id": "kanto-r24",
+  "familyId": "kanto",
+  "status": "mechanics-review-unapproved",
+  "date": "2026-09-16",
+  "source": {
+    "blend": "/mnt/zer0models/pokemon-iac/devices/pokedex/eras/kanto/r24/Kanto-r24.blend",
+    "sha256": "71bffa06922ade2779940b0b0f74bbb550f0716ff3d918cc0c8c6acdcc512ac3"
+  },
+  "runtime": {
+    "glb": "/mnt/zer0models/pokemon-iac/devices/pokedex/eras/kanto/r24/Kanto-r24.glb",
+    "sha256": "c1644d0b50450ad34408a1a0e5fdcf9b33af6f46422e8044bd4a081d99159a2e",
+    "bytes": 574824,
+    "reopenValidation": {
+      "meshObjects": 46,
+      "animatedRootObjects": 1,
+      "allMeshesHaveUVs": true,
+      "animationClip": "Kanto-Opening-Z-Hinge",
+      "animationFrames": [1, 108]
+    }
+  },
+  "references": [
+    {
+      "id": "kanto-open",
+      "sha256": "5cc568de2fd6c8101f9165d9e443deb9b283593cd5fce0a981e870d48e428969",
+      "provenance": "Anime screenshot hosted by Bulbagarden Archives; private visual reference only"
+    },
+    {
+      "id": "kanto-scan",
+      "sha256": "d45ca510d5bc2a03ba447f496b7e4cecd9810fa156618ac49a5bdcd28db3f2e8",
+      "provenance": "Anime screenshot hosted by Bulbagarden Archives; private visual reference only"
+    }
+  ],
+  "animation": {
+    "file": "/mnt/zer0models/pokemon-iac/devices/pokedex/eras/kanto/r24/Kanto-opening-r24.mp4",
+    "sha256": "23e7182b01d3531846671796e95a8df6038833c38c44d6d1ae8d1a807ca65bda",
+    "codec": "H.264",
+    "resolution": [960, 600],
+    "fps": 24,
+    "frames": 108,
+    "durationSeconds": 4.5,
+    "clip": "Kanto-Opening-Z-Hinge",
+    "hingeAxis": "Z",
+    "hingePivot": [0.12, -0.46, 0.0]
+  },
+  "evidence": {
+    "storyboard": {
+      "file": "/mnt/zer0models/pokemon-iac/devices/pokedex/eras/kanto/r24/opening-storyboard.png",
+      "sha256": "30fbdd80a4059bf9f6633415e15fdd55aa0b11f82e124dedd7ce3b9999b6ccf7"
+    },
+    "closedFrame": {
+      "file": "/mnt/zer0models/pokemon-iac/devices/pokedex/eras/kanto/r24/views/front-001.png",
+      "sha256": "b941f9b396c265bc440ef161436711c07a8a95840a6c1c5e218b0ffac78e26f4"
+    },
+    "openFrame": {
+      "file": "/mnt/zer0models/pokemon-iac/devices/pokedex/eras/kanto/r24/views/front-108.png",
+      "sha256": "84512e1fa1a07103c0b00ff65db4be00f06497a002bdf772a461c601a3c31d13"
+    }
+  },
+  "geometry": {
+    "meshObjects": 46,
+    "evaluatedVertices": 6576,
+    "evaluatedTriangles": 12968,
+    "nonManifoldMeshes": 0,
+    "meshesMissingUVs": 0
+  },
+  "mechanicsValidation": {
+    "sweepFrames": 108,
+    "movingMeshes": 23,
+    "stationaryTargets": [
+      "GEO-Kanto-Main-Shell",
+      "GEO-Kanto-Main-Display",
+      "GEO-Kanto-Lower-Green-Display",
+      "GEO-Kanto-Raised-Sensor-Header",
+      "GEO-Kanto-Blue-Sensor"
+    ],
+    "surfaceIntersections": 0,
+    "fixedHingeBarrelsEmbeddedByDesign": true
+  },
+  "visualReview": {
+    "inspected": [
+      "front animation storyboard",
+      "closed frame",
+      "open frame",
+      "intermediate front frames",
+      "intermediate hinge close-ups"
+    ],
+    "result": "Mid-swing ear-to-shell collision cleared; leaf remains parented to the hinge root and the closed silhouette is preserved.",
+    "approval": "pending Kevin visual review",
+    "remaining": [
+      "rough blockout shell and placeholder screen materials",
+      "speaker vents and final housing surfacing incomplete",
+      "BootUp, Ready, Idle, and control-feedback clips not authored",
+      "final PBR and game-ready optimization not completed"
+    ]
+  }
+}

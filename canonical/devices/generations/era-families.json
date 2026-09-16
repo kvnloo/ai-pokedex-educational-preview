@@ -19,9 +19,12 @@
         "kanto-open",
         "kanto-scan"
       ],
-      "stage": "reference-study",
-      "candidates": [],
-      "unresolved": "Book hinge visible; rear and closed fit need more frames."
+      "stage": "mechanics-review",
+      "candidates": [
+        "r03",
+        "r24"
+      ],
+      "unresolved": "r24 clears the 108-frame leaf sweep; Kevin visual review and final housing, vents, PBR, and interaction clips remain."
     },
     {
       "id": "johto",
