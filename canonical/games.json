@@ -1,0 +1,1 @@
+{"schemaVersion":1,"provenance":{"sourceIds":["source:pokeapi"]},"games":[{"id":"game:red-blue","name":"Red/Blue","generation":1,"lineage":"original-kanto"},{"id":"game:yellow","name":"Yellow","generation":1,"lineage":"original-kanto-special"},{"id":"game:firered-leafgreen","name":"FireRed/LeafGreen","generation":3,"lineage":"kanto-remake"}]}

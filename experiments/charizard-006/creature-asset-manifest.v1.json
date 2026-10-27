@@ -17,7 +17,8 @@
   "status": {
     "productionApproved": false,
     "blockedAt": "source-plate-hitl",
-    "reason": "No immutable, visually reviewed Charizard plate set exists yet. Mesh generation is fail-closed until Kevin accepts the exact private source bytes."
+    "reason": "Identity contract locked fail-closed. No Kevin-approved Hunyuan-ready multi-view plate set: HOME rejected, true side missing, rear is sprite-only, Flux hypotheses unselected. Mesh generation remains fail-closed.",
+    "privateIdentityStage": "/mnt/zer0models/pokemon_anime/pipeline/golden/charizard-006/stages/identity-source-matrix-20260912/stage-manifest.v1.json"
   },
   "canonicalRecognitionContract": {
     "landmarks": [

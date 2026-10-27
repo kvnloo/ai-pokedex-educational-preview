@@ -128,11 +128,11 @@ ok("party lead", lead(party)?.battler.speciesId === starterId);
 ok(
   "three starters triangle",
   (pack.route.starterChoices ?? []).length >= 3 &&
-    pack.route.starterChoices.includes("leafkit"),
+    pack.route.starterChoices.includes("grookey"),
 );
-ok("leafkit in species", speciesById.has("leafkit"));
-const leafkit = battlerFromSpecies("leafkit", 5, "leaf-check");
-ok("leafkit is grass", leafkit.types.includes("grass"));
+ok("grookey in species", speciesById.has("grookey"));
+const grookey = battlerFromSpecies("grookey", 5, "grass-check");
+ok("grookey is grass", grookey.types.includes("grass"));
 
 
 // 2) Explore WASD into grass
@@ -221,11 +221,11 @@ ok(
 );
 
 // Switch API with second member
-const second = battlerFromSpecies("dustbun", 5, "bench");
+const second = battlerFromSpecies("wooloo", 5, "bench");
 addToParty(party, { battler: second });
 const switchBattle = createBattleFromParty(
   party,
-  battlerFromSpecies("sparkmoth", 4, "wild2"),
+  battlerFromSpecies("wooloo", 4, "wild2"),
   pack.typeChart,
 );
 // use conscious bench if lead fainted
@@ -248,7 +248,7 @@ if (benchIdx >= 0 && (switchBattle.player.hp > 0)) {
 // Status stage move
 const statusB = createBattle({
   player: battlerFromSpecies(starterId, 5, "st-p"),
-  foe: battlerFromSpecies("dustbun", 4, "st-f"),
+  foe: battlerFromSpecies("wooloo", 4, "st-f"),
   typeChart: pack.typeChart,
 });
 const growlIdx = statusB.player.moves.findIndex((m) => m.effect === "lower-atk-1");
@@ -264,15 +264,15 @@ if (growlIdx >= 0) {
 }
 
 // 4) Catch flow (fresh low-HP foe)
-const catchFoe = battlerFromSpecies("dustbun", 3, "catch-wild");
+const catchFoe = battlerFromSpecies("wooloo", 3, "catch-wild");
 catchFoe.hp = 1;
-const dustSp = speciesById.get("dustbun");
-const dustRate = speciesCatchRate(dustSp);
-ok("per-species catchRate", dustRate === (dustSp.catchRate ?? defaultCatchRate(dustSp.role)));
+const woolooSp = speciesById.get("wooloo");
+const woolooRate = speciesCatchRate(woolooSp);
+ok("per-species catchRate", woolooRate === (woolooSp.catchRate ?? defaultCatchRate(woolooSp.role)));
 const a = computeA({
   maxHp: catchFoe.maxHp,
   hp: catchFoe.hp,
-  catchRate: dustRate,
+  catchRate: woolooRate,
   ballMod: 1,
 });
 ok("catch a-value positive", a > 0);
@@ -315,7 +315,7 @@ const catchStd = attemptCatch({
 ok("attemptCatch ballMod in aValue", catchGreat.aValue > catchStd.aValue);
 
 if (catchWin.caught && party.length < 6) {
-  const caught = battlerFromSpecies("dustbun", 3, "caught-1");
+  const caught = battlerFromSpecies("wooloo", 3, "caught-1");
   addToParty(party, { battler: caught });
 }
 ok("party grew after catch", party.length >= 1);
@@ -340,7 +340,7 @@ ok(
 // Faint path: force player loss
 const weak = battlerFromSpecies(starterId, 5, "weak");
 weak.hp = 1;
-const strong = battlerFromSpecies("sparkmoth", 20, "boss");
+const strong = battlerFromSpecies("wooloo", 20, "boss");
 const lossBattle = createBattle({
   player: weak,
   foe: strong,
@@ -377,14 +377,13 @@ ok(
     pack.route.wildEncounters.some((e) => e.band === "late"),
 );
 
-// Sparkmoth catch rate
-const sparkSp = speciesById.get("sparkmoth");
-ok("sparkmoth speciesCatchRate 120", speciesCatchRate(sparkSp) === 120);
+// Canonical wild catch rate
+ok("wooloo speciesCatchRate 255", speciesCatchRate(woolooSp) === 255);
 
 // Win → XP measurable
 {
   const p = battlerFromSpecies(starterId, 5, "xp-player");
-  const f = battlerFromSpecies("dustbun", 4, "xp-foe");
+  const f = battlerFromSpecies("wooloo", 4, "xp-foe");
   f.hp = 1;
   const xb = createBattle({ player: p, foe: f, typeChart: pack.typeChart });
   let g = 0;
@@ -409,9 +408,9 @@ ok("sparkmoth speciesCatchRate 120", speciesCatchRate(sparkSp) === 120);
 {
   const a = battlerFromSpecies(starterId, 5, "sw-a");
   a.hp = 1;
-  const b = battlerFromSpecies("dustbun", 5, "sw-b");
+  const b = battlerFromSpecies("wooloo", 5, "sw-b");
   const pty = createParty([{ battler: a }, { battler: b }]);
-  const boss = battlerFromSpecies("sparkmoth", 25, "sw-boss");
+  const boss = battlerFromSpecies("wooloo", 25, "sw-boss");
   const sb = createBattleFromParty(pty, boss, pack.typeChart);
   let g = 0;
   while (!sb.needsForceSwitch && !sb.over && g++ < 25) {
@@ -436,14 +435,14 @@ ok("sparkmoth speciesCatchRate 120", speciesCatchRate(sparkSp) === 120);
 ok("status move exists", moves.some((m) => m.category === "status"));
 ok("priority move exists", moves.some((m) => (m.priority ?? 0) > 0));
 ok("no Pollen Puff", !moves.some((m) => m.name === "Pollen Puff"));
-ok("haze-puff or original puff", moves.some((m) => m.id === "haze-puff" || m.name === "Haze Puff"));
+ok("canonical move labels", moves.some((m) => m.name === "Ember") && moves.some((m) => m.name === "Water Gun"));
 
 // Priority order: Quick Gleam first despite low spe
 {
   const slow = battlerFromSpecies(starterId, 5, "pri-p");
   slow.stats = { ...slow.stats, spe: 5 };
   slow.moves = resolveMoves(["quick-gleam"]);
-  const fast = battlerFromSpecies("dustbun", 5, "pri-f");
+  const fast = battlerFromSpecies("wooloo", 5, "pri-f");
   fast.stats = { ...fast.stats, spe: 200 };
   fast.moves = resolveMoves(["nudge"]);
   const pb = createBattle({ player: slow, foe: fast, typeChart: pack.typeChart });
@@ -480,7 +479,7 @@ ok("haze-puff or original puff", moves.some((m) => m.id === "haze-puff" || m.nam
 
   const p0 = battlerFromSpecies(starterId, 5, "strug-p");
   p0.movePp = p0.moves.map(() => 0);
-  const f0 = battlerFromSpecies("dustbun", 3, "strug-f");
+  const f0 = battlerFromSpecies("wooloo", 3, "strug-f");
   f0.hp = 100;
   f0.maxHp = 100;
   const stb = createBattle({ player: p0, foe: f0, typeChart: pack.typeChart });
@@ -503,25 +502,22 @@ ok("haze-puff or original puff", moves.some((m) => m.id === "haze-puff" || m.nam
   const wildSpecies = pack.route.wildEncounters.map((e) => e.species);
   const mid = pack.route.wildEncounters.filter((e) => e.band === "mid");
   ok(
-    "grass wild in pack",
-    species.some((s) => s.role === "wild" && s.types.includes("grass")),
+    "exact canonical national ids",
+    [...species].map((s) => s.nationalId).sort((a, b) => a - b).join(",") === "810,813,816,831",
   );
   ok(
-    "water wild in pack",
-    species.some((s) => s.role === "wild" && s.types.includes("water")),
+    "all wild encounters are Wooloo",
+    wildSpecies.length > 0 && wildSpecies.every((id) => id === "wooloo"),
   );
   ok(
-    "mid band grass/water",
-    mid.some((e) => {
-      const sp = speciesById.get(e.species);
-      return sp && (sp.types.includes("grass") || sp.types.includes("water"));
-    }),
+    "mid band includes Wooloo",
+    mid.some((e) => e.species === "wooloo"),
   );
 
   const statusFx = moves.filter((m) => m.category === "status").map((m) => m.effect);
   ok("extra status tools", statusFx.length >= 3);
 
-  ok("identity notes franchise-free", !/pok[eé]mon/i.test(String(pack.identity?.notes ?? "")));
+  ok("identity is PokéAPI sourced", pack.identity?.source === "pokeapi" && pack.identity?.canonicalSpeciesCount === 4);
 }
 
 

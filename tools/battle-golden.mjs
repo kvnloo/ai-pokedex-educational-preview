@@ -205,11 +205,11 @@ const species = wave0.species.map((s) => normalizeSpecies(s));
 const movesById = new Map(moves.map((m) => [m.id, m]));
 const speciesById = new Map(species.map((s) => [s.id, s]));
 
-const ember = speciesById.get("emberpup");
-const dust = speciesById.get("dustbun");
+const ember = speciesById.get("scorbunny");
+const dust = speciesById.get("wooloo");
 if (!ember || !dust) {
   console.error(
-    "FAIL wave0 missing emberpup/dustbun; have:",
+    "FAIL wave0 missing scorbunny/wooloo; have:",
     [...speciesById.keys()].join(","),
   );
   process.exit(1);
@@ -239,7 +239,7 @@ const foe = buildBattler({
 });
 
 assertEq("hp L5 base45", statAtLevel(45, 5, "hp"), 19);
-assertEq("player maxHp", player.maxHp, 19);
+assertEq("Scorbunny maxHp", player.maxHp, 20);
 assertEq("atk L5 base52", statAtLevel(52, 5, "other"), 10);
 
 const fireMove =
@@ -247,7 +247,7 @@ const fireMove =
   movesById.get("ember-spark") ||
   player.moves.find((m) => m.type === "fire");
 if (!fireMove) {
-  console.error("FAIL no fire move on emberpup");
+  console.error("FAIL no fire move on scorbunny");
   process.exit(1);
 }
 
@@ -263,7 +263,7 @@ const dmg = calcMoveDamage({
   random: 1,
 });
 // spa L5 base60=11; dust spd L4 base45=8; base dmg path → 9 with STAB
-assertEq("emberpup fire vs dustbun", dmg.damage, 9);
+assertEq("scorbunny fire vs wooloo", dmg.damage, 7);
 
 let battle = createBattle({
   player,
@@ -299,11 +299,7 @@ assertEq(
 );
 
 const names = species.map((s) => s.name);
-for (const banned of ["Pikachu", "Charmander", "Bulbasaur", "Squirtle"]) {
-  assertEq(`no official name ${banned}`, names.includes(banned), false);
-}
-assertEq("has Emberpup", names.includes("Emberpup"), true);
-assertEq("has Dustbun", names.includes("Dustbun"), true);
+assertEq("exact canonical roster", names.sort().join(","), "Grookey,Scorbunny,Sobble,Wooloo");
 assertEq("move count >= 6", moves.length >= 6, true);
 
 
@@ -348,17 +344,17 @@ assertEq("clampDamageRandom high", clampDamageRandom(1.5), 1.0);
 assertEq("clampDamageRandom low", clampDamageRandom(0.1), 0.85);
 assertEq("clampDamageRandom mid", clampDamageRandom(0.92), 0.92);
 
-const leaf = speciesById.get("leafkit");
+const leaf = speciesById.get("grookey");
 assertEq("grass starter exists", !!leaf, true);
-assertEq("leafkit grass type", leaf?.types?.[0], "grass");
+assertEq("grookey grass type", leaf?.types?.[0], "grass");
 assertEq(
   "three starters",
   (wave0.route?.starterChoices ?? []).length >= 3,
   true,
 );
 assertEq(
-  "starters include leafkit",
-  (wave0.route?.starterChoices ?? []).includes("leafkit"),
+  "starters include grookey",
+  (wave0.route?.starterChoices ?? []).includes("grookey"),
   true,
 );
 
@@ -497,8 +493,8 @@ assertEq(
 );
 
 // per-species catch rate
-assertEq("dustbun catchRate field", dust.catchRate ?? speciesCatchRate(dust), 255);
-assertEq("ember starter catch", speciesCatchRate(ember), 45);
+assertEq("wooloo catchRate field", dust.catchRate ?? speciesCatchRate(dust), 255);
+assertEq("scorbunny starter catch", speciesCatchRate(ember), 45);
 assertEq("default wild", defaultCatchRate("wild"), 190);
 assertEq(
   "species overrides role",
@@ -642,12 +638,12 @@ const { applyXp, xpYield, anyConscious, consciousIndices } = partyMod;
   const fparty = createParty([{ battler: leadB }, { battler: reserveB }]);
   const strongFoe = buildBattler({
     id: "fs-foe",
-    name: "Sparkmoth",
-    speciesId: "sparkmoth",
-    types: ["bug", "electric"],
+    name: dust.name,
+    speciesId: dust.id,
+    types: dust.types,
     level: 20,
-    baseStats: speciesById.get("sparkmoth").baseStats,
-    moves: resolveMoves(speciesById.get("sparkmoth").moves),
+    baseStats: dust.baseStats,
+    moves: resolveMoves(dust.moves),
   });
   let fs = createBattleFromParty(fparty, strongFoe, wave0.typeChart);
   // Ensure foe moves first by high spe already; force damage to KO lead
@@ -728,9 +724,8 @@ const { applyXp, xpYield, anyConscious, consciousIndices } = partyMod;
   assertEq("xpYield L4", xpYield(4, 50), Math.floor((50 * 4) / 7));
 }
 
-// Species catch rates sparkmoth
-const spark = speciesById.get("sparkmoth");
-assertEq("sparkmoth catchRate 120", speciesCatchRate(spark), 120);
+// Canonical wild catch rate
+assertEq("wooloo catchRate 255", speciesCatchRate(dust), 255);
 
 
 // --- W3-P3: damage random clamp, priority, ballMod ---
@@ -896,7 +891,7 @@ assertEq(
   moves.some((m) => m.name === "Pollen Puff" || m.id === "pollen-puff"),
   false,
 );
-assertEq("haze-puff present", movesById.has("haze-puff"), true);
+assertEq("canonical Ember label", movesById.get("cinder-spark")?.name, "Ember");
 
 // Gym / elite content
 assertEq("gym node present", !!wave0.route?.gym?.id, true);
@@ -907,8 +902,8 @@ assertEq(
   (wave0.route?.wildEncounters ?? []).some((e) => e.band === "late" || e.maxLevel >= 8),
   true,
 );
-assertEq("ironwisp species", speciesById.has("ironwisp"), true);
-assertEq("gloomhorn species", speciesById.has("gloomhorn"), true);
+assertEq("sobble species", speciesById.has("sobble"), true);
+assertEq("wooloo species", speciesById.has("wooloo"), true);
 
 // Foe AI prefers SE
 {
@@ -923,11 +918,11 @@ assertEq("gloomhorn species", speciesById.has("gloomhorn"), true);
   });
   const grassDef = buildBattler({
     id: "ai-p",
-    name: "Leafkit",
-    speciesId: "leafkit",
+    name: leaf.name,
+    speciesId: leaf.id,
     types: ["grass"],
     level: 5,
-    baseStats: speciesById.get("leafkit").baseStats,
+    baseStats: leaf.baseStats,
     moves: resolveMoves(["nudge"]),
   });
   const idx = pickFoeMove(foeAi, grassDef, wave0.typeChart);
@@ -1061,19 +1056,18 @@ assertEq("gloomhorn species", speciesById.has("gloomhorn"), true);
 
   const wilds = wave0.route?.wildEncounters ?? [];
   const mid = wilds.filter((e) => e.band === "mid");
-  const hasGrassWild = species.some((s) => s.role === "wild" && s.types.includes("grass"));
-  const hasWaterWild = species.some((s) => s.role === "wild" && s.types.includes("water"));
-  assertEq("grass wild species", hasGrassWild, true);
-  assertEq("water wild species", hasWaterWild, true);
   assertEq(
-    "mid band includes grass or water wild",
-    mid.some((e) => {
-      const sp = speciesById.get(e.species);
-      return sp && (sp.types.includes("grass") || sp.types.includes("water"));
-    }),
+    "exact canonical national ids",
+    species.map((s) => s.nationalId).sort((a, b) => a - b).join(","),
+    "810,813,816,831",
+  );
+  assertEq("all wild encounters are Wooloo", wilds.every((e) => e.species === "wooloo"), true);
+  assertEq(
+    "mid band includes Wooloo",
+    mid.some((e) => e.species === "wooloo"),
     true,
   );
-  assertEq("mid band not empty", mid.length >= 2, true);
+  assertEq("mid band not empty", mid.length >= 1, true);
 
   const statusEffects = moves
     .filter((m) => m.category === "status")
@@ -1091,8 +1085,11 @@ assertEq("gloomhorn species", speciesById.has("gloomhorn"), true);
     true,
   );
 
-  const notes = String(wave0.identity?.notes ?? "");
-  assertEq("identity.notes franchise-free", /pok[eé]mon/i.test(notes), false);
+  assertEq(
+    "identity is PokéAPI sourced",
+    wave0.identity?.source === "pokeapi" && wave0.identity?.canonicalSpeciesCount === 4,
+    true,
+  );
 }
 
 

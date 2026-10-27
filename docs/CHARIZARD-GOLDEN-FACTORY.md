@@ -4,15 +4,15 @@ This is the single-species HERO/STRESS workflow. It does not authorize a roster 
 
 ## Current gate
 
-`source-plate-hitl` is blocked. One pinned PokeAPI HOME render has been fetched privately and byte-verified, but Kevin has not approved it and the authoritative front/side/rear plate matrix is incomplete. No Hunyuan run is eligible yet. This is intentional: generated geometry must not turn an unreviewed source hypothesis into false canonical evidence.
+Identity contract is locked fail-closed at private stage `identity-source-matrix-20260912`. PokéAPI National Dex 006 is pinned to standard non-shiny Charizard. Official/HOME/pokemon.com plates, sprite rear roles, Lanczos and restrained anime SR, and Flux hypotheses are labeled observed vs inferred with hashes. `source-plate-hitl` remains blocked: Kevin rejected HOME as Hunyuan input, true orthographic side is absent, rear evidence is sprite-only, and no generated hypothesis is selected. No Hunyuan run is eligible. Do not manufacture a false multi-view consensus.
 
 Private root:
 
 `/mnt/zer0models/pokemon_anime/pipeline/golden/charizard-006/`
 
-Current private ledger:
+Current private stage:
 
-`source-ledger.v1.json`
+`stages/identity-source-matrix-20260912/stage-manifest.v1.json`
 
 The repo contains no official pixels. It contains only the contract, tests, commands, hashes and status.
 

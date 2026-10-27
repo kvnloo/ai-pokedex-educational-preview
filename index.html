@@ -241,7 +241,7 @@
       backdrop-filter: blur(15px) saturate(1.25);
       box-shadow: 0 12px 32px rgba(0,0,0,.38), inset 0 1px rgba(255,255,255,.055);
       color: #f8fbff;
-      display: grid; grid-template-columns: 32px minmax(0,1fr) auto;
+      display: grid; grid-template-columns: 28px 48px minmax(0,1fr) auto;
       align-items: center; gap: 10px;
       transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
       text-align: left;
@@ -257,6 +257,11 @@
       color: color-mix(in srgb, var(--accent-c, #7ec8ff) 78%, white);
       font: 800 12px/1 'JetBrains Mono', monospace;
       align-self: start; padding-top: 4px;
+    }
+    .starter-art {
+      width: 48px; height: 48px; object-fit: contain;
+      filter: drop-shadow(0 7px 8px rgba(0,0,0,.42));
+      align-self: center;
     }
     .starter-copy { min-width: 0; display: grid; gap: 2px; }
     .starter-copy .name {
@@ -545,7 +550,7 @@
       <div id="starter-overlay" class="interactive">
         <div class="starter-card-wrap">
           <h1>Choose your partner</h1>
-          <p class="lead">Three companions wait under the hollow light. Your journey begins with one.</p>
+          <p class="lead">Three Pokémon wait under the hollow light. Your journey begins with one.</p>
           <div class="starter-row" id="starter-row"></div>
         </div>
       </div>
@@ -567,11 +572,11 @@
           <div class="bar"><i id="ally-hp"></i></div>
           <div class="hp-text" id="ally-hp-text">—</div>
         </div>
-        <div id="battle-msg">A wild creature appeared!</div>
+        <div id="battle-msg">A wild Pokémon appeared!</div>
         <div id="battle-menu" class="interactive">
           <button class="btn primary" data-act="fight">Fight<span class="sub">Choose a move</span></button>
-          <button class="btn warn" data-act="ball">Ball<span class="sub">Attempt a catch</span></button>
-          <button class="btn" data-act="swap" disabled>Creature<span class="sub">Need 2+ party</span></button>
+          <button class="btn warn" data-act="ball">Poké Ball<span class="sub">Attempt a catch</span></button>
+          <button class="btn" data-act="swap" disabled>Pokémon<span class="sub">Need 2+ party</span></button>
           <button class="btn" data-act="run">Run<span class="sub">Flee the encounter</span></button>
         </div>
         <div id="move-menu" class="interactive hidden"></div>
@@ -583,7 +588,7 @@
     <div id="boot">
       <div class="boot-inner">
         <div class="boot-title">Twilight Route</div>
-        <div class="boot-sub">Creature Collector Demo</div>
+        <div class="boot-sub">Pokémon 3D Demo · PokéAPI data</div>
         <div class="boot-bar"><i id="boot-fill"></i></div>
         <div class="boot-status" id="boot-status">Initialising</div>
       </div>

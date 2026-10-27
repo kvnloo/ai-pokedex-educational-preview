@@ -35,3 +35,10 @@ export {
   buildDustbun,
   buildSparkmoth,
 } from './speciesMeshes.ts';
+
+export {
+  buildGrookey,
+  buildScorbunny,
+  buildSobble,
+  buildWooloo,
+} from './pokeapiMeshes.ts';

@@ -9,8 +9,18 @@ import {
   createTaperedCurveGeometry,
   createVerticalLoftGeometry,
 } from './organicGeometry.ts';
+import {
+  buildGrookey,
+  buildScorbunny,
+  buildSobble,
+  buildWooloo,
+} from './pokeapiMeshes.ts';
 
 export const SPECIES_COLOR: Record<string, number> = {
+  grookey: 0x8fcb58,
+  scorbunny: 0xe65f2b,
+  sobble: 0x62b7d7,
+  wooloo: 0xf2f0e8,
   emberpup: 0xe87840,
   dewkin: 0x4aa8e8,
   leafit: 0x5cbc6a,
@@ -1269,6 +1279,10 @@ export function buildGeneric(color: number, scale: number): THREE.Group {
 export type SpeciesBuilder = (scale: number) => THREE.Group;
 
 export const SPECIES_BUILDERS: Record<string, SpeciesBuilder> = {
+  grookey: buildGrookey,
+  scorbunny: buildScorbunny,
+  sobble: buildSobble,
+  wooloo: buildWooloo,
   emberpup: buildEmberpup,
   dewkin: buildDewkin,
   leafit: buildLeafit,

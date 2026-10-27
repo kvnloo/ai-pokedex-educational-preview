@@ -52,7 +52,14 @@ export interface SpeciesDef {
   color?: string;
   flavor?: string;
   speciesId?: number;
+  /** Canonical National Pokédex number from PokéAPI. */
+  nationalId?: number;
   slug?: string;
+  source?: {
+    system?: string;
+    pokemonUrl?: string;
+    speciesUrl?: string;
+  };
   /** Catch rate 1–255 (higher = easier). */
   catchRate?: number;
   /** Base yield for XP calc (optional). */
@@ -179,7 +186,7 @@ export interface Wave0Content {
       band?: string;
     }>;
     playerDefaultLevel?: number;
-    /** Original-named gym / elite gate within demo path */
+    /** Authored route encounter gates populated with canonical Pokémon. */
     gym?: {
       id: string;
       name: string;

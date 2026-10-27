@@ -61,6 +61,12 @@ export function normalizeSpecies(raw: Record<string, unknown>): SpeciesDef {
     id,
     slug: typeof raw.slug === "string" ? raw.slug : id,
     speciesId: typeof raw.speciesId === "number" ? raw.speciesId : undefined,
+    nationalId:
+      typeof raw.nationalId === "number"
+        ? raw.nationalId
+        : typeof raw.speciesId === "number"
+          ? raw.speciesId
+          : undefined,
     name: String(raw.name ?? id),
     types: (raw.types as string[]).slice(),
     baseStats: raw.baseStats as SpeciesDef["baseStats"],
@@ -70,5 +76,9 @@ export function normalizeSpecies(raw: Record<string, unknown>): SpeciesDef {
     flavor: typeof raw.flavor === "string" ? raw.flavor : undefined,
     catchRate,
     baseExp,
+    source:
+      raw.source && typeof raw.source === "object"
+        ? (raw.source as SpeciesDef["source"])
+        : undefined,
   };
 }

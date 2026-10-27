@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "experimentId": "wooloo-studio-bakeoff-20260802",
+  "purpose": "Compare canonical artwork, native 1080p animation frames, temporal denoising, classic resampling, and two neural super-resolution models before choosing a 3D reconstruction input.",
+  "sourcePolicy": {
+    "canonicalIdentity": "PokéAPI Pokémon #831",
+    "privateStudyOnly": true,
+    "shippingRule": "Do not copy Twilight Wings frames or derived image plates into public/ or dist/. Generated meshes require separate provenance review before integration."
+  },
+  "sources": [
+    {
+      "id": "official-artwork",
+      "path": "/mnt/zer0models/pokemon_anime/pipeline/experiments/wooloo-studio-bakeoff-20260802/sources/official/pokeapi-official-artwork-831.png"
+    },
+    {
+      "id": "home-render",
+      "path": "/mnt/zer0models/pokemon_anime/pipeline/experiments/wooloo-studio-bakeoff-20260802/sources/official/pokeapi-home-831.png"
+    },
+    {
+      "id": "anime-side-cutout",
+      "path": "/mnt/zer0models/pokemon_anime/pipeline/experiments/wooloo-studio-bakeoff-20260802/sources/anime-side-native-780x570-rembg.png"
+    },
+    {
+      "id": "anime-front-cutout",
+      "path": "/mnt/zer0models/pokemon_anime/pipeline/experiments/wooloo-studio-bakeoff-20260802/sources/anime-front-native-820x560-rembg.png"
+    },
+    {
+      "id": "anime-temporal-cutout",
+      "path": "/mnt/zer0models/pokemon_anime/pipeline/experiments/wooloo-studio-bakeoff-20260802/sources/anime-side-temporal-median-rembg.png"
+    }
+  ],
+  "variants": [
+    {
+      "id": "official-native",
+      "source": "official-artwork",
+      "method": "plate",
+      "targetSize": 1024
+    },
+    {
+      "id": "home-native",
+      "source": "home-render",
+      "method": "plate",
+      "targetSize": 1024
+    },
+    {
+      "id": "anime-side-native",
+      "source": "anime-side-cutout",
+      "method": "plate",
+      "targetSize": 1024
+    },
+    {
+      "id": "anime-front-native",
+      "source": "anime-front-cutout",
+      "method": "plate",
+      "targetSize": 1024
+    },
+    {
+      "id": "anime-temporal-median",
+      "source": "anime-temporal-cutout",
+      "method": "plate",
+      "targetSize": 1024
+    },
+    {
+      "id": "official-lanczos4x",
+      "source": "official-artwork",
+      "method": "resample",
+      "resampler": "lanczos",
+      "scale": 4,
+      "targetSize": 1024
+    },
+    {
+      "id": "official-lanczos-unsharp4x",
+      "source": "official-artwork",
+      "method": "resample",
+      "resampler": "lanczos",
+      "scale": 4,
+      "unsharp": true,
+      "radius": 1.3,
+      "percent": 125,
+      "threshold": 3,
+      "targetSize": 1024
+    },
+    {
+      "id": "official-realesrgan-anime",
+      "source": "official-artwork",
+      "method": "realesrgan",
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "targetSize": 1024
+    },
+    {
+      "id": "official-realesrgan-general",
+      "source": "official-artwork",
+      "method": "realesrgan",
+      "model": "realesrgan-x4plus",
+      "scale": 4,
+      "targetSize": 1024
+    },
+    {
+      "id": "home-realesrgan-general",
+      "source": "home-render",
+      "method": "realesrgan",
+      "model": "realesrgan-x4plus",
+      "scale": 4,
+      "targetSize": 1024
+    },
+    {
+      "id": "anime-side-animevideov3",
+      "source": "anime-side-cutout",
+      "method": "realesrgan",
+      "model": "realesr-animevideov3",
+      "scale": 4,
+      "targetSize": 1024
+    },
+    {
+      "id": "anime-side-realesrgan-anime",
+      "source": "anime-side-cutout",
+      "method": "realesrgan",
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "targetSize": 1024
+    }
+  ]
+}

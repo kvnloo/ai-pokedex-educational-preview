@@ -63,6 +63,7 @@ import {
   type AttackPhase,
   type ScreenRect,
 } from './render/cinematicEffects.ts';
+import { canonicalKantoOpening } from './world/canonicalWorld.ts';
 
 const bootFill = document.getElementById('boot-fill') as HTMLElement | null;
 const bootStatus = document.getElementById('boot-status') as HTMLElement | null;
@@ -83,6 +84,11 @@ function fatal(err: unknown): void {
 }
 
 interface Wave0Pack {
+  identity?: {
+    notes?: string;
+    source?: string;
+    canonicalSpeciesCount?: number;
+  };
   typeChart: TypeChart;
   moves: Record<string, unknown>[];
   species: Record<string, unknown>[];
@@ -136,6 +142,19 @@ interface TwilightRuntimeSnapshot {
   healCount: number;
   encounterCount: number;
   catchCount: number;
+  content: {
+    source: string;
+    canonicalSpeciesCount: number | null;
+    starterNationalIds: number[];
+  };
+  world: {
+    sliceId: string;
+    activeGameId: string;
+    path: string[];
+    coordinates: Record<string, [number, number]>;
+    nextAshEventId: string | null;
+    originalAssetsOnly: boolean;
+  };
   audio: SoundscapeSnapshot;
   cinematic: {
     attack: {
@@ -159,21 +178,19 @@ declare global {
   }
 }
 
-/** Ship id → mesh builder id (leafkit uses leafit silhouette until builders expand). */
-const MESH_ALIAS: Record<string, string> = {
-  leafkit: 'leafit',
-};
+/** Canonical PokéAPI species can opt into a presentation alias while a dedicated
+ * authored mesh is being produced. The active Galar slice has direct builders. */
+const MESH_ALIAS: Record<string, string> = {};
 
-/** Extended palette: ship pack ids including leafkit. */
+/** Runtime palette is supplied by the canonical species builders. */
 const SHIP_COLOR: Record<string, number> = {
   ...SPECIES_COLOR,
-  leafkit: SPECIES_COLOR.leafit ?? 0x5cbc6a,
-  emberpup: SPECIES_COLOR.emberpup ?? 0xe87840,
-  dewkin: SPECIES_COLOR.dewkin ?? 0x4aa8e8,
-  dustbun: SPECIES_COLOR.dustbun ?? 0xe8e0d4,
-  sparkmoth: SPECIES_COLOR.sparkmoth ?? 0xc9d44a,
-  ironwisp: SPECIES_COLOR.ironwisp ?? 0xc9d0e0,
-  gloomhorn: SPECIES_COLOR.gloomhorn ?? 0x6a4a7a,
+};
+
+const STARTER_STAGE_SCALE: Record<string, number> = {
+  scorbunny: 1.15,
+  sobble: 1.2,
+  grookey: 1.16,
 };
 
 /** Mode-5 marks: free-roam→Fight ≤400ms, move→first attack frame ≤180ms */
@@ -438,7 +455,7 @@ async function boot(): Promise<void> {
   let foeMesh: THREE.Group | null = null;
   let mode: 'starter' | 'explore' | 'battle' = 'starter';
   let battle: BattleState | null = null;
-  let playerSpeciesId = 'emberpup';
+  let playerSpeciesId = raw.route.starterChoices[0] ?? 'scorbunny';
   let busy = false;
   let battleKind: 'wild' | 'gym' | 'elite' = 'wild';
   let wildWins = 0;
@@ -515,12 +532,11 @@ async function boot(): Promise<void> {
     arch.castShadow = true;
     alcove.add(arch);
 
-    const creature = shipCreatureMesh(id, id === 'emberpup' ? 0.86 : 1.24);
+    const creature = shipCreatureMesh(id, STARTER_STAGE_SCALE[id] ?? 1.12);
     creature.position.set(0, 0.27, 0.04);
     const stageClip = getClipState(creature);
     if (stageClip) {
       stageClip.baseY = 0.27;
-      if (id === 'emberpup') stageClip.baseRotY = -0.5;
     }
     creature.userData.stageBaseY = 0.27;
     creature.userData.stageIndex = i;
@@ -699,6 +715,21 @@ async function boot(): Promise<void> {
       healCount,
       encounterCount,
       catchCount,
+      content: {
+        source: raw.identity?.source ?? 'pokeapi',
+        canonicalSpeciesCount: raw.identity?.canonicalSpeciesCount ?? null,
+        starterNationalIds: raw.route.starterChoices
+          .map((id) => speciesById.get(id)?.nationalId)
+          .filter((id): id is number => typeof id === 'number'),
+      },
+      world: {
+        sliceId: canonicalKantoOpening.sliceId,
+        activeGameId: canonicalKantoOpening.activeGameId,
+        path: [...canonicalKantoOpening.path],
+        coordinates: canonicalKantoOpening.coordinates,
+        nextAshEventId: canonicalKantoOpening.events[0]?.id ?? null,
+        originalAssetsOnly: canonicalKantoOpening.presentationPolicy.originalAssetsOnly,
+      },
       audio: soundscape.snapshot(),
       cinematic: {
         attack: {
@@ -1968,7 +1999,12 @@ async function boot(): Promise<void> {
       card.dataset.species = id;
       const accent = SHIP_COLOR[id] ?? 0x7ec8ff;
       card.style.setProperty('--accent-c', `#${accent.toString(16).padStart(6, '0')}`);
-      card.innerHTML = `<span class="starter-index">0${index + 1}</span><span class="starter-copy"><span class="name">${sp.name}</span><span class="types">${sp.types.join(' · ')}</span><span class="blurb">${sp.flavor ?? ''}</span></span><span class="starter-choose">Choose</span>`;
+      const artworkUrl = sp.source?.system === 'pokeapi' && sp.nationalId
+        ? `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${sp.nationalId}.png`
+        : '';
+      card.innerHTML = `<span class="starter-index">0${index + 1}</span>${artworkUrl ? `<img class="starter-art" src="${artworkUrl}" alt="" aria-hidden="true">` : ''}<span class="starter-copy"><span class="name">${sp.name}</span><span class="types">${sp.types.join(' · ')}</span><span class="blurb">${sp.flavor ?? ''}</span></span><span class="starter-choose">Choose</span>`;
+      const artwork = card.querySelector('.starter-art') as HTMLImageElement | null;
+      artwork?.addEventListener('error', () => artwork.remove(), { once: true });
       const focusStarter = () => {
         starterFocus = index;
         for (const [j, button] of [...starterRow.querySelectorAll('.starter-card')].entries()) {
@@ -2484,10 +2520,7 @@ async function boot(): Promise<void> {
         const model = starterMeshes[i]!;
         const st = getClipState(model);
         if (st) tickCreatureClip(model, st, dt, t);
-        const speciesId = raw.route.starterChoices[i];
-        const targetScale = i === starterFocus
-          ? (speciesId === 'emberpup' ? 1.32 : 1.08)
-          : 0.78;
+        const targetScale = i === starterFocus ? 1.14 : 0.8;
         const easedScale = model.scale.x + (targetScale - model.scale.x) * Math.min(1, dt * 7);
         model.scale.setScalar(easedScale);
         starterLights[i]!.intensity += ((i === starterFocus ? 3.8 : 0.55) - starterLights[i]!.intensity) * Math.min(1, dt * 7);

@@ -61,7 +61,10 @@ export function makeCreatureMesh(
     idlePhaseSeed: seed,
     baseY: 0,
     baseRotY: opts.baseRotY ?? 0,
-    profile: clipProfileForSpecies(speciesId),
+    profile:
+      root.userData.motionProfile === 'biped' || root.userData.motionProfile === 'quadruped'
+        ? root.userData.motionProfile
+        : clipProfileForSpecies(speciesId),
     idleSpeed:
       speciesId === 'sparkmoth' || speciesId === 'ironwisp'
         ? 2.2
