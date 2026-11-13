@@ -1,0 +1,140 @@
+{
+  "generatedAt": "2026-08-26T07:49:59.086Z",
+  "url": "http://127.0.0.1:5292/?verify=1",
+  "transitions": {
+    "canonicalBattlePrewarm": {
+      "completed": true,
+      "keys": [
+        "bulbasaur@0.900",
+        "charmander@0.900",
+        "squirtle@0.900",
+        "pidgey@1.020",
+        "caterpie@1.020",
+        "geodude@1.020"
+      ],
+      "meshCount": 6,
+      "bindings": [
+        {
+          "speciesId": "bulbasaur",
+          "sourceSha256": "cad6e93a2e77d21148f932c27688ff07c5028eb87f3ba9f891a2f3f5ad8e1354",
+          "sourceSceneUuid": "eb0c1cfc-5dd7-4218-9653-9fa6828c4c3f",
+          "animationVariant": "none",
+          "templateRootUuid": "354ef84d-9d94-4681-8001-1416316dc325",
+          "geometrySha256": "d9fb90997fb56e99cd5f405a5a6a952329bf37727e889e955244a46bed10b54f",
+          "materialSha256": "009046a332f1e25038cfd56724aea2f66d961e58740351541cbedba28846ce02",
+          "skeletonSignature": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "scale": 0.9,
+          "renderRootUuid": "38d8dd54-f240-473f-84fa-e2cddfa59315",
+          "transformSha256": "854bd7520cc4bbbc63e37767734cac6de77bdcc09c90fa5eba4af17e232dd899"
+        },
+        {
+          "speciesId": "charmander",
+          "sourceSha256": "82c90f71d325d3e93803978cb66e8b6eaceeda5d4280706d9eb388a81975acd2",
+          "sourceSceneUuid": "4a813a50-dbcf-40d1-af66-9637ffaea858",
+          "animationVariant": "none",
+          "templateRootUuid": "c70875c0-4962-4420-97ad-a1fb3195c080",
+          "geometrySha256": "76bf7cd96584c20378dfd616f2a6481de4d66659bc0d9c4b90933cfa97da3bf2",
+          "materialSha256": "09b1931f439cf35fc380399d8ec4d14a565a94ada905635ea34784a2e12cf881",
+          "skeletonSignature": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "scale": 0.9,
+          "renderRootUuid": "3b52a572-7083-4909-acc5-ae770108abe4",
+          "transformSha256": "bc587cc270af110a69cb2accdb4a996b77654703f3fb8c98975100b5f0a27d55"
+        },
+        {
+          "speciesId": "squirtle",
+          "sourceSha256": "b41a8ef1fc5caef02ea38eca7fa795ba974645f090e8a0574509d58c381e5805",
+          "sourceSceneUuid": "9e877099-b6f6-4742-8dd9-6f597b4cf8ea",
+          "animationVariant": "none",
+          "templateRootUuid": "4f057207-0147-4019-a707-575d3cbf74c4",
+          "geometrySha256": "b496ae4c2d74be2ad4e528be69321f597675f2cd52ebddc51ac0fcc62bc638f1",
+          "materialSha256": "7ff780efda00f7ff91c4d98143a2e371b01c8ca1d2019d4f9724da1b5e2f4b1d",
+          "skeletonSignature": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "scale": 0.9,
+          "renderRootUuid": "ad532ec3-64e6-4b22-9d86-64f4adb75da0",
+          "transformSha256": "fc5ddeecd64811accd8e04eee28f33ccc27c10947df4fb70ce6b59783a163265"
+        },
+        {
+          "speciesId": "pidgey",
+          "sourceSha256": "1685b6f5b9215645d274d31480cf9de8c26011aa7e424700f38b9d70cae4e261",
+          "sourceSceneUuid": "10550adb-2a7a-46b1-a16e-142e16361d62",
+          "animationVariant": "none",
+          "templateRootUuid": "02b019d9-2c26-46b6-bd78-bbddb3c8cc3f",
+          "geometrySha256": "1a63448a3f59f8ddd7d99dd49b20598aea573bb51ffc7931b91f892f166325a4",
+          "materialSha256": "007facfe72b19c282945d8c261ddb1d9eeca2272554816c24792e51eb4d825e6",
+          "skeletonSignature": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "scale": 1.02,
+          "renderRootUuid": "893d546d-2af8-40ba-89f7-2412c0c3245d",
+          "transformSha256": "b982e9287233da3cb8ea84e51a905b42e40525a9a7d02c06dbd448969873d05d"
+        },
+        {
+          "speciesId": "caterpie",
+          "sourceSha256": "0a2093b6a4053a075c515591ae9a8f9c88b27fa66c27b72493cdac3648e247f2",
+          "sourceSceneUuid": "9a3b6ec2-8f51-4c1c-af29-7345e0de4250",
+          "animationVariant": "none",
+          "templateRootUuid": "f546677c-7fe6-446e-b0bf-648f102492e0",
+          "geometrySha256": "625fbb3431bc9b21f1aa4b447d910b0445b66cdbe324baaa1c937606f2202fb6",
+          "materialSha256": "4b8d67c906992c3995d48500791f9b2b4516dba3e92854be2c1a38d2acfca796",
+          "skeletonSignature": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "scale": 1.02,
+          "renderRootUuid": "c6c303b2-03e7-4513-98bb-40265cf14c94",
+          "transformSha256": "f378e2d024c8b114ad2fd91fba6df46b3f7ee16c017eead178a7e8d59e14440a"
+        },
+        {
+          "speciesId": "geodude",
+          "sourceSha256": "f337566e5eece5d263cd7725d65563d31c0418fd138fa45663be679728d8d809",
+          "sourceSceneUuid": "4290c2f9-76a4-4611-b654-6df7dbac1c1b",
+          "animationVariant": "none",
+          "templateRootUuid": "6b744679-07ac-4aa8-b449-59759085e9c8",
+          "geometrySha256": "2729f7a63d4584821650788b5dbd9b8a6aff3f773495b65b5d10ea54f71ee54a",
+          "materialSha256": "c2e280f6d3d3b76fd191a3367d026e8e0d166271e82ced3bc4b5b25f4e4c1dc6",
+          "skeletonSignature": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "scale": 1.02,
+          "renderRootUuid": "ca8b42e3-e0c0-4a62-85c6-006541bec851",
+          "transformSha256": "eb2b7b829dd64f3ebfff8d5b094b8f6406940ed0523c352b052f09357c510849"
+        }
+      ],
+      "renderer": "THREE.WebGLRenderer",
+      "drawCalls": 6,
+      "nonClearPixels": 8192,
+      "completionBoundary": "gl.finish+readPixels-observed-not-independent-gpu-attestation",
+      "compileMs": 3.5,
+      "drawSubmitMs": 23.69999998807907,
+      "gpuObservedMs": 1,
+      "totalMs": 37.69999998807907
+    },
+    "bootPerformance": {
+      "navigation": [
+        {
+          "domContentLoadedMs": 48.2,
+          "loadMs": 49.1
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 163.8,
+          "duration": 366
+        },
+        {
+          "startTime": 530.6,
+          "duration": 89
+        }
+      ],
+      "heapBytes": 24696094
+    },
+    "starterChoiceToExploreMs": 155.269,
+    "grassPatrolToBattleModeMs": 128.552,
+    "firstBattleModeToMenuReadyMs": 97.526,
+    "roamToFightPerformanceMs": 149.5,
+    "fightClickToMoveMenuMs": 33.018,
+    "moveClickToTurnReadyMs": 1270.853,
+    "moveToFirstAttackFrameMs": 12.8,
+    "catchClickToPartyMs": 1786.174,
+    "catchAttempts": 1,
+    "catchToHealMs": 1126.108,
+    "healToReplayBattleModeMs": 1670.845,
+    "replayBattleModeToMenuReadyMs": 67.163,
+    "runClickToExploreMs": 40.484,
+    "totalLoopMs": 14387.363,
+    "loopCompleteToPewterMs": 4492.063
+  }
+}

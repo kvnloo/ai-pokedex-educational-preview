@@ -1,0 +1,1729 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-26T07:49:59.086Z",
+  "url": "http://127.0.0.1:5292/?verify=1",
+  "outputDir": "/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_f523dc89/shots/provenance-final-mobile-3",
+  "durationMs": 21231.679,
+  "evidenceIntegrity": {
+    "globalRandomOverridden": false,
+    "clockOverridden": false,
+    "gameplayStateMutatorsInvoked": false,
+    "bridgeUse": "window.__twilight.snapshot() read-only",
+    "inputMode": "Playwright trusted mouse and keyboard events"
+  },
+  "revision": {
+    "gitHead": "a64e850bdd0f836b5ed84f24981f81a48267f15a",
+    "productTreeClean": true,
+    "productDirtyPaths": []
+  },
+  "production": {
+    "required": true,
+    "observed": {
+      "scripts": [
+        "http://127.0.0.1:5292/assets/main-BNyyU8mX.js"
+      ],
+      "viteClient": false,
+      "hashedAsset": true,
+      "manifest": {
+        "schemaVersion": 1,
+        "git": {
+          "sha": "a64e850bdd0f836b5ed84f24981f81a48267f15a",
+          "dirty": false
+        },
+        "invocation": [
+          "vite",
+          "build",
+          "--mode",
+          "private-local"
+        ],
+        "privateCanonical": true,
+        "builtAt": "2026-08-26T07:46:44.064Z",
+        "files": {
+          "assets/main-BNyyU8mX.js": {
+            "sha256": "7923dda599f57e19e1ced9e62a595886ec72d9506d8fa6db8ba31f183964002f",
+            "bytes": 813280
+          },
+          "assets/main-BNyyU8mX.js.map": {
+            "sha256": "70003ec22f36570b07939d866cf85cfa29cecef7a7669872d646421cdcff08e9",
+            "bytes": 895181
+          },
+          "content/game/kanto-private.json": {
+            "sha256": "a04243f3b61c0ad72160671f2f6aa76d90a768bb0f931d57f93cc2e49014044a",
+            "bytes": 5153
+          },
+          "content/game/runtime-assets/distributable.json": {
+            "sha256": "95b6e4d03c4409a7c465ab468a6a308c39998c4446ab245e80f444275b620548",
+            "bytes": 154
+          },
+          "content/game/runtime-assets/private-local.json": {
+            "sha256": "3c8e71fd56a247e7787df5d87668bc8f55849d5194b9e503fe6b527edbdcc3ed",
+            "bytes": 183
+          },
+          "index.html": {
+            "sha256": "fea7196608842c40215c6a8ee057e656f5c73cee924374fc56789d407d24ccf9",
+            "bytes": 28199
+          }
+        },
+        "canonicalAssets": {
+          "bulbasaur": {
+            "relativePath": "kanto-starters/bulbasaur/hunyuan/bulbasaur_shape_8k.glb",
+            "sha256": "cad6e93a2e77d21148f932c27688ff07c5028eb87f3ba9f891a2f3f5ad8e1354"
+          },
+          "charmander": {
+            "relativePath": "kanto-starters/charmander/hunyuan/charmander_shape_8k.glb",
+            "sha256": "82c90f71d325d3e93803978cb66e8b6eaceeda5d4280706d9eb388a81975acd2"
+          },
+          "squirtle": {
+            "relativePath": "kanto-starters/squirtle/hunyuan/squirtle_shape_8k.glb",
+            "sha256": "b41a8ef1fc5caef02ea38eca7fa795ba974645f090e8a0574509d58c381e5805"
+          },
+          "pidgey": {
+            "relativePath": "kanto-private/pidgey/hunyuan/pidgey_klein_shape_8k.glb",
+            "sha256": "1685b6f5b9215645d274d31480cf9de8c26011aa7e424700f38b9d70cae4e261"
+          },
+          "caterpie": {
+            "relativePath": "kanto-private/caterpie/hunyuan/caterpie_klein_shape_8k.glb",
+            "sha256": "0a2093b6a4053a075c515591ae9a8f9c88b27fa66c27b72493cdac3648e247f2"
+          },
+          "geodude": {
+            "relativePath": "kanto-private/geodude/hunyuan/geodude_klein_shape_8k.glb",
+            "sha256": "f337566e5eece5d263cd7725d65563d31c0418fd138fa45663be679728d8d809"
+          }
+        }
+      },
+      "launcherReceipt": {
+        "schemaVersion": 1,
+        "manifestSha256": "11f2ef6fb45eb792f5d134de5bc0b6564e54dacc32d80dc137ea39b0056724d7",
+        "gitSha": "a64e850bdd0f836b5ed84f24981f81a48267f15a",
+        "files": {
+          "assets/main-BNyyU8mX.js": {
+            "sha256": "7923dda599f57e19e1ced9e62a595886ec72d9506d8fa6db8ba31f183964002f",
+            "bytes": 813280
+          },
+          "assets/main-BNyyU8mX.js.map": {
+            "sha256": "70003ec22f36570b07939d866cf85cfa29cecef7a7669872d646421cdcff08e9",
+            "bytes": 895181
+          },
+          "content/game/kanto-private.json": {
+            "sha256": "a04243f3b61c0ad72160671f2f6aa76d90a768bb0f931d57f93cc2e49014044a",
+            "bytes": 5153
+          },
+          "content/game/runtime-assets/distributable.json": {
+            "sha256": "95b6e4d03c4409a7c465ab468a6a308c39998c4446ab245e80f444275b620548",
+            "bytes": 154
+          },
+          "content/game/runtime-assets/private-local.json": {
+            "sha256": "3c8e71fd56a247e7787df5d87668bc8f55849d5194b9e503fe6b527edbdcc3ed",
+            "bytes": 183
+          },
+          "index.html": {
+            "sha256": "fea7196608842c40215c6a8ee057e656f5c73cee924374fc56789d407d24ccf9",
+            "bytes": 28199
+          }
+        },
+        "privateAssets": {
+          "private-assets/bulbasaur.glb": {
+            "sha256": "cad6e93a2e77d21148f932c27688ff07c5028eb87f3ba9f891a2f3f5ad8e1354",
+            "bytes": 144964
+          },
+          "private-assets/charmander.glb": {
+            "sha256": "82c90f71d325d3e93803978cb66e8b6eaceeda5d4280706d9eb388a81975acd2",
+            "bytes": 144244
+          },
+          "private-assets/squirtle.glb": {
+            "sha256": "b41a8ef1fc5caef02ea38eca7fa795ba974645f090e8a0574509d58c381e5805",
+            "bytes": 145008
+          },
+          "private-assets/pidgey.glb": {
+            "sha256": "1685b6f5b9215645d274d31480cf9de8c26011aa7e424700f38b9d70cae4e261",
+            "bytes": 144928
+          },
+          "private-assets/caterpie.glb": {
+            "sha256": "0a2093b6a4053a075c515591ae9a8f9c88b27fa66c27b72493cdac3648e247f2",
+            "bytes": 144968
+          },
+          "private-assets/geodude.glb": {
+            "sha256": "f337566e5eece5d263cd7725d65563d31c0418fd138fa45663be679728d8d809",
+            "bytes": 144960
+          }
+        }
+      },
+      "hashFailures": [],
+      "productionBuild": true
+    }
+  },
+  "passed": true,
+  "summary": {
+    "checksPassed": 74,
+    "checksFailed": 0,
+    "consoleProblems": 0,
+    "requestProblems": 0,
+    "screenshots": 11
+  },
+  "fatalError": null,
+  "checks": [
+    {
+      "name": "evidence is bound to a clean product revision",
+      "ok": true,
+      "detail": "a64e850bdd0f836b5ed84f24981f81a48267f15a",
+      "elapsedMs": 1158.38
+    },
+    {
+      "name": "external launcher receipt matches reviewed root",
+      "ok": true,
+      "detail": "{\"schemaVersion\":1,\"manifestSha256\":\"11f2ef6fb45eb792f5d134de5bc0b6564e54dacc32d80dc137ea39b0056724d7\",\"gitSha\":\"a64e850bdd0f836b5ed84f24981f81a48267f15a\",\"files\":{\"assets/main-BNyyU8mX.js\":{\"sha256\":\"7923dda599f57e19e1ced9e62a595886ec72d9506d8fa6db8ba31f183964002f\",\"bytes\":813280},\"assets/main-BNyyU8mX.js.map\":{\"sha256\":\"70003ec22f36570b07939d866cf85cfa29cecef7a7669872d646421cdcff08e9\",\"bytes\":895181},\"content/game/kanto-private.json\":{\"sha256\":\"a04243f3b61c0ad72160671f2f6aa76d90a768bb0f931d57f93cc2e49014044a\",\"bytes\":5153},\"content/game/runtime-assets/distributable.json\":{\"sha256\":\"95b6e4d03c4409a7c465ab468a6a308c39998c4446ab245e80f444275b620548\",\"bytes\":154},\"content/game/runtime-assets/private-local.json\":{\"sha256\":\"3c8e71fd56a247e7787df5d87668bc8f55849d5194b9e503fe6b527edbdcc3ed\",\"bytes\":183},\"index.html\":{\"sha256\":\"fea7196608842c40215c6a8ee057e656f5c73cee924374fc56789d407d24ccf9\",\"bytes\":28199}},\"privateAssets\":{\"private-assets/bulbasaur.glb\":{\"sha256\":\"cad6e93a2e77d21148f932c27688ff07c5028eb87f3ba9f891a2f3f5ad8e1354\",\"bytes\":144964},\"private-assets/charmander.glb\":{\"sha256\":\"82c90f71d325d3e93803978cb66e8b6eaceeda5d4280706d9eb388a81975acd2\",\"bytes\":144244},\"private-assets/squirtle.glb\":{\"sha256\":\"b41a8ef1fc5caef02ea38eca7fa795ba974645f090e8a0574509d58c381e5805\",\"bytes\":145008},\"private-assets/pidgey.glb\":{\"sha256\":\"1685b6f5b9215645d274d31480cf9de8c26011aa7e424700f38b9d70cae4e261\",\"bytes\":144928},\"private-assets/caterpie.glb\":{\"sha256\":\"0a2093b6a4053a075c515591ae9a8f9c88b27fa66c27b72493cdac3648e247f2\",\"bytes\":144968},\"private-assets/geodude.glb\":{\"sha256\":\"f337566e5eece5d263cd7725d65563d31c0418fd138fa45663be679728d8d809\",\"bytes\":144960}}}",
+      "elapsedMs": 1158.594
+    },
+    {
+      "name": "runtime is the hashed production dist build",
+      "ok": true,
+      "detail": "{\"scripts\":[\"http://127.0.0.1:5292/assets/main-BNyyU8mX.js\"],\"viteClient\":false,\"hashedAsset\":true,\"manifest\":{\"schemaVersion\":1,\"git\":{\"sha\":\"a64e850bdd0f836b5ed84f24981f81a48267f15a\",\"dirty\":false},\"invocation\":[\"vite\",\"build\",\"--mode\",\"private-local\"],\"privateCanonical\":true,\"builtAt\":\"2026-08-26T07:46:44.064Z\",\"files\":{\"assets/main-BNyyU8mX.js\":{\"sha256\":\"7923dda599f57e19e1ced9e62a595886ec72d9506d8fa6db8ba31f183964002f\",\"bytes\":813280},\"assets/main-BNyyU8mX.js.map\":{\"sha256\":\"70003ec22f36570b07939d866cf85cfa29cecef7a7669872d646421cdcff08e9\",\"bytes\":895181},\"content/game/kanto-private.json\":{\"sha256\":\"a04243f3b61c0ad72160671f2f6aa76d90a768bb0f931d57f93cc2e49014044a\",\"bytes\":5153},\"content/game/runtime-assets/distributable.json\":{\"sha256\":\"95b6e4d03c4409a7c465ab468a6a308c39998c4446ab245e80f444275b620548\",\"bytes\":154},\"content/game/runtime-assets/private-local.json\":{\"sha256\":\"3c8e71fd56a247e7787df5d87668bc8f55849d5194b9e503fe6b527edbdcc3ed\",\"bytes\":183},\"index.html\":{\"sha256\":\"fea7196608842c40215c6a8ee057e656f5c73cee924374fc56789d407d24ccf9\",\"bytes\":28199}},\"canonicalAssets\":{\"bulbasaur\":{\"relativePath\":\"kanto-starters/bulbasaur/hunyuan/bulbasaur_shape_8k.glb\",\"sha256\":\"cad6e93a2e77d21148f932c27688ff07c5028eb87f3ba9f891a2f3f5ad8e1354\"},\"charmander\":{\"relativePath\":\"kanto-starters/charmander/hunyuan/charmander_shape_8k.glb\",\"sha256\":\"82c90f71d325d3e93803978cb66e8b6eaceeda5d4280706d9eb388a81975acd2\"},\"squirtle\":{\"relativePath\":\"kanto-starters/squirtle/hunyuan/squirtle_shape_8k.glb\",\"sha256\":\"b41a8ef1fc5caef02ea38eca7fa795ba974645f090e8a0574509d58c381e5805\"},\"pidgey\":{\"relativePath\":\"kanto-private/pidgey/hunyuan/pidgey_klein_shape_8k.glb\",\"sha256\":\"1685b6f5b9215645d274d31480cf9de8c26011aa7e424700f38b9d70cae4e261\"},\"caterpie\":{\"relativePath\":\"kanto-private/caterpie/hunyuan/caterpie_klein_shape_8k.glb\",\"sha256\":\"0a2093b6a4053a075c515591ae9a8f9c88b27fa66c27b72493cdac3648e247f2\"},\"geodude\":{\"relativePath\":\"kanto-private/geodude/hunyuan/geodude_klein_shape_8k.glb\",\"sha256\":\"f337566e5eece5d263cd7725d65563d31c0418fd138fa45663be679728d8d809\"}}},\"launcherReceipt\":{\"schemaVersion\":1,\"manifestSha256\":\"11f2ef6fb45eb792f5d134de5bc0b6564e54dacc32d80dc137ea39b0056724d7\",\"gitSha\":\"a64e850bdd0f836b5ed84f24981f81a48267f15a\",\"files\":{\"assets/main-BNyyU8mX.js\":{\"sha256\":\"7923dda599f57e19e1ced9e62a595886ec72d9506d8fa6db8ba31f183964002f\",\"bytes\":813280},\"assets/main-BNyyU8mX.js.map\":{\"sha256\":\"70003ec22f36570b07939d866cf85cfa29cecef7a7669872d646421cdcff08e9\",\"bytes\":895181},\"content/game/kanto-private.json\":{\"sha256\":\"a04243f3b61c0ad72160671f2f6aa76d90a768bb0f931d57f93cc2e49014044a\",\"bytes\":5153},\"content/game/runtime-assets/distributable.json\":{\"sha256\":\"95b6e4d03c4409a7c465ab468a6a308c39998c4446ab245e80f444275b620548\",\"bytes\":154},\"content/game/runtime-assets/private-local.json\":{\"sha256\":\"3c8e71fd56a247e7787df5d87668bc8f55849d5194b9e503fe6b527edbdcc3ed\",\"bytes\":183},\"index.html\":{\"sha256\":\"fea7196608842c40215c6a8ee057e656f5c73cee924374fc56789d407d24ccf9\",\"bytes\":28199}},\"privateAssets\":{\"private-assets/bulbasaur.glb\":{\"sha256\":\"cad6e93a2e77d21148f932c27688ff07c5028eb87f3ba9f891a2f3f5ad8e1354\",\"bytes\":144964},\"private-assets/charmander.glb\":{\"sha256\":\"82c90f71d325d3e93803978cb66e8b6eaceeda5d4280706d9eb388a81975acd2\",\"bytes\":144244},\"private-assets/squirtle.glb\":{\"sha256\":\"b41a8ef1fc5caef02ea38eca7fa795ba974645f090e8a0574509d58c381e5805\",\"bytes\":145008},\"private-assets/pidgey.glb\":{\"sha256\":\"1685b6f5b9215645d274d31480cf9de8c26011aa7e424700f38b9d70cae4e261\",\"bytes\":144928},\"private-assets/caterpie.glb\":{\"sha256\":\"0a2093b6a4053a075c515591ae9a8f9c88b27fa66c27b72493cdac3648e247f2\",\"bytes\":144968},\"private-assets/geodude.glb\":{\"sha256\":\"f337566e5eece5d263cd7725d65563d31c0418fd138fa45663be679728d8d809\",\"bytes\":144960}}},\"hashFailures\":[],\"productionBuild\":true}",
+      "elapsedMs": 1158.69
+    },
+    {
+      "name": "served dist manifest is the reviewed clean exact revision",
+      "ok": true,
+      "detail": "{\"sha\":\"a64e850bdd0f836b5ed84f24981f81a48267f15a\",\"dirty\":false}",
+      "elapsedMs": 1158.743
+    },
+    {
+      "name": "every served dist byte matches its immutable manifest hash",
+      "ok": true,
+      "detail": "",
+      "elapsedMs": 1158.761
+    },
+    {
+      "name": "runtime starts at starter choice",
+      "ok": true,
+      "detail": "{\"buildManifest\":{\"schemaVersion\":1,\"git\":{\"sha\":\"a64e850bdd0f836b5ed84f24981f81a48267f15a\",\"dirty\":false},\"invocation\":[\"vite\",\"build\",\"--mode\",\"private-local\"],\"privateCanonical\":true,\"builtAt\":\"2026-08-26T07:46:44.064Z\",\"files\":{\"assets/main-BNyyU8mX.js\":{\"sha256\":\"7923dda599f57e19e1ced9e62a595886ec72d9506d8fa6db8ba31f183964002f\",\"bytes\":813280},\"assets/main-BNyyU8mX.js.map\":{\"sha256\":\"70003ec22f36570b07939d866cf85cfa29cecef7a7669872d646421cdcff08e9\",\"bytes\":895181},\"content/game/kanto-private.json\":{\"sha256\":\"a04243f3b61c0ad72160671f2f6aa76d90a768bb0f931d57f93cc2e49014044a\",\"bytes\":5153},\"content/game/runtime-assets/distributable.json\":{\"sha256\":\"95b6e4d03c4409a7c465ab468a6a308c39998c4446ab245e80f444275b620548\",\"bytes\":154},\"content/game/runtime-assets/private-local.json\":{\"sha256\":\"3c8e71fd56a247e7787df5d87668bc8f55849d5194b9e503fe6b527edbdcc3ed\",\"bytes\":183},\"index.html\":{\"sha256\":\"fea7196608842c40215c6a8ee057e656f5c73cee924374fc56789d407d24ccf9\",\"bytes\":28199}},\"canonicalAssets\":{\"bulbasaur\":{\"relativePath\":\"kanto-starters/bulbasaur/hunyuan/bulbasaur_shape_8k.glb\",\"sha256\":\"cad6e93a2e77d21148f932c27688ff07c5028eb87f3ba9f891a2f3f5ad8e1354\"},\"charmander\":{\"relativePath\":\"kanto-starters/charmander/hunyuan/charmander_shape_8k.glb\",\"sha256\":\"82c90f71d325d3e93803978cb66e8b6eaceeda5d4280706d9eb388a81975acd2\"},\"squirtle\":{\"relativePath\":\"kanto-starters/squirtle/hunyuan/squirtle_shape_8k.glb\",\"sha256\":\"b41a8ef1fc5caef02ea38eca7fa795ba974645f090e8a0574509d58c381e5805\"},\"pidgey\":{\"relativePath\":\"kanto-private/pidgey/hunyuan/pidgey_klein_shape_8k.glb\",\"sha256\":\"1685b6f5b9215645d274d31480cf9de8c26011aa7e424700f38b9d70cae4e261\"},\"caterpie\":{\"relativePath\":\"kanto-private/caterpie/hunyuan/caterpie_klein_shape_8k.glb\",\"sha256\":\"0a2093b6a4053a075c515591ae9a8f9c88b27fa66c27b72493cdac3648e247f2\"},\"geodude\":{\"relativePath\":\"kanto-private/geodude/hunyuan/geodude_klein_shape_8k.glb\",\"sha256\":\"f337566e5eece5d263cd7725d65563d31c0418fd138fa45663be679728d8d809\"}}},\"canonicalWorld\":{\"sliceId\":\"world-slice:kanto:pallet-pewter\",\"activeGameId\":\"game:yellow\",\"path\":[\"location:kanto:pallet-town\",\"location:kanto:route-1\",\"location:kanto:viridian-city\",\"location:kanto:route-2-south\",\"location:kanto:viridian-forest\",\"location:kanto:route-2-north\",\"location:kanto:pewter-city\",\"location:kanto:route-3\"],\"coordinates\":{\"location:kanto:pallet-town\":[0,0],\"location:kanto:route-1\":[0,1],\"location:kanto:viridian-city\":[0,2],\"location:kanto:route-2-south\":[0,3],\"location:kanto:viridian-forest\":[0,4],\"location:kanto:route-2-north\":[0,5],\"location:kanto:pewter-city\":[0,6],\"location:kanto:route-3\":[1,6]},\"events\":[{\"arcId\":\"arc:ash:kanto:indigo\",\"id\":\"story-event:ash:ep001:depart-pallet\",\"locationId\":\"location:kanto:pallet-town\",\"order\":1,\"plane\":\"anime\",\"provenance\":{\"confidence\":\"medium\",\"extractionMethod\":\"manual factual transcription\",\"licenseClass\":\"CC-BY-SA-facts-paraphrase\",\"locator\":\"Ash_Ketchum#EP001\",\"sourceId\":\"source:bulbapedia-ash-kanto\",\"sourceRevision\":\"accessed-2026-08-24\"},\"summary\":\"Ash begins his journey from Pallet Town.\"},{\"arcId\":\"arc:ash:kanto:indigo\",\"id\":\"story-event:ash:ep001:route-1-crisis\",\"locationId\":\"location:kanto:route-1\",\"order\":2,\"plane\":\"anime\",\"provenance\":{\"confidence\":\"medium\",\"extractionMethod\":\"manual factual transcription\",\"licenseClass\":\"CC-BY-SA-facts-paraphrase\",\"locator\":\"Ash_Ketchum#EP001\",\"sourceId\":\"source:bulbapedia-ash-kanto\",\"sourceRevision\":\"accessed-2026-08-24\"},\"summary\":\"A flock encounter turns the first trip north into an emergency.\"},{\"arcId\":\"arc:ash:kanto:indigo\",\"id\":\"story-event:ash:ep002:viridian-arrival\",\"locationId\":\"location:kanto:viridian-city\",\"order\":3,\"plane\":\"anime\",\"provenance\":{\"confidence\":\"medium\",\"extractionMethod\":\"manual factual transcription\",\"licenseClass\":\"CC-BY-SA-facts-paraphrase\",\"locator\":\"Ash_Ketchum#EP002\",\"sourceId\":\"source:bulbapedia-ash-kanto\",\"sourceRevision\":\"accessed-2026-08-24\"},\"summary\":\"Ash reaches Viridian City seeking help before continuing.\"},{\"arcId\":\"arc:ash:kanto:indigo\",\"id\":\"story-event:ash:ep003:forest-companion\",\"locationId\":\"location:kanto:viridian-forest\",\"order\":4,\"plane\":\"anime\",\"provenance\":{\"confidence\":\"medium\",\"extractionMethod\":\"manual factual transcription\",\"licenseClass\":\"CC-BY-SA-facts-paraphrase\",\"locator\":\"Ash_Ketchum#EP003\",\"sourceId\":\"source:bulbapedia-ash-kanto\",\"sourceRevision\":\"accessed-2026-08-24\"},\"summary\":\"The forest journey adds a companion and a first capture milestone.\"},{\"arcId\":\"arc:ash:kanto:indigo\",\"id\":\"story-event:ash:ep005:pewter-gym\",\"locationId\":\"location:kanto:pewter-city\",\"order\":5,\"plane\":\"anime\",\"provenance\":{\"confidence\":\"medium\",\"extractionMethod\":\"manual factual transcription\",\"licenseClass\":\"CC-BY-SA-facts-paraphrase\",\"locator\":\"Ash_Ketchum#EP005\",\"sourceId\":\"source:bulbapedia-ash-kanto\",\"sourceRevision\":\"accessed-2026-08-24\"},\"summary\":\"Ash challenges the Pewter Gym and then continues with Brock.\"}],\"presentationPolicy\":{\"distributableAssetsOnly\":true,\"privateAssetsInPublicArtifactsAllowed\":false,\"privateCanonicalAssetsAllowed\":true}},\"campaign\":{\"sliceId\":\"world-slice:kanto:pallet-pewter\",\"currentLocationId\":\"location:kanto:pallet-town\",\"visitedLocationIds\":[\"location:kanto:pallet-town\"],\"storyEventIds\":[],\"traversedMeters\":0,\"saveRevision\":0},\"mode\":\"starter\",\"starterModels\":3,\"player\":null,\"camera\":{\"x\":0.007113344665713651,\"y\":2.660819930547566,\"z\":6.9038357638790915},\"cameraLook\":{\"x\":0,\"y\":0.9,\"z\":0.45},\"input\":{\"held\":[]},\"party\":[],\"battle\":null,\"healCount\":0,\"encounterCount\":0,\"catchCount\":0,\"canonicalBattlePrewarm\":{\"completed\":true,\"keys\":[\"bulbasaur@0.900\",\"charmander@0.900\",\"squirtle@0.900\",\"pidgey@1.020\",\"caterpie@1.020\",\"geodude@1.020\"],\"meshCount\":6,\"bindings\":[{\"speciesId\":\"bulbasaur\",\"sourceSha256\":\"cad6e93a2e77d21148f932c27688ff07c5028eb87f3ba9f891a2f3f5ad8e1354\",\"sourceSceneUuid\":\"eb0c1cfc-5dd7-4218-9653-9fa6828c4c3f\",\"animationVariant\":\"none\",\"templateRootUuid\":\"354ef84d-9d94-4681-8001-1416316dc325\",\"geometrySha256\":\"d9fb90997fb56e99cd5f405a5a6a952329bf37727e889e955244a46bed10b54f\",\"materialSha256\":\"009046a332f1e25038cfd56724aea2f66d961e58740351541cbedba28846ce02\",\"skeletonSignature\":\"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945\",\"scale\":0.9,\"renderRootUuid\":\"38d8dd54-f240-473f-84fa-e2cddfa59315\",\"transformSha256\":\"854bd7520cc4bbbc63e37767734cac6de77bdcc09c90fa5eba4af17e232dd899\"},{\"speciesId\":\"charmander\",\"sourceSha256\":\"82c90f71d325d3e93803978cb66e8b6eaceeda5d4280706d9eb388a81975acd2\",\"sourceSceneUuid\":\"4a813a50-dbcf-40d1-af66-9637ffaea858\",\"animationVariant\":\"none\",\"templateRootUuid\":\"c70875c0-4962-4420-97ad-a1fb3195c080\",\"geometrySha256\":\"76bf7cd96584c20378dfd616f2a6481de4d66659bc0d9c4b90933cfa97da3bf2\",\"materialSha256\":\"09b1931f439cf35fc380399d8ec4d14a565a94ada905635ea34784a2e12cf881\",\"skeletonSignature\":\"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945\",\"scale\":0.9,\"renderRootUuid\":\"3b52a572-7083-4909-acc5-ae770108abe4\",\"transformSha256\":\"bc587cc270af110a69cb2accdb4a996b77654703f3fb8c98975100b5f0a27d55\"},{\"speciesId\":\"squirtle\",\"sourceSha256\":\"b41a8ef1fc5caef02ea38eca7fa795ba974645f090e8a0574509d58c381e5805\",\"sourceSceneUuid\":\"9e877099-b6f6-4742-8dd9-6f597b4cf8ea\",\"animationVariant\":\"none\",\"templateRootUuid\":\"4f057207-0147-4019-a707-575d3cbf74c4\",\"geometrySha256\":\"b496ae4c2d74be2ad4e528be69321f597675f2cd52ebddc51ac0fcc62bc638f1\",\"materialSha256\":\"7ff780efda00f7ff91c4d98143a2e371b01c8ca1d2019d4f9724da1b5e2f4b1d\",\"skeletonSignature\":\"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945\",\"scale\":0.9,\"renderRootUuid\":\"ad532ec3-64e6-4b22-9d86-64f4adb75da0\",\"transformSha256\":\"fc5ddeecd64811accd8e04eee28f33ccc27c10947df4fb70ce6b59783a163265\"},{\"speciesId\":\"pidgey\",\"sourceSha256\":\"1685b6f5b9215645d274d31480cf9de8c26011aa7e424700f38b9d70cae4e261\",\"sourceSceneUuid\":\"10550adb-2a7a-46b1-a16e-142e16361d62\",\"animationVariant\":\"none\",\"templateRootUuid\":\"02b019d9-2c26-46b6-bd78-bbddb3c8cc3f\",\"geometrySha256\":\"1a63448a3f59f8ddd7d99dd49b20598aea573bb51ffc7931b91f892f166325a4\",\"materialSha256\":\"007facfe72b19c282945d8c261ddb1d9eeca2272554816c24792e51eb4d825e6\",\"skeletonSignature\":\"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945\",\"scale\":1.02,\"renderRootUuid\":\"893d546d-2af8-40ba-89f7-2412c0c3245d\",\"transformSha256\":\"b982e9287233da3cb8ea84e51a905b42e40525a9a7d02c06dbd448969873d05d\"},{\"speciesId\":\"caterpie\",\"sourceSha256\":\"0a2093b6a4053a075c515591ae9a8f9c88b27fa66c27b72493cdac3648e247f2\",\"sourceSceneUuid\":\"9a3b6ec2-8f51-4c1c-af29-7345e0de4250\",\"animationVariant\":\"none\",\"templateRootUuid\":\"f546677c-7fe6-446e-b0bf-648f102492e0\",\"geometrySha256\":\"625fbb3431bc9b21f1aa4b447d910b0445b66cdbe324baaa1c937606f2202fb6\",\"materialSha256\":\"4b8d67c906992c3995d48500791f9b2b4516dba3e92854be2c1a38d2acfca796\",\"skeletonSignature\":\"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945\",\"scale\":1.02,\"renderRootUuid\":\"c6c303b2-03e7-4513-98bb-40265cf14c94\",\"transformSha256\":\"f378e2d024c8b114ad2fd91fba6df46b3f7ee16c017eead178a7e8d59e14440a\"},{\"speciesId\":\"geodude\",\"sourceSha256\":\"f337566e5eece5d263cd7725d65563d31c0418fd138fa45663be679728d8d809\",\"sourceSceneUuid\":\"4290c2f9-76a4-4611-b654-6df7dbac1c1b\",\"animationVariant\":\"none\",\"templateRootUuid\":\"6b744679-07ac-4aa8-b449-59759085e9c8\",\"geometrySha256\":\"2729f7a63d4584821650788b5dbd9b8a6aff3f773495b65b5d10ea54f71ee54a\",\"materialSha256\":\"c2e280f6d3d3b76fd191a3367d026e8e0d166271e82ced3bc4b5b25f4e4c1dc6\",\"skeletonSignature\":\"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945\",\"scale\":1.02,\"renderRootUuid\":\"ca8b42e3-e0c0-4a62-85c6-006541bec851\",\"transformSha256\":\"eb2b7b829dd64f3ebfff8d5b094b8f6406940ed0523c352b052f09357c510849\"}],\"renderer\":\"THREE.WebGLRenderer\",\"drawCalls\":6,\"nonClearPixels\":8192,\"completionBoundary\":\"gl.finish+readPixels-observed-not-independent-gpu-attestation\",\"compileMs\":3.5,\"drawSubmitMs\":23.69999998807907,\"gpuObservedMs\":1,\"totalMs\":37.69999998807907},\"audio\":{\"contextState\":\"uninitialized\",\"scene\":null,\"muted\":false,\"masterGain\":0.27,\"cueCount\":0,\"activeVoices\":0,\"disposed\":false},\"cinematic\":{\"attack\":{\"sequence\":0,\"phase\":\"idle\",\"attacker\":null,\"elapsedMs\":0,\"phaseStartedAtMs\":0,\"startedAtMs\":0,\"timeline\":{\"anticipationMs\":120,\"travelMs\":100,\"contactMs\":64,\"recoilMs\":190,\"settleMs\":126,\"totalMs\":600}},\"payoff\":\"idle\",\"subjects\":{\"player\":null,\"foe\":null},\"uiSafeMarginPx\":8}}",
+      "elapsedMs": 1663.639
+    },
+    {
+      "name": "production wiring awaited exact canonical meshes through hidden draw and GPU completion",
+      "ok": true,
+      "detail": "{\"completed\":true,\"keys\":[\"bulbasaur@0.900\",\"charmander@0.900\",\"squirtle@0.900\",\"pidgey@1.020\",\"caterpie@1.020\",\"geodude@1.020\"],\"meshCount\":6,\"bindings\":[{\"speciesId\":\"bulbasaur\",\"sourceSha256\":\"cad6e93a2e77d21148f932c27688ff07c5028eb87f3ba9f891a2f3f5ad8e1354\",\"sourceSceneUuid\":\"eb0c1cfc-5dd7-4218-9653-9fa6828c4c3f\",\"animationVariant\":\"none\",\"templateRootUuid\":\"354ef84d-9d94-4681-8001-1416316dc325\",\"geometrySha256\":\"d9fb90997fb56e99cd5f405a5a6a952329bf37727e889e955244a46bed10b54f\",\"materialSha256\":\"009046a332f1e25038cfd56724aea2f66d961e58740351541cbedba28846ce02\",\"skeletonSignature\":\"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945\",\"scale\":0.9,\"renderRootUuid\":\"38d8dd54-f240-473f-84fa-e2cddfa59315\",\"transformSha256\":\"854bd7520cc4bbbc63e37767734cac6de77bdcc09c90fa5eba4af17e232dd899\"},{\"speciesId\":\"charmander\",\"sourceSha256\":\"82c90f71d325d3e93803978cb66e8b6eaceeda5d4280706d9eb388a81975acd2\",\"sourceSceneUuid\":\"4a813a50-dbcf-40d1-af66-9637ffaea858\",\"animationVariant\":\"none\",\"templateRootUuid\":\"c70875c0-4962-4420-97ad-a1fb3195c080\",\"geometrySha256\":\"76bf7cd96584c20378dfd616f2a6481de4d66659bc0d9c4b90933cfa97da3bf2\",\"materialSha256\":\"09b1931f439cf35fc380399d8ec4d14a565a94ada905635ea34784a2e12cf881\",\"skeletonSignature\":\"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945\",\"scale\":0.9,\"renderRootUuid\":\"3b52a572-7083-4909-acc5-ae770108abe4\",\"transformSha256\":\"bc587cc270af110a69cb2accdb4a996b77654703f3fb8c98975100b5f0a27d55\"},{\"speciesId\":\"squirtle\",\"sourceSha256\":\"b41a8ef1fc5caef02ea38eca7fa795ba974645f090e8a0574509d58c381e5805\",\"sourceSceneUuid\":\"9e877099-b6f6-4742-8dd9-6f597b4cf8ea\",\"animationVariant\":\"none\",\"templateRootUuid\":\"4f057207-0147-4019-a707-575d3cbf74c4\",\"geometrySha256\":\"b496ae4c2d74be2ad4e528be69321f597675f2cd52ebddc51ac0fcc62bc638f1\",\"materialSha256\":\"7ff780efda00f7ff91c4d98143a2e371b01c8ca1d2019d4f9724da1b5e2f4b1d\",\"skeletonSignature\":\"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945\",\"scale\":0.9,\"renderRootUuid\":\"ad532ec3-64e6-4b22-9d86-64f4adb75da0\",\"transformSha256\":\"fc5ddeecd64811accd8e04eee28f33ccc27c10947df4fb70ce6b59783a163265\"},{\"speciesId\":\"pidgey\",\"sourceSha256\":\"1685b6f5b9215645d274d31480cf9de8c26011aa7e424700f38b9d70cae4e261\",\"sourceSceneUuid\":\"10550adb-2a7a-46b1-a16e-142e16361d62\",\"animationVariant\":\"none\",\"templateRootUuid\":\"02b019d9-2c26-46b6-bd78-bbddb3c8cc3f\",\"geometrySha256\":\"1a63448a3f59f8ddd7d99dd49b20598aea573bb51ffc7931b91f892f166325a4\",\"materialSha256\":\"007facfe72b19c282945d8c261ddb1d9eeca2272554816c24792e51eb4d825e6\",\"skeletonSignature\":\"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945\",\"scale\":1.02,\"renderRootUuid\":\"893d546d-2af8-40ba-89f7-2412c0c3245d\",\"transformSha256\":\"b982e9287233da3cb8ea84e51a905b42e40525a9a7d02c06dbd448969873d05d\"},{\"speciesId\":\"caterpie\",\"sourceSha256\":\"0a2093b6a4053a075c515591ae9a8f9c88b27fa66c27b72493cdac3648e247f2\",\"sourceSceneUuid\":\"9a3b6ec2-8f51-4c1c-af29-7345e0de4250\",\"animationVariant\":\"none\",\"templateRootUuid\":\"f546677c-7fe6-446e-b0bf-648f102492e0\",\"geometrySha256\":\"625fbb3431bc9b21f1aa4b447d910b0445b66cdbe324baaa1c937606f2202fb6\",\"materialSha256\":\"4b8d67c906992c3995d48500791f9b2b4516dba3e92854be2c1a38d2acfca796\",\"skeletonSignature\":\"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945\",\"scale\":1.02,\"renderRootUuid\":\"c6c303b2-03e7-4513-98bb-40265cf14c94\",\"transformSha256\":\"f378e2d024c8b114ad2fd91fba6df46b3f7ee16c017eead178a7e8d59e14440a\"},{\"speciesId\":\"geodude\",\"sourceSha256\":\"f337566e5eece5d263cd7725d65563d31c0418fd138fa45663be679728d8d809\",\"sourceSceneUuid\":\"4290c2f9-76a4-4611-b654-6df7dbac1c1b\",\"animationVariant\":\"none\",\"templateRootUuid\":\"6b744679-07ac-4aa8-b449-59759085e9c8\",\"geometrySha256\":\"2729f7a63d4584821650788b5dbd9b8a6aff3f773495b65b5d10ea54f71ee54a\",\"materialSha256\":\"c2e280f6d3d3b76fd191a3367d026e8e0d166271e82ced3bc4b5b25f4e4c1dc6\",\"skeletonSignature\":\"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945\",\"scale\":1.02,\"renderRootUuid\":\"ca8b42e3-e0c0-4a62-85c6-006541bec851\",\"transformSha256\":\"eb2b7b829dd64f3ebfff8d5b094b8f6406940ed0523c352b052f09357c510849\"}],\"renderer\":\"THREE.WebGLRenderer\",\"drawCalls\":6,\"nonClearPixels\":8192,\"completionBoundary\":\"gl.finish+readPixels-observed-not-independent-gpu-attestation\",\"compileMs\":3.5,\"drawSubmitMs\":23.69999998807907,\"gpuObservedMs\":1,\"totalMs\":37.69999998807907}",
+      "elapsedMs": 1663.713
+    },
+    {
+      "name": "three starter DOM choices render",
+      "ok": true,
+      "detail": "",
+      "elapsedMs": 1673.056
+    },
+    {
+      "name": "three live starter models stage",
+      "ok": true,
+      "detail": "models=3",
+      "elapsedMs": 1673.096
+    },
+    {
+      "name": "read-only evidence bridge is available",
+      "ok": true,
+      "detail": "",
+      "elapsedMs": 1673.124
+    },
+    {
+      "name": "non-black rendered frame: starter-choice",
+      "ok": true,
+      "detail": "full mean=0.1844 std=0.1526 entropy=0.8190; center mean=0.1918 std=0.1439 entropy=0.7931",
+      "elapsedMs": 2212.38
+    },
+    {
+      "name": "starter click enters explore",
+      "ok": true,
+      "detail": "",
+      "elapsedMs": 2371.464
+    },
+    {
+      "name": "starter creates one-member party",
+      "ok": true,
+      "detail": "[{\"speciesId\":\"bulbasaur\",\"name\":\"Bulbasaur\",\"hp\":19,\"maxHp\":19}]",
+      "elapsedMs": 2371.509
+    },
+    {
+      "name": "trusted S key observed held",
+      "ok": true,
+      "detail": "{\"held\":[\"s\"]}",
+      "elapsedMs": 2781.263
+    },
+    {
+      "name": "trusted S moves z +",
+      "ok": true,
+      "detail": "delta=0.5394",
+      "elapsedMs": 2781.293
+    },
+    {
+      "name": "camera responds to S",
+      "ok": true,
+      "detail": "travel=9.9222",
+      "elapsedMs": 2781.302
+    },
+    {
+      "name": "keyup clears S",
+      "ok": true,
+      "detail": "{\"held\":[]}",
+      "elapsedMs": 2781.309
+    },
+    {
+      "name": "trusted W key observed held",
+      "ok": true,
+      "detail": "{\"held\":[\"w\"]}",
+      "elapsedMs": 3196.624
+    },
+    {
+      "name": "trusted W moves z -",
+      "ok": true,
+      "detail": "delta=-0.4502",
+      "elapsedMs": 3196.698
+    },
+    {
+      "name": "camera responds to W",
+      "ok": true,
+      "detail": "travel=9.9293",
+      "elapsedMs": 3196.712
+    },
+    {
+      "name": "keyup clears W",
+      "ok": true,
+      "detail": "{\"held\":[]}",
+      "elapsedMs": 3196.721
+    },
+    {
+      "name": "trusted A key observed held",
+      "ok": true,
+      "detail": "{\"held\":[\"a\"]}",
+      "elapsedMs": 3660.185
+    },
+    {
+      "name": "trusted A moves x -",
+      "ok": true,
+      "detail": "delta=-0.6028",
+      "elapsedMs": 3660.211
+    },
+    {
+      "name": "camera responds to A",
+      "ok": true,
+      "detail": "travel=7.2557",
+      "elapsedMs": 3660.217
+    },
+    {
+      "name": "keyup clears A",
+      "ok": true,
+      "detail": "{\"held\":[]}",
+      "elapsedMs": 3660.222
+    },
+    {
+      "name": "trusted D key observed held",
+      "ok": true,
+      "detail": "{\"held\":[\"d\"]}",
+      "elapsedMs": 4063.83
+    },
+    {
+      "name": "trusted D moves x +",
+      "ok": true,
+      "detail": "delta=0.5267",
+      "elapsedMs": 4063.859
+    },
+    {
+      "name": "camera responds to D",
+      "ok": true,
+      "detail": "travel=8.8504",
+      "elapsedMs": 4063.866
+    },
+    {
+      "name": "keyup clears D",
+      "ok": true,
+      "detail": "{\"held\":[]}",
+      "elapsedMs": 4063.871
+    },
+    {
+      "name": "all WASD controls produced empirical displacement",
+      "ok": true,
+      "detail": "",
+      "elapsedMs": 4070.684
+    },
+    {
+      "name": "camera displacement was empirical for all WASD keys",
+      "ok": true,
+      "detail": "",
+      "elapsedMs": 4070.723
+    },
+    {
+      "name": "non-black rendered frame: trusted-wasd-exploration",
+      "ok": true,
+      "detail": "full mean=0.2880 std=0.1889 entropy=0.8604; center mean=0.1727 std=0.1665 entropy=0.6287",
+      "elapsedMs": 4500.222
+    },
+    {
+      "name": "real grass traversal triggers first encounter",
+      "ok": true,
+      "detail": "{\"buildManifest\":{\"schemaVersion\":1,\"git\":{\"sha\":\"a64e850bdd0f836b5ed84f24981f81a48267f15a\",\"dirty\":false},\"invocation\":[\"vite\",\"build\",\"--mode\",\"private-local\"],\"privateCanonical\":true,\"builtAt\":\"2026-08-26T07:46:44.064Z\",\"files\":{\"assets/main-BNyyU8mX.js\":{\"sha256\":\"7923dda599f57e19e1ced9e62a595886ec72d9506d8fa6db8ba31f183964002f\",\"bytes\":813280},\"assets/main-BNyyU8mX.js.map\":{\"sha256\":\"70003ec22f36570b07939d866cf85cfa29cecef7a7669872d646421cdcff08e9\",\"bytes\":895181},\"content/game/kanto-private.json\":{\"sha256\":\"a04243f3b61c0ad72160671f2f6aa76d90a768bb0f931d57f93cc2e49014044a\",\"bytes\":5153},\"content/game/runtime-assets/distributable.json\":{\"sha256\":\"95b6e4d03c4409a7c465ab468a6a308c39998c4446ab245e80f444275b620548\",\"bytes\":154},\"content/game/runtime-assets/private-local.json\":{\"sha256\":\"3c8e71fd56a247e7787df5d87668bc8f55849d5194b9e503fe6b527edbdcc3ed\",\"bytes\":183},\"index.html\":{\"sha256\":\"fea7196608842c40215c6a8ee057e656f5c73cee924374fc56789d407d24ccf9\",\"bytes\":28199}},\"canonicalAssets\":{\"bulbasaur\":{\"relativePath\":\"kanto-starters/bulbasaur/hunyuan/bulbasaur_shape_8k.glb\",\"sha256\":\"cad6e93a2e77d21148f932c27688ff07c5028eb87f3ba9f891a2f3f5ad8e1354\"},\"charmander\":{\"relativePath\":\"kanto-starters/charmander/hunyuan/charmander_shape_8k.glb\",\"sha256\":\"82c90f71d325d3e93803978cb66e8b6eaceeda5d4280706d9eb388a81975acd2\"},\"squirtle\":{\"relativePath\":\"kanto-starters/squirtle/hunyuan/squirtle_shape_8k.glb\",\"sha256\":\"b41a8ef1fc5caef02ea38eca7fa795ba974645f090e8a0574509d58c381e5805\"},\"pidgey\":{\"relativePath\":\"kanto-private/pidgey/hunyuan/pidgey_klein_shape_8k.glb\",\"sha256\":\"1685b6f5b9215645d274d31480cf9de8c26011aa7e424700f38b9d70cae4e261\"},\"caterpie\":{\"relativePath\":\"kanto-private/caterpie/hunyuan/caterpie_klein_shape_8k.glb\",\"sha256\":\"0a2093b6a4053a075c515591ae9a8f9c88b27fa66c27b72493cdac3648e247f2\"},\"geodude\":{\"relativePath\":\"kanto-private/geodude/hunyuan/geodude_klein_shape_8k.glb\",\"sha256\":\"f337566e5eece5d263cd7725d65563d31c0418fd138fa45663be679728d8d809\"}}},\"canonicalWorld\":{\"sliceId\":\"world-slice:kanto:pallet-pewter\",\"activeGameId\":\"game:yellow\",\"path\":[\"location:kanto:pallet-town\",\"location:kanto:route-1\",\"location:kanto:viridian-city\",\"location:kanto:route-2-south\",\"location:kanto:viridian-forest\",\"location:kanto:route-2-north\",\"location:kanto:pewter-city\",\"location:kanto:route-3\"],\"coordinates\":{\"location:kanto:pallet-town\":[0,0],\"location:kanto:route-1\":[0,1],\"location:kanto:viridian-city\":[0,2],\"location:kanto:route-2-south\":[0,3],\"location:kanto:viridian-forest\":[0,4],\"location:kanto:route-2-north\":[0,5],\"location:kanto:pewter-city\":[0,6],\"location:kanto:route-3\":[1,6]},\"events\":[{\"arcId\":\"arc:ash:kanto:indigo\",\"id\":\"story-event:ash:ep001:depart-pallet\",\"locationId\":\"location:kanto:pallet-town\",\"order\":1,\"plane\":\"anime\",\"provenance\":{\"confidence\":\"medium\",\"extractionMethod\":\"manual factual transcription\",\"licenseClass\":\"CC-BY-SA-facts-paraphrase\",\"locator\":\"Ash_Ketchum#EP001\",\"sourceId\":\"source:bulbapedia-ash-kanto\",\"sourceRevision\":\"accessed-2026-08-24\"},\"summary\":\"Ash begins his journey from Pallet Town.\"},{\"arcId\":\"arc:ash:kanto:indigo\",\"id\":\"story-event:ash:ep001:route-1-crisis\",\"locationId\":\"location:kanto:route-1\",\"order\":2,\"plane\":\"anime\",\"provenance\":{\"confidence\":\"medium\",\"extractionMethod\":\"manual factual transcription\",\"licenseClass\":\"CC-BY-SA-facts-paraphrase\",\"locator\":\"Ash_Ketchum#EP001\",\"sourceId\":\"source:bulbapedia-ash-kanto\",\"sourceRevision\":\"accessed-2026-08-24\"},\"summary\":\"A flock encounter turns the first trip north into an emergency.\"},{\"arcId\":\"arc:ash:kanto:indigo\",\"id\":\"story-event:ash:ep002:viridian-arrival\",\"locationId\":\"location:kanto:viridian-city\",\"order\":3,\"plane\":\"anime\",\"provenance\":{\"confidence\":\"medium\",\"extractionMethod\":\"manual factual transcription\",\"licenseClass\":\"CC-BY-SA-facts-paraphrase\",\"locator\":\"Ash_Ketchum#EP002\",\"sourceId\":\"source:bulbapedia-ash-kanto\",\"sourceRevision\":\"accessed-2026-08-24\"},\"summary\":\"Ash reaches Viridian City seeking help before continuing.\"},{\"arcId\":\"arc:ash:kanto:indigo\",\"id\":\"story-event:ash:ep003:forest-companion\",\"locationId\":\"location:kanto:viridian-forest\",\"order\":4,\"plane\":\"anime\",\"provenance\":{\"confidence\":\"medium\",\"extractionMethod\":\"manual factual transcription\",\"licenseClass\":\"CC-BY-SA-facts-paraphrase\",\"locator\":\"Ash_Ketchum#EP003\",\"sourceId\":\"source:bulbapedia-ash-kanto\",\"sourceRevision\":\"accessed-2026-08-24\"},\"summary\":\"The forest journey adds a companion and a first capture milestone.\"},{\"arcId\":\"arc:ash:kanto:indigo\",\"id\":\"story-event:ash:ep005:pewter-gym\",\"locationId\":\"location:kanto:pewter-city\",\"order\":5,\"plane\":\"anime\",\"provenance\":{\"confidence\":\"medium\",\"extractionMethod\":\"manual factual transcription\",\"licenseClass\":\"CC-BY-SA-facts-paraphrase\",\"locator\":\"Ash_Ketchum#EP005\",\"sourceId\":\"source:bulbapedia-ash-kanto\",\"sourceRevision\":\"accessed-2026-08-24\"},\"summary\":\"Ash challenges the Pewter Gym and then continues with Brock.\"}],\"presentationPolicy\":{\"distributableAssetsOnly\":true,\"privateAssetsInPublicArtifactsAllowed\":false,\"privateCanonicalAssetsAllowed\":true}},\"campaign\":{\"sliceId\":\"world-slice:kanto:pallet-pewter\",\"currentLocationId\":\"location:kanto:route-1\",\"visitedLocationIds\":[\"location:kanto:pallet-town\",\"location:kanto:route-1\"],\"storyEventIds\":[\"story-event:ash:ep001:depart-pallet\",\"story-event:ash:ep001:route-1-crisis\"],\"traversedMeters\":5.072607191591129,\"saveRevision\":2},\"mode\":\"battle\",\"starterModels\":0,\"player\":{\"x\":1.28,\"y\":0,\"z\":1},\"camera\":{\"x\":-1.6068255424714384,\"y\":2.266279142300315,\"z\":6.49281224389108},\"cameraLook\":{\"x\":0,\"y\":0.9,\"z\":0.45},\"input\":{\"held\":[\"w\"]},\"party\":[{\"speciesId\":\"bulbasaur\",\"name\":\"Bulbasaur\",\"hp\":19,\"maxHp\":19}],\"battle\":{\"kind\":\"wild\",\"playerHp\":19,\"playerMaxHp\":19,\"foeHp\":19,\"foeMaxHp\":19,\"foeSpeciesId\":\"pidgey\",\"busy\":true},\"healCount\":0,\"encounterCount\":1,\"catchCount\":0,\"canonicalBattlePrewarm\":{\"completed\":true,\"keys\":[\"bulbasaur@0.900\",\"charmander@0.900\",\"squirtle@0.900\",\"pidgey@1.020\",\"caterpie@1.020\",\"geodude@1.020\"],\"meshCount\":6,\"bindings\":[{\"speciesId\":\"bulbasaur\",\"sourceSha256\":\"cad6e93a2e77d21148f932c27688ff07c5028eb87f3ba9f891a2f3f5ad8e1354\",\"sourceSceneUuid\":\"eb0c1cfc-5dd7-4218-9653-9fa6828c4c3f\",\"animationVariant\":\"none\",\"templateRootUuid\":\"354ef84d-9d94-4681-8001-1416316dc325\",\"geometrySha256\":\"d9fb90997fb56e99cd5f405a5a6a952329bf37727e889e955244a46bed10b54f\",\"materialSha256\":\"009046a332f1e25038cfd56724aea2f66d961e58740351541cbedba28846ce02\",\"skeletonSignature\":\"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945\",\"scale\":0.9,\"renderRootUuid\":\"38d8dd54-f240-473f-84fa-e2cddfa59315\",\"transformSha256\":\"854bd7520cc4bbbc63e37767734cac6de77bdcc09c90fa5eba4af17e232dd899\"},{\"speciesId\":\"charmander\",\"sourceSha256\":\"82c90f71d325d3e93803978cb66e8b6eaceeda5d4280706d9eb388a81975acd2\",\"sourceSceneUuid\":\"4a813a50-dbcf-40d1-af66-9637ffaea858\",\"animationVariant\":\"none\",\"templateRootUuid\":\"c70875c0-4962-4420-97ad-a1fb3195c080\",\"geometrySha256\":\"76bf7cd96584c20378dfd616f2a6481de4d66659bc0d9c4b90933cfa97da3bf2\",\"materialSha256\":\"09b1931f439cf35fc380399d8ec4d14a565a94ada905635ea34784a2e12cf881\",\"skeletonSignature\":\"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945\",\"scale\":0.9,\"renderRootUuid\":\"3b52a572-7083-4909-acc5-ae770108abe4\",\"transformSha256\":\"bc587cc270af110a69cb2accdb4a996b77654703f3fb8c98975100b5f0a27d55\"},{\"speciesId\":\"squirtle\",\"sourceSha256\":\"b41a8ef1fc5caef02ea38eca7fa795ba974645f090e8a0574509d58c381e5805\",\"sourceSceneUuid\":\"9e877099-b6f6-4742-8dd9-6f597b4cf8ea\",\"animationVariant\":\"none\",\"templateRootUuid\":\"4f057207-0147-4019-a707-575d3cbf74c4\",\"geometrySha256\":\"b496ae4c2d74be2ad4e528be69321f597675f2cd52ebddc51ac0fcc62bc638f1\",\"materialSha256\":\"7ff780efda00f7ff91c4d98143a2e371b01c8ca1d2019d4f9724da1b5e2f4b1d\",\"skeletonSignature\":\"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945\",\"scale\":0.9,\"renderRootUuid\":\"ad532ec3-64e6-4b22-9d86-64f4adb75da0\",\"transformSha256\":\"fc5ddeecd64811accd8e04eee28f33ccc27c10947df4fb70ce6b59783a163265\"},{\"speciesId\":\"pidgey\",\"sourceSha256\":\"1685b6f5b9215645d274d31480cf9de8c26011aa7e424700f38b9d70cae4e261\",\"sourceSceneUuid\":\"10550adb-2a7a-46b1-a16e-142e16361d62\",\"animationVariant\":\"none\",\"templateRootUuid\":\"02b019d9-2c26-46b6-bd78-bbddb3c8cc3f\",\"geometrySha256\":\"1a63448a3f59f8ddd7d99dd49b20598aea573bb51ffc7931b91f892f166325a4\",\"materialSha256\":\"007facfe72b19c282945d8c261ddb1d9eeca2272554816c24792e51eb4d825e6\",\"skeletonSignature\":\"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945\",\"scale\":1.02,\"renderRootUuid\":\"893d546d-2af8-40ba-89f7-2412c0c3245d\",\"transformSha256\":\"b982e9287233da3cb8ea84e51a905b42e40525a9a7d02c06dbd448969873d05d\"},{\"speciesId\":\"caterpie\",\"sourceSha256\":\"0a2093b6a4053a075c515591ae9a8f9c88b27fa66c27b72493cdac3648e247f2\",\"sourceSceneUuid\":\"9a3b6ec2-8f51-4c1c-af29-7345e0de4250\",\"animationVariant\":\"none\",\"templateRootUuid\":\"f546677c-7fe6-446e-b0bf-648f102492e0\",\"geometrySha256\":\"625fbb3431bc9b21f1aa4b447d910b0445b66cdbe324baaa1c937606f2202fb6\",\"materialSha256\":\"4b8d67c906992c3995d48500791f9b2b4516dba3e92854be2c1a38d2acfca796\",\"skeletonSignature\":\"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945\",\"scale\":1.02,\"renderRootUuid\":\"c6c303b2-03e7-4513-98bb-40265cf14c94\",\"transformSha256\":\"f378e2d024c8b114ad2fd91fba6df46b3f7ee16c017eead178a7e8d59e14440a\"},{\"speciesId\":\"geodude\",\"sourceSha256\":\"f337566e5eece5d263cd7725d65563d31c0418fd138fa45663be679728d8d809\",\"sourceSceneUuid\":\"4290c2f9-76a4-4611-b654-6df7dbac1c1b\",\"animationVariant\":\"none\",\"templateRootUuid\":\"6b744679-07ac-4aa8-b449-59759085e9c8\",\"geometrySha256\":\"2729f7a63d4584821650788b5dbd9b8a6aff3f773495b65b5d10ea54f71ee54a\",\"materialSha256\":\"c2e280f6d3d3b76fd191a3367d026e8e0d166271e82ced3bc4b5b25f4e4c1dc6\",\"skeletonSignature\":\"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945\",\"scale\":1.02,\"renderRootUuid\":\"ca8b42e3-e0c0-4a62-85c6-006541bec851\",\"transformSha256\":\"eb2b7b829dd64f3ebfff8d5b094b8f6406940ed0523c352b052f09357c510849\"}],\"renderer\":\"THREE.WebGLRenderer\",\"drawCalls\":6,\"nonClearPixels\":8192,\"completionBoundary\":\"gl.finish+readPixels-observed-not-independent-gpu-attestation\",\"compileMs\":3.5,\"drawSubmitMs\":23.69999998807907,\"gpuObservedMs\":1,\"totalMs\":37.69999998807907},\"audio\":{\"contextState\":\"running\",\"scene\":\"battle\",\"muted\":false,\"masterGain\":0.27,\"cueCount\":6,\"activeVoices\":6,\"disposed\":false},\"cinematic\":{\"attack\":{\"sequence\":0,\"phase\":\"idle\",\"attacker\":null,\"elapsedMs\":0,\"phaseStartedAtMs\":0,\"startedAtMs\":0,\"timeline\":{\"anticipationMs\":120,\"travelMs\":100,\"contactMs\":64,\"recoilMs\":190,\"settleMs\":126,\"totalMs\":600}},\"payoff\":\"idle\",\"subjects\":{\"player\":{\"left\":298.43,\"top\":474.1,\"right\":319.39,\"bottom\":493.34},\"foe\":{\"left\":59.63,\"top\":450.68,\"right\":73.53,\"bottom\":465.79}},\"uiSafeMarginPx\":8}}",
+      "elapsedMs": 5093.78
+    },
+    {
+      "name": "battle menu becomes actionable",
+      "ok": true,
+      "detail": "97.526ms",
+      "elapsedMs": 5218.989
+    },
+    {
+      "name": "runtime roam-to-Fight mark remains within 400ms budget",
+      "ok": true,
+      "detail": "149.5ms",
+      "elapsedMs": 5219.039
+    },
+    {
+      "name": "non-black rendered frame: first-encounter-battle",
+      "ok": true,
+      "detail": "full mean=0.1977 std=0.1245 entropy=0.7936; center mean=0.1769 std=0.1144 entropy=0.7574",
+      "elapsedMs": 5706.008
+    },
+    {
+      "name": "battle move damages the wild creature",
+      "ok": true,
+      "detail": "19 -> 15",
+      "elapsedMs": 7028.056
+    },
+    {
+      "name": "battle turn creates recoverable HP damage for the later heal proof",
+      "ok": true,
+      "detail": "player=9/19; foe=15/19",
+      "elapsedMs": 7028.082
+    },
+    {
+      "name": "move-to-first-attack frame remains within 180ms budget",
+      "ok": true,
+      "detail": "12.8ms",
+      "elapsedMs": 7028.089
+    },
+    {
+      "name": "procedural WebAudio unlocks in the real browser",
+      "ok": true,
+      "detail": "{\"contextState\":\"running\",\"scene\":\"battle\",\"muted\":false,\"masterGain\":0.27,\"cueCount\":10,\"activeVoices\":3,\"disposed\":false}",
+      "elapsedMs": 7030.963
+    },
+    {
+      "name": "battle audio bed and cues schedule in the browser",
+      "ok": true,
+      "detail": "{\"contextState\":\"running\",\"scene\":\"battle\",\"muted\":false,\"masterGain\":0.27,\"cueCount\":10,\"activeVoices\":3,\"disposed\":false}",
+      "elapsedMs": 7030.982
+    },
+    {
+      "name": "non-black rendered frame: battle-after-real-move",
+      "ok": true,
+      "detail": "full mean=0.2119 std=0.1265 entropy=0.8157; center mean=0.1825 std=0.1127 entropy=0.7589",
+      "elapsedMs": 7471.613
+    },
+    {
+      "name": "ordinary ball input increments catch counter",
+      "ok": true,
+      "detail": "attempts=1",
+      "elapsedMs": 9260.664
+    },
+    {
+      "name": "caught wild joins the party",
+      "ok": true,
+      "detail": "[{\"speciesId\":\"bulbasaur\",\"name\":\"Bulbasaur\",\"hp\":9,\"maxHp\":19},{\"speciesId\":\"pidgey\",\"name\":\"Pidgey\",\"hp\":15,\"maxHp\":19}]",
+      "elapsedMs": 9260.689
+    },
+    {
+      "name": "battle exits to exploration after catch",
+      "ok": true,
+      "detail": "",
+      "elapsedMs": 9260.696
+    },
+    {
+      "name": "party retains battle damage before heal",
+      "ok": true,
+      "detail": "[{\"speciesId\":\"bulbasaur\",\"name\":\"Bulbasaur\",\"hp\":9,\"maxHp\":19},{\"speciesId\":\"pidgey\",\"name\":\"Pidgey\",\"hp\":15,\"maxHp\":19}]",
+      "elapsedMs": 9260.749
+    },
+    {
+      "name": "non-black rendered frame: caught-party-two",
+      "ok": true,
+      "detail": "full mean=0.3232 std=0.1596 entropy=0.9011; center mean=0.1610 std=0.0593 entropy=0.8693",
+      "elapsedMs": 9707.615
+    },
+    {
+      "name": "heal route approaches from the west",
+      "ok": true,
+      "detail": "x=2.8271",
+      "elapsedMs": 10072.446
+    },
+    {
+      "name": "heal route aligns with the moonwell span",
+      "ok": true,
+      "detail": "z=4.4177",
+      "elapsedMs": 10670.494
+    },
+    {
+      "name": "heal pad increments heal counter",
+      "ok": true,
+      "detail": "0 -> 1",
+      "elapsedMs": 10836.292
+    },
+    {
+      "name": "heal pad restores every party member",
+      "ok": true,
+      "detail": "[{\"speciesId\":\"bulbasaur\",\"name\":\"Bulbasaur\",\"hp\":19,\"maxHp\":19},{\"speciesId\":\"pidgey\",\"name\":\"Pidgey\",\"hp\":19,\"maxHp\":19}]",
+      "elapsedMs": 10836.368
+    },
+    {
+      "name": "non-black rendered frame: party-healed",
+      "ok": true,
+      "detail": "full mean=0.2868 std=0.1847 entropy=0.8654; center mean=0.1498 std=0.1181 entropy=0.6044",
+      "elapsedMs": 11260.105
+    },
+    {
+      "name": "replay patrol starts inside authored grass flank",
+      "ok": true,
+      "detail": "x=1.6195",
+      "elapsedMs": 12031.256
+    },
+    {
+      "name": "second real grass encounter starts replay",
+      "ok": true,
+      "detail": "{\"buildManifest\":{\"schemaVersion\":1,\"git\":{\"sha\":\"a64e850bdd0f836b5ed84f24981f81a48267f15a\",\"dirty\":false},\"invocation\":[\"vite\",\"build\",\"--mode\",\"private-local\"],\"privateCanonical\":true,\"builtAt\":\"2026-08-26T07:46:44.064Z\",\"files\":{\"assets/main-BNyyU8mX.js\":{\"sha256\":\"7923dda599f57e19e1ced9e62a595886ec72d9506d8fa6db8ba31f183964002f\",\"bytes\":813280},\"assets/main-BNyyU8mX.js.map\":{\"sha256\":\"70003ec22f36570b07939d866cf85cfa29cecef7a7669872d646421cdcff08e9\",\"bytes\":895181},\"content/game/kanto-private.json\":{\"sha256\":\"a04243f3b61c0ad72160671f2f6aa76d90a768bb0f931d57f93cc2e49014044a\",\"bytes\":5153},\"content/game/runtime-assets/distributable.json\":{\"sha256\":\"95b6e4d03c4409a7c465ab468a6a308c39998c4446ab245e80f444275b620548\",\"bytes\":154},\"content/game/runtime-assets/private-local.json\":{\"sha256\":\"3c8e71fd56a247e7787df5d87668bc8f55849d5194b9e503fe6b527edbdcc3ed\",\"bytes\":183},\"index.html\":{\"sha256\":\"fea7196608842c40215c6a8ee057e656f5c73cee924374fc56789d407d24ccf9\",\"bytes\":28199}},\"canonicalAssets\":{\"bulbasaur\":{\"relativePath\":\"kanto-starters/bulbasaur/hunyuan/bulbasaur_shape_8k.glb\",\"sha256\":\"cad6e93a2e77d21148f932c27688ff07c5028eb87f3ba9f891a2f3f5ad8e1354\"},\"charmander\":{\"relativePath\":\"kanto-starters/charmander/hunyuan/charmander_shape_8k.glb\",\"sha256\":\"82c90f71d325d3e93803978cb66e8b6eaceeda5d4280706d9eb388a81975acd2\"},\"squirtle\":{\"relativePath\":\"kanto-starters/squirtle/hunyuan/squirtle_shape_8k.glb\",\"sha256\":\"b41a8ef1fc5caef02ea38eca7fa795ba974645f090e8a0574509d58c381e5805\"},\"pidgey\":{\"relativePath\":\"kanto-private/pidgey/hunyuan/pidgey_klein_shape_8k.glb\",\"sha256\":\"1685b6f5b9215645d274d31480cf9de8c26011aa7e424700f38b9d70cae4e261\"},\"caterpie\":{\"relativePath\":\"kanto-private/caterpie/hunyuan/caterpie_klein_shape_8k.glb\",\"sha256\":\"0a2093b6a4053a075c515591ae9a8f9c88b27fa66c27b72493cdac3648e247f2\"},\"geodude\":{\"relativePath\":\"kanto-private/geodude/hunyuan/geodude_klein_shape_8k.glb\",\"sha256\":\"f337566e5eece5d263cd7725d65563d31c0418fd138fa45663be679728d8d809\"}}},\"canonicalWorld\":{\"sliceId\":\"world-slice:kanto:pallet-pewter\",\"activeGameId\":\"game:yellow\",\"path\":[\"location:kanto:pallet-town\",\"location:kanto:route-1\",\"location:kanto:viridian-city\",\"location:kanto:route-2-south\",\"location:kanto:viridian-forest\",\"location:kanto:route-2-north\",\"location:kanto:pewter-city\",\"location:kanto:route-3\"],\"coordinates\":{\"location:kanto:pallet-town\":[0,0],\"location:kanto:route-1\":[0,1],\"location:kanto:viridian-city\":[0,2],\"location:kanto:route-2-south\":[0,3],\"location:kanto:viridian-forest\":[0,4],\"location:kanto:route-2-north\":[0,5],\"location:kanto:pewter-city\":[0,6],\"location:kanto:route-3\":[1,6]},\"events\":[{\"arcId\":\"arc:ash:kanto:indigo\",\"id\":\"story-event:ash:ep001:depart-pallet\",\"locationId\":\"location:kanto:pallet-town\",\"order\":1,\"plane\":\"anime\",\"provenance\":{\"confidence\":\"medium\",\"extractionMethod\":\"manual factual transcription\",\"licenseClass\":\"CC-BY-SA-facts-paraphrase\",\"locator\":\"Ash_Ketchum#EP001\",\"sourceId\":\"source:bulbapedia-ash-kanto\",\"sourceRevision\":\"accessed-2026-08-24\"},\"summary\":\"Ash begins his journey from Pallet Town.\"},{\"arcId\":\"arc:ash:kanto:indigo\",\"id\":\"story-event:ash:ep001:route-1-crisis\",\"locationId\":\"location:kanto:route-1\",\"order\":2,\"plane\":\"anime\",\"provenance\":{\"confidence\":\"medium\",\"extractionMethod\":\"manual factual transcription\",\"licenseClass\":\"CC-BY-SA-facts-paraphrase\",\"locator\":\"Ash_Ketchum#EP001\",\"sourceId\":\"source:bulbapedia-ash-kanto\",\"sourceRevision\":\"accessed-2026-08-24\"},\"summary\":\"A flock encounter turns the first trip north into an emergency.\"},{\"arcId\":\"arc:ash:kanto:indigo\",\"id\":\"story-event:ash:ep002:viridian-arrival\",\"locationId\":\"location:kanto:viridian-city\",\"order\":3,\"plane\":\"anime\",\"provenance\":{\"confidence\":\"medium\",\"extractionMethod\":\"manual factual transcription\",\"licenseClass\":\"CC-BY-SA-facts-paraphrase\",\"locator\":\"Ash_Ketchum#EP002\",\"sourceId\":\"source:bulbapedia-ash-kanto\",\"sourceRevision\":\"accessed-2026-08-24\"},\"summary\":\"Ash reaches Viridian City seeking help before continuing.\"},{\"arcId\":\"arc:ash:kanto:indigo\",\"id\":\"story-event:ash:ep003:forest-companion\",\"locationId\":\"location:kanto:viridian-forest\",\"order\":4,\"plane\":\"anime\",\"provenance\":{\"confidence\":\"medium\",\"extractionMethod\":\"manual factual transcription\",\"licenseClass\":\"CC-BY-SA-facts-paraphrase\",\"locator\":\"Ash_Ketchum#EP003\",\"sourceId\":\"source:bulbapedia-ash-kanto\",\"sourceRevision\":\"accessed-2026-08-24\"},\"summary\":\"The forest journey adds a companion and a first capture milestone.\"},{\"arcId\":\"arc:ash:kanto:indigo\",\"id\":\"story-event:ash:ep005:pewter-gym\",\"locationId\":\"location:kanto:pewter-city\",\"order\":5,\"plane\":\"anime\",\"provenance\":{\"confidence\":\"medium\",\"extractionMethod\":\"manual factual transcription\",\"licenseClass\":\"CC-BY-SA-facts-paraphrase\",\"locator\":\"Ash_Ketchum#EP005\",\"sourceId\":\"source:bulbapedia-ash-kanto\",\"sourceRevision\":\"accessed-2026-08-24\"},\"summary\":\"Ash challenges the Pewter Gym and then continues with Brock.\"}],\"presentationPolicy\":{\"distributableAssetsOnly\":true,\"privateAssetsInPublicArtifactsAllowed\":false,\"privateCanonicalAssetsAllowed\":true}},\"campaign\":{\"sliceId\":\"world-slice:kanto:pallet-pewter\",\"currentLocationId\":\"location:kanto:route-2-south\",\"visitedLocationIds\":[\"location:kanto:pallet-town\",\"location:kanto:route-1\",\"location:kanto:viridian-city\",\"location:kanto:route-2-south\"],\"storyEventIds\":[\"story-event:ash:ep001:depart-pallet\",\"story-event:ash:ep001:route-1-crisis\",\"story-event:ash:ep002:viridian-arrival\"],\"traversedMeters\":19.195439626869398,\"saveRevision\":4},\"mode\":\"battle\",\"starterModels\":0,\"player\":{\"x\":1.28,\"y\":0,\"z\":1},\"camera\":{\"x\":1.499148806155456,\"y\":2.266132083518281,\"z\":2.8722954755975008},\"cameraLook\":{\"x\":0,\"y\":0.9,\"z\":0.45},\"input\":{\"held\":[\"w\"]},\"party\":[{\"speciesId\":\"bulbasaur\",\"name\":\"Bulbasaur\",\"hp\":19,\"maxHp\":19},{\"speciesId\":\"pidgey\",\"name\":\"Pidgey\",\"hp\":19,\"maxHp\":19}],\"battle\":{\"kind\":\"wild\",\"playerHp\":19,\"playerMaxHp\":19,\"foeHp\":19,\"foeMaxHp\":19,\"foeSpeciesId\":\"pidgey\",\"busy\":true},\"healCount\":1,\"encounterCount\":2,\"catchCount\":1,\"canonicalBattlePrewarm\":{\"completed\":true,\"keys\":[\"bulbasaur@0.900\",\"charmander@0.900\",\"squirtle@0.900\",\"pidgey@1.020\",\"caterpie@1.020\",\"geodude@1.020\"],\"meshCount\":6,\"bindings\":[{\"speciesId\":\"bulbasaur\",\"sourceSha256\":\"cad6e93a2e77d21148f932c27688ff07c5028eb87f3ba9f891a2f3f5ad8e1354\",\"sourceSceneUuid\":\"eb0c1cfc-5dd7-4218-9653-9fa6828c4c3f\",\"animationVariant\":\"none\",\"templateRootUuid\":\"354ef84d-9d94-4681-8001-1416316dc325\",\"geometrySha256\":\"d9fb90997fb56e99cd5f405a5a6a952329bf37727e889e955244a46bed10b54f\",\"materialSha256\":\"009046a332f1e25038cfd56724aea2f66d961e58740351541cbedba28846ce02\",\"skeletonSignature\":\"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945\",\"scale\":0.9,\"renderRootUuid\":\"38d8dd54-f240-473f-84fa-e2cddfa59315\",\"transformSha256\":\"854bd7520cc4bbbc63e37767734cac6de77bdcc09c90fa5eba4af17e232dd899\"},{\"speciesId\":\"charmander\",\"sourceSha256\":\"82c90f71d325d3e93803978cb66e8b6eaceeda5d4280706d9eb388a81975acd2\",\"sourceSceneUuid\":\"4a813a50-dbcf-40d1-af66-9637ffaea858\",\"animationVariant\":\"none\",\"templateRootUuid\":\"c70875c0-4962-4420-97ad-a1fb3195c080\",\"geometrySha256\":\"76bf7cd96584c20378dfd616f2a6481de4d66659bc0d9c4b90933cfa97da3bf2\",\"materialSha256\":\"09b1931f439cf35fc380399d8ec4d14a565a94ada905635ea34784a2e12cf881\",\"skeletonSignature\":\"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945\",\"scale\":0.9,\"renderRootUuid\":\"3b52a572-7083-4909-acc5-ae770108abe4\",\"transformSha256\":\"bc587cc270af110a69cb2accdb4a996b77654703f3fb8c98975100b5f0a27d55\"},{\"speciesId\":\"squirtle\",\"sourceSha256\":\"b41a8ef1fc5caef02ea38eca7fa795ba974645f090e8a0574509d58c381e5805\",\"sourceSceneUuid\":\"9e877099-b6f6-4742-8dd9-6f597b4cf8ea\",\"animationVariant\":\"none\",\"templateRootUuid\":\"4f057207-0147-4019-a707-575d3cbf74c4\",\"geometrySha256\":\"b496ae4c2d74be2ad4e528be69321f597675f2cd52ebddc51ac0fcc62bc638f1\",\"materialSha256\":\"7ff780efda00f7ff91c4d98143a2e371b01c8ca1d2019d4f9724da1b5e2f4b1d\",\"skeletonSignature\":\"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945\",\"scale\":0.9,\"renderRootUuid\":\"ad532ec3-64e6-4b22-9d86-64f4adb75da0\",\"transformSha256\":\"fc5ddeecd64811accd8e04eee28f33ccc27c10947df4fb70ce6b59783a163265\"},{\"speciesId\":\"pidgey\",\"sourceSha256\":\"1685b6f5b9215645d274d31480cf9de8c26011aa7e424700f38b9d70cae4e261\",\"sourceSceneUuid\":\"10550adb-2a7a-46b1-a16e-142e16361d62\",\"animationVariant\":\"none\",\"templateRootUuid\":\"02b019d9-2c26-46b6-bd78-bbddb3c8cc3f\",\"geometrySha256\":\"1a63448a3f59f8ddd7d99dd49b20598aea573bb51ffc7931b91f892f166325a4\",\"materialSha256\":\"007facfe72b19c282945d8c261ddb1d9eeca2272554816c24792e51eb4d825e6\",\"skeletonSignature\":\"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945\",\"scale\":1.02,\"renderRootUuid\":\"893d546d-2af8-40ba-89f7-2412c0c3245d\",\"transformSha256\":\"b982e9287233da3cb8ea84e51a905b42e40525a9a7d02c06dbd448969873d05d\"},{\"speciesId\":\"caterpie\",\"sourceSha256\":\"0a2093b6a4053a075c515591ae9a8f9c88b27fa66c27b72493cdac3648e247f2\",\"sourceSceneUuid\":\"9a3b6ec2-8f51-4c1c-af29-7345e0de4250\",\"animationVariant\":\"none\",\"templateRootUuid\":\"f546677c-7fe6-446e-b0bf-648f102492e0\",\"geometrySha256\":\"625fbb3431bc9b21f1aa4b447d910b0445b66cdbe324baaa1c937606f2202fb6\",\"materialSha256\":\"4b8d67c906992c3995d48500791f9b2b4516dba3e92854be2c1a38d2acfca796\",\"skeletonSignature\":\"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945\",\"scale\":1.02,\"renderRootUuid\":\"c6c303b2-03e7-4513-98bb-40265cf14c94\",\"transformSha256\":\"f378e2d024c8b114ad2fd91fba6df46b3f7ee16c017eead178a7e8d59e14440a\"},{\"speciesId\":\"geodude\",\"sourceSha256\":\"f337566e5eece5d263cd7725d65563d31c0418fd138fa45663be679728d8d809\",\"sourceSceneUuid\":\"4290c2f9-76a4-4611-b654-6df7dbac1c1b\",\"animationVariant\":\"none\",\"templateRootUuid\":\"6b744679-07ac-4aa8-b449-59759085e9c8\",\"geometrySha256\":\"2729f7a63d4584821650788b5dbd9b8a6aff3f773495b65b5d10ea54f71ee54a\",\"materialSha256\":\"c2e280f6d3d3b76fd191a3367d026e8e0d166271e82ced3bc4b5b25f4e4c1dc6\",\"skeletonSignature\":\"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945\",\"scale\":1.02,\"renderRootUuid\":\"ca8b42e3-e0c0-4a62-85c6-006541bec851\",\"transformSha256\":\"eb2b7b829dd64f3ebfff8d5b094b8f6406940ed0523c352b052f09357c510849\"}],\"renderer\":\"THREE.WebGLRenderer\",\"drawCalls\":6,\"nonClearPixels\":8192,\"completionBoundary\":\"gl.finish+readPixels-observed-not-independent-gpu-attestation\",\"compileMs\":3.5,\"drawSubmitMs\":23.69999998807907,\"gpuObservedMs\":1,\"totalMs\":37.69999998807907},\"audio\":{\"contextState\":\"running\",\"scene\":\"battle\",\"muted\":false,\"masterGain\":0.27,\"cueCount\":29,\"activeVoices\":8,\"disposed\":false},\"cinematic\":{\"attack\":{\"sequence\":2,\"phase\":\"idle\",\"attacker\":null,\"elapsedMs\":0,\"phaseStartedAtMs\":6590.70000000298,\"startedAtMs\":5974.100000008941,\"timeline\":{\"anticipationMs\":120,\"travelMs\":100,\"contactMs\":64,\"recoilMs\":190,\"settleMs\":126,\"totalMs\":600}},\"payoff\":\"idle\",\"subjects\":{\"player\":{\"left\":268.49,\"top\":551.03,\"right\":413.53,\"bottom\":745.52},\"foe\":{\"left\":59.37,\"top\":357.48,\"right\":132.36,\"bottom\":427.06}},\"uiSafeMarginPx\":8}}",
+      "elapsedMs": 13702.169
+    },
+    {
+      "name": "replay battle menu is actionable",
+      "ok": true,
+      "detail": "67.163ms",
+      "elapsedMs": 13769.378
+    },
+    {
+      "name": "two-member party can switch immediately when replay battle opens",
+      "ok": true,
+      "detail": "{\"disabled\":false,\"subtext\":\"Switch partner\"}",
+      "elapsedMs": 13774.722
+    },
+    {
+      "name": "party and catch counters persist into replay",
+      "ok": true,
+      "detail": "[{\"speciesId\":\"bulbasaur\",\"name\":\"Bulbasaur\",\"hp\":19,\"maxHp\":19},{\"speciesId\":\"pidgey\",\"name\":\"Pidgey\",\"hp\":19,\"maxHp\":19}]",
+      "elapsedMs": 13774.746
+    },
+    {
+      "name": "non-black rendered frame: replay-second-encounter",
+      "ok": true,
+      "detail": "full mean=0.2121 std=0.1210 entropy=0.8268; center mean=0.1652 std=0.0753 entropy=0.7938",
+      "elapsedMs": 14340.022
+    },
+    {
+      "name": "run returns replay to exploration",
+      "ok": true,
+      "detail": "",
+      "elapsedMs": 14383.067
+    },
+    {
+      "name": "complete-loop counters persist",
+      "ok": true,
+      "detail": "{\"buildManifest\":{\"schemaVersion\":1,\"git\":{\"sha\":\"a64e850bdd0f836b5ed84f24981f81a48267f15a\",\"dirty\":false},\"invocation\":[\"vite\",\"build\",\"--mode\",\"private-local\"],\"privateCanonical\":true,\"builtAt\":\"2026-08-26T07:46:44.064Z\",\"files\":{\"assets/main-BNyyU8mX.js\":{\"sha256\":\"7923dda599f57e19e1ced9e62a595886ec72d9506d8fa6db8ba31f183964002f\",\"bytes\":813280},\"assets/main-BNyyU8mX.js.map\":{\"sha256\":\"70003ec22f36570b07939d866cf85cfa29cecef7a7669872d646421cdcff08e9\",\"bytes\":895181},\"content/game/kanto-private.json\":{\"sha256\":\"a04243f3b61c0ad72160671f2f6aa76d90a768bb0f931d57f93cc2e49014044a\",\"bytes\":5153},\"content/game/runtime-assets/distributable.json\":{\"sha256\":\"95b6e4d03c4409a7c465ab468a6a308c39998c4446ab245e80f444275b620548\",\"bytes\":154},\"content/game/runtime-assets/private-local.json\":{\"sha256\":\"3c8e71fd56a247e7787df5d87668bc8f55849d5194b9e503fe6b527edbdcc3ed\",\"bytes\":183},\"index.html\":{\"sha256\":\"fea7196608842c40215c6a8ee057e656f5c73cee924374fc56789d407d24ccf9\",\"bytes\":28199}},\"canonicalAssets\":{\"bulbasaur\":{\"relativePath\":\"kanto-starters/bulbasaur/hunyuan/bulbasaur_shape_8k.glb\",\"sha256\":\"cad6e93a2e77d21148f932c27688ff07c5028eb87f3ba9f891a2f3f5ad8e1354\"},\"charmander\":{\"relativePath\":\"kanto-starters/charmander/hunyuan/charmander_shape_8k.glb\",\"sha256\":\"82c90f71d325d3e93803978cb66e8b6eaceeda5d4280706d9eb388a81975acd2\"},\"squirtle\":{\"relativePath\":\"kanto-starters/squirtle/hunyuan/squirtle_shape_8k.glb\",\"sha256\":\"b41a8ef1fc5caef02ea38eca7fa795ba974645f090e8a0574509d58c381e5805\"},\"pidgey\":{\"relativePath\":\"kanto-private/pidgey/hunyuan/pidgey_klein_shape_8k.glb\",\"sha256\":\"1685b6f5b9215645d274d31480cf9de8c26011aa7e424700f38b9d70cae4e261\"},\"caterpie\":{\"relativePath\":\"kanto-private/caterpie/hunyuan/caterpie_klein_shape_8k.glb\",\"sha256\":\"0a2093b6a4053a075c515591ae9a8f9c88b27fa66c27b72493cdac3648e247f2\"},\"geodude\":{\"relativePath\":\"kanto-private/geodude/hunyuan/geodude_klein_shape_8k.glb\",\"sha256\":\"f337566e5eece5d263cd7725d65563d31c0418fd138fa45663be679728d8d809\"}}},\"canonicalWorld\":{\"sliceId\":\"world-slice:kanto:pallet-pewter\",\"activeGameId\":\"game:yellow\",\"path\":[\"location:kanto:pallet-town\",\"location:kanto:route-1\",\"location:kanto:viridian-city\",\"location:kanto:route-2-south\",\"location:kanto:viridian-forest\",\"location:kanto:route-2-north\",\"location:kanto:pewter-city\",\"location:kanto:route-3\"],\"coordinates\":{\"location:kanto:pallet-town\":[0,0],\"location:kanto:route-1\":[0,1],\"location:kanto:viridian-city\":[0,2],\"location:kanto:route-2-south\":[0,3],\"location:kanto:viridian-forest\":[0,4],\"location:kanto:route-2-north\":[0,5],\"location:kanto:pewter-city\":[0,6],\"location:kanto:route-3\":[1,6]},\"events\":[{\"arcId\":\"arc:ash:kanto:indigo\",\"id\":\"story-event:ash:ep001:depart-pallet\",\"locationId\":\"location:kanto:pallet-town\",\"order\":1,\"plane\":\"anime\",\"provenance\":{\"confidence\":\"medium\",\"extractionMethod\":\"manual factual transcription\",\"licenseClass\":\"CC-BY-SA-facts-paraphrase\",\"locator\":\"Ash_Ketchum#EP001\",\"sourceId\":\"source:bulbapedia-ash-kanto\",\"sourceRevision\":\"accessed-2026-08-24\"},\"summary\":\"Ash begins his journey from Pallet Town.\"},{\"arcId\":\"arc:ash:kanto:indigo\",\"id\":\"story-event:ash:ep001:route-1-crisis\",\"locationId\":\"location:kanto:route-1\",\"order\":2,\"plane\":\"anime\",\"provenance\":{\"confidence\":\"medium\",\"extractionMethod\":\"manual factual transcription\",\"licenseClass\":\"CC-BY-SA-facts-paraphrase\",\"locator\":\"Ash_Ketchum#EP001\",\"sourceId\":\"source:bulbapedia-ash-kanto\",\"sourceRevision\":\"accessed-2026-08-24\"},\"summary\":\"A flock encounter turns the first trip north into an emergency.\"},{\"arcId\":\"arc:ash:kanto:indigo\",\"id\":\"story-event:ash:ep002:viridian-arrival\",\"locationId\":\"location:kanto:viridian-city\",\"order\":3,\"plane\":\"anime\",\"provenance\":{\"confidence\":\"medium\",\"extractionMethod\":\"manual factual transcription\",\"licenseClass\":\"CC-BY-SA-facts-paraphrase\",\"locator\":\"Ash_Ketchum#EP002\",\"sourceId\":\"source:bulbapedia-ash-kanto\",\"sourceRevision\":\"accessed-2026-08-24\"},\"summary\":\"Ash reaches Viridian City seeking help before continuing.\"},{\"arcId\":\"arc:ash:kanto:indigo\",\"id\":\"story-event:ash:ep003:forest-companion\",\"locationId\":\"location:kanto:viridian-forest\",\"order\":4,\"plane\":\"anime\",\"provenance\":{\"confidence\":\"medium\",\"extractionMethod\":\"manual factual transcription\",\"licenseClass\":\"CC-BY-SA-facts-paraphrase\",\"locator\":\"Ash_Ketchum#EP003\",\"sourceId\":\"source:bulbapedia-ash-kanto\",\"sourceRevision\":\"accessed-2026-08-24\"},\"summary\":\"The forest journey adds a companion and a first capture milestone.\"},{\"arcId\":\"arc:ash:kanto:indigo\",\"id\":\"story-event:ash:ep005:pewter-gym\",\"locationId\":\"location:kanto:pewter-city\",\"order\":5,\"plane\":\"anime\",\"provenance\":{\"confidence\":\"medium\",\"extractionMethod\":\"manual factual transcription\",\"licenseClass\":\"CC-BY-SA-facts-paraphrase\",\"locator\":\"Ash_Ketchum#EP005\",\"sourceId\":\"source:bulbapedia-ash-kanto\",\"sourceRevision\":\"accessed-2026-08-24\"},\"summary\":\"Ash challenges the Pewter Gym and then continues with Brock.\"}],\"presentationPolicy\":{\"distributableAssetsOnly\":true,\"privateAssetsInPublicArtifactsAllowed\":false,\"privateCanonicalAssetsAllowed\":true}},\"campaign\":{\"sliceId\":\"world-slice:kanto:pallet-pewter\",\"currentLocationId\":\"location:kanto:route-2-south\",\"visitedLocationIds\":[\"location:kanto:pallet-town\",\"location:kanto:route-1\",\"location:kanto:viridian-city\",\"location:kanto:route-2-south\"],\"storyEventIds\":[\"story-event:ash:ep001:depart-pallet\",\"story-event:ash:ep001:route-1-crisis\",\"story-event:ash:ep002:viridian-arrival\"],\"traversedMeters\":19.195439626869398,\"saveRevision\":4},\"mode\":\"explore\",\"starterModels\":0,\"player\":{\"x\":1.639068483084425,\"y\":0,\"z\":-2.917935536892126},\"camera\":{\"x\":0.36331236431591907,\"y\":2.1128273724352518,\"z\":6.642973299719327},\"cameraLook\":{\"x\":0,\"y\":0.9,\"z\":0.45},\"input\":{\"held\":[]},\"party\":[{\"speciesId\":\"bulbasaur\",\"name\":\"Bulbasaur\",\"hp\":19,\"maxHp\":19},{\"speciesId\":\"pidgey\",\"name\":\"Pidgey\",\"hp\":19,\"maxHp\":19}],\"battle\":null,\"healCount\":1,\"encounterCount\":2,\"catchCount\":1,\"canonicalBattlePrewarm\":{\"completed\":true,\"keys\":[\"bulbasaur@0.900\",\"charmander@0.900\",\"squirtle@0.900\",\"pidgey@1.020\",\"caterpie@1.020\",\"geodude@1.020\"],\"meshCount\":6,\"bindings\":[{\"speciesId\":\"bulbasaur\",\"sourceSha256\":\"cad6e93a2e77d21148f932c27688ff07c5028eb87f3ba9f891a2f3f5ad8e1354\",\"sourceSceneUuid\":\"eb0c1cfc-5dd7-4218-9653-9fa6828c4c3f\",\"animationVariant\":\"none\",\"templateRootUuid\":\"354ef84d-9d94-4681-8001-1416316dc325\",\"geometrySha256\":\"d9fb90997fb56e99cd5f405a5a6a952329bf37727e889e955244a46bed10b54f\",\"materialSha256\":\"009046a332f1e25038cfd56724aea2f66d961e58740351541cbedba28846ce02\",\"skeletonSignature\":\"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945\",\"scale\":0.9,\"renderRootUuid\":\"38d8dd54-f240-473f-84fa-e2cddfa59315\",\"transformSha256\":\"854bd7520cc4bbbc63e37767734cac6de77bdcc09c90fa5eba4af17e232dd899\"},{\"speciesId\":\"charmander\",\"sourceSha256\":\"82c90f71d325d3e93803978cb66e8b6eaceeda5d4280706d9eb388a81975acd2\",\"sourceSceneUuid\":\"4a813a50-dbcf-40d1-af66-9637ffaea858\",\"animationVariant\":\"none\",\"templateRootUuid\":\"c70875c0-4962-4420-97ad-a1fb3195c080\",\"geometrySha256\":\"76bf7cd96584c20378dfd616f2a6481de4d66659bc0d9c4b90933cfa97da3bf2\",\"materialSha256\":\"09b1931f439cf35fc380399d8ec4d14a565a94ada905635ea34784a2e12cf881\",\"skeletonSignature\":\"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945\",\"scale\":0.9,\"renderRootUuid\":\"3b52a572-7083-4909-acc5-ae770108abe4\",\"transformSha256\":\"bc587cc270af110a69cb2accdb4a996b77654703f3fb8c98975100b5f0a27d55\"},{\"speciesId\":\"squirtle\",\"sourceSha256\":\"b41a8ef1fc5caef02ea38eca7fa795ba974645f090e8a0574509d58c381e5805\",\"sourceSceneUuid\":\"9e877099-b6f6-4742-8dd9-6f597b4cf8ea\",\"animationVariant\":\"none\",\"templateRootUuid\":\"4f057207-0147-4019-a707-575d3cbf74c4\",\"geometrySha256\":\"b496ae4c2d74be2ad4e528be69321f597675f2cd52ebddc51ac0fcc62bc638f1\",\"materialSha256\":\"7ff780efda00f7ff91c4d98143a2e371b01c8ca1d2019d4f9724da1b5e2f4b1d\",\"skeletonSignature\":\"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945\",\"scale\":0.9,\"renderRootUuid\":\"ad532ec3-64e6-4b22-9d86-64f4adb75da0\",\"transformSha256\":\"fc5ddeecd64811accd8e04eee28f33ccc27c10947df4fb70ce6b59783a163265\"},{\"speciesId\":\"pidgey\",\"sourceSha256\":\"1685b6f5b9215645d274d31480cf9de8c26011aa7e424700f38b9d70cae4e261\",\"sourceSceneUuid\":\"10550adb-2a7a-46b1-a16e-142e16361d62\",\"animationVariant\":\"none\",\"templateRootUuid\":\"02b019d9-2c26-46b6-bd78-bbddb3c8cc3f\",\"geometrySha256\":\"1a63448a3f59f8ddd7d99dd49b20598aea573bb51ffc7931b91f892f166325a4\",\"materialSha256\":\"007facfe72b19c282945d8c261ddb1d9eeca2272554816c24792e51eb4d825e6\",\"skeletonSignature\":\"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945\",\"scale\":1.02,\"renderRootUuid\":\"893d546d-2af8-40ba-89f7-2412c0c3245d\",\"transformSha256\":\"b982e9287233da3cb8ea84e51a905b42e40525a9a7d02c06dbd448969873d05d\"},{\"speciesId\":\"caterpie\",\"sourceSha256\":\"0a2093b6a4053a075c515591ae9a8f9c88b27fa66c27b72493cdac3648e247f2\",\"sourceSceneUuid\":\"9a3b6ec2-8f51-4c1c-af29-7345e0de4250\",\"animationVariant\":\"none\",\"templateRootUuid\":\"f546677c-7fe6-446e-b0bf-648f102492e0\",\"geometrySha256\":\"625fbb3431bc9b21f1aa4b447d910b0445b66cdbe324baaa1c937606f2202fb6\",\"materialSha256\":\"4b8d67c906992c3995d48500791f9b2b4516dba3e92854be2c1a38d2acfca796\",\"skeletonSignature\":\"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945\",\"scale\":1.02,\"renderRootUuid\":\"c6c303b2-03e7-4513-98bb-40265cf14c94\",\"transformSha256\":\"f378e2d024c8b114ad2fd91fba6df46b3f7ee16c017eead178a7e8d59e14440a\"},{\"speciesId\":\"geodude\",\"sourceSha256\":\"f337566e5eece5d263cd7725d65563d31c0418fd138fa45663be679728d8d809\",\"sourceSceneUuid\":\"4290c2f9-76a4-4611-b654-6df7dbac1c1b\",\"animationVariant\":\"none\",\"templateRootUuid\":\"6b744679-07ac-4aa8-b449-59759085e9c8\",\"geometrySha256\":\"2729f7a63d4584821650788b5dbd9b8a6aff3f773495b65b5d10ea54f71ee54a\",\"materialSha256\":\"c2e280f6d3d3b76fd191a3367d026e8e0d166271e82ced3bc4b5b25f4e4c1dc6\",\"skeletonSignature\":\"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945\",\"scale\":1.02,\"renderRootUuid\":\"ca8b42e3-e0c0-4a62-85c6-006541bec851\",\"transformSha256\":\"eb2b7b829dd64f3ebfff8d5b094b8f6406940ed0523c352b052f09357c510849\"}],\"renderer\":\"THREE.WebGLRenderer\",\"drawCalls\":6,\"nonClearPixels\":8192,\"completionBoundary\":\"gl.finish+readPixels-observed-not-independent-gpu-attestation\",\"compileMs\":3.5,\"drawSubmitMs\":23.69999998807907,\"gpuObservedMs\":1,\"totalMs\":37.69999998807907},\"audio\":{\"contextState\":\"running\",\"scene\":\"explore\",\"muted\":false,\"masterGain\":0.27,\"cueCount\":30,\"activeVoices\":3,\"disposed\":false},\"cinematic\":{\"attack\":{\"sequence\":2,\"phase\":\"idle\",\"attacker\":null,\"elapsedMs\":0,\"phaseStartedAtMs\":6590.70000000298,\"startedAtMs\":5974.100000008941,\"timeline\":{\"anticipationMs\":120,\"travelMs\":100,\"contactMs\":64,\"recoilMs\":190,\"settleMs\":126,\"totalMs\":600}},\"payoff\":\"return\",\"subjects\":{\"player\":null,\"foe\":null},\"uiSafeMarginPx\":8}}",
+      "elapsedMs": 14383.109
+    },
+    {
+      "name": "procedural audio remains live after full loop",
+      "ok": true,
+      "detail": "{\"contextState\":\"running\",\"scene\":\"explore\",\"muted\":false,\"masterGain\":0.27,\"cueCount\":30,\"activeVoices\":3,\"disposed\":false}",
+      "elapsedMs": 14387.33
+    },
+    {
+      "name": "non-black rendered frame: complete-loop-returned-to-explore",
+      "ok": true,
+      "detail": "full mean=0.2763 std=0.1545 entropy=0.9015; center mean=0.2067 std=0.0693 entropy=0.9449",
+      "elapsedMs": 14867.648
+    },
+    {
+      "name": "runtime exposes canonical Pallet-to-Pewter path",
+      "ok": true,
+      "detail": "[\"location:kanto:pallet-town\",\"location:kanto:route-1\",\"location:kanto:viridian-city\",\"location:kanto:route-2-south\",\"location:kanto:viridian-forest\",\"location:kanto:route-2-north\",\"location:kanto:pewter-city\",\"location:kanto:route-3\"]",
+      "elapsedMs": 14870.111
+    },
+    {
+      "name": "non-black rendered frame: journey-viridian-forest",
+      "ok": true,
+      "detail": "full mean=0.2615 std=0.1630 entropy=0.8571; center mean=0.2221 std=0.0732 entropy=0.7643",
+      "elapsedMs": 16208.926
+    },
+    {
+      "name": "non-black rendered frame: journey-pewter-city",
+      "ok": true,
+      "detail": "full mean=0.2619 std=0.1758 entropy=0.8573; center mean=0.1538 std=0.1024 entropy=0.6610",
+      "elapsedMs": 19359.33
+    },
+    {
+      "name": "trusted production movement reaches Pewter City",
+      "ok": true,
+      "detail": "{\"sliceId\":\"world-slice:kanto:pallet-pewter\",\"currentLocationId\":\"location:kanto:pewter-city\",\"visitedLocationIds\":[\"location:kanto:pallet-town\",\"location:kanto:route-1\",\"location:kanto:viridian-city\",\"location:kanto:route-2-south\",\"location:kanto:viridian-forest\",\"location:kanto:route-2-north\",\"location:kanto:pewter-city\"],\"storyEventIds\":[\"story-event:ash:ep001:depart-pallet\",\"story-event:ash:ep001:route-1-crisis\",\"story-event:ash:ep002:viridian-arrival\",\"story-event:ash:ep003:forest-companion\",\"story-event:ash:ep005:pewter-gym\"],\"traversedMeters\":31.092086415544625,\"saveRevision\":7}",
+      "elapsedMs": 19362.208
+    },
+    {
+      "name": "played journey visits every canonical Pallet-to-Pewter node in order",
+      "ok": true,
+      "detail": "[\"location:kanto:pallet-town\",\"location:kanto:route-1\",\"location:kanto:viridian-city\",\"location:kanto:route-2-south\",\"location:kanto:viridian-forest\",\"location:kanto:route-2-north\",\"location:kanto:pewter-city\"]",
+      "elapsedMs": 19362.228
+    },
+    {
+      "name": "Pewter journey retains caught party, heal, and replay state",
+      "ok": true,
+      "detail": "{\"party\":[{\"speciesId\":\"bulbasaur\",\"name\":\"Bulbasaur\",\"hp\":19,\"maxHp\":19},{\"speciesId\":\"pidgey\",\"name\":\"Pidgey\",\"hp\":19,\"maxHp\":19}],\"catchCount\":1,\"healCount\":1,\"encounterCount\":3}",
+      "elapsedMs": 19362.255
+    },
+    {
+      "name": "reload restores exact played Pallet-to-Pewter campaign prefix",
+      "ok": true,
+      "detail": "{\"sliceId\":\"world-slice:kanto:pallet-pewter\",\"currentLocationId\":\"location:kanto:pewter-city\",\"visitedLocationIds\":[\"location:kanto:pallet-town\",\"location:kanto:route-1\",\"location:kanto:viridian-city\",\"location:kanto:route-2-south\",\"location:kanto:viridian-forest\",\"location:kanto:route-2-north\",\"location:kanto:pewter-city\"],\"storyEventIds\":[\"story-event:ash:ep001:depart-pallet\",\"story-event:ash:ep001:route-1-crisis\",\"story-event:ash:ep002:viridian-arrival\",\"story-event:ash:ep003:forest-companion\",\"story-event:ash:ep005:pewter-gym\"],\"traversedMeters\":30.001870348543356,\"saveRevision\":7}",
+      "elapsedMs": 20063.954
+    },
+    {
+      "name": "non-black rendered frame: journey-pewter-restored",
+      "ok": true,
+      "detail": "full mean=0.1977 std=0.1835 entropy=0.8115; center mean=0.1881 std=0.1398 entropy=0.7720",
+      "elapsedMs": 20580.392
+    },
+    {
+      "name": "browser console is free of warnings/errors",
+      "ok": true,
+      "detail": "",
+      "elapsedMs": 20587.332
+    },
+    {
+      "name": "critical browser requests succeeded",
+      "ok": true,
+      "detail": "",
+      "elapsedMs": 20587.361
+    },
+    {
+      "name": "all captured frames are non-black",
+      "ok": true,
+      "detail": "",
+      "elapsedMs": 20587.393
+    },
+    {
+      "name": "entire loop used native time/random plus a snapshot-only bridge",
+      "ok": true,
+      "detail": "{\"bridgeKeys\":[\"snapshot\"],\"randomIsNative\":true,\"dateNowIsNative\":true,\"surrogateAudio\":\"undefined\",\"evidenceClock\":\"undefined\"}",
+      "elapsedMs": 20587.402
+    }
+  ],
+  "transitions": {
+    "canonicalBattlePrewarm": {
+      "completed": true,
+      "keys": [
+        "bulbasaur@0.900",
+        "charmander@0.900",
+        "squirtle@0.900",
+        "pidgey@1.020",
+        "caterpie@1.020",
+        "geodude@1.020"
+      ],
+      "meshCount": 6,
+      "bindings": [
+        {
+          "speciesId": "bulbasaur",
+          "sourceSha256": "cad6e93a2e77d21148f932c27688ff07c5028eb87f3ba9f891a2f3f5ad8e1354",
+          "sourceSceneUuid": "eb0c1cfc-5dd7-4218-9653-9fa6828c4c3f",
+          "animationVariant": "none",
+          "templateRootUuid": "354ef84d-9d94-4681-8001-1416316dc325",
+          "geometrySha256": "d9fb90997fb56e99cd5f405a5a6a952329bf37727e889e955244a46bed10b54f",
+          "materialSha256": "009046a332f1e25038cfd56724aea2f66d961e58740351541cbedba28846ce02",
+          "skeletonSignature": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "scale": 0.9,
+          "renderRootUuid": "38d8dd54-f240-473f-84fa-e2cddfa59315",
+          "transformSha256": "854bd7520cc4bbbc63e37767734cac6de77bdcc09c90fa5eba4af17e232dd899"
+        },
+        {
+          "speciesId": "charmander",
+          "sourceSha256": "82c90f71d325d3e93803978cb66e8b6eaceeda5d4280706d9eb388a81975acd2",
+          "sourceSceneUuid": "4a813a50-dbcf-40d1-af66-9637ffaea858",
+          "animationVariant": "none",
+          "templateRootUuid": "c70875c0-4962-4420-97ad-a1fb3195c080",
+          "geometrySha256": "76bf7cd96584c20378dfd616f2a6481de4d66659bc0d9c4b90933cfa97da3bf2",
+          "materialSha256": "09b1931f439cf35fc380399d8ec4d14a565a94ada905635ea34784a2e12cf881",
+          "skeletonSignature": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "scale": 0.9,
+          "renderRootUuid": "3b52a572-7083-4909-acc5-ae770108abe4",
+          "transformSha256": "bc587cc270af110a69cb2accdb4a996b77654703f3fb8c98975100b5f0a27d55"
+        },
+        {
+          "speciesId": "squirtle",
+          "sourceSha256": "b41a8ef1fc5caef02ea38eca7fa795ba974645f090e8a0574509d58c381e5805",
+          "sourceSceneUuid": "9e877099-b6f6-4742-8dd9-6f597b4cf8ea",
+          "animationVariant": "none",
+          "templateRootUuid": "4f057207-0147-4019-a707-575d3cbf74c4",
+          "geometrySha256": "b496ae4c2d74be2ad4e528be69321f597675f2cd52ebddc51ac0fcc62bc638f1",
+          "materialSha256": "7ff780efda00f7ff91c4d98143a2e371b01c8ca1d2019d4f9724da1b5e2f4b1d",
+          "skeletonSignature": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "scale": 0.9,
+          "renderRootUuid": "ad532ec3-64e6-4b22-9d86-64f4adb75da0",
+          "transformSha256": "fc5ddeecd64811accd8e04eee28f33ccc27c10947df4fb70ce6b59783a163265"
+        },
+        {
+          "speciesId": "pidgey",
+          "sourceSha256": "1685b6f5b9215645d274d31480cf9de8c26011aa7e424700f38b9d70cae4e261",
+          "sourceSceneUuid": "10550adb-2a7a-46b1-a16e-142e16361d62",
+          "animationVariant": "none",
+          "templateRootUuid": "02b019d9-2c26-46b6-bd78-bbddb3c8cc3f",
+          "geometrySha256": "1a63448a3f59f8ddd7d99dd49b20598aea573bb51ffc7931b91f892f166325a4",
+          "materialSha256": "007facfe72b19c282945d8c261ddb1d9eeca2272554816c24792e51eb4d825e6",
+          "skeletonSignature": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "scale": 1.02,
+          "renderRootUuid": "893d546d-2af8-40ba-89f7-2412c0c3245d",
+          "transformSha256": "b982e9287233da3cb8ea84e51a905b42e40525a9a7d02c06dbd448969873d05d"
+        },
+        {
+          "speciesId": "caterpie",
+          "sourceSha256": "0a2093b6a4053a075c515591ae9a8f9c88b27fa66c27b72493cdac3648e247f2",
+          "sourceSceneUuid": "9a3b6ec2-8f51-4c1c-af29-7345e0de4250",
+          "animationVariant": "none",
+          "templateRootUuid": "f546677c-7fe6-446e-b0bf-648f102492e0",
+          "geometrySha256": "625fbb3431bc9b21f1aa4b447d910b0445b66cdbe324baaa1c937606f2202fb6",
+          "materialSha256": "4b8d67c906992c3995d48500791f9b2b4516dba3e92854be2c1a38d2acfca796",
+          "skeletonSignature": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "scale": 1.02,
+          "renderRootUuid": "c6c303b2-03e7-4513-98bb-40265cf14c94",
+          "transformSha256": "f378e2d024c8b114ad2fd91fba6df46b3f7ee16c017eead178a7e8d59e14440a"
+        },
+        {
+          "speciesId": "geodude",
+          "sourceSha256": "f337566e5eece5d263cd7725d65563d31c0418fd138fa45663be679728d8d809",
+          "sourceSceneUuid": "4290c2f9-76a4-4611-b654-6df7dbac1c1b",
+          "animationVariant": "none",
+          "templateRootUuid": "6b744679-07ac-4aa8-b449-59759085e9c8",
+          "geometrySha256": "2729f7a63d4584821650788b5dbd9b8a6aff3f773495b65b5d10ea54f71ee54a",
+          "materialSha256": "c2e280f6d3d3b76fd191a3367d026e8e0d166271e82ced3bc4b5b25f4e4c1dc6",
+          "skeletonSignature": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "scale": 1.02,
+          "renderRootUuid": "ca8b42e3-e0c0-4a62-85c6-006541bec851",
+          "transformSha256": "eb2b7b829dd64f3ebfff8d5b094b8f6406940ed0523c352b052f09357c510849"
+        }
+      ],
+      "renderer": "THREE.WebGLRenderer",
+      "drawCalls": 6,
+      "nonClearPixels": 8192,
+      "completionBoundary": "gl.finish+readPixels-observed-not-independent-gpu-attestation",
+      "compileMs": 3.5,
+      "drawSubmitMs": 23.69999998807907,
+      "gpuObservedMs": 1,
+      "totalMs": 37.69999998807907
+    },
+    "bootPerformance": {
+      "navigation": [
+        {
+          "domContentLoadedMs": 48.2,
+          "loadMs": 49.1
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 163.8,
+          "duration": 366
+        },
+        {
+          "startTime": 530.6,
+          "duration": 89
+        }
+      ],
+      "heapBytes": 24696094
+    },
+    "starterChoiceToExploreMs": 155.269,
+    "grassPatrolToBattleModeMs": 128.552,
+    "firstBattleModeToMenuReadyMs": 97.526,
+    "roamToFightPerformanceMs": 149.5,
+    "fightClickToMoveMenuMs": 33.018,
+    "moveClickToTurnReadyMs": 1270.853,
+    "moveToFirstAttackFrameMs": 12.8,
+    "catchClickToPartyMs": 1786.174,
+    "catchAttempts": 1,
+    "catchToHealMs": 1126.108,
+    "healToReplayBattleModeMs": 1670.845,
+    "replayBattleModeToMenuReadyMs": 67.163,
+    "runClickToExploreMs": 40.484,
+    "totalLoopMs": 14387.363,
+    "loopCompleteToPewterMs": 4492.063
+  },
+  "controls": [
+    {
+      "key": "s",
+      "axis": "z",
+      "direction": 1,
+      "latencyMs": 399.937,
+      "delta": 0.5394,
+      "playerTravel": 0.5394,
+      "cameraTravel": 9.9222,
+      "before": {
+        "x": 0,
+        "y": 0,
+        "z": 2.5
+      },
+      "held": {
+        "x": 0,
+        "y": 0,
+        "z": 3.039433589402394
+      },
+      "after": {
+        "x": 0,
+        "y": 0,
+        "z": 3.256156021973738
+      }
+    },
+    {
+      "key": "w",
+      "axis": "z",
+      "direction": -1,
+      "latencyMs": 410.197,
+      "delta": -0.4502,
+      "playerTravel": 0.4502,
+      "cameraTravel": 9.9293,
+      "before": {
+        "x": 0,
+        "y": 0,
+        "z": 3.256156021973738
+      },
+      "held": {
+        "x": 0,
+        "y": 0,
+        "z": 2.8059211335362875
+      },
+      "after": {
+        "x": 0,
+        "y": 0,
+        "z": 2.5918381922321543
+      }
+    },
+    {
+      "key": "a",
+      "axis": "x",
+      "direction": -1,
+      "latencyMs": 446.804,
+      "delta": -0.6028,
+      "playerTravel": 0.6028,
+      "cameraTravel": 7.2557,
+      "before": {
+        "x": 0,
+        "y": 0,
+        "z": 2.5918381922321543
+      },
+      "held": {
+        "x": -0.6027568545285794,
+        "y": 0,
+        "z": 2.5918381922321543
+      },
+      "after": {
+        "x": -0.895741674495762,
+        "y": 0,
+        "z": 2.5918381922321543
+      }
+    },
+    {
+      "key": "d",
+      "axis": "x",
+      "direction": 1,
+      "latencyMs": 399.475,
+      "delta": 0.5267,
+      "playerTravel": 0.5267,
+      "cameraTravel": 8.8504,
+      "before": {
+        "x": -0.895741674495762,
+        "y": 0,
+        "z": 2.5918381922321543
+      },
+      "held": {
+        "x": -0.36906663026857967,
+        "y": 0,
+        "z": 2.5918381922321543
+      },
+      "after": {
+        "x": -0.15377323199861803,
+        "y": 0,
+        "z": 2.5918381922321543
+      }
+    }
+  ],
+  "timeline": [
+    {
+      "name": "navigate:start",
+      "elapsedMs": 424.211,
+      "browserMs": 30.4,
+      "detail": {}
+    },
+    {
+      "name": "starter:ready",
+      "elapsedMs": 1658.134,
+      "browserMs": 1230.7,
+      "detail": {}
+    },
+    {
+      "name": "screenshot:starter-choice",
+      "elapsedMs": 2216.171,
+      "browserMs": 1788.3,
+      "detail": {
+        "file": "/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_f523dc89/shots/provenance-final-mobile-3/00-starter-choice.png"
+      }
+    },
+    {
+      "name": "explore:entered",
+      "elapsedMs": 2374.599,
+      "browserMs": 1946.5,
+      "detail": {
+        "latencyMs": 155.269
+      }
+    },
+    {
+      "name": "screenshot:trusted-wasd-exploration",
+      "elapsedMs": 4503.773,
+      "browserMs": 4076.2,
+      "detail": {
+        "file": "/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_f523dc89/shots/provenance-final-mobile-3/01-trusted-wasd-exploration.png"
+      }
+    },
+    {
+      "name": "encounter:grass-patrol-start",
+      "elapsedMs": 4969.656,
+      "browserMs": 4542,
+      "detail": {}
+    },
+    {
+      "name": "battle:first-ready",
+      "elapsedMs": 5221.783,
+      "browserMs": 4794.2,
+      "detail": {
+        "grassPatrolToBattleModeMs": 128.552,
+        "battleReadyMs": 97.526
+      }
+    },
+    {
+      "name": "screenshot:first-encounter-battle",
+      "elapsedMs": 5709.038,
+      "browserMs": 5281.6,
+      "detail": {
+        "file": "/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_f523dc89/shots/provenance-final-mobile-3/02-first-encounter-battle.png"
+      }
+    },
+    {
+      "name": "battle:first-turn-complete",
+      "elapsedMs": 7032.928,
+      "browserMs": 6605.5,
+      "detail": {
+        "latencyMs": 1270.853,
+        "attackFrameMs": 12.8
+      }
+    },
+    {
+      "name": "screenshot:battle-after-real-move",
+      "elapsedMs": 7474.459,
+      "browserMs": 7046.5,
+      "detail": {
+        "file": "/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_f523dc89/shots/provenance-final-mobile-3/03-battle-after-real-move.png"
+      }
+    },
+    {
+      "name": "catch:party-updated",
+      "elapsedMs": 9265.673,
+      "browserMs": 8835.6,
+      "detail": {
+        "latencyMs": 1786.174,
+        "foeSpeciesId": "pidgey",
+        "catchAttempts": 1
+      }
+    },
+    {
+      "name": "screenshot:caught-party-two",
+      "elapsedMs": 9710.164,
+      "browserMs": 9282.6,
+      "detail": {
+        "file": "/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_f523dc89/shots/provenance-final-mobile-3/04-caught-party-two.png"
+      }
+    },
+    {
+      "name": "heal:complete",
+      "elapsedMs": 10838.278,
+      "browserMs": 10410.9,
+      "detail": {
+        "latencyMs": 1126.108
+      }
+    },
+    {
+      "name": "screenshot:party-healed",
+      "elapsedMs": 11262.674,
+      "browserMs": 10835,
+      "detail": {
+        "file": "/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_f523dc89/shots/provenance-final-mobile-3/05-party-healed.png"
+      }
+    },
+    {
+      "name": "replay:grass-patrol-start",
+      "elapsedMs": 12035.297,
+      "browserMs": 11607.8,
+      "detail": {}
+    },
+    {
+      "name": "replay:battle-ready",
+      "elapsedMs": 13776.951,
+      "browserMs": 13349.1,
+      "detail": {
+        "latencyMs": 67.163
+      }
+    },
+    {
+      "name": "screenshot:replay-second-encounter",
+      "elapsedMs": 14342.564,
+      "browserMs": 13915.1,
+      "detail": {
+        "file": "/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_f523dc89/shots/provenance-final-mobile-3/06-replay-second-encounter.png"
+      }
+    },
+    {
+      "name": "loop:complete",
+      "elapsedMs": 14389.092,
+      "browserMs": 13961.7,
+      "detail": {
+        "final": {
+          "buildManifest": {
+            "schemaVersion": 1,
+            "git": {
+              "sha": "a64e850bdd0f836b5ed84f24981f81a48267f15a",
+              "dirty": false
+            },
+            "invocation": [
+              "vite",
+              "build",
+              "--mode",
+              "private-local"
+            ],
+            "privateCanonical": true,
+            "builtAt": "2026-08-26T07:46:44.064Z",
+            "files": {
+              "assets/main-BNyyU8mX.js": {
+                "sha256": "7923dda599f57e19e1ced9e62a595886ec72d9506d8fa6db8ba31f183964002f",
+                "bytes": 813280
+              },
+              "assets/main-BNyyU8mX.js.map": {
+                "sha256": "70003ec22f36570b07939d866cf85cfa29cecef7a7669872d646421cdcff08e9",
+                "bytes": 895181
+              },
+              "content/game/kanto-private.json": {
+                "sha256": "a04243f3b61c0ad72160671f2f6aa76d90a768bb0f931d57f93cc2e49014044a",
+                "bytes": 5153
+              },
+              "content/game/runtime-assets/distributable.json": {
+                "sha256": "95b6e4d03c4409a7c465ab468a6a308c39998c4446ab245e80f444275b620548",
+                "bytes": 154
+              },
+              "content/game/runtime-assets/private-local.json": {
+                "sha256": "3c8e71fd56a247e7787df5d87668bc8f55849d5194b9e503fe6b527edbdcc3ed",
+                "bytes": 183
+              },
+              "index.html": {
+                "sha256": "fea7196608842c40215c6a8ee057e656f5c73cee924374fc56789d407d24ccf9",
+                "bytes": 28199
+              }
+            },
+            "canonicalAssets": {
+              "bulbasaur": {
+                "relativePath": "kanto-starters/bulbasaur/hunyuan/bulbasaur_shape_8k.glb",
+                "sha256": "cad6e93a2e77d21148f932c27688ff07c5028eb87f3ba9f891a2f3f5ad8e1354"
+              },
+              "charmander": {
+                "relativePath": "kanto-starters/charmander/hunyuan/charmander_shape_8k.glb",
+                "sha256": "82c90f71d325d3e93803978cb66e8b6eaceeda5d4280706d9eb388a81975acd2"
+              },
+              "squirtle": {
+                "relativePath": "kanto-starters/squirtle/hunyuan/squirtle_shape_8k.glb",
+                "sha256": "b41a8ef1fc5caef02ea38eca7fa795ba974645f090e8a0574509d58c381e5805"
+              },
+              "pidgey": {
+                "relativePath": "kanto-private/pidgey/hunyuan/pidgey_klein_shape_8k.glb",
+                "sha256": "1685b6f5b9215645d274d31480cf9de8c26011aa7e424700f38b9d70cae4e261"
+              },
+              "caterpie": {
+                "relativePath": "kanto-private/caterpie/hunyuan/caterpie_klein_shape_8k.glb",
+                "sha256": "0a2093b6a4053a075c515591ae9a8f9c88b27fa66c27b72493cdac3648e247f2"
+              },
+              "geodude": {
+                "relativePath": "kanto-private/geodude/hunyuan/geodude_klein_shape_8k.glb",
+                "sha256": "f337566e5eece5d263cd7725d65563d31c0418fd138fa45663be679728d8d809"
+              }
+            }
+          },
+          "canonicalWorld": {
+            "sliceId": "world-slice:kanto:pallet-pewter",
+            "activeGameId": "game:yellow",
+            "path": [
+              "location:kanto:pallet-town",
+              "location:kanto:route-1",
+              "location:kanto:viridian-city",
+              "location:kanto:route-2-south",
+              "location:kanto:viridian-forest",
+              "location:kanto:route-2-north",
+              "location:kanto:pewter-city",
+              "location:kanto:route-3"
+            ],
+            "coordinates": {
+              "location:kanto:pallet-town": [
+                0,
+                0
+              ],
+              "location:kanto:route-1": [
+                0,
+                1
+              ],
+              "location:kanto:viridian-city": [
+                0,
+                2
+              ],
+              "location:kanto:route-2-south": [
+                0,
+                3
+              ],
+              "location:kanto:viridian-forest": [
+                0,
+                4
+              ],
+              "location:kanto:route-2-north": [
+                0,
+                5
+              ],
+              "location:kanto:pewter-city": [
+                0,
+                6
+              ],
+              "location:kanto:route-3": [
+                1,
+                6
+              ]
+            },
+            "events": [
+              {
+                "arcId": "arc:ash:kanto:indigo",
+                "id": "story-event:ash:ep001:depart-pallet",
+                "locationId": "location:kanto:pallet-town",
+                "order": 1,
+                "plane": "anime",
+                "provenance": {
+                  "confidence": "medium",
+                  "extractionMethod": "manual factual transcription",
+                  "licenseClass": "CC-BY-SA-facts-paraphrase",
+                  "locator": "Ash_Ketchum#EP001",
+                  "sourceId": "source:bulbapedia-ash-kanto",
+                  "sourceRevision": "accessed-2026-08-24"
+                },
+                "summary": "Ash begins his journey from Pallet Town."
+              },
+              {
+                "arcId": "arc:ash:kanto:indigo",
+                "id": "story-event:ash:ep001:route-1-crisis",
+                "locationId": "location:kanto:route-1",
+                "order": 2,
+                "plane": "anime",
+                "provenance": {
+                  "confidence": "medium",
+                  "extractionMethod": "manual factual transcription",
+                  "licenseClass": "CC-BY-SA-facts-paraphrase",
+                  "locator": "Ash_Ketchum#EP001",
+                  "sourceId": "source:bulbapedia-ash-kanto",
+                  "sourceRevision": "accessed-2026-08-24"
+                },
+                "summary": "A flock encounter turns the first trip north into an emergency."
+              },
+              {
+                "arcId": "arc:ash:kanto:indigo",
+                "id": "story-event:ash:ep002:viridian-arrival",
+                "locationId": "location:kanto:viridian-city",
+                "order": 3,
+                "plane": "anime",
+                "provenance": {
+                  "confidence": "medium",
+                  "extractionMethod": "manual factual transcription",
+                  "licenseClass": "CC-BY-SA-facts-paraphrase",
+                  "locator": "Ash_Ketchum#EP002",
+                  "sourceId": "source:bulbapedia-ash-kanto",
+                  "sourceRevision": "accessed-2026-08-24"
+                },
+                "summary": "Ash reaches Viridian City seeking help before continuing."
+              },
+              {
+                "arcId": "arc:ash:kanto:indigo",
+                "id": "story-event:ash:ep003:forest-companion",
+                "locationId": "location:kanto:viridian-forest",
+                "order": 4,
+                "plane": "anime",
+                "provenance": {
+                  "confidence": "medium",
+                  "extractionMethod": "manual factual transcription",
+                  "licenseClass": "CC-BY-SA-facts-paraphrase",
+                  "locator": "Ash_Ketchum#EP003",
+                  "sourceId": "source:bulbapedia-ash-kanto",
+                  "sourceRevision": "accessed-2026-08-24"
+                },
+                "summary": "The forest journey adds a companion and a first capture milestone."
+              },
+              {
+                "arcId": "arc:ash:kanto:indigo",
+                "id": "story-event:ash:ep005:pewter-gym",
+                "locationId": "location:kanto:pewter-city",
+                "order": 5,
+                "plane": "anime",
+                "provenance": {
+                  "confidence": "medium",
+                  "extractionMethod": "manual factual transcription",
+                  "licenseClass": "CC-BY-SA-facts-paraphrase",
+                  "locator": "Ash_Ketchum#EP005",
+                  "sourceId": "source:bulbapedia-ash-kanto",
+                  "sourceRevision": "accessed-2026-08-24"
+                },
+                "summary": "Ash challenges the Pewter Gym and then continues with Brock."
+              }
+            ],
+            "presentationPolicy": {
+              "distributableAssetsOnly": true,
+              "privateAssetsInPublicArtifactsAllowed": false,
+              "privateCanonicalAssetsAllowed": true
+            }
+          },
+          "campaign": {
+            "sliceId": "world-slice:kanto:pallet-pewter",
+            "currentLocationId": "location:kanto:route-2-south",
+            "visitedLocationIds": [
+              "location:kanto:pallet-town",
+              "location:kanto:route-1",
+              "location:kanto:viridian-city",
+              "location:kanto:route-2-south"
+            ],
+            "storyEventIds": [
+              "story-event:ash:ep001:depart-pallet",
+              "story-event:ash:ep001:route-1-crisis",
+              "story-event:ash:ep002:viridian-arrival"
+            ],
+            "traversedMeters": 19.195439626869398,
+            "saveRevision": 4
+          },
+          "mode": "explore",
+          "starterModels": 0,
+          "player": {
+            "x": 1.639068483084425,
+            "y": 0,
+            "z": -2.917935536892126
+          },
+          "camera": {
+            "x": 0.36331236431591907,
+            "y": 2.1128273724352518,
+            "z": 6.642973299719327
+          },
+          "cameraLook": {
+            "x": 0,
+            "y": 0.9,
+            "z": 0.45
+          },
+          "input": {
+            "held": []
+          },
+          "party": [
+            {
+              "speciesId": "bulbasaur",
+              "name": "Bulbasaur",
+              "hp": 19,
+              "maxHp": 19
+            },
+            {
+              "speciesId": "pidgey",
+              "name": "Pidgey",
+              "hp": 19,
+              "maxHp": 19
+            }
+          ],
+          "battle": null,
+          "healCount": 1,
+          "encounterCount": 2,
+          "catchCount": 1,
+          "canonicalBattlePrewarm": {
+            "completed": true,
+            "keys": [
+              "bulbasaur@0.900",
+              "charmander@0.900",
+              "squirtle@0.900",
+              "pidgey@1.020",
+              "caterpie@1.020",
+              "geodude@1.020"
+            ],
+            "meshCount": 6,
+            "bindings": [
+              {
+                "speciesId": "bulbasaur",
+                "sourceSha256": "cad6e93a2e77d21148f932c27688ff07c5028eb87f3ba9f891a2f3f5ad8e1354",
+                "sourceSceneUuid": "eb0c1cfc-5dd7-4218-9653-9fa6828c4c3f",
+                "animationVariant": "none",
+                "templateRootUuid": "354ef84d-9d94-4681-8001-1416316dc325",
+                "geometrySha256": "d9fb90997fb56e99cd5f405a5a6a952329bf37727e889e955244a46bed10b54f",
+                "materialSha256": "009046a332f1e25038cfd56724aea2f66d961e58740351541cbedba28846ce02",
+                "skeletonSignature": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+                "scale": 0.9,
+                "renderRootUuid": "38d8dd54-f240-473f-84fa-e2cddfa59315",
+                "transformSha256": "854bd7520cc4bbbc63e37767734cac6de77bdcc09c90fa5eba4af17e232dd899"
+              },
+              {
+                "speciesId": "charmander",
+                "sourceSha256": "82c90f71d325d3e93803978cb66e8b6eaceeda5d4280706d9eb388a81975acd2",
+                "sourceSceneUuid": "4a813a50-dbcf-40d1-af66-9637ffaea858",
+                "animationVariant": "none",
+                "templateRootUuid": "c70875c0-4962-4420-97ad-a1fb3195c080",
+                "geometrySha256": "76bf7cd96584c20378dfd616f2a6481de4d66659bc0d9c4b90933cfa97da3bf2",
+                "materialSha256": "09b1931f439cf35fc380399d8ec4d14a565a94ada905635ea34784a2e12cf881",
+                "skeletonSignature": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+                "scale": 0.9,
+                "renderRootUuid": "3b52a572-7083-4909-acc5-ae770108abe4",
+                "transformSha256": "bc587cc270af110a69cb2accdb4a996b77654703f3fb8c98975100b5f0a27d55"
+              },
+              {
+                "speciesId": "squirtle",
+                "sourceSha256": "b41a8ef1fc5caef02ea38eca7fa795ba974645f090e8a0574509d58c381e5805",
+                "sourceSceneUuid": "9e877099-b6f6-4742-8dd9-6f597b4cf8ea",
+                "animationVariant": "none",
+                "templateRootUuid": "4f057207-0147-4019-a707-575d3cbf74c4",
+                "geometrySha256": "b496ae4c2d74be2ad4e528be69321f597675f2cd52ebddc51ac0fcc62bc638f1",
+                "materialSha256": "7ff780efda00f7ff91c4d98143a2e371b01c8ca1d2019d4f9724da1b5e2f4b1d",
+                "skeletonSignature": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+                "scale": 0.9,
+                "renderRootUuid": "ad532ec3-64e6-4b22-9d86-64f4adb75da0",
+                "transformSha256": "fc5ddeecd64811accd8e04eee28f33ccc27c10947df4fb70ce6b59783a163265"
+              },
+              {
+                "speciesId": "pidgey",
+                "sourceSha256": "1685b6f5b9215645d274d31480cf9de8c26011aa7e424700f38b9d70cae4e261",
+                "sourceSceneUuid": "10550adb-2a7a-46b1-a16e-142e16361d62",
+                "animationVariant": "none",
+                "templateRootUuid": "02b019d9-2c26-46b6-bd78-bbddb3c8cc3f",
+                "geometrySha256": "1a63448a3f59f8ddd7d99dd49b20598aea573bb51ffc7931b91f892f166325a4",
+                "materialSha256": "007facfe72b19c282945d8c261ddb1d9eeca2272554816c24792e51eb4d825e6",
+                "skeletonSignature": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+                "scale": 1.02,
+                "renderRootUuid": "893d546d-2af8-40ba-89f7-2412c0c3245d",
+                "transformSha256": "b982e9287233da3cb8ea84e51a905b42e40525a9a7d02c06dbd448969873d05d"
+              },
+              {
+                "speciesId": "caterpie",
+                "sourceSha256": "0a2093b6a4053a075c515591ae9a8f9c88b27fa66c27b72493cdac3648e247f2",
+                "sourceSceneUuid": "9a3b6ec2-8f51-4c1c-af29-7345e0de4250",
+                "animationVariant": "none",
+                "templateRootUuid": "f546677c-7fe6-446e-b0bf-648f102492e0",
+                "geometrySha256": "625fbb3431bc9b21f1aa4b447d910b0445b66cdbe324baaa1c937606f2202fb6",
+                "materialSha256": "4b8d67c906992c3995d48500791f9b2b4516dba3e92854be2c1a38d2acfca796",
+                "skeletonSignature": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+                "scale": 1.02,
+                "renderRootUuid": "c6c303b2-03e7-4513-98bb-40265cf14c94",
+                "transformSha256": "f378e2d024c8b114ad2fd91fba6df46b3f7ee16c017eead178a7e8d59e14440a"
+              },
+              {
+                "speciesId": "geodude",
+                "sourceSha256": "f337566e5eece5d263cd7725d65563d31c0418fd138fa45663be679728d8d809",
+                "sourceSceneUuid": "4290c2f9-76a4-4611-b654-6df7dbac1c1b",
+                "animationVariant": "none",
+                "templateRootUuid": "6b744679-07ac-4aa8-b449-59759085e9c8",
+                "geometrySha256": "2729f7a63d4584821650788b5dbd9b8a6aff3f773495b65b5d10ea54f71ee54a",
+                "materialSha256": "c2e280f6d3d3b76fd191a3367d026e8e0d166271e82ced3bc4b5b25f4e4c1dc6",
+                "skeletonSignature": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+                "scale": 1.02,
+                "renderRootUuid": "ca8b42e3-e0c0-4a62-85c6-006541bec851",
+                "transformSha256": "eb2b7b829dd64f3ebfff8d5b094b8f6406940ed0523c352b052f09357c510849"
+              }
+            ],
+            "renderer": "THREE.WebGLRenderer",
+            "drawCalls": 6,
+            "nonClearPixels": 8192,
+            "completionBoundary": "gl.finish+readPixels-observed-not-independent-gpu-attestation",
+            "compileMs": 3.5,
+            "drawSubmitMs": 23.69999998807907,
+            "gpuObservedMs": 1,
+            "totalMs": 37.69999998807907
+          },
+          "audio": {
+            "contextState": "running",
+            "scene": "explore",
+            "muted": false,
+            "masterGain": 0.27,
+            "cueCount": 30,
+            "activeVoices": 3,
+            "disposed": false
+          },
+          "cinematic": {
+            "attack": {
+              "sequence": 2,
+              "phase": "idle",
+              "attacker": null,
+              "elapsedMs": 0,
+              "phaseStartedAtMs": 6590.70000000298,
+              "startedAtMs": 5974.100000008941,
+              "timeline": {
+                "anticipationMs": 120,
+                "travelMs": 100,
+                "contactMs": 64,
+                "recoilMs": 190,
+                "settleMs": 126,
+                "totalMs": 600
+              }
+            },
+            "payoff": "return",
+            "subjects": {
+              "player": null,
+              "foe": null
+            },
+            "uiSafeMarginPx": 8
+          }
+        },
+        "audio": {
+          "contextState": "running",
+          "scene": "explore",
+          "muted": false,
+          "masterGain": 0.27,
+          "cueCount": 30,
+          "activeVoices": 3,
+          "disposed": false
+        }
+      }
+    },
+    {
+      "name": "screenshot:complete-loop-returned-to-explore",
+      "elapsedMs": 14870.097,
+      "browserMs": 14442.6,
+      "detail": {
+        "file": "/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_f523dc89/shots/provenance-final-mobile-3/07-complete-loop-returned-to-explore.png"
+      }
+    },
+    {
+      "name": "journey:location-entered",
+      "elapsedMs": 15765.927,
+      "browserMs": 15338.4,
+      "detail": {
+        "locationId": "location:kanto:viridian-forest",
+        "visitedLocationIds": [
+          "location:kanto:pallet-town",
+          "location:kanto:route-1",
+          "location:kanto:viridian-city",
+          "location:kanto:route-2-south",
+          "location:kanto:viridian-forest"
+        ]
+      }
+    },
+    {
+      "name": "screenshot:journey-viridian-forest",
+      "elapsedMs": 16214.193,
+      "browserMs": 15786.7,
+      "detail": {
+        "file": "/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_f523dc89/shots/provenance-final-mobile-3/08-journey-viridian-forest.png"
+      }
+    },
+    {
+      "name": "journey:location-entered",
+      "elapsedMs": 17110.743,
+      "browserMs": 16682.8,
+      "detail": {
+        "locationId": "location:kanto:route-2-north",
+        "visitedLocationIds": [
+          "location:kanto:pallet-town",
+          "location:kanto:route-1",
+          "location:kanto:viridian-city",
+          "location:kanto:route-2-south",
+          "location:kanto:viridian-forest",
+          "location:kanto:route-2-north"
+        ]
+      }
+    },
+    {
+      "name": "journey:location-entered",
+      "elapsedMs": 18947.89,
+      "browserMs": 18520.5,
+      "detail": {
+        "locationId": "location:kanto:pewter-city",
+        "visitedLocationIds": [
+          "location:kanto:pallet-town",
+          "location:kanto:route-1",
+          "location:kanto:viridian-city",
+          "location:kanto:route-2-south",
+          "location:kanto:viridian-forest",
+          "location:kanto:route-2-north",
+          "location:kanto:pewter-city"
+        ]
+      }
+    },
+    {
+      "name": "screenshot:journey-pewter-city",
+      "elapsedMs": 19362.18,
+      "browserMs": 18934.5,
+      "detail": {
+        "file": "/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_f523dc89/shots/provenance-final-mobile-3/09-journey-pewter-city.png"
+      }
+    },
+    {
+      "name": "journey:pewter-complete",
+      "elapsedMs": 19364.269,
+      "browserMs": 18936.7,
+      "detail": {
+        "campaign": {
+          "sliceId": "world-slice:kanto:pallet-pewter",
+          "currentLocationId": "location:kanto:pewter-city",
+          "visitedLocationIds": [
+            "location:kanto:pallet-town",
+            "location:kanto:route-1",
+            "location:kanto:viridian-city",
+            "location:kanto:route-2-south",
+            "location:kanto:viridian-forest",
+            "location:kanto:route-2-north",
+            "location:kanto:pewter-city"
+          ],
+          "storyEventIds": [
+            "story-event:ash:ep001:depart-pallet",
+            "story-event:ash:ep001:route-1-crisis",
+            "story-event:ash:ep002:viridian-arrival",
+            "story-event:ash:ep003:forest-companion",
+            "story-event:ash:ep005:pewter-gym"
+          ],
+          "traversedMeters": 31.092086415544625,
+          "saveRevision": 7
+        },
+        "latencyMs": 4492.063
+      }
+    },
+    {
+      "name": "screenshot:journey-pewter-restored",
+      "elapsedMs": 20585.079,
+      "browserMs": 1215.7,
+      "detail": {
+        "file": "/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_f523dc89/shots/provenance-final-mobile-3/10-journey-pewter-restored.png"
+      }
+    }
+  ],
+  "screenshots": [
+    {
+      "stage": "starter-choice",
+      "file": "/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_f523dc89/shots/provenance-final-mobile-3/00-starter-choice.png",
+      "elapsedMs": 2212.351,
+      "full": {
+        "mean": 0.184423,
+        "standardDeviation": 0.152584,
+        "entropy": 0.818984,
+        "width": 780,
+        "height": 1688
+      },
+      "center": {
+        "mean": 0.191848,
+        "standardDeviation": 0.14387,
+        "entropy": 0.79309,
+        "width": 524,
+        "height": 360
+      },
+      "rendered": true
+    },
+    {
+      "stage": "trusted-wasd-exploration",
+      "file": "/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_f523dc89/shots/provenance-final-mobile-3/01-trusted-wasd-exploration.png",
+      "elapsedMs": 4500.212,
+      "full": {
+        "mean": 0.28804,
+        "standardDeviation": 0.188909,
+        "entropy": 0.860447,
+        "width": 780,
+        "height": 1688
+      },
+      "center": {
+        "mean": 0.17273,
+        "standardDeviation": 0.166456,
+        "entropy": 0.6287,
+        "width": 524,
+        "height": 360
+      },
+      "rendered": true
+    },
+    {
+      "stage": "first-encounter-battle",
+      "file": "/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_f523dc89/shots/provenance-final-mobile-3/02-first-encounter-battle.png",
+      "elapsedMs": 5705.998,
+      "full": {
+        "mean": 0.19772,
+        "standardDeviation": 0.124488,
+        "entropy": 0.793638,
+        "width": 780,
+        "height": 1688
+      },
+      "center": {
+        "mean": 0.17685,
+        "standardDeviation": 0.114421,
+        "entropy": 0.757372,
+        "width": 524,
+        "height": 360
+      },
+      "rendered": true
+    },
+    {
+      "stage": "battle-after-real-move",
+      "file": "/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_f523dc89/shots/provenance-final-mobile-3/03-battle-after-real-move.png",
+      "elapsedMs": 7471.602,
+      "full": {
+        "mean": 0.211898,
+        "standardDeviation": 0.126542,
+        "entropy": 0.815715,
+        "width": 780,
+        "height": 1688
+      },
+      "center": {
+        "mean": 0.1825,
+        "standardDeviation": 0.112689,
+        "entropy": 0.758919,
+        "width": 524,
+        "height": 360
+      },
+      "rendered": true
+    },
+    {
+      "stage": "caught-party-two",
+      "file": "/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_f523dc89/shots/provenance-final-mobile-3/04-caught-party-two.png",
+      "elapsedMs": 9707.604,
+      "full": {
+        "mean": 0.32316,
+        "standardDeviation": 0.159555,
+        "entropy": 0.901114,
+        "width": 780,
+        "height": 1688
+      },
+      "center": {
+        "mean": 0.161008,
+        "standardDeviation": 0.0592945,
+        "entropy": 0.86934,
+        "width": 524,
+        "height": 360
+      },
+      "rendered": true
+    },
+    {
+      "stage": "party-healed",
+      "file": "/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_f523dc89/shots/provenance-final-mobile-3/05-party-healed.png",
+      "elapsedMs": 11260.093,
+      "full": {
+        "mean": 0.286796,
+        "standardDeviation": 0.18475,
+        "entropy": 0.865387,
+        "width": 780,
+        "height": 1688
+      },
+      "center": {
+        "mean": 0.149803,
+        "standardDeviation": 0.118098,
+        "entropy": 0.604354,
+        "width": 524,
+        "height": 360
+      },
+      "rendered": true
+    },
+    {
+      "stage": "replay-second-encounter",
+      "file": "/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_f523dc89/shots/provenance-final-mobile-3/06-replay-second-encounter.png",
+      "elapsedMs": 14340.01,
+      "full": {
+        "mean": 0.212114,
+        "standardDeviation": 0.121022,
+        "entropy": 0.826831,
+        "width": 780,
+        "height": 1688
+      },
+      "center": {
+        "mean": 0.16517,
+        "standardDeviation": 0.0753269,
+        "entropy": 0.793796,
+        "width": 524,
+        "height": 360
+      },
+      "rendered": true
+    },
+    {
+      "stage": "complete-loop-returned-to-explore",
+      "file": "/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_f523dc89/shots/provenance-final-mobile-3/07-complete-loop-returned-to-explore.png",
+      "elapsedMs": 14867.636,
+      "full": {
+        "mean": 0.276324,
+        "standardDeviation": 0.154543,
+        "entropy": 0.901549,
+        "width": 780,
+        "height": 1688
+      },
+      "center": {
+        "mean": 0.206678,
+        "standardDeviation": 0.0693412,
+        "entropy": 0.944881,
+        "width": 524,
+        "height": 360
+      },
+      "rendered": true
+    },
+    {
+      "stage": "journey-viridian-forest",
+      "file": "/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_f523dc89/shots/provenance-final-mobile-3/08-journey-viridian-forest.png",
+      "elapsedMs": 16208.91,
+      "full": {
+        "mean": 0.261519,
+        "standardDeviation": 0.162993,
+        "entropy": 0.857113,
+        "width": 780,
+        "height": 1688
+      },
+      "center": {
+        "mean": 0.222063,
+        "standardDeviation": 0.0732301,
+        "entropy": 0.76431,
+        "width": 524,
+        "height": 360
+      },
+      "rendered": true
+    },
+    {
+      "stage": "journey-pewter-city",
+      "file": "/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_f523dc89/shots/provenance-final-mobile-3/09-journey-pewter-city.png",
+      "elapsedMs": 19359.312,
+      "full": {
+        "mean": 0.261926,
+        "standardDeviation": 0.175793,
+        "entropy": 0.857256,
+        "width": 780,
+        "height": 1688
+      },
+      "center": {
+        "mean": 0.15383,
+        "standardDeviation": 0.102443,
+        "entropy": 0.660952,
+        "width": 524,
+        "height": 360
+      },
+      "rendered": true
+    },
+    {
+      "stage": "journey-pewter-restored",
+      "file": "/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_f523dc89/shots/provenance-final-mobile-3/10-journey-pewter-restored.png",
+      "elapsedMs": 20580.382,
+      "full": {
+        "mean": 0.197689,
+        "standardDeviation": 0.18346,
+        "entropy": 0.811484,
+        "width": 780,
+        "height": 1688
+      },
+      "center": {
+        "mean": 0.188064,
+        "standardDeviation": 0.139752,
+        "entropy": 0.771974,
+        "width": 524,
+        "height": 360
+      },
+      "rendered": true
+    }
+  ],
+  "consoleProblems": [],
+  "requestProblems": [],
+  "infoMessages": [
+    "expected framebuffer-observation diagnostic: warning: [.WebGL-0xe9c00178e00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+    "info: [mode5] roam→Fight: 149.5ms (budget 400ms) OK",
+    "info: [mode5] move→first-attack-frame: 12.8ms (budget 180ms) OK",
+    "info: [mode5] roam→Fight: 133.7ms (budget 400ms) OK",
+    "info: [mode5] roam→Fight: 133.7ms (budget 400ms) OK"
+  ],
+  "tracePath": "/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_f523dc89/shots/provenance-final-mobile-3/complete-loop-trace.zip",
+  "reportPath": "/mnt/zer0models/workspace/zer0/products/pokemon/.worktrees/t_f523dc89/shots/provenance-final-mobile-3/complete-loop-report.json"
+}
