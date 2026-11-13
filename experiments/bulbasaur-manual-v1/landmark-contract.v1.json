@@ -1,0 +1,66 @@
+{
+  "schema": "pokemon.bulbasaur.manual-landmarks/v1",
+  "canonicalId": "pokemon:001:standard",
+  "identityAuthority": {
+    "role": "observed-front-three-quarter",
+    "privateRelativePath": "reference/bulbasaur_official_artwork.png",
+    "sha256": "7233d8d8b03b5fa91d835a3069d25769155db93c9ef91b6066e215ed3895e9d8",
+    "dimensionsPx": [475, 475],
+    "limits": "One stylized front three-quarter plate: foreshortening and perspective prevent treating image-space ratios as orthographic dimensions."
+  },
+  "structuralHypothesis": {
+    "role": "generated-structure-style-hypothesis-only",
+    "privateRelativePath": "tournament/klein/candidate-seed6102.png",
+    "sha256": "6701f463d21ae548d3ea69e6600339e7807f08c54e4c763805f0f89ad088f6ef",
+    "authority": false
+  },
+  "spatialContract": {
+    "authoringUnit": "meter",
+    "blenderAxes": {"up": "+Z", "frontCameraPosition": "-Y", "subjectForward": "-Y"},
+    "runtimeExportAxes": {"up": "+Y", "forward": "+Z"},
+    "axisMapping": "Blender glTF exporter maps authored +Z up/-Y forward to glTF +Y up/+Z forward.",
+    "origin": "ground-plane projection beneath torso center",
+    "groundPlaneZ": 0.0,
+    "nominalCanonicalHeightM": 0.7,
+    "entityRootOwnsGameplayMotion": true
+  },
+  "observedLandmarks": [
+    {"id":"silhouette.head_width","normalizedRange":[0.47,0.57],"denominator":"full visible width","confidence":"medium","source":"canonical pixels"},
+    {"id":"silhouette.bulb_apex_height","normalizedRange":[0.82,1.0],"denominator":"ground-to-apex","confidence":"high","source":"canonical pixels"},
+    {"id":"ratio.head_to_body_width","range":[0.83,1.08],"confidence":"medium","source":"foreshortened canonical plate"},
+    {"id":"ratio.bulb_to_body_width","range":[0.58,0.82],"confidence":"medium","source":"foreshortened canonical plate"},
+    {"id":"face.eye_line_height","normalizedRange":[0.50,0.63],"denominator":"ground-to-apex","confidence":"medium","source":"canonical pixels"},
+    {"id":"face.mouth_below_eye","required":true,"confidence":"high","source":"canonical pixels"},
+    {"id":"ears.triangular_pair","count":2,"darkInnerFields":true,"confidence":"high","source":"canonical pixels"},
+    {"id":"limbs.visible_depth_order","order":["front-near","rear-near","front-far","rear-far"],"confidence":"medium","source":"canonical overlap"},
+    {"id":"paws.ground_contacts","count":4,"commonPlaneToleranceM":0.002,"confidence":"high","source":"canonical silhouette"},
+    {"id":"feet.toes_per_paw","count":3,"confidence":"high","source":"canonical pixels where visible; symmetry inference for occluded paw"},
+    {"id":"bulb.base_attachment","required":"broad integrated saddle, never point contact/backpack","confidence":"high","source":"canonical silhouette"},
+    {"id":"bulb.lobes","minimumReadableCount":5,"confidence":"medium","source":"canonical visible plate boundaries"},
+    {"id":"spots.boundaries","required":"irregular authored material/mask islands on head and torso","confidence":"high","source":"canonical palette"}
+  ],
+  "inferredHiddenAnatomy": [
+    {"id":"rear.head_cranium","hypothesis":"bilateral continuation with slight sagittal flattening","confidence":"medium","mustNotOverrideObserved":true},
+    {"id":"rear.bulb_lobes","hypothesis":"six radial overlapping leaves around central apex","confidence":"low","mustNotOverrideObserved":true},
+    {"id":"side.torso_depth","hypothesis":"ovoid ribcage, depth 0.78-0.92 of width; no slab","confidence":"medium","mustNotOverrideObserved":true},
+    {"id":"hidden_far_paws","hypothesis":"mirror semantic count but offset stance and toe splay","confidence":"medium","mustNotOverrideObserved":true},
+    {"id":"vine_root_sockets","hypothesis":"paired sockets under rear-left/right bulb base","confidence":"low","mustNotOverrideObserved":true}
+  ],
+  "frozenCamera": {
+    "projection":"orthographic",
+    "resolutionPx":[512,512],
+    "occupancyTarget":0.82,
+    "occupancyTolerance":0.015,
+    "aimHeightFraction":0.52,
+    "roles":[
+      {"id":"front","azimuthDeg":0},{"id":"front-right-diagnostic","azimuthDeg":22.5},{"id":"front-right","azimuthDeg":45},{"id":"right","azimuthDeg":90},
+      {"id":"rear-right-diagnostic","azimuthDeg":112.5},{"id":"rear-right","azimuthDeg":135},{"id":"rear","azimuthDeg":180},{"id":"rear-left-diagnostic","azimuthDeg":202.5},
+      {"id":"rear-left","azimuthDeg":225},{"id":"left","azimuthDeg":270},{"id":"front-left-diagnostic","azimuthDeg":292.5},{"id":"front-left","azimuthDeg":315}
+    ]
+  },
+  "hypotheses": [
+    {"id":"A","variedMacroDecision":"body volume","setting":"deep pear torso; baseline head and radial bulb"},
+    {"id":"B","variedMacroDecision":"head plane","setting":"broader flatter brow/muzzle plane; baseline torso and radial bulb"},
+    {"id":"C","variedMacroDecision":"bulb construction","setting":"taller tightly overlapping six-lobe bulb; baseline torso and head"}
+  ]
+}
