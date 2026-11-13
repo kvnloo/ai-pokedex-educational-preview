@@ -4,7 +4,8 @@
  *
  * Gameplay is driven only through trusted Playwright mouse/keyboard input:
  * starter choice -> WASD -> grass encounter -> battle move -> catch -> party ->
- * heal pad -> second encounter -> run. window.__twilight is read-only evidence.
+ * heal pad -> second encounter -> run -> canonical Pallet-to-Pewter traversal.
+ * window.__twilight is read-only evidence.
  *
  * It does not override randomness, time, or application state. Replayability
  * comes from product-level drought bounds plus ordinary repeated player input.
@@ -702,6 +703,79 @@ try {
   transitions.totalLoopMs = elapsedMs();
   await stamp('loop:complete', { final, audio: finalAudio });
   await capture('complete-loop-returned-to-explore');
+
+  // Continue the same production session through every canonical node to
+  // Pewter. Progress is earned only through trusted held-key movement; random
+  // encounters are dismissed through the visible battle menu.
+  const canonicalPath = final.canonicalWorld?.path;
+  const pewterId = 'location:kanto:pewter-city';
+  const pewterIndex = Array.isArray(canonicalPath) ? canonicalPath.indexOf(pewterId) : -1;
+  check('runtime exposes canonical Pallet-to-Pewter path', pewterIndex > 0, JSON.stringify(canonicalPath));
+  const expectedPewterPath = canonicalPath?.slice(0, pewterIndex + 1) ?? [];
+  const journeyStartAt = performance.now();
+  let journey = final;
+  let journeyStep = 0;
+  let priorLocationId = journey.campaign?.currentLocationId;
+  while (journey.campaign?.currentLocationId !== pewterId && journeyStep < 24) {
+    if (journey.mode === 'battle') {
+      await waitBattleReady();
+      await page.locator('#battle-menu [data-act="run"]:not([disabled])').click();
+      journey = await waitSnapshot(
+        '(value) => value?.mode === "explore"',
+        5_000,
+        'return to canonical traversal after encounter',
+      );
+      continue;
+    }
+    const key = journeyStep % 2 === 0 ? 'w' : 's';
+    await page.keyboard.down(key);
+    await page.waitForTimeout(800);
+    await page.keyboard.up(key);
+    await page.waitForTimeout(80);
+    journey = await snapshot();
+    if (journey?.campaign?.currentLocationId !== priorLocationId) {
+      priorLocationId = journey.campaign.currentLocationId;
+      await stamp('journey:location-entered', {
+        locationId: priorLocationId,
+        visitedLocationIds: journey.campaign.visitedLocationIds,
+      });
+      if (priorLocationId === 'location:kanto:viridian-forest' || priorLocationId === pewterId) {
+        await capture(`journey-${priorLocationId.split(':').at(-1)}`);
+      }
+    }
+    journeyStep += 1;
+  }
+  if (journey.mode === 'battle') {
+    await waitBattleReady();
+    await page.locator('#battle-menu [data-act="run"]:not([disabled])').click();
+    journey = await waitSnapshot('(value) => value?.mode === "explore"', 5_000, 'finish Pewter traversal in exploration');
+  }
+  transitions.loopCompleteToPewterMs = Number((performance.now() - journeyStartAt).toFixed(3));
+  check('trusted production movement reaches Pewter City', journey.campaign?.currentLocationId === pewterId, JSON.stringify(journey.campaign));
+  check(
+    'played journey visits every canonical Pallet-to-Pewter node in order',
+    JSON.stringify(journey.campaign?.visitedLocationIds) === JSON.stringify(expectedPewterPath),
+    JSON.stringify(journey.campaign?.visitedLocationIds),
+  );
+  check(
+    'Pewter journey retains caught party, heal, and replay state',
+    journey.party?.length === 2 && journey.catchCount === 1 && journey.healCount >= 1 && journey.encounterCount >= 2,
+    JSON.stringify({ party: journey.party, catchCount: journey.catchCount, healCount: journey.healCount, encounterCount: journey.encounterCount }),
+  );
+  await stamp('journey:pewter-complete', { campaign: journey.campaign, latencyMs: transitions.loopCompleteToPewterMs });
+
+  await page.reload({ waitUntil: 'networkidle' });
+  const restoredPewter = await waitSnapshot(
+    `(value) => value?.campaign?.currentLocationId === ${JSON.stringify(pewterId)}`,
+    8_000,
+    'restore revision-bound Pewter campaign save',
+  );
+  check(
+    'reload restores exact played Pallet-to-Pewter campaign prefix',
+    JSON.stringify(restoredPewter.campaign?.visitedLocationIds) === JSON.stringify(expectedPewterPath),
+    JSON.stringify(restoredPewter.campaign),
+  );
+  await capture('journey-pewter-restored');
 
   const integrity = await page.evaluate(() => ({
     bridgeKeys: Object.keys(window.__twilight ?? {}),
