@@ -1,0 +1,16 @@
+{
+  "algorithm": "sha256(concat(len4be(relpath), relpath, sha256(file)))",
+  "fileCount": 281,
+  "root": "/mnt/zer0models/pokemon_anime/pipeline/pokeapi/kanto-starters/bulbasaur/production/manual-v1",
+  "selected": {
+    "blind-packet-v1/BALLOT.json": "d57a5c3932ce8300d4fdee07c370657db263d1b43c6586561674b0d1e09c57a2",
+    "blind-packet-v1/X01-12role.png": "3073e5d6c7790befa2d4400c4da3a1cbeab9a9ed9c995bade6acd9791b6117ca",
+    "blind-packet-v1/X02-12role.png": "9e80625c6ccce1c5411d2c720cec0408abf645e7132af695d8f7c069b157dd59",
+    "blind-packet-v1/X03-12role.png": "984aedbbc92438eda20c90cf2336a17cdb7d6ad83eb17fa52da4c8e30c2daf98",
+    "hypothesis-A/bulbasaur_manual_v1_A.blend": "b348eba8e90f5004831e5ddefbf8e52271e886fe4ef3d49546aef56f1f09f7f1",
+    "hypothesis-B/bulbasaur_manual_v1_B.blend": "ebe9a977c080986257df1f889e9d16b7d4f64a4421b2ff50999907c971fac00c",
+    "hypothesis-C/bulbasaur_manual_v1_C.blend": "103bb4dd3074b423cf2d868f320283c786d1762dd59708ed775b81c76613178a"
+  },
+  "totalBytes": 60177683,
+  "treeSha256": "ea4c0534306b8c821c5975f34c850955faf4f5919a938c03cdb49a30cf1d1dc2"
+}
