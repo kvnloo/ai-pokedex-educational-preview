@@ -1,0 +1,1147 @@
+{
+  "source": "browser-threejs-playwright-video",
+  "url": "http://127.0.0.1:4293/?verify=1&preset=medium",
+  "video": "/mnt/zer0models/workspace/zer0/products/pokemon-gauntlet-t_9edaee6c/shots/matched-current-motion/motion.webm",
+  "trusted_input": true,
+  "snapshots": [
+    {
+      "name": "starter",
+      "at": "2026-08-26T01:30:16.912Z",
+      "value": {
+        "canonicalWorld": {
+          "sliceId": "world-slice:kanto:pallet-pewter",
+          "activeGameId": "game:yellow",
+          "path": [
+            "location:kanto:pallet-town",
+            "location:kanto:route-1",
+            "location:kanto:viridian-city",
+            "location:kanto:route-2-south",
+            "location:kanto:viridian-forest",
+            "location:kanto:route-2-north",
+            "location:kanto:pewter-city",
+            "location:kanto:route-3"
+          ],
+          "coordinates": {
+            "location:kanto:pallet-town": [
+              0,
+              0
+            ],
+            "location:kanto:route-1": [
+              0,
+              1
+            ],
+            "location:kanto:viridian-city": [
+              0,
+              2
+            ],
+            "location:kanto:route-2-south": [
+              0,
+              3
+            ],
+            "location:kanto:viridian-forest": [
+              0,
+              4
+            ],
+            "location:kanto:route-2-north": [
+              0,
+              5
+            ],
+            "location:kanto:pewter-city": [
+              0,
+              6
+            ],
+            "location:kanto:route-3": [
+              1,
+              6
+            ]
+          },
+          "events": [
+            {
+              "arcId": "arc:ash:kanto:indigo",
+              "id": "story-event:ash:ep001:depart-pallet",
+              "locationId": "location:kanto:pallet-town",
+              "order": 1,
+              "plane": "anime",
+              "provenance": {
+                "confidence": "medium",
+                "extractionMethod": "manual factual transcription",
+                "licenseClass": "CC-BY-SA-facts-paraphrase",
+                "locator": "Ash_Ketchum#EP001",
+                "sourceId": "source:bulbapedia-ash-kanto",
+                "sourceRevision": "accessed-2026-08-24"
+              },
+              "summary": "Ash begins his journey from Pallet Town."
+            },
+            {
+              "arcId": "arc:ash:kanto:indigo",
+              "id": "story-event:ash:ep001:route-1-crisis",
+              "locationId": "location:kanto:route-1",
+              "order": 2,
+              "plane": "anime",
+              "provenance": {
+                "confidence": "medium",
+                "extractionMethod": "manual factual transcription",
+                "licenseClass": "CC-BY-SA-facts-paraphrase",
+                "locator": "Ash_Ketchum#EP001",
+                "sourceId": "source:bulbapedia-ash-kanto",
+                "sourceRevision": "accessed-2026-08-24"
+              },
+              "summary": "A flock encounter turns the first trip north into an emergency."
+            },
+            {
+              "arcId": "arc:ash:kanto:indigo",
+              "id": "story-event:ash:ep002:viridian-arrival",
+              "locationId": "location:kanto:viridian-city",
+              "order": 3,
+              "plane": "anime",
+              "provenance": {
+                "confidence": "medium",
+                "extractionMethod": "manual factual transcription",
+                "licenseClass": "CC-BY-SA-facts-paraphrase",
+                "locator": "Ash_Ketchum#EP002",
+                "sourceId": "source:bulbapedia-ash-kanto",
+                "sourceRevision": "accessed-2026-08-24"
+              },
+              "summary": "Ash reaches Viridian City seeking help before continuing."
+            },
+            {
+              "arcId": "arc:ash:kanto:indigo",
+              "id": "story-event:ash:ep003:forest-companion",
+              "locationId": "location:kanto:viridian-forest",
+              "order": 4,
+              "plane": "anime",
+              "provenance": {
+                "confidence": "medium",
+                "extractionMethod": "manual factual transcription",
+                "licenseClass": "CC-BY-SA-facts-paraphrase",
+                "locator": "Ash_Ketchum#EP003",
+                "sourceId": "source:bulbapedia-ash-kanto",
+                "sourceRevision": "accessed-2026-08-24"
+              },
+              "summary": "The forest journey adds a companion and a first capture milestone."
+            },
+            {
+              "arcId": "arc:ash:kanto:indigo",
+              "id": "story-event:ash:ep005:pewter-gym",
+              "locationId": "location:kanto:pewter-city",
+              "order": 5,
+              "plane": "anime",
+              "provenance": {
+                "confidence": "medium",
+                "extractionMethod": "manual factual transcription",
+                "licenseClass": "CC-BY-SA-facts-paraphrase",
+                "locator": "Ash_Ketchum#EP005",
+                "sourceId": "source:bulbapedia-ash-kanto",
+                "sourceRevision": "accessed-2026-08-24"
+              },
+              "summary": "Ash challenges the Pewter Gym and then continues with Brock."
+            }
+          ],
+          "presentationPolicy": {
+            "distributableAssetsOnly": true,
+            "privateAssetsInPublicArtifactsAllowed": false,
+            "privateCanonicalAssetsAllowed": true
+          }
+        },
+        "campaign": {
+          "sliceId": "world-slice:kanto:pallet-pewter",
+          "currentLocationId": "location:kanto:pallet-town",
+          "visitedLocationIds": [
+            "location:kanto:pallet-town"
+          ],
+          "storyEventIds": [],
+          "traversedMeters": 0,
+          "saveRevision": 0
+        },
+        "mode": "starter",
+        "starterModels": 3,
+        "player": null,
+        "camera": {
+          "x": 0.00028519992267743877,
+          "y": 2.374176032,
+          "z": 6.552291360000001
+        },
+        "cameraLook": {
+          "x": 0,
+          "y": 0.9,
+          "z": 0.45
+        },
+        "input": {
+          "held": []
+        },
+        "party": [],
+        "battle": null,
+        "healCount": 0,
+        "encounterCount": 0,
+        "catchCount": 0,
+        "audio": {
+          "contextState": "uninitialized",
+          "scene": null,
+          "muted": false,
+          "masterGain": 0.27,
+          "cueCount": 0,
+          "activeVoices": 0,
+          "disposed": false
+        },
+        "cinematic": {
+          "attack": {
+            "sequence": 0,
+            "phase": "idle",
+            "attacker": null,
+            "elapsedMs": 0,
+            "phaseStartedAtMs": 0,
+            "startedAtMs": 0,
+            "timeline": {
+              "anticipationMs": 120,
+              "travelMs": 100,
+              "contactMs": 64,
+              "recoilMs": 190,
+              "settleMs": 126,
+              "totalMs": 600
+            }
+          },
+          "payoff": "idle",
+          "subjects": {
+            "player": null,
+            "foe": null
+          },
+          "uiSafeMarginPx": 8
+        }
+      }
+    },
+    {
+      "name": "explore-start",
+      "at": "2026-08-26T01:30:19.184Z",
+      "value": {
+        "canonicalWorld": {
+          "sliceId": "world-slice:kanto:pallet-pewter",
+          "activeGameId": "game:yellow",
+          "path": [
+            "location:kanto:pallet-town",
+            "location:kanto:route-1",
+            "location:kanto:viridian-city",
+            "location:kanto:route-2-south",
+            "location:kanto:viridian-forest",
+            "location:kanto:route-2-north",
+            "location:kanto:pewter-city",
+            "location:kanto:route-3"
+          ],
+          "coordinates": {
+            "location:kanto:pallet-town": [
+              0,
+              0
+            ],
+            "location:kanto:route-1": [
+              0,
+              1
+            ],
+            "location:kanto:viridian-city": [
+              0,
+              2
+            ],
+            "location:kanto:route-2-south": [
+              0,
+              3
+            ],
+            "location:kanto:viridian-forest": [
+              0,
+              4
+            ],
+            "location:kanto:route-2-north": [
+              0,
+              5
+            ],
+            "location:kanto:pewter-city": [
+              0,
+              6
+            ],
+            "location:kanto:route-3": [
+              1,
+              6
+            ]
+          },
+          "events": [
+            {
+              "arcId": "arc:ash:kanto:indigo",
+              "id": "story-event:ash:ep001:depart-pallet",
+              "locationId": "location:kanto:pallet-town",
+              "order": 1,
+              "plane": "anime",
+              "provenance": {
+                "confidence": "medium",
+                "extractionMethod": "manual factual transcription",
+                "licenseClass": "CC-BY-SA-facts-paraphrase",
+                "locator": "Ash_Ketchum#EP001",
+                "sourceId": "source:bulbapedia-ash-kanto",
+                "sourceRevision": "accessed-2026-08-24"
+              },
+              "summary": "Ash begins his journey from Pallet Town."
+            },
+            {
+              "arcId": "arc:ash:kanto:indigo",
+              "id": "story-event:ash:ep001:route-1-crisis",
+              "locationId": "location:kanto:route-1",
+              "order": 2,
+              "plane": "anime",
+              "provenance": {
+                "confidence": "medium",
+                "extractionMethod": "manual factual transcription",
+                "licenseClass": "CC-BY-SA-facts-paraphrase",
+                "locator": "Ash_Ketchum#EP001",
+                "sourceId": "source:bulbapedia-ash-kanto",
+                "sourceRevision": "accessed-2026-08-24"
+              },
+              "summary": "A flock encounter turns the first trip north into an emergency."
+            },
+            {
+              "arcId": "arc:ash:kanto:indigo",
+              "id": "story-event:ash:ep002:viridian-arrival",
+              "locationId": "location:kanto:viridian-city",
+              "order": 3,
+              "plane": "anime",
+              "provenance": {
+                "confidence": "medium",
+                "extractionMethod": "manual factual transcription",
+                "licenseClass": "CC-BY-SA-facts-paraphrase",
+                "locator": "Ash_Ketchum#EP002",
+                "sourceId": "source:bulbapedia-ash-kanto",
+                "sourceRevision": "accessed-2026-08-24"
+              },
+              "summary": "Ash reaches Viridian City seeking help before continuing."
+            },
+            {
+              "arcId": "arc:ash:kanto:indigo",
+              "id": "story-event:ash:ep003:forest-companion",
+              "locationId": "location:kanto:viridian-forest",
+              "order": 4,
+              "plane": "anime",
+              "provenance": {
+                "confidence": "medium",
+                "extractionMethod": "manual factual transcription",
+                "licenseClass": "CC-BY-SA-facts-paraphrase",
+                "locator": "Ash_Ketchum#EP003",
+                "sourceId": "source:bulbapedia-ash-kanto",
+                "sourceRevision": "accessed-2026-08-24"
+              },
+              "summary": "The forest journey adds a companion and a first capture milestone."
+            },
+            {
+              "arcId": "arc:ash:kanto:indigo",
+              "id": "story-event:ash:ep005:pewter-gym",
+              "locationId": "location:kanto:pewter-city",
+              "order": 5,
+              "plane": "anime",
+              "provenance": {
+                "confidence": "medium",
+                "extractionMethod": "manual factual transcription",
+                "licenseClass": "CC-BY-SA-facts-paraphrase",
+                "locator": "Ash_Ketchum#EP005",
+                "sourceId": "source:bulbapedia-ash-kanto",
+                "sourceRevision": "accessed-2026-08-24"
+              },
+              "summary": "Ash challenges the Pewter Gym and then continues with Brock."
+            }
+          ],
+          "presentationPolicy": {
+            "distributableAssetsOnly": true,
+            "privateAssetsInPublicArtifactsAllowed": false,
+            "privateCanonicalAssetsAllowed": true
+          }
+        },
+        "campaign": {
+          "sliceId": "world-slice:kanto:pallet-pewter",
+          "currentLocationId": "location:kanto:pallet-town",
+          "visitedLocationIds": [
+            "location:kanto:pallet-town"
+          ],
+          "storyEventIds": [
+            "story-event:ash:ep001:depart-pallet"
+          ],
+          "traversedMeters": 0,
+          "saveRevision": 1
+        },
+        "mode": "explore",
+        "starterModels": 0,
+        "player": {
+          "x": 0,
+          "y": 0,
+          "z": 2.5
+        },
+        "camera": {
+          "x": -6.55186037543834e-16,
+          "y": 2.32,
+          "z": 7.85
+        },
+        "cameraLook": {
+          "x": 0,
+          "y": 0.9,
+          "z": 0.45
+        },
+        "input": {
+          "held": []
+        },
+        "party": [
+          {
+            "speciesId": "emberpup",
+            "name": "Emberpup",
+            "hp": 19,
+            "maxHp": 19
+          }
+        ],
+        "battle": null,
+        "healCount": 0,
+        "encounterCount": 0,
+        "catchCount": 0,
+        "audio": {
+          "contextState": "running",
+          "scene": "explore",
+          "muted": false,
+          "masterGain": 0.27,
+          "cueCount": 1,
+          "activeVoices": 6,
+          "disposed": false
+        },
+        "cinematic": {
+          "attack": {
+            "sequence": 0,
+            "phase": "idle",
+            "attacker": null,
+            "elapsedMs": 0,
+            "phaseStartedAtMs": 0,
+            "startedAtMs": 0,
+            "timeline": {
+              "anticipationMs": 120,
+              "travelMs": 100,
+              "contactMs": 64,
+              "recoilMs": 190,
+              "settleMs": 126,
+              "totalMs": 600
+            }
+          },
+          "payoff": "idle",
+          "subjects": {
+            "player": null,
+            "foe": null
+          },
+          "uiSafeMarginPx": 8
+        }
+      }
+    },
+    {
+      "name": "after-run",
+      "at": "2026-08-26T01:30:24.004Z",
+      "value": {
+        "canonicalWorld": {
+          "sliceId": "world-slice:kanto:pallet-pewter",
+          "activeGameId": "game:yellow",
+          "path": [
+            "location:kanto:pallet-town",
+            "location:kanto:route-1",
+            "location:kanto:viridian-city",
+            "location:kanto:route-2-south",
+            "location:kanto:viridian-forest",
+            "location:kanto:route-2-north",
+            "location:kanto:pewter-city",
+            "location:kanto:route-3"
+          ],
+          "coordinates": {
+            "location:kanto:pallet-town": [
+              0,
+              0
+            ],
+            "location:kanto:route-1": [
+              0,
+              1
+            ],
+            "location:kanto:viridian-city": [
+              0,
+              2
+            ],
+            "location:kanto:route-2-south": [
+              0,
+              3
+            ],
+            "location:kanto:viridian-forest": [
+              0,
+              4
+            ],
+            "location:kanto:route-2-north": [
+              0,
+              5
+            ],
+            "location:kanto:pewter-city": [
+              0,
+              6
+            ],
+            "location:kanto:route-3": [
+              1,
+              6
+            ]
+          },
+          "events": [
+            {
+              "arcId": "arc:ash:kanto:indigo",
+              "id": "story-event:ash:ep001:depart-pallet",
+              "locationId": "location:kanto:pallet-town",
+              "order": 1,
+              "plane": "anime",
+              "provenance": {
+                "confidence": "medium",
+                "extractionMethod": "manual factual transcription",
+                "licenseClass": "CC-BY-SA-facts-paraphrase",
+                "locator": "Ash_Ketchum#EP001",
+                "sourceId": "source:bulbapedia-ash-kanto",
+                "sourceRevision": "accessed-2026-08-24"
+              },
+              "summary": "Ash begins his journey from Pallet Town."
+            },
+            {
+              "arcId": "arc:ash:kanto:indigo",
+              "id": "story-event:ash:ep001:route-1-crisis",
+              "locationId": "location:kanto:route-1",
+              "order": 2,
+              "plane": "anime",
+              "provenance": {
+                "confidence": "medium",
+                "extractionMethod": "manual factual transcription",
+                "licenseClass": "CC-BY-SA-facts-paraphrase",
+                "locator": "Ash_Ketchum#EP001",
+                "sourceId": "source:bulbapedia-ash-kanto",
+                "sourceRevision": "accessed-2026-08-24"
+              },
+              "summary": "A flock encounter turns the first trip north into an emergency."
+            },
+            {
+              "arcId": "arc:ash:kanto:indigo",
+              "id": "story-event:ash:ep002:viridian-arrival",
+              "locationId": "location:kanto:viridian-city",
+              "order": 3,
+              "plane": "anime",
+              "provenance": {
+                "confidence": "medium",
+                "extractionMethod": "manual factual transcription",
+                "licenseClass": "CC-BY-SA-facts-paraphrase",
+                "locator": "Ash_Ketchum#EP002",
+                "sourceId": "source:bulbapedia-ash-kanto",
+                "sourceRevision": "accessed-2026-08-24"
+              },
+              "summary": "Ash reaches Viridian City seeking help before continuing."
+            },
+            {
+              "arcId": "arc:ash:kanto:indigo",
+              "id": "story-event:ash:ep003:forest-companion",
+              "locationId": "location:kanto:viridian-forest",
+              "order": 4,
+              "plane": "anime",
+              "provenance": {
+                "confidence": "medium",
+                "extractionMethod": "manual factual transcription",
+                "licenseClass": "CC-BY-SA-facts-paraphrase",
+                "locator": "Ash_Ketchum#EP003",
+                "sourceId": "source:bulbapedia-ash-kanto",
+                "sourceRevision": "accessed-2026-08-24"
+              },
+              "summary": "The forest journey adds a companion and a first capture milestone."
+            },
+            {
+              "arcId": "arc:ash:kanto:indigo",
+              "id": "story-event:ash:ep005:pewter-gym",
+              "locationId": "location:kanto:pewter-city",
+              "order": 5,
+              "plane": "anime",
+              "provenance": {
+                "confidence": "medium",
+                "extractionMethod": "manual factual transcription",
+                "licenseClass": "CC-BY-SA-facts-paraphrase",
+                "locator": "Ash_Ketchum#EP005",
+                "sourceId": "source:bulbapedia-ash-kanto",
+                "sourceRevision": "accessed-2026-08-24"
+              },
+              "summary": "Ash challenges the Pewter Gym and then continues with Brock."
+            }
+          ],
+          "presentationPolicy": {
+            "distributableAssetsOnly": true,
+            "privateAssetsInPublicArtifactsAllowed": false,
+            "privateCanonicalAssetsAllowed": true
+          }
+        },
+        "campaign": {
+          "sliceId": "world-slice:kanto:pallet-pewter",
+          "currentLocationId": "location:kanto:route-1",
+          "visitedLocationIds": [
+            "location:kanto:pallet-town",
+            "location:kanto:route-1"
+          ],
+          "storyEventIds": [
+            "story-event:ash:ep001:depart-pallet",
+            "story-event:ash:ep001:route-1-crisis"
+          ],
+          "traversedMeters": 5.032286442245,
+          "saveRevision": 2
+        },
+        "mode": "battle",
+        "starterModels": 0,
+        "player": {
+          "x": 1.28,
+          "y": 0,
+          "z": 1
+        },
+        "camera": {
+          "x": 0.1799962798544111,
+          "y": 2.239752107871157,
+          "z": 7.339726258693809
+        },
+        "cameraLook": {
+          "x": 0,
+          "y": 0.9,
+          "z": 0.45
+        },
+        "input": {
+          "held": []
+        },
+        "party": [
+          {
+            "speciesId": "emberpup",
+            "name": "Emberpup",
+            "hp": 19,
+            "maxHp": 19
+          }
+        ],
+        "battle": {
+          "kind": "wild",
+          "playerHp": 19,
+          "playerMaxHp": 19,
+          "foeHp": 19,
+          "foeMaxHp": 19,
+          "foeSpeciesId": "rivlet",
+          "busy": false
+        },
+        "healCount": 0,
+        "encounterCount": 1,
+        "catchCount": 0,
+        "audio": {
+          "contextState": "running",
+          "scene": "battle",
+          "muted": false,
+          "masterGain": 0.27,
+          "cueCount": 6,
+          "activeVoices": 3,
+          "disposed": false
+        },
+        "cinematic": {
+          "attack": {
+            "sequence": 0,
+            "phase": "idle",
+            "attacker": null,
+            "elapsedMs": 0,
+            "phaseStartedAtMs": 0,
+            "startedAtMs": 0,
+            "timeline": {
+              "anticipationMs": 120,
+              "travelMs": 100,
+              "contactMs": 64,
+              "recoilMs": 190,
+              "settleMs": 126,
+              "totalMs": 600
+            }
+          },
+          "payoff": "idle",
+          "subjects": {
+            "player": {
+              "left": 696.52,
+              "top": 309.78,
+              "right": 948.05,
+              "bottom": 533.44
+            },
+            "foe": {
+              "left": 367.61,
+              "top": 289.02,
+              "right": 562.75,
+              "bottom": 449.21
+            }
+          },
+          "uiSafeMarginPx": 8
+        }
+      }
+    },
+    {
+      "name": "battle",
+      "at": "2026-08-26T01:30:24.048Z",
+      "value": {
+        "canonicalWorld": {
+          "sliceId": "world-slice:kanto:pallet-pewter",
+          "activeGameId": "game:yellow",
+          "path": [
+            "location:kanto:pallet-town",
+            "location:kanto:route-1",
+            "location:kanto:viridian-city",
+            "location:kanto:route-2-south",
+            "location:kanto:viridian-forest",
+            "location:kanto:route-2-north",
+            "location:kanto:pewter-city",
+            "location:kanto:route-3"
+          ],
+          "coordinates": {
+            "location:kanto:pallet-town": [
+              0,
+              0
+            ],
+            "location:kanto:route-1": [
+              0,
+              1
+            ],
+            "location:kanto:viridian-city": [
+              0,
+              2
+            ],
+            "location:kanto:route-2-south": [
+              0,
+              3
+            ],
+            "location:kanto:viridian-forest": [
+              0,
+              4
+            ],
+            "location:kanto:route-2-north": [
+              0,
+              5
+            ],
+            "location:kanto:pewter-city": [
+              0,
+              6
+            ],
+            "location:kanto:route-3": [
+              1,
+              6
+            ]
+          },
+          "events": [
+            {
+              "arcId": "arc:ash:kanto:indigo",
+              "id": "story-event:ash:ep001:depart-pallet",
+              "locationId": "location:kanto:pallet-town",
+              "order": 1,
+              "plane": "anime",
+              "provenance": {
+                "confidence": "medium",
+                "extractionMethod": "manual factual transcription",
+                "licenseClass": "CC-BY-SA-facts-paraphrase",
+                "locator": "Ash_Ketchum#EP001",
+                "sourceId": "source:bulbapedia-ash-kanto",
+                "sourceRevision": "accessed-2026-08-24"
+              },
+              "summary": "Ash begins his journey from Pallet Town."
+            },
+            {
+              "arcId": "arc:ash:kanto:indigo",
+              "id": "story-event:ash:ep001:route-1-crisis",
+              "locationId": "location:kanto:route-1",
+              "order": 2,
+              "plane": "anime",
+              "provenance": {
+                "confidence": "medium",
+                "extractionMethod": "manual factual transcription",
+                "licenseClass": "CC-BY-SA-facts-paraphrase",
+                "locator": "Ash_Ketchum#EP001",
+                "sourceId": "source:bulbapedia-ash-kanto",
+                "sourceRevision": "accessed-2026-08-24"
+              },
+              "summary": "A flock encounter turns the first trip north into an emergency."
+            },
+            {
+              "arcId": "arc:ash:kanto:indigo",
+              "id": "story-event:ash:ep002:viridian-arrival",
+              "locationId": "location:kanto:viridian-city",
+              "order": 3,
+              "plane": "anime",
+              "provenance": {
+                "confidence": "medium",
+                "extractionMethod": "manual factual transcription",
+                "licenseClass": "CC-BY-SA-facts-paraphrase",
+                "locator": "Ash_Ketchum#EP002",
+                "sourceId": "source:bulbapedia-ash-kanto",
+                "sourceRevision": "accessed-2026-08-24"
+              },
+              "summary": "Ash reaches Viridian City seeking help before continuing."
+            },
+            {
+              "arcId": "arc:ash:kanto:indigo",
+              "id": "story-event:ash:ep003:forest-companion",
+              "locationId": "location:kanto:viridian-forest",
+              "order": 4,
+              "plane": "anime",
+              "provenance": {
+                "confidence": "medium",
+                "extractionMethod": "manual factual transcription",
+                "licenseClass": "CC-BY-SA-facts-paraphrase",
+                "locator": "Ash_Ketchum#EP003",
+                "sourceId": "source:bulbapedia-ash-kanto",
+                "sourceRevision": "accessed-2026-08-24"
+              },
+              "summary": "The forest journey adds a companion and a first capture milestone."
+            },
+            {
+              "arcId": "arc:ash:kanto:indigo",
+              "id": "story-event:ash:ep005:pewter-gym",
+              "locationId": "location:kanto:pewter-city",
+              "order": 5,
+              "plane": "anime",
+              "provenance": {
+                "confidence": "medium",
+                "extractionMethod": "manual factual transcription",
+                "licenseClass": "CC-BY-SA-facts-paraphrase",
+                "locator": "Ash_Ketchum#EP005",
+                "sourceId": "source:bulbapedia-ash-kanto",
+                "sourceRevision": "accessed-2026-08-24"
+              },
+              "summary": "Ash challenges the Pewter Gym and then continues with Brock."
+            }
+          ],
+          "presentationPolicy": {
+            "distributableAssetsOnly": true,
+            "privateAssetsInPublicArtifactsAllowed": false,
+            "privateCanonicalAssetsAllowed": true
+          }
+        },
+        "campaign": {
+          "sliceId": "world-slice:kanto:pallet-pewter",
+          "currentLocationId": "location:kanto:route-1",
+          "visitedLocationIds": [
+            "location:kanto:pallet-town",
+            "location:kanto:route-1"
+          ],
+          "storyEventIds": [
+            "story-event:ash:ep001:depart-pallet",
+            "story-event:ash:ep001:route-1-crisis"
+          ],
+          "traversedMeters": 5.032286442245,
+          "saveRevision": 2
+        },
+        "mode": "battle",
+        "starterModels": 0,
+        "player": {
+          "x": 1.28,
+          "y": 0,
+          "z": 1
+        },
+        "camera": {
+          "x": 0.17999664290319956,
+          "y": 2.2397728322663615,
+          "z": 7.339751307720339
+        },
+        "cameraLook": {
+          "x": 0,
+          "y": 0.9,
+          "z": 0.45
+        },
+        "input": {
+          "held": []
+        },
+        "party": [
+          {
+            "speciesId": "emberpup",
+            "name": "Emberpup",
+            "hp": 19,
+            "maxHp": 19
+          }
+        ],
+        "battle": {
+          "kind": "wild",
+          "playerHp": 19,
+          "playerMaxHp": 19,
+          "foeHp": 19,
+          "foeMaxHp": 19,
+          "foeSpeciesId": "rivlet",
+          "busy": false
+        },
+        "healCount": 0,
+        "encounterCount": 1,
+        "catchCount": 0,
+        "audio": {
+          "contextState": "running",
+          "scene": "battle",
+          "muted": false,
+          "masterGain": 0.27,
+          "cueCount": 6,
+          "activeVoices": 3,
+          "disposed": false
+        },
+        "cinematic": {
+          "attack": {
+            "sequence": 0,
+            "phase": "idle",
+            "attacker": null,
+            "elapsedMs": 0,
+            "phaseStartedAtMs": 0,
+            "startedAtMs": 0,
+            "timeline": {
+              "anticipationMs": 120,
+              "travelMs": 100,
+              "contactMs": 64,
+              "recoilMs": 190,
+              "settleMs": 126,
+              "totalMs": 600
+            }
+          },
+          "payoff": "idle",
+          "subjects": {
+            "player": {
+              "left": 696.51,
+              "top": 309.99,
+              "right": 948.17,
+              "bottom": 533.44
+            },
+            "foe": {
+              "left": 367.83,
+              "top": 289.02,
+              "right": 562.75,
+              "bottom": 449.21
+            }
+          },
+          "uiSafeMarginPx": 8
+        }
+      }
+    },
+    {
+      "name": "battle-action",
+      "at": "2026-08-26T01:30:26.354Z",
+      "value": {
+        "canonicalWorld": {
+          "sliceId": "world-slice:kanto:pallet-pewter",
+          "activeGameId": "game:yellow",
+          "path": [
+            "location:kanto:pallet-town",
+            "location:kanto:route-1",
+            "location:kanto:viridian-city",
+            "location:kanto:route-2-south",
+            "location:kanto:viridian-forest",
+            "location:kanto:route-2-north",
+            "location:kanto:pewter-city",
+            "location:kanto:route-3"
+          ],
+          "coordinates": {
+            "location:kanto:pallet-town": [
+              0,
+              0
+            ],
+            "location:kanto:route-1": [
+              0,
+              1
+            ],
+            "location:kanto:viridian-city": [
+              0,
+              2
+            ],
+            "location:kanto:route-2-south": [
+              0,
+              3
+            ],
+            "location:kanto:viridian-forest": [
+              0,
+              4
+            ],
+            "location:kanto:route-2-north": [
+              0,
+              5
+            ],
+            "location:kanto:pewter-city": [
+              0,
+              6
+            ],
+            "location:kanto:route-3": [
+              1,
+              6
+            ]
+          },
+          "events": [
+            {
+              "arcId": "arc:ash:kanto:indigo",
+              "id": "story-event:ash:ep001:depart-pallet",
+              "locationId": "location:kanto:pallet-town",
+              "order": 1,
+              "plane": "anime",
+              "provenance": {
+                "confidence": "medium",
+                "extractionMethod": "manual factual transcription",
+                "licenseClass": "CC-BY-SA-facts-paraphrase",
+                "locator": "Ash_Ketchum#EP001",
+                "sourceId": "source:bulbapedia-ash-kanto",
+                "sourceRevision": "accessed-2026-08-24"
+              },
+              "summary": "Ash begins his journey from Pallet Town."
+            },
+            {
+              "arcId": "arc:ash:kanto:indigo",
+              "id": "story-event:ash:ep001:route-1-crisis",
+              "locationId": "location:kanto:route-1",
+              "order": 2,
+              "plane": "anime",
+              "provenance": {
+                "confidence": "medium",
+                "extractionMethod": "manual factual transcription",
+                "licenseClass": "CC-BY-SA-facts-paraphrase",
+                "locator": "Ash_Ketchum#EP001",
+                "sourceId": "source:bulbapedia-ash-kanto",
+                "sourceRevision": "accessed-2026-08-24"
+              },
+              "summary": "A flock encounter turns the first trip north into an emergency."
+            },
+            {
+              "arcId": "arc:ash:kanto:indigo",
+              "id": "story-event:ash:ep002:viridian-arrival",
+              "locationId": "location:kanto:viridian-city",
+              "order": 3,
+              "plane": "anime",
+              "provenance": {
+                "confidence": "medium",
+                "extractionMethod": "manual factual transcription",
+                "licenseClass": "CC-BY-SA-facts-paraphrase",
+                "locator": "Ash_Ketchum#EP002",
+                "sourceId": "source:bulbapedia-ash-kanto",
+                "sourceRevision": "accessed-2026-08-24"
+              },
+              "summary": "Ash reaches Viridian City seeking help before continuing."
+            },
+            {
+              "arcId": "arc:ash:kanto:indigo",
+              "id": "story-event:ash:ep003:forest-companion",
+              "locationId": "location:kanto:viridian-forest",
+              "order": 4,
+              "plane": "anime",
+              "provenance": {
+                "confidence": "medium",
+                "extractionMethod": "manual factual transcription",
+                "licenseClass": "CC-BY-SA-facts-paraphrase",
+                "locator": "Ash_Ketchum#EP003",
+                "sourceId": "source:bulbapedia-ash-kanto",
+                "sourceRevision": "accessed-2026-08-24"
+              },
+              "summary": "The forest journey adds a companion and a first capture milestone."
+            },
+            {
+              "arcId": "arc:ash:kanto:indigo",
+              "id": "story-event:ash:ep005:pewter-gym",
+              "locationId": "location:kanto:pewter-city",
+              "order": 5,
+              "plane": "anime",
+              "provenance": {
+                "confidence": "medium",
+                "extractionMethod": "manual factual transcription",
+                "licenseClass": "CC-BY-SA-facts-paraphrase",
+                "locator": "Ash_Ketchum#EP005",
+                "sourceId": "source:bulbapedia-ash-kanto",
+                "sourceRevision": "accessed-2026-08-24"
+              },
+              "summary": "Ash challenges the Pewter Gym and then continues with Brock."
+            }
+          ],
+          "presentationPolicy": {
+            "distributableAssetsOnly": true,
+            "privateAssetsInPublicArtifactsAllowed": false,
+            "privateCanonicalAssetsAllowed": true
+          }
+        },
+        "campaign": {
+          "sliceId": "world-slice:kanto:pallet-pewter",
+          "currentLocationId": "location:kanto:route-1",
+          "visitedLocationIds": [
+            "location:kanto:pallet-town",
+            "location:kanto:route-1"
+          ],
+          "storyEventIds": [
+            "story-event:ash:ep001:depart-pallet",
+            "story-event:ash:ep001:route-1-crisis"
+          ],
+          "traversedMeters": 5.032286442245,
+          "saveRevision": 2
+        },
+        "mode": "battle",
+        "starterModels": 0,
+        "player": {
+          "x": 1.28,
+          "y": 0,
+          "z": 1
+        },
+        "camera": {
+          "x": 0.18703583635737484,
+          "y": 2.190439027303914,
+          "z": 7.2694955667929975
+        },
+        "cameraLook": {
+          "x": 0,
+          "y": 0.9,
+          "z": 0.45
+        },
+        "input": {
+          "held": []
+        },
+        "party": [
+          {
+            "speciesId": "emberpup",
+            "name": "Emberpup",
+            "hp": 19,
+            "maxHp": 19
+          }
+        ],
+        "battle": {
+          "kind": "wild",
+          "playerHp": 6,
+          "playerMaxHp": 19,
+          "foeHp": 15,
+          "foeMaxHp": 19,
+          "foeSpeciesId": "rivlet",
+          "busy": false
+        },
+        "healCount": 0,
+        "encounterCount": 1,
+        "catchCount": 0,
+        "audio": {
+          "contextState": "running",
+          "scene": "battle",
+          "muted": false,
+          "masterGain": 0.27,
+          "cueCount": 9,
+          "activeVoices": 3,
+          "disposed": false
+        },
+        "cinematic": {
+          "attack": {
+            "sequence": 2,
+            "phase": "idle",
+            "attacker": null,
+            "elapsedMs": 0,
+            "phaseStartedAtMs": 9721.20000000298,
+            "startedAtMs": 9105.5,
+            "timeline": {
+              "anticipationMs": 120,
+              "travelMs": 100,
+              "contactMs": 64,
+              "recoilMs": 190,
+              "settleMs": 126,
+              "totalMs": 600
+            }
+          },
+          "payoff": "idle",
+          "subjects": {
+            "player": {
+              "left": 696.92,
+              "top": 310.43,
+              "right": 946.73,
+              "bottom": 534.46
+            },
+            "foe": {
+              "left": 358.87,
+              "top": 288.67,
+              "right": 562.21,
+              "bottom": 449.88
+            }
+          },
+          "uiSafeMarginPx": 8
+        }
+      }
+    }
+  ],
+  "page_errors": [],
+  "timestamp": "2026-08-26T01:30:27.169Z"
+}
