@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "manifestSha256": "786e7d5c39cc970fd1453c783dbc965e74298a00dcaaa926f8ad03fcc56ba135",
+  "gitSha": "f6081a2d7aea9fdd2a89071d78cf2057fbdc6d11",
+  "files": {
+    "assets/main-Ct44St9p.js": {
+      "sha256": "a4e9c38340fda363e61b1c858f9b2ff4fbf26c3894ce8015190b470069e64f2c",
+      "bytes": 813280
+    },
+    "assets/main-Ct44St9p.js.map": {
+      "sha256": "31965b6b04653aca05d413e1aac40020f1b54c9bbbcd93154770c62a8668eadd",
+      "bytes": 895181
+    },
+    "content/game/kanto-private.json": {
+      "sha256": "a04243f3b61c0ad72160671f2f6aa76d90a768bb0f931d57f93cc2e49014044a",
+      "bytes": 5153
+    },
+    "content/game/runtime-assets/distributable.json": {
+      "sha256": "95b6e4d03c4409a7c465ab468a6a308c39998c4446ab245e80f444275b620548",
+      "bytes": 154
+    },
+    "content/game/runtime-assets/private-local.json": {
+      "sha256": "3c8e71fd56a247e7787df5d87668bc8f55849d5194b9e503fe6b527edbdcc3ed",
+      "bytes": 183
+    },
+    "index.html": {
+      "sha256": "fdf6310c6d7713b933dcda6defb13e06184a17cdb654ce2c19eb79ad6bc0d63c",
+      "bytes": 28199
+    }
+  }
+}

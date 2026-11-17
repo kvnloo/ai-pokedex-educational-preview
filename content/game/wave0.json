@@ -1,11 +1,14 @@
 {
   "version": "0.1.0",
   "wave": 0,
-  "title": "Twilight Route \u2014 Wave 0",
+  "title": "Twilight Route — Wave 0",
   "identity": {
     "region": "Lumen",
     "startLocation": "twilight-lane",
-    "notes": "Original names only. No official franchise creature IP in this pack."
+    "source": "pokeapi",
+    "canonicalSpeciesCount": 4,
+    "notes": "Exact four-species vertical slice sourced from PokéAPI: Grookey, Scorbunny, Sobble, and Wooloo.",
+    "attribution": "Data/image pointers: PokéAPI. Image content © The Pokémon Company."
   },
   "types": [
     "normal",
@@ -69,98 +72,72 @@
     {
       "moveId": 1,
       "slug": "nudge",
-      "name": "Nudge",
+      "name": "Tackle",
       "type": "normal",
       "category": "physical",
       "power": 40,
       "accuracy": 100,
       "pp": 35,
       "priority": 0,
-      "description": "A gentle bump with surprising force.",
+      "description": "A full-body tackle.",
       "id": "nudge"
     },
     {
       "moveId": 2,
       "slug": "cinder-spark",
-      "name": "Cinder Spark",
+      "name": "Ember",
       "type": "fire",
       "category": "special",
       "power": 40,
       "accuracy": 100,
       "pp": 25,
       "priority": 0,
-      "description": "Tiny embers leap from the user's coat.",
+      "description": "Small flames strike the target.",
       "id": "cinder-spark"
     },
     {
       "moveId": 3,
       "slug": "tide-slap",
-      "name": "Tide Slap",
+      "name": "Water Gun",
       "type": "water",
       "category": "special",
       "power": 40,
       "accuracy": 100,
       "pp": 25,
       "priority": 0,
-      "description": "A dense bead of water snaps forward.",
+      "description": "Water is forcefully shot at the target.",
       "id": "tide-slap"
     },
     {
       "moveId": 4,
       "slug": "leaf-dart",
-      "name": "Leaf Dart",
+      "name": "Branch Poke",
       "type": "grass",
       "category": "physical",
       "power": 40,
       "accuracy": 100,
       "pp": 25,
       "priority": 0,
-      "description": "Razor flecks of leaf whip the foe.",
+      "description": "The target is jabbed with a sharpened branch.",
       "id": "leaf-dart"
-    },
-    {
-      "moveId": 5,
-      "slug": "static-nibble",
-      "name": "Static Nibble",
-      "type": "electric",
-      "category": "special",
-      "power": 40,
-      "accuracy": 100,
-      "pp": 30,
-      "priority": 0,
-      "description": "A bristling charge of static.",
-      "id": "static-nibble"
     },
     {
       "moveId": 6,
       "slug": "wool-rush",
-      "name": "Wool Rush",
+      "name": "Headbutt",
       "type": "normal",
       "category": "physical",
       "power": 55,
       "accuracy": 95,
       "pp": 20,
       "priority": 0,
-      "description": "A fluffy body-check.",
+      "description": "A strong head-first charge.",
       "id": "wool-rush"
-    },
-    {
-      "moveId": 7,
-      "slug": "haze-puff",
-      "name": "Haze Puff",
-      "type": "bug",
-      "category": "special",
-      "power": 40,
-      "accuracy": 100,
-      "pp": 25,
-      "priority": 0,
-      "description": "A puff of charged pollen.",
-      "id": "haze-puff"
     },
     {
       "moveId": 8,
       "slug": "growl-down",
-      "name": "Growl Down",
+      "name": "Growl",
       "type": "normal",
       "category": "status",
       "power": null,
@@ -168,26 +145,26 @@
       "pp": 20,
       "priority": 0,
       "effect": "lower-atk-1",
-      "description": "Softens the foe's attack stance.",
+      "description": "The user growls to lower the target's Attack.",
       "id": "growl-down"
     },
     {
       "moveId": 9,
       "slug": "quick-gleam",
-      "name": "Quick Gleam",
+      "name": "Quick Attack",
       "type": "normal",
       "category": "physical",
       "power": 40,
       "accuracy": 100,
       "pp": 30,
       "priority": 1,
-      "description": "A flash-step strike that lands first.",
+      "description": "A high-speed attack that strikes first.",
       "id": "quick-gleam"
     },
     {
       "moveId": 10,
       "slug": "guard-curl",
-      "name": "Guard Curl",
+      "name": "Defense Curl",
       "type": "normal",
       "category": "status",
       "power": null,
@@ -195,27 +172,13 @@
       "pp": 20,
       "priority": 0,
       "effect": "raise-def-1",
-      "description": "Tucks in tight; hardens the user's stance.",
+      "description": "The user curls up to raise its Defense.",
       "id": "guard-curl"
-    },
-    {
-      "moveId": 11,
-      "slug": "soft-sap",
-      "name": "Soft Sap",
-      "type": "grass",
-      "category": "status",
-      "power": null,
-      "accuracy": 100,
-      "pp": 20,
-      "priority": 0,
-      "effect": "lower-spa-1",
-      "description": "A sticky sap film dulls special force.",
-      "id": "soft-sap"
     },
     {
       "moveId": 12,
       "slug": "tide-brace",
-      "name": "Tide Brace",
+      "name": "Withdraw",
       "type": "water",
       "category": "status",
       "power": null,
@@ -223,58 +186,108 @@
       "pp": 15,
       "priority": 0,
       "effect": "raise-spd-1",
-      "description": "A shell of cool water steadies special guard.",
+      "description": "The user withdraws to raise its Defense.",
       "id": "tide-brace"
     }
   ],
   "species": [
     {
-      "speciesId": 1,
-      "slug": "emberpup",
-      "name": "Emberpup",
+      "speciesId": 810,
+      "nationalId": 810,
+      "slug": "grookey",
+      "name": "Grookey",
+      "types": [
+        "grass"
+      ],
+      "baseStats": {
+        "hp": 50,
+        "atk": 65,
+        "def": 50,
+        "spa": 40,
+        "spd": 40,
+        "spe": 65
+      },
+      "learnset": [
+        "nudge",
+        "leaf-dart",
+        "growl-down",
+        "quick-gleam"
+      ],
+      "role": "starter",
+      "color": "green",
+      "flavor": "It attacks with rapid beats of its stick. As it strikes with amazing speed, it gets more and more pumped.",
+      "id": "grookey",
+      "moves": [
+        "nudge",
+        "leaf-dart",
+        "growl-down",
+        "quick-gleam"
+      ],
+      "catchRate": 45,
+      "baseExp": 62,
+      "source": {
+        "system": "pokeapi",
+        "syncedAt": "2026-08-02T06:47:55.319Z",
+        "pokemonUrl": "https://pokeapi.co/api/v2/pokemon/810/",
+        "speciesUrl": "https://pokeapi.co/api/v2/pokemon-species/810/"
+      }
+    },
+    {
+      "speciesId": 813,
+      "nationalId": 813,
+      "slug": "scorbunny",
+      "name": "Scorbunny",
       "types": [
         "fire"
       ],
       "baseStats": {
-        "hp": 45,
-        "atk": 52,
+        "hp": 50,
+        "atk": 71,
         "def": 40,
-        "spa": 60,
-        "spd": 45,
-        "spe": 55
+        "spa": 40,
+        "spd": 40,
+        "spe": 69
       },
       "learnset": [
         "nudge",
         "cinder-spark",
-        "wool-rush",
-        "growl-down"
+        "growl-down",
+        "quick-gleam"
       ],
       "role": "starter",
-      "flavor": "A warm-eyed pup whose fur holds cinder sparks.",
-      "id": "emberpup",
+      "color": "white",
+      "flavor": "It has special pads on the backs of its feet, and one on its nose. Once it’s raring to fight, these pads radiate tremendous heat.",
+      "id": "scorbunny",
       "moves": [
         "nudge",
         "cinder-spark",
-        "wool-rush",
-        "growl-down"
+        "growl-down",
+        "quick-gleam"
       ],
       "catchRate": 45,
-      "baseExp": 62
+      "baseExp": 62,
+      "source": {
+        "system": "pokeapi",
+        "syncedAt": "2026-08-02T06:47:55.319Z",
+        "pokemonUrl": "https://pokeapi.co/api/v2/pokemon/813/",
+        "speciesUrl": "https://pokeapi.co/api/v2/pokemon-species/813/"
+      }
     },
     {
-      "speciesId": 2,
-      "slug": "dewkin",
-      "name": "Dewkin",
+      "speciesId": 816,
+      "nationalId": 816,
+      "slug": "sobble",
+      "name": "Sobble",
       "types": [
         "water"
       ],
       "baseStats": {
         "hp": 50,
-        "atk": 45,
-        "def": 48,
-        "spa": 58,
-        "spd": 50,
-        "spe": 48
+        "atk": 40,
+        "def": 40,
+        "spa": 70,
+        "spd": 40,
+        "spe": 70
       },
       "learnset": [
         "nudge",
@@ -283,8 +296,9 @@
         "tide-brace"
       ],
       "role": "starter",
-      "flavor": "Dew beads roll off its coat when it runs.",
-      "id": "dewkin",
+      "color": "blue",
+      "flavor": "When it gets wet, its skin changes color, and this Pokémon becomes invisible as if it were camouflaged.",
+      "id": "sobble",
       "moves": [
         "nudge",
         "tide-slap",
@@ -292,55 +306,29 @@
         "tide-brace"
       ],
       "catchRate": 45,
-      "baseExp": 62
+      "baseExp": 62,
+      "source": {
+        "system": "pokeapi",
+        "syncedAt": "2026-08-02T06:47:55.319Z",
+        "pokemonUrl": "https://pokeapi.co/api/v2/pokemon/816/",
+        "speciesUrl": "https://pokeapi.co/api/v2/pokemon-species/816/"
+      }
     },
     {
-      "speciesId": 5,
-      "slug": "leafkit",
-      "name": "Leafkit",
-      "types": [
-        "grass"
-      ],
-      "baseStats": {
-        "hp": 48,
-        "atk": 50,
-        "def": 50,
-        "spa": 55,
-        "spd": 52,
-        "spe": 50
-      },
-      "learnset": [
-        "nudge",
-        "leaf-dart",
-        "growl-down",
-        "soft-sap"
-      ],
-      "role": "starter",
-      "flavor": "A sprout-eared kit that smells like rain on moss.",
-      "id": "leafkit",
-      "moves": [
-        "nudge",
-        "leaf-dart",
-        "growl-down",
-        "soft-sap"
-      ],
-      "catchRate": 45,
-      "baseExp": 62
-    },
-    {
-      "speciesId": 3,
-      "slug": "dustbun",
-      "name": "Dustbun",
+      "speciesId": 831,
+      "nationalId": 831,
+      "slug": "wooloo",
+      "name": "Wooloo",
       "types": [
         "normal"
       ],
       "baseStats": {
-        "hp": 55,
-        "atk": 48,
-        "def": 48,
-        "spa": 35,
+        "hp": 42,
+        "atk": 40,
+        "def": 55,
+        "spa": 40,
         "spd": 45,
-        "spe": 40
+        "spe": 48
       },
       "learnset": [
         "nudge",
@@ -349,8 +337,9 @@
         "guard-curl"
       ],
       "role": "wild",
-      "flavor": "Round and dusty; rolls through hollow grass.",
-      "id": "dustbun",
+      "color": "white",
+      "flavor": "If its fleece grows too long, Wooloo won’t be able to move. Cloth made with the wool of this Pokémon is surprisingly strong.",
+      "id": "wooloo",
       "moves": [
         "nudge",
         "wool-rush",
@@ -358,175 +347,13 @@
         "guard-curl"
       ],
       "catchRate": 255,
-      "baseExp": 45
-    },
-    {
-      "speciesId": 4,
-      "slug": "sparkmoth",
-      "name": "Sparkmoth",
-      "types": [
-        "bug",
-        "electric"
-      ],
-      "baseStats": {
-        "hp": 40,
-        "atk": 35,
-        "def": 35,
-        "spa": 62,
-        "spd": 45,
-        "spe": 70
-      },
-      "learnset": [
-        "static-nibble",
-        "haze-puff",
-        "nudge",
-        "cinder-spark"
-      ],
-      "role": "wild",
-      "flavor": "Tiny arcs flash between its wing veins.",
-      "id": "sparkmoth",
-      "moves": [
-        "static-nibble",
-        "haze-puff",
-        "nudge",
-        "cinder-spark"
-      ],
-      "catchRate": 120,
-      "baseExp": 55
-    },
-    {
-      "speciesId": 6,
-      "slug": "ironwisp",
-      "name": "Ironwisp",
-      "types": [
-        "electric",
-        "bug"
-      ],
-      "baseStats": {
-        "hp": 55,
-        "atk": 48,
-        "def": 60,
-        "spa": 78,
-        "spd": 62,
-        "spe": 70
-      },
-      "learnset": [
-        "static-nibble",
-        "haze-puff",
-        "nudge",
-        "wool-rush"
-      ],
-      "role": "gym",
-      "flavor": "A lantern-moth of the dusk gym; sparks dance in its iron lace wings.",
-      "id": "ironwisp",
-      "moves": [
-        "static-nibble",
-        "haze-puff",
-        "nudge",
-        "wool-rush"
-      ],
-      "catchRate": 45,
-      "baseExp": 120
-    },
-    {
-      "speciesId": 7,
-      "slug": "gloomhorn",
-      "name": "Gloomhorn",
-      "types": [
-        "grass",
-        "normal"
-      ],
-      "baseStats": {
-        "hp": 70,
-        "atk": 80,
-        "def": 65,
-        "spa": 55,
-        "spd": 55,
-        "spe": 50
-      },
-      "learnset": [
-        "leaf-dart",
-        "wool-rush",
-        "nudge",
-        "growl-down"
-      ],
-      "role": "elite",
-      "flavor": "Elite-path guardian; moss horns funnel soft dusk light.",
-      "id": "gloomhorn",
-      "moves": [
-        "leaf-dart",
-        "wool-rush",
-        "nudge",
-        "growl-down"
-      ],
-      "catchRate": 45,
-      "baseExp": 160
-    },
-    {
-      "speciesId": 8,
-      "slug": "mossprite",
-      "name": "Mossprite",
-      "types": [
-        "grass"
-      ],
-      "baseStats": {
-        "hp": 45,
-        "atk": 42,
-        "def": 48,
-        "spa": 52,
-        "spd": 50,
-        "spe": 45
-      },
-      "learnset": [
-        "leaf-dart",
-        "soft-sap",
-        "nudge",
-        "growl-down"
-      ],
-      "role": "wild",
-      "flavor": "A leaf-sprite that hides in hollow grass stems.",
-      "id": "mossprite",
-      "moves": [
-        "leaf-dart",
-        "soft-sap",
-        "nudge",
-        "growl-down"
-      ],
-      "catchRate": 200,
-      "baseExp": 48
-    },
-    {
-      "speciesId": 9,
-      "slug": "rivlet",
-      "name": "Rivlet",
-      "types": [
-        "water"
-      ],
-      "baseStats": {
-        "hp": 42,
-        "atk": 40,
-        "def": 40,
-        "spa": 55,
-        "spd": 48,
-        "spe": 58
-      },
-      "learnset": [
-        "tide-slap",
-        "tide-brace",
-        "nudge",
-        "growl-down"
-      ],
-      "role": "wild",
-      "flavor": "A stream-slick kit that darts between dew pools.",
-      "id": "rivlet",
-      "moves": [
-        "tide-slap",
-        "tide-brace",
-        "nudge",
-        "growl-down"
-      ],
-      "catchRate": 190,
-      "baseExp": 50
+      "baseExp": 122,
+      "source": {
+        "system": "pokeapi",
+        "syncedAt": "2026-08-02T06:47:55.319Z",
+        "pokemonUrl": "https://pokeapi.co/api/v2/pokemon/831/",
+        "speciesUrl": "https://pokeapi.co/api/v2/pokemon-species/831/"
+      }
     }
   ],
   "route": {
@@ -534,91 +361,49 @@
     "name": "Twilight Lane",
     "description": "A short dusk path of tall grass outside the starter grove.",
     "starterChoices": [
-      "emberpup",
-      "dewkin",
-      "leafkit"
+      "scorbunny",
+      "sobble",
+      "grookey"
     ],
     "wildEncounters": [
       {
-        "species": "dustbun",
+        "species": "wooloo",
         "minLevel": 3,
         "maxLevel": 5,
         "weight": 40,
         "band": "early"
       },
       {
-        "species": "sparkmoth",
-        "minLevel": 4,
-        "maxLevel": 6,
-        "weight": 20,
-        "band": "early"
-      },
-      {
-        "species": "mossprite",
-        "minLevel": 3,
-        "maxLevel": 5,
-        "weight": 15,
-        "band": "early"
-      },
-      {
-        "species": "rivlet",
-        "minLevel": 4,
-        "maxLevel": 6,
-        "weight": 10,
-        "band": "early"
-      },
-      {
-        "species": "mossprite",
+        "species": "wooloo",
         "minLevel": 6,
         "maxLevel": 8,
         "weight": 18,
         "band": "mid"
       },
       {
-        "species": "rivlet",
-        "minLevel": 6,
-        "maxLevel": 8,
-        "weight": 16,
-        "band": "mid"
-      },
-      {
-        "species": "dustbun",
-        "minLevel": 6,
-        "maxLevel": 8,
-        "weight": 8,
-        "band": "mid"
-      },
-      {
-        "species": "sparkmoth",
-        "minLevel": 7,
-        "maxLevel": 9,
-        "weight": 8,
-        "band": "late"
-      },
-      {
-        "species": "mossprite",
+        "species": "wooloo",
         "minLevel": 8,
         "maxLevel": 10,
-        "weight": 5,
+        "weight": 8,
         "band": "late"
       }
     ],
     "playerDefaultLevel": 5,
     "gym": {
       "id": "lumen-dusk-gym",
-      "name": "Lumen Dusk Gym",
+      "name": "Twilight Grove Trial",
       "leaderName": "Warden Brisa",
-      "species": "ironwisp",
+      "species": "grookey",
       "level": 8,
-      "description": "First badge gate on Twilight Lane \u2014 electric/bug specialty."
+      "description": "A focused Grass-type trial on Twilight Lane."
     },
     "elite": {
       "id": "hollow-elite-gate",
-      "name": "Hollow Elite Gate",
+      "name": "Twilight Elite Gate",
       "trainerName": "Elite Mora",
-      "species": "gloomhorn",
+      "species": "sobble",
       "level": 11,
-      "description": "Demo elite stake beyond the gym for vertical-slice escalation."
+      "description": "A Water-type escalation beyond the route trial."
     }
   }
 }
